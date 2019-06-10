@@ -1,0 +1,505 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-StorDiag" guid="{f5d05b38-80a6-4653-825d-c414e4ab3c68}" resourceFileName="Microsoft-Windows-StorDiag" messageFileName="Microsoft-Windows-StorDiag" symbol="MicrosoftWindowsStorDiag" source="Xml" >
+    <keywords>
+     <keyword name="ClassPnPAllIO" message="$(string.keyword_ClassPnPAllIO)" mask="0x1"/>
+     <keyword name="ClassPnPIdleIO" message="$(string.keyword_ClassPnPIdleIO)" mask="0x2"/>
+     <keyword name="CopyOffload_IO_Performance" message="$(string.keyword_CopyOffload_IO_Performance)" mask="0x4"/>
+     <keyword name="CopyOffload_Read" message="$(string.keyword_CopyOffload_Read)" mask="0x8"/>
+     <keyword name="CopyOffload_Write" message="$(string.keyword_CopyOffload_Write)" mask="0x10"/>
+     <keyword name="SenseData" message="$(string.keyword_SenseData)" mask="0x20"/>
+     <keyword name="FirmwareUpdate" message="$(string.keyword_FirmwareUpdate)" mask="0x40"/>
+     <keyword name="SMR" message="$(string.keyword_SMR)" mask="0x80"/>
+     <keyword name="IO_Performance" message="$(string.keyword_IO_Performance)" mask="0x100000"/>
+     <keyword name="Read" message="$(string.keyword_Read)" mask="0x200000"/>
+     <keyword name="Write" message="$(string.keyword_Write)" mask="0x400000"/>
+     <keyword name="PagingRead" message="$(string.keyword_PagingRead)" mask="0x800000"/>
+     <keyword name="PagingWrite" message="$(string.keyword_PagingWrite)" mask="0x1000000"/>
+     <keyword name="LowMemoryRead" message="$(string.keyword_LowMemoryRead)" mask="0x2000000"/>
+     <keyword name="LowMemoryWrite" message="$(string.keyword_LowMemoryWrite)" mask="0x4000000"/>
+     <keyword name="NonReadWrite" message="$(string.keyword_NonReadWrite)" mask="0x8000000"/>
+     <keyword name="PassThrough" message="$(string.keyword_PassThrough)" mask="0x10000000"/>
+     <keyword name="Flush" message="$(string.keyword_Flush)" mask="0x20000000"/>
+     <keyword name="IOCTL" message="$(string.keyword_IOCTL)" mask="0x40000000"/>
+     <keyword name="WMI" message="$(string.keyword_WMI)" mask="0x80000000"/>
+     <keyword name="Power" message="$(string.keyword_Power)" mask="0x100000000"/>
+     <keyword name="PnP" message="$(string.keyword_PnP)" mask="0x200000000"/>
+     <keyword name="Enum" message="$(string.keyword_Enum)" mask="0x400000000"/>
+     <keyword name="Queue" message="$(string.keyword_Queue)" mask="0x800000000"/>
+     <keyword name="ISR" message="$(string.keyword_ISR)" mask="0x1000000000"/>
+     <keyword name="DPC" message="$(string.keyword_DPC)" mask="0x2000000000"/>
+     <keyword name="Timer" message="$(string.keyword_Timer)" mask="0x4000000000"/>
+     <keyword name="Protocol" message="$(string.keyword_Protocol)" mask="0x8000000000"/>
+     <keyword name="keyword_400000000000" message="$(string.keyword_keyword_400000000000)" mask="0x400000000000"/>
+    </keywords>
+    <tasks>
+     <task name="ClassPnPIOrequestcomplete" message="$(string.task_ClassPnPIOrequestcomplete)" value="1">
+>
+      <opcodes>
+       <opcode name="ClassPnP_IO_End" message="$(string.opcode_ClassPnPIOrequestcompleteClassPnP_IO_End)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="ClassPnPEnqueueIdleIOrequest" message="$(string.task_ClassPnPEnqueueIdleIOrequest)" value="2">
+>
+      <opcodes>
+       <opcode name="ClassPnP_Enqueue_IdleIO" message="$(string.opcode_ClassPnPEnqueueIdleIOrequestClassPnP_Enqueue_IdleIO)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="ClassPnPBoostIdleIOrequest" message="$(string.task_ClassPnPBoostIdleIOrequest)" value="3">
+>
+      <opcodes>
+       <opcode name="ClassPnP_Boost_IdleIO" message="$(string.opcode_ClassPnPBoostIdleIOrequestClassPnP_Boost_IdleIO)" value="13"/>
+      </opcodes>
+     </task>
+     <task name="Class" message="$(string.task_Class)" value="200">
+>
+      <opcodes>
+       <opcode name="Dispatchingofrequest." message="$(string.opcode_ClassDispatchingofrequest.)" value="100"/>
+       <opcode name="Completionofrequest." message="$(string.opcode_ClassCompletionofrequest.)" value="101"/>
+       <opcode name="Retryhandling." message="$(string.opcode_ClassRetryhandling.)" value="104"/>
+       <opcode name="Queue_relatedoperation." message="$(string.opcode_ClassQueue_relatedoperation.)" value="106"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="1" symbol="ClassPnPIOrequestcompleteClassPnP_IO_End_V1" version="1" task="ClassPnPIOrequestcomplete" opcode="ClassPnP_IO_End" level="win:Informational" keywords="ClassPnPAllIO" template="ClassPnPIOrequestcompleteClassPnP_IO_EndArgs_V1"/>
+     <event value="2" symbol="ClassPnPEnqueueIdleIOrequestClassPnP_Enqueue_IdleIO_V1" version="1" task="ClassPnPEnqueueIdleIOrequest" opcode="ClassPnP_Enqueue_IdleIO" level="win:Informational" keywords="ClassPnPIdleIO" template="ClassPnPEnqueueIdleIOrequestClassPnP_Enqueue_IdleIOArgs_V1"/>
+     <event value="3" symbol="ClassPnPBoostIdleIOrequestClassPnP_Boost_IdleIO_V1" version="1" task="ClassPnPBoostIdleIOrequest" opcode="ClassPnP_Boost_IdleIO" level="win:Informational" keywords="ClassPnPIdleIO" template="ClassPnPBoostIdleIOrequestClassPnP_Boost_IdleIOArgs_V1"/>
+     <event value="4" symbol="Class_V1" version="1" task="Class" level="win:Informational" keywords="CopyOffload_IO_Performance IO_Performance" template="ClassArgs_V1"/>
+     <event value="5" symbol="ClassDispatchingofrequest._V1" version="1" task="Class" opcode="Dispatchingofrequest." level="win:Informational" keywords="CopyOffload_Read Read" template="ClassDispatchingofrequest.Args_V1"/>
+     <event value="6" symbol="ClassDispatchingofrequest.6_V1" version="1" task="Class" opcode="Dispatchingofrequest." level="win:Informational" keywords="CopyOffload_Write Write" template="ClassDispatchingofrequest.Args_V1"/>
+     <event value="7" symbol="ClassCompletionofrequest._V1" version="1" task="Class" opcode="Completionofrequest." level="win:Informational" keywords="CopyOffload_Read CopyOffload_Write Read Write" template="ClassCompletionofrequest.Args_V1"/>
+     <event value="8" symbol="Class8_V1" version="1" task="Class" level="win:Informational" keywords="SenseData" template="Class8Args_V1"/>
+     <event value="201" symbol="Class201_V1" version="1" task="Class" level="win:Informational" keywords="IO_Performance" template="Class201Args_V1"/>
+     <event value="202" symbol="ClassDispatchingofrequest.202_V2" version="2" task="Class" opcode="Dispatchingofrequest." level="win:Informational" keywords="Read" template="ClassDispatchingofrequest.202Args_V2"/>
+     <event value="203" symbol="ClassDispatchingofrequest.203_V2" version="2" task="Class" opcode="Dispatchingofrequest." level="win:Informational" keywords="Write" template="ClassDispatchingofrequest.202Args_V2"/>
+     <event value="204" symbol="ClassDispatchingofrequest.204_V2" version="2" task="Class" opcode="Dispatchingofrequest." level="win:Informational" keywords="Read PagingRead" template="ClassDispatchingofrequest.202Args_V2"/>
+     <event value="205" symbol="ClassDispatchingofrequest.205_V2" version="2" task="Class" opcode="Dispatchingofrequest." level="win:Informational" keywords="Write PagingWrite" template="ClassDispatchingofrequest.202Args_V2"/>
+     <event value="206" symbol="ClassDispatchingofrequest.206_V2" version="2" task="Class" opcode="Dispatchingofrequest." level="win:Informational" keywords="Read LowMemoryRead" template="ClassDispatchingofrequest.202Args_V2"/>
+     <event value="207" symbol="ClassDispatchingofrequest.207_V2" version="2" task="Class" opcode="Dispatchingofrequest." level="win:Informational" keywords="Write LowMemoryWrite" template="ClassDispatchingofrequest.202Args_V2"/>
+     <event value="208" symbol="ClassCompletionofrequest.208_V1" version="1" task="Class" opcode="Completionofrequest." level="win:Informational" keywords="Read Write PagingRead PagingWrite LowMemoryRead LowMemoryWrite" template="ClassCompletionofrequest.208Args_V1"/>
+     <event value="208" symbol="ClassCompletionofrequest.208_V2" version="2" task="Class" opcode="Completionofrequest." level="win:Informational" keywords="Read Write PagingRead PagingWrite LowMemoryRead LowMemoryWrite" template="ClassCompletionofrequest.208Args_V2"/>
+     <event value="209" symbol="ClassRetryhandling._V1" version="1" task="Class" opcode="Retryhandling." level="win:Informational" keywords="Read Write PagingRead PagingWrite LowMemoryRead LowMemoryWrite" template="ClassRetryhandling.Args_V1"/>
+     <event value="209" symbol="ClassRetryhandling._V2" version="2" task="Class" opcode="Retryhandling." level="win:Informational" keywords="Read Write PagingRead PagingWrite LowMemoryRead LowMemoryWrite" template="ClassRetryhandling.Args_V2"/>
+     <event value="210" symbol="Class210_V1" version="1" task="Class" level="win:Informational" keywords="Flush" template="Class210Args_V1"/>
+     <event value="211" symbol="ClassCompletionofrequest.211_V1" version="1" task="Class" opcode="Completionofrequest." level="win:Informational" keywords="Flush" template="ClassCompletionofrequest.208Args_V1"/>
+     <event value="212" symbol="ClassDispatchingofrequest.212_V1" version="1" task="Class" opcode="Dispatchingofrequest." level="win:Informational" keywords="IOCTL" template="ClassDispatchingofrequest.212Args_V1"/>
+     <event value="213" symbol="ClassDispatchingofrequest.213_V1" version="1" task="Class" opcode="Dispatchingofrequest." level="win:Informational" keywords="WMI" template="ClassDispatchingofrequest.212Args_V1"/>
+     <event value="214" symbol="ClassCompletionofrequest.214_V1" version="1" task="Class" opcode="Completionofrequest." level="win:Informational" keywords="IOCTL WMI" template="ClassCompletionofrequest.214Args_V1"/>
+     <event value="215" symbol="ClassDispatchingofrequest.215_V1" version="1" task="Class" opcode="Dispatchingofrequest." level="win:Informational" keywords="Power" template="ClassDispatchingofrequest.215Args_V1"/>
+     <event value="216" symbol="ClassCompletionofrequest.216_V1" version="1" task="Class" opcode="Completionofrequest." level="win:Informational" keywords="Power" template="ClassCompletionofrequest.214Args_V1"/>
+     <event value="217" symbol="ClassDispatchingofrequest.217_V1" version="1" task="Class" opcode="Dispatchingofrequest." level="win:Informational" keywords="PnP" template="ClassDispatchingofrequest.217Args_V1"/>
+     <event value="218" symbol="ClassCompletionofrequest.218_V1" version="1" task="Class" opcode="Completionofrequest." level="win:Informational" keywords="PnP" template="ClassCompletionofrequest.214Args_V1"/>
+     <event value="219" symbol="ClassCompletionofrequest.219_V1" version="1" task="Class" opcode="Completionofrequest." level="win:Informational" keywords="PnP Enum" template="ClassCompletionofrequest.219Args_V1"/>
+     <event value="220" symbol="ClassQueue_relatedoperation._V1" version="1" task="Class" opcode="Queue_relatedoperation." level="win:Informational" keywords="Queue" template="ClassQueue_relatedoperation.Args_V1"/>
+     <event value="221" symbol="ClassDispatchingofrequest.221_V1" version="1" task="Class" opcode="Dispatchingofrequest." level="win:Informational" keywords="PassThrough IOCTL" template="ClassDispatchingofrequest.212Args_V1"/>
+     <event value="222" symbol="ClassCompletionofrequest.222_V1" version="1" task="Class" opcode="Completionofrequest." level="win:Informational" keywords="keyword_400000000000" template="ClassCompletionofrequest.222Args_V1"/>
+     <event value="223" symbol="ClassCompletionofrequest.223_V1" version="1" task="Class" opcode="Completionofrequest." level="win:Informational" keywords="keyword_400000000000" template="ClassCompletionofrequest.223Args_V1"/>
+     <event value="224" symbol="ClassCompletionofrequest.224_V1" version="1" task="Class" opcode="Completionofrequest." level="win:Informational" keywords="SMR IOCTL" template="ClassCompletionofrequest.224Args_V1"/>
+     <event value="225" symbol="ClassCompletionofrequest.225_V1" version="1" task="Class" opcode="Completionofrequest." level="win:Informational" keywords="SMR IOCTL" template="ClassCompletionofrequest.225Args_V1"/>
+     <event value="500" symbol="ClassCompletionofrequest.500_V1" version="1" task="Class" opcode="Completionofrequest." level="win:Error" keywords="Read" template="ClassCompletionofrequest.500Args_V1"/>
+     <event value="501" symbol="ClassCompletionofrequest.501_V1" version="1" task="Class" opcode="Completionofrequest." level="win:Error" keywords="Write" template="ClassCompletionofrequest.500Args_V1"/>
+     <event value="502" symbol="ClassCompletionofrequest.502_V1" version="1" task="Class" opcode="Completionofrequest." level="win:Error" keywords="Read PagingRead" template="ClassCompletionofrequest.500Args_V1"/>
+     <event value="503" symbol="ClassCompletionofrequest.503_V1" version="1" task="Class" opcode="Completionofrequest." level="win:Error" keywords="Write PagingWrite" template="ClassCompletionofrequest.500Args_V1"/>
+     <event value="504" symbol="ClassCompletionofrequest.504_V1" version="1" task="Class" opcode="Completionofrequest." level="win:Error" keywords="IOCTL" template="ClassCompletionofrequest.504Args_V1"/>
+     <event value="505" symbol="ClassCompletionofrequest.505_V1" version="1" task="Class" opcode="Completionofrequest." level="win:Error" keywords="Read PagingRead LowMemoryRead" template="ClassCompletionofrequest.505Args_V1"/>
+     <event value="506" symbol="ClassCompletionofrequest.506_V1" version="1" task="Class" opcode="Completionofrequest." level="win:Error" keywords="Write PagingWrite LowMemoryWrite" template="ClassCompletionofrequest.505Args_V1"/>
+     <event value="507" symbol="ClassCompletionofrequest.507_V1" version="1" task="Class" opcode="Completionofrequest." level="win:Error" keywords="NonReadWrite" template="ClassCompletionofrequest.505Args_V1"/>
+     <event value="508" symbol="ClassCompletionofrequest.508_V1" version="1" task="Class" opcode="Completionofrequest." level="win:Error" keywords="NonReadWrite" template="ClassCompletionofrequest.508Args_V1"/>
+     <event value="509" symbol="ClassCompletionofrequest.509_V1" version="1" task="Class" opcode="Completionofrequest." level="win:Error" keywords="PnP" template="ClassCompletionofrequest.509Args_V1"/>
+     <event value="510" symbol="ClassCompletionofrequest.510_V1" version="1" task="Class" opcode="Completionofrequest." level="win:Error" keywords="Power" template="ClassCompletionofrequest.510Args_V1"/>
+     <event value="511" symbol="ClassCompletionofrequest.511_V1" version="1" task="Class" opcode="Completionofrequest." level="win:Error" keywords="WMI" template="ClassCompletionofrequest.511Args_V1"/>
+     <event value="512" symbol="ClassCompletionofrequest.512_V1" version="1" task="Class" opcode="Completionofrequest." level="win:Error" keywords="FirmwareUpdate" template="ClassCompletionofrequest.512Args_V1"/>
+     <event value="513" symbol="ClassCompletionofrequest.513_V1" version="1" task="Class" opcode="Completionofrequest." level="win:Error" keywords="FirmwareUpdate" template="ClassCompletionofrequest.513Args_V1"/>
+     <event value="514" symbol="ClassCompletionofrequest.514_V1" version="1" task="Class" opcode="Completionofrequest." level="win:Error" keywords="FirmwareUpdate" template="ClassCompletionofrequest.514Args_V1"/>
+    </events>
+    <templates>
+     <template tid="ClassPnPIOrequestcompleteClassPnP_IO_EndArgs_V1">
+      <data name="RequestProcessTime" inType="win:UInt64"/>
+      <data name="OriginalIrp" inType="win:Pointer"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="MajorFunction" inType="win:UInt8"/>
+      <data name="RequestType" inType="win:UInt8"/>
+      <data name="SrbStatus" inType="win:UInt8"/>
+      <data name="DeviceNumber" inType="win:UInt32"/>
+     </template>
+     <template tid="ClassPnPEnqueueIdleIOrequestClassPnP_Enqueue_IdleIOArgs_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="CurrentIOCount" inType="win:UInt32"/>
+      <data name="ActiveIOCount" inType="win:UInt32"/>
+      <data name="DeviceNumber" inType="win:UInt32"/>
+     </template>
+     <template tid="ClassPnPBoostIdleIOrequestClassPnP_Boost_IdleIOArgs_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="Thread" inType="win:Pointer"/>
+      <data name="CurrentIOCount" inType="win:UInt32"/>
+      <data name="ActiveIOCount" inType="win:UInt32"/>
+      <data name="DeviceNumber" inType="win:UInt32"/>
+     </template>
+     <template tid="ClassArgs_V1">
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="RequestDurationin100ns" inType="win:UInt64"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="Command" inType="win:UInt8"/>
+      <data name="ServiceAction" inType="win:UInt8"/>
+      <data name="SrbStatus" inType="win:UInt8"/>
+      <data name="OriginalIrp" inType="win:Pointer"/>
+     </template>
+     <template tid="ClassDispatchingofrequest.Args_V1">
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="IsWrite" inType="win:Boolean"/>
+      <data name="FirstStartingLBA" inType="win:HexInt64"/>
+      <data name="LengthOfTransferinbytes" inType="win:UInt64"/>
+     </template>
+     <template tid="ClassCompletionofrequest.Args_V1">
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="TransferredLength" inType="win:UInt64"/>
+      <data name="Flags" inType="win:HexInt32"/>
+      <data name="NTStatus" inType="win:HexInt32"/>
+     </template>
+     <template tid="Class8Args_V1">
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="SenseKey" inType="win:UInt8"/>
+      <data name="AddSense" inType="win:UInt8"/>
+      <data name="AddSenseQ" inType="win:UInt8"/>
+      <data name="CurrentRetryCount" inType="win:UInt32"/>
+     </template>
+     <template tid="Class201Args_V1">
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="RequestDurationin100ns" inType="win:UInt64"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="Command" inType="win:UInt8"/>
+      <data name="SrbStatus" inType="win:UInt8"/>
+      <data name="OriginalIrp" inType="win:Pointer"/>
+     </template>
+     <template tid="ClassCompletionofrequest.208Args_V1">
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="NTStatus" inType="win:HexInt32"/>
+      <data name="SrbStatus" inType="win:UInt8"/>
+      <data name="ScsiStatus" inType="win:UInt8"/>
+      <data name="SenseKey" inType="win:UInt8"/>
+      <data name="AddSense" inType="win:UInt8"/>
+      <data name="AddSenseQ" inType="win:UInt8"/>
+      <data name="OriginalIrp" inType="win:Pointer"/>
+     </template>
+     <template tid="ClassRetryhandling.Args_V1">
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="CurrentRetryCount" inType="win:UInt32"/>
+     </template>
+     <template tid="Class210Args_V1">
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="Bus" inType="win:UInt8"/>
+      <data name="Target" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+     </template>
+     <template tid="ClassDispatchingofrequest.212Args_V1">
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="MajorFunction" inType="win:HexInt32"/>
+      <data name="MinorFunction" inType="win:HexInt32"/>
+      <data name="Parameter" inType="win:HexInt32"/>
+     </template>
+     <template tid="ClassCompletionofrequest.214Args_V1">
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="Status" inType="win:HexInt32"/>
+     </template>
+     <template tid="ClassDispatchingofrequest.215Args_V1">
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="MinorFunction" inType="win:HexInt32"/>
+      <data name="Type" inType="win:UInt8"/>
+      <data name="OldState" inType="win:HexInt32"/>
+      <data name="NewState" inType="win:HexInt32"/>
+      <data name="Action" inType="win:HexInt32"/>
+      <data name="PowerStateContext" inType="win:HexInt32"/>
+     </template>
+     <template tid="ClassDispatchingofrequest.217Args_V1">
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="MinorFunction" inType="win:HexInt32"/>
+      <data name="Type" inType="win:HexInt32"/>
+      <data name="DeviceObject" inType="win:Pointer"/>
+     </template>
+     <template tid="ClassCompletionofrequest.219Args_V1">
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="NumberOfChildren" inType="win:UInt32"/>
+      <data name="Status" inType="win:HexInt32"/>
+     </template>
+     <template tid="ClassQueue_relatedoperation.Args_V1">
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="QueueTag" inType="win:HexInt32"/>
+      <data name="Operation" inType="win:UInt8"/>
+      <data name="Status" inType="win:HexInt32"/>
+     </template>
+     <template tid="ClassCompletionofrequest.222Args_V1">
+      <data name="DeviceGUID" inType="win:GUID"/>
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="RequestDurationin100ns" inType="win:UInt64"/>
+      <data name="UpperLevelIrp" inType="win:Pointer"/>
+      <data name="IrpStatus" inType="win:HexInt32"/>
+      <data name="DsmFlags" inType="win:UInt32"/>
+      <data name="DataSetRangesCount" inType="win:UInt32"/>
+      <data name="DataSetRanges" inType="win:UInt32" count="DataSetRangesCount"/>
+     </template>
+     <template tid="ClassCompletionofrequest.223Args_V1">
+      <data name="DeviceGUID" inType="win:GUID"/>
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="RequestDurationin100ns" inType="win:UInt64"/>
+      <data name="OriginalIrp" inType="win:Pointer"/>
+      <data name="SrbStatus" inType="win:UInt8"/>
+      <data name="SrbFlags" inType="win:HexInt32"/>
+      <data name="MaxAllowedLbaCount" inType="win:UInt64"/>
+      <data name="MaxAllowedBlockDescriptorCount" inType="win:UInt64"/>
+      <data name="LbaSizeinBytes" inType="win:UInt32"/>
+      <data name="Srb_BlockDescriptorCount" inType="win:UInt32"/>
+      <data name="Srb_BlockDescriptors" inType="win:Float" count="Srb_BlockDescriptorCount"/>
+     </template>
+     <template tid="ClassCompletionofrequest.224Args_V1">
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="RequestDurationin100ns" inType="win:UInt64"/>
+      <data name="UpperLevelIrp" inType="win:Pointer"/>
+      <data name="IrpStatus" inType="win:HexInt32"/>
+      <data name="IsPartial" inType="win:Boolean"/>
+      <data name="StartingOffset" inType="win:UInt64"/>
+      <data name="BufferSize" inType="win:UInt32"/>
+     </template>
+     <template tid="ClassCompletionofrequest.225Args_V1">
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="RequestDurationin100ns" inType="win:UInt64"/>
+      <data name="UpperLevelIrp" inType="win:Pointer"/>
+      <data name="IrpStatus" inType="win:HexInt32"/>
+      <data name="ResetAll" inType="win:Boolean"/>
+      <data name="StartingOffset" inType="win:UInt64"/>
+     </template>
+     <template tid="ClassCompletionofrequest.500Args_V1">
+      <data name="DeviceGUID" inType="win:GUID"/>
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="Vendor" inType="win:AnsiString"/>
+      <data name="Model" inType="win:AnsiString"/>
+      <data name="FirmwareVersion" inType="win:AnsiString"/>
+      <data name="SerialNumber" inType="win:AnsiString"/>
+      <data name="IrpStatus" inType="win:HexInt32"/>
+      <data name="LBA" inType="win:HexInt64"/>
+      <data name="TransferByteCount" inType="win:UInt64"/>
+      <data name="NvCachePriority" inType="win:UInt8"/>
+      <data name="PagingPriority" inType="win:UInt32"/>
+     </template>
+     <template tid="ClassCompletionofrequest.504Args_V1">
+      <data name="DeviceGUID" inType="win:GUID"/>
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="Vendor" inType="win:AnsiString"/>
+      <data name="Model" inType="win:AnsiString"/>
+      <data name="FirmwareVersion" inType="win:AnsiString"/>
+      <data name="SerialNumber" inType="win:AnsiString"/>
+      <data name="IrpStatus" inType="win:HexInt32"/>
+      <data name="IoctlControlCode" inType="win:HexInt32"/>
+     </template>
+     <template tid="ClassCompletionofrequest.505Args_V1">
+      <data name="DeviceGUID" inType="win:GUID"/>
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="Vendor" inType="win:AnsiString"/>
+      <data name="Model" inType="win:AnsiString"/>
+      <data name="FirmwareVersion" inType="win:AnsiString"/>
+      <data name="SerialNumber" inType="win:AnsiString"/>
+      <data name="DownLevelIrpStatus" inType="win:HexInt32"/>
+      <data name="SrbStatus" inType="win:UInt8"/>
+      <data name="ScsiStatus" inType="win:UInt8"/>
+      <data name="SenseKey" inType="win:UInt8"/>
+      <data name="AdditionalSenseCode" inType="win:UInt8"/>
+      <data name="AdditionalSenseCodeQualifier" inType="win:UInt8"/>
+      <data name="CdbByteCount" inType="win:UInt32"/>
+      <data name="CdbBytes" inType="win:Binary" length="CdbByteCount"/>
+      <data name="NumberOfRetriesDone" inType="win:UInt8"/>
+     </template>
+     <template tid="ClassCompletionofrequest.508Args_V1">
+      <data name="DeviceGUID" inType="win:GUID"/>
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="Vendor" inType="win:AnsiString"/>
+      <data name="Model" inType="win:AnsiString"/>
+      <data name="FirmwareVersion" inType="win:AnsiString"/>
+      <data name="SerialNumber" inType="win:AnsiString"/>
+      <data name="DownLevelIrpStatus" inType="win:HexInt32"/>
+      <data name="SrbStatus" inType="win:UInt8"/>
+      <data name="SrbFunction" inType="win:HexInt32"/>
+      <data name="SrbFlags" inType="win:HexInt32"/>
+      <data name="NumberOfRetriesDone" inType="win:UInt8"/>
+     </template>
+     <template tid="ClassCompletionofrequest.509Args_V1">
+      <data name="DeviceGUID" inType="win:GUID"/>
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="Vendor" inType="win:AnsiString"/>
+      <data name="Model" inType="win:AnsiString"/>
+      <data name="FirmwareVersion" inType="win:AnsiString"/>
+      <data name="SerialNumber" inType="win:AnsiString"/>
+      <data name="IrpStatus" inType="win:HexInt32"/>
+      <data name="IrpMinorFunction" inType="win:UInt8"/>
+      <data name="PnPType" inType="win:UInt32"/>
+      <data name="PnPUsageInPath" inType="win:Boolean"/>
+      <data name="CurrentPnpState" inType="win:UInt32"/>
+      <data name="PreviousPnpState" inType="win:UInt32"/>
+      <data name="PagingPathUsageCount" inType="win:UInt32"/>
+      <data name="HibernationPathUsageCount" inType="win:UInt32"/>
+      <data name="DumpPathUsageCount" inType="win:UInt32"/>
+     </template>
+     <template tid="ClassCompletionofrequest.510Args_V1">
+      <data name="DeviceGUID" inType="win:GUID"/>
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="Vendor" inType="win:AnsiString"/>
+      <data name="Model" inType="win:AnsiString"/>
+      <data name="FirmwareVersion" inType="win:AnsiString"/>
+      <data name="SerialNumber" inType="win:AnsiString"/>
+      <data name="IrpStatus" inType="win:HexInt32"/>
+      <data name="IrpMinorFunction" inType="win:UInt8"/>
+      <data name="PowerSystemContext" inType="win:UInt32"/>
+      <data name="PowerStateType" inType="win:UInt32"/>
+      <data name="PowerState" inType="win:UInt32"/>
+      <data name="PowerShutdownType" inType="win:UInt32"/>
+      <data name="CurrentPowerState" inType="win:UInt32"/>
+      <data name="ContextPowerChangeState" inType="win:UInt32"/>
+     </template>
+     <template tid="ClassCompletionofrequest.511Args_V1">
+      <data name="DeviceGUID" inType="win:GUID"/>
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="Vendor" inType="win:AnsiString"/>
+      <data name="Model" inType="win:AnsiString"/>
+      <data name="FirmwareVersion" inType="win:AnsiString"/>
+      <data name="SerialNumber" inType="win:AnsiString"/>
+      <data name="IrpStatus" inType="win:HexInt32"/>
+      <data name="IrpMinorFunction" inType="win:UInt8"/>
+      <data name="WmiDataBlockGUID" inType="win:GUID"/>
+      <data name="WmiProviderId" inType="win:Pointer"/>
+     </template>
+     <template tid="ClassCompletionofrequest.512Args_V1">
+      <data name="DeviceGUID" inType="win:GUID"/>
+      <data name="Status" inType="win:HexInt32"/>
+      <data name="InputBufferLength" inType="win:UInt32"/>
+      <data name="OutputBufferLength" inType="win:UInt32"/>
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="PortDriverCodeSet" inType="win:UInt32"/>
+      <data name="FirmwareGetInfoSupport" inType="win:UInt32"/>
+      <data name="QueryFlag" inType="win:UInt32"/>
+     </template>
+     <template tid="ClassCompletionofrequest.513Args_V1">
+      <data name="DeviceGUID" inType="win:GUID"/>
+      <data name="Status" inType="win:HexInt32"/>
+      <data name="InputBufferLength" inType="win:UInt32"/>
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="PortDriverCodeSet" inType="win:UInt32"/>
+      <data name="FirmwareGetInfoSupport" inType="win:UInt32"/>
+      <data name="HWFirmwareSupportUpgrade" inType="win:UInt8"/>
+      <data name="ImagePayloadAlignment" inType="win:UInt32"/>
+      <data name="SlotCount" inType="win:UInt8"/>
+      <data name="SlotIndex" inType="win:UInt32"/>
+      <data name="FWImageVersion" inType="win:UInt32"/>
+      <data name="FWSize" inType="win:UInt32"/>
+      <data name="FWSlot" inType="win:UInt8"/>
+      <data name="FWImageBufferSize" inType="win:UInt64"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="FWImageOffset" inType="win:UInt64"/>
+     </template>
+     <template tid="ClassCompletionofrequest.514Args_V1">
+      <data name="DeviceGUID" inType="win:GUID"/>
+      <data name="Status" inType="win:HexInt32"/>
+      <data name="InputBufferLength" inType="win:UInt32"/>
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="PortDriverCodeSet" inType="win:UInt32"/>
+      <data name="FirmwareGetInfoSupport" inType="win:UInt32"/>
+      <data name="HWFirmwareSupportUpgrade" inType="win:UInt8"/>
+      <data name="SlotCount" inType="win:UInt8"/>
+      <data name="SlotIndex" inType="win:UInt32"/>
+      <data name="FWImageVersion" inType="win:UInt32"/>
+      <data name="FWSize" inType="win:UInt32"/>
+      <data name="FWSlot" inType="win:UInt8"/>
+      <data name="Flags" inType="win:UInt32"/>
+     </template>
+     <template tid="ClassDispatchingofrequest.202Args_V2">
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="Command" inType="win:UInt8"/>
+      <data name="LengthOfTransferinbytes" inType="win:UInt64"/>
+      <data name="LBA" inType="win:HexInt64"/>
+      <data name="OriginalIrp" inType="win:Pointer"/>
+      <data name="NvCachePriority" inType="win:UInt8"/>
+     </template>
+     <template tid="ClassCompletionofrequest.208Args_V2">
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="NTStatus" inType="win:HexInt32"/>
+      <data name="SrbStatus" inType="win:UInt8"/>
+      <data name="ScsiStatus" inType="win:UInt8"/>
+      <data name="SenseKey" inType="win:UInt8"/>
+      <data name="AddSense" inType="win:UInt8"/>
+      <data name="AddSenseQ" inType="win:UInt8"/>
+      <data name="OriginalIrp" inType="win:Pointer"/>
+      <data name="NumberOfTimesRetried" inType="win:UInt32"/>
+     </template>
+     <template tid="ClassRetryhandling.Args_V2">
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="CurrentRetryCount" inType="win:UInt32"/>
+      <data name="NTStatus" inType="win:HexInt32"/>
+      <data name="SrbStatus" inType="win:UInt8"/>
+      <data name="ScsiStatus" inType="win:UInt8"/>
+      <data name="SenseKey" inType="win:UInt8"/>
+      <data name="AddSense" inType="win:UInt8"/>
+      <data name="AddSenseQ" inType="win:UInt8"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_ClassPnPAllIO" value="ClassPnPAllIO"/>
+    <string id="keyword_ClassPnPIdleIO" value="ClassPnPIdleIO"/>
+    <string id="keyword_CopyOffload_IO_Performance" value="CopyOffload_IO_Performance"/>
+    <string id="keyword_CopyOffload_Read" value="CopyOffload_Read"/>
+    <string id="keyword_CopyOffload_Write" value="CopyOffload_Write"/>
+    <string id="keyword_SenseData" value="SenseData"/>
+    <string id="keyword_FirmwareUpdate" value="FirmwareUpdate"/>
+    <string id="keyword_SMR" value="SMR"/>
+    <string id="keyword_IO_Performance" value="IO_Performance"/>
+    <string id="keyword_Read" value="Read"/>
+    <string id="keyword_Write" value="Write"/>
+    <string id="keyword_PagingRead" value="PagingRead"/>
+    <string id="keyword_PagingWrite" value="PagingWrite"/>
+    <string id="keyword_LowMemoryRead" value="LowMemoryRead"/>
+    <string id="keyword_LowMemoryWrite" value="LowMemoryWrite"/>
+    <string id="keyword_NonReadWrite" value="NonReadWrite"/>
+    <string id="keyword_PassThrough" value="PassThrough"/>
+    <string id="keyword_Flush" value="Flush"/>
+    <string id="keyword_IOCTL" value="IOCTL"/>
+    <string id="keyword_WMI" value="WMI"/>
+    <string id="keyword_Power" value="Power"/>
+    <string id="keyword_PnP" value="PnP"/>
+    <string id="keyword_Enum" value="Enum"/>
+    <string id="keyword_Queue" value="Queue"/>
+    <string id="keyword_ISR" value="ISR"/>
+    <string id="keyword_DPC" value="DPC"/>
+    <string id="keyword_Timer" value="Timer"/>
+    <string id="keyword_Protocol" value="Protocol"/>
+    <string id="keyword_keyword_400000000000" value="keyword_400000000000"/>
+    <string id="task_ClassPnPIOrequestcomplete" value="ClassPnPIOrequestcomplete"/>
+    <string id="opcode_ClassPnPIOrequestcompleteClassPnP_IO_End" value="ClassPnP_IO_End"/>
+    <string id="task_ClassPnPEnqueueIdleIOrequest" value="ClassPnPEnqueueIdleIOrequest"/>
+    <string id="opcode_ClassPnPEnqueueIdleIOrequestClassPnP_Enqueue_IdleIO" value="ClassPnP_Enqueue_IdleIO"/>
+    <string id="task_ClassPnPBoostIdleIOrequest" value="ClassPnPBoostIdleIOrequest"/>
+    <string id="opcode_ClassPnPBoostIdleIOrequestClassPnP_Boost_IdleIO" value="ClassPnP_Boost_IdleIO"/>
+    <string id="task_Class" value="Class"/>
+    <string id="opcode_ClassDispatchingofrequest." value="Dispatchingofrequest."/>
+    <string id="opcode_ClassCompletionofrequest." value="Completionofrequest."/>
+    <string id="opcode_ClassRetryhandling." value="Retryhandling."/>
+    <string id="opcode_ClassQueue_relatedoperation." value="Queue_relatedoperation."/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

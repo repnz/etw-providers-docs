@@ -1,0 +1,47 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-FileHistory-Core" guid="{b447b4db-7780-11e0-ada3-18a90531a85a}" resourceFileName="Microsoft-Windows-FileHistory-Core" messageFileName="Microsoft-Windows-FileHistory-Core" symbol="MicrosoftWindowsFileHistoryCore" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <events>
+     <event value="100" symbol="task_0" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+     <event value="200" symbol="task_0200" version="0" task="task_0" level="win:Error" template="task_0200Args"/>
+     <event value="201" symbol="task_0201" version="0" task="task_0" level="win:Error" template="task_0201Args"/>
+     <event value="202" symbol="task_0202" version="0" task="task_0" level="win:Warning" template="task_0201Args"/>
+     <event value="203" symbol="task_0203" version="0" task="task_0" level="win:Error" template="task_0201Args"/>
+     <event value="204" symbol="task_0204" version="0" task="task_0" level="win:Warning" template="task_0201Args"/>
+     <event value="205" symbol="task_0205" version="0" task="task_0" level="win:Always" template="task_0205Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="hc_stateid" inType="win:UInt32"/>
+      <data name="ProtectedUpToTime" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0200Args">
+      <data name="HighLevelHr" inType="win:UInt32"/>
+      <data name="LowLevelHr" inType="win:UInt32"/>
+      <data name="ConfigFilePath" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0201Args">
+      <data name="Hr" inType="win:UInt32"/>
+      <data name="ConfigFilePath" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0205Args">
+      <data name="Message" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_task_0" value="task_0"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

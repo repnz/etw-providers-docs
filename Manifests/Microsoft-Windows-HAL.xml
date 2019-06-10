@@ -1,0 +1,67 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-HAL" guid="{63d1e632-95cc-4443-9312-af927761d52a}" resourceFileName="Microsoft-Windows-HAL" messageFileName="Microsoft-Windows-HAL" symbol="MicrosoftWindowsHAL" source="Xml" >
+    <keywords>
+     <keyword name="halDiagnostic" message="$(string.keyword_halDiagnostic)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="task_0" version="0" task="task_0" level="win:Warning" template="task_0Args"/>
+     <event value="2" symbol="task_02" version="0" task="task_0" level="win:Warning" template="task_0Args"/>
+     <event value="3" symbol="task_03" version="0" task="task_0" level="win:Warning" template="task_0Args"/>
+     <event value="4" symbol="task_04" version="0" task="task_0" level="win:Warning" template="task_0Args"/>
+     <event value="5" symbol="task_05" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+     <event value="7" symbol="task_07" version="0" task="task_0" level="win:Verbose" template="task_07Args"/>
+     <event value="8" symbol="task_08" version="0" task="task_0" level="win:Informational" template="task_08Args"/>
+     <event value="9" symbol="task_09" version="0" task="task_0" level="win:Verbose" template="task_09Args"/>
+     <event value="10" symbol="task_010" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+     <event value="11" symbol="task_011" version="0" task="task_0" level="win:Warning" template="task_0Args"/>
+     <event value="12" symbol="task_012" version="0" task="task_0" level="win:Error" keywords="halDiagnostic" template="task_012Args"/>
+     <event value="13" symbol="task_013" version="0" task="task_0" level="win:Error"/>
+     <event value="14" symbol="task_014" version="0" task="task_0" level="win:Informational"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_07Args">
+      <data name="LeadProcessor" inType="win:Int32"/>
+      <data name="TargetProcessor" inType="win:Int32"/>
+      <data name="Delta" inType="win:Int64"/>
+      <data name="NopCycles" inType="win:UInt32"/>
+     </template>
+     <template tid="task_08Args">
+      <data name="LeadProcessor" inType="win:Int32"/>
+      <data name="MaximumPositiveDeltaProcessor" inType="win:Int32"/>
+      <data name="MaximumPositiveDelta" inType="win:Int32"/>
+      <data name="MaximumNegativeDelta" inType="win:Int32"/>
+      <data name="Microseconds" inType="win:Int32"/>
+     </template>
+     <template tid="task_09Args">
+      <data name="SourceProcessor" inType="win:Int32"/>
+      <data name="TargetProcessor" inType="win:Int32"/>
+      <data name="Delta" inType="win:Int64"/>
+      <data name="Bias" inType="win:Int64"/>
+      <data name="Wave" inType="win:UInt32"/>
+     </template>
+     <template tid="task_012Args">
+      <data name="Count" inType="win:UInt32"/>
+      <data name="FirstPage" inType="win:UInt32"/>
+      <data name="LastPage" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_halDiagnostic" value="halDiagnostic"/>
+    <string id="task_task_0" value="task_0"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

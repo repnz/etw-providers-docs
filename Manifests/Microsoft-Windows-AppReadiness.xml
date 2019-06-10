@@ -1,0 +1,571 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-AppReadiness" guid="{f0be35f8-237b-4814-86b5-ade51192e503}" resourceFileName="Microsoft-Windows-AppReadiness" messageFileName="Microsoft-Windows-AppReadiness" symbol="MicrosoftWindowsAppReadiness" source="Xml" >
+    <keywords>
+     <keyword name="Service" message="$(string.keyword_Service)" mask="0x1"/>
+     <keyword name="User" message="$(string.keyword_User)" mask="0x2"/>
+     <keyword name="Tasks" message="$(string.keyword_Tasks)" mask="0x4"/>
+     <keyword name="Api" message="$(string.keyword_Api)" mask="0x8"/>
+     <keyword name="Scoring" message="$(string.keyword_Scoring)" mask="0x10"/>
+     <keyword name="BrokerSession" message="$(string.keyword_BrokerSession)" mask="0x20"/>
+     <keyword name="Triggers" message="$(string.keyword_Triggers)" mask="0x40"/>
+     <keyword name="Error" message="$(string.keyword_Error)" mask="0x80"/>
+     <keyword name="Timeline" message="$(string.keyword_Timeline)" mask="0x100"/>
+     <keyword name="keyword_400000000000" message="$(string.keyword_keyword_400000000000)" mask="0x400000000000"/>
+    </keywords>
+    <tasks>
+     <task name="AppReadiness_User_ProcessTasks" message="$(string.task_AppReadiness_User_ProcessTasks)" value="1"/>
+     <task name="AppReadiness_ExecuteTask" message="$(string.task_AppReadiness_ExecuteTask)" value="2"/>
+     <task name="AppReadiness_Api_Install" message="$(string.task_AppReadiness_Api_Install)" value="3"/>
+     <task name="AppReadiness_ScorePackage" message="$(string.task_AppReadiness_ScorePackage)" value="4"/>
+     <task name="AppReadiness_PerfTrack" message="$(string.task_AppReadiness_PerfTrack)" value="5"/>
+     <task name="AppReadiness_Error" message="$(string.task_AppReadiness_Error)" value="6"/>
+     <task name="AppReadiness_Service" message="$(string.task_AppReadiness_Service)" value="7"/>
+     <task name="AppReadiness_Api_Remove" message="$(string.task_AppReadiness_Api_Remove)" value="8"/>
+     <task name="AppReadiness_Api_GetTask" message="$(string.task_AppReadiness_Api_GetTask)" value="9"/>
+     <task name="AppReadiness_Api_ProcessTasks" message="$(string.task_AppReadiness_Api_ProcessTasks)" value="11"/>
+     <task name="AppReadiness_Service_Lifetime" message="$(string.task_AppReadiness_Service_Lifetime)" value="13"/>
+     <task name="AppReadiness_Service_Thread" message="$(string.task_AppReadiness_Service_Thread)" value="14"/>
+     <task name="AppReadiness_BrokerSession" message="$(string.task_AppReadiness_BrokerSession)" value="15"/>
+     <task name="AppReadiness_Api_HandlePackageChange" message="$(string.task_AppReadiness_Api_HandlePackageChange)" value="16"/>
+     <task name="AppReadiness_PackageChange" message="$(string.task_AppReadiness_PackageChange)" value="17"/>
+     <task name="AppReadiness_TriggerTask_Run" message="$(string.task_AppReadiness_TriggerTask_Run)" value="18"/>
+     <task name="AppReadiness_MaintenanceTask_Run" message="$(string.task_AppReadiness_MaintenanceTask_Run)" value="19"/>
+     <task name="AppReadiness_User_Shutdown" message="$(string.task_AppReadiness_User_Shutdown)" value="20"/>
+     <task name="AppReadiness_Api_CreateTask" message="$(string.task_AppReadiness_Api_CreateTask)" value="21"/>
+     <task name="AppReadiness_Api_EnterLogonPhase" message="$(string.task_AppReadiness_Api_EnterLogonPhase)" value="22"/>
+     <task name="AppReadiness_PreRegister_Package" message="$(string.task_AppReadiness_PreRegister_Package)" value="23"/>
+     <task name="AppReadiness_Api_ResolveStoreCategories" message="$(string.task_AppReadiness_Api_ResolveStoreCategories)" value="24"/>
+     <task name="AppReadiness_Timeline" message="$(string.task_AppReadiness_Timeline)" value="25"/>
+     <task name="AppReadiness_Api_DisableInAuditMode" message="$(string.task_AppReadiness_Api_DisableInAuditMode)" value="26"/>
+    </tasks>
+    <maps>
+     <valueMap name="ServiceStatusType">
+      <map value="0x1" message="$(string.map_ServiceStatusTypeSERVICE_STOPPED)"/>
+      <map value="0x2" message="$(string.map_ServiceStatusTypeSERVICE_START_PENDING)"/>
+      <map value="0x3" message="$(string.map_ServiceStatusTypeSERVICE_STOP_PENDING)"/>
+      <map value="0x4" message="$(string.map_ServiceStatusTypeSERVICE_RUNNING)"/>
+      <map value="0x5" message="$(string.map_ServiceStatusTypeSERVICE_CONTINUE_PENDING)"/>
+      <map value="0x6" message="$(string.map_ServiceStatusTypeSERVICE_PAUSE_PENDING)"/>
+      <map value="0x7" message="$(string.map_ServiceStatusTypeSERVICE_PAUSED)"/>
+     </valueMap>
+     <valueMap name="PackageSourceType">
+      <map value="0x0" message="$(string.map_PackageSourceTypeOEM)"/>
+      <map value="0x1" message="$(string.map_PackageSourceTypeCBS)"/>
+      <map value="0x2" message="$(string.map_PackageSourceTypeDISM)"/>
+     </valueMap>
+     <valueMap name="UserPhaseType">
+      <map value="0x0" message="$(string.map_UserPhaseTypeBeforeLogon)"/>
+      <map value="0x1" message="$(string.map_UserPhaseTypeFirstLogon)"/>
+      <map value="0x2" message="$(string.map_UserPhaseTypeAfterLogon)"/>
+      <map value="0x3" message="$(string.map_UserPhaseTypeLoggingOff)"/>
+     </valueMap>
+     <valueMap name="PackageOperationType">
+      <map value="0x0" message="$(string.map_PackageOperationTypeNone)"/>
+      <map value="0x1" message="$(string.map_PackageOperationTypeinstall)"/>
+      <map value="0x2" message="$(string.map_PackageOperationTypeuninstall)"/>
+      <map value="0x3" message="$(string.map_PackageOperationTypepre-registration)"/>
+     </valueMap>
+     <valueMap name="TaskPriorityType">
+      <map value="0x0" message="$(string.map_TaskPriorityTypeNone)"/>
+      <map value="0x1" message="$(string.map_TaskPriorityTypeError)"/>
+      <map value="0x2" message="$(string.map_TaskPriorityTypeLow)"/>
+      <map value="0x3" message="$(string.map_TaskPriorityTypeStandard)"/>
+      <map value="0x4" message="$(string.map_TaskPriorityTypeHigh)"/>
+      <map value="0x5" message="$(string.map_TaskPriorityTypePreview)"/>
+      <map value="0x6" message="$(string.map_TaskPriorityTypeLogon)"/>
+      <map value="0x7" message="$(string.map_TaskPriorityTypePreShell)"/>
+      <map value="0x8" message="$(string.map_TaskPriorityTypeSystemTask)"/>
+      <map value="0x9" message="$(string.map_TaskPriorityTypeInboxGroup)"/>
+      <map value="0xa" message="$(string.map_TaskPriorityTypeUserLogonGroup)"/>
+      <map value="0xb" message="$(string.map_TaskPriorityTypePreRoamingGroup)"/>
+      <map value="0xc" message="$(string.map_TaskPriorityTypeMax)"/>
+     </valueMap>
+     <valueMap name="PreviewTileSourceType">
+      <map value="0x0" message="$(string.map_PreviewTileSourceTypeLocal)"/>
+      <map value="0x1" message="$(string.map_PreviewTileSourceTypeStore)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="10" symbol="AppReadiness_Error" version="0" task="AppReadiness_Error" level="win:Error" keywords="Error" template="AppReadiness_ErrorArgs"/>
+     <event value="11" symbol="AppReadiness_Error11" version="0" task="AppReadiness_Error" level="win:Warning" keywords="Error" template="AppReadiness_Error11Args"/>
+     <event value="12" symbol="AppReadiness_Error12" version="0" task="AppReadiness_Error" level="win:Error" keywords="Error" template="AppReadiness_Error12Args"/>
+     <event value="100" symbol="AppReadiness_Service_LifetimeStart" version="0" task="AppReadiness_Service_Lifetime" opcode="win:Start" level="win:Informational" keywords="Service"/>
+     <event value="101" symbol="AppReadiness_Service_LifetimeStop" version="0" task="AppReadiness_Service_Lifetime" opcode="win:Stop" level="win:Informational" keywords="Service"/>
+     <event value="102" symbol="AppReadiness_Service_ThreadStart" version="0" task="AppReadiness_Service_Thread" opcode="win:Start" level="win:Informational" keywords="Service"/>
+     <event value="103" symbol="AppReadiness_Service_ThreadStop" version="0" task="AppReadiness_Service_Thread" opcode="win:Stop" level="win:Informational" keywords="Service"/>
+     <event value="104" symbol="AppReadiness_Service" version="0" task="AppReadiness_Service" level="win:Informational" keywords="Service" template="AppReadiness_ServiceArgs"/>
+     <event value="105" symbol="AppReadiness_Service105" version="0" task="AppReadiness_Service" level="win:Informational" keywords="Service" template="AppReadiness_Service105Args"/>
+     <event value="106" symbol="AppReadiness_Service106" version="0" task="AppReadiness_Service" level="win:Informational" keywords="Service" template="AppReadiness_Service106Args"/>
+     <event value="107" symbol="AppReadiness_Service107" version="0" task="AppReadiness_Service" level="win:Informational" keywords="Service" template="AppReadiness_Service106Args"/>
+     <event value="108" symbol="AppReadiness_PackageChangeStart" version="0" task="AppReadiness_PackageChange" opcode="win:Start" level="win:Informational" keywords="Service" template="AppReadiness_PackageChangeStartArgs"/>
+     <event value="109" symbol="AppReadiness_PackageChangeStop" version="0" task="AppReadiness_PackageChange" opcode="win:Stop" level="win:Informational" keywords="Service" template="AppReadiness_PackageChangeStopArgs"/>
+     <event value="110" symbol="AppReadiness_Service110" version="0" task="AppReadiness_Service" level="win:Warning" keywords="Service" template="AppReadiness_Service110Args"/>
+     <event value="200" symbol="AppReadiness_User_ProcessTasksStart" version="0" task="AppReadiness_User_ProcessTasks" opcode="win:Start" level="win:Informational" keywords="User" template="AppReadiness_Service106Args"/>
+     <event value="201" symbol="AppReadiness_User_ProcessTasksStop" version="0" task="AppReadiness_User_ProcessTasks" opcode="win:Stop" level="win:Informational" keywords="User" template="AppReadiness_Service106Args"/>
+     <event value="205" symbol="AppReadiness_User_ProcessTasks" version="0" task="AppReadiness_User_ProcessTasks" level="win:Informational" keywords="User" template="AppReadiness_User_ProcessTasksArgs"/>
+     <event value="206" symbol="AppReadiness_User_ProcessTasksStart206" version="0" task="AppReadiness_User_ProcessTasks" opcode="win:Start" level="win:Informational" keywords="User" template="AppReadiness_User_ProcessTasksStart206Args"/>
+     <event value="207" symbol="AppReadiness_User_ProcessTasksStop207" version="0" task="AppReadiness_User_ProcessTasks" opcode="win:Stop" level="win:Informational" keywords="User" template="AppReadiness_User_ProcessTasksStop207Args"/>
+     <event value="209" symbol="AppReadiness_User_ProcessTasks209" version="0" task="AppReadiness_User_ProcessTasks" level="win:Informational" keywords="User" template="AppReadiness_User_ProcessTasks209Args"/>
+     <event value="210" symbol="AppReadiness_User_ProcessTasks210" version="0" task="AppReadiness_User_ProcessTasks" level="win:Informational" keywords="User" template="AppReadiness_Service106Args"/>
+     <event value="211" symbol="AppReadiness_User_ProcessTasks211" version="0" task="AppReadiness_User_ProcessTasks" level="win:Informational" keywords="User" template="AppReadiness_Service106Args"/>
+     <event value="212" symbol="AppReadiness_User_ProcessTasks212" version="0" task="AppReadiness_User_ProcessTasks" level="win:Informational" keywords="User" template="AppReadiness_User_ProcessTasks212Args"/>
+     <event value="213" symbol="AppReadiness_User_ProcessTasks213" version="0" task="AppReadiness_User_ProcessTasks" level="win:Informational" keywords="User" template="AppReadiness_User_ProcessTasks213Args"/>
+     <event value="214" symbol="AppReadiness_User_ProcessTasks214" version="0" task="AppReadiness_User_ProcessTasks" level="win:Error" keywords="User" template="AppReadiness_User_ProcessTasks214Args"/>
+     <event value="215" symbol="AppReadiness_User_ProcessTasks215" version="0" task="AppReadiness_User_ProcessTasks" level="win:Error" keywords="User" template="AppReadiness_User_ProcessTasks215Args"/>
+     <event value="216" symbol="AppReadiness_User_ProcessTasks216" version="0" task="AppReadiness_User_ProcessTasks" level="win:Informational" keywords="User" template="AppReadiness_User_ProcessTasks216Args"/>
+     <event value="217" symbol="AppReadiness_User_ProcessTasks217" version="0" task="AppReadiness_User_ProcessTasks" level="win:Informational" keywords="User" template="AppReadiness_Service106Args"/>
+     <event value="218" symbol="AppReadiness_User_ProcessTasks218" version="0" task="AppReadiness_User_ProcessTasks" level="win:Informational" keywords="User" template="AppReadiness_User_ProcessTasks218Args"/>
+     <event value="219" symbol="AppReadiness_User_ProcessTasks219" version="0" task="AppReadiness_User_ProcessTasks" level="win:Informational" keywords="User" template="AppReadiness_User_ProcessTasks212Args"/>
+     <event value="220" symbol="AppReadiness_User_ProcessTasks220" version="0" task="AppReadiness_User_ProcessTasks" level="win:Informational" keywords="User" template="AppReadiness_User_ProcessTasks220Args"/>
+     <event value="221" symbol="AppReadiness_User_ProcessTasks221" version="0" task="AppReadiness_User_ProcessTasks" level="win:Informational" keywords="User" template="AppReadiness_User_ProcessTasks221Args"/>
+     <event value="222" symbol="AppReadiness_User_ProcessTasks222" version="0" task="AppReadiness_User_ProcessTasks" level="win:Informational" keywords="User" template="AppReadiness_User_ProcessTasks222Args"/>
+     <event value="223" symbol="AppReadiness_User_ShutdownStart" version="0" task="AppReadiness_User_Shutdown" opcode="win:Start" level="win:Informational" keywords="User" template="AppReadiness_Service106Args"/>
+     <event value="224" symbol="AppReadiness_User_ShutdownStop" version="0" task="AppReadiness_User_Shutdown" opcode="win:Stop" level="win:Informational" keywords="User" template="AppReadiness_Service106Args"/>
+     <event value="225" symbol="AppReadiness_User_Shutdown" version="0" task="AppReadiness_User_Shutdown" level="win:Warning" keywords="User" template="AppReadiness_User_ProcessTasks221Args"/>
+     <event value="226" symbol="AppReadiness_User_Shutdown226" version="0" task="AppReadiness_User_Shutdown" level="win:Informational" keywords="User" template="AppReadiness_Service106Args"/>
+     <event value="227" symbol="AppReadiness_User_ProcessTasks227" version="0" task="AppReadiness_User_ProcessTasks" level="win:Informational" keywords="User" template="AppReadiness_User_ProcessTasksStart206Args"/>
+     <event value="228" symbol="AppReadiness_User_ProcessTasks228" version="0" task="AppReadiness_User_ProcessTasks" level="win:Informational" keywords="User" template="AppReadiness_User_ProcessTasks228Args"/>
+     <event value="229" symbol="AppReadiness_User_ProcessTasks229" version="0" task="AppReadiness_User_ProcessTasks" level="win:Informational" keywords="User" template="AppReadiness_User_ProcessTasks229Args"/>
+     <event value="230" symbol="AppReadiness_User_ProcessTasks230" version="0" task="AppReadiness_User_ProcessTasks" level="win:Informational" keywords="User"/>
+     <event value="231" symbol="AppReadiness_User_ProcessTasksStart231" version="0" task="AppReadiness_User_ProcessTasks" opcode="win:Start" level="win:Informational" keywords="User"/>
+     <event value="232" symbol="AppReadiness_User_ProcessTasksStop232" version="0" task="AppReadiness_User_ProcessTasks" opcode="win:Stop" level="win:Informational" keywords="User" template="AppReadiness_User_ProcessTasksStop232Args"/>
+     <event value="233" symbol="AppReadiness_User_ProcessTasksStart233" version="0" task="AppReadiness_User_ProcessTasks" opcode="win:Start" level="win:Informational" keywords="User"/>
+     <event value="234" symbol="AppReadiness_User_ProcessTasksStop234" version="0" task="AppReadiness_User_ProcessTasks" opcode="win:Stop" level="win:Informational" keywords="User" template="AppReadiness_User_ProcessTasksStop232Args"/>
+     <event value="235" symbol="AppReadiness_User_ProcessTasksStart235" version="0" task="AppReadiness_User_ProcessTasks" opcode="win:Start" level="win:Informational" keywords="Tasks"/>
+     <event value="236" symbol="AppReadiness_User_ProcessTasksStop236" version="0" task="AppReadiness_User_ProcessTasks" opcode="win:Stop" level="win:Informational" keywords="Tasks" template="AppReadiness_User_ProcessTasksStop232Args"/>
+     <event value="237" symbol="AppReadiness_User_ProcessTasksStart237" version="0" task="AppReadiness_User_ProcessTasks" opcode="win:Start" level="win:Informational" keywords="Tasks"/>
+     <event value="238" symbol="AppReadiness_User_ProcessTasksStop238" version="0" task="AppReadiness_User_ProcessTasks" opcode="win:Stop" level="win:Informational" keywords="Tasks" template="AppReadiness_User_ProcessTasksStop232Args"/>
+     <event value="239" symbol="AppReadiness_User_ProcessTasksStop239" version="0" task="AppReadiness_User_ProcessTasks" opcode="win:Stop" level="win:Error" keywords="Tasks keyword_400000000000" template="AppReadiness_User_ProcessTasksStop232Args"/>
+     <event value="240" symbol="AppReadiness_User_ProcessTasks240" version="0" task="AppReadiness_User_ProcessTasks" level="win:Informational" keywords="Tasks" template="AppReadiness_User_ProcessTasks240Args"/>
+     <event value="241" symbol="AppReadiness_User_ProcessTasks241" version="0" task="AppReadiness_User_ProcessTasks" level="win:Informational" keywords="Tasks" template="AppReadiness_User_ProcessTasks240Args"/>
+     <event value="300" symbol="AppReadiness_ExecuteTaskStart" version="0" task="AppReadiness_ExecuteTask" opcode="win:Start" level="win:Informational" keywords="Tasks" template="AppReadiness_ExecuteTaskStartArgs"/>
+     <event value="301" symbol="AppReadiness_ExecuteTaskStop" version="0" task="AppReadiness_ExecuteTask" opcode="win:Stop" level="win:Informational" keywords="Tasks" template="AppReadiness_ExecuteTaskStopArgs"/>
+     <event value="302" symbol="AppReadiness_ExecuteTaskStart302" version="0" task="AppReadiness_ExecuteTask" opcode="win:Start" level="win:Informational" keywords="Tasks" template="AppReadiness_ExecuteTaskStart302Args"/>
+     <event value="303" symbol="AppReadiness_ExecuteTaskStop303" version="0" task="AppReadiness_ExecuteTask" opcode="win:Stop" level="win:Informational" keywords="Tasks" template="AppReadiness_ExecuteTaskStop303Args"/>
+     <event value="304" symbol="AppReadiness_ExecuteTask" version="0" task="AppReadiness_ExecuteTask" level="win:Warning" keywords="Tasks" template="AppReadiness_ExecuteTaskArgs"/>
+     <event value="305" symbol="AppReadiness_ExecuteTask305" version="0" task="AppReadiness_ExecuteTask" level="win:Informational" keywords="Tasks" template="AppReadiness_ExecuteTask305Args"/>
+     <event value="306" symbol="AppReadiness_ExecuteTask306" version="0" task="AppReadiness_ExecuteTask" level="win:Informational" keywords="Tasks" template="AppReadiness_ExecuteTaskStartArgs"/>
+     <event value="307" symbol="AppReadiness_ExecuteTask307" version="0" task="AppReadiness_ExecuteTask" level="win:Informational" keywords="Tasks" template="AppReadiness_ExecuteTask305Args"/>
+     <event value="308" symbol="AppReadiness_ExecuteTask308" version="0" task="AppReadiness_ExecuteTask" level="win:Warning" keywords="Tasks" template="AppReadiness_ExecuteTask308Args"/>
+     <event value="309" symbol="AppReadiness_ExecuteTaskStart309" version="0" task="AppReadiness_ExecuteTask" opcode="win:Start" level="win:Informational" keywords="Tasks" template="AppReadiness_Service106Args"/>
+     <event value="310" symbol="AppReadiness_ExecuteTaskStop310" version="0" task="AppReadiness_ExecuteTask" opcode="win:Stop" level="win:Informational" keywords="Tasks" template="AppReadiness_Service106Args"/>
+     <event value="311" symbol="AppReadiness_ExecuteTask311" version="0" task="AppReadiness_ExecuteTask" level="win:Error" keywords="Tasks" template="AppReadiness_ExecuteTask311Args"/>
+     <event value="312" symbol="AppReadiness_ExecuteTask312" version="0" task="AppReadiness_ExecuteTask" level="win:Informational" keywords="Tasks" template="AppReadiness_ExecuteTask312Args"/>
+     <event value="313" symbol="AppReadiness_ExecuteTask313" version="0" task="AppReadiness_ExecuteTask" level="win:Warning" keywords="Tasks" template="AppReadiness_ExecuteTask313Args"/>
+     <event value="314" symbol="AppReadiness_ExecuteTask314" version="0" task="AppReadiness_ExecuteTask" level="win:Informational" keywords="Tasks" template="AppReadiness_ExecuteTask313Args"/>
+     <event value="315" symbol="AppReadiness_ExecuteTask315" version="0" task="AppReadiness_ExecuteTask" level="win:Informational" keywords="Tasks" template="AppReadiness_ExecuteTask305Args"/>
+     <event value="316" symbol="AppReadiness_ExecuteTask316" version="0" task="AppReadiness_ExecuteTask" level="win:Warning" keywords="Tasks" template="AppReadiness_ExecuteTask316Args"/>
+     <event value="317" symbol="AppReadiness_PreRegister_PackageStart" version="0" task="AppReadiness_PreRegister_Package" opcode="win:Start" level="win:Informational" keywords="Tasks" template="AppReadiness_PreRegister_PackageStartArgs"/>
+     <event value="318" symbol="AppReadiness_PreRegister_PackageStop" version="0" task="AppReadiness_PreRegister_Package" opcode="win:Stop" level="win:Informational" keywords="Tasks" template="AppReadiness_PreRegister_PackageStartArgs"/>
+     <event value="319" symbol="AppReadiness_PreRegister_Package" version="0" task="AppReadiness_PreRegister_Package" level="win:Error" keywords="Tasks" template="AppReadiness_PreRegister_PackageArgs"/>
+     <event value="320" symbol="AppReadiness_ExecuteTask320" version="0" task="AppReadiness_ExecuteTask" level="win:Error" keywords="Tasks keyword_400000000000" template="AppReadiness_ExecuteTask320Args"/>
+     <event value="321" symbol="AppReadiness_ExecuteTaskStart321" version="0" task="AppReadiness_ExecuteTask" opcode="win:Start" level="win:Informational" keywords="Tasks"/>
+     <event value="322" symbol="AppReadiness_ExecuteTaskStop322" version="0" task="AppReadiness_ExecuteTask" opcode="win:Stop" level="win:Informational" keywords="Tasks" template="AppReadiness_User_ProcessTasksStop232Args"/>
+     <event value="323" symbol="AppReadiness_ExecuteTaskStart323" version="0" task="AppReadiness_ExecuteTask" opcode="win:Start" level="win:Informational" keywords="Tasks"/>
+     <event value="324" symbol="AppReadiness_ExecuteTaskStop324" version="0" task="AppReadiness_ExecuteTask" opcode="win:Stop" level="win:Informational" keywords="Tasks" template="AppReadiness_User_ProcessTasksStop232Args"/>
+     <event value="325" symbol="AppReadiness_ExecuteTaskStop325" version="0" task="AppReadiness_ExecuteTask" opcode="win:Stop" level="win:Error" keywords="Tasks keyword_400000000000" template="AppReadiness_User_ProcessTasksStop232Args"/>
+     <event value="326" symbol="AppReadiness_ExecuteTaskStart326" version="0" task="AppReadiness_ExecuteTask" opcode="win:Start" level="win:Informational" keywords="Tasks"/>
+     <event value="327" symbol="AppReadiness_ExecuteTaskStop327" version="0" task="AppReadiness_ExecuteTask" opcode="win:Stop" level="win:Informational" keywords="Tasks" template="AppReadiness_User_ProcessTasksStop232Args"/>
+     <event value="328" symbol="AppReadiness_ExecuteTaskStart328" version="0" task="AppReadiness_ExecuteTask" opcode="win:Start" level="win:Informational" keywords="Tasks"/>
+     <event value="329" symbol="AppReadiness_ExecuteTaskStop329" version="0" task="AppReadiness_ExecuteTask" opcode="win:Stop" level="win:Informational" keywords="Tasks" template="AppReadiness_User_ProcessTasksStop232Args"/>
+     <event value="330" symbol="AppReadiness_ExecuteTaskStop330" version="0" task="AppReadiness_ExecuteTask" opcode="win:Stop" level="win:Error" keywords="Tasks keyword_400000000000" template="AppReadiness_User_ProcessTasksStop232Args"/>
+     <event value="1001" symbol="AppReadiness_Api_InstallStart" version="0" task="AppReadiness_Api_Install" opcode="win:Start" level="win:Informational" keywords="Api" template="AppReadiness_Api_InstallStartArgs"/>
+     <event value="1002" symbol="AppReadiness_Api_InstallStop" version="0" task="AppReadiness_Api_Install" opcode="win:Stop" level="win:Informational" keywords="Api" template="AppReadiness_Api_InstallStopArgs"/>
+     <event value="1003" symbol="AppReadiness_Api_RemoveStart" version="0" task="AppReadiness_Api_Remove" opcode="win:Start" level="win:Informational" keywords="Api" template="AppReadiness_Api_InstallStartArgs"/>
+     <event value="1004" symbol="AppReadiness_Api_RemoveStop" version="0" task="AppReadiness_Api_Remove" opcode="win:Stop" level="win:Informational" keywords="Api" template="AppReadiness_Api_InstallStopArgs"/>
+     <event value="1005" symbol="AppReadiness_Api_GetTaskStart" version="0" task="AppReadiness_Api_GetTask" opcode="win:Start" level="win:Informational" keywords="Api" template="AppReadiness_Api_InstallStartArgs"/>
+     <event value="1006" symbol="AppReadiness_Api_GetTaskStop" version="0" task="AppReadiness_Api_GetTask" opcode="win:Stop" level="win:Informational" keywords="Api" template="AppReadiness_Api_InstallStopArgs"/>
+     <event value="1009" symbol="AppReadiness_Api_ProcessTasksStart" version="0" task="AppReadiness_Api_ProcessTasks" opcode="win:Start" level="win:Informational" keywords="Api" template="AppReadiness_Api_InstallStartArgs"/>
+     <event value="1010" symbol="AppReadiness_Api_ProcessTasksStop" version="0" task="AppReadiness_Api_ProcessTasks" opcode="win:Stop" level="win:Informational" keywords="Api" template="AppReadiness_Api_InstallStopArgs"/>
+     <event value="1013" symbol="AppReadiness_Api_HandlePackageChangeStart" version="0" task="AppReadiness_Api_HandlePackageChange" opcode="win:Start" level="win:Informational" keywords="Api" template="AppReadiness_Api_InstallStartArgs"/>
+     <event value="1014" symbol="AppReadiness_Api_HandlePackageChangeStop" version="0" task="AppReadiness_Api_HandlePackageChange" opcode="win:Stop" level="win:Informational" keywords="Api" template="AppReadiness_Api_InstallStopArgs"/>
+     <event value="1015" symbol="AppReadiness_Api_CreateTaskStart" version="0" task="AppReadiness_Api_CreateTask" opcode="win:Start" level="win:Informational" keywords="Api" template="AppReadiness_Api_InstallStartArgs"/>
+     <event value="1016" symbol="AppReadiness_Api_CreateTaskStop" version="0" task="AppReadiness_Api_CreateTask" opcode="win:Stop" level="win:Informational" keywords="Api" template="AppReadiness_Api_InstallStopArgs"/>
+     <event value="1017" symbol="AppReadiness_Api_EnterLogonPhaseStart" version="0" task="AppReadiness_Api_EnterLogonPhase" opcode="win:Start" level="win:Informational" keywords="Api" template="AppReadiness_Api_InstallStartArgs"/>
+     <event value="1018" symbol="AppReadiness_Api_EnterLogonPhaseStop" version="0" task="AppReadiness_Api_EnterLogonPhase" opcode="win:Stop" level="win:Informational" keywords="Api" template="AppReadiness_Api_InstallStopArgs"/>
+     <event value="1019" symbol="AppReadiness_Api_ResolveStoreCategoriesStart" version="0" task="AppReadiness_Api_ResolveStoreCategories" opcode="win:Start" level="win:Informational" keywords="Api" template="AppReadiness_Api_InstallStartArgs"/>
+     <event value="1020" symbol="AppReadiness_Api_ResolveStoreCategoriesStop" version="0" task="AppReadiness_Api_ResolveStoreCategories" opcode="win:Stop" level="win:Informational" keywords="Api" template="AppReadiness_Api_InstallStopArgs"/>
+     <event value="1021" symbol="AppReadiness_Api_DisableInAuditMode" version="0" task="AppReadiness_Api_DisableInAuditMode" level="win:Informational" keywords="Api" template="AppReadiness_Api_DisableInAuditModeArgs"/>
+     <event value="2000" symbol="AppReadiness_ScorePackageStart" version="0" task="AppReadiness_ScorePackage" opcode="win:Start" level="win:Informational" keywords="Scoring" template="AppReadiness_ExecuteTask316Args"/>
+     <event value="2001" symbol="AppReadiness_ScorePackageStop" version="0" task="AppReadiness_ScorePackage" opcode="win:Stop" level="win:Informational" keywords="Scoring" template="AppReadiness_ScorePackageStopArgs"/>
+     <event value="2002" symbol="AppReadiness_ScorePackage" version="0" task="AppReadiness_ScorePackage" level="win:Informational" keywords="Scoring" template="AppReadiness_ScorePackageStopArgs"/>
+     <event value="2003" symbol="AppReadiness_ScorePackage2003" version="0" task="AppReadiness_ScorePackage" level="win:Informational" keywords="Scoring" template="AppReadiness_ScorePackageStopArgs"/>
+     <event value="2005" symbol="AppReadiness_ScorePackage2005" version="0" task="AppReadiness_ScorePackage" level="win:Informational" keywords="Scoring" template="AppReadiness_ScorePackageStopArgs"/>
+     <event value="2006" symbol="AppReadiness_ScorePackage2006" version="0" task="AppReadiness_ScorePackage" level="win:Informational" keywords="Scoring" template="AppReadiness_ScorePackageStopArgs"/>
+     <event value="2007" symbol="AppReadiness_ScorePackage2007" version="0" task="AppReadiness_ScorePackage" level="win:Informational" keywords="Scoring" template="AppReadiness_ScorePackageStopArgs"/>
+     <event value="2008" symbol="AppReadiness_ScorePackage2008" version="0" task="AppReadiness_ScorePackage" level="win:Informational" keywords="Scoring" template="AppReadiness_ScorePackageStopArgs"/>
+     <event value="2009" symbol="AppReadiness_ScorePackage2009" version="0" task="AppReadiness_ScorePackage" level="win:Informational" keywords="Scoring" template="AppReadiness_ScorePackageStopArgs"/>
+     <event value="2500" symbol="AppReadiness_BrokerSessionStart" version="0" task="AppReadiness_BrokerSession" opcode="win:Start" level="win:Informational" keywords="BrokerSession" template="AppReadiness_Service106Args"/>
+     <event value="2501" symbol="AppReadiness_BrokerSessionStop" version="0" task="AppReadiness_BrokerSession" opcode="win:Stop" level="win:Informational" keywords="BrokerSession" template="AppReadiness_BrokerSessionStopArgs"/>
+     <event value="2502" symbol="AppReadiness_BrokerSession" version="0" task="AppReadiness_BrokerSession" level="win:Informational" keywords="BrokerSession" template="AppReadiness_BrokerSessionArgs"/>
+     <event value="2503" symbol="AppReadiness_BrokerSession2503" version="0" task="AppReadiness_BrokerSession" level="win:Informational" keywords="BrokerSession" template="AppReadiness_BrokerSessionArgs"/>
+     <event value="2504" symbol="AppReadiness_BrokerSession2504" version="0" task="AppReadiness_BrokerSession" level="win:Informational" keywords="BrokerSession" template="AppReadiness_BrokerSessionStopArgs"/>
+     <event value="3000" symbol="AppReadiness_PerfTrackStart" version="0" task="AppReadiness_PerfTrack" opcode="win:Start" level="win:Informational" keywords="Tasks" template="AppReadiness_PerfTrackStartArgs"/>
+     <event value="3001" symbol="AppReadiness_PerfTrackStop" version="0" task="AppReadiness_PerfTrack" opcode="win:Stop" level="win:Informational" keywords="Tasks" template="AppReadiness_PerfTrackStartArgs"/>
+     <event value="4000" symbol="AppReadiness_TriggerTask_Run" version="0" task="AppReadiness_TriggerTask_Run" level="win:Informational" keywords="Triggers" template="AppReadiness_TriggerTask_RunArgs"/>
+     <event value="4001" symbol="AppReadiness_MaintenanceTask_Run" version="0" task="AppReadiness_MaintenanceTask_Run" level="win:Informational" keywords="Triggers" template="AppReadiness_TriggerTask_RunArgs"/>
+     <event value="5000" symbol="AppReadiness_TimelineStart" version="0" task="AppReadiness_Timeline" opcode="win:Start" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5001" symbol="AppReadiness_TimelineStop" version="0" task="AppReadiness_Timeline" opcode="win:Stop" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5002" symbol="AppReadiness_TimelineStart5002" version="0" task="AppReadiness_Timeline" opcode="win:Start" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5003" symbol="AppReadiness_TimelineStop5003" version="0" task="AppReadiness_Timeline" opcode="win:Stop" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5004" symbol="AppReadiness_TimelineStart5004" version="0" task="AppReadiness_Timeline" opcode="win:Start" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5005" symbol="AppReadiness_TimelineStop5005" version="0" task="AppReadiness_Timeline" opcode="win:Stop" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5006" symbol="AppReadiness_TimelineStart5006" version="0" task="AppReadiness_Timeline" opcode="win:Start" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5007" symbol="AppReadiness_TimelineStop5007" version="0" task="AppReadiness_Timeline" opcode="win:Stop" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5008" symbol="AppReadiness_TimelineStart5008" version="0" task="AppReadiness_Timeline" opcode="win:Start" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5009" symbol="AppReadiness_TimelineStop5009" version="0" task="AppReadiness_Timeline" opcode="win:Stop" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5010" symbol="AppReadiness_TimelineStart5010" version="0" task="AppReadiness_Timeline" opcode="win:Start" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5011" symbol="AppReadiness_TimelineStop5011" version="0" task="AppReadiness_Timeline" opcode="win:Stop" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5012" symbol="AppReadiness_TimelineStart5012" version="0" task="AppReadiness_Timeline" opcode="win:Start" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5013" symbol="AppReadiness_TimelineStop5013" version="0" task="AppReadiness_Timeline" opcode="win:Stop" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5014" symbol="AppReadiness_TimelineStart5014" version="0" task="AppReadiness_Timeline" opcode="win:Start" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5015" symbol="AppReadiness_TimelineStop5015" version="0" task="AppReadiness_Timeline" opcode="win:Stop" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5016" symbol="AppReadiness_TimelineStart5016" version="0" task="AppReadiness_Timeline" opcode="win:Start" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5017" symbol="AppReadiness_TimelineStop5017" version="0" task="AppReadiness_Timeline" opcode="win:Stop" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5018" symbol="AppReadiness_TimelineStart5018" version="0" task="AppReadiness_Timeline" opcode="win:Start" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5019" symbol="AppReadiness_TimelineStop5019" version="0" task="AppReadiness_Timeline" opcode="win:Stop" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5020" symbol="AppReadiness_TimelineStart5020" version="0" task="AppReadiness_Timeline" opcode="win:Start" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5021" symbol="AppReadiness_TimelineStop5021" version="0" task="AppReadiness_Timeline" opcode="win:Stop" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5022" symbol="AppReadiness_TimelineStart5022" version="0" task="AppReadiness_Timeline" opcode="win:Start" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5023" symbol="AppReadiness_TimelineStop5023" version="0" task="AppReadiness_Timeline" opcode="win:Stop" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5024" symbol="AppReadiness_TimelineStart5024" version="0" task="AppReadiness_Timeline" opcode="win:Start" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5025" symbol="AppReadiness_TimelineStop5025" version="0" task="AppReadiness_Timeline" opcode="win:Stop" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5026" symbol="AppReadiness_TimelineStart5026" version="0" task="AppReadiness_Timeline" opcode="win:Start" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5027" symbol="AppReadiness_TimelineStop5027" version="0" task="AppReadiness_Timeline" opcode="win:Stop" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5028" symbol="AppReadiness_TimelineStart5028" version="0" task="AppReadiness_Timeline" opcode="win:Start" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5029" symbol="AppReadiness_TimelineStop5029" version="0" task="AppReadiness_Timeline" opcode="win:Stop" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5030" symbol="AppReadiness_TimelineStart5030" version="0" task="AppReadiness_Timeline" opcode="win:Start" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5031" symbol="AppReadiness_TimelineStop5031" version="0" task="AppReadiness_Timeline" opcode="win:Stop" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5032" symbol="AppReadiness_TimelineStart5032" version="0" task="AppReadiness_Timeline" opcode="win:Start" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5033" symbol="AppReadiness_TimelineStop5033" version="0" task="AppReadiness_Timeline" opcode="win:Stop" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5034" symbol="AppReadiness_TimelineStart5034" version="0" task="AppReadiness_Timeline" opcode="win:Start" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5035" symbol="AppReadiness_TimelineStop5035" version="0" task="AppReadiness_Timeline" opcode="win:Stop" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5036" symbol="AppReadiness_TimelineStart5036" version="0" task="AppReadiness_Timeline" opcode="win:Start" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5037" symbol="AppReadiness_TimelineStop5037" version="0" task="AppReadiness_Timeline" opcode="win:Stop" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5038" symbol="AppReadiness_TimelineStart5038" version="0" task="AppReadiness_Timeline" opcode="win:Start" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5039" symbol="AppReadiness_TimelineStop5039" version="0" task="AppReadiness_Timeline" opcode="win:Stop" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5040" symbol="AppReadiness_TimelineStart5040" version="0" task="AppReadiness_Timeline" opcode="win:Start" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5041" symbol="AppReadiness_TimelineStop5041" version="0" task="AppReadiness_Timeline" opcode="win:Stop" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5042" symbol="AppReadiness_TimelineStart5042" version="0" task="AppReadiness_Timeline" opcode="win:Start" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5043" symbol="AppReadiness_TimelineStop5043" version="0" task="AppReadiness_Timeline" opcode="win:Stop" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5044" symbol="AppReadiness_ExecuteTask5044" version="0" task="AppReadiness_ExecuteTask" level="win:Error" keywords="Tasks" template="AppReadiness_TriggerTask_RunArgs"/>
+     <event value="5045" symbol="AppReadiness_ExecuteTask5045" version="0" task="AppReadiness_ExecuteTask" level="win:Error" keywords="Tasks" template="AppReadiness_TriggerTask_RunArgs"/>
+     <event value="5046" symbol="AppReadiness_ExecuteTask5046" version="0" task="AppReadiness_ExecuteTask" level="win:Informational" keywords="Tasks" template="AppReadiness_Service106Args"/>
+     <event value="5047" symbol="AppReadiness_ExecuteTask5047" version="0" task="AppReadiness_ExecuteTask" level="win:Informational" keywords="Tasks" template="AppReadiness_Service106Args"/>
+     <event value="5048" symbol="AppReadiness_TimelineStart5048" version="0" task="AppReadiness_Timeline" opcode="win:Start" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+     <event value="5049" symbol="AppReadiness_TimelineStop5049" version="0" task="AppReadiness_Timeline" opcode="win:Stop" level="win:Informational" keywords="Timeline" template="AppReadiness_TimelineStartArgs"/>
+    </events>
+    <templates>
+     <template tid="AppReadiness_ErrorArgs">
+      <data name="User" inType="win:UnicodeString"/>
+      <data name="Operation" inType="win:UnicodeString"/>
+      <data name="PackageId" inType="win:UnicodeString"/>
+      <data name="Result" inType="win:Int32"/>
+      <data name="Error" inType="win:UnicodeString"/>
+     </template>
+     <template tid="AppReadiness_Error11Args">
+      <data name="Error" inType="win:Int32"/>
+      <data name="Expression" inType="win:AnsiString"/>
+      <data name="Function" inType="win:AnsiString"/>
+      <data name="File" inType="win:AnsiString"/>
+      <data name="Line" inType="win:Int32"/>
+     </template>
+     <template tid="AppReadiness_Error12Args">
+      <data name="User" inType="win:UnicodeString"/>
+      <data name="Error" inType="win:UnicodeString"/>
+      <data name="Result" inType="win:Int32"/>
+     </template>
+     <template tid="AppReadiness_ServiceArgs">
+      <data name="Status" inType="win:UInt32" map="ServiceStatusType"/>
+      <data name="ExitCode" inType="win:HexInt32"/>
+     </template>
+     <template tid="AppReadiness_Service105Args">
+      <data name="IsIdle" inType="win:Boolean"/>
+      <data name="Reason" inType="win:UnicodeString"/>
+     </template>
+     <template tid="AppReadiness_Service106Args">
+      <data name="User" inType="win:UnicodeString"/>
+     </template>
+     <template tid="AppReadiness_PackageChangeStartArgs">
+      <data name="Source" inType="win:UInt32" map="PackageSourceType"/>
+     </template>
+     <template tid="AppReadiness_PackageChangeStopArgs">
+      <data name="Source" inType="win:UInt32"/>
+      <data name="Result" inType="win:Int32"/>
+     </template>
+     <template tid="AppReadiness_Service110Args">
+      <data name="ReferencesLeaked" inType="win:UInt32"/>
+      <data name="ShutdownDelayMsec" inType="win:UInt32"/>
+     </template>
+     <template tid="AppReadiness_User_ProcessTasksArgs">
+      <data name="User" inType="win:UnicodeString"/>
+      <data name="NumPackages" inType="win:UInt32"/>
+      <data name="PackageInfo" inType="win:UnicodeString" count="NumPackages"/>
+     </template>
+     <template tid="AppReadiness_User_ProcessTasksStart206Args">
+      <data name="User" inType="win:UnicodeString"/>
+      <data name="TaskId" inType="win:UnicodeString"/>
+      <data name="Priority" inType="win:UInt32"/>
+     </template>
+     <template tid="AppReadiness_User_ProcessTasksStop207Args">
+      <data name="User" inType="win:UnicodeString"/>
+      <data name="TaskId" inType="win:UnicodeString"/>
+      <data name="Result" inType="win:Int32"/>
+     </template>
+     <template tid="AppReadiness_User_ProcessTasks209Args">
+      <data name="User" inType="win:UnicodeString"/>
+      <data name="From" inType="win:UInt32" map="UserPhaseType"/>
+      <data name="To" inType="win:UInt32"/>
+     </template>
+     <template tid="AppReadiness_User_ProcessTasks212Args">
+      <data name="SID" inType="win:UnicodeString"/>
+      <data name="NumPackages" inType="win:UInt32"/>
+      <data name="PackageFamilyName" inType="win:UnicodeString" count="NumPackages"/>
+     </template>
+     <template tid="AppReadiness_User_ProcessTasks213Args">
+      <data name="Username" inType="win:UnicodeString"/>
+      <data name="Package" inType="win:UnicodeString"/>
+      <data name="Operation" inType="win:UInt32"/>
+      <data name="Elapsed" inType="win:Double"/>
+     </template>
+     <template tid="AppReadiness_User_ProcessTasks214Args">
+      <data name="User" inType="win:UnicodeString"/>
+      <data name="Package" inType="win:UnicodeString"/>
+      <data name="Operation" inType="win:UInt32" map="PackageOperationType"/>
+      <data name="Error" inType="win:Int32"/>
+      <data name="Elapsed" inType="win:Double"/>
+     </template>
+     <template tid="AppReadiness_User_ProcessTasks215Args">
+      <data name="Username" inType="win:UnicodeString"/>
+      <data name="Task" inType="win:UnicodeString"/>
+      <data name="Error" inType="win:Int32"/>
+      <data name="Elapsed" inType="win:Double"/>
+     </template>
+     <template tid="AppReadiness_User_ProcessTasks216Args">
+      <data name="User" inType="win:UnicodeString"/>
+      <data name="ResumeAt" inType="win:FILETIME"/>
+     </template>
+     <template tid="AppReadiness_User_ProcessTasks218Args">
+      <data name="User" inType="win:UnicodeString"/>
+      <data name="Package" inType="win:UnicodeString"/>
+      <data name="Operation" inType="win:UInt32"/>
+      <data name="Error" inType="win:Int32"/>
+      <data name="AttemptAfter" inType="win:FILETIME"/>
+     </template>
+     <template tid="AppReadiness_User_ProcessTasks220Args">
+      <data name="Username" inType="win:UnicodeString"/>
+      <data name="Task" inType="win:UnicodeString"/>
+      <data name="Elapsed" inType="win:Double"/>
+     </template>
+     <template tid="AppReadiness_User_ProcessTasks221Args">
+      <data name="Username" inType="win:UnicodeString"/>
+      <data name="Task" inType="win:UnicodeString"/>
+     </template>
+     <template tid="AppReadiness_User_ProcessTasks222Args">
+      <data name="User" inType="win:UnicodeString"/>
+      <data name="TaskId" inType="win:UnicodeString"/>
+      <data name="OpposingOperation" inType="win:UInt32"/>
+      <data name="TaskCanceled" inType="win:Boolean"/>
+     </template>
+     <template tid="AppReadiness_User_ProcessTasks228Args">
+      <data name="Task" inType="win:UnicodeString"/>
+      <data name="Elapsed" inType="win:Double"/>
+     </template>
+     <template tid="AppReadiness_User_ProcessTasks229Args">
+      <data name="TaskId" inType="win:UnicodeString"/>
+      <data name="Priority" inType="win:UInt32" map="TaskPriorityType"/>
+     </template>
+     <template tid="AppReadiness_User_ProcessTasksStop232Args">
+      <data name="ExitCode" inType="win:HexInt32"/>
+     </template>
+     <template tid="AppReadiness_User_ProcessTasks240Args">
+      <data name="User" inType="win:UnicodeString"/>
+      <data name="TaskId" inType="win:UnicodeString"/>
+      <data name="TaskCount" inType="win:UInt32"/>
+     </template>
+     <template tid="AppReadiness_ExecuteTaskStartArgs">
+      <data name="User" inType="win:UnicodeString"/>
+      <data name="TaskId" inType="win:UnicodeString"/>
+     </template>
+     <template tid="AppReadiness_ExecuteTaskStopArgs">
+      <data name="User" inType="win:UnicodeString"/>
+      <data name="TaskId" inType="win:UnicodeString"/>
+      <data name="Result" inType="win:Int32"/>
+      <data name="Duration" inType="win:Double"/>
+     </template>
+     <template tid="AppReadiness_ExecuteTaskStart302Args">
+      <data name="User" inType="win:UnicodeString"/>
+      <data name="GroupId" inType="win:UnicodeString"/>
+     </template>
+     <template tid="AppReadiness_ExecuteTaskStop303Args">
+      <data name="User" inType="win:UnicodeString"/>
+      <data name="GroupId" inType="win:UnicodeString"/>
+      <data name="Result" inType="win:Int32"/>
+      <data name="Duration" inType="win:Double"/>
+     </template>
+     <template tid="AppReadiness_ExecuteTaskArgs">
+      <data name="User" inType="win:UnicodeString"/>
+      <data name="GroupId" inType="win:UnicodeString"/>
+      <data name="TaskId" inType="win:UnicodeString"/>
+      <data name="Result" inType="win:Int32"/>
+     </template>
+     <template tid="AppReadiness_ExecuteTask305Args">
+      <data name="User" inType="win:UnicodeString"/>
+      <data name="PackageFamilyName" inType="win:UnicodeString"/>
+      <data name="Reason" inType="win:UnicodeString"/>
+     </template>
+     <template tid="AppReadiness_ExecuteTask308Args">
+      <data name="User" inType="win:UnicodeString"/>
+      <data name="PackageFamilyName" inType="win:UnicodeString"/>
+      <data name="Source" inType="win:UInt32" map="PreviewTileSourceType"/>
+      <data name="Result" inType="win:Int32"/>
+     </template>
+     <template tid="AppReadiness_ExecuteTask311Args">
+      <data name="User" inType="win:UnicodeString"/>
+      <data name="Key" inType="win:UnicodeString"/>
+      <data name="Result" inType="win:UInt32"/>
+     </template>
+     <template tid="AppReadiness_ExecuteTask312Args">
+      <data name="User" inType="win:UnicodeString"/>
+      <data name="Source" inType="win:UInt32"/>
+      <data name="NumPackages" inType="win:UInt32"/>
+      <data name="PackageFamilyName" inType="win:UnicodeString" count="NumPackages"/>
+     </template>
+     <template tid="AppReadiness_ExecuteTask313Args">
+      <data name="User" inType="win:UnicodeString"/>
+      <data name="Group" inType="win:UnicodeString"/>
+      <data name="Task" inType="win:UnicodeString"/>
+     </template>
+     <template tid="AppReadiness_ExecuteTask316Args">
+      <data name="User" inType="win:UnicodeString"/>
+      <data name="PackageFamilyName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="AppReadiness_PreRegister_PackageStartArgs">
+      <data name="PackageId" inType="win:UnicodeString"/>
+     </template>
+     <template tid="AppReadiness_PreRegister_PackageArgs">
+      <data name="PackageId" inType="win:UnicodeString"/>
+      <data name="Result" inType="win:Int32"/>
+     </template>
+     <template tid="AppReadiness_ExecuteTask320Args">
+      <data name="Key" inType="win:UnicodeString"/>
+      <data name="Result" inType="win:UInt32"/>
+     </template>
+     <template tid="AppReadiness_Api_InstallStartArgs">
+      <data name="User" inType="win:UnicodeString"/>
+      <data name="ProcessId" inType="win:UInt32"/>
+     </template>
+     <template tid="AppReadiness_Api_InstallStopArgs">
+      <data name="User" inType="win:UnicodeString"/>
+      <data name="ProcessId" inType="win:UInt32"/>
+      <data name="Result" inType="win:Int32"/>
+     </template>
+     <template tid="AppReadiness_Api_DisableInAuditModeArgs">
+      <data name="IsAuditMode" inType="win:Boolean"/>
+     </template>
+     <template tid="AppReadiness_ScorePackageStopArgs">
+      <data name="User" inType="win:UnicodeString"/>
+      <data name="PackageFamilyName" inType="win:UnicodeString"/>
+      <data name="Score" inType="win:UInt32"/>
+     </template>
+     <template tid="AppReadiness_BrokerSessionStopArgs">
+      <data name="User" inType="win:UnicodeString"/>
+      <data name="Result" inType="win:UInt32"/>
+     </template>
+     <template tid="AppReadiness_BrokerSessionArgs">
+      <data name="User" inType="win:UnicodeString"/>
+      <data name="Package" inType="win:UnicodeString"/>
+      <data name="Result" inType="win:UInt32"/>
+     </template>
+     <template tid="AppReadiness_PerfTrackStartArgs">
+      <data name="TaskId" inType="win:UnicodeString"/>
+     </template>
+     <template tid="AppReadiness_TriggerTask_RunArgs">
+      <data name="User" inType="win:UnicodeString"/>
+      <data name="Result" inType="win:Int32"/>
+     </template>
+     <template tid="AppReadiness_TimelineStartArgs">
+      <data name="UserId" inType="win:UnicodeString"/>
+      <data name="PackageFamilyName" inType="win:UnicodeString"/>
+      <data name="ActivityId" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Service" value="Service"/>
+    <string id="keyword_User" value="User"/>
+    <string id="keyword_Tasks" value="Tasks"/>
+    <string id="keyword_Api" value="Api"/>
+    <string id="keyword_Scoring" value="Scoring"/>
+    <string id="keyword_BrokerSession" value="BrokerSession"/>
+    <string id="keyword_Triggers" value="Triggers"/>
+    <string id="keyword_Error" value="Error"/>
+    <string id="keyword_Timeline" value="Timeline"/>
+    <string id="keyword_keyword_400000000000" value="keyword_400000000000"/>
+    <string id="task_AppReadiness_User_ProcessTasks" value="AppReadiness_User_ProcessTasks"/>
+    <string id="task_AppReadiness_ExecuteTask" value="AppReadiness_ExecuteTask"/>
+    <string id="task_AppReadiness_Api_Install" value="AppReadiness_Api_Install"/>
+    <string id="task_AppReadiness_ScorePackage" value="AppReadiness_ScorePackage"/>
+    <string id="task_AppReadiness_PerfTrack" value="AppReadiness_PerfTrack"/>
+    <string id="task_AppReadiness_Error" value="AppReadiness_Error"/>
+    <string id="task_AppReadiness_Service" value="AppReadiness_Service"/>
+    <string id="task_AppReadiness_Api_Remove" value="AppReadiness_Api_Remove"/>
+    <string id="task_AppReadiness_Api_GetTask" value="AppReadiness_Api_GetTask"/>
+    <string id="task_AppReadiness_Api_ProcessTasks" value="AppReadiness_Api_ProcessTasks"/>
+    <string id="task_AppReadiness_Service_Lifetime" value="AppReadiness_Service_Lifetime"/>
+    <string id="task_AppReadiness_Service_Thread" value="AppReadiness_Service_Thread"/>
+    <string id="task_AppReadiness_BrokerSession" value="AppReadiness_BrokerSession"/>
+    <string id="task_AppReadiness_Api_HandlePackageChange" value="AppReadiness_Api_HandlePackageChange"/>
+    <string id="task_AppReadiness_PackageChange" value="AppReadiness_PackageChange"/>
+    <string id="task_AppReadiness_TriggerTask_Run" value="AppReadiness_TriggerTask_Run"/>
+    <string id="task_AppReadiness_MaintenanceTask_Run" value="AppReadiness_MaintenanceTask_Run"/>
+    <string id="task_AppReadiness_User_Shutdown" value="AppReadiness_User_Shutdown"/>
+    <string id="task_AppReadiness_Api_CreateTask" value="AppReadiness_Api_CreateTask"/>
+    <string id="task_AppReadiness_Api_EnterLogonPhase" value="AppReadiness_Api_EnterLogonPhase"/>
+    <string id="task_AppReadiness_PreRegister_Package" value="AppReadiness_PreRegister_Package"/>
+    <string id="task_AppReadiness_Api_ResolveStoreCategories" value="AppReadiness_Api_ResolveStoreCategories"/>
+    <string id="task_AppReadiness_Timeline" value="AppReadiness_Timeline"/>
+    <string id="task_AppReadiness_Api_DisableInAuditMode" value="AppReadiness_Api_DisableInAuditMode"/>
+    <string id="map_ServiceStatusTypeSERVICE_STOPPED" value="SERVICE_STOPPED"/>
+    <string id="map_ServiceStatusTypeSERVICE_START_PENDING" value="SERVICE_START_PENDING"/>
+    <string id="map_ServiceStatusTypeSERVICE_STOP_PENDING" value="SERVICE_STOP_PENDING"/>
+    <string id="map_ServiceStatusTypeSERVICE_RUNNING" value="SERVICE_RUNNING"/>
+    <string id="map_ServiceStatusTypeSERVICE_CONTINUE_PENDING" value="SERVICE_CONTINUE_PENDING"/>
+    <string id="map_ServiceStatusTypeSERVICE_PAUSE_PENDING" value="SERVICE_PAUSE_PENDING"/>
+    <string id="map_ServiceStatusTypeSERVICE_PAUSED" value="SERVICE_PAUSED"/>
+    <string id="map_PackageSourceTypeOEM" value="OEM"/>
+    <string id="map_PackageSourceTypeCBS" value="CBS"/>
+    <string id="map_PackageSourceTypeDISM" value="DISM"/>
+    <string id="map_UserPhaseTypeBeforeLogon" value="BeforeLogon"/>
+    <string id="map_UserPhaseTypeFirstLogon" value="FirstLogon"/>
+    <string id="map_UserPhaseTypeAfterLogon" value="AfterLogon"/>
+    <string id="map_UserPhaseTypeLoggingOff" value="LoggingOff"/>
+    <string id="map_PackageOperationTypeNone" value="None"/>
+    <string id="map_PackageOperationTypeinstall" value="install"/>
+    <string id="map_PackageOperationTypeuninstall" value="uninstall"/>
+    <string id="map_PackageOperationTypepre-registration" value="pre-registration"/>
+    <string id="map_TaskPriorityTypeNone" value="None"/>
+    <string id="map_TaskPriorityTypeError" value="Error"/>
+    <string id="map_TaskPriorityTypeLow" value="Low"/>
+    <string id="map_TaskPriorityTypeStandard" value="Standard"/>
+    <string id="map_TaskPriorityTypeHigh" value="High"/>
+    <string id="map_TaskPriorityTypePreview" value="Preview"/>
+    <string id="map_TaskPriorityTypeLogon" value="Logon"/>
+    <string id="map_TaskPriorityTypePreShell" value="PreShell"/>
+    <string id="map_TaskPriorityTypeSystemTask" value="SystemTask"/>
+    <string id="map_TaskPriorityTypeInboxGroup" value="InboxGroup"/>
+    <string id="map_TaskPriorityTypeUserLogonGroup" value="UserLogonGroup"/>
+    <string id="map_TaskPriorityTypePreRoamingGroup" value="PreRoamingGroup"/>
+    <string id="map_TaskPriorityTypeMax" value="Max"/>
+    <string id="map_PreviewTileSourceTypeLocal" value="Local"/>
+    <string id="map_PreviewTileSourceTypeStore" value="Store"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

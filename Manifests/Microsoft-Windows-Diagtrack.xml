@@ -1,0 +1,52 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-DiagTrack" guid="{56dc463b-97e8-4b59-e836-ab7c9bb96301}" resourceFileName="Microsoft-Windows-DiagTrack" messageFileName="Microsoft-Windows-DiagTrack" symbol="MicrosoftWindowsDiagTrack" source="Xml" >
+    <keywords>
+     <keyword name="DiagTrackStatus" message="$(string.keyword_DiagTrackStatus)" mask="0x10000"/>
+     <keyword name="DiagTrackPerf" message="$(string.keyword_DiagTrackPerf)" mask="0x200000000"/>
+    </keywords>
+    <tasks>
+     <task name="AsimovUploader_PersistEvent" message="$(string.task_AsimovUploader_PersistEvent)" value="755"/>
+     <task name="AsimovUploader_UploadEventBuffer" message="$(string.task_AsimovUploader_UploadEventBuffer)" value="756"/>
+     <task name="SnapTrace_SnappingScenarioInformation" message="$(string.task_SnapTrace_SnappingScenarioInformation)" value="4100"/>
+    </tasks>
+    <events>
+     <event value="755" symbol="AsimovUploader_PersistEvent_V1" version="1" task="AsimovUploader_PersistEvent" level="win:Informational" keywords="DiagTrackStatus" template="AsimovUploader_PersistEventArgs_V1"/>
+     <event value="756" symbol="AsimovUploader_UploadEventBuffer" version="0" task="AsimovUploader_UploadEventBuffer" level="win:Informational"/>
+     <event value="4100" symbol="SnapTrace_SnappingScenarioInformation_V1" version="1" task="SnapTrace_SnappingScenarioInformation" level="win:Informational" keywords="DiagTrackPerf" template="SnapTrace_SnappingScenarioInformationArgs_V1"/>
+    </events>
+    <templates>
+     <template tid="AsimovUploader_PersistEventArgs_V1">
+      <data name="EventPayload" inType="win:UnicodeString"/>
+      <data name="EventLatency" inType="win:Int16"/>
+      <data name="EventPersistence" inType="win:Int16"/>
+      <data name="GroupId" inType="win:GUID"/>
+      <data name="ProviderId" inType="win:GUID"/>
+      <data name="Categories" inType="win:UInt64"/>
+      <data name="IsCore" inType="win:Boolean"/>
+      <data name="ProcessId" inType="win:UInt32"/>
+     </template>
+     <template tid="SnapTrace_SnappingScenarioInformationArgs_V1">
+      <data name="ScenarioId" inType="win:GUID"/>
+      <data name="Duration" inType="win:UInt64"/>
+      <data name="TriggersCount" inType="win:UInt32"/>
+      <data name="TriggerInfo" inType="win:Int16" count="TriggersCount"/>
+      <data name="ScenarioInstanceId" inType="win:GUID"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_DiagTrackStatus" value="DiagTrackStatus"/>
+    <string id="keyword_DiagTrackPerf" value="DiagTrackPerf"/>
+    <string id="task_AsimovUploader_PersistEvent" value="AsimovUploader_PersistEvent"/>
+    <string id="task_AsimovUploader_UploadEventBuffer" value="AsimovUploader_UploadEventBuffer"/>
+    <string id="task_SnapTrace_SnappingScenarioInformation" value="SnapTrace_SnappingScenarioInformation"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

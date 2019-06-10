@@ -1,0 +1,79 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-User-Loader" guid="{b059b83f-d946-4b13-87ca-4292839dc2f2}" resourceFileName="Microsoft-Windows-User-Loader" messageFileName="Microsoft-Windows-User-Loader" symbol="MicrosoftWindowsUserLoader" source="Xml" >
+    <keywords>
+     <keyword name="USER_LOADER_KEYWORD_DEPRECATED_DLL" message="$(string.keyword_USER_LOADER_KEYWORD_DEPRECATED_DLL)" mask="0x10"/>
+     <keyword name="USER_LOADER_FATAL_CALLBACK_EXCEPTION" message="$(string.keyword_USER_LOADER_FATAL_CALLBACK_EXCEPTION)" mask="0x20"/>
+     <keyword name="USER_LOADER_KEYWORD_LOAD_FAILURE" message="$(string.keyword_USER_LOADER_KEYWORD_LOAD_FAILURE)" mask="0x40"/>
+     <keyword name="USER_LOADER_LAUNCH_16BIT_APP" message="$(string.keyword_USER_LOADER_LAUNCH_16BIT_APP)" mask="0x80"/>
+     <keyword name="USER_LOADER_KEYWORD_COMPONENT_ON_DEMAND" message="$(string.keyword_USER_LOADER_KEYWORD_COMPONENT_ON_DEMAND)" mask="0x100"/>
+     <keyword name="USER_LOADER_KEYWORD_LOAD_FATAL_ERROR" message="$(string.keyword_USER_LOADER_KEYWORD_LOAD_FATAL_ERROR)" mask="0x200"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="task_0" version="0" task="task_0" level="win:Informational" keywords="USER_LOADER_KEYWORD_DEPRECATED_DLL" template="task_0Args"/>
+     <event value="2" symbol="task_02" version="0" task="task_0" level="win:Informational" keywords="USER_LOADER_FATAL_CALLBACK_EXCEPTION" template="task_02Args"/>
+     <event value="3" symbol="task_03" version="0" task="task_0" level="win:Informational" keywords="USER_LOADER_KEYWORD_LOAD_FAILURE" template="task_03Args"/>
+     <event value="4" symbol="task_04" version="0" task="task_0" level="win:Informational" keywords="USER_LOADER_LAUNCH_16BIT_APP" template="task_0Args"/>
+     <event value="5" symbol="task_05" version="0" task="task_0" level="win:Informational" keywords="USER_LOADER_KEYWORD_COMPONENT_ON_DEMAND" template="task_05Args"/>
+     <event value="6" symbol="task_06" version="0" task="task_0" level="win:Warning" keywords="USER_LOADER_KEYWORD_LOAD_FATAL_ERROR" template="task_0Args"/>
+     <event value="7" symbol="task_07" version="0" task="task_0" level="win:Warning" keywords="USER_LOADER_KEYWORD_LOAD_FATAL_ERROR" template="task_0Args"/>
+     <event value="8" symbol="task_08" version="0" task="task_0" level="win:Informational" template="task_08Args"/>
+     <event value="9" symbol="task_09" version="0" task="task_0" level="win:Critical" keywords="USER_LOADER_KEYWORD_LOAD_FATAL_ERROR" template="task_0Args"/>
+     <event value="10" symbol="task_010" version="0" task="task_0" level="win:Informational" template="task_03Args"/>
+     <event value="11" symbol="task_011" version="0" task="task_0" level="win:Warning" template="task_011Args"/>
+     <event value="12" symbol="task_012" version="0" task="task_0" level="win:Error" template="task_012Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="FileName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_02Args">
+      <data name="ProcessFileNamePathLength" inType="win:UInt16"/>
+      <data name="ProcessFileNamePath" inType="win:UnicodeString" length="ProcessFileNamePathLength"/>
+     </template>
+     <template tid="task_03Args">
+      <data name="FailureReason" inType="win:UInt32"/>
+      <data name="ImportDllName" inType="win:UnicodeString"/>
+      <data name="ProcessImagePath" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_05Args">
+      <data name="ProcessId" inType="win:UInt32"/>
+      <data name="SuspendProcessRequest" inType="win:UInt32"/>
+      <data name="DLLName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_08Args">
+      <data name="FailureReason" inType="win:UInt32"/>
+      <data name="ImportDllName" inType="win:UnicodeString"/>
+      <data name="ExportModule" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_011Args">
+      <data name="ProcessImagePath" inType="win:UnicodeString"/>
+      <data name="CurDirDllPath" inType="win:UnicodeString"/>
+      <data name="FoundDllPath" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_012Args">
+      <data name="ProcessImagePath" inType="win:UnicodeString"/>
+      <data name="CurDirDllPath" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_USER_LOADER_KEYWORD_DEPRECATED_DLL" value="USER_LOADER_KEYWORD_DEPRECATED_DLL"/>
+    <string id="keyword_USER_LOADER_FATAL_CALLBACK_EXCEPTION" value="USER_LOADER_FATAL_CALLBACK_EXCEPTION"/>
+    <string id="keyword_USER_LOADER_KEYWORD_LOAD_FAILURE" value="USER_LOADER_KEYWORD_LOAD_FAILURE"/>
+    <string id="keyword_USER_LOADER_LAUNCH_16BIT_APP" value="USER_LOADER_LAUNCH_16BIT_APP"/>
+    <string id="keyword_USER_LOADER_KEYWORD_COMPONENT_ON_DEMAND" value="USER_LOADER_KEYWORD_COMPONENT_ON_DEMAND"/>
+    <string id="keyword_USER_LOADER_KEYWORD_LOAD_FATAL_ERROR" value="USER_LOADER_KEYWORD_LOAD_FATAL_ERROR"/>
+    <string id="task_task_0" value="task_0"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

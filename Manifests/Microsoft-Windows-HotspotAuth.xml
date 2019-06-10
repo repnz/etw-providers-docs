@@ -1,0 +1,80 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-HotspotAuth" guid="{de095dbe-8667-4168-94c2-48ca61665aca}" resourceFileName="Microsoft-Windows-HotspotAuth" messageFileName="Microsoft-Windows-HotspotAuth" symbol="MicrosoftWindowsHotspotAuth" source="Xml" >
+    <keywords>
+     <keyword name="ut:Authentication" message="$(string.keyword_ut:Authentication)" mask="0x1"/>
+     <keyword name="ut:WISPrDetection" message="$(string.keyword_ut:WISPrDetection)" mask="0x10"/>
+     <keyword name="ut:HotspotDetection" message="$(string.keyword_ut:HotspotDetection)" mask="0x100"/>
+    </keywords>
+    <tasks>
+     <task name="HotspotAuthentication" message="$(string.task_HotspotAuthentication)" value="1"/>
+     <task name="WISPrDetection" message="$(string.task_WISPrDetection)" value="2"/>
+     <task name="HotspotDetection" message="$(string.task_HotspotDetection)" value="3"/>
+    </tasks>
+    <maps>
+     <bitMap name="AuthenticationScenarioMap">
+      <map value="0x1" message="$(string.map_AuthenticationScenarioMapAuth Completion Status Success)"/>
+      <map value="0x2" message="$(string.map_AuthenticationScenarioMapAuth Polling Support Present)"/>
+     </bitMap>
+    </maps>
+    <events>
+     <event value="1001" symbol="HotspotAuthenticationStart" version="0" task="HotspotAuthentication" opcode="win:Start" level="win:Informational" keywords="ut:Authentication" template="HotspotAuthenticationStartArgs"/>
+     <event value="1002" symbol="HotspotAuthenticationStop" version="0" task="HotspotAuthentication" opcode="win:Stop" level="win:Informational" keywords="ut:Authentication" template="HotspotAuthenticationStartArgs"/>
+     <event value="1003" symbol="HotspotAuthenticationStop1003" version="0" task="HotspotAuthentication" opcode="win:Stop" level="win:Informational" keywords="ut:Authentication" template="HotspotAuthenticationStop1003Args"/>
+     <event value="1004" symbol="HotspotAuthenticationStop1004" version="0" task="HotspotAuthentication" opcode="win:Stop" level="win:Informational" keywords="ut:Authentication" template="HotspotAuthenticationStartArgs"/>
+     <event value="1005" symbol="HotspotAuthenticationStop1005" version="0" task="HotspotAuthentication" opcode="win:Stop" level="win:Informational" keywords="ut:Authentication" template="HotspotAuthenticationStop1005Args"/>
+     <event value="1006" symbol="HotspotAuthenticationStop1006" version="0" task="HotspotAuthentication" opcode="win:Stop" level="win:Informational" keywords="ut:Authentication" template="HotspotAuthenticationStartArgs"/>
+     <event value="2001" symbol="WISPrDetectionStart" version="0" task="WISPrDetection" opcode="win:Start" level="win:Informational" keywords="ut:WISPrDetection" template="HotspotAuthenticationStartArgs"/>
+     <event value="2002" symbol="WISPrDetectionStop" version="0" task="WISPrDetection" opcode="win:Stop" level="win:Informational" keywords="ut:WISPrDetection" template="HotspotAuthenticationStartArgs"/>
+     <event value="2003" symbol="WISPrDetectionStop2003" version="0" task="WISPrDetection" opcode="win:Stop" level="win:Informational" keywords="ut:WISPrDetection" template="WISPrDetectionStop2003Args"/>
+     <event value="2004" symbol="WISPrDetectionStop2004" version="0" task="WISPrDetection" opcode="win:Stop" level="win:Informational" keywords="ut:WISPrDetection" template="WISPrDetectionStop2004Args"/>
+     <event value="2005" symbol="WISPrDetectionStop2005" version="0" task="WISPrDetection" opcode="win:Stop" level="win:Informational" keywords="ut:WISPrDetection" template="HotspotAuthenticationStartArgs"/>
+     <event value="2006" symbol="WISPrDetectionStop2006" version="0" task="WISPrDetection" opcode="win:Stop" level="win:Informational" keywords="ut:WISPrDetection" template="HotspotAuthenticationStartArgs"/>
+     <event value="2007" symbol="WISPrDetectionStop2007" version="0" task="WISPrDetection" opcode="win:Stop" level="win:Informational" keywords="ut:WISPrDetection" template="HotspotAuthenticationStartArgs"/>
+     <event value="3001" symbol="HotspotDetectionStop" version="0" task="HotspotDetection" opcode="win:Stop" level="win:Informational" keywords="ut:HotspotDetection" template="HotspotAuthenticationStartArgs"/>
+     <event value="3002" symbol="HotspotDetectionStop3002" version="0" task="HotspotDetection" opcode="win:Stop" level="win:Informational" keywords="ut:HotspotDetection" template="HotspotAuthenticationStartArgs"/>
+    </events>
+    <templates>
+     <template tid="HotspotAuthenticationStartArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+     </template>
+     <template tid="HotspotAuthenticationStop1003Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="Result" inType="win:Int32"/>
+      <data name="ResponseCode" inType="win:UInt32"/>
+     </template>
+     <template tid="HotspotAuthenticationStop1005Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="AuthenticationScenarioType" inType="win:UInt32" map="AuthenticationScenarioMap"/>
+      <data name="Result" inType="win:Int32"/>
+      <data name="ResponseCode" inType="win:UInt32"/>
+     </template>
+     <template tid="WISPrDetectionStop2003Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="Result" inType="win:Int32"/>
+     </template>
+     <template tid="WISPrDetectionStop2004Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="WisprScenarioType" inType="win:UInt32"/>
+      <data name="Result" inType="win:Int32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_ut:Authentication" value="ut:Authentication"/>
+    <string id="keyword_ut:WISPrDetection" value="ut:WISPrDetection"/>
+    <string id="keyword_ut:HotspotDetection" value="ut:HotspotDetection"/>
+    <string id="task_HotspotAuthentication" value="HotspotAuthentication"/>
+    <string id="task_WISPrDetection" value="WISPrDetection"/>
+    <string id="task_HotspotDetection" value="HotspotDetection"/>
+    <string id="map_AuthenticationScenarioMapAuth Completion Status Success" value="Auth Completion Status Success"/>
+    <string id="map_AuthenticationScenarioMapAuth Polling Support Present" value="Auth Polling Support Present"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

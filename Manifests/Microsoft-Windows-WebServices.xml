@@ -1,0 +1,565 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-WebServices" guid="{e04fe2e0-c6cf-4273-b59d-5c97c9c374a4}" resourceFileName="Microsoft-Windows-WebServices" messageFileName="Microsoft-Windows-WebServices" symbol="MicrosoftWindowsWebServices" source="Xml" >
+    <keywords>
+     <keyword name="keywords.API" message="$(string.keyword_keywords.API)" mask="0x1"/>
+     <keyword name="keywords.Error" message="$(string.keyword_keywords.Error)" mask="0x2"/>
+     <keyword name="keywords.IO" message="$(string.keyword_keywords.IO)" mask="0x4"/>
+     <keyword name="keywords.Message" message="$(string.keyword_keywords.Message)" mask="0x8"/>
+     <keyword name="keywords.BinaryMessage" message="$(string.keyword_keywords.BinaryMessage)" mask="0x10"/>
+    </keywords>
+    <tasks>
+     <task name="APIs" message="$(string.task_APIs)" value="1">
+>
+      <opcodes>
+       <opcode name="APIEnter" message="$(string.opcode_APIsAPIEnter)" value="10"/>
+       <opcode name="APIExitSyncSuccess" message="$(string.opcode_APIsAPIExitSyncSuccess)" value="11"/>
+       <opcode name="APIExitSyncFailure" message="$(string.opcode_APIsAPIExitSyncFailure)" value="12"/>
+       <opcode name="APIPending" message="$(string.opcode_APIsAPIPending)" value="13"/>
+       <opcode name="APIExitAsyncSuccess" message="$(string.opcode_APIsAPIExitAsyncSuccess)" value="14"/>
+       <opcode name="APIExitAsyncFailure" message="$(string.opcode_APIsAPIExitAsyncFailure)" value="15"/>
+       <opcode name="SendingHTTPheaders" message="$(string.opcode_APIsSendingHTTPheaders)" value="28"/>
+       <opcode name="ReceivingHTTPheaders" message="$(string.opcode_APIsReceivingHTTPheaders)" value="29"/>
+       <opcode name="Trace" message="$(string.opcode_APIsTrace)" value="30"/>
+      </opcodes>
+     </task>
+     <task name="Errors" message="$(string.task_Errors)" value="2">
+>
+      <opcodes>
+       <opcode name="Error" message="$(string.opcode_ErrorsError)" value="19"/>
+      </opcodes>
+     </task>
+     <task name="IOOperations" message="$(string.task_IOOperations)" value="3">
+>
+      <opcodes>
+       <opcode name="IOStarted" message="$(string.opcode_IOOperationsIOStarted)" value="16"/>
+       <opcode name="IOCompleted" message="$(string.opcode_IOOperationsIOCompleted)" value="17"/>
+       <opcode name="IOFailed" message="$(string.opcode_IOOperationsIOFailed)" value="18"/>
+      </opcodes>
+     </task>
+     <task name="MessageExchange" message="$(string.task_MessageExchange)" value="4">
+>
+      <opcodes>
+       <opcode name="SendingMessage_Binary" message="$(string.opcode_MessageExchangeSendingMessage_Binary)" value="20"/>
+       <opcode name="ReceivedMessage_Binary" message="$(string.opcode_MessageExchangeReceivedMessage_Binary)" value="21"/>
+       <opcode name="SendingMessage_Text" message="$(string.opcode_MessageExchangeSendingMessage_Text)" value="22"/>
+       <opcode name="ReceivedMessage_Text" message="$(string.opcode_MessageExchangeReceivedMessage_Text)" value="23"/>
+       <opcode name="SendingMessageStart" message="$(string.opcode_MessageExchangeSendingMessageStart)" value="24"/>
+       <opcode name="SendingMessageStop" message="$(string.opcode_MessageExchangeSendingMessageStop)" value="25"/>
+       <opcode name="ReceivedMessageStart" message="$(string.opcode_MessageExchangeReceivedMessageStart)" value="26"/>
+       <opcode name="ReceivedMessageStop" message="$(string.opcode_MessageExchangeReceivedMessageStop)" value="27"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <maps>
+     <valueMap name="ApiNameType">
+      <map value="0x0" message="$(string.map_ApiNameTypeWsStartReaderCanonicalization)"/>
+      <map value="0x1" message="$(string.map_ApiNameTypeWsEndReaderCanonicalization)"/>
+      <map value="0x2" message="$(string.map_ApiNameTypeWsStartWriterCanonicalization)"/>
+      <map value="0x3" message="$(string.map_ApiNameTypeWsEndWriterCanonicalization)"/>
+      <map value="0x4" message="$(string.map_ApiNameTypeWsCreateXmlBuffer)"/>
+      <map value="0x5" message="$(string.map_ApiNameTypeWsRemoveNode)"/>
+      <map value="0x6" message="$(string.map_ApiNameTypeWsCreateReader)"/>
+      <map value="0x7" message="$(string.map_ApiNameTypeWsSetInput)"/>
+      <map value="0x8" message="$(string.map_ApiNameTypeWsSetInputToBuffer)"/>
+      <map value="0x9" message="$(string.map_ApiNameTypeWsFreeReader)"/>
+      <map value="0xa" message="$(string.map_ApiNameTypeWsGetReaderProperty)"/>
+      <map value="0xb" message="$(string.map_ApiNameTypeWsGetReaderNode)"/>
+      <map value="0xc" message="$(string.map_ApiNameTypeWsFillReader)"/>
+      <map value="0xd" message="$(string.map_ApiNameTypeWsReadStartElement)"/>
+      <map value="0xe" message="$(string.map_ApiNameTypeWsReadToStartElement)"/>
+      <map value="0xf" message="$(string.map_ApiNameTypeWsReadStartAttribute)"/>
+      <map value="0x10" message="$(string.map_ApiNameTypeWsReadEndAttribute)"/>
+      <map value="0x11" message="$(string.map_ApiNameTypeWsReadNode)"/>
+      <map value="0x12" message="$(string.map_ApiNameTypeWsSkipNode)"/>
+      <map value="0x13" message="$(string.map_ApiNameTypeWsReadEndElement)"/>
+      <map value="0x14" message="$(string.map_ApiNameTypeWsFindAttribute)"/>
+      <map value="0x15" message="$(string.map_ApiNameTypeWsReadValue)"/>
+      <map value="0x16" message="$(string.map_ApiNameTypeWsReadChars)"/>
+      <map value="0x17" message="$(string.map_ApiNameTypeWsReadCharsUtf8)"/>
+      <map value="0x18" message="$(string.map_ApiNameTypeWsReadBytes)"/>
+      <map value="0x19" message="$(string.map_ApiNameTypeWsReadArray)"/>
+      <map value="0x1a" message="$(string.map_ApiNameTypeWsGetReaderPosition)"/>
+      <map value="0x1b" message="$(string.map_ApiNameTypeWsSetReaderPosition)"/>
+      <map value="0x1c" message="$(string.map_ApiNameTypeWsMoveReader)"/>
+      <map value="0x1d" message="$(string.map_ApiNameTypeWsCreateWriter)"/>
+      <map value="0x1e" message="$(string.map_ApiNameTypeWsFreeWriter)"/>
+      <map value="0x1f" message="$(string.map_ApiNameTypeWsSetOutput)"/>
+      <map value="0x20" message="$(string.map_ApiNameTypeWsSetOutputToBuffer)"/>
+      <map value="0x21" message="$(string.map_ApiNameTypeWsGetWriterProperty)"/>
+      <map value="0x22" message="$(string.map_ApiNameTypeWsFlushWriter)"/>
+      <map value="0x23" message="$(string.map_ApiNameTypeWsWriteStartElement)"/>
+      <map value="0x24" message="$(string.map_ApiNameTypeWsWriteEndStartElement)"/>
+      <map value="0x25" message="$(string.map_ApiNameTypeWsWriteXmlnsAttribute)"/>
+      <map value="0x26" message="$(string.map_ApiNameTypeWsWriteStartAttribute)"/>
+      <map value="0x27" message="$(string.map_ApiNameTypeWsWriteEndAttribute)"/>
+      <map value="0x28" message="$(string.map_ApiNameTypeWsWriteValue)"/>
+      <map value="0x29" message="$(string.map_ApiNameTypeWsWriteXmlBuffer)"/>
+      <map value="0x2a" message="$(string.map_ApiNameTypeWsReadXmlBuffer)"/>
+      <map value="0x2b" message="$(string.map_ApiNameTypeWsWriteXmlBufferToBytes)"/>
+      <map value="0x2c" message="$(string.map_ApiNameTypeWsReadXmlBufferFromBytes)"/>
+      <map value="0x2d" message="$(string.map_ApiNameTypeWsWriteArray)"/>
+      <map value="0x2e" message="$(string.map_ApiNameTypeWsWriteQualifiedName)"/>
+      <map value="0x2f" message="$(string.map_ApiNameTypeWsWriteChars)"/>
+      <map value="0x30" message="$(string.map_ApiNameTypeWsWriteCharsUtf8)"/>
+      <map value="0x31" message="$(string.map_ApiNameTypeWsWriteBytes)"/>
+      <map value="0x32" message="$(string.map_ApiNameTypeWsPushBytes)"/>
+      <map value="0x33" message="$(string.map_ApiNameTypeWsPullBytes)"/>
+      <map value="0x34" message="$(string.map_ApiNameTypeWsWriteEndElement)"/>
+      <map value="0x35" message="$(string.map_ApiNameTypeWsWriteText)"/>
+      <map value="0x36" message="$(string.map_ApiNameTypeWsWriteStartCData)"/>
+      <map value="0x37" message="$(string.map_ApiNameTypeWsWriteEndCData)"/>
+      <map value="0x38" message="$(string.map_ApiNameTypeWsWriteNode)"/>
+      <map value="0x39" message="$(string.map_ApiNameTypeWsGetPrefixFromNamespace)"/>
+      <map value="0x3a" message="$(string.map_ApiNameTypeWsGetWriterPosition)"/>
+      <map value="0x3b" message="$(string.map_ApiNameTypeWsSetWriterPosition)"/>
+      <map value="0x3c" message="$(string.map_ApiNameTypeWsMoveWriter)"/>
+      <map value="0x3d" message="$(string.map_ApiNameTypeWsTrimXmlWhitespace)"/>
+      <map value="0x3e" message="$(string.map_ApiNameTypeWsVerifyXmlNCName)"/>
+      <map value="0x3f" message="$(string.map_ApiNameTypeWsXmlStringEquals)"/>
+      <map value="0x40" message="$(string.map_ApiNameTypeWsGetNamespaceFromPrefix)"/>
+      <map value="0x41" message="$(string.map_ApiNameTypeWsReadQualifiedName)"/>
+      <map value="0x42" message="$(string.map_ApiNameTypeWsGetXmlAttribute)"/>
+      <map value="0x43" message="$(string.map_ApiNameTypeWsCopyNode)"/>
+      <map value="0x44" message="$(string.map_ApiNameTypeWsAsyncExecute)"/>
+      <map value="0x45" message="$(string.map_ApiNameTypeWsCreateChannel)"/>
+      <map value="0x46" message="$(string.map_ApiNameTypeWsOpenChannel)"/>
+      <map value="0x47" message="$(string.map_ApiNameTypeWsSendMessage)"/>
+      <map value="0x48" message="$(string.map_ApiNameTypeWsReceiveMessage)"/>
+      <map value="0x49" message="$(string.map_ApiNameTypeWsRequestReply)"/>
+      <map value="0x4a" message="$(string.map_ApiNameTypeWsSendReplyMessage)"/>
+      <map value="0x4b" message="$(string.map_ApiNameTypeWsSendFaultMessageForError)"/>
+      <map value="0x4c" message="$(string.map_ApiNameTypeWsGetChannelProperty)"/>
+      <map value="0x4d" message="$(string.map_ApiNameTypeWsSetChannelProperty)"/>
+      <map value="0x4e" message="$(string.map_ApiNameTypeWsWriteMessageStart)"/>
+      <map value="0x4f" message="$(string.map_ApiNameTypeWsWriteMessageEnd)"/>
+      <map value="0x50" message="$(string.map_ApiNameTypeWsReadMessageStart)"/>
+      <map value="0x51" message="$(string.map_ApiNameTypeWsReadMessageEnd)"/>
+      <map value="0x52" message="$(string.map_ApiNameTypeWsCloseChannel)"/>
+      <map value="0x53" message="$(string.map_ApiNameTypeWsAbortChannel)"/>
+      <map value="0x54" message="$(string.map_ApiNameTypeWsFreeChannel)"/>
+      <map value="0x55" message="$(string.map_ApiNameTypeWsResetChannel)"/>
+      <map value="0x56" message="$(string.map_ApiNameTypeWsAbandonMessage)"/>
+      <map value="0x57" message="$(string.map_ApiNameTypeWsShutdownSessionChannel)"/>
+      <map value="0x58" message="$(string.map_ApiNameTypeWsGetOperationContextProperty)"/>
+      <map value="0x59" message="$(string.map_ApiNameTypeWsGetDictionary)"/>
+      <map value="0x5a" message="$(string.map_ApiNameTypeWsReadEndpointAddressExtension)"/>
+      <map value="0x5b" message="$(string.map_ApiNameTypeWsCreateError)"/>
+      <map value="0x5c" message="$(string.map_ApiNameTypeWsAddErrorString)"/>
+      <map value="0x5d" message="$(string.map_ApiNameTypeWsGetErrorString)"/>
+      <map value="0x5e" message="$(string.map_ApiNameTypeWsCopyError)"/>
+      <map value="0x5f" message="$(string.map_ApiNameTypeWsGetErrorProperty)"/>
+      <map value="0x60" message="$(string.map_ApiNameTypeWsSetErrorProperty)"/>
+      <map value="0x61" message="$(string.map_ApiNameTypeWsResetError)"/>
+      <map value="0x62" message="$(string.map_ApiNameTypeWsFreeError)"/>
+      <map value="0x63" message="$(string.map_ApiNameTypeWsGetFaultErrorProperty)"/>
+      <map value="0x64" message="$(string.map_ApiNameTypeWsSetFaultErrorProperty)"/>
+      <map value="0x65" message="$(string.map_ApiNameTypeWsCreateFaultFromError)"/>
+      <map value="0x66" message="$(string.map_ApiNameTypeWsSetFaultErrorDetail)"/>
+      <map value="0x67" message="$(string.map_ApiNameTypeWsGetFaultErrorDetail)"/>
+      <map value="0x68" message="$(string.map_ApiNameTypeWsCreateHeap)"/>
+      <map value="0x69" message="$(string.map_ApiNameTypeWsAlloc)"/>
+      <map value="0x6a" message="$(string.map_ApiNameTypeWsGetHeapProperty)"/>
+      <map value="0x6b" message="$(string.map_ApiNameTypeWsResetHeap)"/>
+      <map value="0x6c" message="$(string.map_ApiNameTypeWsFreeHeap)"/>
+      <map value="0x6d" message="$(string.map_ApiNameTypeWsCreateListener)"/>
+      <map value="0x6e" message="$(string.map_ApiNameTypeWsOpenListener)"/>
+      <map value="0x6f" message="$(string.map_ApiNameTypeWsAcceptChannel)"/>
+      <map value="0x70" message="$(string.map_ApiNameTypeWsCloseListener)"/>
+      <map value="0x71" message="$(string.map_ApiNameTypeWsAbortListener)"/>
+      <map value="0x72" message="$(string.map_ApiNameTypeWsResetListener)"/>
+      <map value="0x73" message="$(string.map_ApiNameTypeWsFreeListener)"/>
+      <map value="0x74" message="$(string.map_ApiNameTypeWsGetListenerProperty)"/>
+      <map value="0x75" message="$(string.map_ApiNameTypeWsSetListenerProperty)"/>
+      <map value="0x76" message="$(string.map_ApiNameTypeWsCreateChannelForListener)"/>
+      <map value="0x77" message="$(string.map_ApiNameTypeWsCreateMessage)"/>
+      <map value="0x78" message="$(string.map_ApiNameTypeWsCreateMessageForChannel)"/>
+      <map value="0x79" message="$(string.map_ApiNameTypeWsInitializeMessage)"/>
+      <map value="0x7a" message="$(string.map_ApiNameTypeWsResetMessage)"/>
+      <map value="0x7b" message="$(string.map_ApiNameTypeWsFreeMessage)"/>
+      <map value="0x7c" message="$(string.map_ApiNameTypeWsGetHeaderAttributes)"/>
+      <map value="0x7d" message="$(string.map_ApiNameTypeWsGetHeader)"/>
+      <map value="0x7e" message="$(string.map_ApiNameTypeWsGetCustomHeader)"/>
+      <map value="0x7f" message="$(string.map_ApiNameTypeWsRemoveHeader)"/>
+      <map value="0x80" message="$(string.map_ApiNameTypeWsSetHeader)"/>
+      <map value="0x81" message="$(string.map_ApiNameTypeWsRemoveCustomHeader)"/>
+      <map value="0x82" message="$(string.map_ApiNameTypeWsAddCustomHeader)"/>
+      <map value="0x83" message="$(string.map_ApiNameTypeWsAddMappedHeader)"/>
+      <map value="0x84" message="$(string.map_ApiNameTypeWsRemoveMappedHeader)"/>
+      <map value="0x85" message="$(string.map_ApiNameTypeWsGetMappedHeader)"/>
+      <map value="0x86" message="$(string.map_ApiNameTypeWsWriteBody)"/>
+      <map value="0x87" message="$(string.map_ApiNameTypeWsReadBody)"/>
+      <map value="0x88" message="$(string.map_ApiNameTypeWsWriteEnvelopeStart)"/>
+      <map value="0x89" message="$(string.map_ApiNameTypeWsWriteEnvelopeEnd)"/>
+      <map value="0x8a" message="$(string.map_ApiNameTypeWsReadEnvelopeStart)"/>
+      <map value="0x8b" message="$(string.map_ApiNameTypeWsReadEnvelopeEnd)"/>
+      <map value="0x8c" message="$(string.map_ApiNameTypeWsGetMessageProperty)"/>
+      <map value="0x8d" message="$(string.map_ApiNameTypeWsSetMessageProperty)"/>
+      <map value="0x8e" message="$(string.map_ApiNameTypeWsAddressMessage)"/>
+      <map value="0x8f" message="$(string.map_ApiNameTypeWsCheckMustUnderstandHeaders)"/>
+      <map value="0x90" message="$(string.map_ApiNameTypeWsMarkHeaderAsUnderstood)"/>
+      <map value="0x91" message="$(string.map_ApiNameTypeWsFillBody)"/>
+      <map value="0x92" message="$(string.map_ApiNameTypeWsFlushBody)"/>
+      <map value="0x93" message="$(string.map_ApiNameTypeWsRequestSecurityToken)"/>
+      <map value="0x94" message="$(string.map_ApiNameTypeWsGetSecurityTokenProperty)"/>
+      <map value="0x95" message="$(string.map_ApiNameTypeWsCreateXmlSecurityToken)"/>
+      <map value="0x96" message="$(string.map_ApiNameTypeWsFreeSecurityToken)"/>
+      <map value="0x97" message="$(string.map_ApiNameTypeWsRevokeSecurityContext)"/>
+      <map value="0x98" message="$(string.map_ApiNameTypeWsGetSecurityContextProperty)"/>
+      <map value="0x99" message="$(string.map_ApiNameTypeWsReadElement)"/>
+      <map value="0x9a" message="$(string.map_ApiNameTypeWsReadAttribute)"/>
+      <map value="0x9b" message="$(string.map_ApiNameTypeWsReadType)"/>
+      <map value="0x9c" message="$(string.map_ApiNameTypeWsWriteElement)"/>
+      <map value="0x9d" message="$(string.map_ApiNameTypeWsWriteAttribute)"/>
+      <map value="0x9e" message="$(string.map_ApiNameTypeWsWriteType)"/>
+      <map value="0x9f" message="$(string.map_ApiNameTypeWsRegisterOperationForCancel)"/>
+      <map value="0xa0" message="$(string.map_ApiNameTypeWsGetServiceHostProperty)"/>
+      <map value="0xa1" message="$(string.map_ApiNameTypeWsCreateServiceHost)"/>
+      <map value="0xa2" message="$(string.map_ApiNameTypeWsOpenServiceHost)"/>
+      <map value="0xa3" message="$(string.map_ApiNameTypeWsCloseServiceHost)"/>
+      <map value="0xa4" message="$(string.map_ApiNameTypeWsAbortServiceHost)"/>
+      <map value="0xa5" message="$(string.map_ApiNameTypeWsFreeServiceHost)"/>
+      <map value="0xa6" message="$(string.map_ApiNameTypeWsResetServiceHost)"/>
+      <map value="0xa7" message="$(string.map_ApiNameTypeWsGetServiceProxyProperty)"/>
+      <map value="0xa8" message="$(string.map_ApiNameTypeWsCreateServiceProxy)"/>
+      <map value="0xa9" message="$(string.map_ApiNameTypeWsOpenServiceProxy)"/>
+      <map value="0xaa" message="$(string.map_ApiNameTypeWsCloseServiceProxy)"/>
+      <map value="0xab" message="$(string.map_ApiNameTypeWsAbortServiceProxy)"/>
+      <map value="0xac" message="$(string.map_ApiNameTypeWsFreeServiceProxy)"/>
+      <map value="0xad" message="$(string.map_ApiNameTypeWsResetServiceProxy)"/>
+      <map value="0xae" message="$(string.map_ApiNameTypeWsAbandonCall)"/>
+      <map value="0xaf" message="$(string.map_ApiNameTypeWsCall)"/>
+      <map value="0xb0" message="$(string.map_ApiNameTypeWsDecodeUrl)"/>
+      <map value="0xb1" message="$(string.map_ApiNameTypeWsEncodeUrl)"/>
+      <map value="0xb2" message="$(string.map_ApiNameTypeWsCombineUrl)"/>
+      <map value="0xb3" message="$(string.map_ApiNameTypeWsDateTimeToFileTime)"/>
+      <map value="0xb4" message="$(string.map_ApiNameTypeWsFileTimeToDateTime)"/>
+      <map value="0xb5" message="$(string.map_ApiNameTypeWsDumpMemory)"/>
+      <map value="0xb6" message="$(string.map_ApiNameTypeWsSetAutoFail)"/>
+      <map value="0xb7" message="$(string.map_ApiNameTypeWsCreateMetadata)"/>
+      <map value="0xb8" message="$(string.map_ApiNameTypeWsReadMetadata)"/>
+      <map value="0xb9" message="$(string.map_ApiNameTypeWsFreeMetadata)"/>
+      <map value="0xba" message="$(string.map_ApiNameTypeWsResetMetadata)"/>
+      <map value="0xbb" message="$(string.map_ApiNameTypeWsGetMetadataProperty)"/>
+      <map value="0xbc" message="$(string.map_ApiNameTypeWsGetMissingMetadataDocumentAddress)"/>
+      <map value="0xbd" message="$(string.map_ApiNameTypeWsGetMetadataEndpoints)"/>
+      <map value="0xbe" message="$(string.map_ApiNameTypeWsMatchPolicyAlternative)"/>
+      <map value="0xbf" message="$(string.map_ApiNameTypeWsGetPolicyProperty)"/>
+      <map value="0xc0" message="$(string.map_ApiNameTypeWsGetPolicyAlternativeCount)"/>
+      <map value="0xc1" message="$(string.map_ApiNameTypeWsCreateServiceProxyFromTemplate)"/>
+      <map value="0xc2" message="$(string.map_ApiNameTypeWsCreateServiceEndpointFromTemplate)"/>
+     </valueMap>
+     <valueMap name="IOOperationType">
+      <map value="0x0" message="$(string.map_IOOperationTypeSend)"/>
+      <map value="0x1" message="$(string.map_IOOperationTypeReceive)"/>
+      <map value="0x2" message="$(string.map_IOOperationTypeAccept)"/>
+      <map value="0x3" message="$(string.map_IOOperationTypeConnect)"/>
+      <map value="0x4" message="$(string.map_IOOperationTypeWaitForDisconnect)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="APIsAPIEnter" version="0" task="APIs" opcode="APIEnter" level="win:Informational" keywords="keywords.API" template="APIsAPIEnterArgs"/>
+     <event value="2" symbol="APIsAPIExitSyncSuccess" version="0" task="APIs" opcode="APIExitSyncSuccess" level="win:Informational" keywords="keywords.API" template="APIsAPIExitSyncSuccessArgs"/>
+     <event value="3" symbol="APIsAPIExitSyncFailure" version="0" task="APIs" opcode="APIExitSyncFailure" level="win:Error" keywords="keywords.API" template="APIsAPIExitSyncSuccessArgs"/>
+     <event value="4" symbol="APIsAPIPending" version="0" task="APIs" opcode="APIPending" level="win:Informational" keywords="keywords.API" template="APIsAPIPendingArgs"/>
+     <event value="5" symbol="APIsAPIExitAsyncSuccess" version="0" task="APIs" opcode="APIExitAsyncSuccess" level="win:Informational" keywords="keywords.API" template="APIsAPIExitSyncSuccessArgs"/>
+     <event value="6" symbol="APIsAPIExitAsyncFailure" version="0" task="APIs" opcode="APIExitAsyncFailure" level="win:Error" keywords="keywords.API" template="APIsAPIExitSyncSuccessArgs"/>
+     <event value="7" symbol="ErrorsError" version="0" task="Errors" opcode="Error" level="win:Error" keywords="keywords.Error" template="ErrorsErrorArgs"/>
+     <event value="8" symbol="IOOperationsIOStarted" version="0" task="IOOperations" opcode="IOStarted" level="win:Informational" keywords="keywords.IO" template="IOOperationsIOStartedArgs"/>
+     <event value="9" symbol="IOOperationsIOCompleted" version="0" task="IOOperations" opcode="IOCompleted" level="win:Informational" keywords="keywords.IO" template="IOOperationsIOCompletedArgs"/>
+     <event value="10" symbol="IOOperationsIOFailed" version="0" task="IOOperations" opcode="IOFailed" level="win:Error" keywords="keywords.IO" template="IOOperationsIOFailedArgs"/>
+     <event value="11" symbol="MessageExchangeSendingMessage_Binary" version="0" task="MessageExchange" opcode="SendingMessage_Binary" level="win:Verbose" keywords="keywords.BinaryMessage" template="MessageExchangeSendingMessage_BinaryArgs"/>
+     <event value="12" symbol="MessageExchangeReceivedMessage_Binary" version="0" task="MessageExchange" opcode="ReceivedMessage_Binary" level="win:Verbose" keywords="keywords.BinaryMessage" template="MessageExchangeSendingMessage_BinaryArgs"/>
+     <event value="13" symbol="MessageExchangeSendingMessage_Text" version="0" task="MessageExchange" opcode="SendingMessage_Text" level="win:Verbose" keywords="keywords.Message" template="MessageExchangeSendingMessage_BinaryArgs"/>
+     <event value="14" symbol="MessageExchangeReceivedMessage_Text" version="0" task="MessageExchange" opcode="ReceivedMessage_Text" level="win:Verbose" keywords="keywords.Message" template="MessageExchangeSendingMessage_BinaryArgs"/>
+     <event value="15" symbol="MessageExchangeSendingMessageStart" version="0" task="MessageExchange" opcode="SendingMessageStart" level="win:Verbose" keywords="keywords.Message" template="MessageExchangeSendingMessageStartArgs"/>
+     <event value="16" symbol="MessageExchangeSendingMessageStop" version="0" task="MessageExchange" opcode="SendingMessageStop" level="win:Verbose" keywords="keywords.Message" template="MessageExchangeSendingMessageStartArgs"/>
+     <event value="17" symbol="MessageExchangeReceivedMessageStart" version="0" task="MessageExchange" opcode="ReceivedMessageStart" level="win:Verbose" keywords="keywords.Message" template="MessageExchangeSendingMessageStartArgs"/>
+     <event value="18" symbol="MessageExchangeReceivedMessageStop" version="0" task="MessageExchange" opcode="ReceivedMessageStop" level="win:Verbose" keywords="keywords.Message" template="MessageExchangeSendingMessageStartArgs"/>
+     <event value="19" symbol="APIsSendingHTTPheaders" version="0" task="APIs" opcode="SendingHTTPheaders" level="win:Informational" keywords="keywords.Message" template="APIsSendingHTTPheadersArgs"/>
+     <event value="20" symbol="APIsReceivingHTTPheaders" version="0" task="APIs" opcode="ReceivingHTTPheaders" level="win:Informational" keywords="keywords.Message" template="APIsSendingHTTPheadersArgs"/>
+     <event value="21" symbol="APIsTrace" version="0" task="APIs" opcode="Trace" level="win:Informational" keywords="keywords.Error" template="APIsTraceArgs"/>
+    </events>
+    <templates>
+     <template tid="APIsAPIEnterArgs">
+      <data name="api" inType="win:UInt32" map="ApiNameType"/>
+     </template>
+     <template tid="APIsAPIExitSyncSuccessArgs">
+      <data name="api" inType="win:UInt32"/>
+      <data name="result" inType="win:UInt32"/>
+     </template>
+     <template tid="APIsAPIPendingArgs">
+      <data name="api" inType="win:UInt32"/>
+     </template>
+     <template tid="ErrorsErrorArgs">
+      <data name="error" inType="win:UInt32"/>
+      <data name="errorString" inType="win:UnicodeString"/>
+     </template>
+     <template tid="IOOperationsIOStartedArgs">
+      <data name="operation" inType="win:UInt32" map="IOOperationType"/>
+     </template>
+     <template tid="IOOperationsIOCompletedArgs">
+      <data name="operation" inType="win:UInt32"/>
+      <data name="size" inType="win:UInt32"/>
+     </template>
+     <template tid="IOOperationsIOFailedArgs">
+      <data name="operation" inType="win:UInt32"/>
+      <data name="error" inType="win:UInt32"/>
+     </template>
+     <template tid="MessageExchangeSendingMessage_BinaryArgs">
+      <data name="correlationId" inType="win:UInt64"/>
+      <data name="length" inType="win:UInt16"/>
+      <data name="message" inType="win:UnicodeString" length="length"/>
+     </template>
+     <template tid="MessageExchangeSendingMessageStartArgs">
+      <data name="correlationId" inType="win:UInt64"/>
+     </template>
+     <template tid="APIsSendingHTTPheadersArgs">
+      <data name="length" inType="win:UInt16"/>
+      <data name="traceString" inType="win:UnicodeString" length="length"/>
+     </template>
+     <template tid="APIsTraceArgs">
+      <data name="traceString" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_keywords.API" value="keywords.API"/>
+    <string id="keyword_keywords.Error" value="keywords.Error"/>
+    <string id="keyword_keywords.IO" value="keywords.IO"/>
+    <string id="keyword_keywords.Message" value="keywords.Message"/>
+    <string id="keyword_keywords.BinaryMessage" value="keywords.BinaryMessage"/>
+    <string id="task_APIs" value="APIs"/>
+    <string id="opcode_APIsAPIEnter" value="APIEnter"/>
+    <string id="opcode_APIsAPIExitSyncSuccess" value="APIExitSyncSuccess"/>
+    <string id="opcode_APIsAPIExitSyncFailure" value="APIExitSyncFailure"/>
+    <string id="opcode_APIsAPIPending" value="APIPending"/>
+    <string id="opcode_APIsAPIExitAsyncSuccess" value="APIExitAsyncSuccess"/>
+    <string id="opcode_APIsAPIExitAsyncFailure" value="APIExitAsyncFailure"/>
+    <string id="opcode_APIsSendingHTTPheaders" value="SendingHTTPheaders"/>
+    <string id="opcode_APIsReceivingHTTPheaders" value="ReceivingHTTPheaders"/>
+    <string id="opcode_APIsTrace" value="Trace"/>
+    <string id="task_Errors" value="Errors"/>
+    <string id="opcode_ErrorsError" value="Error"/>
+    <string id="task_IOOperations" value="IOOperations"/>
+    <string id="opcode_IOOperationsIOStarted" value="IOStarted"/>
+    <string id="opcode_IOOperationsIOCompleted" value="IOCompleted"/>
+    <string id="opcode_IOOperationsIOFailed" value="IOFailed"/>
+    <string id="task_MessageExchange" value="MessageExchange"/>
+    <string id="opcode_MessageExchangeSendingMessage_Binary" value="SendingMessage_Binary"/>
+    <string id="opcode_MessageExchangeReceivedMessage_Binary" value="ReceivedMessage_Binary"/>
+    <string id="opcode_MessageExchangeSendingMessage_Text" value="SendingMessage_Text"/>
+    <string id="opcode_MessageExchangeReceivedMessage_Text" value="ReceivedMessage_Text"/>
+    <string id="opcode_MessageExchangeSendingMessageStart" value="SendingMessageStart"/>
+    <string id="opcode_MessageExchangeSendingMessageStop" value="SendingMessageStop"/>
+    <string id="opcode_MessageExchangeReceivedMessageStart" value="ReceivedMessageStart"/>
+    <string id="opcode_MessageExchangeReceivedMessageStop" value="ReceivedMessageStop"/>
+    <string id="map_ApiNameTypeWsStartReaderCanonicalization" value="WsStartReaderCanonicalization"/>
+    <string id="map_ApiNameTypeWsEndReaderCanonicalization" value="WsEndReaderCanonicalization"/>
+    <string id="map_ApiNameTypeWsStartWriterCanonicalization" value="WsStartWriterCanonicalization"/>
+    <string id="map_ApiNameTypeWsEndWriterCanonicalization" value="WsEndWriterCanonicalization"/>
+    <string id="map_ApiNameTypeWsCreateXmlBuffer" value="WsCreateXmlBuffer"/>
+    <string id="map_ApiNameTypeWsRemoveNode" value="WsRemoveNode"/>
+    <string id="map_ApiNameTypeWsCreateReader" value="WsCreateReader"/>
+    <string id="map_ApiNameTypeWsSetInput" value="WsSetInput"/>
+    <string id="map_ApiNameTypeWsSetInputToBuffer" value="WsSetInputToBuffer"/>
+    <string id="map_ApiNameTypeWsFreeReader" value="WsFreeReader"/>
+    <string id="map_ApiNameTypeWsGetReaderProperty" value="WsGetReaderProperty"/>
+    <string id="map_ApiNameTypeWsGetReaderNode" value="WsGetReaderNode"/>
+    <string id="map_ApiNameTypeWsFillReader" value="WsFillReader"/>
+    <string id="map_ApiNameTypeWsReadStartElement" value="WsReadStartElement"/>
+    <string id="map_ApiNameTypeWsReadToStartElement" value="WsReadToStartElement"/>
+    <string id="map_ApiNameTypeWsReadStartAttribute" value="WsReadStartAttribute"/>
+    <string id="map_ApiNameTypeWsReadEndAttribute" value="WsReadEndAttribute"/>
+    <string id="map_ApiNameTypeWsReadNode" value="WsReadNode"/>
+    <string id="map_ApiNameTypeWsSkipNode" value="WsSkipNode"/>
+    <string id="map_ApiNameTypeWsReadEndElement" value="WsReadEndElement"/>
+    <string id="map_ApiNameTypeWsFindAttribute" value="WsFindAttribute"/>
+    <string id="map_ApiNameTypeWsReadValue" value="WsReadValue"/>
+    <string id="map_ApiNameTypeWsReadChars" value="WsReadChars"/>
+    <string id="map_ApiNameTypeWsReadCharsUtf8" value="WsReadCharsUtf8"/>
+    <string id="map_ApiNameTypeWsReadBytes" value="WsReadBytes"/>
+    <string id="map_ApiNameTypeWsReadArray" value="WsReadArray"/>
+    <string id="map_ApiNameTypeWsGetReaderPosition" value="WsGetReaderPosition"/>
+    <string id="map_ApiNameTypeWsSetReaderPosition" value="WsSetReaderPosition"/>
+    <string id="map_ApiNameTypeWsMoveReader" value="WsMoveReader"/>
+    <string id="map_ApiNameTypeWsCreateWriter" value="WsCreateWriter"/>
+    <string id="map_ApiNameTypeWsFreeWriter" value="WsFreeWriter"/>
+    <string id="map_ApiNameTypeWsSetOutput" value="WsSetOutput"/>
+    <string id="map_ApiNameTypeWsSetOutputToBuffer" value="WsSetOutputToBuffer"/>
+    <string id="map_ApiNameTypeWsGetWriterProperty" value="WsGetWriterProperty"/>
+    <string id="map_ApiNameTypeWsFlushWriter" value="WsFlushWriter"/>
+    <string id="map_ApiNameTypeWsWriteStartElement" value="WsWriteStartElement"/>
+    <string id="map_ApiNameTypeWsWriteEndStartElement" value="WsWriteEndStartElement"/>
+    <string id="map_ApiNameTypeWsWriteXmlnsAttribute" value="WsWriteXmlnsAttribute"/>
+    <string id="map_ApiNameTypeWsWriteStartAttribute" value="WsWriteStartAttribute"/>
+    <string id="map_ApiNameTypeWsWriteEndAttribute" value="WsWriteEndAttribute"/>
+    <string id="map_ApiNameTypeWsWriteValue" value="WsWriteValue"/>
+    <string id="map_ApiNameTypeWsWriteXmlBuffer" value="WsWriteXmlBuffer"/>
+    <string id="map_ApiNameTypeWsReadXmlBuffer" value="WsReadXmlBuffer"/>
+    <string id="map_ApiNameTypeWsWriteXmlBufferToBytes" value="WsWriteXmlBufferToBytes"/>
+    <string id="map_ApiNameTypeWsReadXmlBufferFromBytes" value="WsReadXmlBufferFromBytes"/>
+    <string id="map_ApiNameTypeWsWriteArray" value="WsWriteArray"/>
+    <string id="map_ApiNameTypeWsWriteQualifiedName" value="WsWriteQualifiedName"/>
+    <string id="map_ApiNameTypeWsWriteChars" value="WsWriteChars"/>
+    <string id="map_ApiNameTypeWsWriteCharsUtf8" value="WsWriteCharsUtf8"/>
+    <string id="map_ApiNameTypeWsWriteBytes" value="WsWriteBytes"/>
+    <string id="map_ApiNameTypeWsPushBytes" value="WsPushBytes"/>
+    <string id="map_ApiNameTypeWsPullBytes" value="WsPullBytes"/>
+    <string id="map_ApiNameTypeWsWriteEndElement" value="WsWriteEndElement"/>
+    <string id="map_ApiNameTypeWsWriteText" value="WsWriteText"/>
+    <string id="map_ApiNameTypeWsWriteStartCData" value="WsWriteStartCData"/>
+    <string id="map_ApiNameTypeWsWriteEndCData" value="WsWriteEndCData"/>
+    <string id="map_ApiNameTypeWsWriteNode" value="WsWriteNode"/>
+    <string id="map_ApiNameTypeWsGetPrefixFromNamespace" value="WsGetPrefixFromNamespace"/>
+    <string id="map_ApiNameTypeWsGetWriterPosition" value="WsGetWriterPosition"/>
+    <string id="map_ApiNameTypeWsSetWriterPosition" value="WsSetWriterPosition"/>
+    <string id="map_ApiNameTypeWsMoveWriter" value="WsMoveWriter"/>
+    <string id="map_ApiNameTypeWsTrimXmlWhitespace" value="WsTrimXmlWhitespace"/>
+    <string id="map_ApiNameTypeWsVerifyXmlNCName" value="WsVerifyXmlNCName"/>
+    <string id="map_ApiNameTypeWsXmlStringEquals" value="WsXmlStringEquals"/>
+    <string id="map_ApiNameTypeWsGetNamespaceFromPrefix" value="WsGetNamespaceFromPrefix"/>
+    <string id="map_ApiNameTypeWsReadQualifiedName" value="WsReadQualifiedName"/>
+    <string id="map_ApiNameTypeWsGetXmlAttribute" value="WsGetXmlAttribute"/>
+    <string id="map_ApiNameTypeWsCopyNode" value="WsCopyNode"/>
+    <string id="map_ApiNameTypeWsAsyncExecute" value="WsAsyncExecute"/>
+    <string id="map_ApiNameTypeWsCreateChannel" value="WsCreateChannel"/>
+    <string id="map_ApiNameTypeWsOpenChannel" value="WsOpenChannel"/>
+    <string id="map_ApiNameTypeWsSendMessage" value="WsSendMessage"/>
+    <string id="map_ApiNameTypeWsReceiveMessage" value="WsReceiveMessage"/>
+    <string id="map_ApiNameTypeWsRequestReply" value="WsRequestReply"/>
+    <string id="map_ApiNameTypeWsSendReplyMessage" value="WsSendReplyMessage"/>
+    <string id="map_ApiNameTypeWsSendFaultMessageForError" value="WsSendFaultMessageForError"/>
+    <string id="map_ApiNameTypeWsGetChannelProperty" value="WsGetChannelProperty"/>
+    <string id="map_ApiNameTypeWsSetChannelProperty" value="WsSetChannelProperty"/>
+    <string id="map_ApiNameTypeWsWriteMessageStart" value="WsWriteMessageStart"/>
+    <string id="map_ApiNameTypeWsWriteMessageEnd" value="WsWriteMessageEnd"/>
+    <string id="map_ApiNameTypeWsReadMessageStart" value="WsReadMessageStart"/>
+    <string id="map_ApiNameTypeWsReadMessageEnd" value="WsReadMessageEnd"/>
+    <string id="map_ApiNameTypeWsCloseChannel" value="WsCloseChannel"/>
+    <string id="map_ApiNameTypeWsAbortChannel" value="WsAbortChannel"/>
+    <string id="map_ApiNameTypeWsFreeChannel" value="WsFreeChannel"/>
+    <string id="map_ApiNameTypeWsResetChannel" value="WsResetChannel"/>
+    <string id="map_ApiNameTypeWsAbandonMessage" value="WsAbandonMessage"/>
+    <string id="map_ApiNameTypeWsShutdownSessionChannel" value="WsShutdownSessionChannel"/>
+    <string id="map_ApiNameTypeWsGetOperationContextProperty" value="WsGetOperationContextProperty"/>
+    <string id="map_ApiNameTypeWsGetDictionary" value="WsGetDictionary"/>
+    <string id="map_ApiNameTypeWsReadEndpointAddressExtension" value="WsReadEndpointAddressExtension"/>
+    <string id="map_ApiNameTypeWsCreateError" value="WsCreateError"/>
+    <string id="map_ApiNameTypeWsAddErrorString" value="WsAddErrorString"/>
+    <string id="map_ApiNameTypeWsGetErrorString" value="WsGetErrorString"/>
+    <string id="map_ApiNameTypeWsCopyError" value="WsCopyError"/>
+    <string id="map_ApiNameTypeWsGetErrorProperty" value="WsGetErrorProperty"/>
+    <string id="map_ApiNameTypeWsSetErrorProperty" value="WsSetErrorProperty"/>
+    <string id="map_ApiNameTypeWsResetError" value="WsResetError"/>
+    <string id="map_ApiNameTypeWsFreeError" value="WsFreeError"/>
+    <string id="map_ApiNameTypeWsGetFaultErrorProperty" value="WsGetFaultErrorProperty"/>
+    <string id="map_ApiNameTypeWsSetFaultErrorProperty" value="WsSetFaultErrorProperty"/>
+    <string id="map_ApiNameTypeWsCreateFaultFromError" value="WsCreateFaultFromError"/>
+    <string id="map_ApiNameTypeWsSetFaultErrorDetail" value="WsSetFaultErrorDetail"/>
+    <string id="map_ApiNameTypeWsGetFaultErrorDetail" value="WsGetFaultErrorDetail"/>
+    <string id="map_ApiNameTypeWsCreateHeap" value="WsCreateHeap"/>
+    <string id="map_ApiNameTypeWsAlloc" value="WsAlloc"/>
+    <string id="map_ApiNameTypeWsGetHeapProperty" value="WsGetHeapProperty"/>
+    <string id="map_ApiNameTypeWsResetHeap" value="WsResetHeap"/>
+    <string id="map_ApiNameTypeWsFreeHeap" value="WsFreeHeap"/>
+    <string id="map_ApiNameTypeWsCreateListener" value="WsCreateListener"/>
+    <string id="map_ApiNameTypeWsOpenListener" value="WsOpenListener"/>
+    <string id="map_ApiNameTypeWsAcceptChannel" value="WsAcceptChannel"/>
+    <string id="map_ApiNameTypeWsCloseListener" value="WsCloseListener"/>
+    <string id="map_ApiNameTypeWsAbortListener" value="WsAbortListener"/>
+    <string id="map_ApiNameTypeWsResetListener" value="WsResetListener"/>
+    <string id="map_ApiNameTypeWsFreeListener" value="WsFreeListener"/>
+    <string id="map_ApiNameTypeWsGetListenerProperty" value="WsGetListenerProperty"/>
+    <string id="map_ApiNameTypeWsSetListenerProperty" value="WsSetListenerProperty"/>
+    <string id="map_ApiNameTypeWsCreateChannelForListener" value="WsCreateChannelForListener"/>
+    <string id="map_ApiNameTypeWsCreateMessage" value="WsCreateMessage"/>
+    <string id="map_ApiNameTypeWsCreateMessageForChannel" value="WsCreateMessageForChannel"/>
+    <string id="map_ApiNameTypeWsInitializeMessage" value="WsInitializeMessage"/>
+    <string id="map_ApiNameTypeWsResetMessage" value="WsResetMessage"/>
+    <string id="map_ApiNameTypeWsFreeMessage" value="WsFreeMessage"/>
+    <string id="map_ApiNameTypeWsGetHeaderAttributes" value="WsGetHeaderAttributes"/>
+    <string id="map_ApiNameTypeWsGetHeader" value="WsGetHeader"/>
+    <string id="map_ApiNameTypeWsGetCustomHeader" value="WsGetCustomHeader"/>
+    <string id="map_ApiNameTypeWsRemoveHeader" value="WsRemoveHeader"/>
+    <string id="map_ApiNameTypeWsSetHeader" value="WsSetHeader"/>
+    <string id="map_ApiNameTypeWsRemoveCustomHeader" value="WsRemoveCustomHeader"/>
+    <string id="map_ApiNameTypeWsAddCustomHeader" value="WsAddCustomHeader"/>
+    <string id="map_ApiNameTypeWsAddMappedHeader" value="WsAddMappedHeader"/>
+    <string id="map_ApiNameTypeWsRemoveMappedHeader" value="WsRemoveMappedHeader"/>
+    <string id="map_ApiNameTypeWsGetMappedHeader" value="WsGetMappedHeader"/>
+    <string id="map_ApiNameTypeWsWriteBody" value="WsWriteBody"/>
+    <string id="map_ApiNameTypeWsReadBody" value="WsReadBody"/>
+    <string id="map_ApiNameTypeWsWriteEnvelopeStart" value="WsWriteEnvelopeStart"/>
+    <string id="map_ApiNameTypeWsWriteEnvelopeEnd" value="WsWriteEnvelopeEnd"/>
+    <string id="map_ApiNameTypeWsReadEnvelopeStart" value="WsReadEnvelopeStart"/>
+    <string id="map_ApiNameTypeWsReadEnvelopeEnd" value="WsReadEnvelopeEnd"/>
+    <string id="map_ApiNameTypeWsGetMessageProperty" value="WsGetMessageProperty"/>
+    <string id="map_ApiNameTypeWsSetMessageProperty" value="WsSetMessageProperty"/>
+    <string id="map_ApiNameTypeWsAddressMessage" value="WsAddressMessage"/>
+    <string id="map_ApiNameTypeWsCheckMustUnderstandHeaders" value="WsCheckMustUnderstandHeaders"/>
+    <string id="map_ApiNameTypeWsMarkHeaderAsUnderstood" value="WsMarkHeaderAsUnderstood"/>
+    <string id="map_ApiNameTypeWsFillBody" value="WsFillBody"/>
+    <string id="map_ApiNameTypeWsFlushBody" value="WsFlushBody"/>
+    <string id="map_ApiNameTypeWsRequestSecurityToken" value="WsRequestSecurityToken"/>
+    <string id="map_ApiNameTypeWsGetSecurityTokenProperty" value="WsGetSecurityTokenProperty"/>
+    <string id="map_ApiNameTypeWsCreateXmlSecurityToken" value="WsCreateXmlSecurityToken"/>
+    <string id="map_ApiNameTypeWsFreeSecurityToken" value="WsFreeSecurityToken"/>
+    <string id="map_ApiNameTypeWsRevokeSecurityContext" value="WsRevokeSecurityContext"/>
+    <string id="map_ApiNameTypeWsGetSecurityContextProperty" value="WsGetSecurityContextProperty"/>
+    <string id="map_ApiNameTypeWsReadElement" value="WsReadElement"/>
+    <string id="map_ApiNameTypeWsReadAttribute" value="WsReadAttribute"/>
+    <string id="map_ApiNameTypeWsReadType" value="WsReadType"/>
+    <string id="map_ApiNameTypeWsWriteElement" value="WsWriteElement"/>
+    <string id="map_ApiNameTypeWsWriteAttribute" value="WsWriteAttribute"/>
+    <string id="map_ApiNameTypeWsWriteType" value="WsWriteType"/>
+    <string id="map_ApiNameTypeWsRegisterOperationForCancel" value="WsRegisterOperationForCancel"/>
+    <string id="map_ApiNameTypeWsGetServiceHostProperty" value="WsGetServiceHostProperty"/>
+    <string id="map_ApiNameTypeWsCreateServiceHost" value="WsCreateServiceHost"/>
+    <string id="map_ApiNameTypeWsOpenServiceHost" value="WsOpenServiceHost"/>
+    <string id="map_ApiNameTypeWsCloseServiceHost" value="WsCloseServiceHost"/>
+    <string id="map_ApiNameTypeWsAbortServiceHost" value="WsAbortServiceHost"/>
+    <string id="map_ApiNameTypeWsFreeServiceHost" value="WsFreeServiceHost"/>
+    <string id="map_ApiNameTypeWsResetServiceHost" value="WsResetServiceHost"/>
+    <string id="map_ApiNameTypeWsGetServiceProxyProperty" value="WsGetServiceProxyProperty"/>
+    <string id="map_ApiNameTypeWsCreateServiceProxy" value="WsCreateServiceProxy"/>
+    <string id="map_ApiNameTypeWsOpenServiceProxy" value="WsOpenServiceProxy"/>
+    <string id="map_ApiNameTypeWsCloseServiceProxy" value="WsCloseServiceProxy"/>
+    <string id="map_ApiNameTypeWsAbortServiceProxy" value="WsAbortServiceProxy"/>
+    <string id="map_ApiNameTypeWsFreeServiceProxy" value="WsFreeServiceProxy"/>
+    <string id="map_ApiNameTypeWsResetServiceProxy" value="WsResetServiceProxy"/>
+    <string id="map_ApiNameTypeWsAbandonCall" value="WsAbandonCall"/>
+    <string id="map_ApiNameTypeWsCall" value="WsCall"/>
+    <string id="map_ApiNameTypeWsDecodeUrl" value="WsDecodeUrl"/>
+    <string id="map_ApiNameTypeWsEncodeUrl" value="WsEncodeUrl"/>
+    <string id="map_ApiNameTypeWsCombineUrl" value="WsCombineUrl"/>
+    <string id="map_ApiNameTypeWsDateTimeToFileTime" value="WsDateTimeToFileTime"/>
+    <string id="map_ApiNameTypeWsFileTimeToDateTime" value="WsFileTimeToDateTime"/>
+    <string id="map_ApiNameTypeWsDumpMemory" value="WsDumpMemory"/>
+    <string id="map_ApiNameTypeWsSetAutoFail" value="WsSetAutoFail"/>
+    <string id="map_ApiNameTypeWsCreateMetadata" value="WsCreateMetadata"/>
+    <string id="map_ApiNameTypeWsReadMetadata" value="WsReadMetadata"/>
+    <string id="map_ApiNameTypeWsFreeMetadata" value="WsFreeMetadata"/>
+    <string id="map_ApiNameTypeWsResetMetadata" value="WsResetMetadata"/>
+    <string id="map_ApiNameTypeWsGetMetadataProperty" value="WsGetMetadataProperty"/>
+    <string id="map_ApiNameTypeWsGetMissingMetadataDocumentAddress" value="WsGetMissingMetadataDocumentAddress"/>
+    <string id="map_ApiNameTypeWsGetMetadataEndpoints" value="WsGetMetadataEndpoints"/>
+    <string id="map_ApiNameTypeWsMatchPolicyAlternative" value="WsMatchPolicyAlternative"/>
+    <string id="map_ApiNameTypeWsGetPolicyProperty" value="WsGetPolicyProperty"/>
+    <string id="map_ApiNameTypeWsGetPolicyAlternativeCount" value="WsGetPolicyAlternativeCount"/>
+    <string id="map_ApiNameTypeWsCreateServiceProxyFromTemplate" value="WsCreateServiceProxyFromTemplate"/>
+    <string id="map_ApiNameTypeWsCreateServiceEndpointFromTemplate" value="WsCreateServiceEndpointFromTemplate"/>
+    <string id="map_IOOperationTypeSend" value="Send"/>
+    <string id="map_IOOperationTypeReceive" value="Receive"/>
+    <string id="map_IOOperationTypeAccept" value="Accept"/>
+    <string id="map_IOOperationTypeConnect" value="Connect"/>
+    <string id="map_IOOperationTypeWaitForDisconnect" value="WaitForDisconnect"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,75 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-AssignedAccessBroker" guid="{f2311b48-32be-4902-a22a-7240371dbb2c}" resourceFileName="Microsoft-Windows-AssignedAccessBroker" messageFileName="Microsoft-Windows-AssignedAccessBroker" symbol="MicrosoftWindowsAssignedAccessBroker" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="ActivateAssignedAccessApplication" message="$(string.task_ActivateAssignedAccessApplication)" value="3000"/>
+     <task name="WaitForAssignedAccessApplicationToDie" message="$(string.task_WaitForAssignedAccessApplicationToDie)" value="3001"/>
+     <task name="CustomTask" message="$(string.task_CustomTask)" value="3002"/>
+     <task name="LockFrameworkQueryTask" message="$(string.task_LockFrameworkQueryTask)" value="3003"/>
+     <task name="UnlockTask" message="$(string.task_UnlockTask)" value="3004"/>
+     <task name="LockAppPidTask" message="$(string.task_LockAppPidTask)" value="3005"/>
+     <task name="AbovelockToastTask" message="$(string.task_AbovelockToastTask)" value="3006"/>
+     <task name="SetPowerManagerStatusTask" message="$(string.task_SetPowerManagerStatusTask)" value="3007"/>
+     <task name="ClosePowerRequestHandleTask" message="$(string.task_ClosePowerRequestHandleTask)" value="3008"/>
+    </tasks>
+    <events>
+     <event value="30000" symbol="ActivateAssignedAccessApplication" version="0" task="ActivateAssignedAccessApplication" level="win:Informational" template="ActivateAssignedAccessApplicationArgs"/>
+     <event value="30002" symbol="WaitForAssignedAccessApplicationToDie" version="0" task="WaitForAssignedAccessApplicationToDie" level="win:Informational"/>
+     <event value="30003" symbol="WaitForAssignedAccessApplicationToDie30003" version="0" task="WaitForAssignedAccessApplicationToDie" level="win:Informational"/>
+     <event value="30004" symbol="CustomTask" version="0" task="CustomTask" level="win:Informational" template="CustomTaskArgs"/>
+     <event value="30005" symbol="LockFrameworkQueryTask" version="0" task="LockFrameworkQueryTask" level="win:Error" template="LockFrameworkQueryTaskArgs"/>
+     <event value="30006" symbol="UnlockTask" version="0" task="UnlockTask" level="win:Informational"/>
+     <event value="30007" symbol="LockAppPidTask" version="0" task="LockAppPidTask" level="win:Informational" template="LockFrameworkQueryTaskArgs"/>
+     <event value="30008" symbol="AbovelockToastTask" version="0" task="AbovelockToastTask" level="win:Informational" template="AbovelockToastTaskArgs"/>
+     <event value="30009" symbol="SetPowerManagerStatusTask" version="0" task="SetPowerManagerStatusTask" level="win:Informational" template="SetPowerManagerStatusTaskArgs"/>
+     <event value="30010" symbol="ClosePowerRequestHandleTask" version="0" task="ClosePowerRequestHandleTask" level="win:Informational" template="ClosePowerRequestHandleTaskArgs"/>
+    </events>
+    <templates>
+     <template tid="ActivateAssignedAccessApplicationArgs">
+      <data name="AboveLockAppAUMID" inType="win:UnicodeString"/>
+      <data name="InterfaceType" inType="win:UnicodeString"/>
+      <data name="HResult" inType="win:HexInt32"/>
+     </template>
+     <template tid="CustomTaskArgs">
+      <data name="CustomMessage" inType="win:UnicodeString"/>
+      <data name="HResult" inType="win:HexInt32"/>
+      <data name="Address" inType="win:Pointer"/>
+     </template>
+     <template tid="LockFrameworkQueryTaskArgs">
+      <data name="Interface" inType="win:UnicodeString"/>
+      <data name="HResult" inType="win:HexInt32"/>
+     </template>
+     <template tid="AbovelockToastTaskArgs">
+      <data name="Operation" inType="win:UnicodeString"/>
+      <data name="HResult" inType="win:HexInt32"/>
+     </template>
+     <template tid="SetPowerManagerStatusTaskArgs">
+      <data name="RequestAction" inType="win:Boolean"/>
+      <data name="HResult" inType="win:HexInt32"/>
+     </template>
+     <template tid="ClosePowerRequestHandleTaskArgs">
+      <data name="Result" inType="win:Boolean"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_ActivateAssignedAccessApplication" value="ActivateAssignedAccessApplication"/>
+    <string id="task_WaitForAssignedAccessApplicationToDie" value="WaitForAssignedAccessApplicationToDie"/>
+    <string id="task_CustomTask" value="CustomTask"/>
+    <string id="task_LockFrameworkQueryTask" value="LockFrameworkQueryTask"/>
+    <string id="task_UnlockTask" value="UnlockTask"/>
+    <string id="task_LockAppPidTask" value="LockAppPidTask"/>
+    <string id="task_AbovelockToastTask" value="AbovelockToastTask"/>
+    <string id="task_SetPowerManagerStatusTask" value="SetPowerManagerStatusTask"/>
+    <string id="task_ClosePowerRequestHandleTask" value="ClosePowerRequestHandleTask"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

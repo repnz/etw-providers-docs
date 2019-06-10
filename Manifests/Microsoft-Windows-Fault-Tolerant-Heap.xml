@@ -1,0 +1,44 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Fault-Tolerant-Heap" guid="{6b93bf66-a922-4c11-a617-cf60d95c133d}" resourceFileName="Microsoft-Windows-Fault-Tolerant-Heap" messageFileName="Microsoft-Windows-Fault-Tolerant-Heap" symbol="MicrosoftWindowsFaultTolerantHeap" source="Xml" >
+    <keywords>
+     <keyword name="FTH_EVENT_KEYWORD_LIFECYCLE" message="$(string.keyword_FTH_EVENT_KEYWORD_LIFECYCLE)" mask="0x10000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="LifecycleEvents" message="$(string.task_LifecycleEvents)" value="1">
+>
+      <opcodes>
+       <opcode name="EventsloggedwhentheFTH(faulttolerantheap)serviceisstarted." message="$(string.opcode_LifecycleEventsEventsloggedwhentheFTH(faulttolerantheap)serviceisstarted.)" value="11"/>
+       <opcode name="EventsloggedwhentheFTH(faulttolerantheap)serviceisstopped." message="$(string.opcode_LifecycleEventsEventsloggedwhentheFTH(faulttolerantheap)serviceisstopped.)" value="12"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="1001" symbol="LifecycleEventsEventsloggedwhentheFTH(faulttolerantheap)serviceisstarted." version="0" task="LifecycleEvents" opcode="EventsloggedwhentheFTH(faulttolerantheap)serviceisstarted." level="win:Informational" keywords="FTH_EVENT_KEYWORD_LIFECYCLE"/>
+     <event value="1002" symbol="LifecycleEventsEventsloggedwhentheFTH(faulttolerantheap)serviceisstopped." version="0" task="LifecycleEvents" opcode="EventsloggedwhentheFTH(faulttolerantheap)serviceisstopped." level="win:Informational" keywords="FTH_EVENT_KEYWORD_LIFECYCLE"/>
+     <event value="1003" symbol="task_0" version="0" task="task_0" level="win:Informational" keywords="FTH_EVENT_KEYWORD_LIFECYCLE" template="task_0Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="FthEnabledPID" inType="win:UInt32"/>
+      <data name="FthEnabledProcessName" inType="win:UnicodeString"/>
+      <data name="FthEnabledProcessStartup" inType="win:FILETIME"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_FTH_EVENT_KEYWORD_LIFECYCLE" value="FTH_EVENT_KEYWORD_LIFECYCLE"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_LifecycleEvents" value="LifecycleEvents"/>
+    <string id="opcode_LifecycleEventsEventsloggedwhentheFTH(faulttolerantheap)serviceisstarted." value="EventsloggedwhentheFTH(faulttolerantheap)serviceisstarted."/>
+    <string id="opcode_LifecycleEventsEventsloggedwhentheFTH(faulttolerantheap)serviceisstopped." value="EventsloggedwhentheFTH(faulttolerantheap)serviceisstopped."/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,40 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Intel-GFX-Info" guid="{f70d4be7-78e4-4edf-91a9-0c1341d500db}" resourceFileName="Intel-GFX-Info" messageFileName="Intel-GFX-Info" symbol="IntelGFXInfo" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <events>
+     <event value="8086" symbol="task_0" version="0" task="task_0" level="win:Error" template="task_0Args"/>
+     <event value="8087" symbol="task_08087" version="0" task="task_0" level="win:Informational" template="task_08087Args"/>
+     <event value="8088" symbol="task_08088" version="0" task="task_0" level="win:Error" template="task_0Args"/>
+     <event value="8089" symbol="task_08089" version="0" task="task_0" level="win:Informational" template="task_08087Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="Ver" inType="win:UInt8"/>
+      <data name="CId" inType="win:UInt16"/>
+      <data name="FId" inType="win:UInt16"/>
+      <data name="Info" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_08087Args">
+      <data name="Ver" inType="win:UInt8"/>
+      <data name="CId" inType="win:UInt16"/>
+      <data name="IId" inType="win:UInt32"/>
+      <data name="Info" inType="win:AnsiString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_task_0" value="task_0"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,35 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-SetupQueue" guid="{a615acb9-d5a4-4738-b561-1df301d207f8}" resourceFileName="Microsoft-Windows-SetupQueue" messageFileName="Microsoft-Windows-SetupQueue" symbol="MicrosoftWindowsSetupQueue" source="Xml" >
+    <keywords>
+     <keyword name="keyPerformance" message="$(string.keyword_keyPerformance)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="Executecommandqueueentry" message="$(string.task_Executecommandqueueentry)" value="1000"/>
+    </tasks>
+    <events>
+     <event value="1001" symbol="ExecutecommandqueueentryStart" version="0" task="Executecommandqueueentry" opcode="win:Start" level="win:Informational" keywords="keyPerformance" template="ExecutecommandqueueentryStartArgs"/>
+     <event value="1002" symbol="ExecutecommandqueueentryStop" version="0" task="Executecommandqueueentry" opcode="win:Stop" level="win:Informational" keywords="keyPerformance" template="ExecutecommandqueueentryStopArgs"/>
+     <event value="1003" symbol="ExecutecommandqueueentryStop1003" version="0" task="Executecommandqueueentry" opcode="win:Stop" level="win:Informational" keywords="keyPerformance" template="ExecutecommandqueueentryStopArgs"/>
+    </events>
+    <templates>
+     <template tid="ExecutecommandqueueentryStartArgs">
+      <data name="Command" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ExecutecommandqueueentryStopArgs">
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_keyPerformance" value="keyPerformance"/>
+    <string id="task_Executecommandqueueentry" value="Executecommandqueueentry"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

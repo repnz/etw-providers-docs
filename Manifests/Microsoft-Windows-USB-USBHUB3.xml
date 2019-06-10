@@ -1,0 +1,670 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-USB-USBHUB3" guid="{ac52ad17-cc01-4f85-8df5-4dce4333c99b}" resourceFileName="Microsoft-Windows-USB-USBHUB3" messageFileName="Microsoft-Windows-USB-USBHUB3" symbol="MicrosoftWindowsUSBUSBHUB3" source="Xml" >
+    <keywords>
+     <keyword name="Default" message="$(string.keyword_Default)" mask="0x1"/>
+     <keyword name="USBError" message="$(string.keyword_USBError)" mask="0x2"/>
+     <keyword name="IRP" message="$(string.keyword_IRP)" mask="0x4"/>
+     <keyword name="Power" message="$(string.keyword_Power)" mask="0x8"/>
+     <keyword name="PnP" message="$(string.keyword_PnP)" mask="0x10"/>
+     <keyword name="Performance" message="$(string.keyword_Performance)" mask="0x20"/>
+     <keyword name="HeadersBusTrace" message="$(string.keyword_HeadersBusTrace)" mask="0x40"/>
+     <keyword name="PartialDataBusTrace" message="$(string.keyword_PartialDataBusTrace)" mask="0x80"/>
+     <keyword name="FullDataBusTrace" message="$(string.keyword_FullDataBusTrace)" mask="0x100"/>
+     <keyword name="StateMachine" message="$(string.keyword_StateMachine)" mask="0x200"/>
+     <keyword name="Enumeration" message="$(string.keyword_Enumeration)" mask="0x400"/>
+     <keyword name="VerifyDriver" message="$(string.keyword_VerifyDriver)" mask="0x800"/>
+     <keyword name="HWVerifyHost" message="$(string.keyword_HWVerifyHost)" mask="0x1000"/>
+     <keyword name="HWVerifyHub" message="$(string.keyword_HWVerifyHub)" mask="0x2000"/>
+     <keyword name="HWVerifyDevice" message="$(string.keyword_HWVerifyDevice)" mask="0x4000"/>
+     <keyword name="Rundown" message="$(string.keyword_Rundown)" mask="0x8000"/>
+     <keyword name="Device" message="$(string.keyword_Device)" mask="0x10000"/>
+     <keyword name="Hub" message="$(string.keyword_Hub)" mask="0x20000"/>
+     <keyword name="Compat" message="$(string.keyword_Compat)" mask="0x40000"/>
+     <keyword name="ControllerCommand" message="$(string.keyword_ControllerCommand)" mask="0x80000"/>
+     <keyword name="keyword_400000000000" message="$(string.keyword_keyword_400000000000)" mask="0x400000000000"/>
+    </keywords>
+    <tasks>
+     <task name="USB3.0HubDriverRundown" message="$(string.task_USB3.0HubDriverRundown)" value="1">
+>
+      <opcodes>
+       <opcode name="Information" message="$(string.opcode_USB3.0HubDriverRundownInformation)" value="16"/>
+      </opcodes>
+     </task>
+     <task name="PrepareHardware" message="$(string.task_PrepareHardware)" value="2">
+>
+      <opcodes>
+       <opcode name="Error" message="$(string.opcode_PrepareHardwareError)" value="11"/>
+       <opcode name="Information" message="$(string.opcode_PrepareHardwareInformation)" value="16"/>
+      </opcodes>
+     </task>
+     <task name="AddDevice" message="$(string.task_AddDevice)" value="3">
+>
+      <opcodes>
+       <opcode name="Error" message="$(string.opcode_AddDeviceError)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="ReleaseHardware" message="$(string.task_ReleaseHardware)" value="4"/>
+     <task name="D0Entry" message="$(string.task_D0Entry)" value="5">
+>
+      <opcodes>
+       <opcode name="Information" message="$(string.opcode_D0EntryInformation)" value="16"/>
+      </opcodes>
+     </task>
+     <task name="D0Exit" message="$(string.task_D0Exit)" value="6"/>
+     <task name="SurpriseRemoval" message="$(string.task_SurpriseRemoval)" value="7">
+>
+      <opcodes>
+       <opcode name="Information" message="$(string.opcode_SurpriseRemovalInformation)" value="16"/>
+       <opcode name="Warning" message="$(string.opcode_SurpriseRemovalWarning)" value="18"/>
+      </opcodes>
+     </task>
+     <task name="Cleanup" message="$(string.task_Cleanup)" value="8"/>
+     <task name="USBDeviceEnumeration" message="$(string.task_USBDeviceEnumeration)" value="9">
+>
+      <opcodes>
+       <opcode name="Error" message="$(string.opcode_USBDeviceEnumerationError)" value="11"/>
+       <opcode name="Information" message="$(string.opcode_USBDeviceEnumerationInformation)" value="16"/>
+       <opcode name="Warning" message="$(string.opcode_USBDeviceEnumerationWarning)" value="18"/>
+      </opcodes>
+     </task>
+     <task name="DescriptorValidation" message="$(string.task_DescriptorValidation)" value="10">
+>
+      <opcodes>
+       <opcode name="Error" message="$(string.opcode_DescriptorValidationError)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="ClientRequest" message="$(string.task_ClientRequest)" value="11">
+>
+      <opcodes>
+       <opcode name="Error" message="$(string.opcode_ClientRequestError)" value="11"/>
+       <opcode name="Information" message="$(string.opcode_ClientRequestInformation)" value="16"/>
+      </opcodes>
+     </task>
+     <task name="USBPort" message="$(string.task_USBPort)" value="12">
+>
+      <opcodes>
+       <opcode name="Error" message="$(string.opcode_USBPortError)" value="11"/>
+       <opcode name="Information" message="$(string.opcode_USBPortInformation)" value="16"/>
+      </opcodes>
+     </task>
+     <task name="StateMachine" message="$(string.task_StateMachine)" value="13">
+>
+      <opcodes>
+       <opcode name="Error" message="$(string.opcode_StateMachineError)" value="11"/>
+       <opcode name="Information" message="$(string.opcode_StateMachineInformation)" value="16"/>
+      </opcodes>
+     </task>
+     <task name="HubReset" message="$(string.task_HubReset)" value="14"/>
+     <task name="ControlTransfer" message="$(string.task_ControlTransfer)" value="15">
+>
+      <opcodes>
+       <opcode name="Error" message="$(string.opcode_ControlTransferError)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="User_ModeIOCTL" message="$(string.task_User_ModeIOCTL)" value="16"/>
+     <task name="IllegalEndpointSharingAcrossInterfaces" message="$(string.task_IllegalEndpointSharingAcrossInterfaces)" value="17">
+>
+      <opcodes>
+       <opcode name="Error" message="$(string.opcode_IllegalEndpointSharingAcrossInterfacesError)" value="11"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <maps>
+     <valueMap name="MapDripsWatchdogResult">
+      <map value="0x0" message="$(string.map_MapDripsWatchdogResultQueryRemovalInitiated)"/>
+      <map value="0x1" message="$(string.map_MapDripsWatchdogResultSkippedAsDeviceIsAHub)"/>
+      <map value="0x2" message="$(string.map_MapDripsWatchdogResultSkippedAsCouldNotReadSettings)"/>
+      <map value="0x3" message="$(string.map_MapDripsWatchdogResultSkippedAsDisabledInSettingsPanel)"/>
+      <map value="0x4" message="$(string.map_MapDripsWatchdogResultSkippedAsHackflagSet)"/>
+      <map value="0x5" message="$(string.map_MapDripsWatchdogResultSkippedAsRecentIoObservered)"/>
+      <map value="0x6" message="$(string.map_MapDripsWatchdogResultSkippedAsAlreadyMarkedForRemoval (Device vetoed previous attempt))"/>
+      <map value="0x7" message="$(string.map_MapDripsWatchdogResultSkippedAsUnableToRegisterIrCallback)"/>
+      <map value="0x8" message="$(string.map_MapDripsWatchdogResultSkippedAsIoRequestDeviceRemovalForResetFailed)"/>
+      <map value="0x9" message="$(string.map_MapDripsWatchdogResultSkippedAsAcquireRemoveLockFailed)"/>
+      <map value="0xa" message="$(string.map_MapDripsWatchdogResultSkippedAsWorkItemCreateFailed)"/>
+      <map value="0xb" message="$(string.map_MapDripsWatchdogResultSkippedAsPersistentIoObserved)"/>
+      <map value="0xc" message="$(string.map_MapDripsWatchdogResultSurpriseRemovalInitiated)"/>
+      <map value="0xff" message="$(string.map_MapDripsWatchdogResultUnknownState)"/>
+     </valueMap>
+     <valueMap name="MapControllerParentBusType">
+      <map value="0x1" message="$(string.map_MapControllerParentBusTypeControllerParentBusTypePci)"/>
+      <map value="0x2" message="$(string.map_MapControllerParentBusTypeControllerParentBusTypeAcpi)"/>
+      <map value="0x3" message="$(string.map_MapControllerParentBusTypeControllerParentBusTypeMaUsb)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="USB3.0HubDriverRundownStart" version="0" task="USB3.0HubDriverRundown" opcode="win:Start" level="win:Informational" keywords="Default Rundown"/>
+     <event value="2" symbol="USB3.0HubDriverRundownStop" version="0" task="USB3.0HubDriverRundown" opcode="win:Stop" level="win:Informational" keywords="Default Rundown"/>
+     <event value="3" symbol="USB3.0HubDriverRundownInformation" version="0" task="USB3.0HubDriverRundown" opcode="Information" level="win:Informational" keywords="Default Rundown" template="USB3.0HubDriverRundownInformationArgs"/>
+     <event value="4" symbol="USB3.0HubDriverRundownInformation4" version="0" task="USB3.0HubDriverRundown" opcode="Information" level="win:Informational" keywords="Default Rundown" template="USB3.0HubDriverRundownInformation4Args"/>
+     <event value="5" symbol="USB3.0HubDriverRundownInformation5" version="0" task="USB3.0HubDriverRundown" opcode="Information" level="win:Informational" keywords="Default Rundown" template="USB3.0HubDriverRundownInformation5Args"/>
+     <event value="6" symbol="USB3.0HubDriverRundownInformation6" version="0" task="USB3.0HubDriverRundown" opcode="Information" level="win:Informational" keywords="Default Rundown" template="USB3.0HubDriverRundownInformation6Args"/>
+     <event value="6" symbol="USB3.0HubDriverRundownInformation6_V1" version="1" task="USB3.0HubDriverRundown" opcode="Information" level="win:Informational" keywords="Default Rundown" template="USB3.0HubDriverRundownInformation6Args_V1"/>
+     <event value="7" symbol="USB3.0HubDriverRundownInformation7" version="0" task="USB3.0HubDriverRundown" opcode="Information" level="win:Informational" keywords="Default Rundown" template="USB3.0HubDriverRundownInformation7Args"/>
+     <event value="7" symbol="USB3.0HubDriverRundownInformation7_V1" version="1" task="USB3.0HubDriverRundown" opcode="Information" level="win:Informational" keywords="Default Rundown" template="USB3.0HubDriverRundownInformation7Args_V1"/>
+     <event value="8" symbol="USB3.0HubDriverRundownInformation8" version="0" task="USB3.0HubDriverRundown" opcode="Information" level="win:Informational" keywords="Default Rundown" template="USB3.0HubDriverRundownInformation7Args"/>
+     <event value="8" symbol="USB3.0HubDriverRundownInformation8_V1" version="1" task="USB3.0HubDriverRundown" opcode="Information" level="win:Informational" keywords="Default Rundown" template="USB3.0HubDriverRundownInformation7Args_V1"/>
+     <event value="9" symbol="USB3.0HubDriverRundownInformation9" version="0" task="USB3.0HubDriverRundown" opcode="Information" level="win:Informational" keywords="Default Rundown" template="USB3.0HubDriverRundownInformation9Args"/>
+     <event value="10" symbol="USB3.0HubDriverRundownInformation10" version="0" task="USB3.0HubDriverRundown" opcode="Information" level="win:Informational" keywords="Default Rundown" template="USB3.0HubDriverRundownInformation10Args"/>
+     <event value="20" symbol="PrepareHardwareStart" version="0" task="PrepareHardware" opcode="win:Start" level="win:Informational" keywords="Default PnP" template="PrepareHardwareStartArgs"/>
+     <event value="21" symbol="PrepareHardwareStop" version="0" task="PrepareHardware" opcode="win:Stop" level="win:Informational" keywords="Default PnP" template="PrepareHardwareStopArgs"/>
+     <event value="22" symbol="PrepareHardwareInformation" version="0" task="PrepareHardware" opcode="Information" level="win:Informational" keywords="Default PnP" template="USB3.0HubDriverRundownInformationArgs"/>
+     <event value="23" symbol="PrepareHardwareInformation23" version="0" task="PrepareHardware" opcode="Information" level="win:Informational" keywords="Default PnP" template="USB3.0HubDriverRundownInformation4Args"/>
+     <event value="24" symbol="PrepareHardwareInformation24" version="0" task="PrepareHardware" opcode="Information" level="win:Informational" keywords="Default PnP" template="USB3.0HubDriverRundownInformation5Args"/>
+     <event value="25" symbol="PrepareHardwareInformation25" version="0" task="PrepareHardware" opcode="Information" level="win:Informational" keywords="Default PnP" template="USB3.0HubDriverRundownInformation7Args"/>
+     <event value="25" symbol="PrepareHardwareInformation25_V1" version="1" task="PrepareHardware" opcode="Information" level="win:Informational" keywords="Default PnP" template="USB3.0HubDriverRundownInformation7Args_V1"/>
+     <event value="26" symbol="PrepareHardwareInformation26" version="0" task="PrepareHardware" opcode="Information" level="win:Informational" keywords="Default PnP" template="USB3.0HubDriverRundownInformation7Args"/>
+     <event value="26" symbol="PrepareHardwareInformation26_V1" version="1" task="PrepareHardware" opcode="Information" level="win:Informational" keywords="Default PnP" template="USB3.0HubDriverRundownInformation7Args_V1"/>
+     <event value="27" symbol="PrepareHardwareInformation27" version="0" task="PrepareHardware" opcode="Information" level="win:Informational" keywords="Default PnP" template="USB3.0HubDriverRundownInformation9Args"/>
+     <event value="28" symbol="PrepareHardwareInformation28" version="0" task="PrepareHardware" opcode="Information" level="win:Informational" keywords="Default PnP" template="USB3.0HubDriverRundownInformation10Args"/>
+     <event value="29" symbol="AddDeviceStart" version="0" task="AddDevice" opcode="win:Start" level="win:Informational" keywords="Default PnP"/>
+     <event value="30" symbol="AddDeviceStop" version="0" task="AddDevice" opcode="win:Stop" level="win:Informational" keywords="Default PnP" template="PrepareHardwareStopArgs"/>
+     <event value="31" symbol="ReleaseHardwareStart" version="0" task="ReleaseHardware" opcode="win:Start" level="win:Informational" keywords="Default PnP" template="PrepareHardwareStartArgs"/>
+     <event value="32" symbol="ReleaseHardwareStop" version="0" task="ReleaseHardware" opcode="win:Stop" level="win:Informational" keywords="Default PnP" template="PrepareHardwareStopArgs"/>
+     <event value="33" symbol="D0EntryStart" version="0" task="D0Entry" opcode="win:Start" level="win:Informational" keywords="Default Power" template="D0EntryStartArgs"/>
+     <event value="34" symbol="D0EntryStop" version="0" task="D0Entry" opcode="win:Stop" level="win:Informational" keywords="Default Power" template="D0EntryStopArgs"/>
+     <event value="35" symbol="D0ExitStart" version="0" task="D0Exit" opcode="win:Start" level="win:Informational" keywords="Default Power" template="D0EntryStartArgs"/>
+     <event value="36" symbol="D0ExitStop" version="0" task="D0Exit" opcode="win:Stop" level="win:Informational" keywords="Default Power" template="D0EntryStopArgs"/>
+     <event value="37" symbol="SurpriseRemovalStart" version="0" task="SurpriseRemoval" opcode="win:Start" level="win:Informational" keywords="Default PnP" template="PrepareHardwareStartArgs"/>
+     <event value="38" symbol="SurpriseRemovalStop" version="0" task="SurpriseRemoval" opcode="win:Stop" level="win:Informational" keywords="Default PnP" template="PrepareHardwareStartArgs"/>
+     <event value="39" symbol="CleanupStart" version="0" task="Cleanup" opcode="win:Start" level="win:Informational" keywords="Default PnP" template="PrepareHardwareStartArgs"/>
+     <event value="40" symbol="CleanupStop" version="0" task="Cleanup" opcode="win:Stop" level="win:Informational" keywords="Default PnP" template="PrepareHardwareStartArgs"/>
+     <event value="41" symbol="PrepareHardwareStart41" version="0" task="PrepareHardware" opcode="win:Start" level="win:Informational" keywords="Default PnP" template="PrepareHardwareStartArgs"/>
+     <event value="42" symbol="PrepareHardwareStop42" version="0" task="PrepareHardware" opcode="win:Stop" level="win:Informational" keywords="Default PnP" template="PrepareHardwareStopArgs"/>
+     <event value="43" symbol="PrepareHardwareInformation43" version="0" task="PrepareHardware" opcode="Information" level="win:Informational" keywords="Default PnP keyword_400000000000" template="USB3.0HubDriverRundownInformation6Args"/>
+     <event value="43" symbol="PrepareHardwareInformation43_V1" version="1" task="PrepareHardware" opcode="Information" level="win:Informational" keywords="Default PnP keyword_400000000000" template="USB3.0HubDriverRundownInformation6Args_V1"/>
+     <event value="44" symbol="PrepareHardwareError" version="0" task="PrepareHardware" opcode="Error" level="win:Error" keywords="Default PnP" template="PrepareHardwareStartArgs"/>
+     <event value="45" symbol="PrepareHardwareError45" version="0" task="PrepareHardware" opcode="Error" level="win:Error" keywords="Default PnP keyword_400000000000" template="PrepareHardwareStartArgs"/>
+     <event value="47" symbol="AddDeviceStart47" version="0" task="AddDevice" opcode="win:Start" level="win:Informational" keywords="Default PnP keyword_400000000000"/>
+     <event value="48" symbol="AddDeviceStop48" version="0" task="AddDevice" opcode="win:Stop" level="win:Informational" keywords="Default PnP keyword_400000000000" template="PrepareHardwareStopArgs"/>
+     <event value="49" symbol="ReleaseHardwareStart49" version="0" task="ReleaseHardware" opcode="win:Start" level="win:Informational" keywords="Default PnP" template="PrepareHardwareStartArgs"/>
+     <event value="50" symbol="ReleaseHardwareStop50" version="0" task="ReleaseHardware" opcode="win:Stop" level="win:Informational" keywords="Default PnP" template="PrepareHardwareStopArgs"/>
+     <event value="51" symbol="D0EntryStart51" version="0" task="D0Entry" opcode="win:Start" level="win:Informational" keywords="Default Power" template="D0EntryStartArgs"/>
+     <event value="52" symbol="D0EntryStop52" version="0" task="D0Entry" opcode="win:Stop" level="win:Informational" keywords="Default Power" template="D0EntryStopArgs"/>
+     <event value="53" symbol="D0ExitStart53" version="0" task="D0Exit" opcode="win:Start" level="win:Informational" keywords="Default Power" template="D0EntryStartArgs"/>
+     <event value="54" symbol="D0ExitStop54" version="0" task="D0Exit" opcode="win:Stop" level="win:Informational" keywords="Default Power" template="D0EntryStopArgs"/>
+     <event value="55" symbol="SurpriseRemovalStart55" version="0" task="SurpriseRemoval" opcode="win:Start" level="win:Informational" keywords="Default PnP" template="PrepareHardwareStartArgs"/>
+     <event value="56" symbol="SurpriseRemovalStop56" version="0" task="SurpriseRemoval" opcode="win:Stop" level="win:Informational" keywords="Default PnP" template="PrepareHardwareStartArgs"/>
+     <event value="57" symbol="CleanupStart57" version="0" task="Cleanup" opcode="win:Start" level="win:Informational" keywords="Default PnP" template="PrepareHardwareStartArgs"/>
+     <event value="58" symbol="CleanupStop58" version="0" task="Cleanup" opcode="win:Stop" level="win:Informational" keywords="Default PnP" template="PrepareHardwareStartArgs"/>
+     <event value="60" symbol="USBDeviceEnumerationStart" version="0" task="USBDeviceEnumeration" opcode="win:Start" level="win:Informational" keywords="Default Enumeration" template="USB3.0HubDriverRundownInformation7Args"/>
+     <event value="61" symbol="USBDeviceEnumerationStop" version="0" task="USBDeviceEnumeration" opcode="win:Stop" level="win:Informational" keywords="Default Enumeration" template="USBDeviceEnumerationStopArgs"/>
+     <event value="62" symbol="USBDeviceEnumerationError" version="0" task="USBDeviceEnumeration" opcode="Error" level="win:Error" keywords="Default Enumeration" template="PrepareHardwareStartArgs"/>
+     <event value="63" symbol="USBDeviceEnumerationError63" version="0" task="USBDeviceEnumeration" opcode="Error" level="win:Error" keywords="Default Enumeration" template="PrepareHardwareStartArgs"/>
+     <event value="64" symbol="USBDeviceEnumerationError64" version="0" task="USBDeviceEnumeration" opcode="Error" level="win:Error" keywords="Default Enumeration" template="PrepareHardwareStopArgs"/>
+     <event value="65" symbol="USBDeviceEnumerationError65" version="0" task="USBDeviceEnumeration" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice" template="PrepareHardwareStartArgs"/>
+     <event value="66" symbol="D0EntryInformation" version="0" task="D0Entry" opcode="Information" level="win:Informational" keywords="Default Power" template="PrepareHardwareStartArgs"/>
+     <event value="70" symbol="DescriptorValidationError" version="0" task="DescriptorValidation" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice" template="PrepareHardwareStartArgs"/>
+     <event value="71" symbol="DescriptorValidationError71" version="0" task="DescriptorValidation" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice" template="PrepareHardwareStartArgs"/>
+     <event value="72" symbol="DescriptorValidationError72" version="0" task="DescriptorValidation" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice" template="PrepareHardwareStartArgs"/>
+     <event value="73" symbol="DescriptorValidationError73" version="0" task="DescriptorValidation" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice" template="PrepareHardwareStartArgs"/>
+     <event value="74" symbol="DescriptorValidationError74" version="0" task="DescriptorValidation" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice" template="PrepareHardwareStartArgs"/>
+     <event value="75" symbol="DescriptorValidationError75" version="0" task="DescriptorValidation" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice" template="PrepareHardwareStartArgs"/>
+     <event value="76" symbol="DescriptorValidationError76" version="0" task="DescriptorValidation" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice" template="PrepareHardwareStartArgs"/>
+     <event value="77" symbol="DescriptorValidationError77" version="0" task="DescriptorValidation" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice" template="PrepareHardwareStartArgs"/>
+     <event value="78" symbol="DescriptorValidationError78" version="0" task="DescriptorValidation" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice keyword_400000000000" template="PrepareHardwareStartArgs"/>
+     <event value="79" symbol="DescriptorValidationError79" version="0" task="DescriptorValidation" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice keyword_400000000000" template="PrepareHardwareStartArgs"/>
+     <event value="80" symbol="DescriptorValidationError80" version="0" task="DescriptorValidation" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice" template="PrepareHardwareStartArgs"/>
+     <event value="81" symbol="DescriptorValidationError81" version="0" task="DescriptorValidation" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice" template="PrepareHardwareStartArgs"/>
+     <event value="82" symbol="DescriptorValidationError82" version="0" task="DescriptorValidation" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice keyword_400000000000" template="PrepareHardwareStartArgs"/>
+     <event value="83" symbol="DescriptorValidationError83" version="0" task="DescriptorValidation" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice" template="PrepareHardwareStartArgs"/>
+     <event value="84" symbol="DescriptorValidationError84" version="0" task="DescriptorValidation" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice" template="PrepareHardwareStartArgs"/>
+     <event value="85" symbol="DescriptorValidationError85" version="0" task="DescriptorValidation" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice keyword_400000000000" template="PrepareHardwareStartArgs"/>
+     <event value="90" symbol="ClientRequestStart" version="0" task="ClientRequest" opcode="win:Start" level="win:Informational" keywords="Default IRP" template="ClientRequestStartArgs"/>
+     <event value="91" symbol="ClientRequestStop" version="0" task="ClientRequest" opcode="win:Stop" level="win:Informational" keywords="Default IRP" template="ClientRequestStopArgs"/>
+     <event value="92" symbol="ClientRequestStart92" version="0" task="ClientRequest" opcode="win:Start" level="win:Informational" keywords="Default IRP" template="ClientRequestStart92Args"/>
+     <event value="93" symbol="ClientRequestStop93" version="0" task="ClientRequest" opcode="win:Stop" level="win:Informational" keywords="Default IRP" template="ClientRequestStop93Args"/>
+     <event value="94" symbol="ClientRequestError" version="0" task="ClientRequest" opcode="Error" level="win:Error" keywords="Default IRP" template="ClientRequestErrorArgs"/>
+     <event value="95" symbol="ClientRequestError95" version="0" task="ClientRequest" opcode="Error" level="win:Error" keywords="Default IRP keyword_400000000000" template="ClientRequestErrorArgs"/>
+     <event value="96" symbol="ClientRequestStart96" version="0" task="ClientRequest" opcode="win:Start" level="win:Informational" keywords="Default IRP" template="PrepareHardwareStartArgs"/>
+     <event value="97" symbol="ClientRequestStop97" version="0" task="ClientRequest" opcode="win:Stop" level="win:Informational" keywords="Default IRP" template="PrepareHardwareStopArgs"/>
+     <event value="98" symbol="ClientRequestInformation" version="0" task="ClientRequest" opcode="Information" level="win:Informational" keywords="Default IRP" template="PrepareHardwareStartArgs"/>
+     <event value="100" symbol="USBPortInformation" version="0" task="USBPort" opcode="Information" level="win:Informational" keywords="Default" template="USBPortInformationArgs"/>
+     <event value="101" symbol="USBPortInformation101" version="0" task="USBPort" opcode="Information" level="win:Informational" keywords="Default" template="USBPortInformationArgs"/>
+     <event value="102" symbol="USBPortError" version="0" task="USBPort" opcode="Error" level="win:Error" keywords="Default" template="USBPortErrorArgs"/>
+     <event value="103" symbol="USBPortError103" version="0" task="USBPort" opcode="Error" level="win:Error" keywords="Default" template="USBPortErrorArgs"/>
+     <event value="110" symbol="StateMachineInformation" version="0" task="StateMachine" opcode="Information" level="win:Informational" keywords="StateMachine" template="StateMachineInformationArgs"/>
+     <event value="111" symbol="StateMachineError" version="0" task="StateMachine" opcode="Error" level="win:Error" keywords="Default" template="StateMachineInformationArgs"/>
+     <event value="120" symbol="HubResetStart" version="0" task="HubReset" opcode="win:Start" level="win:Informational" keywords="Default" template="PrepareHardwareStartArgs"/>
+     <event value="121" symbol="HubResetStop" version="0" task="HubReset" opcode="win:Stop" level="win:Informational" keywords="Default" template="PrepareHardwareStopArgs"/>
+     <event value="122" symbol="HubResetStop122" version="0" task="HubReset" opcode="win:Stop" level="win:Error" keywords="Default" template="USB3.0HubDriverRundownInformation7Args"/>
+     <event value="123" symbol="USBPortStop" version="0" task="USBPort" opcode="win:Stop" level="win:Error" keywords="Default Power HWVerifyHub" template="USBPortStopArgs"/>
+     <event value="123" symbol="USBPortStop_V1" version="1" task="USBPort" opcode="win:Stop" level="win:Error" keywords="Default Power HWVerifyHub" template="USBPortStopArgs_V1"/>
+     <event value="130" symbol="ControlTransferError" version="0" task="ControlTransfer" opcode="Error" level="win:Error" keywords="Default HWVerifyHub" template="ControlTransferErrorArgs"/>
+     <event value="131" symbol="ControlTransferError131" version="0" task="ControlTransfer" opcode="Error" level="win:Error" keywords="Default HWVerifyHub" template="ControlTransferErrorArgs"/>
+     <event value="132" symbol="ControlTransferError132" version="0" task="ControlTransfer" opcode="Error" level="win:Error" keywords="Default HWVerifyDevice" template="ControlTransferErrorArgs"/>
+     <event value="133" symbol="ControlTransferError133" version="0" task="ControlTransfer" opcode="Error" level="win:Error" keywords="Default HWVerifyHub" template="ControlTransferErrorArgs"/>
+     <event value="134" symbol="AddDeviceError" version="0" task="AddDevice" opcode="Error" level="win:Error" keywords="Default HWVerifyHub keyword_400000000000" template="PrepareHardwareStopArgs"/>
+     <event value="140" symbol="User_ModeIOCTLStop" version="0" task="User_ModeIOCTL" opcode="win:Stop" level="win:Informational" keywords="Default IRP" template="USBPortErrorArgs"/>
+     <event value="141" symbol="User_ModeIOCTLStop141" version="0" task="User_ModeIOCTL" opcode="win:Stop" level="win:Informational" keywords="Default IRP" template="USBPortErrorArgs"/>
+     <event value="142" symbol="User_ModeIOCTLStop142" version="0" task="User_ModeIOCTL" opcode="win:Stop" level="win:Informational" keywords="Default IRP" template="USBPortErrorArgs"/>
+     <event value="143" symbol="User_ModeIOCTLStop143" version="0" task="User_ModeIOCTL" opcode="win:Stop" level="win:Informational" keywords="Default IRP" template="USBPortErrorArgs"/>
+     <event value="144" symbol="User_ModeIOCTLStop144" version="0" task="User_ModeIOCTL" opcode="win:Stop" level="win:Informational" keywords="Default IRP" template="USBPortErrorArgs"/>
+     <event value="145" symbol="User_ModeIOCTLStop145" version="0" task="User_ModeIOCTL" opcode="win:Stop" level="win:Informational" keywords="Default IRP" template="USBPortErrorArgs"/>
+     <event value="146" symbol="User_ModeIOCTLStart" version="0" task="User_ModeIOCTL" opcode="win:Start" level="win:Informational" keywords="Default IRP" template="USB3.0HubDriverRundownInformation7Args"/>
+     <event value="147" symbol="User_ModeIOCTLStop147" version="0" task="User_ModeIOCTL" opcode="win:Stop" level="win:Informational" keywords="Default IRP" template="USBPortErrorArgs"/>
+     <event value="148" symbol="User_ModeIOCTLStop148" version="0" task="User_ModeIOCTL" opcode="win:Stop" level="win:Informational" keywords="Default IRP" template="USBPortErrorArgs"/>
+     <event value="149" symbol="User_ModeIOCTLStop149" version="0" task="User_ModeIOCTL" opcode="win:Stop" level="win:Informational" keywords="Default IRP" template="USBPortErrorArgs"/>
+     <event value="150" symbol="User_ModeIOCTLStart150" version="0" task="User_ModeIOCTL" opcode="win:Start" level="win:Informational" keywords="Default IRP" template="USB3.0HubDriverRundownInformation7Args"/>
+     <event value="151" symbol="User_ModeIOCTLStop151" version="0" task="User_ModeIOCTL" opcode="win:Stop" level="win:Informational" keywords="Default IRP" template="USBPortErrorArgs"/>
+     <event value="152" symbol="User_ModeIOCTLStop152" version="0" task="User_ModeIOCTL" opcode="win:Stop" level="win:Informational" keywords="Default IRP" template="USBPortErrorArgs"/>
+     <event value="153" symbol="User_ModeIOCTLStop153" version="0" task="User_ModeIOCTL" opcode="win:Stop" level="win:Informational" keywords="Default IRP" template="USBPortErrorArgs"/>
+     <event value="154" symbol="User_ModeIOCTLStop154" version="0" task="User_ModeIOCTL" opcode="win:Stop" level="win:Informational" keywords="Default IRP" template="USBPortErrorArgs"/>
+     <event value="155" symbol="User_ModeIOCTLStop155" version="0" task="User_ModeIOCTL" opcode="win:Stop" level="win:Informational" keywords="Default IRP" template="USBPortErrorArgs"/>
+     <event value="156" symbol="User_ModeIOCTLStop156" version="0" task="User_ModeIOCTL" opcode="win:Stop" level="win:Informational" keywords="Default IRP" template="USBPortErrorArgs"/>
+     <event value="157" symbol="User_ModeIOCTLStop157" version="0" task="User_ModeIOCTL" opcode="win:Stop" level="win:Informational" keywords="Default IRP HWVerifyDevice" template="ClientRequestStopArgs"/>
+     <event value="160" symbol="USBDeviceEnumerationError160" version="0" task="USBDeviceEnumeration" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice" template="ControlTransferErrorArgs"/>
+     <event value="161" symbol="USBDeviceEnumerationError161" version="0" task="USBDeviceEnumeration" opcode="Error" level="win:Error" keywords="Default Enumeration" template="PrepareHardwareStopArgs"/>
+     <event value="162" symbol="USBDeviceEnumerationError162" version="0" task="USBDeviceEnumeration" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice" template="ControlTransferErrorArgs"/>
+     <event value="163" symbol="USBDeviceEnumerationError163" version="0" task="USBDeviceEnumeration" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice" template="ControlTransferErrorArgs"/>
+     <event value="164" symbol="USBDeviceEnumerationError164" version="0" task="USBDeviceEnumeration" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice" template="ControlTransferErrorArgs"/>
+     <event value="165" symbol="USBDeviceEnumerationError165" version="0" task="USBDeviceEnumeration" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice" template="ControlTransferErrorArgs"/>
+     <event value="166" symbol="USBDeviceEnumerationError166" version="0" task="USBDeviceEnumeration" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice" template="ControlTransferErrorArgs"/>
+     <event value="167" symbol="USBDeviceEnumerationError167" version="0" task="USBDeviceEnumeration" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice" template="ControlTransferErrorArgs"/>
+     <event value="168" symbol="USBDeviceEnumerationError168" version="0" task="USBDeviceEnumeration" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice" template="ControlTransferErrorArgs"/>
+     <event value="169" symbol="USBDeviceEnumerationError169" version="0" task="USBDeviceEnumeration" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice" template="ControlTransferErrorArgs"/>
+     <event value="170" symbol="USBDeviceEnumerationError170" version="0" task="USBDeviceEnumeration" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice" template="ControlTransferErrorArgs"/>
+     <event value="171" symbol="USBDeviceEnumerationError171" version="0" task="USBDeviceEnumeration" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice" template="ControlTransferErrorArgs"/>
+     <event value="172" symbol="USBDeviceEnumerationError172" version="0" task="USBDeviceEnumeration" opcode="Error" level="win:Error" keywords="Default Enumeration" template="PrepareHardwareStopArgs"/>
+     <event value="173" symbol="USBDeviceEnumerationError173" version="0" task="USBDeviceEnumeration" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyHub keyword_400000000000" template="PrepareHardwareStartArgs"/>
+     <event value="174" symbol="USBDeviceEnumerationError174" version="0" task="USBDeviceEnumeration" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyHub" template="PrepareHardwareStartArgs"/>
+     <event value="175" symbol="USBDeviceEnumerationError175" version="0" task="USBDeviceEnumeration" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice keyword_400000000000" template="USBDeviceEnumerationError175Args"/>
+     <event value="176" symbol="USBDeviceEnumerationError176" version="0" task="USBDeviceEnumeration" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice" template="USBDeviceEnumerationStopArgs"/>
+     <event value="177" symbol="USBDeviceEnumerationError177" version="0" task="USBDeviceEnumeration" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyHub" template="PrepareHardwareStartArgs"/>
+     <event value="178" symbol="USBDeviceEnumerationError178" version="0" task="USBDeviceEnumeration" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyHub" template="USBDeviceEnumerationError178Args"/>
+     <event value="179" symbol="ClientRequestError179" version="0" task="ClientRequest" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyHub" template="ClientRequestError179Args"/>
+     <event value="179" symbol="ClientRequestError179_V1" version="1" task="ClientRequest" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyHub" template="ClientRequestError179Args_V1"/>
+     <event value="180" symbol="ClientRequestInformation180" version="0" task="ClientRequest" opcode="Information" level="win:Informational" keywords="Default IRP" template="ClientRequestInformation180Args"/>
+     <event value="181" symbol="USBDeviceEnumerationError181" version="0" task="USBDeviceEnumeration" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice" template="ControlTransferErrorArgs"/>
+     <event value="182" symbol="USBDeviceEnumerationError182" version="0" task="USBDeviceEnumeration" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice keyword_400000000000" template="ControlTransferErrorArgs"/>
+     <event value="183" symbol="USBDeviceEnumerationError183" version="0" task="USBDeviceEnumeration" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice" template="ControlTransferErrorArgs"/>
+     <event value="184" symbol="USBDeviceEnumerationError184" version="0" task="USBDeviceEnumeration" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice" template="ControlTransferErrorArgs"/>
+     <event value="185" symbol="USBDeviceEnumerationWarning" version="0" task="USBDeviceEnumeration" opcode="Warning" level="win:Warning" keywords="Default Enumeration HWVerifyDevice" template="USBDeviceEnumerationStopArgs"/>
+     <event value="186" symbol="USBDeviceEnumerationError186" version="0" task="USBDeviceEnumeration" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice" template="USBDeviceEnumerationError186Args"/>
+     <event value="187" symbol="USBDeviceEnumerationError187" version="0" task="USBDeviceEnumeration" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice" template="USBDeviceEnumerationError187Args"/>
+     <event value="188" symbol="USBDeviceEnumerationInformation" version="0" task="USBDeviceEnumeration" opcode="Information" level="win:Informational" keywords="Default Enumeration HWVerifyDevice" template="USBDeviceEnumerationError187Args"/>
+     <event value="189" symbol="USBDeviceEnumerationError189" version="0" task="USBDeviceEnumeration" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice keyword_400000000000" template="ControlTransferErrorArgs"/>
+     <event value="190" symbol="USBDeviceEnumerationError190" version="0" task="USBDeviceEnumeration" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice keyword_400000000000" template="ControlTransferErrorArgs"/>
+     <event value="191" symbol="DescriptorValidationError191" version="0" task="DescriptorValidation" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice keyword_400000000000" template="PrepareHardwareStartArgs"/>
+     <event value="192" symbol="DescriptorValidationError192" version="0" task="DescriptorValidation" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice keyword_400000000000" template="PrepareHardwareStartArgs"/>
+     <event value="194" symbol="SurpriseRemovalInformation" version="0" task="SurpriseRemoval" opcode="Information" level="win:Informational" keywords="Default keyword_400000000000" template="SurpriseRemovalInformationArgs"/>
+     <event value="195" symbol="SurpriseRemovalInformation195" version="0" task="SurpriseRemoval" opcode="Information" level="win:Informational" keywords="Default" template="SurpriseRemovalInformation195Args"/>
+     <event value="196" symbol="SurpriseRemovalWarning" version="0" task="SurpriseRemoval" opcode="Warning" level="win:Warning" keywords="Default" template="SurpriseRemovalInformation195Args"/>
+     <event value="197" symbol="USBDeviceEnumerationError197" version="0" task="USBDeviceEnumeration" opcode="Error" level="win:Error" keywords="Default Enumeration HWVerifyDevice keyword_400000000000" template="USBDeviceEnumerationError197Args"/>
+     <event value="198" symbol="IllegalEndpointSharingAcrossInterfacesError" version="0" task="IllegalEndpointSharingAcrossInterfaces" opcode="Error" level="win:Error" keywords="Default HWVerifyDevice keyword_400000000000" template="IllegalEndpointSharingAcrossInterfacesErrorArgs"/>
+    </events>
+    <templates>
+     <template tid="USB3.0HubDriverRundownInformationArgs">
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_USB30_HubDescriptor" inType="win:Int8"/>
+      <data name="fid_CurrentWdfPowerDeviceState" inType="win:UInt32"/>
+     </template>
+     <template tid="USB3.0HubDriverRundownInformation4Args">
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_USB20_HubDescriptor" inType="win:Int8"/>
+      <data name="fid_CurrentWdfPowerDeviceState" inType="win:UInt32"/>
+     </template>
+     <template tid="USB3.0HubDriverRundownInformation5Args">
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_CurrentWdfPowerDeviceState" inType="win:UInt32"/>
+     </template>
+     <template tid="USB3.0HubDriverRundownInformation6Args">
+      <data name="fid_HubDevice" inType="win:Pointer"/>
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_PortNumber" inType="win:UInt32"/>
+      <data name="fid_DeviceDescription" inType="win:UnicodeString"/>
+      <data name="fid_DeviceInterfacePath" inType="win:UnicodeString"/>
+      <data name="fid_DeviceDescriptor" inType="win:HexInt32"/>
+      <data name="fid_ConfigurationDescriptorLength" inType="win:UInt16"/>
+      <data name="fid_ConfigurationDescriptor" inType="win:UInt8" count="fid_ConfigurationDescriptorLength"/>
+      <data name="fid_PdoName" inType="win:UnicodeString"/>
+      <data name="fid_Suspended" inType="win:UInt8"/>
+      <data name="fid_PortPathDepth" inType="win:UInt32"/>
+      <data name="fid_PortPath" inType="win:UInt32"/>
+      <data name="fid_PciBus" inType="win:UInt32"/>
+      <data name="fid_PciDevice" inType="win:UInt32"/>
+      <data name="fid_PciFunction" inType="win:UInt32"/>
+      <data name="fid_PciVendorId" inType="win:UInt32"/>
+      <data name="fid_PciDeviceId" inType="win:UInt32"/>
+      <data name="fid_PciRevisionId" inType="win:UInt32"/>
+      <data name="fid_CurrentWdfPowerDeviceState" inType="win:UInt32"/>
+      <data name="fid_Usb20LpmStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="USB3.0HubDriverRundownInformation7Args">
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_PortNumber" inType="win:UInt32"/>
+     </template>
+     <template tid="USB3.0HubDriverRundownInformation9Args">
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_PortNumber" inType="win:UInt32"/>
+      <data name="fid_USBHUB_Acpi_Upc_Package" inType="win:Int8"/>
+     </template>
+     <template tid="USB3.0HubDriverRundownInformation10Args">
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_PortNumber" inType="win:UInt32"/>
+      <data name="fid_USBHUB_Acpi_Pld" inType="win:Int8"/>
+     </template>
+     <template tid="PrepareHardwareStartArgs">
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+     </template>
+     <template tid="PrepareHardwareStopArgs">
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_NtStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="D0EntryStartArgs">
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_TargetState" inType="win:UInt32"/>
+      <data name="fid_PowerAction" inType="win:UInt32"/>
+      <data name="fid_WaitWakePending" inType="win:UInt16"/>
+     </template>
+     <template tid="D0EntryStopArgs">
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_NtStatus" inType="win:UInt32"/>
+      <data name="fid_PowerAction" inType="win:UInt32"/>
+     </template>
+     <template tid="USBDeviceEnumerationStopArgs">
+      <data name="fid_HubDevice" inType="win:Pointer"/>
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_PortNumber" inType="win:UInt32"/>
+      <data name="fid_NtStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="ClientRequestStartArgs">
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_IoctlCode" inType="win:UInt32"/>
+     </template>
+     <template tid="ClientRequestStopArgs">
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_IoctlCode" inType="win:UInt32"/>
+      <data name="fid_NtStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="ClientRequestStart92Args">
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_UrbFunction" inType="win:UInt32"/>
+     </template>
+     <template tid="ClientRequestStop93Args">
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_UrbFunction" inType="win:UInt32"/>
+      <data name="fid_UsbdStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="ClientRequestErrorArgs">
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_URB_Ptr" inType="win:Pointer"/>
+      <data name="fid_USBPORT_URB_HEADER" inType="win:Int8"/>
+     </template>
+     <template tid="USBPortInformationArgs">
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_PortNumber" inType="win:UInt32"/>
+      <data name="fid_PortStatus" inType="win:UInt16"/>
+      <data name="fid_PortChange" inType="win:UInt16"/>
+     </template>
+     <template tid="USBPortErrorArgs">
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_PortNumber" inType="win:UInt32"/>
+      <data name="fid_NtStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="StateMachineInformationArgs">
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_Context" inType="win:Pointer"/>
+      <data name="fid_StartIndex" inType="win:UInt32"/>
+      <data name="fid_State" inType="win:UInt32"/>
+      <data name="fid_Event" inType="win:UInt32"/>
+      <data name="fid_Depth" inType="win:UInt32"/>
+     </template>
+     <template tid="USBPortStopArgs">
+      <data name="fid_PortNumber" inType="win:UInt32"/>
+      <data name="fid_PreviousPortStatus" inType="win:UInt16"/>
+      <data name="fid_CurrentPortStatus" inType="win:UInt16"/>
+      <data name="fid_CurrentPortChange" inType="win:UInt16"/>
+      <data name="fid_Event" inType="win:UInt32"/>
+     </template>
+     <template tid="ControlTransferErrorArgs">
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_PortNumber" inType="win:UInt32"/>
+      <data name="fid_UsbdStatus" inType="win:UInt32"/>
+      <data name="fid_NtStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="USBDeviceEnumerationError175Args">
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_DeviceIsComposite" inType="win:UInt32"/>
+      <data name="fid_DeviceWakeupSupport" inType="win:UInt32"/>
+      <data name="fid_InterfaceRemoteWakeupCapable" inType="win:UInt16"/>
+     </template>
+     <template tid="USBDeviceEnumerationError178Args">
+      <data name="fid_HubDevice" inType="win:Pointer"/>
+      <data name="fid_CachedSerialNumber" inType="win:AnsiString"/>
+      <data name="fid_CachedSerialNumberLength" inType="win:UInt32"/>
+      <data name="fid_NewSerialNumber" inType="win:UnicodeString"/>
+      <data name="fid_NewSerialNumberLength" inType="win:UInt32"/>
+     </template>
+     <template tid="ClientRequestError179Args">
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_IoctlCode" inType="win:UInt32"/>
+      <data name="fid_UrbFunction" inType="win:UInt32"/>
+     </template>
+     <template tid="ClientRequestInformation180Args">
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_Capability" inType="win:GUID"/>
+      <data name="fid_NtStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="USBDeviceEnumerationError186Args">
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_bNumberOfAlternateModes" inType="win:UInt8"/>
+      <data name="fid_bPreferredAlternateMode" inType="win:UInt8"/>
+      <data name="fid_VconnPower" inType="win:UInt16"/>
+      <data name="fid_AdditionalInfoUrlString" inType="win:UnicodeString"/>
+     </template>
+     <template tid="USBDeviceEnumerationError187Args">
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_Svid" inType="win:UInt16"/>
+      <data name="fid_AlternateMode" inType="win:UInt8"/>
+      <data name="fid_AlternateModeString" inType="win:UnicodeString"/>
+      <data name="fid_ConfigurationStatus" inType="win:UInt8"/>
+     </template>
+     <template tid="SurpriseRemovalInformationArgs">
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_DripsWatchdogResult" inType="win:UInt32" map="MapDripsWatchdogResult"/>
+      <data name="fid_idVendor" inType="win:UInt16"/>
+      <data name="fid_idProduct" inType="win:UInt16"/>
+      <data name="fid_bcdDevice" inType="win:UInt16"/>
+     </template>
+     <template tid="SurpriseRemovalInformation195Args">
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_DripsWatchdogResult" inType="win:UInt32"/>
+      <data name="fid_idVendor" inType="win:UInt16"/>
+      <data name="fid_idProduct" inType="win:UInt16"/>
+      <data name="fid_bcdDevice" inType="win:UInt16"/>
+     </template>
+     <template tid="USBDeviceEnumerationError197Args">
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_EnumMsgId" inType="win:UInt32"/>
+      <data name="fid_idVendor" inType="win:UInt16"/>
+      <data name="fid_idProduct" inType="win:UInt16"/>
+      <data name="fid_bcdDevice" inType="win:UInt16"/>
+      <data name="fid_DeviceSpeed" inType="win:UInt32"/>
+      <data name="fid_NtStatus" inType="win:UInt32"/>
+      <data name="fid_UsbdStatus" inType="win:UInt32"/>
+      <data name="fid_PortNumber" inType="win:UInt32"/>
+      <data name="fid_TotalHubDepth" inType="win:UInt32"/>
+      <data name="fid_PortProtocol" inType="win:UInt32"/>
+      <data name="fid_PreviousPortStatus" inType="win:UInt16"/>
+      <data name="fid_CumulativePortChange" inType="win:UInt16"/>
+      <data name="fid_CurrentFeatureSelector" inType="win:UInt32"/>
+      <data name="fid_bNumberOfPorts" inType="win:UInt16"/>
+      <data name="fid_ControllerParentBusType" inType="win:UInt32" map="MapControllerParentBusType"/>
+      <data name="fid_PciBus" inType="win:UInt32"/>
+      <data name="fid_PciDevice" inType="win:UInt32"/>
+      <data name="fid_PciFunction" inType="win:UInt32"/>
+      <data name="fid_PciVendorId" inType="win:UInt32"/>
+      <data name="fid_PciDeviceId" inType="win:UInt32"/>
+      <data name="fid_PciRevisionId" inType="win:UInt32"/>
+      <data name="fid_AcpiVendorId" inType="win:AnsiString"/>
+      <data name="fid_AcpiDeviceId" inType="win:AnsiString"/>
+      <data name="fid_AcpiRevisionId" inType="win:AnsiString"/>
+      <data name="fid_idVendorParentHub" inType="win:UInt16"/>
+      <data name="fid_idProductParentHub" inType="win:UInt16"/>
+      <data name="fid_bcdDeviceParentHub" inType="win:UInt16"/>
+     </template>
+     <template tid="IllegalEndpointSharingAcrossInterfacesErrorArgs">
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_idVendor" inType="win:UInt16"/>
+      <data name="fid_idProduct" inType="win:UInt16"/>
+      <data name="fid_bcdDevice" inType="win:UInt16"/>
+      <data name="fid_DeviceSpeed" inType="win:UInt32"/>
+      <data name="fid_bEndpointAddress" inType="win:UInt8"/>
+      <data name="fid_bInterfaceNumber1" inType="win:UInt8"/>
+      <data name="fid_bAlternateSetting1" inType="win:UInt8"/>
+      <data name="fid_bInterfaceNumber2" inType="win:UInt8"/>
+      <data name="fid_bAlternateSetting2" inType="win:UInt8"/>
+     </template>
+     <template tid="USB3.0HubDriverRundownInformation6Args_V1">
+      <data name="fid_HubDevice" inType="win:Pointer"/>
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_PortNumber" inType="win:UInt32"/>
+      <data name="fid_DeviceDescription" inType="win:UnicodeString"/>
+      <data name="fid_DeviceInterfacePath" inType="win:UnicodeString"/>
+      <data name="fid_DeviceDescriptor" inType="win:27"/>
+      <data name="fid_ConfigurationDescriptorLength" inType="win:UInt16"/>
+      <data name="fid_ConfigurationDescriptor" inType="win:UInt8" count="fid_ConfigurationDescriptorLength"/>
+      <data name="fid_PdoName" inType="win:UnicodeString"/>
+      <data name="fid_Suspended" inType="win:UInt8"/>
+      <data name="fid_PortPathDepth" inType="win:UInt32"/>
+      <data name="fid_PortPath" inType="win:UInt32"/>
+      <data name="fid_PciBus" inType="win:UInt32"/>
+      <data name="fid_PciDevice" inType="win:UInt32"/>
+      <data name="fid_PciFunction" inType="win:UInt32"/>
+      <data name="fid_PciVendorId" inType="win:UInt32"/>
+      <data name="fid_PciDeviceId" inType="win:UInt32"/>
+      <data name="fid_PciRevisionId" inType="win:UInt32"/>
+      <data name="fid_CurrentWdfPowerDeviceState" inType="win:UInt32"/>
+      <data name="fid_Usb20LpmStatus" inType="win:UInt32"/>
+      <data name="fid_ControllerParentBusType" inType="win:UInt32"/>
+      <data name="fid_AcpiVendorId" inType="win:AnsiString"/>
+      <data name="fid_AcpiDeviceId" inType="win:AnsiString"/>
+      <data name="fid_AcpiRevisionId" inType="win:AnsiString"/>
+      <data name="fid_PortFlagAcpiUpcValid" inType="win:UInt8"/>
+      <data name="fid_PortConnectorType" inType="win:UInt8"/>
+      <data name="fid_UcmConnectorId" inType="win:UInt64"/>
+     </template>
+     <template tid="USB3.0HubDriverRundownInformation7Args_V1">
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_PortNumber" inType="win:UInt32"/>
+      <data name="fid_PortFlagAcpiUpcValid" inType="win:UInt8"/>
+      <data name="fid_PortConnectorType" inType="win:UInt8"/>
+      <data name="fid_UcmConnectorId" inType="win:UInt64"/>
+      <data name="fid_ControllerParentBusType" inType="win:UInt32"/>
+      <data name="fid_PciBus" inType="win:UInt32"/>
+      <data name="fid_PciDevice" inType="win:UInt32"/>
+      <data name="fid_PciFunction" inType="win:UInt32"/>
+      <data name="fid_PciVendorId" inType="win:UInt32"/>
+      <data name="fid_PciDeviceId" inType="win:UInt32"/>
+      <data name="fid_PciRevisionId" inType="win:UInt32"/>
+      <data name="fid_AcpiVendorId" inType="win:AnsiString"/>
+      <data name="fid_AcpiDeviceId" inType="win:AnsiString"/>
+      <data name="fid_AcpiRevisionId" inType="win:AnsiString"/>
+     </template>
+     <template tid="USBPortStopArgs_V1">
+      <data name="fid_PortNumber" inType="win:UInt32"/>
+      <data name="fid_PreviousPortStatus" inType="win:UInt16"/>
+      <data name="fid_CurrentPortStatus" inType="win:UInt16"/>
+      <data name="fid_CurrentPortChange" inType="win:UInt16"/>
+      <data name="fid_Event" inType="win:UInt32"/>
+      <data name="fid_idVendor" inType="win:UInt16"/>
+      <data name="fid_idProduct" inType="win:UInt16"/>
+      <data name="fid_bcdDevice" inType="win:UInt16"/>
+     </template>
+     <template tid="ClientRequestError179Args_V1">
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_IoctlCode" inType="win:UInt32"/>
+      <data name="fid_UrbFunction" inType="win:UInt32"/>
+      <data name="fid_idVendor" inType="win:UInt16"/>
+      <data name="fid_idProduct" inType="win:UInt16"/>
+      <data name="fid_bcdDevice" inType="win:UInt16"/>
+      <data name="fid_EventCount" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Default" value="Default"/>
+    <string id="keyword_USBError" value="USBError"/>
+    <string id="keyword_IRP" value="IRP"/>
+    <string id="keyword_Power" value="Power"/>
+    <string id="keyword_PnP" value="PnP"/>
+    <string id="keyword_Performance" value="Performance"/>
+    <string id="keyword_HeadersBusTrace" value="HeadersBusTrace"/>
+    <string id="keyword_PartialDataBusTrace" value="PartialDataBusTrace"/>
+    <string id="keyword_FullDataBusTrace" value="FullDataBusTrace"/>
+    <string id="keyword_StateMachine" value="StateMachine"/>
+    <string id="keyword_Enumeration" value="Enumeration"/>
+    <string id="keyword_VerifyDriver" value="VerifyDriver"/>
+    <string id="keyword_HWVerifyHost" value="HWVerifyHost"/>
+    <string id="keyword_HWVerifyHub" value="HWVerifyHub"/>
+    <string id="keyword_HWVerifyDevice" value="HWVerifyDevice"/>
+    <string id="keyword_Rundown" value="Rundown"/>
+    <string id="keyword_Device" value="Device"/>
+    <string id="keyword_Hub" value="Hub"/>
+    <string id="keyword_Compat" value="Compat"/>
+    <string id="keyword_ControllerCommand" value="ControllerCommand"/>
+    <string id="keyword_keyword_400000000000" value="keyword_400000000000"/>
+    <string id="task_USB3.0HubDriverRundown" value="USB3.0HubDriverRundown"/>
+    <string id="opcode_USB3.0HubDriverRundownInformation" value="Information"/>
+    <string id="task_PrepareHardware" value="PrepareHardware"/>
+    <string id="opcode_PrepareHardwareError" value="Error"/>
+    <string id="opcode_PrepareHardwareInformation" value="Information"/>
+    <string id="task_AddDevice" value="AddDevice"/>
+    <string id="opcode_AddDeviceError" value="Error"/>
+    <string id="task_ReleaseHardware" value="ReleaseHardware"/>
+    <string id="task_D0Entry" value="D0Entry"/>
+    <string id="opcode_D0EntryInformation" value="Information"/>
+    <string id="task_D0Exit" value="D0Exit"/>
+    <string id="task_SurpriseRemoval" value="SurpriseRemoval"/>
+    <string id="opcode_SurpriseRemovalInformation" value="Information"/>
+    <string id="opcode_SurpriseRemovalWarning" value="Warning"/>
+    <string id="task_Cleanup" value="Cleanup"/>
+    <string id="task_USBDeviceEnumeration" value="USBDeviceEnumeration"/>
+    <string id="opcode_USBDeviceEnumerationError" value="Error"/>
+    <string id="opcode_USBDeviceEnumerationInformation" value="Information"/>
+    <string id="opcode_USBDeviceEnumerationWarning" value="Warning"/>
+    <string id="task_DescriptorValidation" value="DescriptorValidation"/>
+    <string id="opcode_DescriptorValidationError" value="Error"/>
+    <string id="task_ClientRequest" value="ClientRequest"/>
+    <string id="opcode_ClientRequestError" value="Error"/>
+    <string id="opcode_ClientRequestInformation" value="Information"/>
+    <string id="task_USBPort" value="USBPort"/>
+    <string id="opcode_USBPortError" value="Error"/>
+    <string id="opcode_USBPortInformation" value="Information"/>
+    <string id="task_StateMachine" value="StateMachine"/>
+    <string id="opcode_StateMachineError" value="Error"/>
+    <string id="opcode_StateMachineInformation" value="Information"/>
+    <string id="task_HubReset" value="HubReset"/>
+    <string id="task_ControlTransfer" value="ControlTransfer"/>
+    <string id="opcode_ControlTransferError" value="Error"/>
+    <string id="task_User_ModeIOCTL" value="User_ModeIOCTL"/>
+    <string id="task_IllegalEndpointSharingAcrossInterfaces" value="IllegalEndpointSharingAcrossInterfaces"/>
+    <string id="opcode_IllegalEndpointSharingAcrossInterfacesError" value="Error"/>
+    <string id="map_MapDripsWatchdogResultQueryRemovalInitiated" value="QueryRemovalInitiated"/>
+    <string id="map_MapDripsWatchdogResultSkippedAsDeviceIsAHub" value="SkippedAsDeviceIsAHub"/>
+    <string id="map_MapDripsWatchdogResultSkippedAsCouldNotReadSettings" value="SkippedAsCouldNotReadSettings"/>
+    <string id="map_MapDripsWatchdogResultSkippedAsDisabledInSettingsPanel" value="SkippedAsDisabledInSettingsPanel"/>
+    <string id="map_MapDripsWatchdogResultSkippedAsHackflagSet" value="SkippedAsHackflagSet"/>
+    <string id="map_MapDripsWatchdogResultSkippedAsRecentIoObservered" value="SkippedAsRecentIoObservered"/>
+    <string id="map_MapDripsWatchdogResultSkippedAsAlreadyMarkedForRemoval (Device vetoed previous attempt)" value="SkippedAsAlreadyMarkedForRemoval (Device vetoed previous attempt)"/>
+    <string id="map_MapDripsWatchdogResultSkippedAsUnableToRegisterIrCallback" value="SkippedAsUnableToRegisterIrCallback"/>
+    <string id="map_MapDripsWatchdogResultSkippedAsIoRequestDeviceRemovalForResetFailed" value="SkippedAsIoRequestDeviceRemovalForResetFailed"/>
+    <string id="map_MapDripsWatchdogResultSkippedAsAcquireRemoveLockFailed" value="SkippedAsAcquireRemoveLockFailed"/>
+    <string id="map_MapDripsWatchdogResultSkippedAsWorkItemCreateFailed" value="SkippedAsWorkItemCreateFailed"/>
+    <string id="map_MapDripsWatchdogResultSkippedAsPersistentIoObserved" value="SkippedAsPersistentIoObserved"/>
+    <string id="map_MapDripsWatchdogResultSurpriseRemovalInitiated" value="SurpriseRemovalInitiated"/>
+    <string id="map_MapDripsWatchdogResultUnknownState" value="UnknownState"/>
+    <string id="map_MapControllerParentBusTypeControllerParentBusTypePci" value="ControllerParentBusTypePci"/>
+    <string id="map_MapControllerParentBusTypeControllerParentBusTypeAcpi" value="ControllerParentBusTypeAcpi"/>
+    <string id="map_MapControllerParentBusTypeControllerParentBusTypeMaUsb" value="ControllerParentBusTypeMaUsb"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,80 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Networking-RealTimeCommunication" guid="{1e39b4ce-d1e6-46ce-b65b-5ab05d6cc266}" resourceFileName="Microsoft-Windows-Networking-RealTimeCommunication" messageFileName="Microsoft-Windows-Networking-RealTimeCommunication" symbol="MicrosoftWindowsNetworkingRealTimeCommunication" source="Xml" >
+    <keywords>
+     <keyword name="Aoac" message="$(string.keyword_Aoac)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <maps>
+     <valueMap name="ChannelStatus">
+      <map value="0x0" message="$(string.map_ChannelStatusHardwareSlotRequested)"/>
+      <map value="0x1" message="$(string.map_ChannelStatusSoftwareSlotAllocated)"/>
+      <map value="0x2" message="$(string.map_ChannelStatusHardwareSlotAllocated)"/>
+      <map value="0x3" message="$(string.map_ChannelStatusPolicyError)"/>
+      <map value="0x4" message="$(string.map_ChannelStatusSystemError)"/>
+      <map value="0x5" message="$(string.map_ChannelStatusTransportDisconnected)"/>
+      <map value="0x6" message="$(string.map_ChannelStatusServiceUnavailable)"/>
+     </valueMap>
+     <valueMap name="ChannelResetReason">
+      <map value="0x0" message="$(string.map_ChannelResetReasonFast User Switched)"/>
+      <map value="0x1" message="$(string.map_ChannelResetReasonLow Power Exit)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1000" symbol="task_0" version="0" task="task_0" level="win:Informational" keywords="Aoac" template="task_0Args"/>
+     <event value="1001" symbol="task_01001" version="0" task="task_0" level="win:Informational" keywords="Aoac" template="task_01001Args"/>
+     <event value="1002" symbol="task_01002" version="0" task="task_0" level="win:Informational" keywords="Aoac" template="task_01002Args"/>
+     <event value="1003" symbol="task_01003" version="0" task="task_0" level="win:Informational" keywords="Aoac" template="task_01003Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="Object" inType="win:Pointer"/>
+      <data name="ChannelId" inType="win:UnicodeString"/>
+      <data name="StatusDescription" inType="win:UnicodeString"/>
+      <data name="hresult" inType="win:Int32"/>
+     </template>
+     <template tid="task_01001Args">
+      <data name="Object" inType="win:Pointer"/>
+      <data name="ChannelId" inType="win:UnicodeString"/>
+      <data name="StatusDescription" inType="win:UnicodeString"/>
+      <data name="ChannelStatus" inType="win:UInt32" map="ChannelStatus"/>
+     </template>
+     <template tid="task_01002Args">
+      <data name="ApplicationName" inType="win:UnicodeString"/>
+      <data name="Object" inType="win:Pointer"/>
+      <data name="ChannelId" inType="win:UnicodeString"/>
+      <data name="RequestedResourceType" inType="win:UInt32"/>
+      <data name="ServerKeepaliveIntervalInMinutes" inType="win:UInt32"/>
+      <data name="KeepaliveTriggerId" inType="win:GUID"/>
+      <data name="PushNotificationTriggerId" inType="win:GUID"/>
+     </template>
+     <template tid="task_01003Args">
+      <data name="ResetReason" inType="win:UInt32" map="ChannelResetReason"/>
+      <data name="HardwareSlotReset" inType="win:UInt32"/>
+      <data name="SoftwareSlotReset" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Aoac" value="Aoac"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="map_ChannelStatusHardwareSlotRequested" value="HardwareSlotRequested"/>
+    <string id="map_ChannelStatusSoftwareSlotAllocated" value="SoftwareSlotAllocated"/>
+    <string id="map_ChannelStatusHardwareSlotAllocated" value="HardwareSlotAllocated"/>
+    <string id="map_ChannelStatusPolicyError" value="PolicyError"/>
+    <string id="map_ChannelStatusSystemError" value="SystemError"/>
+    <string id="map_ChannelStatusTransportDisconnected" value="TransportDisconnected"/>
+    <string id="map_ChannelStatusServiceUnavailable" value="ServiceUnavailable"/>
+    <string id="map_ChannelResetReasonFast User Switched" value="Fast User Switched"/>
+    <string id="map_ChannelResetReasonLow Power Exit" value="Low Power Exit"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,521 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-WinRM" guid="{a7975c8f-ac13-49f1-87da-5a984a4ab417}" resourceFileName="Microsoft-Windows-WinRM" messageFileName="Microsoft-Windows-WinRM" symbol="MicrosoftWindowsWinRM" source="Xml" >
+    <keywords>
+     <keyword name="Keyword.SoapTrace" message="$(string.keyword_Keyword.SoapTrace)" mask="0x1"/>
+     <keyword name="Keyword.Client" message="$(string.keyword_Keyword.Client)" mask="0x2"/>
+     <keyword name="Keyword.Server" message="$(string.keyword_Keyword.Server)" mask="0x4"/>
+     <keyword name="Keyword.Security" message="$(string.keyword_Keyword.Security)" mask="0x8"/>
+     <keyword name="Keyword.QuotaViolation" message="$(string.keyword_Keyword.QuotaViolation)" mask="0x10"/>
+     <keyword name="Keyword.Transfer" message="$(string.keyword_Keyword.Transfer)" mask="0x20"/>
+     <keyword name="Keyword.Error" message="$(string.keyword_Keyword.Error)" mask="0x40"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="WSManAPIInitialize" message="$(string.task_WSManAPIInitialize)" value="1"/>
+     <task name="WSManAPIDeinitialize" message="$(string.task_WSManAPIDeinitialize)" value="2"/>
+     <task name="WSManSessioninitialize" message="$(string.task_WSManSessioninitialize)" value="3"/>
+     <task name="WSManSessiondeinitialize" message="$(string.task_WSManSessiondeinitialize)" value="4"/>
+     <task name="WSManAPIcall" message="$(string.task_WSManAPIcall)" value="5"/>
+     <task name="Auto_detectingproxysettings" message="$(string.task_Auto_detectingproxysettings)" value="6"/>
+     <task name="Userauthentication" message="$(string.task_Userauthentication)" value="7"/>
+     <task name="Userauthorization" message="$(string.task_Userauthorization)" value="8"/>
+     <task name="Requesthandling" message="$(string.task_Requesthandling)" value="9"/>
+     <task name="Responsehandling" message="$(string.task_Responsehandling)" value="10"/>
+     <task name="Winrmservicestart/stop" message="$(string.task_Winrmservicestart/stop)" value="11"/>
+     <task name="Winrmconfiguration" message="$(string.task_Winrmconfiguration)" value="12"/>
+     <task name="WinrmOperation" message="$(string.task_WinrmOperation)" value="13"/>
+     <task name="WinRMMIProtocolHandler" message="$(string.task_WinRMMIProtocolHandler)" value="14"/>
+     <task name="WinRMMISession" message="$(string.task_WinRMMISession)" value="15"/>
+     <task name="WinRMMIOperation" message="$(string.task_WinRMMIOperation)" value="16"/>
+     <task name="WinrmVerboseMessage" message="$(string.task_WinrmVerboseMessage)" value="17"/>
+    </tasks>
+    <events>
+     <event value="2" symbol="WSManAPIInitializeStart" version="0" task="WSManAPIInitialize" opcode="win:Start" level="win:Informational" keywords="Keyword.Client"/>
+     <event value="3" symbol="WSManAPIInitializeStop" version="0" task="WSManAPIInitialize" opcode="win:Stop" level="win:Error" keywords="Keyword.Client" template="WSManAPIInitializeStopArgs"/>
+     <event value="4" symbol="WSManAPIDeinitializeStart" version="0" task="WSManAPIDeinitialize" opcode="win:Start" level="win:Informational" keywords="Keyword.Client"/>
+     <event value="5" symbol="WSManAPIDeinitializeStop" version="0" task="WSManAPIDeinitialize" opcode="win:Stop" level="win:Error" keywords="Keyword.Client" template="WSManAPIInitializeStopArgs"/>
+     <event value="6" symbol="WSManSessioninitializeStart" version="0" task="WSManSessioninitialize" opcode="win:Start" level="win:Informational" keywords="Keyword.Client" template="WSManSessioninitializeStartArgs"/>
+     <event value="7" symbol="WSManSessioninitializeStop" version="0" task="WSManSessioninitialize" opcode="win:Stop" level="win:Error" keywords="Keyword.Client" template="WSManAPIInitializeStopArgs"/>
+     <event value="8" symbol="WSManSessiondeinitializeStart" version="0" task="WSManSessiondeinitialize" opcode="win:Start" level="win:Informational" keywords="Keyword.Client"/>
+     <event value="9" symbol="WSManSessiondeinitializeStop" version="0" task="WSManSessiondeinitialize" opcode="win:Stop" level="win:Error" keywords="Keyword.Client" template="WSManAPIInitializeStopArgs"/>
+     <event value="10" symbol="WSManAPIcall" version="0" task="WSManAPIcall" level="win:Informational" keywords="Keyword.Client" template="WSManAPIcallArgs"/>
+     <event value="11" symbol="WSManAPIcallStart" version="0" task="WSManAPIcall" opcode="win:Start" level="win:Informational" keywords="Keyword.Client" template="WSManAPIcallStartArgs"/>
+     <event value="12" symbol="WSManAPIcallStop" version="0" task="WSManAPIcall" opcode="win:Stop" level="win:Error" keywords="Keyword.Client" template="WSManAPIInitializeStopArgs"/>
+     <event value="13" symbol="WSManAPIcallStart13" version="0" task="WSManAPIcall" opcode="win:Start" level="win:Informational" keywords="Keyword.Client" template="WSManAPIcallStart13Args"/>
+     <event value="14" symbol="WSManAPIcallStop14" version="0" task="WSManAPIcall" opcode="win:Stop" level="win:Error" keywords="Keyword.Client" template="WSManAPIInitializeStopArgs"/>
+     <event value="15" symbol="WSManAPIcallStart15" version="0" task="WSManAPIcall" opcode="win:Start" level="win:Informational" keywords="Keyword.Client"/>
+     <event value="16" symbol="WSManAPIcallStart16" version="0" task="WSManAPIcall" opcode="win:Start" level="win:Informational" keywords="Keyword.Client"/>
+     <event value="28" symbol="WSManAPIcallStop28" version="0" task="WSManAPIcall" opcode="win:Stop" level="win:Informational" keywords="Keyword.Client" template="WSManAPIcallStop28Args"/>
+     <event value="29" symbol="WSManAPIInitializeStop29" version="0" task="WSManAPIInitialize" opcode="win:Stop" level="win:Informational" keywords="Keyword.Client"/>
+     <event value="30" symbol="WSManAPIDeinitializeStop30" version="0" task="WSManAPIDeinitialize" opcode="win:Stop" level="win:Informational" keywords="Keyword.Client"/>
+     <event value="31" symbol="WSManSessioninitializeStop31" version="0" task="WSManSessioninitialize" opcode="win:Stop" level="win:Informational" keywords="Keyword.Client"/>
+     <event value="32" symbol="WSManAPIcall32" version="0" task="WSManAPIcall" level="win:Error" keywords="Keyword.Client" template="WSManAPIcall32Args"/>
+     <event value="33" symbol="WSManSessiondeinitializeStop33" version="0" task="WSManSessiondeinitialize" opcode="win:Stop" level="win:Informational" keywords="Keyword.Client"/>
+     <event value="37" symbol="WSManAPIcallStop37" version="0" task="WSManAPIcall" opcode="win:Stop" level="win:Error" keywords="Keyword.Client" template="WSManAPIInitializeStopArgs"/>
+     <event value="38" symbol="WSManAPIcallStop38" version="0" task="WSManAPIcall" opcode="win:Stop" level="win:Error" keywords="Keyword.Client" template="WSManAPIInitializeStopArgs"/>
+     <event value="40" symbol="WSManAPIcallStop40" version="0" task="WSManAPIcall" opcode="win:Stop" level="win:Error" keywords="Keyword.Client" template="WSManAPIcallStop40Args"/>
+     <event value="41" symbol="WinRMMIProtocolHandlerStart" version="0" task="WinRMMIProtocolHandler" opcode="win:Start" level="win:Informational" keywords="Keyword.Client" template="WinRMMIProtocolHandlerStartArgs"/>
+     <event value="42" symbol="WinRMMIProtocolHandlerStop" version="0" task="WinRMMIProtocolHandler" opcode="win:Stop" level="win:Informational" keywords="Keyword.Client"/>
+     <event value="43" symbol="WinRMMIProtocolHandlerStop43" version="0" task="WinRMMIProtocolHandler" opcode="win:Stop" level="win:Error" keywords="Keyword.Client" template="WinRMMIProtocolHandlerStop43Args"/>
+     <event value="44" symbol="WinRMMISessionStart" version="0" task="WinRMMISession" opcode="win:Start" level="win:Informational" keywords="Keyword.Client" template="WinRMMISessionStartArgs"/>
+     <event value="45" symbol="WinRMMISessionStop" version="0" task="WinRMMISession" opcode="win:Stop" level="win:Informational" keywords="Keyword.Client"/>
+     <event value="46" symbol="WinRMMISessionStop46" version="0" task="WinRMMISession" opcode="win:Stop" level="win:Error" keywords="Keyword.Client" template="WinRMMIProtocolHandlerStop43Args"/>
+     <event value="47" symbol="WinRMMIOperationStart" version="0" task="WinRMMIOperation" opcode="win:Start" level="win:Informational" keywords="Keyword.Client" template="WinRMMIOperationStartArgs"/>
+     <event value="48" symbol="WinRMMIOperationStop" version="0" task="WinRMMIOperation" opcode="win:Stop" level="win:Informational" keywords="Keyword.Client"/>
+     <event value="49" symbol="WinRMMIOperationStop49" version="0" task="WinRMMIOperation" opcode="win:Stop" level="win:Error" keywords="Keyword.Client" template="WinRMMIProtocolHandlerStop43Args"/>
+     <event value="84" symbol="Requesthandling" version="0" task="Requesthandling" level="win:Error" keywords="Keyword.Server Keyword.QuotaViolation" template="RequesthandlingArgs"/>
+     <event value="85" symbol="Requesthandling85" version="0" task="Requesthandling" level="win:Error" keywords="Keyword.Server Keyword.QuotaViolation" template="Requesthandling85Args"/>
+     <event value="86" symbol="Requesthandling86" version="0" task="Requesthandling" level="win:Error" keywords="Keyword.Server" template="WSManAPIInitializeStopArgs"/>
+     <event value="87" symbol="Requesthandling87" version="0" task="Requesthandling" level="win:Error" keywords="Keyword.Server" template="WSManAPIInitializeStopArgs"/>
+     <event value="90" symbol="Requesthandling90" version="0" task="Requesthandling" level="win:Informational" keywords="Keyword.Server"/>
+     <event value="91" symbol="Requesthandling91" version="0" task="Requesthandling" level="win:Informational" keywords="Keyword.Server" template="Requesthandling91Args"/>
+     <event value="131" symbol="Responsehandling" version="0" task="Responsehandling" level="win:Error" keywords="Keyword.Client" template="ResponsehandlingArgs"/>
+     <event value="132" symbol="ResponsehandlingStop" version="0" task="Responsehandling" opcode="win:Stop" level="win:Informational" keywords="Keyword.Client" template="ResponsehandlingStopArgs"/>
+     <event value="135" symbol="Responsehandling135" version="0" task="Responsehandling" level="win:Error" keywords="Keyword.Client"/>
+     <event value="136" symbol="Responsehandling136" version="0" task="Responsehandling" level="win:Error" keywords="Keyword.Client"/>
+     <event value="137" symbol="Responsehandling137" version="0" task="Responsehandling" level="win:Error" keywords="Keyword.Client"/>
+     <event value="138" symbol="Responsehandling138" version="0" task="Responsehandling" level="win:Error" keywords="Keyword.Client"/>
+     <event value="139" symbol="Responsehandling139" version="0" task="Responsehandling" level="win:Error" keywords="Keyword.Client"/>
+     <event value="142" symbol="ResponsehandlingStop142" version="0" task="Responsehandling" opcode="win:Stop" level="win:Error" keywords="Keyword.Client" template="WSManAPIcallStop40Args"/>
+     <event value="145" symbol="WSManAPIcallStart145" version="0" task="WSManAPIcall" opcode="win:Start" level="win:Informational" keywords="Keyword.Client" template="WSManAPIcallStart145Args"/>
+     <event value="161" symbol="Userauthentication" version="0" task="Userauthentication" level="win:Error" keywords="Keyword.Client Keyword.Security" template="UserauthenticationArgs"/>
+     <event value="162" symbol="Userauthentication162" version="0" task="Userauthentication" level="win:Error" keywords="Keyword.Client Keyword.Security"/>
+     <event value="163" symbol="Userauthentication163" version="0" task="Userauthentication" level="win:Error" keywords="Keyword.Client Keyword.Security" template="Userauthentication163Args"/>
+     <event value="164" symbol="Userauthentication164" version="0" task="Userauthentication" level="win:Error" keywords="Keyword.Client Keyword.Security" template="Userauthentication164Args"/>
+     <event value="165" symbol="Userauthentication165" version="0" task="Userauthentication" level="win:Error" keywords="Keyword.Client Keyword.Security" template="Userauthentication165Args"/>
+     <event value="171" symbol="Userauthentication171" version="0" task="Userauthentication" level="win:Error" keywords="Keyword.Client Keyword.Security"/>
+     <event value="172" symbol="Userauthentication172" version="0" task="Userauthentication" level="win:Error" keywords="Keyword.Client Keyword.Security" template="Userauthentication172Args"/>
+     <event value="173" symbol="Userauthentication173" version="0" task="Userauthentication" level="win:Error" keywords="Keyword.Security Keyword.Error" template="Userauthentication173Args"/>
+     <event value="192" symbol="Userauthorization" version="0" task="Userauthorization" level="win:Informational" keywords="Keyword.Server Keyword.Security" template="WSManAPIInitializeStopArgs"/>
+     <event value="193" symbol="Userauthorization193" version="0" task="Userauthorization" level="win:Informational" keywords="Keyword.Server Keyword.Security" template="Userauthorization193Args"/>
+     <event value="208" symbol="Winrmservicestart/stopStart" version="0" task="Winrmservicestart/stop" opcode="win:Start" level="win:Informational" keywords="Keyword.Server"/>
+     <event value="209" symbol="Winrmservicestart/stop" version="0" task="Winrmservicestart/stop" level="win:Informational" keywords="Keyword.Server"/>
+     <event value="210" symbol="Winrmservicestart/stop210" version="0" task="Winrmservicestart/stop" opcode="win:Stop" level="win:Error" keywords="Keyword.Server" template="WSManAPIInitializeStopArgs"/>
+     <event value="211" symbol="Winrmservicestart/stop211" version="0" task="Winrmservicestart/stop" level="win:Informational" keywords="Keyword.Server"/>
+     <event value="212" symbol="Winrmservicestart/stop212" version="0" task="Winrmservicestart/stop" opcode="win:Stop" level="win:Informational" keywords="Keyword.Server"/>
+     <event value="213" symbol="Winrmservicestart/stop213" version="0" task="Winrmservicestart/stop" level="win:Error" keywords="Keyword.Server Keyword.Security"/>
+     <event value="214" symbol="Winrmservicestart/stop214" version="0" task="Winrmservicestart/stop" level="win:Error" keywords="Keyword.Client Keyword.Security"/>
+     <event value="215" symbol="Winrmservicestart/stop215" version="0" task="Winrmservicestart/stop" level="win:Error" keywords="Keyword.Server Keyword.Security" template="Winrmservicestart/stop215Args"/>
+     <event value="216" symbol="Winrmservicestart/stop216" version="0" task="Winrmservicestart/stop" level="win:Error" keywords="Keyword.Server" template="Winrmservicestart/stop216Args"/>
+     <event value="217" symbol="Winrmservicestart/stop217" version="0" task="Winrmservicestart/stop" level="win:Error" keywords="Keyword.Server" template="Winrmservicestart/stop217Args"/>
+     <event value="218" symbol="Winrmservicestart/stop218" version="0" task="Winrmservicestart/stop" level="win:Informational" keywords="Keyword.Server" template="Winrmservicestart/stop218Args"/>
+     <event value="219" symbol="Winrmservicestart/stop219" version="0" task="Winrmservicestart/stop" level="win:Error" keywords="Keyword.Server" template="Winrmservicestart/stop219Args"/>
+     <event value="224" symbol="Winrmconfiguration" version="0" task="Winrmconfiguration" level="win:Informational" keywords="Keyword.Server" template="WinrmconfigurationArgs"/>
+     <event value="229" symbol="Winrmconfiguration229" version="0" task="Winrmconfiguration" level="win:Informational" keywords="Keyword.Client Keyword.Server" template="Winrmconfiguration229Args"/>
+     <event value="230" symbol="Winrmconfiguration230" version="0" task="Winrmconfiguration" level="win:Warning" keywords="Keyword.Server" template="Winrmservicestart/stop219Args"/>
+     <event value="254" symbol="task_0" version="0" task="task_0" level="win:Informational" keywords="Keyword.Client Keyword.Server Keyword.Transfer"/>
+     <event value="255" symbol="task_0255" version="0" task="task_0" level="win:Informational" keywords="Keyword.Client Keyword.Server Keyword.Transfer"/>
+     <event value="283" symbol="WSManAPIcall283" version="0" task="WSManAPIcall" level="win:Informational" keywords="Keyword.Server" template="ResponsehandlingStopArgs"/>
+     <event value="284" symbol="WSManAPIcall284" version="0" task="WSManAPIcall" level="win:Informational" keywords="Keyword.Server" template="ResponsehandlingStopArgs"/>
+     <event value="285" symbol="WSManAPIcall285" version="0" task="WSManAPIcall" level="win:Informational" keywords="Keyword.Server" template="ResponsehandlingStopArgs"/>
+     <event value="286" symbol="WSManAPIcall286" version="0" task="WSManAPIcall" level="win:Informational" keywords="Keyword.Server" template="ResponsehandlingStopArgs"/>
+     <event value="287" symbol="WSManAPIcall287" version="0" task="WSManAPIcall" level="win:Informational" keywords="Keyword.Server"/>
+     <event value="288" symbol="WSManAPIcall288" version="0" task="WSManAPIcall" level="win:Informational" keywords="Keyword.Server" template="ResponsehandlingStopArgs"/>
+     <event value="289" symbol="WSManAPIcall289" version="0" task="WSManAPIcall" level="win:Informational" keywords="Keyword.Server" template="WSManAPIcall289Args"/>
+     <event value="290" symbol="WSManAPIcall290" version="0" task="WSManAPIcall" level="win:Informational" keywords="Keyword.Server" template="WSManAPIcall290Args"/>
+     <event value="291" symbol="WSManAPIcall291" version="0" task="WSManAPIcall" level="win:Informational" keywords="Keyword.Server" template="WSManAPIcall291Args"/>
+     <event value="292" symbol="WSManAPIcall292" version="0" task="WSManAPIcall" level="win:Informational" keywords="Keyword.Server" template="WSManAPIcall292Args"/>
+     <event value="306" symbol="WSManAPIcallStart306_V1" version="1" task="WSManAPIcall" opcode="win:Start" level="win:Informational" keywords="Keyword.Server" template="WSManAPIcallStart306Args_V1"/>
+     <event value="307" symbol="WSManAPIcallStop307_V1" version="1" task="WSManAPIcall" opcode="win:Stop" level="win:Informational" keywords="Keyword.Server" template="WSManAPIcallStart306Args_V1"/>
+     <event value="308" symbol="WSManAPIcall308" version="0" task="WSManAPIcall" level="win:Informational" keywords="Keyword.Server" template="WSManAPIcall308Args"/>
+     <event value="309" symbol="WSManAPIcall309" version="0" task="WSManAPIcall" level="win:Informational" keywords="Keyword.Server" template="WSManAPIcall308Args"/>
+     <event value="310" symbol="WSManAPIcall310" version="0" task="WSManAPIcall" level="win:Informational" keywords="Keyword.Server" template="WSManAPIcall310Args"/>
+     <event value="311" symbol="WSManAPIcallStop311" version="0" task="WSManAPIcall" opcode="win:Stop" level="win:Error" keywords="Keyword.Client" template="WSManAPIInitializeStopArgs"/>
+     <event value="312" symbol="WSManAPIcallStart312" version="0" task="WSManAPIcall" opcode="win:Start" level="win:Informational" keywords="Keyword.Client"/>
+     <event value="313" symbol="WSManAPIcallStart313" version="0" task="WSManAPIcall" opcode="win:Start" level="win:Informational" keywords="Keyword.Client"/>
+     <event value="314" symbol="WSManAPIcallStart314" version="0" task="WSManAPIcall" opcode="win:Start" level="win:Informational" keywords="Keyword.Client"/>
+     <event value="315" symbol="WSManAPIcallStop315" version="0" task="WSManAPIcall" opcode="win:Stop" level="win:Error" keywords="Keyword.Client" template="WSManAPIInitializeStopArgs"/>
+     <event value="316" symbol="WSManAPIcallStart316" version="0" task="WSManAPIcall" opcode="win:Start" level="win:Informational" keywords="Keyword.Client"/>
+     <event value="317" symbol="WSManAPIcallStop317" version="0" task="WSManAPIcall" opcode="win:Stop" level="win:Error" keywords="Keyword.Client" template="WSManAPIInitializeStopArgs"/>
+     <event value="318" symbol="WSManAPIcallStart318" version="0" task="WSManAPIcall" opcode="win:Start" level="win:Informational" keywords="Keyword.Client"/>
+     <event value="319" symbol="WSManAPIcallStop319" version="0" task="WSManAPIcall" opcode="win:Stop" level="win:Informational" keywords="Keyword.Client" template="WSManAPIcallStop319Args"/>
+     <event value="320" symbol="WSManAPIcallStart320" version="0" task="WSManAPIcall" opcode="win:Start" level="win:Informational" keywords="Keyword.Client" template="WSManAPIcallStart320Args"/>
+     <event value="321" symbol="WSManAPIcallStart321" version="0" task="WSManAPIcall" opcode="win:Start" level="win:Informational" keywords="Keyword.Client"/>
+     <event value="322" symbol="WSManAPIcallStop322" version="0" task="WSManAPIcall" opcode="win:Stop" level="win:Error" keywords="Keyword.Client" template="WSManAPIInitializeStopArgs"/>
+     <event value="323" symbol="WSManAPIcallStart323" version="0" task="WSManAPIcall" opcode="win:Start" level="win:Informational" keywords="Keyword.Client"/>
+     <event value="324" symbol="WSManAPIcallStop324" version="0" task="WSManAPIcall" opcode="win:Stop" level="win:Informational" keywords="Keyword.Client" template="ResponsehandlingStopArgs"/>
+     <event value="325" symbol="WSManAPIcallStart325" version="0" task="WSManAPIcall" opcode="win:Start" level="win:Informational" keywords="Keyword.Client" template="WSManAPIcallStart325Args"/>
+     <event value="326" symbol="WSManAPIcallStop326" version="0" task="WSManAPIcall" opcode="win:Stop" level="win:Error" keywords="Keyword.Client" template="WSManAPIInitializeStopArgs"/>
+     <event value="327" symbol="WSManAPIcallStart327" version="0" task="WSManAPIcall" opcode="win:Start" level="win:Informational" keywords="Keyword.Client" template="WSManAPIcallStart325Args"/>
+     <event value="328" symbol="WSManAPIcallStop328" version="0" task="WSManAPIcall" opcode="win:Stop" level="win:Error" keywords="Keyword.Client" template="WSManAPIInitializeStopArgs"/>
+     <event value="329" symbol="WSManAPIcallStart329" version="0" task="WSManAPIcall" opcode="win:Start" level="win:Informational" keywords="Keyword.Client" template="WSManAPIcallStart325Args"/>
+     <event value="330" symbol="WSManAPIcallStop330" version="0" task="WSManAPIcall" opcode="win:Stop" level="win:Error" keywords="Keyword.Client" template="WSManAPIInitializeStopArgs"/>
+     <event value="331" symbol="WSManAPIcallStart331" version="0" task="WSManAPIcall" opcode="win:Start" level="win:Informational" keywords="Keyword.Client" template="WSManAPIcallStart325Args"/>
+     <event value="332" symbol="WSManAPIcallStop332" version="0" task="WSManAPIcall" opcode="win:Stop" level="win:Error" keywords="Keyword.Client" template="WSManAPIInitializeStopArgs"/>
+     <event value="333" symbol="WSManAPIcallStart333" version="0" task="WSManAPIcall" opcode="win:Start" level="win:Informational" keywords="Keyword.Client" template="WSManAPIcallStart325Args"/>
+     <event value="334" symbol="WSManAPIcallStop334" version="0" task="WSManAPIcall" opcode="win:Stop" level="win:Error" keywords="Keyword.Client" template="WSManAPIInitializeStopArgs"/>
+     <event value="512" symbol="Auto_detectingproxysettingsStart" version="0" task="Auto_detectingproxysettings" opcode="win:Start" level="win:Informational" keywords="Keyword.Client"/>
+     <event value="513" symbol="Auto_detectingproxysettingsStop" version="0" task="Auto_detectingproxysettings" opcode="win:Stop" level="win:Informational" keywords="Keyword.Client" template="Auto_detectingproxysettingsStopArgs"/>
+     <event value="514" symbol="Auto_detectingproxysettings" version="0" task="Auto_detectingproxysettings" level="win:Informational" keywords="Keyword.Client" template="Auto_detectingproxysettingsStopArgs"/>
+     <event value="771" symbol="Requesthandling771" version="0" task="Requesthandling" level="win:Informational" keywords="Keyword.SoapTrace Keyword.Client" template="Requesthandling771Args"/>
+     <event value="772" symbol="Requesthandling772" version="0" task="Requesthandling" level="win:Informational" keywords="Keyword.SoapTrace Keyword.Server" template="Requesthandling771Args"/>
+     <event value="774" symbol="Requesthandling774" version="0" task="Requesthandling" level="win:Error" keywords="Keyword.Server Keyword.QuotaViolation" template="Requesthandling774Args"/>
+     <event value="775" symbol="Requesthandling775" version="0" task="Requesthandling" level="win:Error" keywords="Keyword.Server Keyword.QuotaViolation" template="Requesthandling775Args"/>
+     <event value="776" symbol="Requesthandling776" version="0" task="Requesthandling" level="win:Error" keywords="Keyword.Server Keyword.QuotaViolation" template="Requesthandling775Args"/>
+     <event value="779" symbol="Requesthandling779" version="0" task="Requesthandling" level="win:Informational" keywords="Keyword.SoapTrace Keyword.Client" template="Requesthandling779Args"/>
+     <event value="780" symbol="Requesthandling780" version="0" task="Requesthandling" level="win:Informational" keywords="Keyword.Client Keyword.Server" template="Winrmservicestart/stop219Args"/>
+     <event value="781" symbol="Requesthandling781" version="0" task="Requesthandling" level="win:Informational" keywords="Keyword.Client"/>
+     <event value="782" symbol="Requesthandling782" version="0" task="Requesthandling" level="win:Informational" keywords="Keyword.Server"/>
+     <event value="783" symbol="Requesthandling783" version="0" task="Requesthandling" level="win:Informational" keywords="Keyword.Client Keyword.Server" template="Winrmservicestart/stop219Args"/>
+     <event value="784" symbol="Requesthandling784" version="0" task="Requesthandling" level="win:Informational" keywords="Keyword.Client Keyword.Server" template="Winrmservicestart/stop219Args"/>
+     <event value="785" symbol="Requesthandling785" version="0" task="Requesthandling" level="win:Informational" keywords="Keyword.Server" template="Requesthandling785Args"/>
+     <event value="786" symbol="Requesthandling786" version="0" task="Requesthandling" level="win:Informational" keywords="Keyword.Server" template="Requesthandling785Args"/>
+     <event value="787" symbol="RequesthandlingStart" version="0" task="Requesthandling" opcode="win:Start" level="win:Informational" keywords="Keyword.Client" template="RequesthandlingStartArgs"/>
+     <event value="788" symbol="Requesthandling788" version="0" task="Requesthandling" level="win:Informational" keywords="Keyword.Server" template="ResponsehandlingStopArgs"/>
+     <event value="789" symbol="Requesthandling789" version="0" task="Requesthandling" level="win:Informational" keywords="Keyword.Server" template="Requesthandling789Args"/>
+     <event value="790" symbol="RequesthandlingStop" version="0" task="Requesthandling" opcode="win:Stop" level="win:Informational" keywords="Keyword.Server" template="RequesthandlingStopArgs"/>
+     <event value="791" symbol="Requesthandling791" version="0" task="Requesthandling" level="win:Informational" keywords="Keyword.Server" template="WSManAPIInitializeStopArgs"/>
+     <event value="1025" symbol="Responsehandling1025" version="0" task="Responsehandling" level="win:Error" keywords="Keyword.Server" template="Responsehandling1025Args"/>
+     <event value="1026" symbol="Responsehandling1026" version="0" task="Responsehandling" level="win:Informational" keywords="Keyword.SoapTrace Keyword.Client" template="Requesthandling771Args"/>
+     <event value="1027" symbol="Responsehandling1027" version="0" task="Responsehandling" level="win:Informational" keywords="Keyword.SoapTrace Keyword.Server" template="Requesthandling771Args"/>
+     <event value="1041" symbol="Responsehandling1041" version="0" task="Responsehandling" level="win:Informational" keywords="Keyword.Server"/>
+     <event value="1043" symbol="Responsehandling1043" version="0" task="Responsehandling" level="win:Informational" keywords="Keyword.Server"/>
+     <event value="1044" symbol="Responsehandling1044" version="0" task="Responsehandling" level="win:Informational" keywords="Keyword.SoapTrace Keyword.Server" template="Requesthandling779Args"/>
+     <event value="1045" symbol="ResponsehandlingStart" version="0" task="Responsehandling" opcode="win:Start" level="win:Informational" keywords="Keyword.Client"/>
+     <event value="1046" symbol="Responsehandling1046" version="0" task="Responsehandling" level="win:Informational" keywords="Keyword.Server" template="ResponsehandlingStopArgs"/>
+     <event value="1047" symbol="ResponsehandlingStart1047" version="0" task="Responsehandling" opcode="win:Start" level="win:Error" keywords="Keyword.Client" template="ResponsehandlingStart1047Args"/>
+     <event value="1048" symbol="Responsehandling1048" version="0" task="Responsehandling" level="win:Error" keywords="Keyword.Server" template="Responsehandling1048Args"/>
+     <event value="1049" symbol="Responsehandling1049" version="0" task="Responsehandling" level="win:Informational" keywords="Keyword.Server" template="ResponsehandlingStopArgs"/>
+     <event value="1050" symbol="Responsehandling1050" version="0" task="Responsehandling" level="win:Informational" keywords="Keyword.Server" template="ResponsehandlingStopArgs"/>
+     <event value="1051" symbol="Responsehandling1051" version="0" task="Responsehandling" level="win:Error" keywords="Keyword.Client" template="Responsehandling1051Args"/>
+     <event value="1052" symbol="ResponsehandlingStop1052" version="0" task="Responsehandling" opcode="win:Stop" level="win:Informational" keywords="Keyword.Client" template="ResponsehandlingStopArgs"/>
+     <event value="1053" symbol="WinrmOperationStop" version="0" task="WinrmOperation" opcode="win:Stop" level="win:Informational" keywords="Keyword.Client" template="ResponsehandlingStopArgs"/>
+     <event value="1054" symbol="WinrmOperationStop1054" version="0" task="WinrmOperation" opcode="win:Stop" level="win:Informational" keywords="Keyword.Client" template="ResponsehandlingStopArgs"/>
+     <event value="1291" symbol="Userauthentication1291" version="0" task="Userauthentication" level="win:Informational" keywords="Keyword.Client Keyword.Security"/>
+     <event value="1292" symbol="Userauthentication1292" version="0" task="Userauthentication" level="win:Informational" keywords="Keyword.Client Keyword.Security"/>
+     <event value="1293" symbol="Userauthentication1293" version="0" task="Userauthentication" level="win:Informational" keywords="Keyword.Client Keyword.Security" template="Userauthentication1293Args"/>
+     <event value="1294" symbol="Userauthentication1294" version="0" task="Userauthentication" level="win:Error" keywords="Keyword.Server Keyword.Security"/>
+     <event value="1295" symbol="Userauthentication1295" version="0" task="Userauthentication" level="win:Informational" keywords="Keyword.Server Keyword.Security" template="Userauthentication1295Args"/>
+     <event value="1296" symbol="Userauthentication1296" version="0" task="Userauthentication" level="win:Informational" keywords="Keyword.Server Keyword.Security" template="Userauthentication1296Args"/>
+     <event value="1297" symbol="Userauthentication1297" version="0" task="Userauthentication" level="win:Informational" keywords="Keyword.Client Keyword.Security" template="Userauthentication1297Args"/>
+     <event value="1536" symbol="Userauthorization1536" version="0" task="Userauthorization" level="win:Informational" keywords="Keyword.Server Keyword.Security"/>
+     <event value="1537" symbol="Userauthorization1537" version="0" task="Userauthorization" level="win:Informational" keywords="Keyword.Server Keyword.Security"/>
+     <event value="1840" symbol="WinrmOperation" version="0" task="WinrmOperation" level="win:Error" keywords="Keyword.Error" template="WinrmOperationArgs"/>
+     <event value="1841" symbol="WinrmOperation1841" version="0" task="WinrmOperation" level="win:Error" keywords="Keyword.Error" template="WinrmOperation1841Args"/>
+     <event value="1842" symbol="WinrmOperation1842" version="0" task="WinrmOperation" level="win:Informational" keywords="Keyword.Error" template="WinrmOperation1842Args"/>
+     <event value="1843" symbol="Userauthentication1843" version="0" task="Userauthentication" level="win:Warning" keywords="Keyword.Security Keyword.Error" template="Userauthentication1843Args"/>
+     <event value="2048" symbol="WinrmVerboseMessage" version="0" task="WinrmVerboseMessage" level="win:Informational" keywords="Keyword.Client Keyword.Server" template="WinrmVerboseMessageArgs"/>
+     <event value="2049" symbol="WinrmVerboseMessage2049" version="0" task="WinrmVerboseMessage" level="win:Error" keywords="Keyword.Error" template="WinrmVerboseMessage2049Args"/>
+    </events>
+    <templates>
+     <template tid="WSManAPIInitializeStopArgs">
+      <data name="errorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="WSManSessioninitializeStartArgs">
+      <data name="connection" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WSManAPIcallArgs">
+      <data name="optionCode" inType="win:UInt32"/>
+      <data name="optionName" inType="win:UnicodeString"/>
+      <data name="optionValue" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WSManAPIcallStartArgs">
+      <data name="resourceUri" inType="win:UnicodeString"/>
+      <data name="shellId" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WSManAPIcallStart13Args">
+      <data name="commandId" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WSManAPIcallStop28Args">
+      <data name="apiCall" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WSManAPIcall32Args">
+      <data name="optionCode" inType="win:UInt32"/>
+      <data name="optionName" inType="win:UnicodeString"/>
+      <data name="errorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="WSManAPIcallStop40Args">
+      <data name="operationName" inType="win:UnicodeString"/>
+      <data name="errorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="WinRMMIProtocolHandlerStartArgs">
+      <data name="applicationID" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WinRMMIProtocolHandlerStop43Args">
+      <data name="errorCode" inType="win:UInt32"/>
+      <data name="errorMessage" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WinRMMISessionStartArgs">
+      <data name="destination" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WinRMMIOperationStartArgs">
+      <data name="operationType" inType="win:UnicodeString"/>
+      <data name="namespaceName" inType="win:UnicodeString"/>
+      <data name="className" inType="win:UnicodeString"/>
+     </template>
+     <template tid="RequesthandlingArgs">
+      <data name="users" inType="win:UInt32"/>
+     </template>
+     <template tid="Requesthandling85Args">
+      <data name="senderName" inType="win:UnicodeString"/>
+      <data name="concurrentShells" inType="win:UInt32"/>
+     </template>
+     <template tid="Requesthandling91Args">
+      <data name="resourceUri" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ResponsehandlingArgs">
+      <data name="location" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ResponsehandlingStopArgs">
+      <data name="operationName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WSManAPIcallStart145Args">
+      <data name="operationName" inType="win:UnicodeString"/>
+      <data name="resourceUri" inType="win:UnicodeString"/>
+     </template>
+     <template tid="UserauthenticationArgs">
+      <data name="authFailureMessage" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Userauthentication163Args">
+      <data name="authClient" inType="win:UnicodeString"/>
+      <data name="authServer1" inType="win:UnicodeString"/>
+      <data name="authServer2" inType="win:UnicodeString"/>
+      <data name="authServer3" inType="win:UnicodeString"/>
+      <data name="authServer4" inType="win:UnicodeString"/>
+      <data name="authServer5" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Userauthentication164Args">
+      <data name="destinationMachine" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Userauthentication165Args">
+      <data name="authProxy1" inType="win:UnicodeString"/>
+      <data name="authProxy2" inType="win:UnicodeString"/>
+      <data name="authProxy3" inType="win:UnicodeString"/>
+      <data name="authProxy4" inType="win:UnicodeString"/>
+      <data name="authProxy5" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Userauthentication172Args">
+      <data name="machineName" inType="win:UnicodeString"/>
+      <data name="port" inType="win:UnicodeString"/>
+      <data name="error1" inType="win:UnicodeString"/>
+      <data name="error2" inType="win:UnicodeString"/>
+      <data name="error3" inType="win:UnicodeString"/>
+      <data name="error4" inType="win:UnicodeString"/>
+      <data name="error5" inType="win:UnicodeString"/>
+      <data name="error6" inType="win:UnicodeString"/>
+      <data name="error7" inType="win:UnicodeString"/>
+      <data name="error8" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Userauthentication173Args">
+      <data name="param1" inType="win:UnicodeString"/>
+      <data name="param2" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Userauthorization193Args">
+      <data name="param1" inType="win:UnicodeString"/>
+      <data name="param2" inType="win:UnicodeString"/>
+      <data name="param3" inType="win:UnicodeString"/>
+      <data name="param4" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Winrmservicestart/stop215Args">
+      <data name="pluginName" inType="win:UnicodeString"/>
+      <data name="errorcode" inType="win:UnicodeString"/>
+      <data name="errordetail" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Winrmservicestart/stop216Args">
+      <data name="errorcode" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Winrmservicestart/stop217Args">
+      <data name="pluginName" inType="win:UnicodeString"/>
+      <data name="errorcode" inType="win:UInt32"/>
+     </template>
+     <template tid="Winrmservicestart/stop218Args">
+      <data name="pluginName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Winrmservicestart/stop219Args">
+      <data name="param1" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WinrmconfigurationArgs">
+      <data name="message" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Winrmconfiguration229Args">
+      <data name="param1" inType="win:UnicodeString"/>
+      <data name="param2" inType="win:UInt32"/>
+     </template>
+     <template tid="WSManAPIcall289Args">
+      <data name="parameters" inType="win:UInt32"/>
+      <data name="operationName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WSManAPIcall290Args">
+      <data name="username" inType="win:UnicodeString"/>
+      <data name="errorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="WSManAPIcall291Args">
+      <data name="errorCode" inType="win:UInt32"/>
+      <data name="operation" inType="win:UnicodeString"/>
+      <data name="resourceUri" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WSManAPIcall292Args">
+      <data name="username" inType="win:UnicodeString"/>
+      <data name="errorCode" inType="win:UInt32"/>
+      <data name="maxAllowedConcurrentShells" inType="win:UInt32"/>
+      <data name="maxAllowedConcurrentOperations" inType="win:UInt32"/>
+      <data name="timeslotSize" inType="win:UInt32"/>
+      <data name="maxAllowedOperationsPerTimeslot" inType="win:UInt32"/>
+     </template>
+     <template tid="WSManAPIcall308Args">
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="Result" inType="win:UInt32"/>
+     </template>
+     <template tid="WSManAPIcall310Args">
+      <data name="Plugin" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WSManAPIcallStop319Args">
+      <data name="inputErrorCode" inType="win:UInt32"/>
+      <data name="languageCode" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WSManAPIcallStart320Args">
+      <data name="optionCode" inType="win:UInt32"/>
+      <data name="optionName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WSManAPIcallStart325Args">
+      <data name="argument" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Auto_detectingproxysettingsStopArgs">
+      <data name="proxyList" inType="win:UnicodeString"/>
+      <data name="bypassList" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Requesthandling771Args">
+      <data name="index" inType="win:UInt32"/>
+      <data name="totalChunks" inType="win:UInt32"/>
+      <data name="bytes" inType="win:UInt32"/>
+      <data name="SoapDocument" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Requesthandling774Args">
+      <data name="senderName" inType="win:UnicodeString"/>
+      <data name="concurrentOperations" inType="win:UInt32"/>
+     </template>
+     <template tid="Requesthandling775Args">
+      <data name="requests" inType="win:UInt32"/>
+      <data name="windowTime" inType="win:UInt32"/>
+      <data name="senderName" inType="win:UnicodeString"/>
+      <data name="delayHint" inType="win:UInt32"/>
+     </template>
+     <template tid="Requesthandling779Args">
+      <data name="index" inType="win:UInt32"/>
+      <data name="totalChunks" inType="win:UInt32"/>
+      <data name="bytes" inType="win:UInt32"/>
+      <data name="SoapDocument" inType="win:AnsiString"/>
+     </template>
+     <template tid="Requesthandling785Args">
+      <data name="userName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="RequesthandlingStartArgs">
+      <data name="operationName" inType="win:UnicodeString"/>
+      <data name="url" inType="win:UnicodeString"/>
+      <data name="port" inType="win:UInt32"/>
+     </template>
+     <template tid="Requesthandling789Args">
+      <data name="operation" inType="win:UnicodeString"/>
+      <data name="resourceURI" inType="win:UnicodeString"/>
+     </template>
+     <template tid="RequesthandlingStopArgs">
+      <data name="operation" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Responsehandling1025Args">
+      <data name="actionUri" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ResponsehandlingStart1047Args">
+      <data name="status" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Responsehandling1048Args">
+      <data name="httpStatus" inType="win:UInt16"/>
+      <data name="errorCode" inType="win:UInt32"/>
+      <data name="extraErrorInfo1" inType="win:UnicodeString"/>
+      <data name="extraErrorInfo2" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Responsehandling1051Args">
+      <data name="status" inType="win:UInt32"/>
+     </template>
+     <template tid="Userauthentication1293Args">
+      <data name="auth" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Userauthentication1295Args">
+      <data name="username" inType="win:UnicodeString"/>
+      <data name="authenticationMechanism" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Userauthentication1296Args">
+      <data name="subject" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Userauthentication1297Args">
+      <data name="authentication" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WinrmOperationArgs">
+      <data name="errorCode" inType="win:UInt32"/>
+      <data name="errorString" inType="win:UnicodeString"/>
+      <data name="extraInformation1" inType="win:UnicodeString"/>
+      <data name="extraInformation2" inType="win:UnicodeString"/>
+      <data name="extraInformation3" inType="win:UnicodeString"/>
+      <data name="extraInformation4" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WinrmOperation1841Args">
+      <data name="errorCode" inType="win:UInt32"/>
+      <data name="extraInformation1" inType="win:UnicodeString"/>
+      <data name="extraInformation2" inType="win:UnicodeString"/>
+      <data name="extraInformation3" inType="win:UnicodeString"/>
+      <data name="extraInformation4" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WinrmOperation1842Args">
+      <data name="level" inType="win:UInt32"/>
+      <data name="extraInformation1" inType="win:UnicodeString"/>
+      <data name="extraInformation2" inType="win:UnicodeString"/>
+      <data name="extraInformation3" inType="win:UnicodeString"/>
+      <data name="extraInformation4" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Userauthentication1843Args">
+      <data name="clientIP" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WinrmVerboseMessageArgs">
+      <data name="param1" inType="win:UnicodeString"/>
+      <data name="param2" inType="win:UInt32"/>
+      <data name="param3" inType="win:UnicodeString"/>
+      <data name="param4" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WinrmVerboseMessage2049Args">
+      <data name="param1" inType="win:UnicodeString"/>
+      <data name="param2" inType="win:UInt32"/>
+      <data name="param3" inType="win:UnicodeString"/>
+      <data name="param4" inType="win:UInt32"/>
+      <data name="param5" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WSManAPIcallStart306Args_V1">
+      <data name="provider" inType="win:UnicodeString"/>
+      <data name="path" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Keyword.SoapTrace" value="Keyword.SoapTrace"/>
+    <string id="keyword_Keyword.Client" value="Keyword.Client"/>
+    <string id="keyword_Keyword.Server" value="Keyword.Server"/>
+    <string id="keyword_Keyword.Security" value="Keyword.Security"/>
+    <string id="keyword_Keyword.QuotaViolation" value="Keyword.QuotaViolation"/>
+    <string id="keyword_Keyword.Transfer" value="Keyword.Transfer"/>
+    <string id="keyword_Keyword.Error" value="Keyword.Error"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_WSManAPIInitialize" value="WSManAPIInitialize"/>
+    <string id="task_WSManAPIDeinitialize" value="WSManAPIDeinitialize"/>
+    <string id="task_WSManSessioninitialize" value="WSManSessioninitialize"/>
+    <string id="task_WSManSessiondeinitialize" value="WSManSessiondeinitialize"/>
+    <string id="task_WSManAPIcall" value="WSManAPIcall"/>
+    <string id="task_Auto_detectingproxysettings" value="Auto_detectingproxysettings"/>
+    <string id="task_Userauthentication" value="Userauthentication"/>
+    <string id="task_Userauthorization" value="Userauthorization"/>
+    <string id="task_Requesthandling" value="Requesthandling"/>
+    <string id="task_Responsehandling" value="Responsehandling"/>
+    <string id="task_Winrmservicestart/stop" value="Winrmservicestart/stop"/>
+    <string id="task_Winrmconfiguration" value="Winrmconfiguration"/>
+    <string id="task_WinrmOperation" value="WinrmOperation"/>
+    <string id="task_WinRMMIProtocolHandler" value="WinRMMIProtocolHandler"/>
+    <string id="task_WinRMMISession" value="WinRMMISession"/>
+    <string id="task_WinRMMIOperation" value="WinRMMIOperation"/>
+    <string id="task_WinrmVerboseMessage" value="WinrmVerboseMessage"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

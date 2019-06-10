@@ -1,0 +1,36 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-ASN1" guid="{d92ef8ac-99dd-4ab8-b91d-c6eba85f3755}" resourceFileName="Microsoft-Windows-ASN1" messageFileName="Microsoft-Windows-ASN1" symbol="MicrosoftWindowsASN1" source="Xml" >
+    <keywords>
+     <keyword name="KEYWORD_SYSTEM_NTASN1_DECODING" message="$(string.keyword_KEYWORD_SYSTEM_NTASN1_DECODING)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="Decoding" message="$(string.task_Decoding)" value="1"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="Decoding" version="0" task="Decoding" level="win:Error" keywords="KEYWORD_SYSTEM_NTASN1_DECODING" template="DecodingArgs"/>
+    </events>
+    <templates>
+     <template tid="DecodingArgs">
+      <data name="Module" inType="win:UnicodeString"/>
+      <data name="PDU" inType="win:UInt32"/>
+      <data name="Object" inType="win:AnsiString"/>
+      <data name="Status" inType="win:HexInt32"/>
+      <data name="TotalEncodedLength" inType="win:UInt32"/>
+      <data name="EncodedLength" inType="win:UInt32"/>
+      <data name="Encoded" inType="win:Binary" length="EncodedLength"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_KEYWORD_SYSTEM_NTASN1_DECODING" value="KEYWORD_SYSTEM_NTASN1_DECODING"/>
+    <string id="task_Decoding" value="Decoding"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

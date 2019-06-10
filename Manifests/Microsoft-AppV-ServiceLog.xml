@@ -1,0 +1,48 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-AppV-ServiceLog" guid="{9cc69d1c-7917-4acd-8066-6bf8b63e551b}" resourceFileName="Microsoft-AppV-ServiceLog" messageFileName="Microsoft-AppV-ServiceLog" symbol="MicrosoftAppVServiceLog" source="Xml" >
+    <keywords>
+     <keyword name="DebugTrace" message="$(string.keyword_DebugTrace)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="DebugAppVClient" message="$(string.task_DebugAppVClient)" value="1">
+>
+      <opcodes>
+       <opcode name="AppVClientService" message="$(string.opcode_DebugAppVClientAppVClientService)" value="10"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="1" symbol="task_0" version="0" task="task_0" level="win:Verbose" keywords="DebugTrace" template="task_0Args"/>
+     <event value="2" symbol="DebugAppVClientAppVClientService" version="0" task="DebugAppVClient" opcode="AppVClientService" level="win:Verbose" keywords="DebugTrace" template="DebugAppVClientAppVClientServiceArgs"/>
+     <event value="3" symbol="DebugAppVClientAppVClientService3" version="0" task="DebugAppVClient" opcode="AppVClientService" level="win:Verbose" keywords="DebugTrace" template="DebugAppVClientAppVClientService3Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="stringValue1" inType="win:UnicodeString"/>
+     </template>
+     <template tid="DebugAppVClientAppVClientServiceArgs">
+      <data name="WString1" inType="win:UnicodeString"/>
+     </template>
+     <template tid="DebugAppVClientAppVClientService3Args">
+      <data name="Message" inType="win:UnicodeString"/>
+      <data name="Function" inType="win:UnicodeString"/>
+      <data name="Line" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_DebugTrace" value="DebugTrace"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_DebugAppVClient" value="DebugAppVClient"/>
+    <string id="opcode_DebugAppVClientAppVClientService" value="AppVClientService"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

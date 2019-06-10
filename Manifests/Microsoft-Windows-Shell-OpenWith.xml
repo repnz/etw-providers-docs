@@ -1,0 +1,35 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Shell-OpenWith" guid="{11bd2a68-77ff-4991-9658-f451f2eb6ce1}" resourceFileName="Microsoft-Windows-Shell-OpenWith" messageFileName="Microsoft-Windows-Shell-OpenWith" symbol="MicrosoftWindowsShellOpenWith" source="Xml" >
+    <keywords>
+     <keyword name="OpenWith" message="$(string.keyword_OpenWith)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="ShowImmersiveOpenWith" message="$(string.task_ShowImmersiveOpenWith)" value="105"/>
+    </tasks>
+    <events>
+     <event value="103" symbol="ShowImmersiveOpenWithStart" version="0" task="ShowImmersiveOpenWith" opcode="win:Start" level="win:Informational" keywords="OpenWith" template="ShowImmersiveOpenWithStartArgs"/>
+     <event value="104" symbol="ShowImmersiveOpenWithStop" version="0" task="ShowImmersiveOpenWith" opcode="win:Stop" level="win:Informational" keywords="OpenWith" template="ShowImmersiveOpenWithStopArgs"/>
+    </events>
+    <templates>
+     <template tid="ShowImmersiveOpenWithStartArgs">
+      <data name="Target" inType="win:UnicodeString"/>
+      <data name="TargetIsURL" inType="win:Boolean"/>
+     </template>
+     <template tid="ShowImmersiveOpenWithStopArgs">
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_OpenWith" value="OpenWith"/>
+    <string id="task_ShowImmersiveOpenWith" value="ShowImmersiveOpenWith"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

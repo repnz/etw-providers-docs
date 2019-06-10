@@ -1,0 +1,1237 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-StorPort" guid="{c4636a1e-7986-4646-bf10-7bc3b4a76e8e}" resourceFileName="Microsoft-Windows-StorPort" messageFileName="Microsoft-Windows-StorPort" symbol="MicrosoftWindowsStorPort" source="Xml" >
+    <keywords>
+     <keyword name="Reset" message="$(string.keyword_Reset)" mask="0x1"/>
+     <keyword name="PortNotification" message="$(string.keyword_PortNotification)" mask="0x2"/>
+     <keyword name="PauseResume" message="$(string.keyword_PauseResume)" mask="0x4"/>
+     <keyword name="IoPerfNotification" message="$(string.keyword_IoPerfNotification)" mask="0x8"/>
+     <keyword name="Config" message="$(string.keyword_Config)" mask="0x10"/>
+     <keyword name="Perf" message="$(string.keyword_Perf)" mask="0x20"/>
+     <keyword name="DeviceState" message="$(string.keyword_DeviceState)" mask="0x40"/>
+     <keyword name="CommandTrace" message="$(string.keyword_CommandTrace)" mask="0x80"/>
+     <keyword name="SMR" message="$(string.keyword_SMR)" mask="0x100"/>
+     <keyword name="Logo_Performance" message="$(string.keyword_Logo_Performance)" mask="0x80000"/>
+     <keyword name="IO_Performance" message="$(string.keyword_IO_Performance)" mask="0x100000"/>
+     <keyword name="Read" message="$(string.keyword_Read)" mask="0x200000"/>
+     <keyword name="Write" message="$(string.keyword_Write)" mask="0x400000"/>
+     <keyword name="PagingRead" message="$(string.keyword_PagingRead)" mask="0x800000"/>
+     <keyword name="PagingWrite" message="$(string.keyword_PagingWrite)" mask="0x1000000"/>
+     <keyword name="LowMemoryRead" message="$(string.keyword_LowMemoryRead)" mask="0x2000000"/>
+     <keyword name="LowMemoryWrite" message="$(string.keyword_LowMemoryWrite)" mask="0x4000000"/>
+     <keyword name="NonReadWrite" message="$(string.keyword_NonReadWrite)" mask="0x8000000"/>
+     <keyword name="PassThrough" message="$(string.keyword_PassThrough)" mask="0x10000000"/>
+     <keyword name="Flush" message="$(string.keyword_Flush)" mask="0x20000000"/>
+     <keyword name="IOCTL" message="$(string.keyword_IOCTL)" mask="0x40000000"/>
+     <keyword name="WMI" message="$(string.keyword_WMI)" mask="0x80000000"/>
+     <keyword name="Power" message="$(string.keyword_Power)" mask="0x100000000"/>
+     <keyword name="PnP" message="$(string.keyword_PnP)" mask="0x200000000"/>
+     <keyword name="Enum" message="$(string.keyword_Enum)" mask="0x400000000"/>
+     <keyword name="Queue" message="$(string.keyword_Queue)" mask="0x800000000"/>
+     <keyword name="ISR" message="$(string.keyword_ISR)" mask="0x1000000000"/>
+     <keyword name="DPC" message="$(string.keyword_DPC)" mask="0x2000000000"/>
+     <keyword name="Timer" message="$(string.keyword_Timer)" mask="0x4000000000"/>
+     <keyword name="Protocol" message="$(string.keyword_Protocol)" mask="0x8000000000"/>
+     <keyword name="keyword_80000000000" message="$(string.keyword_keyword_80000000000)" mask="0x80000000000"/>
+     <keyword name="keyword_200000000000" message="$(string.keyword_keyword_200000000000)" mask="0x200000000000"/>
+    </keywords>
+    <tasks>
+     <task name="None" message="$(string.task_None)" value="0"/>
+     <task name="LogicalUnitreset" message="$(string.task_LogicalUnitreset)" value="1">
+>
+      <opcodes>
+       <opcode name="OpCodeLUReset" message="$(string.opcode_LogicalUnitresetOpCodeLUReset)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="Targetreset" message="$(string.task_Targetreset)" value="2">
+>
+      <opcodes>
+       <opcode name="OpCodeTargetReset" message="$(string.opcode_TargetresetOpCodeTargetReset)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="Busreset" message="$(string.task_Busreset)" value="3">
+>
+      <opcodes>
+       <opcode name="OpCodeBusReset" message="$(string.opcode_BusresetOpCodeBusReset)" value="13"/>
+      </opcodes>
+     </task>
+     <task name="Resetdetectednotification" message="$(string.task_Resetdetectednotification)" value="4">
+>
+      <opcodes>
+       <opcode name="OpCodeResetDetected" message="$(string.opcode_ResetdetectednotificationOpCodeResetDetected)" value="14"/>
+      </opcodes>
+     </task>
+     <task name="Linkdownnotification" message="$(string.task_Linkdownnotification)" value="5">
+>
+      <opcodes>
+       <opcode name="OpCodeLinkDown" message="$(string.opcode_LinkdownnotificationOpCodeLinkDown)" value="15"/>
+      </opcodes>
+     </task>
+     <task name="LinkUpnotification" message="$(string.task_LinkUpnotification)" value="6">
+>
+      <opcodes>
+       <opcode name="OpCodeLinkUp" message="$(string.opcode_LinkUpnotificationOpCodeLinkUp)" value="16"/>
+      </opcodes>
+     </task>
+     <task name="RequestTimernotification" message="$(string.task_RequestTimernotification)" value="7">
+>
+      <opcodes>
+       <opcode name="OpCodeRequestTimerCall" message="$(string.opcode_RequestTimernotificationOpCodeRequestTimerCall)" value="17"/>
+      </opcodes>
+     </task>
+     <task name="Portpause" message="$(string.task_Portpause)" value="8">
+>
+      <opcodes>
+       <opcode name="OpCodePortPause" message="$(string.opcode_PortpauseOpCodePortPause)" value="18"/>
+      </opcodes>
+     </task>
+     <task name="Portresume" message="$(string.task_Portresume)" value="9">
+>
+      <opcodes>
+       <opcode name="OpCodePortResume" message="$(string.opcode_PortresumeOpCodePortResume)" value="19"/>
+      </opcodes>
+     </task>
+     <task name="Portpausedevice" message="$(string.task_Portpausedevice)" value="10">
+>
+      <opcodes>
+       <opcode name="OpCodePortPauseDevice" message="$(string.opcode_PortpausedeviceOpCodePortPauseDevice)" value="20"/>
+      </opcodes>
+     </task>
+     <task name="Portresumedevice" message="$(string.task_Portresumedevice)" value="11">
+>
+      <opcodes>
+       <opcode name="OpCodePortResumeDevice" message="$(string.opcode_PortresumedeviceOpCodePortResumeDevice)" value="21"/>
+      </opcodes>
+     </task>
+     <task name="Buschangedetectnotification" message="$(string.task_Buschangedetectnotification)" value="12">
+>
+      <opcodes>
+       <opcode name="OpCodeBusChangeDetected" message="$(string.opcode_BuschangedetectnotificationOpCodeBusChangeDetected)" value="22"/>
+      </opcodes>
+     </task>
+     <task name="MiniportIORequestServiceTime" message="$(string.task_MiniportIORequestServiceTime)" value="13">
+>
+      <opcodes>
+       <opcode name="OpCodeMiniportIORequestServiceTime" message="$(string.opcode_MiniportIORequestServiceTimeOpCodeMiniportIORequestServiceTime)" value="23"/>
+      </opcodes>
+     </task>
+     <task name="Statechangedetectnotification" message="$(string.task_Statechangedetectnotification)" value="14">
+>
+      <opcodes>
+       <opcode name="OpCodeStateChangeDetected" message="$(string.opcode_StatechangedetectnotificationOpCodeStateChangeDetected)" value="24"/>
+      </opcodes>
+     </task>
+     <task name="Targetedreenumeration" message="$(string.task_Targetedreenumeration)" value="15">
+>
+      <opcodes>
+       <opcode name="OpCodeTargetedReenumeration" message="$(string.opcode_TargetedreenumerationOpCodeTargetedReenumeration)" value="25"/>
+      </opcodes>
+     </task>
+     <task name="Port" message="$(string.task_Port)" value="201">
+>
+      <opcodes>
+       <opcode name="Dispatchingofrequest." message="$(string.opcode_PortDispatchingofrequest.)" value="100"/>
+       <opcode name="Completionofrequest." message="$(string.opcode_PortCompletionofrequest.)" value="101"/>
+       <opcode name="Retryhandling." message="$(string.opcode_PortRetryhandling.)" value="104"/>
+       <opcode name="EventQueuerelatedoperation." message="$(string.opcode_PortEventQueuerelatedoperation.)" value="106"/>
+      </opcodes>
+     </task>
+     <task name="Dpc" message="$(string.task_Dpc)" value="202">
+>
+      <opcodes>
+       <opcode name="Completionofrequest." message="$(string.opcode_DpcCompletionofrequest.)" value="101"/>
+      </opcodes>
+     </task>
+     <task name="Isr" message="$(string.task_Isr)" value="203">
+>
+      <opcodes>
+       <opcode name="Completionofrequest." message="$(string.opcode_IsrCompletionofrequest.)" value="101"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <maps>
+     <valueMap name="ReasonMap">
+      <map value="0x1" message="$(string.map_ReasonMapHierarchical Reset process timed-out)"/>
+      <map value="0x2" message="$(string.map_ReasonMapUnit experienced Timeout conditions with more than allowed frequency)"/>
+      <map value="0x3" message="$(string.map_ReasonMapQoS Disabled)"/>
+      <map value="0x4" message="$(string.map_ReasonMapRestore Unresponsive Device Request Received)"/>
+      <map value="0x5" message="$(string.map_ReasonMapSet Device Unresponsive Request Received)"/>
+     </valueMap>
+     <valueMap name="HmbAllocationPolicyMap">
+      <map value="0x0" message="$(string.map_HmbAllocationPolicyMapDisabled)"/>
+      <map value="0x1" message="$(string.map_HmbAllocationPolicyMapMinimum)"/>
+      <map value="0x2" message="$(string.map_HmbAllocationPolicyMapMaximum)"/>
+      <map value="0x3" message="$(string.map_HmbAllocationPolicyMapDevice Usage Based)"/>
+     </valueMap>
+     <valueMap name="SuccessMap">
+      <map value="0x0" message="$(string.map_SuccessMapfailed)"/>
+      <map value="0x1" message="$(string.map_SuccessMapsucceeded)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="LogicalUnitresetOpCodeLUReset_V1" version="1" task="LogicalUnitreset" opcode="OpCodeLUReset" level="win:Error" keywords="Reset" template="LogicalUnitresetOpCodeLUResetArgs_V1"/>
+     <event value="2" symbol="TargetresetOpCodeTargetReset_V1" version="1" task="Targetreset" opcode="OpCodeTargetReset" level="win:Error" keywords="Reset" template="TargetresetOpCodeTargetResetArgs_V1"/>
+     <event value="4" symbol="ResetdetectednotificationOpCodeResetDetected_V1" version="1" task="Resetdetectednotification" opcode="OpCodeResetDetected" level="win:Informational" keywords="PortNotification" template="ResetdetectednotificationOpCodeResetDetectedArgs_V1"/>
+     <event value="5" symbol="LinkdownnotificationOpCodeLinkDown_V1" version="1" task="Linkdownnotification" opcode="OpCodeLinkDown" level="win:Informational" keywords="PortNotification" template="LinkdownnotificationOpCodeLinkDownArgs_V1"/>
+     <event value="6" symbol="LinkUpnotificationOpCodeLinkUp_V1" version="1" task="LinkUpnotification" opcode="OpCodeLinkUp" level="win:Informational" keywords="PortNotification" template="LinkUpnotificationOpCodeLinkUpArgs_V1"/>
+     <event value="7" symbol="RequestTimernotificationOpCodeRequestTimerCall_V1" version="1" task="RequestTimernotification" opcode="OpCodeRequestTimerCall" level="win:Informational" keywords="PortNotification" template="RequestTimernotificationOpCodeRequestTimerCallArgs_V1"/>
+     <event value="8" symbol="PortpauseOpCodePortPause_V1" version="1" task="Portpause" opcode="OpCodePortPause" level="win:Informational" keywords="PauseResume" template="ResetdetectednotificationOpCodeResetDetectedArgs_V1"/>
+     <event value="9" symbol="PortresumeOpCodePortResume_V1" version="1" task="Portresume" opcode="OpCodePortResume" level="win:Informational" keywords="PauseResume" template="LinkUpnotificationOpCodeLinkUpArgs_V1"/>
+     <event value="10" symbol="PortpausedeviceOpCodePortPauseDevice_V1" version="1" task="Portpausedevice" opcode="OpCodePortPauseDevice" level="win:Informational" keywords="PauseResume" template="PortpausedeviceOpCodePortPauseDeviceArgs_V1"/>
+     <event value="11" symbol="PortresumedeviceOpCodePortResumeDevice_V1" version="1" task="Portresumedevice" opcode="OpCodePortResumeDevice" level="win:Informational" keywords="PauseResume" template="PortresumedeviceOpCodePortResumeDeviceArgs_V1"/>
+     <event value="12" symbol="BuschangedetectnotificationOpCodeBusChangeDetected_V1" version="1" task="Buschangedetectnotification" opcode="OpCodeBusChangeDetected" level="win:Informational" keywords="PortNotification" template="LinkUpnotificationOpCodeLinkUpArgs_V1"/>
+     <event value="13" symbol="MiniportIORequestServiceTimeOpCodeMiniportIORequestServiceTime_V1" version="1" task="MiniportIORequestServiceTime" opcode="OpCodeMiniportIORequestServiceTime" level="win:Informational" keywords="IoPerfNotification" template="MiniportIORequestServiceTimeOpCodeMiniportIORequestServiceTimeArgs_V1"/>
+     <event value="14" symbol="None_V1" version="1" task="None" level="win:Informational" keywords="Config" template="NoneArgs_V1"/>
+     <event value="15" symbol="None15_V1" version="1" task="None" level="win:Informational" keywords="Config" template="None15Args_V1"/>
+     <event value="16" symbol="None16_V1" version="1" task="None" level="win:Informational" keywords="Config" template="None16Args_V1"/>
+     <event value="17" symbol="None17_V1" version="1" task="None" level="win:Informational" keywords="Config" template="None17Args_V1"/>
+     <event value="18" symbol="None18_V1" version="1" task="None" level="win:Warning" keywords="Config" template="None18Args_V1"/>
+     <event value="19" symbol="None19_V1" version="1" task="None" level="win:Informational" keywords="Config" template="None19Args_V1"/>
+     <event value="20" symbol="None20_V1" version="1" task="None" level="win:Informational" keywords="Config" template="None19Args_V1"/>
+     <event value="21" symbol="None21_V1" version="1" task="None" level="win:Informational" keywords="Config" template="None21Args_V1"/>
+     <event value="22" symbol="None22_V1" version="1" task="None" level="win:Informational" keywords="Config" template="None22Args_V1"/>
+     <event value="23" symbol="None23_V1" version="1" task="None" level="win:Informational" keywords="Config" template="None22Args_V1"/>
+     <event value="24" symbol="None24_V1" version="1" task="None" level="win:Informational" keywords="Perf" template="None24Args_V1"/>
+     <event value="25" symbol="StatechangedetectnotificationOpCodeStateChangeDetected_V1" version="1" task="Statechangedetectnotification" opcode="OpCodeStateChangeDetected" level="win:Informational" keywords="PortNotification" template="StatechangedetectnotificationOpCodeStateChangeDetectedArgs_V1"/>
+     <event value="26" symbol="TargetedreenumerationOpCodeTargetedReenumeration_V1" version="1" task="Targetedreenumeration" opcode="OpCodeTargetedReenumeration" level="win:Informational" keywords="Enum" template="TargetedreenumerationOpCodeTargetedReenumerationArgs_V1"/>
+     <event value="200" symbol="Port200_V2" version="2" task="Port" level="win:Informational" keywords="IO_Performance" template="Port200Args_V2"/>
+     <event value="201" symbol="Port201_V2" version="2" task="Port" level="win:Informational" keywords="IO_Performance" template="Port200Args_V2"/>
+     <event value="202" symbol="PortDispatchingofrequest.202_V2" version="2" task="Port" opcode="Dispatchingofrequest." level="win:Informational" keywords="Read" template="PortDispatchingofrequest.202Args_V2"/>
+     <event value="203" symbol="PortDispatchingofrequest.203_V2" version="2" task="Port" opcode="Dispatchingofrequest." level="win:Informational" keywords="Write" template="PortDispatchingofrequest.202Args_V2"/>
+     <event value="204" symbol="PortDispatchingofrequest.204_V2" version="2" task="Port" opcode="Dispatchingofrequest." level="win:Informational" keywords="Read PagingRead" template="PortDispatchingofrequest.202Args_V2"/>
+     <event value="205" symbol="PortDispatchingofrequest.205_V2" version="2" task="Port" opcode="Dispatchingofrequest." level="win:Informational" keywords="Write PagingWrite" template="PortDispatchingofrequest.202Args_V2"/>
+     <event value="206" symbol="PortDispatchingofrequest.206_V2" version="2" task="Port" opcode="Dispatchingofrequest." level="win:Informational" keywords="Read LowMemoryRead" template="PortDispatchingofrequest.202Args_V2"/>
+     <event value="207" symbol="PortDispatchingofrequest.207_V2" version="2" task="Port" opcode="Dispatchingofrequest." level="win:Informational" keywords="Write LowMemoryWrite" template="PortDispatchingofrequest.202Args_V2"/>
+     <event value="208" symbol="PortCompletionofrequest._V1" version="1" task="Port" opcode="Completionofrequest." level="win:Informational" keywords="Read Write PagingRead PagingWrite LowMemoryRead LowMemoryWrite" template="PortCompletionofrequest.Args_V1"/>
+     <event value="209" symbol="PortRetryhandling._V1" version="1" task="Port" opcode="Retryhandling." level="win:Informational" keywords="Read Write PagingRead PagingWrite LowMemoryRead LowMemoryWrite" template="PortRetryhandling.Args_V1"/>
+     <event value="210" symbol="Port_V1" version="1" task="Port" level="win:Informational" keywords="Flush" template="PortArgs_V1"/>
+     <event value="211" symbol="PortCompletionofrequest.211_V1" version="1" task="Port" opcode="Completionofrequest." level="win:Informational" keywords="Flush" template="PortCompletionofrequest.Args_V1"/>
+     <event value="212" symbol="PortDispatchingofrequest._V1" version="1" task="Port" opcode="Dispatchingofrequest." level="win:Informational" keywords="IOCTL" template="PortDispatchingofrequest.Args_V1"/>
+     <event value="213" symbol="PortDispatchingofrequest.213_V1" version="1" task="Port" opcode="Dispatchingofrequest." level="win:Informational" keywords="WMI" template="PortDispatchingofrequest.Args_V1"/>
+     <event value="214" symbol="PortCompletionofrequest.214_V1" version="1" task="Port" opcode="Completionofrequest." level="win:Informational" keywords="IOCTL WMI" template="PortCompletionofrequest.214Args_V1"/>
+     <event value="215" symbol="PortDispatchingofrequest.215_V2" version="2" task="Port" opcode="Dispatchingofrequest." level="win:Informational" keywords="Power" template="PortDispatchingofrequest.215Args_V2"/>
+     <event value="216" symbol="PortCompletionofrequest.216_V2" version="2" task="Port" opcode="Completionofrequest." level="win:Informational" keywords="Power" template="PortCompletionofrequest.216Args_V2"/>
+     <event value="217" symbol="PortDispatchingofrequest.217_V1" version="1" task="Port" opcode="Dispatchingofrequest." level="win:Informational" keywords="PnP" template="PortDispatchingofrequest.217Args_V1"/>
+     <event value="218" symbol="PortCompletionofrequest.218_V1" version="1" task="Port" opcode="Completionofrequest." level="win:Informational" keywords="PnP" template="PortCompletionofrequest.214Args_V1"/>
+     <event value="219" symbol="PortCompletionofrequest.219_V1" version="1" task="Port" opcode="Completionofrequest." level="win:Informational" keywords="PnP Enum" template="PortCompletionofrequest.219Args_V1"/>
+     <event value="220" symbol="PortEventQueuerelatedoperation._V1" version="1" task="Port" opcode="EventQueuerelatedoperation." level="win:Informational" keywords="Queue" template="PortEventQueuerelatedoperation.Args_V1"/>
+     <event value="221" symbol="PortDispatchingofrequest.221_V1" version="1" task="Port" opcode="Dispatchingofrequest." level="win:Informational" keywords="PassThrough IOCTL" template="PortDispatchingofrequest.Args_V1"/>
+     <event value="222" symbol="Port222_V1" version="1" task="Port" level="win:Informational" keywords="Logo_Performance" template="Port222Args_V1"/>
+     <event value="223" symbol="Port223_V1" version="1" task="Port" level="win:Informational" keywords="Logo_Performance" template="Port222Args_V1"/>
+     <event value="224" symbol="DpcCompletionofrequest._V1" version="1" task="Dpc" opcode="Completionofrequest." level="win:Informational" keywords="DPC" template="DpcCompletionofrequest.Args_V1"/>
+     <event value="225" symbol="PortStart_V1" version="1" task="Port" opcode="win:Start" level="win:Informational" keywords="Power" template="PortStartArgs_V1"/>
+     <event value="226" symbol="PortStop_V1" version="1" task="Port" opcode="win:Stop" level="win:Informational" keywords="Power" template="PortStopArgs_V1"/>
+     <event value="227" symbol="PortStart227_V1" version="1" task="Port" opcode="win:Start" level="win:Informational" keywords="Power" template="PortStart227Args_V1"/>
+     <event value="228" symbol="PortStop228_V1" version="1" task="Port" opcode="win:Stop" level="win:Informational" keywords="Power" template="PortStopArgs_V1"/>
+     <event value="229" symbol="Port229_V2" version="2" task="Port" level="win:Informational" keywords="Power" template="Port229Args_V2"/>
+     <event value="230" symbol="PortStart230_V1" version="1" task="Port" opcode="win:Start" level="win:Informational" keywords="Power" template="PortStart230Args_V1"/>
+     <event value="231" symbol="PortStop231_V1" version="1" task="Port" opcode="win:Stop" level="win:Informational" keywords="Power" template="PortStart230Args_V1"/>
+     <event value="232" symbol="PortStart232_V1" version="1" task="Port" opcode="win:Start" level="win:Informational" keywords="Power" template="PortStart232Args_V1"/>
+     <event value="233" symbol="PortStop233_V1" version="1" task="Port" opcode="win:Stop" level="win:Informational" keywords="Power" template="PortStart232Args_V1"/>
+     <event value="234" symbol="PortStart234_V1" version="1" task="Port" opcode="win:Start" level="win:Informational" keywords="Power" template="PortStart232Args_V1"/>
+     <event value="235" symbol="PortStop235_V1" version="1" task="Port" opcode="win:Stop" level="win:Informational" keywords="Power" template="PortStart232Args_V1"/>
+     <event value="236" symbol="PortStart236_V1" version="1" task="Port" opcode="win:Start" level="win:Informational" keywords="Power" template="PortStart236Args_V1"/>
+     <event value="237" symbol="PortStop237_V1" version="1" task="Port" opcode="win:Stop" level="win:Informational" keywords="Power" template="PortStop237Args_V1"/>
+     <event value="238" symbol="PortStart238_V1" version="1" task="Port" opcode="win:Start" level="win:Informational" keywords="Power" template="PortStart238Args_V1"/>
+     <event value="239" symbol="PortStop239_V1" version="1" task="Port" opcode="win:Stop" level="win:Informational" keywords="Power" template="PortStop237Args_V1"/>
+     <event value="240" symbol="Port240_V1" version="1" task="Port" level="win:Informational" keywords="Power" template="Port240Args_V1"/>
+     <event value="241" symbol="PortStart241_V1" version="1" task="Port" opcode="win:Start" level="win:Informational" keywords="Power" template="PortStart241Args_V1"/>
+     <event value="242" symbol="PortStop242_V1" version="1" task="Port" opcode="win:Stop" level="win:Informational" keywords="Power" template="PortStart241Args_V1"/>
+     <event value="243" symbol="PortStart243_V1" version="1" task="Port" opcode="win:Start" level="win:Informational" keywords="Power" template="PortStart243Args_V1"/>
+     <event value="244" symbol="PortStop244_V1" version="1" task="Port" opcode="win:Stop" level="win:Informational" keywords="Power" template="PortStart243Args_V1"/>
+     <event value="245" symbol="PortStart245_V1" version="1" task="Port" opcode="win:Start" level="win:Informational" keywords="Power" template="PortStart243Args_V1"/>
+     <event value="246" symbol="PortStop246_V1" version="1" task="Port" opcode="win:Stop" level="win:Informational" keywords="Power" template="PortStart243Args_V1"/>
+     <event value="247" symbol="PortEventQueuerelatedoperation.247_V1" version="1" task="Port" opcode="EventQueuerelatedoperation." level="win:Informational" keywords="Queue" template="PortEventQueuerelatedoperation.247Args_V1"/>
+     <event value="248" symbol="IsrCompletionofrequest._V1" version="1" task="Isr" opcode="Completionofrequest." level="win:Informational" keywords="ISR" template="IsrCompletionofrequest.Args_V1"/>
+     <event value="250" symbol="Port250_V1" version="1" task="Port" level="win:Informational" keywords="keyword_200000000000" template="Port250Args_V1"/>
+     <event value="251" symbol="Port251_V1" version="1" task="Port" level="win:Informational" keywords="keyword_200000000000" template="Port251Args_V1"/>
+     <event value="252" symbol="Port252_V1" version="1" task="Port" level="win:Informational" keywords="keyword_200000000000" template="Port252Args_V1"/>
+     <event value="253" symbol="Port253_V1" version="1" task="Port" level="win:Informational" keywords="keyword_200000000000" template="Port253Args_V1"/>
+     <event value="254" symbol="Port254_V1" version="1" task="Port" level="win:Informational" keywords="keyword_200000000000" template="Port254Args_V1"/>
+     <event value="255" symbol="Port255_V1" version="1" task="Port" level="win:Informational" keywords="keyword_200000000000" template="Port255Args_V1"/>
+     <event value="256" symbol="Port256_V1" version="1" task="Port" level="win:Informational" keywords="keyword_200000000000" template="Port256Args_V1"/>
+     <event value="257" symbol="Port257_V1" version="1" task="Port" level="win:Informational" keywords="keyword_200000000000" template="Port257Args_V1"/>
+     <event value="258" symbol="Port258_V1" version="1" task="Port" level="win:Informational" keywords="keyword_200000000000" template="Port258Args_V1"/>
+     <event value="259" symbol="PortStop259_V1" version="1" task="Port" opcode="win:Stop" level="win:Informational" keywords="Power" template="PortStart230Args_V1"/>
+     <event value="260" symbol="PortCompletionofrequest.260_V1" version="1" task="Port" opcode="Completionofrequest." level="win:Informational" keywords="Power" template="PortCompletionofrequest.260Args_V1"/>
+     <event value="261" symbol="Port261_V1" version="1" task="Port" level="win:Informational" keywords="Power" template="Port261Args_V1"/>
+     <event value="262" symbol="PortDispatchingofrequest.262_V1" version="1" task="Port" opcode="Dispatchingofrequest." level="win:Informational" keywords="Power" template="PortDispatchingofrequest.262Args_V1"/>
+     <event value="263" symbol="Port263_V1" version="1" task="Port" level="win:Informational" keywords="Power" template="Port263Args_V1"/>
+     <event value="264" symbol="Port264_V1" version="1" task="Port" level="win:Informational" keywords="Power" template="Port264Args_V1"/>
+     <event value="265" symbol="Port265_V1" version="1" task="Port" level="win:Informational" keywords="Power" template="Port265Args_V1"/>
+     <event value="267" symbol="PortStart267_V1" version="1" task="Port" opcode="win:Start" level="win:Informational" keywords="Power" template="PortStart267Args_V1"/>
+     <event value="268" symbol="PortStop268_V1" version="1" task="Port" opcode="win:Stop" level="win:Informational" keywords="Power" template="PortStop268Args_V1"/>
+     <event value="269" symbol="PortCompletionofrequest.269_V1" version="1" task="Port" opcode="Completionofrequest." level="win:Informational" keywords="PassThrough IOCTL" template="PortCompletionofrequest.269Args_V1"/>
+     <event value="500" symbol="None500_V2" version="2" task="None" level="win:Error" keywords="keyword_80000000000" template="None500Args_V2"/>
+     <event value="501" symbol="BusresetOpCodeBusReset_V1" version="1" task="Busreset" opcode="OpCodeBusReset" level="win:Error" keywords="Reset" template="BusresetOpCodeBusResetArgs_V1"/>
+     <event value="502" symbol="None502_V1" version="1" task="None" level="win:Error" keywords="DeviceState" template="None502Args_V1"/>
+     <event value="503" symbol="None503_V1" version="1" task="None" level="win:Informational" keywords="DeviceState" template="None503Args_V1"/>
+     <event value="504" symbol="Port504_V2" version="2" task="Port" level="win:Informational" keywords="Read Write" template="Port504Args_V2"/>
+     <event value="505" symbol="Port505_V2" version="2" task="Port" level="win:Informational" keywords="Read Write" template="Port505Args_V2"/>
+     <event value="506" symbol="Port506_V2" version="2" task="Port" level="win:Informational" keywords="DeviceState" template="Port506Args_V2"/>
+     <event value="507" symbol="None507_V1" version="1" task="None" level="win:Error" keywords="keyword_200000000000" template="None507Args_V1"/>
+     <event value="508" symbol="None508_V1" version="1" task="None" level="win:Error" keywords="keyword_200000000000" template="None508Args_V1"/>
+     <event value="509" symbol="None509_V1" version="1" task="None" level="win:Error" keywords="keyword_80000000000" template="None509Args_V1"/>
+     <event value="510" symbol="Port510_V2" version="2" task="Port" level="win:Informational" keywords="DeviceState" template="Port510Args_V2"/>
+     <event value="511" symbol="Port511_V2" version="2" task="Port" level="win:Informational" keywords="DeviceState" template="Port511Args_V2"/>
+     <event value="512" symbol="Port512_V3" version="3" task="Port" level="win:Informational" keywords="DeviceState" template="Port512Args_V3"/>
+     <event value="513" symbol="Port513_V1" version="1" task="Port" level="win:Informational" keywords="keyword_200000000000" template="Port513Args_V1"/>
+     <event value="514" symbol="Port514_V1" version="1" task="Port" level="win:Error" keywords="SMR" template="Port514Args_V1"/>
+     <event value="515" symbol="Port515_V1" version="1" task="Port" level="win:Informational" keywords="SMR" template="Port515Args_V1"/>
+    </events>
+    <templates>
+     <template tid="LogicalUnitresetOpCodeLUResetArgs_V1">
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="PathID" inType="win:UInt8"/>
+      <data name="TargetID" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+     </template>
+     <template tid="TargetresetOpCodeTargetResetArgs_V1">
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="PathID" inType="win:UInt8"/>
+      <data name="TargetID" inType="win:UInt8"/>
+     </template>
+     <template tid="ResetdetectednotificationOpCodeResetDetectedArgs_V1">
+      <data name="MiniportExtension" inType="win:Pointer"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="PauseTime" inType="win:UInt32"/>
+     </template>
+     <template tid="LinkdownnotificationOpCodeLinkDownArgs_V1">
+      <data name="MiniportExtension" inType="win:Pointer"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="LinkDownTime" inType="win:UInt32"/>
+     </template>
+     <template tid="LinkUpnotificationOpCodeLinkUpArgs_V1">
+      <data name="MiniportExtension" inType="win:Pointer"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+     </template>
+     <template tid="RequestTimernotificationOpCodeRequestTimerCallArgs_V1">
+      <data name="MiniportExtension" inType="win:Pointer"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="Timeout" inType="win:UInt32"/>
+     </template>
+     <template tid="PortpausedeviceOpCodePortPauseDeviceArgs_V1">
+      <data name="MiniportExtension" inType="win:Pointer"/>
+      <data name="PauseTime" inType="win:UInt32"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="PathID" inType="win:UInt8"/>
+      <data name="TargetID" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+     </template>
+     <template tid="PortresumedeviceOpCodePortResumeDeviceArgs_V1">
+      <data name="MiniportExtension" inType="win:Pointer"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="PathID" inType="win:UInt8"/>
+      <data name="TargetID" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+     </template>
+     <template tid="MiniportIORequestServiceTimeOpCodeMiniportIORequestServiceTimeArgs_V1">
+      <data name="MiniportExtension" inType="win:Pointer"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="PathID" inType="win:UInt8"/>
+      <data name="TargetID" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="RequestDuration" inType="win:UInt32"/>
+      <data name="Command" inType="win:UInt8"/>
+      <data name="ScsiStatus" inType="win:UInt8"/>
+      <data name="SrbStatus" inType="win:UInt8"/>
+     </template>
+     <template tid="NoneArgs_V1">
+      <data name="Field" inType="win:UnicodeString"/>
+      <data name="PivotField" inType="win:UnicodeString"/>
+      <data name="PivotValue" inType="win:HexInt32"/>
+      <data name="OriginalValue" inType="win:UInt32"/>
+      <data name="NewValue" inType="win:UInt32"/>
+     </template>
+     <template tid="None15Args_V1">
+      <data name="AdapterName" inType="win:UnicodeString"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="PathID" inType="win:UInt8"/>
+      <data name="TargetID" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="CurrentDepth" inType="win:UInt32"/>
+      <data name="NewDepth" inType="win:UInt32"/>
+      <data name="MaxDepth" inType="win:UInt32"/>
+      <data name="StorportApi" inType="win:Boolean"/>
+     </template>
+     <template tid="None16Args_V1">
+      <data name="AdapterName" inType="win:UnicodeString"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="InitialCount" inType="win:UInt32"/>
+      <data name="MaxCount" inType="win:UInt32"/>
+      <data name="ResourceSize" inType="win:UInt32"/>
+      <data name="MemorySize" inType="win:HexInt64"/>
+     </template>
+     <template tid="None17Args_V1">
+      <data name="AdapterName" inType="win:UnicodeString"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="CurrentOutstanding" inType="win:UInt32"/>
+      <data name="OldHighWaterMark" inType="win:UInt32"/>
+      <data name="NewHighWaterMark" inType="win:UInt32"/>
+      <data name="MaxCount" inType="win:UInt32"/>
+     </template>
+     <template tid="None18Args_V1">
+      <data name="AdapterName" inType="win:UnicodeString"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="CurrentOutstanding" inType="win:UInt32"/>
+      <data name="HighWaterMark" inType="win:UInt32"/>
+      <data name="MaxCount" inType="win:UInt32"/>
+      <data name="MemAllocFailures" inType="win:UInt32"/>
+      <data name="ConsecutiveFailures" inType="win:UInt32"/>
+      <data name="SuspendCount" inType="win:UInt32"/>
+     </template>
+     <template tid="None19Args_V1">
+      <data name="Version" inType="win:UInt32"/>
+      <data name="Size" inType="win:UInt32"/>
+      <data name="Flags" inType="win:HexInt32"/>
+      <data name="ConcurrentChannels" inType="win:UInt32"/>
+      <data name="FirstRedirectionMessageNumber" inType="win:UInt32"/>
+      <data name="LastRedirectionMessageNumber" inType="win:UInt32"/>
+      <data name="DeviceNode" inType="win:UInt32"/>
+     </template>
+     <template tid="None21Args_V1">
+      <data name="HwInitializationDataSize" inType="win:HexInt32"/>
+      <data name="AdapterInterfaceType" inType="win:UInt32"/>
+      <data name="DeviceExtensionSize" inType="win:HexInt32"/>
+      <data name="SpecificLuExtensionSize" inType="win:HexInt32"/>
+      <data name="SrbExtensionSize" inType="win:HexInt32"/>
+      <data name="FeatureSupport" inType="win:HexInt32"/>
+      <data name="SrbTypeFlags" inType="win:HexInt32"/>
+      <data name="AddressTypeFlags" inType="win:HexInt32"/>
+      <data name="HwFreeAdapterResources" inType="win:HexInt64"/>
+      <data name="HwProcessServiceRequest" inType="win:HexInt64"/>
+      <data name="HwCompleteServiceIrp" inType="win:HexInt64"/>
+      <data name="HwInitializeTracing" inType="win:HexInt64"/>
+      <data name="HwCleanupTracing" inType="win:HexInt64"/>
+     </template>
+     <template tid="None22Args_V1">
+      <data name="Length" inType="win:HexInt32"/>
+      <data name="MaxTransferLength" inType="win:HexInt32"/>
+      <data name="NumberOfBuses" inType="win:UInt32"/>
+      <data name="MaxNumberOfTargets" inType="win:UInt32"/>
+      <data name="MaxNumberOfLogicalUnits" inType="win:UInt32"/>
+      <data name="MaxNumberOfIO" inType="win:UInt32"/>
+      <data name="MaxIOsPerLun" inType="win:UInt32"/>
+      <data name="InitialLunQueueDepth" inType="win:UInt32"/>
+      <data name="RequestedDumpBufferSize" inType="win:HexInt32"/>
+      <data name="FeatureSupport" inType="win:HexInt32"/>
+      <data name="SrbType" inType="win:UInt8"/>
+      <data name="AddressType" inType="win:UInt8"/>
+      <data name="Dma64BitAddress" inType="win:UInt8"/>
+      <data name="BusResetHoldTime" inType="win:UInt32"/>
+      <data name="InterruptSynchronizationMode" inType="win:UInt32"/>
+      <data name="CachesData" inType="win:Boolean"/>
+      <data name="VirtualDevice" inType="win:Boolean"/>
+     </template>
+     <template tid="None24Args_V1">
+      <data name="Operation" inType="win:UnicodeString"/>
+      <data name="Duration_100ns" inType="win:UInt64"/>
+     </template>
+     <template tid="StatechangedetectnotificationOpCodeStateChangeDetectedArgs_V1">
+      <data name="MiniportExtension" inType="win:Pointer"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="ChangedEntity" inType="win:UInt32"/>
+      <data name="PathID" inType="win:UInt8"/>
+      <data name="TargetID" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="Attributes" inType="win:UInt32"/>
+      <data name="HwStateChange" inType="win:Pointer"/>
+      <data name="HwStateChangeContext" inType="win:Pointer"/>
+     </template>
+     <template tid="TargetedreenumerationOpCodeTargetedReenumerationArgs_V1">
+      <data name="AdapterName" inType="win:UnicodeString"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="ChangedEntity" inType="win:UInt32"/>
+      <data name="PathID" inType="win:UInt8"/>
+      <data name="TargetID" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="Attributes" inType="win:UInt32"/>
+      <data name="HwStateChange" inType="win:Pointer"/>
+      <data name="HwStateChangeContext" inType="win:Pointer"/>
+     </template>
+     <template tid="PortCompletionofrequest.Args_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="NTStatus" inType="win:HexInt32"/>
+      <data name="SrbStatus" inType="win:UInt8"/>
+      <data name="ScsiStatus" inType="win:UInt8"/>
+      <data name="SenseKey" inType="win:UInt8"/>
+      <data name="AddSense" inType="win:UInt8"/>
+      <data name="AddSenseQ" inType="win:UInt8"/>
+      <data name="OriginalIrp" inType="win:Pointer"/>
+     </template>
+     <template tid="PortRetryhandling.Args_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="CurrentRetryCount" inType="win:UInt32"/>
+     </template>
+     <template tid="PortArgs_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="Bus" inType="win:UInt8"/>
+      <data name="Target" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+     </template>
+     <template tid="PortDispatchingofrequest.Args_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="MajorFunction" inType="win:HexInt32"/>
+      <data name="MinorFunction" inType="win:HexInt32"/>
+      <data name="Parameter" inType="win:HexInt32"/>
+     </template>
+     <template tid="PortCompletionofrequest.214Args_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="Status" inType="win:HexInt32"/>
+     </template>
+     <template tid="PortDispatchingofrequest.217Args_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="MinorFunction" inType="win:HexInt32"/>
+      <data name="Type" inType="win:HexInt32"/>
+      <data name="DeviceObject" inType="win:Pointer"/>
+     </template>
+     <template tid="PortCompletionofrequest.219Args_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="NumberOfChildren" inType="win:UInt32"/>
+      <data name="Status" inType="win:HexInt32"/>
+     </template>
+     <template tid="PortEventQueuerelatedoperation.Args_V1">
+      <data name="QueueTag" inType="win:HexInt32"/>
+      <data name="Operation" inType="win:UInt8"/>
+      <data name="Status" inType="win:HexInt32"/>
+     </template>
+     <template tid="Port222Args_V1">
+      <data name="Port" inType="win:UInt8"/>
+      <data name="Bus" inType="win:UInt8"/>
+      <data name="Target" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="RequestDuration" inType="win:UInt64"/>
+      <data name="CDBLength" inType="win:UInt32"/>
+      <data name="CDB" inType="win:Binary" length="CDBLength"/>
+      <data name="SrbStatus" inType="win:UInt8"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="OriginalIrp" inType="win:Pointer"/>
+      <data name="BuildIoDuration" inType="win:UInt64"/>
+      <data name="StartIoDuration" inType="win:UInt64"/>
+      <data name="MiniportDuration" inType="win:UInt64"/>
+     </template>
+     <template tid="DpcCompletionofrequest.Args_V1">
+      <data name="DpcRoutine" inType="win:Pointer"/>
+      <data name="DpcRoutineName" inType="win:UnicodeString"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="CompletionCount" inType="win:UInt32"/>
+      <data name="QpcTicks" inType="win:UInt64"/>
+      <data name="Duration_100ns" inType="win:UInt64"/>
+      <data name="SwitchDpcProc" inType="win:Boolean"/>
+      <data name="RevertDpcProc" inType="win:Boolean"/>
+     </template>
+     <template tid="PortStartArgs_V1">
+      <data name="PoHandle" inType="win:Pointer"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="Bus" inType="win:UInt8"/>
+      <data name="Target" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="DIrpRequested" inType="win:Boolean"/>
+      <data name="DPNRDurationMsec" inType="win:UInt64"/>
+     </template>
+     <template tid="PortStopArgs_V1">
+      <data name="PoHandle" inType="win:Pointer"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="Bus" inType="win:UInt8"/>
+      <data name="Target" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="DIrpRequested" inType="win:Boolean"/>
+     </template>
+     <template tid="PortStart227Args_V1">
+      <data name="PoHandle" inType="win:Pointer"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="Bus" inType="win:UInt8"/>
+      <data name="Target" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="DIrpRequested" inType="win:Boolean"/>
+      <data name="IdleTimeoutMsec" inType="win:UInt32"/>
+     </template>
+     <template tid="PortStart230Args_V1">
+      <data name="PoHandle" inType="win:Pointer"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="Bus" inType="win:UInt8"/>
+      <data name="Target" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="Component" inType="win:UInt32"/>
+      <data name="FState" inType="win:UInt32"/>
+     </template>
+     <template tid="PortStart232Args_V1">
+      <data name="PoHandle" inType="win:Pointer"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="Bus" inType="win:UInt8"/>
+      <data name="Target" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="Component" inType="win:UInt32"/>
+     </template>
+     <template tid="PortStart236Args_V1">
+      <data name="PoHandle" inType="win:Pointer"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="DIrpRequested" inType="win:Boolean"/>
+      <data name="DPNRDurationMsec" inType="win:UInt64"/>
+     </template>
+     <template tid="PortStop237Args_V1">
+      <data name="PoHandle" inType="win:Pointer"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="DIrpRequested" inType="win:Boolean"/>
+     </template>
+     <template tid="PortStart238Args_V1">
+      <data name="PoHandle" inType="win:Pointer"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="DIrpRequested" inType="win:Boolean"/>
+      <data name="IdleTimeoutMsec" inType="win:UInt32"/>
+     </template>
+     <template tid="Port240Args_V1">
+      <data name="PoHandle" inType="win:Pointer"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="D3ColdSupported" inType="win:Boolean"/>
+      <data name="IdleTimeoutInMS" inType="win:UInt32"/>
+      <data name="NumberOfFStates" inType="win:UInt32"/>
+     </template>
+     <template tid="PortStart241Args_V1">
+      <data name="PoHandle" inType="win:Pointer"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="Component" inType="win:UInt32"/>
+      <data name="FState" inType="win:UInt32"/>
+     </template>
+     <template tid="PortStart243Args_V1">
+      <data name="PoHandle" inType="win:Pointer"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="Component" inType="win:UInt32"/>
+     </template>
+     <template tid="PortEventQueuerelatedoperation.247Args_V1">
+      <data name="QueueID" inType="win:Pointer"/>
+      <data name="QueueTag" inType="win:UInt32"/>
+      <data name="Operation" inType="win:UInt8"/>
+      <data name="EnqueueReason" inType="win:UInt8"/>
+      <data name="QueuedIoCount" inType="win:UInt32"/>
+      <data name="OutstandingIoCount" inType="win:UInt32"/>
+      <data name="NTStatus" inType="win:HexInt32"/>
+     </template>
+     <template tid="IsrCompletionofrequest.Args_V1">
+      <data name="IsrRoutine" inType="win:Pointer"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="Processor" inType="win:UInt32"/>
+      <data name="Duration_100ns" inType="win:UInt64"/>
+     </template>
+     <template tid="Port250Args_V1">
+      <data name="MiniportName" inType="win:UnicodeString"/>
+      <data name="MiniportEventId" inType="win:UInt32"/>
+      <data name="MiniportEventDescription" inType="win:UnicodeString"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="Parameter1Name" inType="win:UnicodeString"/>
+      <data name="Parameter1Value" inType="win:UInt64"/>
+      <data name="Parameter2Name" inType="win:UnicodeString"/>
+      <data name="Parameter2Value" inType="win:UInt64"/>
+     </template>
+     <template tid="Port251Args_V1">
+      <data name="MiniportName" inType="win:UnicodeString"/>
+      <data name="MiniportEventId" inType="win:UInt32"/>
+      <data name="MiniportEventDescription" inType="win:UnicodeString"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="Parameter1Name" inType="win:UnicodeString"/>
+      <data name="Parameter1Value" inType="win:UInt64"/>
+      <data name="Parameter2Name" inType="win:UnicodeString"/>
+      <data name="Parameter2Value" inType="win:UInt64"/>
+      <data name="Parameter3Name" inType="win:UnicodeString"/>
+      <data name="Parameter3Value" inType="win:UInt64"/>
+      <data name="Parameter4Name" inType="win:UnicodeString"/>
+      <data name="Parameter4Value" inType="win:UInt64"/>
+     </template>
+     <template tid="Port252Args_V1">
+      <data name="MiniportName" inType="win:UnicodeString"/>
+      <data name="MiniportEventId" inType="win:UInt32"/>
+      <data name="MiniportEventDescription" inType="win:UnicodeString"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="Parameter1Name" inType="win:UnicodeString"/>
+      <data name="Parameter1Value" inType="win:UInt64"/>
+      <data name="Parameter2Name" inType="win:UnicodeString"/>
+      <data name="Parameter2Value" inType="win:UInt64"/>
+      <data name="Parameter3Name" inType="win:UnicodeString"/>
+      <data name="Parameter3Value" inType="win:UInt64"/>
+      <data name="Parameter4Name" inType="win:UnicodeString"/>
+      <data name="Parameter4Value" inType="win:UInt64"/>
+      <data name="Parameter5Name" inType="win:UnicodeString"/>
+      <data name="Parameter5Value" inType="win:UInt64"/>
+      <data name="Parameter6Name" inType="win:UnicodeString"/>
+      <data name="Parameter6Value" inType="win:UInt64"/>
+      <data name="Parameter7Name" inType="win:UnicodeString"/>
+      <data name="Parameter7Value" inType="win:UInt64"/>
+      <data name="Parameter8Name" inType="win:UnicodeString"/>
+      <data name="Parameter8Value" inType="win:UInt64"/>
+     </template>
+     <template tid="Port253Args_V1">
+      <data name="MiniportName" inType="win:UnicodeString"/>
+      <data name="MiniportEventId" inType="win:UInt32"/>
+      <data name="MiniportEventDescription" inType="win:UnicodeString"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="Bus" inType="win:UInt8"/>
+      <data name="Target" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="Parameter1Name" inType="win:UnicodeString"/>
+      <data name="Parameter1Value" inType="win:UInt64"/>
+      <data name="Parameter2Name" inType="win:UnicodeString"/>
+      <data name="Parameter2Value" inType="win:UInt64"/>
+     </template>
+     <template tid="Port254Args_V1">
+      <data name="MiniportName" inType="win:UnicodeString"/>
+      <data name="MiniportEventId" inType="win:UInt32"/>
+      <data name="MiniportEventDescription" inType="win:UnicodeString"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="Bus" inType="win:UInt8"/>
+      <data name="Target" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="Parameter1Name" inType="win:UnicodeString"/>
+      <data name="Parameter1Value" inType="win:UInt64"/>
+      <data name="Parameter2Name" inType="win:UnicodeString"/>
+      <data name="Parameter2Value" inType="win:UInt64"/>
+      <data name="Parameter3Name" inType="win:UnicodeString"/>
+      <data name="Parameter3Value" inType="win:UInt64"/>
+      <data name="Parameter4Name" inType="win:UnicodeString"/>
+      <data name="Parameter4Value" inType="win:UInt64"/>
+     </template>
+     <template tid="Port255Args_V1">
+      <data name="MiniportName" inType="win:UnicodeString"/>
+      <data name="MiniportEventId" inType="win:UInt32"/>
+      <data name="MiniportEventDescription" inType="win:UnicodeString"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="Bus" inType="win:UInt8"/>
+      <data name="Target" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="Parameter1Name" inType="win:UnicodeString"/>
+      <data name="Parameter1Value" inType="win:UInt64"/>
+      <data name="Parameter2Name" inType="win:UnicodeString"/>
+      <data name="Parameter2Value" inType="win:UInt64"/>
+      <data name="Parameter3Name" inType="win:UnicodeString"/>
+      <data name="Parameter3Value" inType="win:UInt64"/>
+      <data name="Parameter4Name" inType="win:UnicodeString"/>
+      <data name="Parameter4Value" inType="win:UInt64"/>
+      <data name="Parameter5Name" inType="win:UnicodeString"/>
+      <data name="Parameter5Value" inType="win:UInt64"/>
+      <data name="Parameter6Name" inType="win:UnicodeString"/>
+      <data name="Parameter6Value" inType="win:UInt64"/>
+      <data name="Parameter7Name" inType="win:UnicodeString"/>
+      <data name="Parameter7Value" inType="win:UInt64"/>
+      <data name="Parameter8Name" inType="win:UnicodeString"/>
+      <data name="Parameter8Value" inType="win:UInt64"/>
+     </template>
+     <template tid="Port256Args_V1">
+      <data name="MiniportName" inType="win:UnicodeString"/>
+      <data name="MiniportEventId" inType="win:UInt32"/>
+      <data name="MiniportEventDescription" inType="win:UnicodeString"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="Bus" inType="win:UInt8"/>
+      <data name="Target" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="Srb" inType="win:Pointer"/>
+      <data name="Parameter1Name" inType="win:UnicodeString"/>
+      <data name="Parameter1Value" inType="win:UInt64"/>
+      <data name="Parameter2Name" inType="win:UnicodeString"/>
+      <data name="Parameter2Value" inType="win:UInt64"/>
+     </template>
+     <template tid="Port257Args_V1">
+      <data name="MiniportName" inType="win:UnicodeString"/>
+      <data name="MiniportEventId" inType="win:UInt32"/>
+      <data name="MiniportEventDescription" inType="win:UnicodeString"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="Bus" inType="win:UInt8"/>
+      <data name="Target" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="Srb" inType="win:Pointer"/>
+      <data name="Parameter1Name" inType="win:UnicodeString"/>
+      <data name="Parameter1Value" inType="win:UInt64"/>
+      <data name="Parameter2Name" inType="win:UnicodeString"/>
+      <data name="Parameter2Value" inType="win:UInt64"/>
+      <data name="Parameter3Name" inType="win:UnicodeString"/>
+      <data name="Parameter3Value" inType="win:UInt64"/>
+      <data name="Parameter4Name" inType="win:UnicodeString"/>
+      <data name="Parameter4Value" inType="win:UInt64"/>
+     </template>
+     <template tid="Port258Args_V1">
+      <data name="MiniportName" inType="win:UnicodeString"/>
+      <data name="MiniportEventId" inType="win:UInt32"/>
+      <data name="MiniportEventDescription" inType="win:UnicodeString"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="Bus" inType="win:UInt8"/>
+      <data name="Target" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="Srb" inType="win:Pointer"/>
+      <data name="Parameter1Name" inType="win:UnicodeString"/>
+      <data name="Parameter1Value" inType="win:UInt64"/>
+      <data name="Parameter2Name" inType="win:UnicodeString"/>
+      <data name="Parameter2Value" inType="win:UInt64"/>
+      <data name="Parameter3Name" inType="win:UnicodeString"/>
+      <data name="Parameter3Value" inType="win:UInt64"/>
+      <data name="Parameter4Name" inType="win:UnicodeString"/>
+      <data name="Parameter4Value" inType="win:UInt64"/>
+      <data name="Parameter5Name" inType="win:UnicodeString"/>
+      <data name="Parameter5Value" inType="win:UInt64"/>
+      <data name="Parameter6Name" inType="win:UnicodeString"/>
+      <data name="Parameter6Value" inType="win:UInt64"/>
+      <data name="Parameter7Name" inType="win:UnicodeString"/>
+      <data name="Parameter7Value" inType="win:UInt64"/>
+      <data name="Parameter8Name" inType="win:UnicodeString"/>
+      <data name="Parameter8Value" inType="win:UInt64"/>
+     </template>
+     <template tid="PortCompletionofrequest.260Args_V1">
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="Status" inType="win:HexInt32"/>
+     </template>
+     <template tid="Port261Args_V1">
+      <data name="PoHandle" inType="win:Pointer"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="Requested_AdapterIdleTimeout_ms" inType="win:UInt32"/>
+      <data name="Actual_AdapterIdleTimeout_ms" inType="win:UInt32"/>
+     </template>
+     <template tid="PortDispatchingofrequest.262Args_V1">
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="Bus" inType="win:UInt8"/>
+      <data name="Target" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="MinorFunction" inType="win:HexInt32"/>
+      <data name="Type" inType="win:UInt8"/>
+      <data name="OldState" inType="win:HexInt32"/>
+      <data name="NewState" inType="win:HexInt32"/>
+      <data name="Action" inType="win:HexInt32"/>
+      <data name="PowerStateContext" inType="win:HexInt32"/>
+     </template>
+     <template tid="Port263Args_V1">
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="Bus" inType="win:UInt8"/>
+      <data name="Target" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="CurrentPowerCycleCount" inType="win:UInt32"/>
+      <data name="PotentialPowerCycleCount" inType="win:UInt32"/>
+      <data name="MinPowerCyclePeriodInMS" inType="win:UInt32"/>
+     </template>
+     <template tid="Port264Args_V1">
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="Bus" inType="win:UInt8"/>
+      <data name="Target" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="CurrentD3IdleTimeout" inType="win:UInt32"/>
+      <data name="NewD3IdleTimeout" inType="win:UInt32"/>
+      <data name="IoCoalescingOn" inType="win:Boolean"/>
+      <data name="OnBatteryPower" inType="win:Boolean"/>
+     </template>
+     <template tid="Port265Args_V1">
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="PreviousPowerHint" inType="win:UInt32"/>
+      <data name="PreviousResumeLatency_ms" inType="win:UInt32"/>
+      <data name="NewPowerHint" inType="win:UInt32"/>
+      <data name="NewResumeLatency_ms" inType="win:UInt32"/>
+     </template>
+     <template tid="PortStart267Args_V1">
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="Bus" inType="win:UInt8"/>
+      <data name="Target" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+     </template>
+     <template tid="PortStop268Args_V1">
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="Bus" inType="win:UInt8"/>
+      <data name="Target" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="Success" inType="win:Boolean"/>
+      <data name="ActiveRefsDuringMaintenanceTime" inType="win:UInt32"/>
+     </template>
+     <template tid="PortCompletionofrequest.269Args_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="IOCTLCode" inType="win:HexInt32"/>
+      <data name="AdapterRequest" inType="win:Boolean"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="Bus" inType="win:UInt8"/>
+      <data name="Target" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="ProtocolType" inType="win:HexInt32"/>
+      <data name="CommandCode" inType="win:HexInt32"/>
+      <data name="ReturnStatus" inType="win:HexInt32"/>
+      <data name="ErrorCode" inType="win:HexInt32"/>
+      <data name="UntaggedRequest" inType="win:Boolean"/>
+     </template>
+     <template tid="BusresetOpCodeBusResetArgs_V1">
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="PathID" inType="win:UInt8"/>
+      <data name="RequestingUnitClassDeviceGuid" inType="win:GUID"/>
+     </template>
+     <template tid="None502Args_V1">
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="PathID" inType="win:UInt8"/>
+      <data name="TargetID" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="ClassDeviceGuid" inType="win:GUID"/>
+      <data name="Reason" inType="win:UInt32" map="ReasonMap"/>
+     </template>
+     <template tid="None503Args_V1">
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="PathID" inType="win:UInt8"/>
+      <data name="TargetID" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="ClassDeviceGuid" inType="win:GUID"/>
+      <data name="Reason" inType="win:UInt32"/>
+     </template>
+     <template tid="None507Args_V1">
+      <data name="MiniportName" inType="win:UnicodeString"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="Bus" inType="win:UInt8"/>
+      <data name="Target" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="ClassDeviceGuid" inType="win:GUID"/>
+      <data name="SrbFunction" inType="win:UInt32"/>
+      <data name="CdbLength" inType="win:UInt32"/>
+      <data name="Cdb" inType="win:Binary" length="CdbLength"/>
+      <data name="IoDispatchToResetTime_100ns" inType="win:UInt64"/>
+     </template>
+     <template tid="None508Args_V1">
+      <data name="MiniportName" inType="win:UnicodeString"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="Bus" inType="win:UInt8"/>
+      <data name="Target" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="ClassDeviceGuid" inType="win:GUID"/>
+      <data name="AbortedReq_SrbFunction" inType="win:UInt32"/>
+      <data name="AbortedReq_CdbLength" inType="win:UInt32"/>
+      <data name="AbortedReq_Cdb" inType="win:Binary" length="AbortedReq_CdbLength"/>
+     </template>
+     <template tid="None509Args_V1">
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="Bus" inType="win:UInt8"/>
+      <data name="Target" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="ClassDeviceGuid" inType="win:GUID"/>
+      <data name="AbortSrbTimeout" inType="win:UInt32"/>
+      <data name="AbortedReq_SrbFunction" inType="win:UInt32"/>
+      <data name="AbortedReq_CdbLength" inType="win:UInt32"/>
+      <data name="AbortedReq_Cdb" inType="win:Binary" length="AbortedReq_CdbLength"/>
+     </template>
+     <template tid="Port513Args_V1">
+      <data name="AdapterName" inType="win:UnicodeString"/>
+      <data name="PortNumber" inType="win:Int32"/>
+      <data name="AllocationPolicy" inType="win:UInt32" map="HmbAllocationPolicyMap"/>
+      <data name="DeviceMinSizeInBytes" inType="win:UInt32"/>
+      <data name="DevicePreferredSizeInBytes" inType="win:UInt32"/>
+      <data name="PolicyMaxInBytes" inType="win:UInt32"/>
+      <data name="TargetAllocationSizeInBytes" inType="win:UInt32"/>
+      <data name="ActualAllocationSizeInBytes" inType="win:UInt32"/>
+      <data name="RangesAllocated" inType="win:UInt32"/>
+      <data name="Success" inType="win:UInt32" map="SuccessMap"/>
+      <data name="FailReason" inType="win:UInt32"/>
+     </template>
+     <template tid="Port514Args_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="OriginalIrp" inType="win:Pointer"/>
+      <data name="LengthOfTransferinblocks" inType="win:UInt64"/>
+      <data name="RequestLBA" inType="win:HexInt64"/>
+      <data name="CurrentLBA" inType="win:HexInt64"/>
+     </template>
+     <template tid="Port515Args_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="OriginalIrp" inType="win:Pointer"/>
+      <data name="LBA" inType="win:HexInt64"/>
+      <data name="PendingIoCount" inType="win:UInt32"/>
+      <data name="ResetWritePointerAll" inType="win:Boolean"/>
+     </template>
+     <template tid="Port200Args_V2">
+      <data name="RequestDuration_100ns" inType="win:UInt64"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="Command" inType="win:UInt8"/>
+      <data name="SrbStatus" inType="win:UInt8"/>
+      <data name="OriginalIrp" inType="win:Pointer"/>
+      <data name="Port" inType="win:UInt8"/>
+      <data name="Bus" inType="win:UInt8"/>
+      <data name="Target" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="ScsiStatus" inType="win:UInt8"/>
+      <data name="ByteLengthOfTransfer" inType="win:UInt32"/>
+      <data name="BuildIoDuration_100ns" inType="win:UInt64"/>
+      <data name="StartIoDuration_100ns" inType="win:UInt64"/>
+     </template>
+     <template tid="PortDispatchingofrequest.202Args_V2">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="Command" inType="win:UInt8"/>
+      <data name="LengthOfTransferinblocks" inType="win:UInt64"/>
+      <data name="LBA" inType="win:HexInt64"/>
+      <data name="OriginalIrp" inType="win:Pointer"/>
+      <data name="NvCachePriority" inType="win:UInt8"/>
+     </template>
+     <template tid="PortDispatchingofrequest.215Args_V2">
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="MinorFunction" inType="win:HexInt32"/>
+      <data name="Type" inType="win:UInt8"/>
+      <data name="OldState" inType="win:HexInt32"/>
+      <data name="NewState" inType="win:HexInt32"/>
+      <data name="Action" inType="win:HexInt32"/>
+      <data name="PowerStateContext" inType="win:HexInt32"/>
+     </template>
+     <template tid="PortCompletionofrequest.216Args_V2">
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="Bus" inType="win:UInt8"/>
+      <data name="Target" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="Status" inType="win:HexInt32"/>
+     </template>
+     <template tid="Port229Args_V2">
+      <data name="PoHandle" inType="win:Pointer"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="Bus" inType="win:UInt8"/>
+      <data name="Target" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="RegistrationStatus" inType="win:HexInt32"/>
+      <data name="Requested_D3ColdSupported" inType="win:Boolean"/>
+      <data name="Requested_WakeCapable" inType="win:Boolean"/>
+      <data name="Requested_IdleTimeoutInMS" inType="win:UInt32"/>
+      <data name="NumberOfFStates" inType="win:UInt32"/>
+      <data name="Actual_D3ColdSupported" inType="win:Boolean"/>
+      <data name="Actual_WakeCapable" inType="win:Boolean"/>
+      <data name="Actual_IdleTimeoutInMS" inType="win:UInt32"/>
+     </template>
+     <template tid="None500Args_V2">
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="PathID" inType="win:UInt8"/>
+      <data name="TargetID" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="ClassDeviceGuid" inType="win:GUID"/>
+      <data name="SrbFunction" inType="win:UInt32"/>
+      <data name="CdbLength" inType="win:UInt32"/>
+      <data name="Cdb" inType="win:Binary" length="CdbLength"/>
+      <data name="SrbTimeout" inType="win:UInt32"/>
+      <data name="AbortSupported" inType="win:Boolean"/>
+     </template>
+     <template tid="Port504Args_V2">
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="PathID" inType="win:UInt8"/>
+      <data name="TargetID" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="ClassDeviceGuid" inType="win:GUID"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="MiniportName" inType="win:UnicodeString"/>
+      <data name="VendorId" inType="win:AnsiString"/>
+      <data name="ProductId" inType="win:AnsiString"/>
+      <data name="SystemUptime_s" inType="win:UInt64"/>
+      <data name="Version" inType="win:UInt8"/>
+      <data name="TotalErrors" inType="win:UInt32"/>
+      <data name="TotalReadWriteErrors" inType="win:UInt32"/>
+      <data name="TotalImpendingDeviceFailureErrors" inType="win:UInt32"/>
+      <data name="TotalDeviceFailureErrors" inType="win:UInt32"/>
+      <data name="TimeoutsInMiniport" inType="win:UInt32"/>
+      <data name="LastError_RequestDuration_ms" inType="win:UInt32"/>
+      <data name="LastError_WaitDuration_ms" inType="win:UInt32"/>
+      <data name="LastError_Command" inType="win:UInt8"/>
+      <data name="LastError_SrbStatus" inType="win:UInt8"/>
+      <data name="LastError_ScsiStatus" inType="win:UInt8"/>
+      <data name="LastError_SenseKey" inType="win:UInt8"/>
+      <data name="LastError_AddSense" inType="win:UInt8"/>
+      <data name="LastError_AddSenseQ" inType="win:UInt8"/>
+      <data name="LastError_IoSize" inType="win:UInt32"/>
+      <data name="LastError_QueueDepth" inType="win:UInt32"/>
+      <data name="LastError_LBA" inType="win:HexInt64"/>
+      <data name="SampledErrorLogArrayLength" inType="win:UInt32"/>
+      <data name="SampledErrorLogArray" inType="win:Binary" length="SampledErrorLogArrayLength"/>
+      <data name="UniqueErrorLogArrayLength" inType="win:UInt32"/>
+      <data name="UniqueErrorLogArray" inType="win:Binary" length="UniqueErrorLogArrayLength"/>
+     </template>
+     <template tid="Port505Args_V2">
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="PathID" inType="win:UInt8"/>
+      <data name="TargetID" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="ClassDeviceGuid" inType="win:GUID"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="MiniportName" inType="win:UnicodeString"/>
+      <data name="VendorId" inType="win:AnsiString"/>
+      <data name="ProductId" inType="win:AnsiString"/>
+      <data name="SystemUptime_s" inType="win:UInt64"/>
+      <data name="Version" inType="win:UInt8"/>
+      <data name="TotalIoCount" inType="win:UInt64"/>
+      <data name="MaxDeviceQueueCount" inType="win:UInt32"/>
+      <data name="MaxOutstandingCount" inType="win:UInt32"/>
+      <data name="MaxReadWriteLatency_ms" inType="win:UInt32"/>
+      <data name="MaxFlushLatency_ms" inType="win:UInt32"/>
+      <data name="MaxUnmapLatency_ms" inType="win:UInt32"/>
+      <data name="BucketIoCount1" inType="win:UInt64"/>
+      <data name="BucketIoCount2" inType="win:UInt64"/>
+      <data name="BucketIoCount3" inType="win:UInt64"/>
+      <data name="BucketIoCount4" inType="win:UInt64"/>
+      <data name="BucketIoCount5" inType="win:UInt64"/>
+      <data name="IoLatencyBuckets" inType="win:UnicodeString"/>
+      <data name="IoCountArrayLength" inType="win:UInt32"/>
+      <data name="IoCountArray" inType="win:Binary" length="IoCountArrayLength"/>
+     </template>
+     <template tid="Port506Args_V2">
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="PathID" inType="win:UInt8"/>
+      <data name="TargetID" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="ClassDeviceGuid" inType="win:GUID"/>
+      <data name="UnresponsiveRequests" inType="win:UInt64"/>
+      <data name="QosGuaranteeFailures" inType="win:UInt64"/>
+      <data name="QosGuaranteeThreshold_s" inType="win:UInt8"/>
+      <data name="UnitQueueTimeoutCount" inType="win:UInt64"/>
+      <data name="AdapterQueueTimeoutCount" inType="win:UInt64"/>
+      <data name="HwQueueTimeoutCount" inType="win:UInt32"/>
+      <data name="MaxUnitQueueDepth" inType="win:UInt32"/>
+      <data name="MaxAdapterQueueDepth" inType="win:UInt32"/>
+     </template>
+     <template tid="Port510Args_V2">
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="PathID" inType="win:UInt8"/>
+      <data name="TargetID" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="ClassDeviceGuid" inType="win:GUID"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="MiniportName" inType="win:UnicodeString"/>
+      <data name="VendorId" inType="win:AnsiString"/>
+      <data name="ProductId" inType="win:AnsiString"/>
+      <data name="SystemUptime_s" inType="win:UInt64"/>
+      <data name="Revision" inType="win:UInt32"/>
+      <data name="SmartReturnStatus" inType="win:Boolean"/>
+      <data name="SmartAttributesLength" inType="win:UInt32"/>
+      <data name="SmartAttributes" inType="win:Binary" length="SmartAttributesLength"/>
+     </template>
+     <template tid="Port511Args_V2">
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="PathID" inType="win:UInt8"/>
+      <data name="TargetID" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="ClassDeviceGuid" inType="win:GUID"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="MiniportName" inType="win:UnicodeString"/>
+      <data name="VendorId" inType="win:AnsiString"/>
+      <data name="ProductId" inType="win:AnsiString"/>
+      <data name="SystemUptime_s" inType="win:UInt64"/>
+      <data name="Revision" inType="win:UInt32"/>
+      <data name="GeneralLength" inType="win:UInt32"/>
+      <data name="General" inType="win:Binary" length="GeneralLength"/>
+      <data name="FreeFallLength" inType="win:UInt32"/>
+      <data name="Freefall" inType="win:Binary" length="FreeFallLength"/>
+      <data name="RotatingMediaLength" inType="win:UInt32"/>
+      <data name="RotatingMedia" inType="win:Binary" length="RotatingMediaLength"/>
+      <data name="GeneralErrorsLength" inType="win:UInt32"/>
+      <data name="GeneralErrors" inType="win:Binary" length="GeneralErrorsLength"/>
+      <data name="TemperatureLength" inType="win:UInt32"/>
+      <data name="Temperature" inType="win:Binary" length="TemperatureLength"/>
+      <data name="TransportLength" inType="win:UInt32"/>
+      <data name="Transport" inType="win:Binary" length="TransportLength"/>
+      <data name="SolidStateDeviceLength" inType="win:UInt32"/>
+      <data name="SolidStateDevice" inType="win:Binary" length="SolidStateDeviceLength"/>
+     </template>
+     <template tid="Port512Args_V3">
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="PathID" inType="win:UInt8"/>
+      <data name="TargetID" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="ClassDeviceGuid" inType="win:GUID"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="MiniportName" inType="win:UnicodeString"/>
+      <data name="VendorId" inType="win:AnsiString"/>
+      <data name="ProductId" inType="win:AnsiString"/>
+      <data name="SystemUptime_s" inType="win:UInt64"/>
+      <data name="CriticalWarning" inType="win:UInt32"/>
+      <data name="NvmeHealthLogLength" inType="win:UInt32"/>
+      <data name="NvmeHealthLog" inType="win:Binary" length="NvmeHealthLogLength"/>
+      <data name="VendorSpecificLogPageCode" inType="win:UInt8"/>
+      <data name="VendorSpecificLogPageVersion" inType="win:UInt16"/>
+      <data name="VendorSpecificLogLength" inType="win:UInt32"/>
+      <data name="VendorSpecificLog" inType="win:Binary" length="VendorSpecificLogLength"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Reset" value="Reset"/>
+    <string id="keyword_PortNotification" value="PortNotification"/>
+    <string id="keyword_PauseResume" value="PauseResume"/>
+    <string id="keyword_IoPerfNotification" value="IoPerfNotification"/>
+    <string id="keyword_Config" value="Config"/>
+    <string id="keyword_Perf" value="Perf"/>
+    <string id="keyword_DeviceState" value="DeviceState"/>
+    <string id="keyword_CommandTrace" value="CommandTrace"/>
+    <string id="keyword_SMR" value="SMR"/>
+    <string id="keyword_Logo_Performance" value="Logo_Performance"/>
+    <string id="keyword_IO_Performance" value="IO_Performance"/>
+    <string id="keyword_Read" value="Read"/>
+    <string id="keyword_Write" value="Write"/>
+    <string id="keyword_PagingRead" value="PagingRead"/>
+    <string id="keyword_PagingWrite" value="PagingWrite"/>
+    <string id="keyword_LowMemoryRead" value="LowMemoryRead"/>
+    <string id="keyword_LowMemoryWrite" value="LowMemoryWrite"/>
+    <string id="keyword_NonReadWrite" value="NonReadWrite"/>
+    <string id="keyword_PassThrough" value="PassThrough"/>
+    <string id="keyword_Flush" value="Flush"/>
+    <string id="keyword_IOCTL" value="IOCTL"/>
+    <string id="keyword_WMI" value="WMI"/>
+    <string id="keyword_Power" value="Power"/>
+    <string id="keyword_PnP" value="PnP"/>
+    <string id="keyword_Enum" value="Enum"/>
+    <string id="keyword_Queue" value="Queue"/>
+    <string id="keyword_ISR" value="ISR"/>
+    <string id="keyword_DPC" value="DPC"/>
+    <string id="keyword_Timer" value="Timer"/>
+    <string id="keyword_Protocol" value="Protocol"/>
+    <string id="keyword_keyword_80000000000" value="keyword_80000000000"/>
+    <string id="keyword_keyword_200000000000" value="keyword_200000000000"/>
+    <string id="task_None" value="None"/>
+    <string id="task_LogicalUnitreset" value="LogicalUnitreset"/>
+    <string id="opcode_LogicalUnitresetOpCodeLUReset" value="OpCodeLUReset"/>
+    <string id="task_Targetreset" value="Targetreset"/>
+    <string id="opcode_TargetresetOpCodeTargetReset" value="OpCodeTargetReset"/>
+    <string id="task_Busreset" value="Busreset"/>
+    <string id="opcode_BusresetOpCodeBusReset" value="OpCodeBusReset"/>
+    <string id="task_Resetdetectednotification" value="Resetdetectednotification"/>
+    <string id="opcode_ResetdetectednotificationOpCodeResetDetected" value="OpCodeResetDetected"/>
+    <string id="task_Linkdownnotification" value="Linkdownnotification"/>
+    <string id="opcode_LinkdownnotificationOpCodeLinkDown" value="OpCodeLinkDown"/>
+    <string id="task_LinkUpnotification" value="LinkUpnotification"/>
+    <string id="opcode_LinkUpnotificationOpCodeLinkUp" value="OpCodeLinkUp"/>
+    <string id="task_RequestTimernotification" value="RequestTimernotification"/>
+    <string id="opcode_RequestTimernotificationOpCodeRequestTimerCall" value="OpCodeRequestTimerCall"/>
+    <string id="task_Portpause" value="Portpause"/>
+    <string id="opcode_PortpauseOpCodePortPause" value="OpCodePortPause"/>
+    <string id="task_Portresume" value="Portresume"/>
+    <string id="opcode_PortresumeOpCodePortResume" value="OpCodePortResume"/>
+    <string id="task_Portpausedevice" value="Portpausedevice"/>
+    <string id="opcode_PortpausedeviceOpCodePortPauseDevice" value="OpCodePortPauseDevice"/>
+    <string id="task_Portresumedevice" value="Portresumedevice"/>
+    <string id="opcode_PortresumedeviceOpCodePortResumeDevice" value="OpCodePortResumeDevice"/>
+    <string id="task_Buschangedetectnotification" value="Buschangedetectnotification"/>
+    <string id="opcode_BuschangedetectnotificationOpCodeBusChangeDetected" value="OpCodeBusChangeDetected"/>
+    <string id="task_MiniportIORequestServiceTime" value="MiniportIORequestServiceTime"/>
+    <string id="opcode_MiniportIORequestServiceTimeOpCodeMiniportIORequestServiceTime" value="OpCodeMiniportIORequestServiceTime"/>
+    <string id="task_Statechangedetectnotification" value="Statechangedetectnotification"/>
+    <string id="opcode_StatechangedetectnotificationOpCodeStateChangeDetected" value="OpCodeStateChangeDetected"/>
+    <string id="task_Targetedreenumeration" value="Targetedreenumeration"/>
+    <string id="opcode_TargetedreenumerationOpCodeTargetedReenumeration" value="OpCodeTargetedReenumeration"/>
+    <string id="task_Port" value="Port"/>
+    <string id="opcode_PortDispatchingofrequest." value="Dispatchingofrequest."/>
+    <string id="opcode_PortCompletionofrequest." value="Completionofrequest."/>
+    <string id="opcode_PortRetryhandling." value="Retryhandling."/>
+    <string id="opcode_PortEventQueuerelatedoperation." value="EventQueuerelatedoperation."/>
+    <string id="task_Dpc" value="Dpc"/>
+    <string id="opcode_DpcCompletionofrequest." value="Completionofrequest."/>
+    <string id="task_Isr" value="Isr"/>
+    <string id="opcode_IsrCompletionofrequest." value="Completionofrequest."/>
+    <string id="map_ReasonMapHierarchical Reset process timed-out" value="Hierarchical Reset process timed-out"/>
+    <string id="map_ReasonMapUnit experienced Timeout conditions with more than allowed frequency" value="Unit experienced Timeout conditions with more than allowed frequency"/>
+    <string id="map_ReasonMapQoS Disabled" value="QoS Disabled"/>
+    <string id="map_ReasonMapRestore Unresponsive Device Request Received" value="Restore Unresponsive Device Request Received"/>
+    <string id="map_ReasonMapSet Device Unresponsive Request Received" value="Set Device Unresponsive Request Received"/>
+    <string id="map_HmbAllocationPolicyMapDisabled" value="Disabled"/>
+    <string id="map_HmbAllocationPolicyMapMinimum" value="Minimum"/>
+    <string id="map_HmbAllocationPolicyMapMaximum" value="Maximum"/>
+    <string id="map_HmbAllocationPolicyMapDevice Usage Based" value="Device Usage Based"/>
+    <string id="map_SuccessMapfailed" value="failed"/>
+    <string id="map_SuccessMapsucceeded" value="succeeded"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

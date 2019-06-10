@@ -1,0 +1,58 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Shsvcs" guid="{059c3e04-5535-4929-85e1-93030e78f47b}" resourceFileName="Microsoft-Windows-Shsvcs" messageFileName="Microsoft-Windows-Shsvcs" symbol="MicrosoftWindowsShsvcs" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="HDSrv_Service_Start" message="$(string.task_HDSrv_Service_Start)" value="11501"/>
+     <task name="HDSrv_Service_Stop" message="$(string.task_HDSrv_Service_Stop)" value="11503"/>
+     <task name="HDSrv_Volume_Arrived_Updated" message="$(string.task_HDSrv_Volume_Arrived_Updated)" value="11505"/>
+     <task name="HDSrv_Volume_Removed" message="$(string.task_HDSrv_Volume_Removed)" value="11507"/>
+     <task name="HDSrv_NonVolume_NotifyShell" message="$(string.task_HDSrv_NonVolume_NotifyShell)" value="11509"/>
+     <task name="HDSrv_ProcessInterfaceCallback" message="$(string.task_HDSrv_ProcessInterfaceCallback)" value="11511"/>
+     <task name="HDSrv_CreateSafeFileHandle" message="$(string.task_HDSrv_CreateSafeFileHandle)" value="11513"/>
+    </tasks>
+    <events>
+     <event value="11501" symbol="HDSrv_Service_Start" version="0" task="HDSrv_Service_Start" opcode="win:Start" level="win:Informational"/>
+     <event value="11502" symbol="HDSrv_Service_StartStop" version="0" task="HDSrv_Service_Start" opcode="win:Stop" level="win:Informational"/>
+     <event value="11503" symbol="HDSrv_Service_StopStart" version="0" task="HDSrv_Service_Stop" opcode="win:Start" level="win:Informational"/>
+     <event value="11504" symbol="HDSrv_Service_Stop" version="0" task="HDSrv_Service_Stop" opcode="win:Stop" level="win:Informational"/>
+     <event value="11505" symbol="HDSrv_Volume_Arrived_UpdatedStart" version="0" task="HDSrv_Volume_Arrived_Updated" opcode="win:Start" level="win:Informational" template="HDSrv_Volume_Arrived_UpdatedStartArgs"/>
+     <event value="11506" symbol="HDSrv_Volume_Arrived_UpdatedStop" version="0" task="HDSrv_Volume_Arrived_Updated" opcode="win:Stop" level="win:Informational"/>
+     <event value="11507" symbol="HDSrv_Volume_RemovedStart" version="0" task="HDSrv_Volume_Removed" opcode="win:Start" level="win:Informational" template="HDSrv_Volume_Arrived_UpdatedStartArgs"/>
+     <event value="11508" symbol="HDSrv_Volume_RemovedStop" version="0" task="HDSrv_Volume_Removed" opcode="win:Stop" level="win:Informational"/>
+     <event value="11509" symbol="HDSrv_NonVolume_NotifyShellStart" version="0" task="HDSrv_NonVolume_NotifyShell" opcode="win:Start" level="win:Informational" template="HDSrv_Volume_Arrived_UpdatedStartArgs"/>
+     <event value="11510" symbol="HDSrv_NonVolume_NotifyShellStop" version="0" task="HDSrv_NonVolume_NotifyShell" opcode="win:Stop" level="win:Informational"/>
+     <event value="11511" symbol="HDSrv_ProcessInterfaceCallbackStart" version="0" task="HDSrv_ProcessInterfaceCallback" opcode="win:Start" level="win:Informational" template="HDSrv_Volume_Arrived_UpdatedStartArgs"/>
+     <event value="11512" symbol="HDSrv_ProcessInterfaceCallbackStop" version="0" task="HDSrv_ProcessInterfaceCallback" opcode="win:Stop" level="win:Informational"/>
+     <event value="11513" symbol="HDSrv_CreateSafeFileHandleStart" version="0" task="HDSrv_CreateSafeFileHandle" opcode="win:Start" level="win:Informational" template="HDSrv_CreateSafeFileHandleStartArgs"/>
+     <event value="11514" symbol="HDSrv_CreateSafeFileHandleStop" version="0" task="HDSrv_CreateSafeFileHandle" opcode="win:Stop" level="win:Informational"/>
+    </events>
+    <templates>
+     <template tid="HDSrv_Volume_Arrived_UpdatedStartArgs">
+      <data name="ContainerIdentifier" inType="win:UnicodeString"/>
+      <data name="DeviceIdentifier" inType="win:UnicodeString"/>
+     </template>
+     <template tid="HDSrv_CreateSafeFileHandleStartArgs">
+      <data name="FileName" inType="win:UnicodeString"/>
+      <data name="DesiredAccess" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_HDSrv_Service_Start" value="HDSrv_Service_Start"/>
+    <string id="task_HDSrv_Service_Stop" value="HDSrv_Service_Stop"/>
+    <string id="task_HDSrv_Volume_Arrived_Updated" value="HDSrv_Volume_Arrived_Updated"/>
+    <string id="task_HDSrv_Volume_Removed" value="HDSrv_Volume_Removed"/>
+    <string id="task_HDSrv_NonVolume_NotifyShell" value="HDSrv_NonVolume_NotifyShell"/>
+    <string id="task_HDSrv_ProcessInterfaceCallback" value="HDSrv_ProcessInterfaceCallback"/>
+    <string id="task_HDSrv_CreateSafeFileHandle" value="HDSrv_CreateSafeFileHandle"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

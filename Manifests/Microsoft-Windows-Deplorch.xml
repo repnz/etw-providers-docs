@@ -1,0 +1,43 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Deplorch" guid="{b9da9fe6-ae5f-4f3e-b2fa-8e623c11dc75}" resourceFileName="Microsoft-Windows-Deplorch" messageFileName="Microsoft-Windows-Deplorch" symbol="MicrosoftWindowsDeplorch" source="Xml" >
+    <keywords>
+     <keyword name="keyPerformance" message="$(string.keyword_keyPerformance)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="StartSystemServices" message="$(string.task_StartSystemServices)" value="1000"/>
+     <task name="Runuser_providedscript" message="$(string.task_Runuser_providedscript)" value="2000"/>
+    </tasks>
+    <events>
+     <event value="1001" symbol="StartSystemServicesStart" version="0" task="StartSystemServices" opcode="win:Start" level="win:Informational" keywords="keyPerformance"/>
+     <event value="1002" symbol="StartSystemServicesStop" version="0" task="StartSystemServices" opcode="win:Stop" level="win:Informational" keywords="keyPerformance" template="StartSystemServicesStopArgs"/>
+     <event value="2001" symbol="Runuser_providedscriptStart" version="0" task="Runuser_providedscript" opcode="win:Start" level="win:Informational" keywords="keyPerformance" template="Runuser_providedscriptStartArgs"/>
+     <event value="2002" symbol="Runuser_providedscriptStop" version="0" task="Runuser_providedscript" opcode="win:Stop" level="win:Informational" keywords="keyPerformance" template="Runuser_providedscriptStopArgs"/>
+     <event value="2003" symbol="Runuser_providedscriptStop2003" version="0" task="Runuser_providedscript" opcode="win:Stop" level="win:Informational" keywords="keyPerformance" template="Runuser_providedscriptStopArgs"/>
+    </events>
+    <templates>
+     <template tid="StartSystemServicesStopArgs">
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="Runuser_providedscriptStartArgs">
+      <data name="CommandLine" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Runuser_providedscriptStopArgs">
+      <data name="Command" inType="win:UnicodeString"/>
+      <data name="ExitCode" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_keyPerformance" value="keyPerformance"/>
+    <string id="task_StartSystemServices" value="StartSystemServices"/>
+    <string id="task_Runuser_providedscript" value="Runuser_providedscript"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

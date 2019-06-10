@@ -1,0 +1,129 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-OverlayFilter" guid="{46c78e5c-a213-46a8-8a6b-622f6916201d}" resourceFileName="Microsoft-Windows-OverlayFilter" messageFileName="Microsoft-Windows-OverlayFilter" symbol="MicrosoftWindowsOverlayFilter" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="WIMintegrityverification" message="$(string.task_WIMintegrityverification)" value="1">
+>
+      <opcodes>
+       <opcode name="IntegrityFileOpen" message="$(string.opcode_WIMintegrityverificationIntegrityFileOpen)" value="100"/>
+       <opcode name="IntegrityBlockVerificationFailure" message="$(string.opcode_WIMintegrityverificationIntegrityBlockVerificationFailure)" value="101"/>
+       <opcode name="IntegrityInvalidBlock" message="$(string.opcode_WIMintegrityverificationIntegrityInvalidBlock)" value="102"/>
+      </opcodes>
+     </task>
+     <task name="TheWindowsOverlayTask" message="$(string.task_TheWindowsOverlayTask)" value="2">
+>
+      <opcodes>
+       <opcode name="EnumVolume" message="$(string.opcode_TheWindowsOverlayTaskEnumVolume)" value="100"/>
+       <opcode name="ReportHashGenerationToBitlockerError" message="$(string.opcode_TheWindowsOverlayTaskReportHashGenerationToBitlockerError)" value="101"/>
+       <opcode name="CreateHashFile" message="$(string.opcode_TheWindowsOverlayTaskCreateHashFile)" value="102"/>
+       <opcode name="CompleteHashFile" message="$(string.opcode_TheWindowsOverlayTaskCompleteHashFile)" value="103"/>
+       <opcode name="DeleteHashFile" message="$(string.opcode_TheWindowsOverlayTaskDeleteHashFile)" value="104"/>
+       <opcode name="ResumeHashFile" message="$(string.opcode_TheWindowsOverlayTaskResumeHashFile)" value="105"/>
+       <opcode name="PauseHashFile" message="$(string.opcode_TheWindowsOverlayTaskPauseHashFile)" value="106"/>
+       <opcode name="GenerateHashFileError" message="$(string.opcode_TheWindowsOverlayTaskGenerateHashFileError)" value="107"/>
+       <opcode name="DeleteHashFileError" message="$(string.opcode_TheWindowsOverlayTaskDeleteHashFileError)" value="108"/>
+       <opcode name="FileReadError" message="$(string.opcode_TheWindowsOverlayTaskFileReadError)" value="109"/>
+       <opcode name="FileWriteError" message="$(string.opcode_TheWindowsOverlayTaskFileWriteError)" value="110"/>
+       <opcode name="ActionError" message="$(string.opcode_TheWindowsOverlayTaskActionError)" value="111"/>
+       <opcode name="ActionGenerateHashes" message="$(string.opcode_TheWindowsOverlayTaskActionGenerateHashes)" value="112"/>
+       <opcode name="ActionDeleteHashes" message="$(string.opcode_TheWindowsOverlayTaskActionDeleteHashes)" value="113"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="24832" symbol="WIMintegrityverificationIntegrityFileOpen" version="0" task="WIMintegrityverification" opcode="IntegrityFileOpen" level="win:Critical" template="WIMintegrityverificationIntegrityFileOpenArgs"/>
+     <event value="24833" symbol="WIMintegrityverificationIntegrityBlockVerificationFailure" version="0" task="WIMintegrityverification" opcode="IntegrityBlockVerificationFailure" level="win:Critical" template="WIMintegrityverificationIntegrityBlockVerificationFailureArgs"/>
+     <event value="24834" symbol="WIMintegrityverificationIntegrityInvalidBlock" version="0" task="WIMintegrityverification" opcode="IntegrityInvalidBlock" level="win:Critical" template="WIMintegrityverificationIntegrityInvalidBlockArgs"/>
+     <event value="24835" symbol="TheWindowsOverlayTaskEnumVolume" version="0" task="TheWindowsOverlayTask" opcode="EnumVolume" level="win:Informational" template="TheWindowsOverlayTaskEnumVolumeArgs"/>
+     <event value="24836" symbol="TheWindowsOverlayTaskReportHashGenerationToBitlockerError" version="0" task="TheWindowsOverlayTask" opcode="ReportHashGenerationToBitlockerError" level="win:Error" template="TheWindowsOverlayTaskReportHashGenerationToBitlockerErrorArgs"/>
+     <event value="24837" symbol="TheWindowsOverlayTaskCreateHashFile" version="0" task="TheWindowsOverlayTask" opcode="CreateHashFile" level="win:Informational" template="TheWindowsOverlayTaskCreateHashFileArgs"/>
+     <event value="24838" symbol="TheWindowsOverlayTaskCompleteHashFile" version="0" task="TheWindowsOverlayTask" opcode="CompleteHashFile" level="win:Informational" template="TheWindowsOverlayTaskCreateHashFileArgs"/>
+     <event value="24839" symbol="TheWindowsOverlayTaskDeleteHashFile" version="0" task="TheWindowsOverlayTask" opcode="DeleteHashFile" level="win:Informational" template="TheWindowsOverlayTaskCreateHashFileArgs"/>
+     <event value="24840" symbol="TheWindowsOverlayTaskResumeHashFile" version="0" task="TheWindowsOverlayTask" opcode="ResumeHashFile" level="win:Informational" template="TheWindowsOverlayTaskResumeHashFileArgs"/>
+     <event value="24841" symbol="TheWindowsOverlayTaskPauseHashFile" version="0" task="TheWindowsOverlayTask" opcode="PauseHashFile" level="win:Informational" template="TheWindowsOverlayTaskResumeHashFileArgs"/>
+     <event value="24842" symbol="TheWindowsOverlayTaskActionError" version="0" task="TheWindowsOverlayTask" opcode="ActionError" level="win:Error" template="TheWindowsOverlayTaskReportHashGenerationToBitlockerErrorArgs"/>
+     <event value="24843" symbol="TheWindowsOverlayTaskGenerateHashFileError" version="0" task="TheWindowsOverlayTask" opcode="GenerateHashFileError" level="win:Error" template="TheWindowsOverlayTaskGenerateHashFileErrorArgs"/>
+     <event value="24844" symbol="TheWindowsOverlayTaskDeleteHashFileError" version="0" task="TheWindowsOverlayTask" opcode="DeleteHashFileError" level="win:Error" template="TheWindowsOverlayTaskGenerateHashFileErrorArgs"/>
+     <event value="24845" symbol="TheWindowsOverlayTaskFileReadError" version="0" task="TheWindowsOverlayTask" opcode="FileReadError" level="win:Error" template="TheWindowsOverlayTaskGenerateHashFileErrorArgs"/>
+     <event value="24846" symbol="TheWindowsOverlayTaskFileWriteError" version="0" task="TheWindowsOverlayTask" opcode="FileWriteError" level="win:Error" template="TheWindowsOverlayTaskGenerateHashFileErrorArgs"/>
+     <event value="24847" symbol="WIMintegrityverificationIntegrityFileOpen24847" version="0" task="WIMintegrityverification" opcode="IntegrityFileOpen" level="win:Informational" template="WIMintegrityverificationIntegrityFileOpen24847Args"/>
+     <event value="24848" symbol="WIMintegrityverificationIntegrityFileOpen24848" version="0" task="WIMintegrityverification" opcode="IntegrityFileOpen" level="win:Informational" template="WIMintegrityverificationIntegrityFileOpen24847Args"/>
+     <event value="24849" symbol="TheWindowsOverlayTaskActionGenerateHashes" version="0" task="TheWindowsOverlayTask" opcode="ActionGenerateHashes" level="win:Informational"/>
+     <event value="24850" symbol="TheWindowsOverlayTaskActionDeleteHashes" version="0" task="TheWindowsOverlayTask" opcode="ActionDeleteHashes" level="win:Informational"/>
+    </events>
+    <templates>
+     <template tid="WIMintegrityverificationIntegrityFileOpenArgs">
+      <data name="FileNameLength" inType="win:UInt16"/>
+      <data name="FileNameBuffer" inType="win:UnicodeString" length="FileNameLength"/>
+      <data name="DataSourceId" inType="win:Int64"/>
+      <data name="Status" inType="win:HexInt32"/>
+     </template>
+     <template tid="WIMintegrityverificationIntegrityBlockVerificationFailureArgs">
+      <data name="FileNameLength" inType="win:UInt16"/>
+      <data name="FileNameBuffer" inType="win:UnicodeString" length="FileNameLength"/>
+      <data name="BlockNumber" inType="win:UInt32"/>
+      <data name="BlockLength" inType="win:UInt32"/>
+     </template>
+     <template tid="WIMintegrityverificationIntegrityInvalidBlockArgs">
+      <data name="FileNameLength" inType="win:UInt16"/>
+      <data name="FileNameBuffer" inType="win:UnicodeString" length="FileNameLength"/>
+      <data name="FileOffset" inType="win:Int64"/>
+      <data name="ReadSize" inType="win:UInt32"/>
+     </template>
+     <template tid="TheWindowsOverlayTaskEnumVolumeArgs">
+      <data name="volume" inType="win:UnicodeString"/>
+     </template>
+     <template tid="TheWindowsOverlayTaskReportHashGenerationToBitlockerErrorArgs">
+      <data name="hr" inType="win:UInt32"/>
+     </template>
+     <template tid="TheWindowsOverlayTaskCreateHashFileArgs">
+      <data name="wimHashFile" inType="win:UnicodeString"/>
+      <data name="wimFile" inType="win:UnicodeString"/>
+     </template>
+     <template tid="TheWindowsOverlayTaskResumeHashFileArgs">
+      <data name="filename" inType="win:UnicodeString"/>
+      <data name="offset" inType="win:UInt64"/>
+     </template>
+     <template tid="TheWindowsOverlayTaskGenerateHashFileErrorArgs">
+      <data name="wimHashFile" inType="win:UnicodeString"/>
+      <data name="wimFile" inType="win:UnicodeString"/>
+      <data name="hr" inType="win:Int32"/>
+     </template>
+     <template tid="WIMintegrityverificationIntegrityFileOpen24847Args">
+      <data name="FileNameLength" inType="win:UInt16"/>
+      <data name="FileNameBuffer" inType="win:UnicodeString" length="FileNameLength"/>
+      <data name="DataSourceId" inType="win:Int64"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_WIMintegrityverification" value="WIMintegrityverification"/>
+    <string id="opcode_WIMintegrityverificationIntegrityFileOpen" value="IntegrityFileOpen"/>
+    <string id="opcode_WIMintegrityverificationIntegrityBlockVerificationFailure" value="IntegrityBlockVerificationFailure"/>
+    <string id="opcode_WIMintegrityverificationIntegrityInvalidBlock" value="IntegrityInvalidBlock"/>
+    <string id="task_TheWindowsOverlayTask" value="TheWindowsOverlayTask"/>
+    <string id="opcode_TheWindowsOverlayTaskEnumVolume" value="EnumVolume"/>
+    <string id="opcode_TheWindowsOverlayTaskReportHashGenerationToBitlockerError" value="ReportHashGenerationToBitlockerError"/>
+    <string id="opcode_TheWindowsOverlayTaskCreateHashFile" value="CreateHashFile"/>
+    <string id="opcode_TheWindowsOverlayTaskCompleteHashFile" value="CompleteHashFile"/>
+    <string id="opcode_TheWindowsOverlayTaskDeleteHashFile" value="DeleteHashFile"/>
+    <string id="opcode_TheWindowsOverlayTaskResumeHashFile" value="ResumeHashFile"/>
+    <string id="opcode_TheWindowsOverlayTaskPauseHashFile" value="PauseHashFile"/>
+    <string id="opcode_TheWindowsOverlayTaskGenerateHashFileError" value="GenerateHashFileError"/>
+    <string id="opcode_TheWindowsOverlayTaskDeleteHashFileError" value="DeleteHashFileError"/>
+    <string id="opcode_TheWindowsOverlayTaskFileReadError" value="FileReadError"/>
+    <string id="opcode_TheWindowsOverlayTaskFileWriteError" value="FileWriteError"/>
+    <string id="opcode_TheWindowsOverlayTaskActionError" value="ActionError"/>
+    <string id="opcode_TheWindowsOverlayTaskActionGenerateHashes" value="ActionGenerateHashes"/>
+    <string id="opcode_TheWindowsOverlayTaskActionDeleteHashes" value="ActionDeleteHashes"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

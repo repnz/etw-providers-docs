@@ -1,0 +1,91 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Power-Meter-Polling" guid="{306c4e0b-e148-543d-315b-c618eb93157c}" resourceFileName="Microsoft-Windows-Power-Meter-Polling" messageFileName="Microsoft-Windows-Power-Meter-Polling" symbol="MicrosoftWindowsPowerMeterPolling" source="Xml" >
+    <keywords>
+     <keyword name="Default" message="$(string.keyword_Default)" mask="0x1"/>
+     <keyword name="OneSecond" message="$(string.keyword_OneSecond)" mask="0x2"/>
+     <keyword name="FiveSecond" message="$(string.keyword_FiveSecond)" mask="0x4"/>
+     <keyword name="ThirtySecond" message="$(string.keyword_ThirtySecond)" mask="0x8"/>
+     <keyword name="FiveMinute" message="$(string.keyword_FiveMinute)" mask="0x10"/>
+     <keyword name="ThirtyMinute" message="$(string.keyword_ThirtyMinute)" mask="0x20"/>
+    </keywords>
+    <tasks>
+     <task name="PowerMeterRundown" message="$(string.task_PowerMeterRundown)" value="1"/>
+     <task name="EnergyMeterRundown" message="$(string.task_EnergyMeterRundown)" value="2"/>
+     <task name="PowerMeterData" message="$(string.task_PowerMeterData)" value="3"/>
+     <task name="EnergyMeterData" message="$(string.task_EnergyMeterData)" value="4"/>
+     <task name="SamplingPeriodRundown" message="$(string.task_SamplingPeriodRundown)" value="5"/>
+     <task name="SamplingPeriodChange" message="$(string.task_SamplingPeriodChange)" value="6"/>
+    </tasks>
+    <maps>
+     <valueMap name="Umpo:MeterType">
+      <map value="0x0" message="$(string.map_Umpo:MeterTypeEnergy)"/>
+      <map value="0x1" message="$(string.map_Umpo:MeterTypePower)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="PowerMeterRundown" version="0" task="PowerMeterRundown" level="win:Informational" template="PowerMeterRundownArgs"/>
+     <event value="2" symbol="EnergyMeterRundown" version="0" task="EnergyMeterRundown" level="win:Informational" template="EnergyMeterRundownArgs"/>
+     <event value="3" symbol="PowerMeterData" version="0" task="PowerMeterData" level="win:Informational" template="PowerMeterDataArgs"/>
+     <event value="4" symbol="EnergyMeterData" version="0" task="EnergyMeterData" level="win:Informational" template="EnergyMeterDataArgs"/>
+     <event value="5" symbol="SamplingPeriodRundown" version="0" task="SamplingPeriodRundown" level="win:Informational" template="SamplingPeriodRundownArgs"/>
+     <event value="6" symbol="SamplingPeriodChange" version="0" task="SamplingPeriodChange" level="win:Informational" template="SamplingPeriodChangeArgs"/>
+    </events>
+    <templates>
+     <template tid="PowerMeterRundownArgs">
+      <data name="MeterId" inType="win:Pointer"/>
+      <data name="DefaultSamplingPeriodInMs" inType="win:UInt64"/>
+      <data name="MeterNameLength" inType="win:UInt32"/>
+      <data name="MeterName" inType="win:UnicodeString" length="MeterNameLength"/>
+      <data name="MeteredHardwareCount" inType="win:UInt32"/>
+      <data name="MeteredHardwareName" inType="win:UnicodeString" count="MeteredHardwareCount"/>
+     </template>
+     <template tid="EnergyMeterRundownArgs">
+      <data name="MeterId" inType="win:Pointer"/>
+      <data name="DefaultSamplingPeriodInMs" inType="win:UInt64"/>
+      <data name="ChannelNameLength" inType="win:UInt32"/>
+      <data name="ChannelName" inType="win:UnicodeString" length="ChannelNameLength"/>
+     </template>
+     <template tid="PowerMeterDataArgs">
+      <data name="MeterId" inType="win:Pointer"/>
+      <data name="Value" inType="win:UInt32"/>
+     </template>
+     <template tid="EnergyMeterDataArgs">
+      <data name="MeterId" inType="win:Pointer"/>
+      <data name="AbsoluteEnergy" inType="win:UInt64"/>
+      <data name="AbsoluteTime" inType="win:UInt64"/>
+     </template>
+     <template tid="SamplingPeriodRundownArgs">
+      <data name="MeterType" inType="win:UInt32" map="Umpo:MeterType"/>
+      <data name="PeriodInMs" inType="win:UInt32"/>
+     </template>
+     <template tid="SamplingPeriodChangeArgs">
+      <data name="MeterType" inType="win:UInt32"/>
+      <data name="PeriodInMs" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Default" value="Default"/>
+    <string id="keyword_OneSecond" value="OneSecond"/>
+    <string id="keyword_FiveSecond" value="FiveSecond"/>
+    <string id="keyword_ThirtySecond" value="ThirtySecond"/>
+    <string id="keyword_FiveMinute" value="FiveMinute"/>
+    <string id="keyword_ThirtyMinute" value="ThirtyMinute"/>
+    <string id="task_PowerMeterRundown" value="PowerMeterRundown"/>
+    <string id="task_EnergyMeterRundown" value="EnergyMeterRundown"/>
+    <string id="task_PowerMeterData" value="PowerMeterData"/>
+    <string id="task_EnergyMeterData" value="EnergyMeterData"/>
+    <string id="task_SamplingPeriodRundown" value="SamplingPeriodRundown"/>
+    <string id="task_SamplingPeriodChange" value="SamplingPeriodChange"/>
+    <string id="map_Umpo:MeterTypeEnergy" value="Energy"/>
+    <string id="map_Umpo:MeterTypePower" value="Power"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

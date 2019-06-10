@@ -1,0 +1,177 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Kernel-StoreMgr" guid="{a6ad76e3-867a-4635-91b3-4904ba6374d7}" resourceFileName="Microsoft-Windows-Kernel-StoreMgr" messageFileName="Microsoft-Windows-Kernel-StoreMgr" symbol="MicrosoftWindowsKernelStoreMgr" source="Xml" >
+    <keywords>
+     <keyword name="StoreOps" message="$(string.keyword_StoreOps)" mask="0x10"/>
+     <keyword name="StoreDiag" message="$(string.keyword_StoreDiag)" mask="0x40"/>
+     <keyword name="StoreContentsRundown" message="$(string.keyword_StoreContentsRundown)" mask="0x80"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="StoreAdd" message="$(string.task_StoreAdd)" value="1"/>
+     <task name="StoreRemove" message="$(string.task_StoreRemove)" value="2"/>
+     <task name="StoreCreate" message="$(string.task_StoreCreate)" value="3"/>
+     <task name="StoreDelete" message="$(string.task_StoreDelete)" value="4"/>
+     <task name="StoreRundown" message="$(string.task_StoreRundown)" value="5"/>
+     <task name="StoreCorruption" message="$(string.task_StoreCorruption)" value="6"/>
+     <task name="StorePageRundown" message="$(string.task_StorePageRundown)" value="7"/>
+     <task name="RegionEvict" message="$(string.task_RegionEvict)" value="8"/>
+     <task name="RegionWrite" message="$(string.task_RegionWrite)" value="9"/>
+     <task name="UnpersistFailure" message="$(string.task_UnpersistFailure)" value="10"/>
+     <task name="StoreIoStats" message="$(string.task_StoreIoStats)" value="11"/>
+     <task name="GlobalStats" message="$(string.task_GlobalStats)" value="12"/>
+     <task name="StoreEmpty" message="$(string.task_StoreEmpty)" value="13"/>
+     <task name="RegionRelease" message="$(string.task_RegionRelease)" value="14"/>
+     <task name="RegionCompact" message="$(string.task_RegionCompact)" value="15"/>
+     <task name="RegionRundown" message="$(string.task_RegionRundown)" value="16"/>
+     <task name="CacheTermination" message="$(string.task_CacheTermination)" value="17"/>
+    </tasks>
+    <maps>
+     <valueMap name="StoreMgrCorruptPageMsgMap">
+      <map value="0x0" message="$(string.map_StoreMgrCorruptPageMsgMapA memory corruption was detected and handled. Memory diagnostics should be run on this machine and, if necessary, memory chips should be replaced.)"/>
+      <map value="0x1" message="$(string.map_StoreMgrCorruptPageMsgMapA data corruption was detected and handled in a ReadyBoost cache. This corruption was most likely caused by faulty hardware. While ReadyBoost will always detect and handle these errors, seeing a lot of these may mean that the ReadyBoost device has worn out which reduces its performance. You should consider replacing the ReadyBoost cache device.)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="StoreAdd_V2" version="2" task="StoreAdd" level="win:Informational" keywords="StoreOps" template="StorePageRundownArgs_V1"/>
+     <event value="2" symbol="StoreRemove_V1" version="1" task="StoreRemove" level="win:Informational" keywords="StoreOps" template="StoreRemoveArgs_V1"/>
+     <event value="3" symbol="StoreCreate_V3" version="3" task="StoreCreate" level="win:Informational" keywords="StoreOps" template="StoreCreateArgs_V3"/>
+     <event value="4" symbol="StoreDelete_V1" version="1" task="StoreDelete" level="win:Informational" keywords="StoreOps" template="StoreDeleteArgs_V1"/>
+     <event value="5" symbol="StoreRundown_V3" version="3" task="StoreRundown" level="win:Informational" keywords="StoreOps" template="StoreCreateArgs_V3"/>
+     <event value="6" symbol="StoreCorruption_V1" version="1" task="StoreCorruption" level="win:Informational" keywords="StoreOps StoreDiag" template="StoreCorruptionArgs_V1"/>
+     <event value="7" symbol="StorePageRundown_V1" version="1" task="StorePageRundown" level="win:Informational" keywords="StoreContentsRundown" template="StorePageRundownArgs_V1"/>
+     <event value="8" symbol="RegionEvict_V2" version="2" task="RegionEvict" level="win:Informational" keywords="StoreOps" template="RegionReleaseArgs_V1"/>
+     <event value="9" symbol="RegionWrite_V2" version="2" task="RegionWrite" level="win:Informational" keywords="StoreOps" template="RegionReleaseArgs_V1"/>
+     <event value="10" symbol="UnpersistFailure_V1" version="1" task="UnpersistFailure" level="win:Informational" keywords="StoreOps StoreDiag" template="UnpersistFailureArgs_V1"/>
+     <event value="11" symbol="StoreIoStats_V1" version="1" task="StoreIoStats" level="win:Informational" keywords="StoreOps" template="StoreIoStatsArgs_V1"/>
+     <event value="12" symbol="GlobalStats_V1" version="1" task="GlobalStats" level="win:Informational" keywords="StoreOps" template="GlobalStatsArgs_V1"/>
+     <event value="13" symbol="StoreEmpty_V1" version="1" task="StoreEmpty" level="win:Informational" keywords="StoreOps" template="StoreEmptyArgs_V1"/>
+     <event value="14" symbol="RegionRelease_V1" version="1" task="RegionRelease" level="win:Informational" keywords="StoreOps" template="RegionReleaseArgs_V1"/>
+     <event value="15" symbol="RegionCompactStart_V1" version="1" task="RegionCompact" opcode="win:Start" level="win:Informational" keywords="StoreOps" template="RegionReleaseArgs_V1"/>
+     <event value="16" symbol="RegionCompactStop_V1" version="1" task="RegionCompact" opcode="win:Stop" level="win:Informational" keywords="StoreOps" template="RegionReleaseArgs_V1"/>
+     <event value="17" symbol="RegionRundown_V1" version="1" task="RegionRundown" level="win:Informational" keywords="StoreContentsRundown" template="RegionReleaseArgs_V1"/>
+     <event value="18" symbol="CacheTermination_V1" version="1" task="CacheTermination" level="win:Informational" keywords="StoreOps StoreDiag" template="CacheTerminationArgs_V1"/>
+     <event value="19" symbol="task_0" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="SqmType" inType="win:UInt32"/>
+      <data name="SqmSessionGuid" inType="win:GUID"/>
+      <data name="SqmID" inType="win:UInt32"/>
+      <data name="SqmStreamRowLength" inType="win:UInt32"/>
+      <data name="SqmStreamRow" inType="win:Int16" count="SqmStreamRowLength"/>
+     </template>
+     <template tid="StoreRemoveArgs_V1">
+      <data name="DataKey" inType="win:UInt32"/>
+      <data name="DataMgr" inType="win:Pointer"/>
+      <data name="StoreOffset" inType="win:UInt32"/>
+     </template>
+     <template tid="StoreDeleteArgs_V1">
+      <data name="StoreKey" inType="win:Pointer"/>
+     </template>
+     <template tid="StoreCorruptionArgs_V1">
+      <data name="DataMgr" inType="win:Pointer"/>
+      <data name="VirtualAddress" inType="win:Pointer"/>
+      <data name="PhysicalAddress" inType="win:UInt64"/>
+      <data name="Size" inType="win:UInt16"/>
+      <data name="FileBacked" inType="win:UInt8" map="StoreMgrCorruptPageMsgMap"/>
+      <data name="CorruptionType" inType="win:UInt8"/>
+      <data name="Flags" inType="win:UInt32"/>
+     </template>
+     <template tid="StorePageRundownArgs_V1">
+      <data name="DataKey" inType="win:UInt32"/>
+      <data name="DataMgr" inType="win:Pointer"/>
+      <data name="StoreOffset" inType="win:UInt32"/>
+      <data name="CompressedSize" inType="win:UInt16"/>
+      <data name="Flags" inType="win:UInt16"/>
+     </template>
+     <template tid="UnpersistFailureArgs_V1">
+      <data name="FailReason" inType="win:UInt32"/>
+      <data name="FailStatus" inType="win:HexInt32"/>
+      <data name="ObjectPathLength" inType="win:UInt16"/>
+      <data name="ObjectPath" inType="win:UnicodeString" length="ObjectPathLength"/>
+     </template>
+     <template tid="StoreIoStatsArgs_V1">
+      <data name="StoreKey" inType="win:Pointer"/>
+      <data name="Size" inType="win:UInt32"/>
+      <data name="Data" inType="win:Binary" length="Size"/>
+     </template>
+     <template tid="GlobalStatsArgs_V1">
+      <data name="Size" inType="win:UInt32"/>
+      <data name="Data" inType="win:Binary" length="Size"/>
+     </template>
+     <template tid="StoreEmptyArgs_V1">
+      <data name="StoreKey" inType="win:Pointer"/>
+      <data name="Param" inType="win:Pointer"/>
+     </template>
+     <template tid="RegionReleaseArgs_V1">
+      <data name="DataMgr" inType="win:Pointer"/>
+      <data name="RegionIndex" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="SpaceUsed" inType="win:UInt16"/>
+      <data name="LastAccessTime" inType="win:UInt16"/>
+     </template>
+     <template tid="CacheTerminationArgs_V1">
+      <data name="Reason" inType="win:UInt8"/>
+      <data name="FailStatus" inType="win:HexInt32"/>
+      <data name="DeviceDescLength" inType="win:UInt16"/>
+      <data name="DeviceDescription" inType="win:UnicodeString" length="DeviceDescLength"/>
+      <data name="ObjectPathLength" inType="win:UInt16"/>
+      <data name="ObjectPath" inType="win:UnicodeString" length="ObjectPathLength"/>
+     </template>
+     <template tid="StoreCreateArgs_V3">
+      <data name="StoreKey" inType="win:Pointer"/>
+      <data name="StoreFileKey" inType="win:Pointer"/>
+      <data name="UserDataMgr" inType="win:Pointer"/>
+      <data name="MetadataMgr" inType="win:Pointer"/>
+      <data name="RegionSize" inType="win:UInt32"/>
+      <data name="RegionCount" inType="win:UInt32"/>
+      <data name="BlockSize" inType="win:UInt32"/>
+      <data name="SectorSize" inType="win:UInt32"/>
+      <data name="EncryptionStrength" inType="win:UInt32"/>
+      <data name="StoreType" inType="win:UInt16"/>
+      <data name="StoreId" inType="win:UInt16"/>
+      <data name="BlocksStored" inType="win:UInt32"/>
+      <data name="RegionsInUse" inType="win:UInt32"/>
+      <data name="TotalSpaceUsed" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="MetaRegionCount" inType="win:UInt32"/>
+      <data name="MetaRegionsInUse" inType="win:UInt32"/>
+      <data name="MetaRegionsSpaceUsed" inType="win:UInt32"/>
+      <data name="StoreTime" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_StoreOps" value="StoreOps"/>
+    <string id="keyword_StoreDiag" value="StoreDiag"/>
+    <string id="keyword_StoreContentsRundown" value="StoreContentsRundown"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_StoreAdd" value="StoreAdd"/>
+    <string id="task_StoreRemove" value="StoreRemove"/>
+    <string id="task_StoreCreate" value="StoreCreate"/>
+    <string id="task_StoreDelete" value="StoreDelete"/>
+    <string id="task_StoreRundown" value="StoreRundown"/>
+    <string id="task_StoreCorruption" value="StoreCorruption"/>
+    <string id="task_StorePageRundown" value="StorePageRundown"/>
+    <string id="task_RegionEvict" value="RegionEvict"/>
+    <string id="task_RegionWrite" value="RegionWrite"/>
+    <string id="task_UnpersistFailure" value="UnpersistFailure"/>
+    <string id="task_StoreIoStats" value="StoreIoStats"/>
+    <string id="task_GlobalStats" value="GlobalStats"/>
+    <string id="task_StoreEmpty" value="StoreEmpty"/>
+    <string id="task_RegionRelease" value="RegionRelease"/>
+    <string id="task_RegionCompact" value="RegionCompact"/>
+    <string id="task_RegionRundown" value="RegionRundown"/>
+    <string id="task_CacheTermination" value="CacheTermination"/>
+    <string id="map_StoreMgrCorruptPageMsgMapA memory corruption was detected and handled. Memory diagnostics should be run on this machine and, if necessary, memory chips should be replaced." value="A memory corruption was detected and handled. Memory diagnostics should be run on this machine and, if necessary, memory chips should be replaced."/>
+    <string id="map_StoreMgrCorruptPageMsgMapA data corruption was detected and handled in a ReadyBoost cache. This corruption was most likely caused by faulty hardware. While ReadyBoost will always detect and handle these errors, seeing a lot of these may mean that the ReadyBoost device has worn out which reduces its performance. You should consider replacing the ReadyBoost cache device." value="A data corruption was detected and handled in a ReadyBoost cache. This corruption was most likely caused by faulty hardware. While ReadyBoost will always detect and handle these errors, seeing a lot of these may mean that the ReadyBoost device has worn out which reduces its performance. You should consider replacing the ReadyBoost cache device."/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

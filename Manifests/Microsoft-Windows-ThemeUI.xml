@@ -1,0 +1,76 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-ThemeUI" guid="{869fb599-80aa-485d-bca7-db18d72b7219}" resourceFileName="Microsoft-Windows-ThemeUI" messageFileName="Microsoft-Windows-ThemeUI" symbol="MicrosoftWindowsThemeUI" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="ThemeLoaded" message="$(string.task_ThemeLoaded)" value="1"/>
+     <task name="ThemeLoadFailed" message="$(string.task_ThemeLoadFailed)" value="2"/>
+     <task name="ThemeDisabled" message="$(string.task_ThemeDisabled)" value="3"/>
+     <task name="ThemeSelected" message="$(string.task_ThemeSelected)" value="4"/>
+     <task name="ApplyTheme" message="$(string.task_ApplyTheme)" value="5"/>
+     <task name="ThemePack_FilePacked" message="$(string.task_ThemePack_FilePacked)" value="6"/>
+     <task name="ThemePack_FileUnpacked" message="$(string.task_ThemePack_FileUnpacked)" value="7"/>
+     <task name="ThemePack_ProgressBarDisplayed" message="$(string.task_ThemePack_ProgressBarDisplayed)" value="8"/>
+     <task name="PlayThemeApplySound" message="$(string.task_PlayThemeApplySound)" value="9"/>
+     <task name="ThemePreview" message="$(string.task_ThemePreview)" value="10"/>
+     <task name="ScreenSaver_DialogInit" message="$(string.task_ScreenSaver_DialogInit)" value="11"/>
+     <task name="DimmedWindow" message="$(string.task_DimmedWindow)" value="12"/>
+    </tasks>
+    <events>
+     <event value="0" symbol="ThemeLoaded" version="0" task="ThemeLoaded" level="win:Informational" template="ThemeLoadedArgs"/>
+     <event value="1" symbol="ThemeLoadFailed" version="0" task="ThemeLoadFailed" level="win:Informational" template="ThemeLoadedArgs"/>
+     <event value="2" symbol="ThemeDisabled" version="0" task="ThemeDisabled" level="win:Informational" template="ThemeLoadedArgs"/>
+     <event value="3" symbol="ThemeSelected" version="0" task="ThemeSelected" level="win:Informational" template="ThemeLoadedArgs"/>
+     <event value="4" symbol="ApplyThemeStart" version="0" task="ApplyTheme" opcode="win:Start" level="win:Informational"/>
+     <event value="5" symbol="ApplyThemeStop" version="0" task="ApplyTheme" opcode="win:Stop" level="win:Informational"/>
+     <event value="6" symbol="ThemePack_FilePacked" version="0" task="ThemePack_FilePacked" level="win:Informational" template="ThemeLoadedArgs"/>
+     <event value="7" symbol="ThemePack_FileUnpacked" version="0" task="ThemePack_FileUnpacked" level="win:Informational" template="ThemeLoadedArgs"/>
+     <event value="8" symbol="ThemePack_ProgressBarDisplayed" version="0" task="ThemePack_ProgressBarDisplayed" level="win:Informational"/>
+     <event value="9" symbol="PlayThemeApplySound" version="0" task="PlayThemeApplySound" level="win:Informational" template="ThemeLoadedArgs"/>
+     <event value="10" symbol="ThemePreviewStart" version="0" task="ThemePreview" opcode="win:Start" level="win:Informational"/>
+     <event value="11" symbol="ThemePreviewStop" version="0" task="ThemePreview" opcode="win:Stop" level="win:Informational"/>
+     <event value="12" symbol="ThemePreview" version="0" task="ThemePreview" level="win:Informational"/>
+     <event value="13" symbol="ThemePreview13" version="0" task="ThemePreview" level="win:Informational" template="ThemePreview13Args"/>
+     <event value="14" symbol="ThemePreview14" version="0" task="ThemePreview" level="win:Informational" template="ThemePreview14Args"/>
+     <event value="15" symbol="ScreenSaver_DialogInitStart" version="0" task="ScreenSaver_DialogInit" opcode="win:Start" level="win:Informational"/>
+     <event value="16" symbol="ScreenSaver_DialogInitStop" version="0" task="ScreenSaver_DialogInit" opcode="win:Stop" level="win:Informational"/>
+     <event value="17" symbol="DimmedWindowStart" version="0" task="DimmedWindow" opcode="win:Start" level="win:Informational"/>
+     <event value="18" symbol="DimmedWindowStop" version="0" task="DimmedWindow" opcode="win:Stop" level="win:Informational"/>
+    </events>
+    <templates>
+     <template tid="ThemeLoadedArgs">
+      <data name="psz" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ThemePreview13Args">
+      <data name="type" inType="win:UInt32"/>
+      <data name="pszBackgroundFile" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ThemePreview14Args">
+      <data name="type" inType="win:UInt32"/>
+      <data name="dwColor" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_ThemeLoaded" value="ThemeLoaded"/>
+    <string id="task_ThemeLoadFailed" value="ThemeLoadFailed"/>
+    <string id="task_ThemeDisabled" value="ThemeDisabled"/>
+    <string id="task_ThemeSelected" value="ThemeSelected"/>
+    <string id="task_ApplyTheme" value="ApplyTheme"/>
+    <string id="task_ThemePack_FilePacked" value="ThemePack_FilePacked"/>
+    <string id="task_ThemePack_FileUnpacked" value="ThemePack_FileUnpacked"/>
+    <string id="task_ThemePack_ProgressBarDisplayed" value="ThemePack_ProgressBarDisplayed"/>
+    <string id="task_PlayThemeApplySound" value="PlayThemeApplySound"/>
+    <string id="task_ThemePreview" value="ThemePreview"/>
+    <string id="task_ScreenSaver_DialogInit" value="ScreenSaver_DialogInit"/>
+    <string id="task_DimmedWindow" value="DimmedWindow"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

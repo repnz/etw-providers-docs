@@ -1,0 +1,83 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-KernelStreaming" guid="{548c4417-ce45-41ff-99dd-528f01ce0fe1}" resourceFileName="Microsoft-Windows-KernelStreaming" messageFileName="Microsoft-Windows-KernelStreaming" symbol="MicrosoftWindowsKernelStreaming" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="KS_PnpAddDevice" message="$(string.task_KS_PnpAddDevice)" value="101"/>
+     <task name="KS_StreamingRequest" message="$(string.task_KS_StreamingRequest)" value="102"/>
+     <task name="KS_CameraGrab" message="$(string.task_KS_CameraGrab)" value="103"/>
+     <task name="KS_WNF" message="$(string.task_KS_WNF)" value="104"/>
+     <task name="KS_WNFNotification" message="$(string.task_KS_WNFNotification)" value="105"/>
+     <task name="KS_DisplayOff" message="$(string.task_KS_DisplayOff)" value="106"/>
+     <task name="KS_WNFPinState" message="$(string.task_KS_WNFPinState)" value="107"/>
+     <task name="KS_IoProbeandLock" message="$(string.task_KS_IoProbeandLock)" value="108"/>
+     <task name="KS_QueryInterface" message="$(string.task_KS_QueryInterface)" value="109"/>
+    </tasks>
+    <events>
+     <event value="200" symbol="KS_PnpAddDeviceStart" version="0" task="KS_PnpAddDevice" opcode="win:Start" level="win:Informational"/>
+     <event value="201" symbol="KS_PnpAddDeviceStop" version="0" task="KS_PnpAddDevice" opcode="win:Stop" level="win:Informational"/>
+     <event value="202" symbol="KS_StreamingRequestStart" version="0" task="KS_StreamingRequest" opcode="win:Start" level="win:Informational" template="KS_StreamingRequestStartArgs"/>
+     <event value="203" symbol="KS_StreamingRequestStop" version="0" task="KS_StreamingRequest" opcode="win:Stop" level="win:Informational" template="KS_StreamingRequestStartArgs"/>
+     <event value="204" symbol="KS_CameraGrabStart" version="0" task="KS_CameraGrab" opcode="win:Start" level="win:Informational" template="KS_CameraGrabStartArgs"/>
+     <event value="205" symbol="KS_CameraGrabStop" version="0" task="KS_CameraGrab" opcode="win:Stop" level="win:Informational" template="KS_CameraGrabStopArgs"/>
+     <event value="206" symbol="KS_WNF" version="0" task="KS_WNF" level="win:Informational"/>
+     <event value="207" symbol="KS_WNF207" version="0" task="KS_WNF" level="win:Informational"/>
+     <event value="208" symbol="KS_WNFPinState" version="0" task="KS_WNFPinState" level="win:Informational" template="KS_WNFPinStateArgs"/>
+     <event value="209" symbol="KS_WNFNotification" version="0" task="KS_WNFNotification" level="win:Informational" template="KS_WNFNotificationArgs"/>
+     <event value="210" symbol="KS_DisplayOff" version="0" task="KS_DisplayOff" level="win:Informational"/>
+     <event value="211" symbol="KS_IoProbeandLockStart" version="0" task="KS_IoProbeandLock" opcode="win:Start" level="win:Informational" template="KS_IoProbeandLockStartArgs"/>
+     <event value="212" symbol="KS_IoProbeandLockStop" version="0" task="KS_IoProbeandLock" opcode="win:Stop" level="win:Informational" template="KS_IoProbeandLockStartArgs"/>
+     <event value="213" symbol="KS_QueryInterfaceStart" version="0" task="KS_QueryInterface" opcode="win:Start" level="win:Informational" template="KS_QueryInterfaceStartArgs"/>
+     <event value="214" symbol="KS_QueryInterfaceStop" version="0" task="KS_QueryInterface" opcode="win:Stop" level="win:Informational" template="KS_QueryInterfaceStartArgs"/>
+    </events>
+    <templates>
+     <template tid="KS_StreamingRequestStartArgs">
+      <data name="pIrp" inType="win:Pointer"/>
+     </template>
+     <template tid="KS_CameraGrabStartArgs">
+      <data name="ProcessId" inType="win:Pointer"/>
+      <data name="PinId" inType="win:UInt32"/>
+      <data name="FilterAddress" inType="win:Pointer"/>
+     </template>
+     <template tid="KS_CameraGrabStopArgs">
+      <data name="Status" inType="win:HexInt32"/>
+     </template>
+     <template tid="KS_WNFPinStateArgs">
+      <data name="FilterExt" inType="win:Pointer"/>
+      <data name="PinState" inType="win:UInt32"/>
+     </template>
+     <template tid="KS_WNFNotificationArgs">
+      <data name="EntryCount" inType="win:UInt32"/>
+     </template>
+     <template tid="KS_IoProbeandLockStartArgs">
+      <data name="PinId" inType="win:HexInt32"/>
+      <data name="BufSize" inType="win:UInt32"/>
+     </template>
+     <template tid="KS_QueryInterfaceStartArgs">
+      <data name="pKsDevice" inType="win:Pointer"/>
+      <data name="pIrp" inType="win:Pointer"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_KS_PnpAddDevice" value="KS_PnpAddDevice"/>
+    <string id="task_KS_StreamingRequest" value="KS_StreamingRequest"/>
+    <string id="task_KS_CameraGrab" value="KS_CameraGrab"/>
+    <string id="task_KS_WNF" value="KS_WNF"/>
+    <string id="task_KS_WNFNotification" value="KS_WNFNotification"/>
+    <string id="task_KS_DisplayOff" value="KS_DisplayOff"/>
+    <string id="task_KS_WNFPinState" value="KS_WNFPinState"/>
+    <string id="task_KS_IoProbeandLock" value="KS_IoProbeandLock"/>
+    <string id="task_KS_QueryInterface" value="KS_QueryInterface"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

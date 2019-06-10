@@ -1,0 +1,350 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-DirectComposition" guid="{c44219d0-f344-11df-a5e2-b307dfd72085}" resourceFileName="Microsoft-Windows-DirectComposition" messageFileName="Microsoft-Windows-DirectComposition" symbol="MicrosoftWindowsDirectComposition" source="Xml" >
+    <keywords>
+     <keyword name="DCompBasic" message="$(string.keyword_DCompBasic)" mask="0x1"/>
+     <keyword name="DCompDiagnostic" message="$(string.keyword_DCompDiagnostic)" mask="0x2"/>
+     <keyword name="DCompMemory" message="$(string.keyword_DCompMemory)" mask="0x4"/>
+     <keyword name="OfferReclaim" message="$(string.keyword_OfferReclaim)" mask="0x8"/>
+     <keyword name="DCompSharedMemory" message="$(string.keyword_DCompSharedMemory)" mask="0x10"/>
+     <keyword name="DCompAnimationTelemetry" message="$(string.keyword_DCompAnimationTelemetry)" mask="0x20"/>
+     <keyword name="DCompPrimitives" message="$(string.keyword_DCompPrimitives)" mask="0x40"/>
+    </keywords>
+    <tasks>
+     <task name="RESOURCE_CREATION" message="$(string.task_RESOURCE_CREATION)" value="1"/>
+     <task name="BEGIN_DRAW" message="$(string.task_BEGIN_DRAW)" value="2"/>
+     <task name="END_DRAW" message="$(string.task_END_DRAW)" value="3"/>
+     <task name="TRIM" message="$(string.task_TRIM)" value="4"/>
+     <task name="RESIZE" message="$(string.task_RESIZE)" value="5"/>
+     <task name="UPDATE_TOKEN" message="$(string.task_UPDATE_TOKEN)" value="6"/>
+     <task name="SUSPEND_DRAW" message="$(string.task_SUSPEND_DRAW)" value="7"/>
+     <task name="RESUME_DRAW" message="$(string.task_RESUME_DRAW)" value="8"/>
+     <task name="ATLAS_ALLOCATE" message="$(string.task_ATLAS_ALLOCATE)" value="9"/>
+     <task name="ATLAS_FREE" message="$(string.task_ATLAS_FREE)" value="10"/>
+     <task name="ATLAS_ENTRY_ALLOCATE" message="$(string.task_ATLAS_ENTRY_ALLOCATE)" value="11"/>
+     <task name="ATLAS_ENTRY_FREE" message="$(string.task_ATLAS_ENTRY_FREE)" value="12"/>
+     <task name="ATLAS_UTILIZATION" message="$(string.task_ATLAS_UTILIZATION)" value="13"/>
+     <task name="SCROLL" message="$(string.task_SCROLL)" value="14"/>
+     <task name="DEVICE_CREATE" message="$(string.task_DEVICE_CREATE)" value="15"/>
+     <task name="DEVICE_DESTROY" message="$(string.task_DEVICE_DESTROY)" value="16"/>
+     <task name="DEVICE_COMMIT" message="$(string.task_DEVICE_COMMIT)" value="17"/>
+     <task name="ATLAS_USE_INFO" message="$(string.task_ATLAS_USE_INFO)" value="18"/>
+     <task name="ATLAS_ENTRY_MARK_FOR_DISPOSE" message="$(string.task_ATLAS_ENTRY_MARK_FOR_DISPOSE)" value="19"/>
+     <task name="ATLAS_ENTRY_MARK_AVAILABLE" message="$(string.task_ATLAS_ENTRY_MARK_AVAILABLE)" value="20"/>
+     <task name="ATLAS_ENTRY_REUSE" message="$(string.task_ATLAS_ENTRY_REUSE)" value="21"/>
+     <task name="RESOURCE_RELEASE" message="$(string.task_RESOURCE_RELEASE)" value="22"/>
+     <task name="CREATE_CLUMP" message="$(string.task_CREATE_CLUMP)" value="23"/>
+     <task name="DESTROY_CLUMP" message="$(string.task_DESTROY_CLUMP)" value="24"/>
+     <task name="PUSH_DOWN" message="$(string.task_PUSH_DOWN)" value="25"/>
+     <task name="RECLUMP" message="$(string.task_RECLUMP)" value="26"/>
+     <task name="VIRTUAL_SURFACE_COUNTERS" message="$(string.task_VIRTUAL_SURFACE_COUNTERS)" value="27"/>
+     <task name="CAP_ALLOCATION_STATS" message="$(string.task_CAP_ALLOCATION_STATS)" value="28"/>
+     <task name="CAP_RELEASE_SURFACE" message="$(string.task_CAP_RELEASE_SURFACE)" value="29"/>
+     <task name="BLOCK_FOR_EXCESSIVE_PENDING" message="$(string.task_BLOCK_FOR_EXCESSIVE_PENDING)" value="30"/>
+     <task name="OFFER_RECLAIM" message="$(string.task_OFFER_RECLAIM)" value="31"/>
+     <task name="CAP_MAXIMUM" message="$(string.task_CAP_MAXIMUM)" value="32"/>
+     <task name="CREATE_SHARED_MEMORY_SECTION" message="$(string.task_CREATE_SHARED_MEMORY_SECTION)" value="33"/>
+     <task name="DESTROY_SHARED_MEMORY_SECTION" message="$(string.task_DESTROY_SHARED_MEMORY_SECTION)" value="34"/>
+     <task name="ALLOCATE_FROM_SHARED_MEMORY_SECTION" message="$(string.task_ALLOCATE_FROM_SHARED_MEMORY_SECTION)" value="35"/>
+     <task name="FREE_FROM_SHARED_MEMORY_SECTION" message="$(string.task_FREE_FROM_SHARED_MEMORY_SECTION)" value="36"/>
+     <task name="ANIMATION_SCENARIO_BEGIN" message="$(string.task_ANIMATION_SCENARIO_BEGIN)" value="37"/>
+     <task name="ANIMATION_SCENARIO_REFERENCE" message="$(string.task_ANIMATION_SCENARIO_REFERENCE)" value="38"/>
+     <task name="ANIMATION_SCENARIO_UNREFERENCE" message="$(string.task_ANIMATION_SCENARIO_UNREFERENCE)" value="39"/>
+     <task name="PRIMITIVE_GROUP_UPDATE" message="$(string.task_PRIMITIVE_GROUP_UPDATE)" value="40"/>
+     <task name="ATLAS_RESIZE" message="$(string.task_ATLAS_RESIZE)" value="41"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="RESOURCE_CREATION" version="0" task="RESOURCE_CREATION" level="win:Verbose" keywords="DCompBasic" template="RESOURCE_CREATIONArgs"/>
+     <event value="2" symbol="BEGIN_DRAWStart" version="0" task="BEGIN_DRAW" opcode="win:Start" level="win:Verbose" keywords="DCompBasic DCompMemory" template="BEGIN_DRAWStartArgs"/>
+     <event value="3" symbol="BEGIN_DRAWStop" version="0" task="BEGIN_DRAW" opcode="win:Stop" level="win:Verbose" keywords="DCompBasic"/>
+     <event value="4" symbol="END_DRAWStart" version="0" task="END_DRAW" opcode="win:Start" level="win:Verbose" keywords="DCompBasic" template="END_DRAWStartArgs"/>
+     <event value="5" symbol="END_DRAWStop" version="0" task="END_DRAW" opcode="win:Stop" level="win:Verbose" keywords="DCompBasic"/>
+     <event value="6" symbol="TRIMStart" version="0" task="TRIM" opcode="win:Start" level="win:Verbose" keywords="DCompBasic DCompMemory" template="END_DRAWStartArgs"/>
+     <event value="7" symbol="TRIMStop" version="0" task="TRIM" opcode="win:Stop" level="win:Verbose" keywords="DCompBasic"/>
+     <event value="8" symbol="RESIZEStart" version="0" task="RESIZE" opcode="win:Start" level="win:Verbose" keywords="DCompBasic DCompMemory" template="END_DRAWStartArgs"/>
+     <event value="9" symbol="RESIZEStop" version="0" task="RESIZE" opcode="win:Stop" level="win:Verbose" keywords="DCompBasic"/>
+     <event value="10" symbol="UPDATE_TOKENStart" version="0" task="UPDATE_TOKEN" opcode="win:Start" level="win:Verbose" keywords="DCompBasic" template="END_DRAWStartArgs"/>
+     <event value="11" symbol="UPDATE_TOKENStop" version="0" task="UPDATE_TOKEN" opcode="win:Stop" level="win:Verbose" keywords="DCompBasic"/>
+     <event value="12" symbol="SUSPEND_DRAWStart" version="0" task="SUSPEND_DRAW" opcode="win:Start" level="win:Verbose" keywords="DCompBasic" template="END_DRAWStartArgs"/>
+     <event value="13" symbol="SUSPEND_DRAWStop" version="0" task="SUSPEND_DRAW" opcode="win:Stop" level="win:Verbose" keywords="DCompBasic"/>
+     <event value="14" symbol="RESUME_DRAWStart" version="0" task="RESUME_DRAW" opcode="win:Start" level="win:Verbose" keywords="DCompBasic" template="END_DRAWStartArgs"/>
+     <event value="15" symbol="RESUME_DRAWStop" version="0" task="RESUME_DRAW" opcode="win:Stop" level="win:Verbose" keywords="DCompBasic"/>
+     <event value="16" symbol="ATLAS_ALLOCATE" version="0" task="ATLAS_ALLOCATE" level="win:Verbose" keywords="DCompDiagnostic DCompMemory" template="ATLAS_ALLOCATEArgs"/>
+     <event value="17" symbol="ATLAS_FREE" version="0" task="ATLAS_FREE" level="win:Verbose" keywords="DCompDiagnostic DCompMemory" template="ATLAS_FREEArgs"/>
+     <event value="18" symbol="ATLAS_ENTRY_ALLOCATE" version="0" task="ATLAS_ENTRY_ALLOCATE" level="win:Verbose" keywords="DCompDiagnostic DCompMemory" template="ATLAS_ENTRY_ALLOCATEArgs"/>
+     <event value="19" symbol="ATLAS_ENTRY_FREE" version="0" task="ATLAS_ENTRY_FREE" level="win:Verbose" keywords="DCompDiagnostic DCompMemory" template="ATLAS_ENTRY_ALLOCATEArgs"/>
+     <event value="20" symbol="ATLAS_UTILIZATION" version="0" task="ATLAS_UTILIZATION" level="win:Verbose" keywords="DCompDiagnostic DCompMemory" template="ATLAS_UTILIZATIONArgs"/>
+     <event value="21" symbol="SCROLLStart" version="0" task="SCROLL" opcode="win:Start" level="win:Verbose" keywords="DCompBasic" template="END_DRAWStartArgs"/>
+     <event value="22" symbol="SCROLLStop" version="0" task="SCROLL" opcode="win:Stop" level="win:Verbose" keywords="DCompBasic"/>
+     <event value="23" symbol="DEVICE_CREATE" version="0" task="DEVICE_CREATE" level="win:Verbose" keywords="DCompDiagnostic DCompMemory" template="DEVICE_CREATEArgs"/>
+     <event value="24" symbol="DEVICE_DESTROY" version="0" task="DEVICE_DESTROY" level="win:Verbose" keywords="DCompDiagnostic DCompMemory" template="DEVICE_CREATEArgs"/>
+     <event value="25" symbol="DEVICE_COMMIT" version="0" task="DEVICE_COMMIT" level="win:Verbose" keywords="DCompDiagnostic DCompMemory" template="DEVICE_COMMITArgs"/>
+     <event value="26" symbol="ATLAS_USE_INFO" version="0" task="ATLAS_USE_INFO" level="win:Verbose" keywords="DCompDiagnostic DCompMemory" template="ATLAS_USE_INFOArgs"/>
+     <event value="27" symbol="ATLAS_ENTRY_MARK_FOR_DISPOSE" version="0" task="ATLAS_ENTRY_MARK_FOR_DISPOSE" level="win:Verbose" keywords="DCompDiagnostic DCompMemory" template="ATLAS_FREEArgs"/>
+     <event value="28" symbol="ATLAS_ENTRY_MARK_AVAILABLE" version="0" task="ATLAS_ENTRY_MARK_AVAILABLE" level="win:Verbose" keywords="DCompDiagnostic DCompMemory" template="ATLAS_FREEArgs"/>
+     <event value="29" symbol="ATLAS_ENTRY_REUSE" version="0" task="ATLAS_ENTRY_REUSE" level="win:Verbose" keywords="DCompDiagnostic DCompMemory" template="ATLAS_ENTRY_ALLOCATEArgs"/>
+     <event value="30" symbol="RESOURCE_RELEASE" version="0" task="RESOURCE_RELEASE" level="win:Verbose" keywords="DCompBasic" template="RESOURCE_RELEASEArgs"/>
+     <event value="31" symbol="CREATE_CLUMP" version="0" task="CREATE_CLUMP" level="win:Verbose" keywords="DCompDiagnostic DCompMemory" template="CREATE_CLUMPArgs"/>
+     <event value="32" symbol="DESTROY_CLUMP" version="0" task="DESTROY_CLUMP" level="win:Verbose" keywords="DCompDiagnostic DCompMemory" template="DESTROY_CLUMPArgs"/>
+     <event value="33" symbol="PUSH_DOWNStart" version="0" task="PUSH_DOWN" opcode="win:Start" level="win:Verbose" keywords="DCompDiagnostic DCompMemory" template="PUSH_DOWNStartArgs"/>
+     <event value="34" symbol="PUSH_DOWNStop" version="0" task="PUSH_DOWN" opcode="win:Stop" level="win:Verbose" keywords="DCompDiagnostic DCompMemory" template="PUSH_DOWNStartArgs"/>
+     <event value="35" symbol="RECLUMPStart" version="0" task="RECLUMP" opcode="win:Start" level="win:Verbose" keywords="DCompDiagnostic DCompMemory" template="PUSH_DOWNStartArgs"/>
+     <event value="36" symbol="RECLUMPStop" version="0" task="RECLUMP" opcode="win:Stop" level="win:Verbose" keywords="DCompDiagnostic DCompMemory" template="PUSH_DOWNStartArgs"/>
+     <event value="37" symbol="VIRTUAL_SURFACE_COUNTERS" version="0" task="VIRTUAL_SURFACE_COUNTERS" level="win:Verbose" keywords="DCompDiagnostic DCompMemory" template="VIRTUAL_SURFACE_COUNTERSArgs"/>
+     <event value="38" symbol="CAP_ALLOCATION_STATS" version="0" task="CAP_ALLOCATION_STATS" level="win:Verbose" keywords="DCompDiagnostic DCompMemory" template="CAP_ALLOCATION_STATSArgs"/>
+     <event value="39" symbol="CAP_RELEASE_SURFACE" version="0" task="CAP_RELEASE_SURFACE" level="win:Verbose" keywords="DCompDiagnostic DCompMemory" template="CAP_RELEASE_SURFACEArgs"/>
+     <event value="40" symbol="BLOCK_FOR_EXCESSIVE_PENDINGStart" version="0" task="BLOCK_FOR_EXCESSIVE_PENDING" opcode="win:Start" level="win:Verbose" keywords="DCompDiagnostic DCompMemory" template="ATLAS_FREEArgs"/>
+     <event value="41" symbol="BLOCK_FOR_EXCESSIVE_PENDINGStop" version="0" task="BLOCK_FOR_EXCESSIVE_PENDING" opcode="win:Stop" level="win:Verbose" keywords="DCompDiagnostic DCompMemory" template="ATLAS_FREEArgs"/>
+     <event value="42" symbol="OFFER_RECLAIM" version="0" task="OFFER_RECLAIM" level="win:Verbose" keywords="DCompMemory OfferReclaim" template="CAP_RELEASE_SURFACEArgs"/>
+     <event value="43" symbol="OFFER_RECLAIM43" version="0" task="OFFER_RECLAIM" level="win:Verbose" keywords="DCompMemory OfferReclaim" template="OFFER_RECLAIM43Args"/>
+     <event value="44" symbol="CAP_MAXIMUMStart" version="0" task="CAP_MAXIMUM" opcode="win:Start" level="win:Verbose" keywords="DCompDiagnostic DCompMemory" template="ATLAS_FREEArgs"/>
+     <event value="45" symbol="CAP_MAXIMUMStop" version="0" task="CAP_MAXIMUM" opcode="win:Stop" level="win:Verbose" keywords="DCompDiagnostic DCompMemory" template="ATLAS_FREEArgs"/>
+     <event value="46" symbol="CREATE_SHARED_MEMORY_SECTION" version="0" task="CREATE_SHARED_MEMORY_SECTION" level="win:Verbose" keywords="DCompDiagnostic DCompSharedMemory" template="CREATE_SHARED_MEMORY_SECTIONArgs"/>
+     <event value="47" symbol="DESTROY_SHARED_MEMORY_SECTION" version="0" task="DESTROY_SHARED_MEMORY_SECTION" level="win:Verbose" keywords="DCompDiagnostic DCompSharedMemory" template="CREATE_SHARED_MEMORY_SECTIONArgs"/>
+     <event value="48" symbol="ALLOCATE_FROM_SHARED_MEMORY_SECTION" version="0" task="ALLOCATE_FROM_SHARED_MEMORY_SECTION" level="win:Verbose" keywords="DCompDiagnostic DCompSharedMemory" template="ALLOCATE_FROM_SHARED_MEMORY_SECTIONArgs"/>
+     <event value="49" symbol="FREE_FROM_SHARED_MEMORY_SECTION" version="0" task="FREE_FROM_SHARED_MEMORY_SECTION" level="win:Verbose" keywords="DCompDiagnostic DCompSharedMemory"/>
+     <event value="50" symbol="ANIMATION_SCENARIO_BEGIN" version="0" task="ANIMATION_SCENARIO_BEGIN" level="win:Verbose" keywords="DCompDiagnostic DCompAnimationTelemetry" template="ANIMATION_SCENARIO_BEGINArgs"/>
+     <event value="51" symbol="ANIMATION_SCENARIO_REFERENCE" version="0" task="ANIMATION_SCENARIO_REFERENCE" level="win:Verbose" keywords="DCompDiagnostic DCompAnimationTelemetry" template="ANIMATION_SCENARIO_REFERENCEArgs"/>
+     <event value="52" symbol="ANIMATION_SCENARIO_UNREFERENCE" version="0" task="ANIMATION_SCENARIO_UNREFERENCE" level="win:Verbose" keywords="DCompDiagnostic DCompAnimationTelemetry" template="ANIMATION_SCENARIO_REFERENCEArgs"/>
+     <event value="53" symbol="PRIMITIVE_GROUP_UPDATE" version="0" task="PRIMITIVE_GROUP_UPDATE" level="win:Verbose" keywords="DCompPrimitives" template="PRIMITIVE_GROUP_UPDATEArgs"/>
+     <event value="54" symbol="ATLAS_RESIZE" version="0" task="ATLAS_RESIZE" level="win:Verbose" keywords="DCompDiagnostic DCompMemory" template="ATLAS_RESIZEArgs"/>
+    </events>
+    <templates>
+     <template tid="RESOURCE_CREATIONArgs">
+      <data name="channelHandle" inType="win:UInt32"/>
+      <data name="resourceHandle" inType="win:UInt32"/>
+      <data name="resourceType" inType="win:UInt32"/>
+      <data name="resourcePointer" inType="win:UInt64"/>
+     </template>
+     <template tid="BEGIN_DRAWStartArgs">
+      <data name="channelHandle" inType="win:UInt32"/>
+      <data name="resourceType" inType="win:UInt32"/>
+      <data name="resourcePointer" inType="win:UInt64"/>
+      <data name="left" inType="win:Int32"/>
+      <data name="top" inType="win:Int32"/>
+      <data name="right" inType="win:Int32"/>
+      <data name="bottom" inType="win:Int32"/>
+     </template>
+     <template tid="END_DRAWStartArgs">
+      <data name="channelHandle" inType="win:UInt32"/>
+      <data name="resourceType" inType="win:UInt32"/>
+      <data name="resourcePointer" inType="win:UInt64"/>
+     </template>
+     <template tid="ATLAS_ALLOCATEArgs">
+      <data name="Id" inType="win:UInt64"/>
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+      <data name="BitDepth" inType="win:UInt32"/>
+      <data name="IsTexturingAtlas" inType="win:Boolean"/>
+      <data name="ChannelHandle" inType="win:UInt32"/>
+      <data name="PixelFormat" inType="win:UInt32"/>
+     </template>
+     <template tid="ATLAS_FREEArgs">
+      <data name="Id" inType="win:UInt64"/>
+     </template>
+     <template tid="ATLAS_ENTRY_ALLOCATEArgs">
+      <data name="AtlasId" inType="win:UInt64"/>
+      <data name="X" inType="win:UInt32"/>
+      <data name="Y" inType="win:UInt32"/>
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+      <data name="EntryId" inType="win:UInt64"/>
+     </template>
+     <template tid="ATLAS_UTILIZATIONArgs">
+      <data name="Id" inType="win:UInt64"/>
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+      <data name="BitDepth" inType="win:UInt32"/>
+      <data name="PercentUsed" inType="win:Float"/>
+     </template>
+     <template tid="DEVICE_CREATEArgs">
+      <data name="DeviceId" inType="win:UInt64"/>
+      <data name="ChannelHandle" inType="win:UInt32"/>
+     </template>
+     <template tid="DEVICE_COMMITArgs">
+      <data name="DeviceId" inType="win:UInt64"/>
+      <data name="ChannelHandle" inType="win:UInt32"/>
+      <data name="LastCommittedBatchId" inType="win:UInt32"/>
+      <data name="LastConfirmedBatchId" inType="win:UInt32"/>
+     </template>
+     <template tid="ATLAS_USE_INFOArgs">
+      <data name="Id" inType="win:UInt64"/>
+      <data name="Owner" inType="win:UInt64"/>
+      <data name="UseType" inType="win:UInt32"/>
+      <data name="XData" inType="win:Int32"/>
+      <data name="YData" inType="win:Int32"/>
+     </template>
+     <template tid="RESOURCE_RELEASEArgs">
+      <data name="channelHandle" inType="win:UInt32"/>
+      <data name="resourceHandle" inType="win:UInt32"/>
+      <data name="resourcePointer" inType="win:UInt64"/>
+     </template>
+     <template tid="CREATE_CLUMPArgs">
+      <data name="clumpPointer" inType="win:UInt64"/>
+      <data name="virtualSurfacePointer" inType="win:UInt64"/>
+      <data name="left" inType="win:UInt32"/>
+      <data name="top" inType="win:UInt32"/>
+      <data name="right" inType="win:UInt32"/>
+      <data name="bottom" inType="win:UInt32"/>
+     </template>
+     <template tid="DESTROY_CLUMPArgs">
+      <data name="clumpPointer" inType="win:UInt64"/>
+     </template>
+     <template tid="PUSH_DOWNStartArgs">
+      <data name="surfacePointer" inType="win:UInt64"/>
+     </template>
+     <template tid="VIRTUAL_SURFACE_COUNTERSArgs">
+      <data name="percentValidTiles" inType="win:UInt32"/>
+      <data name="pixelsPerClump" inType="win:UInt32"/>
+     </template>
+     <template tid="CAP_ALLOCATION_STATSArgs">
+      <data name="ChannelHandle" inType="win:UInt32"/>
+      <data name="LastCommittedBatchId" inType="win:UInt32"/>
+      <data name="largeSurfacesTotalAllocated" inType="win:UInt64"/>
+      <data name="largeSurfacesInUseAllocated" inType="win:UInt64"/>
+      <data name="largeSurfacesInUseActual" inType="win:UInt64"/>
+      <data name="largeSurfacesPeakInUseActual" inType="win:UInt64"/>
+      <data name="largeSurfacesAllowed" inType="win:UInt64"/>
+      <data name="poolsTotalAllocated" inType="win:UInt64"/>
+      <data name="poolsInUseAllocated" inType="win:UInt64"/>
+      <data name="poolsInUseActual" inType="win:UInt64"/>
+      <data name="poolsPeakInUseActual" inType="win:UInt64"/>
+      <data name="poolsAllowed" inType="win:UInt64"/>
+      <data name="largeSurfacesPendingRelease" inType="win:UInt64"/>
+      <data name="poolsPendingRelease" inType="win:UInt64"/>
+      <data name="largeSurfacesMaxStructuralWaste" inType="win:UInt64"/>
+      <data name="poolsMaxStructuralWaste" inType="win:UInt64"/>
+     </template>
+     <template tid="CAP_RELEASE_SURFACEArgs">
+      <data name="Id" inType="win:UInt64"/>
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+     </template>
+     <template tid="OFFER_RECLAIM43Args">
+      <data name="Id" inType="win:UInt64"/>
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+      <data name="PixelsDiscarded" inType="win:Boolean"/>
+      <data name="SurfaceInvalid" inType="win:Boolean"/>
+     </template>
+     <template tid="CREATE_SHARED_MEMORY_SECTIONArgs">
+      <data name="section" inType="win:UInt64"/>
+      <data name="size" inType="win:UInt32"/>
+     </template>
+     <template tid="ALLOCATE_FROM_SHARED_MEMORY_SECTIONArgs">
+      <data name="section" inType="win:UInt64"/>
+      <data name="allocationSize" inType="win:UInt32"/>
+      <data name="sectionSize" inType="win:UInt32"/>
+      <data name="heap" inType="win:Boolean"/>
+     </template>
+     <template tid="ANIMATION_SCENARIO_BEGINArgs">
+      <data name="deviceId" inType="win:UInt64"/>
+      <data name="channelHandle" inType="win:UInt32"/>
+      <data name="version" inType="win:UInt16"/>
+      <data name="scenarioPriority" inType="win:UInt16"/>
+      <data name="flags" inType="win:UInt16"/>
+      <data name="qpcInitiate" inType="win:UInt64"/>
+      <data name="qpcInput" inType="win:UInt64"/>
+      <data name="msIntendedDuration" inType="win:UInt32"/>
+      <data name="scenarioGuid" inType="win:GUID"/>
+      <data name="scenarioName" inType="win:UnicodeString"/>
+      <data name="scenarioDetails" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ANIMATION_SCENARIO_REFERENCEArgs">
+      <data name="deviceId" inType="win:UInt64"/>
+      <data name="channelHandle" inType="win:UInt32"/>
+      <data name="scenarioGuid" inType="win:GUID"/>
+      <data name="uniqueKey" inType="win:UInt64"/>
+     </template>
+     <template tid="PRIMITIVE_GROUP_UPDATEArgs">
+      <data name="channelHandle" inType="win:UInt32"/>
+      <data name="resourceHandle" inType="win:UInt32"/>
+      <data name="flags" inType="win:UInt32"/>
+      <data name="batchCount" inType="win:UInt32"/>
+      <data name="totalPrimitiveCount" inType="win:UInt32"/>
+      <data name="boundsLeft" inType="win:Float"/>
+      <data name="boundsTop" inType="win:Float"/>
+      <data name="boundsRight" inType="win:Float"/>
+      <data name="boundsBottom" inType="win:Float"/>
+      <data name="singlePrimitiveInfoLength" inType="win:UInt16"/>
+      <data name="surfaceInfoLength" inType="win:UInt16"/>
+      <data name="surfaceInfo" inType="win:Binary" length="surfaceInfoLength"/>
+      <data name="primitivesLength" inType="win:UInt16"/>
+      <data name="primitives" inType="win:Binary" length="primitivesLength"/>
+     </template>
+     <template tid="ATLAS_RESIZEArgs">
+      <data name="TargetX" inType="win:UInt32"/>
+      <data name="TargetY" inType="win:UInt32"/>
+      <data name="MinX" inType="win:UInt32"/>
+      <data name="MinY" inType="win:UInt32"/>
+      <data name="MaxX" inType="win:UInt32"/>
+      <data name="MaxY" inType="win:UInt32"/>
+      <data name="RequestX" inType="win:UInt32"/>
+      <data name="RequestY" inType="win:UInt32"/>
+      <data name="ShrinkX" inType="win:UInt32"/>
+      <data name="ShrinkY" inType="win:UInt32"/>
+      <data name="GrowX" inType="win:UInt32"/>
+      <data name="GrowY" inType="win:UInt32"/>
+      <data name="AtlasX" inType="win:UInt32"/>
+      <data name="AtlasY" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_DCompBasic" value="DCompBasic"/>
+    <string id="keyword_DCompDiagnostic" value="DCompDiagnostic"/>
+    <string id="keyword_DCompMemory" value="DCompMemory"/>
+    <string id="keyword_OfferReclaim" value="OfferReclaim"/>
+    <string id="keyword_DCompSharedMemory" value="DCompSharedMemory"/>
+    <string id="keyword_DCompAnimationTelemetry" value="DCompAnimationTelemetry"/>
+    <string id="keyword_DCompPrimitives" value="DCompPrimitives"/>
+    <string id="task_RESOURCE_CREATION" value="RESOURCE_CREATION"/>
+    <string id="task_BEGIN_DRAW" value="BEGIN_DRAW"/>
+    <string id="task_END_DRAW" value="END_DRAW"/>
+    <string id="task_TRIM" value="TRIM"/>
+    <string id="task_RESIZE" value="RESIZE"/>
+    <string id="task_UPDATE_TOKEN" value="UPDATE_TOKEN"/>
+    <string id="task_SUSPEND_DRAW" value="SUSPEND_DRAW"/>
+    <string id="task_RESUME_DRAW" value="RESUME_DRAW"/>
+    <string id="task_ATLAS_ALLOCATE" value="ATLAS_ALLOCATE"/>
+    <string id="task_ATLAS_FREE" value="ATLAS_FREE"/>
+    <string id="task_ATLAS_ENTRY_ALLOCATE" value="ATLAS_ENTRY_ALLOCATE"/>
+    <string id="task_ATLAS_ENTRY_FREE" value="ATLAS_ENTRY_FREE"/>
+    <string id="task_ATLAS_UTILIZATION" value="ATLAS_UTILIZATION"/>
+    <string id="task_SCROLL" value="SCROLL"/>
+    <string id="task_DEVICE_CREATE" value="DEVICE_CREATE"/>
+    <string id="task_DEVICE_DESTROY" value="DEVICE_DESTROY"/>
+    <string id="task_DEVICE_COMMIT" value="DEVICE_COMMIT"/>
+    <string id="task_ATLAS_USE_INFO" value="ATLAS_USE_INFO"/>
+    <string id="task_ATLAS_ENTRY_MARK_FOR_DISPOSE" value="ATLAS_ENTRY_MARK_FOR_DISPOSE"/>
+    <string id="task_ATLAS_ENTRY_MARK_AVAILABLE" value="ATLAS_ENTRY_MARK_AVAILABLE"/>
+    <string id="task_ATLAS_ENTRY_REUSE" value="ATLAS_ENTRY_REUSE"/>
+    <string id="task_RESOURCE_RELEASE" value="RESOURCE_RELEASE"/>
+    <string id="task_CREATE_CLUMP" value="CREATE_CLUMP"/>
+    <string id="task_DESTROY_CLUMP" value="DESTROY_CLUMP"/>
+    <string id="task_PUSH_DOWN" value="PUSH_DOWN"/>
+    <string id="task_RECLUMP" value="RECLUMP"/>
+    <string id="task_VIRTUAL_SURFACE_COUNTERS" value="VIRTUAL_SURFACE_COUNTERS"/>
+    <string id="task_CAP_ALLOCATION_STATS" value="CAP_ALLOCATION_STATS"/>
+    <string id="task_CAP_RELEASE_SURFACE" value="CAP_RELEASE_SURFACE"/>
+    <string id="task_BLOCK_FOR_EXCESSIVE_PENDING" value="BLOCK_FOR_EXCESSIVE_PENDING"/>
+    <string id="task_OFFER_RECLAIM" value="OFFER_RECLAIM"/>
+    <string id="task_CAP_MAXIMUM" value="CAP_MAXIMUM"/>
+    <string id="task_CREATE_SHARED_MEMORY_SECTION" value="CREATE_SHARED_MEMORY_SECTION"/>
+    <string id="task_DESTROY_SHARED_MEMORY_SECTION" value="DESTROY_SHARED_MEMORY_SECTION"/>
+    <string id="task_ALLOCATE_FROM_SHARED_MEMORY_SECTION" value="ALLOCATE_FROM_SHARED_MEMORY_SECTION"/>
+    <string id="task_FREE_FROM_SHARED_MEMORY_SECTION" value="FREE_FROM_SHARED_MEMORY_SECTION"/>
+    <string id="task_ANIMATION_SCENARIO_BEGIN" value="ANIMATION_SCENARIO_BEGIN"/>
+    <string id="task_ANIMATION_SCENARIO_REFERENCE" value="ANIMATION_SCENARIO_REFERENCE"/>
+    <string id="task_ANIMATION_SCENARIO_UNREFERENCE" value="ANIMATION_SCENARIO_UNREFERENCE"/>
+    <string id="task_PRIMITIVE_GROUP_UPDATE" value="PRIMITIVE_GROUP_UPDATE"/>
+    <string id="task_ATLAS_RESIZE" value="ATLAS_RESIZE"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

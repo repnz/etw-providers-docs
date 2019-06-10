@@ -1,0 +1,43 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Antimalware-Protection" guid="{e4b70372-261f-4c54-8fa6-a5a7914d73da}" resourceFileName="Microsoft-Antimalware-Protection" messageFileName="Microsoft-Antimalware-Protection" symbol="MicrosoftAntimalwareProtection" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="FastMemScan" message="$(string.task_FastMemScan)" value="1"/>
+     <task name="AllowedUrlExclusionCheck" message="$(string.task_AllowedUrlExclusionCheck)" value="2"/>
+     <task name="FastMemScanCache" message="$(string.task_FastMemScanCache)" value="3"/>
+     <task name="MpData" message="$(string.task_MpData)" value="4"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="FastMemScanStart" version="0" task="FastMemScan" opcode="win:Start" level="win:Informational" template="FastMemScanStartArgs"/>
+     <event value="2" symbol="FastMemScanStop" version="0" task="FastMemScan" opcode="win:Stop" level="win:Informational" template="FastMemScanStartArgs"/>
+     <event value="3" symbol="AllowedUrlExclusionCheckStart" version="0" task="AllowedUrlExclusionCheck" opcode="win:Start" level="win:Informational" template="AllowedUrlExclusionCheckStartArgs"/>
+     <event value="4" symbol="AllowedUrlExclusionCheckStop" version="0" task="AllowedUrlExclusionCheck" opcode="win:Stop" level="win:Informational" template="FastMemScanStartArgs"/>
+     <event value="5" symbol="FastMemScanCacheStart" version="0" task="FastMemScanCache" opcode="win:Start" level="win:Informational"/>
+     <event value="6" symbol="FastMemScanCacheStop" version="0" task="FastMemScanCache" opcode="win:Stop" level="win:Informational" template="FastMemScanStartArgs"/>
+     <event value="7" symbol="MpData" version="0" task="MpData" level="win:Informational" template="AllowedUrlExclusionCheckStartArgs"/>
+    </events>
+    <templates>
+     <template tid="FastMemScanStartArgs">
+      <data name="DwordData" inType="win:UInt32"/>
+     </template>
+     <template tid="AllowedUrlExclusionCheckStartArgs">
+      <data name="Description" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_FastMemScan" value="FastMemScan"/>
+    <string id="task_AllowedUrlExclusionCheck" value="AllowedUrlExclusionCheck"/>
+    <string id="task_FastMemScanCache" value="FastMemScanCache"/>
+    <string id="task_MpData" value="MpData"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

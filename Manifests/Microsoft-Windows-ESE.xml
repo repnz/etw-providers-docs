@@ -1,0 +1,1524 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-ESE" guid="{478ea8a8-00be-4ba6-8e75-8b9dc7db9f78}" resourceFileName="Microsoft-Windows-ESE" messageFileName="Microsoft-Windows-ESE" symbol="MicrosoftWindowsESE" source="Xml" >
+    <keywords>
+     <keyword name="Error" message="$(string.keyword_Error)" mask="0x1"/>
+     <keyword name="Performance" message="$(string.keyword_Performance)" mask="0x2"/>
+     <keyword name="Trace" message="$(string.keyword_Trace)" mask="0x4"/>
+     <keyword name="Transaction" message="$(string.keyword_Transaction)" mask="0x8"/>
+     <keyword name="Space" message="$(string.keyword_Space)" mask="0x10"/>
+     <keyword name="BF" message="$(string.keyword_BF)" mask="0x20"/>
+     <keyword name="IO" message="$(string.keyword_IO)" mask="0x40"/>
+     <keyword name="LOG" message="$(string.keyword_LOG)" mask="0x80"/>
+     <keyword name="Task" message="$(string.keyword_Task)" mask="0x100"/>
+     <keyword name="Test" message="$(string.keyword_Test)" mask="0x200"/>
+     <keyword name="BFRESMGR" message="$(string.keyword_BFRESMGR)" mask="0x400"/>
+     <keyword name="StationId" message="$(string.keyword_StationId)" mask="0x800"/>
+     <keyword name="JETTraceTag" message="$(string.keyword_JETTraceTag)" mask="0x1000"/>
+     <keyword name="StallLatencies" message="$(string.keyword_StallLatencies)" mask="0x2000"/>
+     <keyword name="DataWorkingSet" message="$(string.keyword_DataWorkingSet)" mask="0x4000"/>
+     <keyword name="IOEX" message="$(string.keyword_IOEX)" mask="0x8000"/>
+     <keyword name="CompressExp" message="$(string.keyword_CompressExp)" mask="0x100000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="ESE_Trace" message="$(string.task_ESE_Trace)" value="1"/>
+     <task name="ESE_BF_Trace" message="$(string.task_ESE_BF_Trace)" value="2"/>
+     <task name="ESE_Block_Trace" message="$(string.task_ESE_Block_Trace)" value="3"/>
+     <task name="ESE_NewPage_Trace" message="$(string.task_ESE_NewPage_Trace)" value="4"/>
+     <task name="ESE_ReadPage_Trace" message="$(string.task_ESE_ReadPage_Trace)" value="5"/>
+     <task name="ESE_PrereadPage_Trace" message="$(string.task_ESE_PrereadPage_Trace)" value="6"/>
+     <task name="ESE_WritePage_Trace" message="$(string.task_ESE_WritePage_Trace)" value="7"/>
+     <task name="ESE_EvictPage_Trace" message="$(string.task_ESE_EvictPage_Trace)" value="8"/>
+     <task name="ESE_RequestPage_Trace" message="$(string.task_ESE_RequestPage_Trace)" value="9"/>
+     <task name="ESE_DirtyPage_Trace" message="$(string.task_ESE_DirtyPage_Trace)" value="11"/>
+     <task name="ESE_TransactionBegin_Trace" message="$(string.task_ESE_TransactionBegin_Trace)" value="12"/>
+     <task name="ESE_TransactionCommit_Trace" message="$(string.task_ESE_TransactionCommit_Trace)" value="13"/>
+     <task name="ESE_TransactionRollback_Trace" message="$(string.task_ESE_TransactionRollback_Trace)" value="14"/>
+     <task name="ESE_AllocExt_Trace" message="$(string.task_ESE_AllocExt_Trace)" value="15"/>
+     <task name="ESE_FreeExt_Trace" message="$(string.task_ESE_FreeExt_Trace)" value="16"/>
+     <task name="ESE_AllocPage_Trace" message="$(string.task_ESE_AllocPage_Trace)" value="17"/>
+     <task name="ESE_FreePage_Trace" message="$(string.task_ESE_FreePage_Trace)" value="18"/>
+     <task name="ESE_IOREQHeapEnqueue_Trace" message="$(string.task_ESE_IOREQHeapEnqueue_Trace)" value="19"/>
+     <task name="ESE_IOREQHeapDequeue_Trace" message="$(string.task_ESE_IOREQHeapDequeue_Trace)" value="20"/>
+     <task name="ESE_IOCompletion_Trace" message="$(string.task_ESE_IOCompletion_Trace)" value="21"/>
+     <task name="ESE_LogStall_Trace" message="$(string.task_ESE_LogStall_Trace)" value="22"/>
+     <task name="ESE_LogWrite_Trace" message="$(string.task_ESE_LogWrite_Trace)" value="23"/>
+     <task name="ESE_EventLogInfo_Trace" message="$(string.task_ESE_EventLogInfo_Trace)" value="24"/>
+     <task name="ESE_EventLogWarn_Trace" message="$(string.task_ESE_EventLogWarn_Trace)" value="25"/>
+     <task name="ESE_EventLogError_Trace" message="$(string.task_ESE_EventLogError_Trace)" value="26"/>
+     <task name="ESE_TimerQueueSchedule_Trace" message="$(string.task_ESE_TimerQueueSchedule_Trace)" value="27"/>
+     <task name="ESE_TimerQueueRun_Trace" message="$(string.task_ESE_TimerQueueRun_Trace)" value="28"/>
+     <task name="ESE_TimerQueueCancel_Trace" message="$(string.task_ESE_TimerQueueCancel_Trace)" value="29"/>
+     <task name="ESE_TimerTaskSchedule_Trace" message="$(string.task_ESE_TimerTaskSchedule_Trace)" value="30"/>
+     <task name="ESE_TimerTaskRun_Trace" message="$(string.task_ESE_TimerTaskRun_Trace)" value="31"/>
+     <task name="ESE_TimerTaskCancel_Trace" message="$(string.task_ESE_TimerTaskCancel_Trace)" value="32"/>
+     <task name="ESE_TaskManagerPost_Trace" message="$(string.task_ESE_TaskManagerPost_Trace)" value="33"/>
+     <task name="ESE_TaskManagerRun_Trace" message="$(string.task_ESE_TaskManagerRun_Trace)" value="34"/>
+     <task name="ESE_GPTaskManagerPost_Trace" message="$(string.task_ESE_GPTaskManagerPost_Trace)" value="35"/>
+     <task name="ESE_GPTaskManagerRun_Trace" message="$(string.task_ESE_GPTaskManagerRun_Trace)" value="36"/>
+     <task name="ESE_TestMarker_Trace" message="$(string.task_ESE_TestMarker_Trace)" value="37"/>
+     <task name="ESE_ThreadCreate_Trace" message="$(string.task_ESE_ThreadCreate_Trace)" value="38"/>
+     <task name="ESE_ThreadStart_Trace" message="$(string.task_ESE_ThreadStart_Trace)" value="39"/>
+     <task name="ESE_VersionPage_Trace" message="$(string.task_ESE_VersionPage_Trace)" value="40"/>
+     <task name="ESE_VersionCopyPage_Trace" message="$(string.task_ESE_VersionCopyPage_Trace)" value="41"/>
+     <task name="ESE_CacheResize_Trace" message="$(string.task_ESE_CacheResize_Trace)" value="42"/>
+     <task name="ESE_CacheLimitResize_Trace" message="$(string.task_ESE_CacheLimitResize_Trace)" value="43"/>
+     <task name="ESE_CacheScavengeProgress_Trace" message="$(string.task_ESE_CacheScavengeProgress_Trace)" value="44"/>
+     <task name="ESE_ApiCall_Trace" message="$(string.task_ESE_ApiCall_Trace)" value="45"/>
+     <task name="ESE_ResMgrInit_Trace" message="$(string.task_ESE_ResMgrInit_Trace)" value="46"/>
+     <task name="ESE_ResMgrTerm_Trace" message="$(string.task_ESE_ResMgrTerm_Trace)" value="47"/>
+     <task name="ESE_CachePage_Trace" message="$(string.task_ESE_CachePage_Trace)" value="48"/>
+     <task name="ESE_MarkPageAsSuperCold_Trace" message="$(string.task_ESE_MarkPageAsSuperCold_Trace)" value="49"/>
+     <task name="ESE_CacheMissLatency_Trace" message="$(string.task_ESE_CacheMissLatency_Trace)" value="50"/>
+     <task name="ESE_BTreePrereadPageRequest_Trace" message="$(string.task_ESE_BTreePrereadPageRequest_Trace)" value="51"/>
+     <task name="ESE_DiskFlushFileBuffers_Trace" message="$(string.task_ESE_DiskFlushFileBuffers_Trace)" value="52"/>
+     <task name="ESE_DiskFlushFileBuffersBegin_Trace" message="$(string.task_ESE_DiskFlushFileBuffersBegin_Trace)" value="53"/>
+     <task name="ESE_CacheFirstDirtyPage_Trace" message="$(string.task_ESE_CacheFirstDirtyPage_Trace)" value="54"/>
+     <task name="ESE_SysStationId_Trace" message="$(string.task_ESE_SysStationId_Trace)" value="55"/>
+     <task name="ESE_InstStationId_Trace" message="$(string.task_ESE_InstStationId_Trace)" value="56"/>
+     <task name="ESE_FmpStationId_Trace" message="$(string.task_ESE_FmpStationId_Trace)" value="57"/>
+     <task name="ESE_DiskStationId_Trace" message="$(string.task_ESE_DiskStationId_Trace)" value="58"/>
+     <task name="ESE_FileStationId_Trace" message="$(string.task_ESE_FileStationId_Trace)" value="59"/>
+     <task name="ESE_IsamDbfilehdrInfo_Trace" message="$(string.task_ESE_IsamDbfilehdrInfo_Trace)" value="60"/>
+     <task name="ESE_DiskOsDiskCacheInfo_Trace" message="$(string.task_ESE_DiskOsDiskCacheInfo_Trace)" value="61"/>
+     <task name="ESE_DiskOsStorageWriteCacheProp_Trace" message="$(string.task_ESE_DiskOsStorageWriteCacheProp_Trace)" value="62"/>
+     <task name="ESE_DiskOsDeviceSeekPenaltyDesc_Trace" message="$(string.task_ESE_DiskOsDeviceSeekPenaltyDesc_Trace)" value="63"/>
+     <task name="ESE_IOCompletion2_Trace" message="$(string.task_ESE_IOCompletion2_Trace)" value="65"/>
+     <task name="ESE_FCBPurgeFailure_Trace" message="$(string.task_ESE_FCBPurgeFailure_Trace)" value="66"/>
+     <task name="ESE_IOLatencySpikeNotice_Trace" message="$(string.task_ESE_IOLatencySpikeNotice_Trace)" value="67"/>
+     <task name="ESE_tagNull_Trace" message="$(string.task_ESE_tagNull_Trace)" value="100"/>
+     <task name="ESE_tagInformation_Trace" message="$(string.task_ESE_tagInformation_Trace)" value="101"/>
+     <task name="ESE_tagErrors_Trace" message="$(string.task_ESE_tagErrors_Trace)" value="102"/>
+     <task name="ESE_tagAsserts_Trace" message="$(string.task_ESE_tagAsserts_Trace)" value="103"/>
+     <task name="ESE_tagAPI_Trace" message="$(string.task_ESE_tagAPI_Trace)" value="104"/>
+     <task name="ESE_tagInitTerm_Trace" message="$(string.task_ESE_tagInitTerm_Trace)" value="105"/>
+     <task name="ESE_tagBufferManager_Trace" message="$(string.task_ESE_tagBufferManager_Trace)" value="106"/>
+     <task name="ESE_tagBufferManagerHashedLatches_Trace" message="$(string.task_ESE_tagBufferManagerHashedLatches_Trace)" value="107"/>
+     <task name="ESE_tagIO_Trace" message="$(string.task_ESE_tagIO_Trace)" value="108"/>
+     <task name="ESE_tagMemory_Trace" message="$(string.task_ESE_tagMemory_Trace)" value="109"/>
+     <task name="ESE_tagVersionStore_Trace" message="$(string.task_ESE_tagVersionStore_Trace)" value="110"/>
+     <task name="ESE_tagVersionStoreOOM_Trace" message="$(string.task_ESE_tagVersionStoreOOM_Trace)" value="111"/>
+     <task name="ESE_tagVersionCleanup_Trace" message="$(string.task_ESE_tagVersionCleanup_Trace)" value="112"/>
+     <task name="ESE_tagCatalog_Trace" message="$(string.task_ESE_tagCatalog_Trace)" value="113"/>
+     <task name="ESE_tagDDLRead_Trace" message="$(string.task_ESE_tagDDLRead_Trace)" value="114"/>
+     <task name="ESE_tagDDLWrite_Trace" message="$(string.task_ESE_tagDDLWrite_Trace)" value="115"/>
+     <task name="ESE_tagDMLRead_Trace" message="$(string.task_ESE_tagDMLRead_Trace)" value="116"/>
+     <task name="ESE_tagDMLWrite_Trace" message="$(string.task_ESE_tagDMLWrite_Trace)" value="117"/>
+     <task name="ESE_tagDMLConflicts_Trace" message="$(string.task_ESE_tagDMLConflicts_Trace)" value="118"/>
+     <task name="ESE_tagInstances_Trace" message="$(string.task_ESE_tagInstances_Trace)" value="119"/>
+     <task name="ESE_tagDatabases_Trace" message="$(string.task_ESE_tagDatabases_Trace)" value="120"/>
+     <task name="ESE_tagSessions_Trace" message="$(string.task_ESE_tagSessions_Trace)" value="121"/>
+     <task name="ESE_tagCursors_Trace" message="$(string.task_ESE_tagCursors_Trace)" value="122"/>
+     <task name="ESE_tagCursorNavigation_Trace" message="$(string.task_ESE_tagCursorNavigation_Trace)" value="123"/>
+     <task name="ESE_tagCursorPageRefs_Trace" message="$(string.task_ESE_tagCursorPageRefs_Trace)" value="124"/>
+     <task name="ESE_tagBtree_Trace" message="$(string.task_ESE_tagBtree_Trace)" value="125"/>
+     <task name="ESE_tagSpace_Trace" message="$(string.task_ESE_tagSpace_Trace)" value="126"/>
+     <task name="ESE_tagFCBs_Trace" message="$(string.task_ESE_tagFCBs_Trace)" value="127"/>
+     <task name="ESE_tagTransactions_Trace" message="$(string.task_ESE_tagTransactions_Trace)" value="128"/>
+     <task name="ESE_tagLogging_Trace" message="$(string.task_ESE_tagLogging_Trace)" value="129"/>
+     <task name="ESE_tagRecovery_Trace" message="$(string.task_ESE_tagRecovery_Trace)" value="130"/>
+     <task name="ESE_tagBackup_Trace" message="$(string.task_ESE_tagBackup_Trace)" value="131"/>
+     <task name="ESE_tagRestore_Trace" message="$(string.task_ESE_tagRestore_Trace)" value="132"/>
+     <task name="ESE_tagOLD_Trace" message="$(string.task_ESE_tagOLD_Trace)" value="133"/>
+     <task name="ESE_tagEventlog_Trace" message="$(string.task_ESE_tagEventlog_Trace)" value="134"/>
+     <task name="ESE_tagBufferManagerMaintTasks_Trace" message="$(string.task_ESE_tagBufferManagerMaintTasks_Trace)" value="135"/>
+     <task name="ESE_tagSpaceManagement_Trace" message="$(string.task_ESE_tagSpaceManagement_Trace)" value="136"/>
+     <task name="ESE_tagSpaceInternal_Trace" message="$(string.task_ESE_tagSpaceInternal_Trace)" value="137"/>
+     <task name="ESE_tagIOQueue_Trace" message="$(string.task_ESE_tagIOQueue_Trace)" value="138"/>
+     <task name="ESE_tagDiskVolumeManagement_Trace" message="$(string.task_ESE_tagDiskVolumeManagement_Trace)" value="139"/>
+     <task name="ESE_tagCallbacks_Trace" message="$(string.task_ESE_tagCallbacks_Trace)" value="140"/>
+     <task name="ESE_tagIOProblems_Trace" message="$(string.task_ESE_tagIOProblems_Trace)" value="141"/>
+     <task name="ESE_tagUpgrade_Trace" message="$(string.task_ESE_tagUpgrade_Trace)" value="142"/>
+     <task name="ESE_tagRecoveryValidation_Trace" message="$(string.task_ESE_tagRecoveryValidation_Trace)" value="143"/>
+     <task name="ESE_tagBufferManagerBufferCacheState_Trace" message="$(string.task_ESE_tagBufferManagerBufferCacheState_Trace)" value="144"/>
+     <task name="ESE_tagBufferManagerBufferDirtyState_Trace" message="$(string.task_ESE_tagBufferManagerBufferDirtyState_Trace)" value="145"/>
+     <task name="ESE_tagTimerQueue_Trace" message="$(string.task_ESE_tagTimerQueue_Trace)" value="146"/>
+     <task name="ESE_tagSortPerf_Trace" message="$(string.task_ESE_tagSortPerf_Trace)" value="147"/>
+     <task name="ESE_tagOLDRegistration_Trace" message="$(string.task_ESE_tagOLDRegistration_Trace)" value="148"/>
+     <task name="ESE_tagOLDWork_Trace" message="$(string.task_ESE_tagOLDWork_Trace)" value="149"/>
+     <task name="ESE_tagSysInitTerm_Trace" message="$(string.task_ESE_tagSysInitTerm_Trace)" value="150"/>
+     <task name="ESE_tagVersionAndStagingChecks_Trace" message="$(string.task_ESE_tagVersionAndStagingChecks_Trace)" value="151"/>
+     <task name="ESE_tagFile_Trace" message="$(string.task_ESE_tagFile_Trace)" value="152"/>
+     <task name="ESE_tagFlushFileBuffers_Trace" message="$(string.task_ESE_tagFlushFileBuffers_Trace)" value="153"/>
+     <task name="ESE_tagCheckpointUpdate_Trace" message="$(string.task_ESE_tagCheckpointUpdate_Trace)" value="154"/>
+    </tasks>
+    <maps>
+     <bitMap name="ESE_PageFlagsMap">
+      <map value="0x0" message="$(string.map_ESE_PageFlagsMapfPagePrimary)"/>
+      <map value="0x1" message="$(string.map_ESE_PageFlagsMapfPageRoot)"/>
+      <map value="0x2" message="$(string.map_ESE_PageFlagsMapfPageLeaf)"/>
+      <map value="0x4" message="$(string.map_ESE_PageFlagsMapfPageParentOfLeaf)"/>
+      <map value="0x8" message="$(string.map_ESE_PageFlagsMapfPageEmpty)"/>
+      <map value="0x10" message="$(string.map_ESE_PageFlagsMapfPageRepair)"/>
+      <map value="0x20" message="$(string.map_ESE_PageFlagsMapfPageSpaceTree)"/>
+      <map value="0x40" message="$(string.map_ESE_PageFlagsMapfPageIndex)"/>
+      <map value="0x80" message="$(string.map_ESE_PageFlagsMapfPageLongValue)"/>
+      <map value="0x400" message="$(string.map_ESE_PageFlagsMapfPageNonUniqueKeys)"/>
+      <map value="0x800" message="$(string.map_ESE_PageFlagsMapfPageNewRecordFormat)"/>
+      <map value="0x2000" message="$(string.map_ESE_PageFlagsMapfPageNewChecksumFormat)"/>
+      <map value="0x4000" message="$(string.map_ESE_PageFlagsMapfPageScrubbed)"/>
+      <map value="0x8000" message="$(string.map_ESE_PageFlagsMapflushTypeBit1)"/>
+      <map value="0x10000" message="$(string.map_ESE_PageFlagsMapflushTypeBit2)"/>
+     </bitMap>
+     <valueMap name="ESE_IorsMap">
+      <map value="0x0" message="$(string.map_ESE_IorsMapiorsNone)"/>
+      <map value="0x1" message="$(string.map_ESE_IorsMapiorsHeader)"/>
+      <map value="0x2" message="$(string.map_ESE_IorsMapiorsBTOpen)"/>
+      <map value="0x3" message="$(string.map_ESE_IorsMapiorsBTSeek)"/>
+      <map value="0x4" message="$(string.map_ESE_IorsMapiorsBTMoveFirst)"/>
+      <map value="0x5" message="$(string.map_ESE_IorsMapiorsBTMoveNext)"/>
+      <map value="0x6" message="$(string.map_ESE_IorsMapiorsBTMovePrev)"/>
+      <map value="0x7" message="$(string.map_ESE_IorsMapiorsBTInsert)"/>
+      <map value="0x8" message="$(string.map_ESE_IorsMapiorsBTAppend)"/>
+      <map value="0x9" message="$(string.map_ESE_IorsMapiorsBTReplace)"/>
+      <map value="0xa" message="$(string.map_ESE_IorsMapiorsBTDelete)"/>
+      <map value="0xb" message="$(string.map_ESE_IorsMapiorsBTGet)"/>
+      <map value="0xc" message="$(string.map_ESE_IorsMapiorsBTSplit)"/>
+      <map value="0xd" message="$(string.map_ESE_IorsMapiorsBTMerge)"/>
+      <map value="0xe" message="$(string.map_ESE_IorsMapiorsBTRefresh)"/>
+      <map value="0xf" message="$(string.map_ESE_IorsMapiorsBTPreread)"/>
+      <map value="0x10" message="$(string.map_ESE_IorsMapiorsBTMax)"/>
+     </valueMap>
+     <valueMap name="ESE_IortMap">
+      <map value="0x1" message="$(string.map_ESE_IortMapiortISAM)"/>
+      <map value="0x2" message="$(string.map_ESE_IortMapiortSpace)"/>
+      <map value="0x3" message="$(string.map_ESE_IortMapiortDbScan)"/>
+      <map value="0x5" message="$(string.map_ESE_IortMapiortRollbackUndo)"/>
+      <map value="0x6" message="$(string.map_ESE_IortMapiortScrubbing)"/>
+      <map value="0x7" message="$(string.map_ESE_IortMapiortOLD)"/>
+      <map value="0x8" message="$(string.map_ESE_IortMapiortOLD2)"/>
+      <map value="0x9" message="$(string.map_ESE_IortMapiortRecovery)"/>
+      <map value="0xa" message="$(string.map_ESE_IortMapiortBackupRestore)"/>
+      <map value="0xb" message="$(string.map_ESE_IortMapiortPagePatching)"/>
+      <map value="0xc" message="$(string.map_ESE_IortMapiortSort)"/>
+      <map value="0xd" message="$(string.map_ESE_IortMapiortRepair)"/>
+      <map value="0xe" message="$(string.map_ESE_IortMapiortUtilities)"/>
+      <map value="0xf" message="$(string.map_ESE_IortMapiortMax)"/>
+     </valueMap>
+     <bitMap name="ESE_IorfMap">
+      <map value="0x0" message="$(string.map_ESE_IorfMapiorfNone)"/>
+      <map value="0x1" message="$(string.map_ESE_IorfMapiorfShadow)"/>
+      <map value="0x2" message="$(string.map_ESE_IorfMapiorfFill)"/>
+      <map value="0x4" message="$(string.map_ESE_IorfMapiorfOpportune)"/>
+      <map value="0x8" message="$(string.map_ESE_IorfMapiorfForeground)"/>
+      <map value="0x10" message="$(string.map_ESE_IorfMapiorfDependantOrVersion)"/>
+      <map value="0x20" message="$(string.map_ESE_IorfMapiorfReclaimPageFromOS)"/>
+      <map value="0x40" message="$(string.map_ESE_IorfMapiorfSuperCold)"/>
+     </bitMap>
+     <valueMap name="ESE_IorpMap">
+      <map value="0x0" message="$(string.map_ESE_IorpMapiorpInvalid)"/>
+      <map value="0x1" message="$(string.map_ESE_IorpMapiorpHeader)"/>
+      <map value="0x18" message="$(string.map_ESE_IorpMapiorpOsLayerTracing)"/>
+      <map value="0x20" message="$(string.map_ESE_IorpMapiorpBFRead)"/>
+      <map value="0x21" message="$(string.map_ESE_IorpMapiorpBFLatch)"/>
+      <map value="0x22" message="$(string.map_ESE_IorpMapiorpBFPreread)"/>
+      <map value="0x23" message="$(string.map_ESE_IorpMapiorpBFRemapReVerify)"/>
+      <map value="0x40" message="$(string.map_ESE_IorpMapiorpBFCheckpointAdv)"/>
+      <map value="0x41" message="$(string.map_ESE_IorpMapiorpBFAvailPool)"/>
+      <map value="0x42" message="$(string.map_ESE_IorpMapiorpBFShrink)"/>
+      <map value="0x44" message="$(string.map_ESE_IorpMapiorpBFFilthyFlush)"/>
+      <map value="0x45" message="$(string.map_ESE_IorpMapiorpBFDatabaseFlush)"/>
+      <map value="0x46" message="$(string.map_ESE_IorpMapiorpSPDatabaseInlineZero)"/>
+      <map value="0x47" message="$(string.map_ESE_IorpMapiorpBFPurge)"/>
+      <map value="0x50" message="$(string.map_ESE_IorpMapiorpLog)"/>
+      <map value="0x51" message="$(string.map_ESE_IorpMapiorpLGWriteCapacity)"/>
+      <map value="0x52" message="$(string.map_ESE_IorpMapiorpLGWriteCommit)"/>
+      <map value="0x53" message="$(string.map_ESE_IorpMapiorpLGWriteNewGen)"/>
+      <map value="0x54" message="$(string.map_ESE_IorpMapiorpLGWriteSignal)"/>
+      <map value="0x55" message="$(string.map_ESE_IorpMapiorpLGFlushAll)"/>
+      <map value="0x56" message="$(string.map_ESE_IorpMapiorpLogRecRedo)"/>
+      <map value="0x5c" message="$(string.map_ESE_IorpMapiorpShadowLog)"/>
+      <map value="0x60" message="$(string.map_ESE_IorpMapiorpCheckpoint)"/>
+      <map value="0x61" message="$(string.map_ESE_IorpMapiorpDirectAccessUtil)"/>
+      <map value="0x62" message="$(string.map_ESE_IorpMapiorpBackup)"/>
+      <map value="0x63" message="$(string.map_ESE_IorpMapiorpRestore)"/>
+      <map value="0x64" message="$(string.map_ESE_IorpMapiorpPatchFix)"/>
+      <map value="0x65" message="$(string.map_ESE_IorpMapiorpDatabaseExtension)"/>
+      <map value="0x66" message="$(string.map_ESE_IorpMapiorpDatabaseShrink)"/>
+      <map value="0x67" message="$(string.map_ESE_IorpMapiorpDbScan)"/>
+      <map value="0x68" message="$(string.map_ESE_IorpMapiorpCorruptionTestHook)"/>
+      <map value="0x69" message="$(string.map_ESE_IorpMapiorpDatabaseTrim)"/>
+      <map value="0x6a" message="$(string.map_ESE_IorpMapiorpFlushMap)"/>
+     </valueMap>
+     <valueMap name="ESE_DirtyLevelMap">
+      <map value="0x0" message="$(string.map_ESE_DirtyLevelMapbfdfClean)"/>
+      <map value="0x1" message="$(string.map_ESE_DirtyLevelMapbfdfUntidy)"/>
+      <map value="0x2" message="$(string.map_ESE_DirtyLevelMapbfdfDirty)"/>
+      <map value="0x3" message="$(string.map_ESE_DirtyLevelMapbfdfFilthy)"/>
+     </valueMap>
+     <valueMap name="ESE_ApiCallNameMap">
+      <map value="0x1" message="$(string.map_ESE_ApiCallNameMapJetIdle)"/>
+      <map value="0x2" message="$(string.map_ESE_ApiCallNameMapJetGetTableIndexInfo)"/>
+      <map value="0x3" message="$(string.map_ESE_ApiCallNameMapJetGetIndexInfo)"/>
+      <map value="0x4" message="$(string.map_ESE_ApiCallNameMapJetGetObjectInfo)"/>
+      <map value="0x5" message="$(string.map_ESE_ApiCallNameMapJetGetTableInfo)"/>
+      <map value="0x6" message="$(string.map_ESE_ApiCallNameMapJetCreateObject)"/>
+      <map value="0x7" message="$(string.map_ESE_ApiCallNameMapJetDeleteObject)"/>
+      <map value="0x8" message="$(string.map_ESE_ApiCallNameMapJetRenameObject)"/>
+      <map value="0x9" message="$(string.map_ESE_ApiCallNameMapJetBeginTransaction)"/>
+      <map value="0xa" message="$(string.map_ESE_ApiCallNameMapJetCommitTransaction)"/>
+      <map value="0xb" message="$(string.map_ESE_ApiCallNameMapJetRollback)"/>
+      <map value="0xc" message="$(string.map_ESE_ApiCallNameMapJetOpenTable)"/>
+      <map value="0xd" message="$(string.map_ESE_ApiCallNameMapJetDupCursor)"/>
+      <map value="0xe" message="$(string.map_ESE_ApiCallNameMapJetCloseTable)"/>
+      <map value="0xf" message="$(string.map_ESE_ApiCallNameMapJetGetTableColumnInfo)"/>
+      <map value="0x10" message="$(string.map_ESE_ApiCallNameMapJetGetColumnInfo)"/>
+      <map value="0x11" message="$(string.map_ESE_ApiCallNameMapJetRetrieveColumn)"/>
+      <map value="0x12" message="$(string.map_ESE_ApiCallNameMapJetRetrieveColumns)"/>
+      <map value="0x13" message="$(string.map_ESE_ApiCallNameMapJetSetColumn)"/>
+      <map value="0x14" message="$(string.map_ESE_ApiCallNameMapJetSetColumns)"/>
+      <map value="0x15" message="$(string.map_ESE_ApiCallNameMapJetPrepareUpdate)"/>
+      <map value="0x16" message="$(string.map_ESE_ApiCallNameMapJetUpdate)"/>
+      <map value="0x17" message="$(string.map_ESE_ApiCallNameMapJetDelete)"/>
+      <map value="0x18" message="$(string.map_ESE_ApiCallNameMapJetGetCursorInfo)"/>
+      <map value="0x19" message="$(string.map_ESE_ApiCallNameMapJetGetCurrentIndex)"/>
+      <map value="0x1a" message="$(string.map_ESE_ApiCallNameMapJetSetCurrentIndex)"/>
+      <map value="0x1b" message="$(string.map_ESE_ApiCallNameMapJetMove)"/>
+      <map value="0x1c" message="$(string.map_ESE_ApiCallNameMapJetMakeKey)"/>
+      <map value="0x1d" message="$(string.map_ESE_ApiCallNameMapJetSeek)"/>
+      <map value="0x1e" message="$(string.map_ESE_ApiCallNameMapJetGetBookmark)"/>
+      <map value="0x1f" message="$(string.map_ESE_ApiCallNameMapJetGotoBookmark)"/>
+      <map value="0x20" message="$(string.map_ESE_ApiCallNameMapJetGetRecordPosition)"/>
+      <map value="0x21" message="$(string.map_ESE_ApiCallNameMapJetGotoPosition)"/>
+      <map value="0x22" message="$(string.map_ESE_ApiCallNameMapJetRetrieveKey)"/>
+      <map value="0x23" message="$(string.map_ESE_ApiCallNameMapJetCreateDatabase)"/>
+      <map value="0x24" message="$(string.map_ESE_ApiCallNameMapJetOpenDatabase)"/>
+      <map value="0x25" message="$(string.map_ESE_ApiCallNameMapJetGetDatabaseInfo)"/>
+      <map value="0x26" message="$(string.map_ESE_ApiCallNameMapJetCloseDatabase)"/>
+      <map value="0x27" message="$(string.map_ESE_ApiCallNameMapJetCapability)"/>
+      <map value="0x28" message="$(string.map_ESE_ApiCallNameMapJetCreateTable)"/>
+      <map value="0x29" message="$(string.map_ESE_ApiCallNameMapJetRenameTable)"/>
+      <map value="0x2a" message="$(string.map_ESE_ApiCallNameMapJetDeleteTable)"/>
+      <map value="0x2b" message="$(string.map_ESE_ApiCallNameMapJetAddColumn)"/>
+      <map value="0x2c" message="$(string.map_ESE_ApiCallNameMapJetRenameColumn)"/>
+      <map value="0x2d" message="$(string.map_ESE_ApiCallNameMapJetDeleteColumn)"/>
+      <map value="0x2e" message="$(string.map_ESE_ApiCallNameMapJetCreateIndex)"/>
+      <map value="0x2f" message="$(string.map_ESE_ApiCallNameMapJetRenameIndex)"/>
+      <map value="0x30" message="$(string.map_ESE_ApiCallNameMapJetDeleteIndex)"/>
+      <map value="0x31" message="$(string.map_ESE_ApiCallNameMapJetComputeStats)"/>
+      <map value="0x32" message="$(string.map_ESE_ApiCallNameMapJetAttachDatabase)"/>
+      <map value="0x33" message="$(string.map_ESE_ApiCallNameMapJetDetachDatabase)"/>
+      <map value="0x34" message="$(string.map_ESE_ApiCallNameMapJetOpenTempTable)"/>
+      <map value="0x35" message="$(string.map_ESE_ApiCallNameMapJetSetIndexRange)"/>
+      <map value="0x36" message="$(string.map_ESE_ApiCallNameMapJetIndexRecordCount)"/>
+      <map value="0x37" message="$(string.map_ESE_ApiCallNameMapJetGetChecksum)"/>
+      <map value="0x38" message="$(string.map_ESE_ApiCallNameMapJetGetObjidFromName)"/>
+      <map value="0x39" message="$(string.map_ESE_ApiCallNameMapJetEscrowUpdate)"/>
+      <map value="0x3a" message="$(string.map_ESE_ApiCallNameMapJetGetLock)"/>
+      <map value="0x3b" message="$(string.map_ESE_ApiCallNameMapJetRetrieveTaggedColumnList)"/>
+      <map value="0x3c" message="$(string.map_ESE_ApiCallNameMapJetCreateTableColumnIndex)"/>
+      <map value="0x3d" message="$(string.map_ESE_ApiCallNameMapJetSetColumnDefaultValue)"/>
+      <map value="0x3e" message="$(string.map_ESE_ApiCallNameMapJetPrepareToCommitTransaction)"/>
+      <map value="0x3f" message="$(string.map_ESE_ApiCallNameMapJetSetTableSequential)"/>
+      <map value="0x40" message="$(string.map_ESE_ApiCallNameMapJetResetTableSequential)"/>
+      <map value="0x41" message="$(string.map_ESE_ApiCallNameMapJetRegisterCallback)"/>
+      <map value="0x42" message="$(string.map_ESE_ApiCallNameMapJetUnregisterCallback)"/>
+      <map value="0x43" message="$(string.map_ESE_ApiCallNameMapJetSetLS)"/>
+      <map value="0x44" message="$(string.map_ESE_ApiCallNameMapJetGetLS)"/>
+      <map value="0x45" message="$(string.map_ESE_ApiCallNameMapJetGetVersion)"/>
+      <map value="0x46" message="$(string.map_ESE_ApiCallNameMapJetBeginSession)"/>
+      <map value="0x47" message="$(string.map_ESE_ApiCallNameMapJetDupSession)"/>
+      <map value="0x48" message="$(string.map_ESE_ApiCallNameMapJetEndSession)"/>
+      <map value="0x49" message="$(string.map_ESE_ApiCallNameMapJetBackupInstance)"/>
+      <map value="0x4a" message="$(string.map_ESE_ApiCallNameMapJetBeginExternalBackupInstance)"/>
+      <map value="0x4b" message="$(string.map_ESE_ApiCallNameMapJetGetAttachInfoInstance)"/>
+      <map value="0x4c" message="$(string.map_ESE_ApiCallNameMapJetOpenFileInstance)"/>
+      <map value="0x4d" message="$(string.map_ESE_ApiCallNameMapJetReadFileInstance)"/>
+      <map value="0x4e" message="$(string.map_ESE_ApiCallNameMapJetCloseFileInstance)"/>
+      <map value="0x4f" message="$(string.map_ESE_ApiCallNameMapJetGetLogInfoInstance)"/>
+      <map value="0x50" message="$(string.map_ESE_ApiCallNameMapJetGetTruncateLogInfoInstance)"/>
+      <map value="0x51" message="$(string.map_ESE_ApiCallNameMapJetTruncateLogInstance)"/>
+      <map value="0x52" message="$(string.map_ESE_ApiCallNameMapJetEndExternalBackupInstance)"/>
+      <map value="0x53" message="$(string.map_ESE_ApiCallNameMapJetSnapshotStart)"/>
+      <map value="0x54" message="$(string.map_ESE_ApiCallNameMapJetSnapshotStop)"/>
+      <map value="0x55" message="$(string.map_ESE_ApiCallNameMapJetResetCounter)"/>
+      <map value="0x56" message="$(string.map_ESE_ApiCallNameMapJetGetCounter)"/>
+      <map value="0x57" message="$(string.map_ESE_ApiCallNameMapJetCompact)"/>
+      <map value="0x58" message="$(string.map_ESE_ApiCallNameMapJetConvertDDL)"/>
+      <map value="0x59" message="$(string.map_ESE_ApiCallNameMapJetUpgradeDatabase)"/>
+      <map value="0x5a" message="$(string.map_ESE_ApiCallNameMapJetDefragment)"/>
+      <map value="0x5b" message="$(string.map_ESE_ApiCallNameMapJetSetDatabaseSize)"/>
+      <map value="0x5c" message="$(string.map_ESE_ApiCallNameMapJetGrowDatabase)"/>
+      <map value="0x5d" message="$(string.map_ESE_ApiCallNameMapJetSetSessionContext)"/>
+      <map value="0x5e" message="$(string.map_ESE_ApiCallNameMapJetResetSessionContext)"/>
+      <map value="0x5f" message="$(string.map_ESE_ApiCallNameMapJetSetSystemParameter)"/>
+      <map value="0x60" message="$(string.map_ESE_ApiCallNameMapJetGetSystemParameter)"/>
+      <map value="0x61" message="$(string.map_ESE_ApiCallNameMapJetTerm)"/>
+      <map value="0x62" message="$(string.map_ESE_ApiCallNameMapJetInit)"/>
+      <map value="0x63" message="$(string.map_ESE_ApiCallNameMapJetIntersectIndexes)"/>
+      <map value="0x64" message="$(string.map_ESE_ApiCallNameMapJetDBUtilities)"/>
+      <map value="0x65" message="$(string.map_ESE_ApiCallNameMapJetGetResourceParam)"/>
+      <map value="0x66" message="$(string.map_ESE_ApiCallNameMapJetSetResourceParam)"/>
+      <map value="0x67" message="$(string.map_ESE_ApiCallNameMapJetEnumerateColumns)"/>
+      <map value="0x68" message="$(string.map_ESE_ApiCallNameMapJetOSSnapPrepareInstance)"/>
+      <map value="0x69" message="$(string.map_ESE_ApiCallNameMapJetOSSnapTruncateLogInstance)"/>
+      <map value="0x6a" message="$(string.map_ESE_ApiCallNameMapJetGetRecordSize)"/>
+      <map value="0x6b" message="$(string.map_ESE_ApiCallNameMapJetGetSessionInfo)"/>
+      <map value="0x6c" message="$(string.map_ESE_ApiCallNameMapJetGetInstanceMiscInfo)"/>
+      <map value="0x6d" message="$(string.map_ESE_ApiCallNameMapJetGetDatabasePages)"/>
+      <map value="0x6e" message="$(string.map_ESE_ApiCallNameMapJetBeginSurrogateBackup)"/>
+      <map value="0x6f" message="$(string.map_ESE_ApiCallNameMapJetEndSurrogateBackup)"/>
+      <map value="0x70" message="$(string.map_ESE_ApiCallNameMapJetRemoveLogfile)"/>
+      <map value="0x71" message="$(string.map_ESE_ApiCallNameMapJetDatabaseScan)"/>
+      <map value="0x72" message="$(string.map_ESE_ApiCallNameMapJetBeginDatabaseIncrementalReseed)"/>
+      <map value="0x73" message="$(string.map_ESE_ApiCallNameMapJetEndDatabaseIncrementalReseed)"/>
+      <map value="0x74" message="$(string.map_ESE_ApiCallNameMapJetPatchDatabasePages)"/>
+      <map value="0x75" message="$(string.map_ESE_ApiCallNameMapJetPrereadKeys)"/>
+      <map value="0x76" message="$(string.map_ESE_ApiCallNameMapJetTestHook)"/>
+      <map value="0x77" message="$(string.map_ESE_ApiCallNameMapJetConsumeLogData)"/>
+      <map value="0x78" message="$(string.map_ESE_ApiCallNameMapJetOnlinePatchDatabasePage)"/>
+      <map value="0x79" message="$(string.map_ESE_ApiCallNameMapJetGetErrorInfo)"/>
+      <map value="0x7a" message="$(string.map_ESE_ApiCallNameMapJetResizeDatabase)"/>
+      <map value="0x7b" message="$(string.map_ESE_ApiCallNameMapJetSetSessionParameter)"/>
+      <map value="0x7c" message="$(string.map_ESE_ApiCallNameMapJetGetSessionParameter)"/>
+      <map value="0x7d" message="$(string.map_ESE_ApiCallNameMapJetPrereadTable)"/>
+      <map value="0x7e" message="$(string.map_ESE_ApiCallNameMapJetCommitTransaction2)"/>
+      <map value="0x7f" message="$(string.map_ESE_ApiCallNameMapJetPrereadIndexRanges)"/>
+      <map value="0x80" message="$(string.map_ESE_ApiCallNameMapJetSetCursorFilter)"/>
+      <map value="0x81" message="$(string.map_ESE_ApiCallNameMapJetTracing)"/>
+      <map value="0x82" message="$(string.map_ESE_ApiCallNameMapJetGetDatabaseFileInfo)"/>
+      <map value="0x83" message="$(string.map_ESE_ApiCallNameMapJetGetLogFileInfo)"/>
+      <map value="0x84" message="$(string.map_ESE_ApiCallNameMapJetGetPageInfo)"/>
+      <map value="0x85" message="$(string.map_ESE_ApiCallNameMapJetGetThreadStats)"/>
+      <map value="0x86" message="$(string.map_ESE_ApiCallNameMapJetGetDatabaseSize)"/>
+      <map value="0x87" message="$(string.map_ESE_ApiCallNameMapJetEnableMultiInstance)"/>
+      <map value="0x88" message="$(string.map_ESE_ApiCallNameMapJetCreateInstance)"/>
+      <map value="0x89" message="$(string.map_ESE_ApiCallNameMapJetRestoreInstance)"/>
+      <map value="0x8a" message="$(string.map_ESE_ApiCallNameMapJetStopServiceInstance)"/>
+      <map value="0x8b" message="$(string.map_ESE_ApiCallNameMapJetStopBackupInstance)"/>
+      <map value="0x8c" message="$(string.map_ESE_ApiCallNameMapJetFreeBuffer)"/>
+      <map value="0x8d" message="$(string.map_ESE_ApiCallNameMapJetGetInstanceInfo)"/>
+      <map value="0x8e" message="$(string.map_ESE_ApiCallNameMapJetOSSnapshotPrepare)"/>
+      <map value="0x8f" message="$(string.map_ESE_ApiCallNameMapJetOSSnapshotFreeze)"/>
+      <map value="0x90" message="$(string.map_ESE_ApiCallNameMapJetOSSnapshotThaw)"/>
+      <map value="0x91" message="$(string.map_ESE_ApiCallNameMapJetOSSnapshotAbort)"/>
+      <map value="0x92" message="$(string.map_ESE_ApiCallNameMapJetOSSnapshotTruncateLog)"/>
+      <map value="0x93" message="$(string.map_ESE_ApiCallNameMapJetOSSnapshotGetFreezeInfo)"/>
+      <map value="0x94" message="$(string.map_ESE_ApiCallNameMapJetOSSnapshotEnd)"/>
+      <map value="0x95" message="$(string.map_ESE_ApiCallNameMapJetPrereadTables)"/>
+      <map value="0x96" message="$(string.map_ESE_ApiCallNameMapJetPrereadIndexRange)"/>
+      <map value="0x97" message="$(string.map_ESE_ApiCallNameMapJetCreateEncryptionKey)"/>
+      <map value="0x98" message="$(string.map_ESE_ApiCallNameMapJetSetTableInfo)"/>
+      <map value="0x99" message="$(string.map_ESE_ApiCallNameMapJetRetrieveColumnByReference)"/>
+      <map value="0x9a" message="$(string.map_ESE_ApiCallNameMapJetPrereadColumnsByReference)"/>
+      <map value="0x9b" message="$(string.map_ESE_ApiCallNameMapJetStreamRecords)"/>
+      <map value="0x9c" message="$(string.map_ESE_ApiCallNameMapJetRetrieveColumnFromRecordStream)"/>
+      <map value="0x9d" message="$(string.map_ESE_ApiCallNameMapJetFileSectionInstance)"/>
+     </valueMap>
+     <bitMap name="ESE_IofrMap">
+      <map value="0x0" message="$(string.map_ESE_IofrMapiofrInvalid)"/>
+      <map value="0x1" message="$(string.map_ESE_IofrMapiofrLogPatch)"/>
+      <map value="0x2" message="$(string.map_ESE_IofrMapiofrLogCommitFlush)"/>
+      <map value="0x4" message="$(string.map_ESE_IofrMapiofrLogCapacityFlush)"/>
+      <map value="0x8" message="$(string.map_ESE_IofrMapiofrLogSignalFlush)"/>
+      <map value="0x10" message="$(string.map_ESE_IofrMapiofrPersistClosingLogFile)"/>
+      <map value="0x20" message="$(string.map_ESE_IofrMapiofrLogMaxRequired)"/>
+      <map value="0x40" message="$(string.map_ESE_IofrMapiofrLogFlushAll)"/>
+      <map value="0x80" message="$(string.map_ESE_IofrMapiofrLogTerm)"/>
+      <map value="0x100" message="$(string.map_ESE_IofrMapiofrDbHdrUpdMaxRequired)"/>
+      <map value="0x200" message="$(string.map_ESE_IofrMapiofrDbHdrUpdMinRequired)"/>
+      <map value="0x400" message="$(string.map_ESE_IofrMapiofrDbUpdMinRequired)"/>
+      <map value="0x800" message="$(string.map_ESE_IofrMapiofrCheckpointMinRequired)"/>
+      <map value="0x1000" message="$(string.map_ESE_IofrMapiofrCheckpointForceWrite)"/>
+      <map value="0x4000" message="$(string.map_ESE_IofrMapiofrWriteBackFlushIfmpContext)"/>
+      <map value="0x8000" message="$(string.map_ESE_IofrMapiofrFlushIfmpContext)"/>
+      <map value="0x10000" message="$(string.map_ESE_IofrMapiofrConsumingExtendedDbSize)"/>
+      <map value="0x20000" message="$(string.map_ESE_IofrMapiofrUtility)"/>
+      <map value="0x40000" message="$(string.map_ESE_IofrMapiofrIncReseedUtil)"/>
+      <map value="0x80000" message="$(string.map_ESE_IofrMapiofrSeparateHeaderUpdate)"/>
+      <map value="0x100000" message="$(string.map_ESE_IofrMapiofrFmInit)"/>
+      <map value="0x200000" message="$(string.map_ESE_IofrMapiofrFmFlush)"/>
+      <map value="0x400000" message="$(string.map_ESE_IofrMapiofrFmTerm)"/>
+      <map value="0x800000" message="$(string.map_ESE_IofrMapiofrDefensiveCloseFlush)"/>
+      <map value="0x1000000" message="$(string.map_ESE_IofrMapiofrDefensiveErrorPath)"/>
+      <map value="0x2000000" message="$(string.map_ESE_IofrMapiofrDefensiveFileHdrWrite)"/>
+      <map value="0x4000000" message="$(string.map_ESE_IofrMapiofrOpeningFileFlush)"/>
+      <map value="0x8000000" message="$(string.map_ESE_IofrMapiofrPagePatching)"/>
+     </bitMap>
+    </maps>
+    <events>
+     <event value="100" symbol="ESE_Trace" version="0" task="ESE_Trace" level="win:Verbose" keywords="Trace"/>
+     <event value="101" symbol="ESE_BF_Trace" version="0" task="ESE_BF_Trace" level="win:Verbose" keywords="Trace"/>
+     <event value="102" symbol="ESE_Block_Trace" version="0" task="ESE_Block_Trace" level="win:Verbose" keywords="BF"/>
+     <event value="103" symbol="ESE_NewPage_Trace" version="0" task="ESE_NewPage_Trace" level="win:Informational" keywords="Performance BF" template="ESE_NewPage_TraceArgs"/>
+     <event value="104" symbol="ESE_ReadPage_Trace" version="0" task="ESE_ReadPage_Trace" level="win:Informational" keywords="Performance BF" template="ESE_ReadPage_TraceArgs"/>
+     <event value="105" symbol="ESE_PrereadPage_Trace" version="0" task="ESE_PrereadPage_Trace" level="win:Informational" keywords="Performance BF" template="ESE_PrereadPage_TraceArgs"/>
+     <event value="106" symbol="ESE_WritePage_Trace" version="0" task="ESE_WritePage_Trace" level="win:Informational" keywords="Performance BF BFRESMGR" template="ESE_WritePage_TraceArgs"/>
+     <event value="107" symbol="ESE_EvictPage_Trace" version="0" task="ESE_EvictPage_Trace" level="win:Informational" keywords="BF BFRESMGR DataWorkingSet" template="ESE_EvictPage_TraceArgs"/>
+     <event value="108" symbol="ESE_RequestPage_Trace" version="0" task="ESE_RequestPage_Trace" level="win:Verbose" keywords="BF BFRESMGR" template="ESE_RequestPage_TraceArgs"/>
+     <event value="110" symbol="ESE_DirtyPage_Trace" version="0" task="ESE_DirtyPage_Trace" level="win:Informational" keywords="Performance BF BFRESMGR" template="ESE_DirtyPage_TraceArgs"/>
+     <event value="111" symbol="ESE_TransactionBegin_Trace" version="0" task="ESE_TransactionBegin_Trace" level="win:Verbose" keywords="Transaction" template="ESE_TransactionBegin_TraceArgs"/>
+     <event value="112" symbol="ESE_TransactionCommit_Trace" version="0" task="ESE_TransactionCommit_Trace" level="win:Verbose" keywords="Transaction" template="ESE_TransactionBegin_TraceArgs"/>
+     <event value="113" symbol="ESE_TransactionRollback_Trace" version="0" task="ESE_TransactionRollback_Trace" level="win:Verbose" keywords="Transaction" template="ESE_TransactionBegin_TraceArgs"/>
+     <event value="114" symbol="ESE_AllocExt_Trace" version="0" task="ESE_AllocExt_Trace" level="win:Verbose" keywords="Space" template="ESE_AllocExt_TraceArgs"/>
+     <event value="115" symbol="ESE_FreeExt_Trace" version="0" task="ESE_FreeExt_Trace" level="win:Verbose" keywords="Space" template="ESE_AllocExt_TraceArgs"/>
+     <event value="116" symbol="ESE_AllocPage_Trace" version="0" task="ESE_AllocPage_Trace" level="win:Verbose" keywords="Space DataWorkingSet" template="ESE_AllocPage_TraceArgs"/>
+     <event value="117" symbol="ESE_FreePage_Trace" version="0" task="ESE_FreePage_Trace" level="win:Verbose" keywords="Space DataWorkingSet" template="ESE_FreePage_TraceArgs"/>
+     <event value="118" symbol="ESE_IOREQHeapEnqueue_Trace" version="0" task="ESE_IOREQHeapEnqueue_Trace" level="win:Informational" keywords="IO" template="ESE_IOREQHeapEnqueue_TraceArgs"/>
+     <event value="119" symbol="ESE_IOREQHeapDequeue_Trace" version="0" task="ESE_IOREQHeapDequeue_Trace" level="win:Informational" keywords="IO" template="ESE_IOREQHeapDequeue_TraceArgs"/>
+     <event value="120" symbol="ESE_IOCompletion_Trace" version="0" task="ESE_IOCompletion_Trace" level="win:Informational" keywords="IO" template="ESE_IOCompletion_TraceArgs"/>
+     <event value="121" symbol="ESE_LogStall_Trace" version="0" task="ESE_LogStall_Trace" level="win:Warning" keywords="LOG StallLatencies"/>
+     <event value="122" symbol="ESE_LogWrite_Trace" version="0" task="ESE_LogWrite_Trace" level="win:Informational" keywords="LOG" template="ESE_LogWrite_TraceArgs"/>
+     <event value="123" symbol="ESE_EventLogInfo_Trace" version="0" task="ESE_EventLogInfo_Trace" level="win:Informational" keywords="Trace" template="ESE_EventLogInfo_TraceArgs"/>
+     <event value="124" symbol="ESE_EventLogWarn_Trace" version="0" task="ESE_EventLogWarn_Trace" level="win:Warning" keywords="Trace" template="ESE_EventLogInfo_TraceArgs"/>
+     <event value="125" symbol="ESE_EventLogError_Trace" version="0" task="ESE_EventLogError_Trace" level="win:Error" keywords="Trace" template="ESE_EventLogInfo_TraceArgs"/>
+     <event value="126" symbol="ESE_TimerQueueSchedule_Trace" version="0" task="ESE_TimerQueueSchedule_Trace" level="win:Verbose" keywords="Task" template="ESE_TimerQueueSchedule_TraceArgs"/>
+     <event value="127" symbol="ESE_TimerQueueRun_Trace" version="0" task="ESE_TimerQueueRun_Trace" level="win:Verbose" keywords="Task" template="ESE_TimerQueueRun_TraceArgs"/>
+     <event value="128" symbol="ESE_TimerQueueCancel_Trace" version="0" task="ESE_TimerQueueCancel_Trace" level="win:Verbose" keywords="Task" template="ESE_TimerQueueCancel_TraceArgs"/>
+     <event value="129" symbol="ESE_TimerTaskSchedule_Trace" version="0" task="ESE_TimerTaskSchedule_Trace" level="win:Verbose" keywords="Task" template="ESE_TimerTaskSchedule_TraceArgs"/>
+     <event value="130" symbol="ESE_TimerTaskRun_Trace" version="0" task="ESE_TimerTaskRun_Trace" level="win:Verbose" keywords="Task" template="ESE_TimerTaskRun_TraceArgs"/>
+     <event value="131" symbol="ESE_TimerTaskCancel_Trace" version="0" task="ESE_TimerTaskCancel_Trace" level="win:Verbose" keywords="Task" template="ESE_TimerTaskCancel_TraceArgs"/>
+     <event value="132" symbol="ESE_TaskManagerPost_Trace" version="0" task="ESE_TaskManagerPost_Trace" level="win:Verbose" keywords="Task" template="ESE_TaskManagerPost_TraceArgs"/>
+     <event value="133" symbol="ESE_TaskManagerRun_Trace" version="0" task="ESE_TaskManagerRun_Trace" level="win:Verbose" keywords="Task" template="ESE_TaskManagerRun_TraceArgs"/>
+     <event value="134" symbol="ESE_GPTaskManagerPost_Trace" version="0" task="ESE_GPTaskManagerPost_Trace" level="win:Verbose" keywords="Task" template="ESE_GPTaskManagerPost_TraceArgs"/>
+     <event value="135" symbol="ESE_GPTaskManagerRun_Trace" version="0" task="ESE_GPTaskManagerRun_Trace" level="win:Verbose" keywords="Task" template="ESE_GPTaskManagerPost_TraceArgs"/>
+     <event value="136" symbol="ESE_TestMarker_Trace" version="0" task="ESE_TestMarker_Trace" level="win:Informational" keywords="Test" template="ESE_TestMarker_TraceArgs"/>
+     <event value="137" symbol="ESE_ThreadCreate_Trace" version="0" task="ESE_ThreadCreate_Trace" level="win:Informational" keywords="Task" template="ESE_ThreadCreate_TraceArgs"/>
+     <event value="138" symbol="ESE_ThreadStart_Trace" version="0" task="ESE_ThreadStart_Trace" level="win:Informational" keywords="Task" template="ESE_ThreadCreate_TraceArgs"/>
+     <event value="139" symbol="ESE_VersionPage_Trace" version="0" task="ESE_VersionPage_Trace" level="win:Informational" keywords="Performance BF" template="ESE_VersionPage_TraceArgs"/>
+     <event value="140" symbol="ESE_VersionCopyPage_Trace" version="0" task="ESE_VersionCopyPage_Trace" level="win:Informational" keywords="Performance BF" template="ESE_VersionPage_TraceArgs"/>
+     <event value="141" symbol="ESE_CacheResize_Trace" version="0" task="ESE_CacheResize_Trace" level="win:Informational" keywords="Performance BF" template="ESE_CacheResize_TraceArgs"/>
+     <event value="142" symbol="ESE_CacheLimitResize_Trace" version="0" task="ESE_CacheLimitResize_Trace" level="win:Informational" keywords="Performance BF" template="ESE_CacheLimitResize_TraceArgs"/>
+     <event value="143" symbol="ESE_CacheScavengeProgress_Trace" version="0" task="ESE_CacheScavengeProgress_Trace" level="win:Informational" keywords="Performance BF" template="ESE_CacheScavengeProgress_TraceArgs"/>
+     <event value="144" symbol="ESE_ApiCall_TraceStart" version="0" task="ESE_ApiCall_Trace" opcode="win:Start" level="win:Informational" keywords="Performance" template="ESE_ApiCall_TraceStartArgs"/>
+     <event value="145" symbol="ESE_ApiCall_TraceStop" version="0" task="ESE_ApiCall_Trace" opcode="win:Stop" level="win:Informational" keywords="Performance" template="ESE_ApiCall_TraceStopArgs"/>
+     <event value="146" symbol="ESE_ResMgrInit_Trace" version="0" task="ESE_ResMgrInit_Trace" level="win:Informational" keywords="BFRESMGR" template="ESE_ResMgrInit_TraceArgs"/>
+     <event value="147" symbol="ESE_ResMgrTerm_Trace" version="0" task="ESE_ResMgrTerm_Trace" level="win:Informational" keywords="BFRESMGR" template="ESE_ResMgrTerm_TraceArgs"/>
+     <event value="148" symbol="ESE_CachePage_Trace" version="0" task="ESE_CachePage_Trace" level="win:Verbose" keywords="BF BFRESMGR" template="ESE_CachePage_TraceArgs"/>
+     <event value="149" symbol="ESE_MarkPageAsSuperCold_Trace" version="0" task="ESE_MarkPageAsSuperCold_Trace" level="win:Verbose" keywords="BF BFRESMGR" template="ESE_MarkPageAsSuperCold_TraceArgs"/>
+     <event value="150" symbol="ESE_CacheMissLatency_Trace" version="0" task="ESE_CacheMissLatency_Trace" level="win:Informational" keywords="BF StallLatencies" template="ESE_CacheMissLatency_TraceArgs"/>
+     <event value="151" symbol="ESE_BTreePrereadPageRequest_Trace" version="0" task="ESE_BTreePrereadPageRequest_Trace" level="win:Informational" keywords="Performance" template="ESE_BTreePrereadPageRequest_TraceArgs"/>
+     <event value="152" symbol="ESE_DiskFlushFileBuffers_Trace" version="0" task="ESE_DiskFlushFileBuffers_Trace" level="win:Informational" keywords="IO" template="ESE_DiskFlushFileBuffers_TraceArgs"/>
+     <event value="153" symbol="ESE_DiskFlushFileBuffersBegin_Trace" version="0" task="ESE_DiskFlushFileBuffersBegin_Trace" level="win:Informational" keywords="IO" template="ESE_DiskFlushFileBuffersBegin_TraceArgs"/>
+     <event value="154" symbol="ESE_CacheFirstDirtyPage_Trace" version="0" task="ESE_CacheFirstDirtyPage_Trace" level="win:Informational" keywords="BF DataWorkingSet" template="ESE_CacheFirstDirtyPage_TraceArgs"/>
+     <event value="155" symbol="ESE_SysStationId_Trace" version="0" task="ESE_SysStationId_Trace" level="win:Informational" keywords="StationId" template="ESE_SysStationId_TraceArgs"/>
+     <event value="156" symbol="ESE_InstStationId_Trace" version="0" task="ESE_InstStationId_Trace" level="win:Informational" keywords="StationId" template="ESE_InstStationId_TraceArgs"/>
+     <event value="157" symbol="ESE_FmpStationId_Trace" version="0" task="ESE_FmpStationId_Trace" level="win:Informational" keywords="StationId" template="ESE_FmpStationId_TraceArgs"/>
+     <event value="158" symbol="ESE_DiskStationId_Trace" version="0" task="ESE_DiskStationId_Trace" level="win:Informational" keywords="StationId" template="ESE_DiskStationId_TraceArgs"/>
+     <event value="159" symbol="ESE_FileStationId_Trace" version="0" task="ESE_FileStationId_Trace" level="win:Informational" keywords="StationId" template="ESE_FileStationId_TraceArgs"/>
+     <event value="160" symbol="ESE_IsamDbfilehdrInfo_Trace" version="0" task="ESE_IsamDbfilehdrInfo_Trace" level="win:Informational" keywords="StationId" template="ESE_IsamDbfilehdrInfo_TraceArgs"/>
+     <event value="161" symbol="ESE_DiskOsDiskCacheInfo_Trace" version="0" task="ESE_DiskOsDiskCacheInfo_Trace" level="win:Informational" keywords="StationId" template="ESE_DiskOsDiskCacheInfo_TraceArgs"/>
+     <event value="162" symbol="ESE_DiskOsStorageWriteCacheProp_Trace" version="0" task="ESE_DiskOsStorageWriteCacheProp_Trace" level="win:Informational" keywords="StationId" template="ESE_DiskOsStorageWriteCacheProp_TraceArgs"/>
+     <event value="163" symbol="ESE_DiskOsDeviceSeekPenaltyDesc_Trace" version="0" task="ESE_DiskOsDeviceSeekPenaltyDesc_Trace" level="win:Informational" keywords="StationId" template="ESE_DiskOsDeviceSeekPenaltyDesc_TraceArgs"/>
+     <event value="165" symbol="ESE_IOCompletion2_Trace" version="0" task="ESE_IOCompletion2_Trace" level="win:Informational" keywords="IOEX" template="ESE_IOCompletion2_TraceArgs"/>
+     <event value="166" symbol="ESE_FCBPurgeFailure_Trace" version="0" task="ESE_FCBPurgeFailure_Trace" level="win:Informational" template="ESE_FCBPurgeFailure_TraceArgs"/>
+     <event value="167" symbol="ESE_IOLatencySpikeNotice_Trace" version="0" task="ESE_IOLatencySpikeNotice_Trace" level="win:Informational" keywords="StallLatencies" template="ESE_IOLatencySpikeNotice_TraceArgs"/>
+     <event value="200" symbol="ESE_tagNull_Trace" version="0" task="ESE_tagNull_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="201" symbol="ESE_tagInformation_Trace" version="0" task="ESE_tagInformation_Trace" level="win:Informational" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="202" symbol="ESE_tagErrors_Trace" version="0" task="ESE_tagErrors_Trace" level="win:Informational" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="203" symbol="ESE_tagAsserts_Trace" version="0" task="ESE_tagAsserts_Trace" level="win:Error" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="204" symbol="ESE_tagAPI_Trace" version="0" task="ESE_tagAPI_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="205" symbol="ESE_tagInitTerm_Trace" version="0" task="ESE_tagInitTerm_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="206" symbol="ESE_tagBufferManager_Trace" version="0" task="ESE_tagBufferManager_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="207" symbol="ESE_tagBufferManagerHashedLatches_Trace" version="0" task="ESE_tagBufferManagerHashedLatches_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="208" symbol="ESE_tagIO_Trace" version="0" task="ESE_tagIO_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="209" symbol="ESE_tagMemory_Trace" version="0" task="ESE_tagMemory_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="210" symbol="ESE_tagVersionStore_Trace" version="0" task="ESE_tagVersionStore_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="211" symbol="ESE_tagVersionStoreOOM_Trace" version="0" task="ESE_tagVersionStoreOOM_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="212" symbol="ESE_tagVersionCleanup_Trace" version="0" task="ESE_tagVersionCleanup_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="213" symbol="ESE_tagCatalog_Trace" version="0" task="ESE_tagCatalog_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="214" symbol="ESE_tagDDLRead_Trace" version="0" task="ESE_tagDDLRead_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="215" symbol="ESE_tagDDLWrite_Trace" version="0" task="ESE_tagDDLWrite_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="216" symbol="ESE_tagDMLRead_Trace" version="0" task="ESE_tagDMLRead_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="217" symbol="ESE_tagDMLWrite_Trace" version="0" task="ESE_tagDMLWrite_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="218" symbol="ESE_tagDMLConflicts_Trace" version="0" task="ESE_tagDMLConflicts_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="219" symbol="ESE_tagInstances_Trace" version="0" task="ESE_tagInstances_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="220" symbol="ESE_tagDatabases_Trace" version="0" task="ESE_tagDatabases_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="221" symbol="ESE_tagSessions_Trace" version="0" task="ESE_tagSessions_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="222" symbol="ESE_tagCursors_Trace" version="0" task="ESE_tagCursors_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="223" symbol="ESE_tagCursorNavigation_Trace" version="0" task="ESE_tagCursorNavigation_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="224" symbol="ESE_tagCursorPageRefs_Trace" version="0" task="ESE_tagCursorPageRefs_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="225" symbol="ESE_tagBtree_Trace" version="0" task="ESE_tagBtree_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="226" symbol="ESE_tagSpace_Trace" version="0" task="ESE_tagSpace_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="227" symbol="ESE_tagFCBs_Trace" version="0" task="ESE_tagFCBs_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="228" symbol="ESE_tagTransactions_Trace" version="0" task="ESE_tagTransactions_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="229" symbol="ESE_tagLogging_Trace" version="0" task="ESE_tagLogging_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="230" symbol="ESE_tagRecovery_Trace" version="0" task="ESE_tagRecovery_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="231" symbol="ESE_tagBackup_Trace" version="0" task="ESE_tagBackup_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="232" symbol="ESE_tagRestore_Trace" version="0" task="ESE_tagRestore_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="233" symbol="ESE_tagOLD_Trace" version="0" task="ESE_tagOLD_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="234" symbol="ESE_tagEventlog_Trace" version="0" task="ESE_tagEventlog_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="235" symbol="ESE_tagBufferManagerMaintTasks_Trace" version="0" task="ESE_tagBufferManagerMaintTasks_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="236" symbol="ESE_tagSpaceManagement_Trace" version="0" task="ESE_tagSpaceManagement_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="237" symbol="ESE_tagSpaceInternal_Trace" version="0" task="ESE_tagSpaceInternal_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="238" symbol="ESE_tagIOQueue_Trace" version="0" task="ESE_tagIOQueue_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="239" symbol="ESE_tagDiskVolumeManagement_Trace" version="0" task="ESE_tagDiskVolumeManagement_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="240" symbol="ESE_tagCallbacks_Trace" version="0" task="ESE_tagCallbacks_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="241" symbol="ESE_tagIOProblems_Trace" version="0" task="ESE_tagIOProblems_Trace" level="win:Error" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="242" symbol="ESE_tagUpgrade_Trace" version="0" task="ESE_tagUpgrade_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="243" symbol="ESE_tagRecoveryValidation_Trace" version="0" task="ESE_tagRecoveryValidation_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="244" symbol="ESE_tagBufferManagerBufferCacheState_Trace" version="0" task="ESE_tagBufferManagerBufferCacheState_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="245" symbol="ESE_tagBufferManagerBufferDirtyState_Trace" version="0" task="ESE_tagBufferManagerBufferDirtyState_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="246" symbol="ESE_tagTimerQueue_Trace" version="0" task="ESE_tagTimerQueue_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="247" symbol="ESE_tagSortPerf_Trace" version="0" task="ESE_tagSortPerf_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="248" symbol="ESE_tagOLDRegistration_Trace" version="0" task="ESE_tagOLDRegistration_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="249" symbol="ESE_tagOLDWork_Trace" version="0" task="ESE_tagOLDWork_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="250" symbol="ESE_tagSysInitTerm_Trace" version="0" task="ESE_tagSysInitTerm_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="251" symbol="ESE_tagVersionAndStagingChecks_Trace" version="0" task="ESE_tagVersionAndStagingChecks_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="252" symbol="ESE_tagFile_Trace" version="0" task="ESE_tagFile_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="253" symbol="ESE_tagFlushFileBuffers_Trace" version="0" task="ESE_tagFlushFileBuffers_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="254" symbol="ESE_tagCheckpointUpdate_Trace" version="0" task="ESE_tagCheckpointUpdate_Trace" level="win:Verbose" keywords="JETTraceTag" template="ESE_tagNull_TraceArgs"/>
+     <event value="5000" symbol="task_0" version="0" task="task_0" level="win:Verbose" keywords="CompressExp" template="task_0Args"/>
+    </events>
+    <templates>
+     <template tid="ESE_NewPage_TraceArgs">
+      <data name="ifmp" inType="win:UInt32"/>
+      <data name="pgno" inType="win:UInt32"/>
+      <data name="LatchFlags" inType="win:UInt32"/>
+      <data name="objid" inType="win:UInt32"/>
+      <data name="PageFlags" inType="win:UInt32" map="ESE_PageFlagsMap"/>
+      <data name="UserId" inType="win:UInt32"/>
+      <data name="OperationId" inType="win:UInt8"/>
+      <data name="OperationType" inType="win:UInt8"/>
+      <data name="ClientType" inType="win:UInt8"/>
+      <data name="Flags" inType="win:UInt8"/>
+      <data name="CorrelationId" inType="win:UInt32"/>
+      <data name="Iorp" inType="win:UInt8"/>
+      <data name="Iors" inType="win:UInt8" map="ESE_IorsMap"/>
+      <data name="Iort" inType="win:UInt8" map="ESE_IortMap"/>
+      <data name="Ioru" inType="win:UInt8"/>
+      <data name="Iorf" inType="win:UInt8" map="ESE_IorfMap"/>
+      <data name="ParentObjectClass" inType="win:UInt8"/>
+      <data name="dbtimeDirtied" inType="win:UInt64"/>
+      <data name="itagMicFree" inType="win:UInt16"/>
+      <data name="cbFree" inType="win:UInt16"/>
+     </template>
+     <template tid="ESE_ReadPage_TraceArgs">
+      <data name="ifmp" inType="win:UInt32"/>
+      <data name="pgno" inType="win:UInt32"/>
+      <data name="LatchFlags" inType="win:UInt32"/>
+      <data name="objid" inType="win:UInt32"/>
+      <data name="PageFlags" inType="win:UInt32"/>
+      <data name="UserId" inType="win:UInt32"/>
+      <data name="OperationId" inType="win:UInt8"/>
+      <data name="OperationType" inType="win:UInt8"/>
+      <data name="ClientType" inType="win:UInt8"/>
+      <data name="Flags" inType="win:UInt8"/>
+      <data name="CorrelationId" inType="win:UInt32"/>
+      <data name="Iorp" inType="win:UInt8"/>
+      <data name="Iors" inType="win:UInt8"/>
+      <data name="Iort" inType="win:UInt8"/>
+      <data name="Ioru" inType="win:UInt8"/>
+      <data name="Iorf" inType="win:UInt8"/>
+      <data name="ParentObjectClass" inType="win:UInt8"/>
+      <data name="dbtimeDirtied" inType="win:UInt64"/>
+      <data name="itagMicFree" inType="win:UInt16"/>
+      <data name="cbFree" inType="win:UInt16"/>
+     </template>
+     <template tid="ESE_PrereadPage_TraceArgs">
+      <data name="ifmp" inType="win:UInt32"/>
+      <data name="pgno" inType="win:UInt32"/>
+      <data name="UserId" inType="win:UInt32"/>
+      <data name="OperationId" inType="win:UInt8"/>
+      <data name="OperationType" inType="win:UInt8"/>
+      <data name="ClientType" inType="win:UInt8"/>
+      <data name="Flags" inType="win:UInt8"/>
+      <data name="CorrelationId" inType="win:UInt32"/>
+      <data name="Iorp" inType="win:UInt8" map="ESE_IorpMap"/>
+      <data name="Iors" inType="win:UInt8"/>
+      <data name="Iort" inType="win:UInt8"/>
+      <data name="Ioru" inType="win:UInt8"/>
+      <data name="Iorf" inType="win:UInt8"/>
+      <data name="ParentObjectClass" inType="win:UInt8"/>
+     </template>
+     <template tid="ESE_WritePage_TraceArgs">
+      <data name="tick" inType="win:UInt32"/>
+      <data name="ifmp" inType="win:UInt32"/>
+      <data name="pgno" inType="win:UInt32"/>
+      <data name="objid" inType="win:UInt32"/>
+      <data name="PageFlags" inType="win:UInt32"/>
+      <data name="DirtyLevel" inType="win:UInt32" map="ESE_DirtyLevelMap"/>
+      <data name="UserId" inType="win:UInt32"/>
+      <data name="OperationId" inType="win:UInt8"/>
+      <data name="OperationType" inType="win:UInt8"/>
+      <data name="ClientType" inType="win:UInt8"/>
+      <data name="Flags" inType="win:UInt8"/>
+      <data name="CorrelationId" inType="win:UInt32"/>
+      <data name="Iorp" inType="win:UInt8"/>
+      <data name="Iors" inType="win:UInt8"/>
+      <data name="Iort" inType="win:UInt8"/>
+      <data name="Ioru" inType="win:UInt8"/>
+      <data name="Iorf" inType="win:UInt8"/>
+      <data name="ParentObjectClass" inType="win:UInt8"/>
+     </template>
+     <template tid="ESE_EvictPage_TraceArgs">
+      <data name="tick" inType="win:UInt32"/>
+      <data name="ifmp" inType="win:UInt32"/>
+      <data name="pgno" inType="win:UInt32"/>
+      <data name="fCurrentVersion" inType="win:UInt32"/>
+      <data name="errBF" inType="win:Int32"/>
+      <data name="bfef" inType="win:UInt32"/>
+      <data name="pctPriority" inType="win:UInt32"/>
+     </template>
+     <template tid="ESE_RequestPage_TraceArgs">
+      <data name="tick" inType="win:UInt32"/>
+      <data name="ifmp" inType="win:UInt32"/>
+      <data name="pgno" inType="win:UInt32"/>
+      <data name="bflf" inType="win:UInt32"/>
+      <data name="objid" inType="win:UInt32"/>
+      <data name="PageFlags" inType="win:UInt32"/>
+      <data name="bflt" inType="win:UInt32"/>
+      <data name="pctPriority" inType="win:UInt32"/>
+      <data name="bfrtf" inType="win:UInt32"/>
+      <data name="ClientType" inType="win:UInt8"/>
+     </template>
+     <template tid="ESE_DirtyPage_TraceArgs">
+      <data name="tick" inType="win:UInt32"/>
+      <data name="ifmp" inType="win:UInt32"/>
+      <data name="pgno" inType="win:UInt32"/>
+      <data name="objid" inType="win:UInt32"/>
+      <data name="PageFlags" inType="win:UInt32"/>
+      <data name="DirtyLevel" inType="win:UInt32"/>
+      <data name="LgposModify" inType="win:UInt64"/>
+      <data name="UserId" inType="win:UInt32"/>
+      <data name="OperationId" inType="win:UInt8"/>
+      <data name="OperationType" inType="win:UInt8"/>
+      <data name="ClientType" inType="win:UInt8"/>
+      <data name="Flags" inType="win:UInt8"/>
+      <data name="CorrelationId" inType="win:UInt32"/>
+      <data name="Iorp" inType="win:UInt8"/>
+      <data name="Iors" inType="win:UInt8"/>
+      <data name="Iort" inType="win:UInt8"/>
+      <data name="Ioru" inType="win:UInt8"/>
+      <data name="Iorf" inType="win:UInt8"/>
+      <data name="ParentObjectClass" inType="win:UInt8"/>
+     </template>
+     <template tid="ESE_TransactionBegin_TraceArgs">
+      <data name="SessionNumber" inType="win:Pointer"/>
+      <data name="TransactionNumber" inType="win:Pointer"/>
+      <data name="TransactionLevel" inType="win:UInt8"/>
+     </template>
+     <template tid="ESE_AllocExt_TraceArgs">
+      <data name="ifmp" inType="win:UInt32"/>
+      <data name="pgnoFDP" inType="win:UInt32"/>
+      <data name="pgnoFirst" inType="win:UInt32"/>
+      <data name="cpg" inType="win:UInt32"/>
+      <data name="objidFDP" inType="win:UInt32"/>
+      <data name="tce" inType="win:UInt8"/>
+     </template>
+     <template tid="ESE_AllocPage_TraceArgs">
+      <data name="ifmp" inType="win:UInt32"/>
+      <data name="pgnoFDP" inType="win:UInt32"/>
+      <data name="pgnoAlloc" inType="win:UInt32"/>
+      <data name="objidFDP" inType="win:UInt32"/>
+      <data name="tce" inType="win:UInt8"/>
+     </template>
+     <template tid="ESE_FreePage_TraceArgs">
+      <data name="ifmp" inType="win:UInt32"/>
+      <data name="pgnoFDP" inType="win:UInt32"/>
+      <data name="pgnoFree" inType="win:UInt32"/>
+      <data name="objidFDP" inType="win:UInt32"/>
+      <data name="tce" inType="win:UInt8"/>
+     </template>
+     <template tid="ESE_IOREQHeapEnqueue_TraceArgs">
+      <data name="iFile" inType="win:UInt64"/>
+      <data name="ibOffset" inType="win:UInt64"/>
+      <data name="cbData" inType="win:UInt32"/>
+      <data name="tidAlloc" inType="win:UInt32"/>
+      <data name="fHeapA" inType="win:UInt32"/>
+      <data name="fWrite" inType="win:UInt32"/>
+      <data name="EngineFileType" inType="win:UInt32"/>
+      <data name="EngineFileId" inType="win:UInt64"/>
+      <data name="cusecEnqueueLatency" inType="win:UInt32"/>
+     </template>
+     <template tid="ESE_IOREQHeapDequeue_TraceArgs">
+      <data name="iFile" inType="win:UInt64"/>
+      <data name="ibOffset" inType="win:UInt64"/>
+      <data name="cbData" inType="win:UInt32"/>
+      <data name="tidAlloc" inType="win:UInt32"/>
+      <data name="fHeapA" inType="win:UInt32"/>
+      <data name="fWrite" inType="win:UInt32"/>
+      <data name="Iorp" inType="win:UInt32"/>
+      <data name="Iors" inType="win:UInt32"/>
+      <data name="Ioru" inType="win:UInt32"/>
+      <data name="Iorf" inType="win:UInt32"/>
+      <data name="grbitQos" inType="win:UInt32"/>
+      <data name="cmsecTimeInQueue" inType="win:UInt64"/>
+      <data name="EngineFileType" inType="win:UInt32"/>
+      <data name="EngineFileId" inType="win:UInt64"/>
+      <data name="cDispatchPass" inType="win:UInt64"/>
+      <data name="cIorunCombined" inType="win:UInt16"/>
+      <data name="cusecDequeueLatency" inType="win:UInt32"/>
+     </template>
+     <template tid="ESE_IOCompletion_TraceArgs">
+      <data name="iFile" inType="win:UInt64"/>
+      <data name="fMultiIor" inType="win:UInt32"/>
+      <data name="fWrite" inType="win:UInt8"/>
+      <data name="UserId" inType="win:UInt32"/>
+      <data name="OperationId" inType="win:UInt8"/>
+      <data name="OperationType" inType="win:UInt8"/>
+      <data name="ClientType" inType="win:UInt8"/>
+      <data name="Flags" inType="win:UInt8"/>
+      <data name="CorrelationId" inType="win:UInt32"/>
+      <data name="Iorp" inType="win:UInt8"/>
+      <data name="Iors" inType="win:UInt8"/>
+      <data name="Iort" inType="win:UInt8"/>
+      <data name="Ioru" inType="win:UInt8"/>
+      <data name="Iorf" inType="win:UInt8"/>
+      <data name="ParentObjectClass" inType="win:UInt8"/>
+      <data name="ibOffset" inType="win:UInt64"/>
+      <data name="cbTransfer" inType="win:UInt32"/>
+      <data name="error" inType="win:UInt32"/>
+      <data name="qosHighestFirst" inType="win:UInt32"/>
+      <data name="cmsecIOElapsed" inType="win:UInt64"/>
+      <data name="dtickCompletionDelay" inType="win:UInt32"/>
+      <data name="tidAlloc" inType="win:UInt32"/>
+      <data name="EngineFileType" inType="win:UInt32"/>
+      <data name="EngineFileId" inType="win:UInt64"/>
+      <data name="fmfFile" inType="win:UInt32"/>
+      <data name="DiskNumber" inType="win:UInt32"/>
+     </template>
+     <template tid="ESE_LogWrite_TraceArgs">
+      <data name="lgenData" inType="win:Int32"/>
+      <data name="ibLogData" inType="win:UInt32"/>
+      <data name="cbLogData" inType="win:UInt32"/>
+     </template>
+     <template tid="ESE_EventLogInfo_TraceArgs">
+      <data name="szTrace" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ESE_TimerQueueSchedule_TraceArgs">
+      <data name="pfnTask" inType="win:Pointer"/>
+      <data name="pvTaskContext" inType="win:Pointer"/>
+      <data name="dwContext" inType="win:Pointer"/>
+      <data name="dtickDelay" inType="win:UInt32"/>
+      <data name="dtickPeriod" inType="win:UInt32"/>
+     </template>
+     <template tid="ESE_TimerQueueRun_TraceArgs">
+      <data name="pfnTask" inType="win:Pointer"/>
+      <data name="pvTaskContext" inType="win:Pointer"/>
+      <data name="dwContext" inType="win:Pointer"/>
+      <data name="cRuns" inType="win:UInt64"/>
+     </template>
+     <template tid="ESE_TimerQueueCancel_TraceArgs">
+      <data name="pfnTask" inType="win:Pointer"/>
+      <data name="pvTaskContext" inType="win:Pointer"/>
+     </template>
+     <template tid="ESE_TimerTaskSchedule_TraceArgs">
+      <data name="posttTimerHandle" inType="win:Pointer"/>
+      <data name="pfnTask" inType="win:Pointer"/>
+      <data name="pvTaskGroupContext" inType="win:Pointer"/>
+      <data name="pvRuntimeContext" inType="win:Pointer"/>
+      <data name="dtickMinDelay" inType="win:UInt32"/>
+      <data name="dtickSlopDelay" inType="win:UInt32"/>
+     </template>
+     <template tid="ESE_TimerTaskRun_TraceArgs">
+      <data name="posttTimerHandle" inType="win:Pointer"/>
+      <data name="pfnTask" inType="win:Pointer"/>
+      <data name="pvTaskGroupContext" inType="win:Pointer"/>
+      <data name="pvRuntimeContext" inType="win:Pointer"/>
+      <data name="cRuns" inType="win:UInt64"/>
+     </template>
+     <template tid="ESE_TimerTaskCancel_TraceArgs">
+      <data name="posttTimerHandle" inType="win:Pointer"/>
+      <data name="pfnTask" inType="win:Pointer"/>
+      <data name="pvTaskGroupContext" inType="win:Pointer"/>
+     </template>
+     <template tid="ESE_TaskManagerPost_TraceArgs">
+      <data name="ptm" inType="win:Pointer"/>
+      <data name="pfnCompletion" inType="win:Pointer"/>
+      <data name="dwCompletionKey1" inType="win:UInt32"/>
+      <data name="dwCompletionKey2" inType="win:Pointer"/>
+     </template>
+     <template tid="ESE_TaskManagerRun_TraceArgs">
+      <data name="ptm" inType="win:Pointer"/>
+      <data name="pfnCompletion" inType="win:Pointer"/>
+      <data name="dwCompletionKey1" inType="win:UInt32"/>
+      <data name="dwCompletionKey2" inType="win:Pointer"/>
+      <data name="gle" inType="win:UInt32"/>
+      <data name="dwThreadContext" inType="win:Pointer"/>
+     </template>
+     <template tid="ESE_GPTaskManagerPost_TraceArgs">
+      <data name="pgptm" inType="win:Pointer"/>
+      <data name="pfnCompletion" inType="win:Pointer"/>
+      <data name="pvParam" inType="win:Pointer"/>
+      <data name="pTaskInfo" inType="win:Pointer"/>
+     </template>
+     <template tid="ESE_TestMarker_TraceArgs">
+      <data name="qwMarkerID" inType="win:UInt64"/>
+      <data name="szAnnotation" inType="win:AnsiString"/>
+     </template>
+     <template tid="ESE_ThreadCreate_TraceArgs">
+      <data name="Thread" inType="win:Pointer"/>
+      <data name="pfnStart" inType="win:Pointer"/>
+      <data name="dwParam" inType="win:Pointer"/>
+     </template>
+     <template tid="ESE_VersionPage_TraceArgs">
+      <data name="ifmp" inType="win:UInt32"/>
+      <data name="pgno" inType="win:UInt32"/>
+     </template>
+     <template tid="ESE_CacheResize_TraceArgs">
+      <data name="cbfCacheAddressableInitial" inType="win:Int64"/>
+      <data name="cbfCacheSizeInitial" inType="win:Int64"/>
+      <data name="cbfCacheAddressableFinal" inType="win:Int64"/>
+      <data name="cbfCacheSizeFinal" inType="win:Int64"/>
+     </template>
+     <template tid="ESE_CacheLimitResize_TraceArgs">
+      <data name="cacheSizeLimitInitial" inType="win:Int64"/>
+      <data name="cacheSizeLimitFinal" inType="win:Int64"/>
+     </template>
+     <template tid="ESE_CacheScavengeProgress_TraceArgs">
+      <data name="iRun" inType="win:Int64"/>
+      <data name="cbfVisited" inType="win:Int32"/>
+      <data name="cbfCacheSize" inType="win:Int32"/>
+      <data name="cbfCacheTarget" inType="win:Int32"/>
+      <data name="cbfCacheSizeStartShrink" inType="win:Int32"/>
+      <data name="dtickShrinkDuration" inType="win:UInt32"/>
+      <data name="cbfAvail" inType="win:Int32"/>
+      <data name="cbfAvailPoolLow" inType="win:Int32"/>
+      <data name="cbfAvailPoolHigh" inType="win:Int32"/>
+      <data name="cbfFlushPending" inType="win:Int32"/>
+      <data name="cbfFlushPendingSlow" inType="win:Int32"/>
+      <data name="cbfFlushPendingHung" inType="win:Int32"/>
+      <data name="cbfOutOfMemory" inType="win:Int32"/>
+      <data name="cbfPermanentErrs" inType="win:Int32"/>
+      <data name="eStopReason" inType="win:Int32"/>
+      <data name="errRun" inType="win:Int32"/>
+     </template>
+     <template tid="ESE_ApiCall_TraceStartArgs">
+      <data name="opApi" inType="win:UInt32"/>
+     </template>
+     <template tid="ESE_ApiCall_TraceStopArgs">
+      <data name="opApi" inType="win:UInt32" map="ESE_ApiCallNameMap"/>
+      <data name="err" inType="win:Int32"/>
+     </template>
+     <template tid="ESE_ResMgrInit_TraceArgs">
+      <data name="tick" inType="win:UInt32"/>
+      <data name="K" inType="win:Int32"/>
+      <data name="csecCorrelatedTouch" inType="win:Double"/>
+      <data name="csecTimeout" inType="win:Double"/>
+      <data name="csecUncertainty" inType="win:Double"/>
+      <data name="dblHashLoadFactor" inType="win:Double"/>
+      <data name="dblHashUniformity" inType="win:Double"/>
+      <data name="dblSpeedSizeTradeoff" inType="win:Double"/>
+     </template>
+     <template tid="ESE_ResMgrTerm_TraceArgs">
+      <data name="tick" inType="win:UInt32"/>
+     </template>
+     <template tid="ESE_CachePage_TraceArgs">
+      <data name="tick" inType="win:UInt32"/>
+      <data name="ifmp" inType="win:UInt32"/>
+      <data name="pgno" inType="win:UInt32"/>
+      <data name="bflf" inType="win:UInt32"/>
+      <data name="bflt" inType="win:UInt32"/>
+      <data name="pctPriority" inType="win:UInt32"/>
+      <data name="bfrtf" inType="win:UInt32"/>
+      <data name="ClientType" inType="win:UInt8"/>
+     </template>
+     <template tid="ESE_MarkPageAsSuperCold_TraceArgs">
+      <data name="tick" inType="win:UInt32"/>
+      <data name="ifmp" inType="win:UInt32"/>
+      <data name="pgno" inType="win:UInt32"/>
+     </template>
+     <template tid="ESE_CacheMissLatency_TraceArgs">
+      <data name="ifmp" inType="win:UInt32"/>
+      <data name="pgno" inType="win:UInt32"/>
+      <data name="dwUserId" inType="win:UInt32"/>
+      <data name="bOperationId" inType="win:UInt8"/>
+      <data name="bOperationType" inType="win:UInt8"/>
+      <data name="bClientType" inType="win:UInt8"/>
+      <data name="bFlags" inType="win:UInt8"/>
+      <data name="dwCorrelationId" inType="win:UInt32"/>
+      <data name="iorp" inType="win:UInt8"/>
+      <data name="iors" inType="win:UInt8"/>
+      <data name="iort" inType="win:UInt8"/>
+      <data name="ioru" inType="win:UInt8"/>
+      <data name="iorf" inType="win:UInt8"/>
+      <data name="tce" inType="win:UInt8"/>
+      <data name="usecsWait" inType="win:UInt64"/>
+      <data name="bftcmr" inType="win:UInt8"/>
+     </template>
+     <template tid="ESE_BTreePrereadPageRequest_TraceArgs">
+      <data name="ifmp" inType="win:UInt32"/>
+      <data name="pgno" inType="win:UInt32"/>
+      <data name="dwUserId" inType="win:UInt32"/>
+      <data name="bOperationId" inType="win:UInt8"/>
+      <data name="bOperationType" inType="win:UInt8"/>
+      <data name="bClientType" inType="win:UInt8"/>
+      <data name="bFlags" inType="win:UInt8"/>
+      <data name="dwCorrelationId" inType="win:UInt32"/>
+      <data name="iorp" inType="win:UInt8"/>
+      <data name="iors" inType="win:UInt8"/>
+      <data name="iort" inType="win:UInt8"/>
+      <data name="ioru" inType="win:UInt8"/>
+      <data name="iorf" inType="win:UInt8"/>
+      <data name="tce" inType="win:UInt8"/>
+      <data name="fOpFlags" inType="win:UInt8"/>
+     </template>
+     <template tid="ESE_DiskFlushFileBuffers_TraceArgs">
+      <data name="Disk" inType="win:UInt32"/>
+      <data name="wszFileName" inType="win:UnicodeString"/>
+      <data name="iofr" inType="win:UInt32" map="ESE_IofrMap"/>
+      <data name="cioreqFileFlushing" inType="win:UInt64"/>
+      <data name="usFfb" inType="win:UInt64"/>
+      <data name="error" inType="win:UInt32"/>
+     </template>
+     <template tid="ESE_DiskFlushFileBuffersBegin_TraceArgs">
+      <data name="dwDisk" inType="win:UInt32"/>
+      <data name="hFile" inType="win:UInt64"/>
+      <data name="iofr" inType="win:UInt32"/>
+     </template>
+     <template tid="ESE_CacheFirstDirtyPage_TraceArgs">
+      <data name="tick" inType="win:UInt32"/>
+      <data name="ifmp" inType="win:UInt32"/>
+      <data name="pgno" inType="win:UInt32"/>
+      <data name="objid" inType="win:UInt32"/>
+      <data name="fFlags" inType="win:UInt32"/>
+      <data name="bfdfNew" inType="win:UInt32"/>
+      <data name="lgposModify" inType="win:UInt64"/>
+      <data name="dwUserId" inType="win:UInt32"/>
+      <data name="bOperationId" inType="win:UInt8"/>
+      <data name="bOperationType" inType="win:UInt8"/>
+      <data name="bClientType" inType="win:UInt8"/>
+      <data name="bFlags" inType="win:UInt8"/>
+      <data name="dwCorrelationId" inType="win:UInt32"/>
+      <data name="iorp" inType="win:UInt8"/>
+      <data name="iors" inType="win:UInt8"/>
+      <data name="iort" inType="win:UInt8"/>
+      <data name="ioru" inType="win:UInt8"/>
+      <data name="iorf" inType="win:UInt8"/>
+      <data name="tce" inType="win:UInt8"/>
+     </template>
+     <template tid="ESE_SysStationId_TraceArgs">
+      <data name="tsidr" inType="win:UInt8"/>
+      <data name="dwImageVerMajor" inType="win:UInt32"/>
+      <data name="dwImageVerMinor" inType="win:UInt32"/>
+      <data name="dwImageBuildMajor" inType="win:UInt32"/>
+      <data name="dwImageBuildMinor" inType="win:UInt32"/>
+      <data name="wszDisplayName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ESE_InstStationId_TraceArgs">
+      <data name="tsidr" inType="win:UInt8"/>
+      <data name="iInstance" inType="win:UInt32"/>
+      <data name="perfstatusEvent" inType="win:UInt8"/>
+      <data name="wszInstanceName" inType="win:UnicodeString"/>
+      <data name="wszDisplayName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ESE_FmpStationId_TraceArgs">
+      <data name="tsidr" inType="win:UInt8"/>
+      <data name="ifmp" inType="win:UInt32"/>
+      <data name="iInstance" inType="win:UInt32"/>
+      <data name="dbid" inType="win:UInt8"/>
+      <data name="wszDatabaseName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ESE_DiskStationId_TraceArgs">
+      <data name="tsidr" inType="win:UInt8"/>
+      <data name="dwDiskNumber" inType="win:UInt32"/>
+      <data name="wszDiskPathId" inType="win:UnicodeString"/>
+      <data name="szDiskModel" inType="win:AnsiString"/>
+      <data name="szDiskFirmwareRev" inType="win:AnsiString"/>
+      <data name="szDiskSerialNumber" inType="win:AnsiString"/>
+     </template>
+     <template tid="ESE_FileStationId_TraceArgs">
+      <data name="tsidr" inType="win:UInt8"/>
+      <data name="hFile" inType="win:UInt64"/>
+      <data name="dwDiskNumber" inType="win:UInt32"/>
+      <data name="dwEngineFileType" inType="win:UInt32"/>
+      <data name="qwEngineFileId" inType="win:UInt64"/>
+      <data name="fmf" inType="win:UInt32"/>
+      <data name="cbFileSize" inType="win:UInt64"/>
+      <data name="wszAbsPath" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ESE_IsamDbfilehdrInfo_TraceArgs">
+      <data name="tsidr" inType="win:UInt8"/>
+      <data name="ifmp" inType="win:UInt32"/>
+      <data name="filetype" inType="win:UInt32"/>
+      <data name="ulMagic" inType="win:UInt32"/>
+      <data name="ulChecksum" inType="win:UInt32"/>
+      <data name="cbPageSize" inType="win:UInt32"/>
+      <data name="ulDbFlags" inType="win:UInt32"/>
+      <data name="psignDb" inType="win:Binary"/>
+     </template>
+     <template tid="ESE_DiskOsDiskCacheInfo_TraceArgs">
+      <data name="tsidr" inType="win:UInt8"/>
+      <data name="posdci" inType="win:Binary"/>
+     </template>
+     <template tid="ESE_DiskOsStorageWriteCacheProp_TraceArgs">
+      <data name="tsidr" inType="win:UInt8"/>
+      <data name="posswcp" inType="win:Binary"/>
+     </template>
+     <template tid="ESE_DiskOsDeviceSeekPenaltyDesc_TraceArgs">
+      <data name="tsidr" inType="win:UInt8"/>
+      <data name="posdspd" inType="win:Binary"/>
+     </template>
+     <template tid="ESE_IOCompletion2_TraceArgs">
+      <data name="wszFilename" inType="win:UnicodeString"/>
+      <data name="fMultiIor" inType="win:UInt32"/>
+      <data name="fWrite" inType="win:UInt8"/>
+      <data name="dwUserId" inType="win:UInt32"/>
+      <data name="bOperationId" inType="win:UInt8"/>
+      <data name="bOperationType" inType="win:UInt8"/>
+      <data name="bClientType" inType="win:UInt8"/>
+      <data name="bFlags" inType="win:UInt8"/>
+      <data name="dwCorrelationId" inType="win:UInt32"/>
+      <data name="iorp" inType="win:UInt8"/>
+      <data name="iors" inType="win:UInt8"/>
+      <data name="iort" inType="win:UInt8"/>
+      <data name="ioru" inType="win:UInt8"/>
+      <data name="iorf" inType="win:UInt8"/>
+      <data name="tce" inType="win:UInt8"/>
+      <data name="szClientComponent" inType="win:AnsiString"/>
+      <data name="szClientAction" inType="win:AnsiString"/>
+      <data name="szClientActionContext" inType="win:AnsiString"/>
+      <data name="guidActivityId" inType="win:GUID"/>
+      <data name="ibOffset" inType="win:UInt64"/>
+      <data name="cbTransfer" inType="win:UInt32"/>
+      <data name="dwError" inType="win:UInt32"/>
+      <data name="qosHighestFirst" inType="win:UInt32"/>
+      <data name="cmsecIOElapsed" inType="win:UInt64"/>
+      <data name="dtickCompletionDelay" inType="win:UInt32"/>
+      <data name="tidAlloc" inType="win:UInt32"/>
+      <data name="dwEngineFileType" inType="win:UInt32"/>
+      <data name="dwEngineFileId" inType="win:UInt64"/>
+      <data name="fmfFile" inType="win:UInt32"/>
+      <data name="dwDiskNumber" inType="win:UInt32"/>
+     </template>
+     <template tid="ESE_FCBPurgeFailure_TraceArgs">
+      <data name="iInstance" inType="win:UInt32"/>
+      <data name="grbitPurgeFlags" inType="win:UInt8"/>
+      <data name="fcbpfr" inType="win:UInt8"/>
+      <data name="tce" inType="win:UInt8"/>
+     </template>
+     <template tid="ESE_IOLatencySpikeNotice_TraceArgs">
+      <data name="dwDiskNumber" inType="win:UInt32"/>
+      <data name="dtickSpikeLength" inType="win:UInt32"/>
+     </template>
+     <template tid="ESE_tagNull_TraceArgs">
+      <data name="szTrace" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_0Args">
+      <data name="TableClass" inType="win:UInt8"/>
+      <data name="OrigSize" inType="win:UInt16"/>
+      <data name="XpressSize" inType="win:UInt16"/>
+      <data name="Xpress9Size" inType="win:UInt16"/>
+      <data name="usecXpressTime" inType="win:UInt32"/>
+      <data name="usecXpress9Time" inType="win:UInt32"/>
+      <data name="ShannonEntropy" inType="win:Double"/>
+      <data name="ChiSquared" inType="win:Double"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Error" value="Error"/>
+    <string id="keyword_Performance" value="Performance"/>
+    <string id="keyword_Trace" value="Trace"/>
+    <string id="keyword_Transaction" value="Transaction"/>
+    <string id="keyword_Space" value="Space"/>
+    <string id="keyword_BF" value="BF"/>
+    <string id="keyword_IO" value="IO"/>
+    <string id="keyword_LOG" value="LOG"/>
+    <string id="keyword_Task" value="Task"/>
+    <string id="keyword_Test" value="Test"/>
+    <string id="keyword_BFRESMGR" value="BFRESMGR"/>
+    <string id="keyword_StationId" value="StationId"/>
+    <string id="keyword_JETTraceTag" value="JETTraceTag"/>
+    <string id="keyword_StallLatencies" value="StallLatencies"/>
+    <string id="keyword_DataWorkingSet" value="DataWorkingSet"/>
+    <string id="keyword_IOEX" value="IOEX"/>
+    <string id="keyword_CompressExp" value="CompressExp"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_ESE_Trace" value="ESE_Trace"/>
+    <string id="task_ESE_BF_Trace" value="ESE_BF_Trace"/>
+    <string id="task_ESE_Block_Trace" value="ESE_Block_Trace"/>
+    <string id="task_ESE_NewPage_Trace" value="ESE_NewPage_Trace"/>
+    <string id="task_ESE_ReadPage_Trace" value="ESE_ReadPage_Trace"/>
+    <string id="task_ESE_PrereadPage_Trace" value="ESE_PrereadPage_Trace"/>
+    <string id="task_ESE_WritePage_Trace" value="ESE_WritePage_Trace"/>
+    <string id="task_ESE_EvictPage_Trace" value="ESE_EvictPage_Trace"/>
+    <string id="task_ESE_RequestPage_Trace" value="ESE_RequestPage_Trace"/>
+    <string id="task_ESE_DirtyPage_Trace" value="ESE_DirtyPage_Trace"/>
+    <string id="task_ESE_TransactionBegin_Trace" value="ESE_TransactionBegin_Trace"/>
+    <string id="task_ESE_TransactionCommit_Trace" value="ESE_TransactionCommit_Trace"/>
+    <string id="task_ESE_TransactionRollback_Trace" value="ESE_TransactionRollback_Trace"/>
+    <string id="task_ESE_AllocExt_Trace" value="ESE_AllocExt_Trace"/>
+    <string id="task_ESE_FreeExt_Trace" value="ESE_FreeExt_Trace"/>
+    <string id="task_ESE_AllocPage_Trace" value="ESE_AllocPage_Trace"/>
+    <string id="task_ESE_FreePage_Trace" value="ESE_FreePage_Trace"/>
+    <string id="task_ESE_IOREQHeapEnqueue_Trace" value="ESE_IOREQHeapEnqueue_Trace"/>
+    <string id="task_ESE_IOREQHeapDequeue_Trace" value="ESE_IOREQHeapDequeue_Trace"/>
+    <string id="task_ESE_IOCompletion_Trace" value="ESE_IOCompletion_Trace"/>
+    <string id="task_ESE_LogStall_Trace" value="ESE_LogStall_Trace"/>
+    <string id="task_ESE_LogWrite_Trace" value="ESE_LogWrite_Trace"/>
+    <string id="task_ESE_EventLogInfo_Trace" value="ESE_EventLogInfo_Trace"/>
+    <string id="task_ESE_EventLogWarn_Trace" value="ESE_EventLogWarn_Trace"/>
+    <string id="task_ESE_EventLogError_Trace" value="ESE_EventLogError_Trace"/>
+    <string id="task_ESE_TimerQueueSchedule_Trace" value="ESE_TimerQueueSchedule_Trace"/>
+    <string id="task_ESE_TimerQueueRun_Trace" value="ESE_TimerQueueRun_Trace"/>
+    <string id="task_ESE_TimerQueueCancel_Trace" value="ESE_TimerQueueCancel_Trace"/>
+    <string id="task_ESE_TimerTaskSchedule_Trace" value="ESE_TimerTaskSchedule_Trace"/>
+    <string id="task_ESE_TimerTaskRun_Trace" value="ESE_TimerTaskRun_Trace"/>
+    <string id="task_ESE_TimerTaskCancel_Trace" value="ESE_TimerTaskCancel_Trace"/>
+    <string id="task_ESE_TaskManagerPost_Trace" value="ESE_TaskManagerPost_Trace"/>
+    <string id="task_ESE_TaskManagerRun_Trace" value="ESE_TaskManagerRun_Trace"/>
+    <string id="task_ESE_GPTaskManagerPost_Trace" value="ESE_GPTaskManagerPost_Trace"/>
+    <string id="task_ESE_GPTaskManagerRun_Trace" value="ESE_GPTaskManagerRun_Trace"/>
+    <string id="task_ESE_TestMarker_Trace" value="ESE_TestMarker_Trace"/>
+    <string id="task_ESE_ThreadCreate_Trace" value="ESE_ThreadCreate_Trace"/>
+    <string id="task_ESE_ThreadStart_Trace" value="ESE_ThreadStart_Trace"/>
+    <string id="task_ESE_VersionPage_Trace" value="ESE_VersionPage_Trace"/>
+    <string id="task_ESE_VersionCopyPage_Trace" value="ESE_VersionCopyPage_Trace"/>
+    <string id="task_ESE_CacheResize_Trace" value="ESE_CacheResize_Trace"/>
+    <string id="task_ESE_CacheLimitResize_Trace" value="ESE_CacheLimitResize_Trace"/>
+    <string id="task_ESE_CacheScavengeProgress_Trace" value="ESE_CacheScavengeProgress_Trace"/>
+    <string id="task_ESE_ApiCall_Trace" value="ESE_ApiCall_Trace"/>
+    <string id="task_ESE_ResMgrInit_Trace" value="ESE_ResMgrInit_Trace"/>
+    <string id="task_ESE_ResMgrTerm_Trace" value="ESE_ResMgrTerm_Trace"/>
+    <string id="task_ESE_CachePage_Trace" value="ESE_CachePage_Trace"/>
+    <string id="task_ESE_MarkPageAsSuperCold_Trace" value="ESE_MarkPageAsSuperCold_Trace"/>
+    <string id="task_ESE_CacheMissLatency_Trace" value="ESE_CacheMissLatency_Trace"/>
+    <string id="task_ESE_BTreePrereadPageRequest_Trace" value="ESE_BTreePrereadPageRequest_Trace"/>
+    <string id="task_ESE_DiskFlushFileBuffers_Trace" value="ESE_DiskFlushFileBuffers_Trace"/>
+    <string id="task_ESE_DiskFlushFileBuffersBegin_Trace" value="ESE_DiskFlushFileBuffersBegin_Trace"/>
+    <string id="task_ESE_CacheFirstDirtyPage_Trace" value="ESE_CacheFirstDirtyPage_Trace"/>
+    <string id="task_ESE_SysStationId_Trace" value="ESE_SysStationId_Trace"/>
+    <string id="task_ESE_InstStationId_Trace" value="ESE_InstStationId_Trace"/>
+    <string id="task_ESE_FmpStationId_Trace" value="ESE_FmpStationId_Trace"/>
+    <string id="task_ESE_DiskStationId_Trace" value="ESE_DiskStationId_Trace"/>
+    <string id="task_ESE_FileStationId_Trace" value="ESE_FileStationId_Trace"/>
+    <string id="task_ESE_IsamDbfilehdrInfo_Trace" value="ESE_IsamDbfilehdrInfo_Trace"/>
+    <string id="task_ESE_DiskOsDiskCacheInfo_Trace" value="ESE_DiskOsDiskCacheInfo_Trace"/>
+    <string id="task_ESE_DiskOsStorageWriteCacheProp_Trace" value="ESE_DiskOsStorageWriteCacheProp_Trace"/>
+    <string id="task_ESE_DiskOsDeviceSeekPenaltyDesc_Trace" value="ESE_DiskOsDeviceSeekPenaltyDesc_Trace"/>
+    <string id="task_ESE_IOCompletion2_Trace" value="ESE_IOCompletion2_Trace"/>
+    <string id="task_ESE_FCBPurgeFailure_Trace" value="ESE_FCBPurgeFailure_Trace"/>
+    <string id="task_ESE_IOLatencySpikeNotice_Trace" value="ESE_IOLatencySpikeNotice_Trace"/>
+    <string id="task_ESE_tagNull_Trace" value="ESE_tagNull_Trace"/>
+    <string id="task_ESE_tagInformation_Trace" value="ESE_tagInformation_Trace"/>
+    <string id="task_ESE_tagErrors_Trace" value="ESE_tagErrors_Trace"/>
+    <string id="task_ESE_tagAsserts_Trace" value="ESE_tagAsserts_Trace"/>
+    <string id="task_ESE_tagAPI_Trace" value="ESE_tagAPI_Trace"/>
+    <string id="task_ESE_tagInitTerm_Trace" value="ESE_tagInitTerm_Trace"/>
+    <string id="task_ESE_tagBufferManager_Trace" value="ESE_tagBufferManager_Trace"/>
+    <string id="task_ESE_tagBufferManagerHashedLatches_Trace" value="ESE_tagBufferManagerHashedLatches_Trace"/>
+    <string id="task_ESE_tagIO_Trace" value="ESE_tagIO_Trace"/>
+    <string id="task_ESE_tagMemory_Trace" value="ESE_tagMemory_Trace"/>
+    <string id="task_ESE_tagVersionStore_Trace" value="ESE_tagVersionStore_Trace"/>
+    <string id="task_ESE_tagVersionStoreOOM_Trace" value="ESE_tagVersionStoreOOM_Trace"/>
+    <string id="task_ESE_tagVersionCleanup_Trace" value="ESE_tagVersionCleanup_Trace"/>
+    <string id="task_ESE_tagCatalog_Trace" value="ESE_tagCatalog_Trace"/>
+    <string id="task_ESE_tagDDLRead_Trace" value="ESE_tagDDLRead_Trace"/>
+    <string id="task_ESE_tagDDLWrite_Trace" value="ESE_tagDDLWrite_Trace"/>
+    <string id="task_ESE_tagDMLRead_Trace" value="ESE_tagDMLRead_Trace"/>
+    <string id="task_ESE_tagDMLWrite_Trace" value="ESE_tagDMLWrite_Trace"/>
+    <string id="task_ESE_tagDMLConflicts_Trace" value="ESE_tagDMLConflicts_Trace"/>
+    <string id="task_ESE_tagInstances_Trace" value="ESE_tagInstances_Trace"/>
+    <string id="task_ESE_tagDatabases_Trace" value="ESE_tagDatabases_Trace"/>
+    <string id="task_ESE_tagSessions_Trace" value="ESE_tagSessions_Trace"/>
+    <string id="task_ESE_tagCursors_Trace" value="ESE_tagCursors_Trace"/>
+    <string id="task_ESE_tagCursorNavigation_Trace" value="ESE_tagCursorNavigation_Trace"/>
+    <string id="task_ESE_tagCursorPageRefs_Trace" value="ESE_tagCursorPageRefs_Trace"/>
+    <string id="task_ESE_tagBtree_Trace" value="ESE_tagBtree_Trace"/>
+    <string id="task_ESE_tagSpace_Trace" value="ESE_tagSpace_Trace"/>
+    <string id="task_ESE_tagFCBs_Trace" value="ESE_tagFCBs_Trace"/>
+    <string id="task_ESE_tagTransactions_Trace" value="ESE_tagTransactions_Trace"/>
+    <string id="task_ESE_tagLogging_Trace" value="ESE_tagLogging_Trace"/>
+    <string id="task_ESE_tagRecovery_Trace" value="ESE_tagRecovery_Trace"/>
+    <string id="task_ESE_tagBackup_Trace" value="ESE_tagBackup_Trace"/>
+    <string id="task_ESE_tagRestore_Trace" value="ESE_tagRestore_Trace"/>
+    <string id="task_ESE_tagOLD_Trace" value="ESE_tagOLD_Trace"/>
+    <string id="task_ESE_tagEventlog_Trace" value="ESE_tagEventlog_Trace"/>
+    <string id="task_ESE_tagBufferManagerMaintTasks_Trace" value="ESE_tagBufferManagerMaintTasks_Trace"/>
+    <string id="task_ESE_tagSpaceManagement_Trace" value="ESE_tagSpaceManagement_Trace"/>
+    <string id="task_ESE_tagSpaceInternal_Trace" value="ESE_tagSpaceInternal_Trace"/>
+    <string id="task_ESE_tagIOQueue_Trace" value="ESE_tagIOQueue_Trace"/>
+    <string id="task_ESE_tagDiskVolumeManagement_Trace" value="ESE_tagDiskVolumeManagement_Trace"/>
+    <string id="task_ESE_tagCallbacks_Trace" value="ESE_tagCallbacks_Trace"/>
+    <string id="task_ESE_tagIOProblems_Trace" value="ESE_tagIOProblems_Trace"/>
+    <string id="task_ESE_tagUpgrade_Trace" value="ESE_tagUpgrade_Trace"/>
+    <string id="task_ESE_tagRecoveryValidation_Trace" value="ESE_tagRecoveryValidation_Trace"/>
+    <string id="task_ESE_tagBufferManagerBufferCacheState_Trace" value="ESE_tagBufferManagerBufferCacheState_Trace"/>
+    <string id="task_ESE_tagBufferManagerBufferDirtyState_Trace" value="ESE_tagBufferManagerBufferDirtyState_Trace"/>
+    <string id="task_ESE_tagTimerQueue_Trace" value="ESE_tagTimerQueue_Trace"/>
+    <string id="task_ESE_tagSortPerf_Trace" value="ESE_tagSortPerf_Trace"/>
+    <string id="task_ESE_tagOLDRegistration_Trace" value="ESE_tagOLDRegistration_Trace"/>
+    <string id="task_ESE_tagOLDWork_Trace" value="ESE_tagOLDWork_Trace"/>
+    <string id="task_ESE_tagSysInitTerm_Trace" value="ESE_tagSysInitTerm_Trace"/>
+    <string id="task_ESE_tagVersionAndStagingChecks_Trace" value="ESE_tagVersionAndStagingChecks_Trace"/>
+    <string id="task_ESE_tagFile_Trace" value="ESE_tagFile_Trace"/>
+    <string id="task_ESE_tagFlushFileBuffers_Trace" value="ESE_tagFlushFileBuffers_Trace"/>
+    <string id="task_ESE_tagCheckpointUpdate_Trace" value="ESE_tagCheckpointUpdate_Trace"/>
+    <string id="map_ESE_PageFlagsMapfPagePrimary" value="fPagePrimary"/>
+    <string id="map_ESE_PageFlagsMapfPageRoot" value="fPageRoot"/>
+    <string id="map_ESE_PageFlagsMapfPageLeaf" value="fPageLeaf"/>
+    <string id="map_ESE_PageFlagsMapfPageParentOfLeaf" value="fPageParentOfLeaf"/>
+    <string id="map_ESE_PageFlagsMapfPageEmpty" value="fPageEmpty"/>
+    <string id="map_ESE_PageFlagsMapfPageRepair" value="fPageRepair"/>
+    <string id="map_ESE_PageFlagsMapfPageSpaceTree" value="fPageSpaceTree"/>
+    <string id="map_ESE_PageFlagsMapfPageIndex" value="fPageIndex"/>
+    <string id="map_ESE_PageFlagsMapfPageLongValue" value="fPageLongValue"/>
+    <string id="map_ESE_PageFlagsMapfPageNonUniqueKeys" value="fPageNonUniqueKeys"/>
+    <string id="map_ESE_PageFlagsMapfPageNewRecordFormat" value="fPageNewRecordFormat"/>
+    <string id="map_ESE_PageFlagsMapfPageNewChecksumFormat" value="fPageNewChecksumFormat"/>
+    <string id="map_ESE_PageFlagsMapfPageScrubbed" value="fPageScrubbed"/>
+    <string id="map_ESE_PageFlagsMapflushTypeBit1" value="flushTypeBit1"/>
+    <string id="map_ESE_PageFlagsMapflushTypeBit2" value="flushTypeBit2"/>
+    <string id="map_ESE_IorsMapiorsNone" value="iorsNone"/>
+    <string id="map_ESE_IorsMapiorsHeader" value="iorsHeader"/>
+    <string id="map_ESE_IorsMapiorsBTOpen" value="iorsBTOpen"/>
+    <string id="map_ESE_IorsMapiorsBTSeek" value="iorsBTSeek"/>
+    <string id="map_ESE_IorsMapiorsBTMoveFirst" value="iorsBTMoveFirst"/>
+    <string id="map_ESE_IorsMapiorsBTMoveNext" value="iorsBTMoveNext"/>
+    <string id="map_ESE_IorsMapiorsBTMovePrev" value="iorsBTMovePrev"/>
+    <string id="map_ESE_IorsMapiorsBTInsert" value="iorsBTInsert"/>
+    <string id="map_ESE_IorsMapiorsBTAppend" value="iorsBTAppend"/>
+    <string id="map_ESE_IorsMapiorsBTReplace" value="iorsBTReplace"/>
+    <string id="map_ESE_IorsMapiorsBTDelete" value="iorsBTDelete"/>
+    <string id="map_ESE_IorsMapiorsBTGet" value="iorsBTGet"/>
+    <string id="map_ESE_IorsMapiorsBTSplit" value="iorsBTSplit"/>
+    <string id="map_ESE_IorsMapiorsBTMerge" value="iorsBTMerge"/>
+    <string id="map_ESE_IorsMapiorsBTRefresh" value="iorsBTRefresh"/>
+    <string id="map_ESE_IorsMapiorsBTPreread" value="iorsBTPreread"/>
+    <string id="map_ESE_IorsMapiorsBTMax" value="iorsBTMax"/>
+    <string id="map_ESE_IortMapiortISAM" value="iortISAM"/>
+    <string id="map_ESE_IortMapiortSpace" value="iortSpace"/>
+    <string id="map_ESE_IortMapiortDbScan" value="iortDbScan"/>
+    <string id="map_ESE_IortMapiortRollbackUndo" value="iortRollbackUndo"/>
+    <string id="map_ESE_IortMapiortScrubbing" value="iortScrubbing"/>
+    <string id="map_ESE_IortMapiortOLD" value="iortOLD"/>
+    <string id="map_ESE_IortMapiortOLD2" value="iortOLD2"/>
+    <string id="map_ESE_IortMapiortRecovery" value="iortRecovery"/>
+    <string id="map_ESE_IortMapiortBackupRestore" value="iortBackupRestore"/>
+    <string id="map_ESE_IortMapiortPagePatching" value="iortPagePatching"/>
+    <string id="map_ESE_IortMapiortSort" value="iortSort"/>
+    <string id="map_ESE_IortMapiortRepair" value="iortRepair"/>
+    <string id="map_ESE_IortMapiortUtilities" value="iortUtilities"/>
+    <string id="map_ESE_IortMapiortMax" value="iortMax"/>
+    <string id="map_ESE_IorfMapiorfNone" value="iorfNone"/>
+    <string id="map_ESE_IorfMapiorfShadow" value="iorfShadow"/>
+    <string id="map_ESE_IorfMapiorfFill" value="iorfFill"/>
+    <string id="map_ESE_IorfMapiorfOpportune" value="iorfOpportune"/>
+    <string id="map_ESE_IorfMapiorfForeground" value="iorfForeground"/>
+    <string id="map_ESE_IorfMapiorfDependantOrVersion" value="iorfDependantOrVersion"/>
+    <string id="map_ESE_IorfMapiorfReclaimPageFromOS" value="iorfReclaimPageFromOS"/>
+    <string id="map_ESE_IorfMapiorfSuperCold" value="iorfSuperCold"/>
+    <string id="map_ESE_IorpMapiorpInvalid" value="iorpInvalid"/>
+    <string id="map_ESE_IorpMapiorpHeader" value="iorpHeader"/>
+    <string id="map_ESE_IorpMapiorpOsLayerTracing" value="iorpOsLayerTracing"/>
+    <string id="map_ESE_IorpMapiorpBFRead" value="iorpBFRead"/>
+    <string id="map_ESE_IorpMapiorpBFLatch" value="iorpBFLatch"/>
+    <string id="map_ESE_IorpMapiorpBFPreread" value="iorpBFPreread"/>
+    <string id="map_ESE_IorpMapiorpBFRemapReVerify" value="iorpBFRemapReVerify"/>
+    <string id="map_ESE_IorpMapiorpBFCheckpointAdv" value="iorpBFCheckpointAdv"/>
+    <string id="map_ESE_IorpMapiorpBFAvailPool" value="iorpBFAvailPool"/>
+    <string id="map_ESE_IorpMapiorpBFShrink" value="iorpBFShrink"/>
+    <string id="map_ESE_IorpMapiorpBFFilthyFlush" value="iorpBFFilthyFlush"/>
+    <string id="map_ESE_IorpMapiorpBFDatabaseFlush" value="iorpBFDatabaseFlush"/>
+    <string id="map_ESE_IorpMapiorpSPDatabaseInlineZero" value="iorpSPDatabaseInlineZero"/>
+    <string id="map_ESE_IorpMapiorpBFPurge" value="iorpBFPurge"/>
+    <string id="map_ESE_IorpMapiorpLog" value="iorpLog"/>
+    <string id="map_ESE_IorpMapiorpLGWriteCapacity" value="iorpLGWriteCapacity"/>
+    <string id="map_ESE_IorpMapiorpLGWriteCommit" value="iorpLGWriteCommit"/>
+    <string id="map_ESE_IorpMapiorpLGWriteNewGen" value="iorpLGWriteNewGen"/>
+    <string id="map_ESE_IorpMapiorpLGWriteSignal" value="iorpLGWriteSignal"/>
+    <string id="map_ESE_IorpMapiorpLGFlushAll" value="iorpLGFlushAll"/>
+    <string id="map_ESE_IorpMapiorpLogRecRedo" value="iorpLogRecRedo"/>
+    <string id="map_ESE_IorpMapiorpShadowLog" value="iorpShadowLog"/>
+    <string id="map_ESE_IorpMapiorpCheckpoint" value="iorpCheckpoint"/>
+    <string id="map_ESE_IorpMapiorpDirectAccessUtil" value="iorpDirectAccessUtil"/>
+    <string id="map_ESE_IorpMapiorpBackup" value="iorpBackup"/>
+    <string id="map_ESE_IorpMapiorpRestore" value="iorpRestore"/>
+    <string id="map_ESE_IorpMapiorpPatchFix" value="iorpPatchFix"/>
+    <string id="map_ESE_IorpMapiorpDatabaseExtension" value="iorpDatabaseExtension"/>
+    <string id="map_ESE_IorpMapiorpDatabaseShrink" value="iorpDatabaseShrink"/>
+    <string id="map_ESE_IorpMapiorpDbScan" value="iorpDbScan"/>
+    <string id="map_ESE_IorpMapiorpCorruptionTestHook" value="iorpCorruptionTestHook"/>
+    <string id="map_ESE_IorpMapiorpDatabaseTrim" value="iorpDatabaseTrim"/>
+    <string id="map_ESE_IorpMapiorpFlushMap" value="iorpFlushMap"/>
+    <string id="map_ESE_DirtyLevelMapbfdfClean" value="bfdfClean"/>
+    <string id="map_ESE_DirtyLevelMapbfdfUntidy" value="bfdfUntidy"/>
+    <string id="map_ESE_DirtyLevelMapbfdfDirty" value="bfdfDirty"/>
+    <string id="map_ESE_DirtyLevelMapbfdfFilthy" value="bfdfFilthy"/>
+    <string id="map_ESE_ApiCallNameMapJetIdle" value="JetIdle"/>
+    <string id="map_ESE_ApiCallNameMapJetGetTableIndexInfo" value="JetGetTableIndexInfo"/>
+    <string id="map_ESE_ApiCallNameMapJetGetIndexInfo" value="JetGetIndexInfo"/>
+    <string id="map_ESE_ApiCallNameMapJetGetObjectInfo" value="JetGetObjectInfo"/>
+    <string id="map_ESE_ApiCallNameMapJetGetTableInfo" value="JetGetTableInfo"/>
+    <string id="map_ESE_ApiCallNameMapJetCreateObject" value="JetCreateObject"/>
+    <string id="map_ESE_ApiCallNameMapJetDeleteObject" value="JetDeleteObject"/>
+    <string id="map_ESE_ApiCallNameMapJetRenameObject" value="JetRenameObject"/>
+    <string id="map_ESE_ApiCallNameMapJetBeginTransaction" value="JetBeginTransaction"/>
+    <string id="map_ESE_ApiCallNameMapJetCommitTransaction" value="JetCommitTransaction"/>
+    <string id="map_ESE_ApiCallNameMapJetRollback" value="JetRollback"/>
+    <string id="map_ESE_ApiCallNameMapJetOpenTable" value="JetOpenTable"/>
+    <string id="map_ESE_ApiCallNameMapJetDupCursor" value="JetDupCursor"/>
+    <string id="map_ESE_ApiCallNameMapJetCloseTable" value="JetCloseTable"/>
+    <string id="map_ESE_ApiCallNameMapJetGetTableColumnInfo" value="JetGetTableColumnInfo"/>
+    <string id="map_ESE_ApiCallNameMapJetGetColumnInfo" value="JetGetColumnInfo"/>
+    <string id="map_ESE_ApiCallNameMapJetRetrieveColumn" value="JetRetrieveColumn"/>
+    <string id="map_ESE_ApiCallNameMapJetRetrieveColumns" value="JetRetrieveColumns"/>
+    <string id="map_ESE_ApiCallNameMapJetSetColumn" value="JetSetColumn"/>
+    <string id="map_ESE_ApiCallNameMapJetSetColumns" value="JetSetColumns"/>
+    <string id="map_ESE_ApiCallNameMapJetPrepareUpdate" value="JetPrepareUpdate"/>
+    <string id="map_ESE_ApiCallNameMapJetUpdate" value="JetUpdate"/>
+    <string id="map_ESE_ApiCallNameMapJetDelete" value="JetDelete"/>
+    <string id="map_ESE_ApiCallNameMapJetGetCursorInfo" value="JetGetCursorInfo"/>
+    <string id="map_ESE_ApiCallNameMapJetGetCurrentIndex" value="JetGetCurrentIndex"/>
+    <string id="map_ESE_ApiCallNameMapJetSetCurrentIndex" value="JetSetCurrentIndex"/>
+    <string id="map_ESE_ApiCallNameMapJetMove" value="JetMove"/>
+    <string id="map_ESE_ApiCallNameMapJetMakeKey" value="JetMakeKey"/>
+    <string id="map_ESE_ApiCallNameMapJetSeek" value="JetSeek"/>
+    <string id="map_ESE_ApiCallNameMapJetGetBookmark" value="JetGetBookmark"/>
+    <string id="map_ESE_ApiCallNameMapJetGotoBookmark" value="JetGotoBookmark"/>
+    <string id="map_ESE_ApiCallNameMapJetGetRecordPosition" value="JetGetRecordPosition"/>
+    <string id="map_ESE_ApiCallNameMapJetGotoPosition" value="JetGotoPosition"/>
+    <string id="map_ESE_ApiCallNameMapJetRetrieveKey" value="JetRetrieveKey"/>
+    <string id="map_ESE_ApiCallNameMapJetCreateDatabase" value="JetCreateDatabase"/>
+    <string id="map_ESE_ApiCallNameMapJetOpenDatabase" value="JetOpenDatabase"/>
+    <string id="map_ESE_ApiCallNameMapJetGetDatabaseInfo" value="JetGetDatabaseInfo"/>
+    <string id="map_ESE_ApiCallNameMapJetCloseDatabase" value="JetCloseDatabase"/>
+    <string id="map_ESE_ApiCallNameMapJetCapability" value="JetCapability"/>
+    <string id="map_ESE_ApiCallNameMapJetCreateTable" value="JetCreateTable"/>
+    <string id="map_ESE_ApiCallNameMapJetRenameTable" value="JetRenameTable"/>
+    <string id="map_ESE_ApiCallNameMapJetDeleteTable" value="JetDeleteTable"/>
+    <string id="map_ESE_ApiCallNameMapJetAddColumn" value="JetAddColumn"/>
+    <string id="map_ESE_ApiCallNameMapJetRenameColumn" value="JetRenameColumn"/>
+    <string id="map_ESE_ApiCallNameMapJetDeleteColumn" value="JetDeleteColumn"/>
+    <string id="map_ESE_ApiCallNameMapJetCreateIndex" value="JetCreateIndex"/>
+    <string id="map_ESE_ApiCallNameMapJetRenameIndex" value="JetRenameIndex"/>
+    <string id="map_ESE_ApiCallNameMapJetDeleteIndex" value="JetDeleteIndex"/>
+    <string id="map_ESE_ApiCallNameMapJetComputeStats" value="JetComputeStats"/>
+    <string id="map_ESE_ApiCallNameMapJetAttachDatabase" value="JetAttachDatabase"/>
+    <string id="map_ESE_ApiCallNameMapJetDetachDatabase" value="JetDetachDatabase"/>
+    <string id="map_ESE_ApiCallNameMapJetOpenTempTable" value="JetOpenTempTable"/>
+    <string id="map_ESE_ApiCallNameMapJetSetIndexRange" value="JetSetIndexRange"/>
+    <string id="map_ESE_ApiCallNameMapJetIndexRecordCount" value="JetIndexRecordCount"/>
+    <string id="map_ESE_ApiCallNameMapJetGetChecksum" value="JetGetChecksum"/>
+    <string id="map_ESE_ApiCallNameMapJetGetObjidFromName" value="JetGetObjidFromName"/>
+    <string id="map_ESE_ApiCallNameMapJetEscrowUpdate" value="JetEscrowUpdate"/>
+    <string id="map_ESE_ApiCallNameMapJetGetLock" value="JetGetLock"/>
+    <string id="map_ESE_ApiCallNameMapJetRetrieveTaggedColumnList" value="JetRetrieveTaggedColumnList"/>
+    <string id="map_ESE_ApiCallNameMapJetCreateTableColumnIndex" value="JetCreateTableColumnIndex"/>
+    <string id="map_ESE_ApiCallNameMapJetSetColumnDefaultValue" value="JetSetColumnDefaultValue"/>
+    <string id="map_ESE_ApiCallNameMapJetPrepareToCommitTransaction" value="JetPrepareToCommitTransaction"/>
+    <string id="map_ESE_ApiCallNameMapJetSetTableSequential" value="JetSetTableSequential"/>
+    <string id="map_ESE_ApiCallNameMapJetResetTableSequential" value="JetResetTableSequential"/>
+    <string id="map_ESE_ApiCallNameMapJetRegisterCallback" value="JetRegisterCallback"/>
+    <string id="map_ESE_ApiCallNameMapJetUnregisterCallback" value="JetUnregisterCallback"/>
+    <string id="map_ESE_ApiCallNameMapJetSetLS" value="JetSetLS"/>
+    <string id="map_ESE_ApiCallNameMapJetGetLS" value="JetGetLS"/>
+    <string id="map_ESE_ApiCallNameMapJetGetVersion" value="JetGetVersion"/>
+    <string id="map_ESE_ApiCallNameMapJetBeginSession" value="JetBeginSession"/>
+    <string id="map_ESE_ApiCallNameMapJetDupSession" value="JetDupSession"/>
+    <string id="map_ESE_ApiCallNameMapJetEndSession" value="JetEndSession"/>
+    <string id="map_ESE_ApiCallNameMapJetBackupInstance" value="JetBackupInstance"/>
+    <string id="map_ESE_ApiCallNameMapJetBeginExternalBackupInstance" value="JetBeginExternalBackupInstance"/>
+    <string id="map_ESE_ApiCallNameMapJetGetAttachInfoInstance" value="JetGetAttachInfoInstance"/>
+    <string id="map_ESE_ApiCallNameMapJetOpenFileInstance" value="JetOpenFileInstance"/>
+    <string id="map_ESE_ApiCallNameMapJetReadFileInstance" value="JetReadFileInstance"/>
+    <string id="map_ESE_ApiCallNameMapJetCloseFileInstance" value="JetCloseFileInstance"/>
+    <string id="map_ESE_ApiCallNameMapJetGetLogInfoInstance" value="JetGetLogInfoInstance"/>
+    <string id="map_ESE_ApiCallNameMapJetGetTruncateLogInfoInstance" value="JetGetTruncateLogInfoInstance"/>
+    <string id="map_ESE_ApiCallNameMapJetTruncateLogInstance" value="JetTruncateLogInstance"/>
+    <string id="map_ESE_ApiCallNameMapJetEndExternalBackupInstance" value="JetEndExternalBackupInstance"/>
+    <string id="map_ESE_ApiCallNameMapJetSnapshotStart" value="JetSnapshotStart"/>
+    <string id="map_ESE_ApiCallNameMapJetSnapshotStop" value="JetSnapshotStop"/>
+    <string id="map_ESE_ApiCallNameMapJetResetCounter" value="JetResetCounter"/>
+    <string id="map_ESE_ApiCallNameMapJetGetCounter" value="JetGetCounter"/>
+    <string id="map_ESE_ApiCallNameMapJetCompact" value="JetCompact"/>
+    <string id="map_ESE_ApiCallNameMapJetConvertDDL" value="JetConvertDDL"/>
+    <string id="map_ESE_ApiCallNameMapJetUpgradeDatabase" value="JetUpgradeDatabase"/>
+    <string id="map_ESE_ApiCallNameMapJetDefragment" value="JetDefragment"/>
+    <string id="map_ESE_ApiCallNameMapJetSetDatabaseSize" value="JetSetDatabaseSize"/>
+    <string id="map_ESE_ApiCallNameMapJetGrowDatabase" value="JetGrowDatabase"/>
+    <string id="map_ESE_ApiCallNameMapJetSetSessionContext" value="JetSetSessionContext"/>
+    <string id="map_ESE_ApiCallNameMapJetResetSessionContext" value="JetResetSessionContext"/>
+    <string id="map_ESE_ApiCallNameMapJetSetSystemParameter" value="JetSetSystemParameter"/>
+    <string id="map_ESE_ApiCallNameMapJetGetSystemParameter" value="JetGetSystemParameter"/>
+    <string id="map_ESE_ApiCallNameMapJetTerm" value="JetTerm"/>
+    <string id="map_ESE_ApiCallNameMapJetInit" value="JetInit"/>
+    <string id="map_ESE_ApiCallNameMapJetIntersectIndexes" value="JetIntersectIndexes"/>
+    <string id="map_ESE_ApiCallNameMapJetDBUtilities" value="JetDBUtilities"/>
+    <string id="map_ESE_ApiCallNameMapJetGetResourceParam" value="JetGetResourceParam"/>
+    <string id="map_ESE_ApiCallNameMapJetSetResourceParam" value="JetSetResourceParam"/>
+    <string id="map_ESE_ApiCallNameMapJetEnumerateColumns" value="JetEnumerateColumns"/>
+    <string id="map_ESE_ApiCallNameMapJetOSSnapPrepareInstance" value="JetOSSnapPrepareInstance"/>
+    <string id="map_ESE_ApiCallNameMapJetOSSnapTruncateLogInstance" value="JetOSSnapTruncateLogInstance"/>
+    <string id="map_ESE_ApiCallNameMapJetGetRecordSize" value="JetGetRecordSize"/>
+    <string id="map_ESE_ApiCallNameMapJetGetSessionInfo" value="JetGetSessionInfo"/>
+    <string id="map_ESE_ApiCallNameMapJetGetInstanceMiscInfo" value="JetGetInstanceMiscInfo"/>
+    <string id="map_ESE_ApiCallNameMapJetGetDatabasePages" value="JetGetDatabasePages"/>
+    <string id="map_ESE_ApiCallNameMapJetBeginSurrogateBackup" value="JetBeginSurrogateBackup"/>
+    <string id="map_ESE_ApiCallNameMapJetEndSurrogateBackup" value="JetEndSurrogateBackup"/>
+    <string id="map_ESE_ApiCallNameMapJetRemoveLogfile" value="JetRemoveLogfile"/>
+    <string id="map_ESE_ApiCallNameMapJetDatabaseScan" value="JetDatabaseScan"/>
+    <string id="map_ESE_ApiCallNameMapJetBeginDatabaseIncrementalReseed" value="JetBeginDatabaseIncrementalReseed"/>
+    <string id="map_ESE_ApiCallNameMapJetEndDatabaseIncrementalReseed" value="JetEndDatabaseIncrementalReseed"/>
+    <string id="map_ESE_ApiCallNameMapJetPatchDatabasePages" value="JetPatchDatabasePages"/>
+    <string id="map_ESE_ApiCallNameMapJetPrereadKeys" value="JetPrereadKeys"/>
+    <string id="map_ESE_ApiCallNameMapJetTestHook" value="JetTestHook"/>
+    <string id="map_ESE_ApiCallNameMapJetConsumeLogData" value="JetConsumeLogData"/>
+    <string id="map_ESE_ApiCallNameMapJetOnlinePatchDatabasePage" value="JetOnlinePatchDatabasePage"/>
+    <string id="map_ESE_ApiCallNameMapJetGetErrorInfo" value="JetGetErrorInfo"/>
+    <string id="map_ESE_ApiCallNameMapJetResizeDatabase" value="JetResizeDatabase"/>
+    <string id="map_ESE_ApiCallNameMapJetSetSessionParameter" value="JetSetSessionParameter"/>
+    <string id="map_ESE_ApiCallNameMapJetGetSessionParameter" value="JetGetSessionParameter"/>
+    <string id="map_ESE_ApiCallNameMapJetPrereadTable" value="JetPrereadTable"/>
+    <string id="map_ESE_ApiCallNameMapJetCommitTransaction2" value="JetCommitTransaction2"/>
+    <string id="map_ESE_ApiCallNameMapJetPrereadIndexRanges" value="JetPrereadIndexRanges"/>
+    <string id="map_ESE_ApiCallNameMapJetSetCursorFilter" value="JetSetCursorFilter"/>
+    <string id="map_ESE_ApiCallNameMapJetTracing" value="JetTracing"/>
+    <string id="map_ESE_ApiCallNameMapJetGetDatabaseFileInfo" value="JetGetDatabaseFileInfo"/>
+    <string id="map_ESE_ApiCallNameMapJetGetLogFileInfo" value="JetGetLogFileInfo"/>
+    <string id="map_ESE_ApiCallNameMapJetGetPageInfo" value="JetGetPageInfo"/>
+    <string id="map_ESE_ApiCallNameMapJetGetThreadStats" value="JetGetThreadStats"/>
+    <string id="map_ESE_ApiCallNameMapJetGetDatabaseSize" value="JetGetDatabaseSize"/>
+    <string id="map_ESE_ApiCallNameMapJetEnableMultiInstance" value="JetEnableMultiInstance"/>
+    <string id="map_ESE_ApiCallNameMapJetCreateInstance" value="JetCreateInstance"/>
+    <string id="map_ESE_ApiCallNameMapJetRestoreInstance" value="JetRestoreInstance"/>
+    <string id="map_ESE_ApiCallNameMapJetStopServiceInstance" value="JetStopServiceInstance"/>
+    <string id="map_ESE_ApiCallNameMapJetStopBackupInstance" value="JetStopBackupInstance"/>
+    <string id="map_ESE_ApiCallNameMapJetFreeBuffer" value="JetFreeBuffer"/>
+    <string id="map_ESE_ApiCallNameMapJetGetInstanceInfo" value="JetGetInstanceInfo"/>
+    <string id="map_ESE_ApiCallNameMapJetOSSnapshotPrepare" value="JetOSSnapshotPrepare"/>
+    <string id="map_ESE_ApiCallNameMapJetOSSnapshotFreeze" value="JetOSSnapshotFreeze"/>
+    <string id="map_ESE_ApiCallNameMapJetOSSnapshotThaw" value="JetOSSnapshotThaw"/>
+    <string id="map_ESE_ApiCallNameMapJetOSSnapshotAbort" value="JetOSSnapshotAbort"/>
+    <string id="map_ESE_ApiCallNameMapJetOSSnapshotTruncateLog" value="JetOSSnapshotTruncateLog"/>
+    <string id="map_ESE_ApiCallNameMapJetOSSnapshotGetFreezeInfo" value="JetOSSnapshotGetFreezeInfo"/>
+    <string id="map_ESE_ApiCallNameMapJetOSSnapshotEnd" value="JetOSSnapshotEnd"/>
+    <string id="map_ESE_ApiCallNameMapJetPrereadTables" value="JetPrereadTables"/>
+    <string id="map_ESE_ApiCallNameMapJetPrereadIndexRange" value="JetPrereadIndexRange"/>
+    <string id="map_ESE_ApiCallNameMapJetCreateEncryptionKey" value="JetCreateEncryptionKey"/>
+    <string id="map_ESE_ApiCallNameMapJetSetTableInfo" value="JetSetTableInfo"/>
+    <string id="map_ESE_ApiCallNameMapJetRetrieveColumnByReference" value="JetRetrieveColumnByReference"/>
+    <string id="map_ESE_ApiCallNameMapJetPrereadColumnsByReference" value="JetPrereadColumnsByReference"/>
+    <string id="map_ESE_ApiCallNameMapJetStreamRecords" value="JetStreamRecords"/>
+    <string id="map_ESE_ApiCallNameMapJetRetrieveColumnFromRecordStream" value="JetRetrieveColumnFromRecordStream"/>
+    <string id="map_ESE_ApiCallNameMapJetFileSectionInstance" value="JetFileSectionInstance"/>
+    <string id="map_ESE_IofrMapiofrInvalid" value="iofrInvalid"/>
+    <string id="map_ESE_IofrMapiofrLogPatch" value="iofrLogPatch"/>
+    <string id="map_ESE_IofrMapiofrLogCommitFlush" value="iofrLogCommitFlush"/>
+    <string id="map_ESE_IofrMapiofrLogCapacityFlush" value="iofrLogCapacityFlush"/>
+    <string id="map_ESE_IofrMapiofrLogSignalFlush" value="iofrLogSignalFlush"/>
+    <string id="map_ESE_IofrMapiofrPersistClosingLogFile" value="iofrPersistClosingLogFile"/>
+    <string id="map_ESE_IofrMapiofrLogMaxRequired" value="iofrLogMaxRequired"/>
+    <string id="map_ESE_IofrMapiofrLogFlushAll" value="iofrLogFlushAll"/>
+    <string id="map_ESE_IofrMapiofrLogTerm" value="iofrLogTerm"/>
+    <string id="map_ESE_IofrMapiofrDbHdrUpdMaxRequired" value="iofrDbHdrUpdMaxRequired"/>
+    <string id="map_ESE_IofrMapiofrDbHdrUpdMinRequired" value="iofrDbHdrUpdMinRequired"/>
+    <string id="map_ESE_IofrMapiofrDbUpdMinRequired" value="iofrDbUpdMinRequired"/>
+    <string id="map_ESE_IofrMapiofrCheckpointMinRequired" value="iofrCheckpointMinRequired"/>
+    <string id="map_ESE_IofrMapiofrCheckpointForceWrite" value="iofrCheckpointForceWrite"/>
+    <string id="map_ESE_IofrMapiofrWriteBackFlushIfmpContext" value="iofrWriteBackFlushIfmpContext"/>
+    <string id="map_ESE_IofrMapiofrFlushIfmpContext" value="iofrFlushIfmpContext"/>
+    <string id="map_ESE_IofrMapiofrConsumingExtendedDbSize" value="iofrConsumingExtendedDbSize"/>
+    <string id="map_ESE_IofrMapiofrUtility" value="iofrUtility"/>
+    <string id="map_ESE_IofrMapiofrIncReseedUtil" value="iofrIncReseedUtil"/>
+    <string id="map_ESE_IofrMapiofrSeparateHeaderUpdate" value="iofrSeparateHeaderUpdate"/>
+    <string id="map_ESE_IofrMapiofrFmInit" value="iofrFmInit"/>
+    <string id="map_ESE_IofrMapiofrFmFlush" value="iofrFmFlush"/>
+    <string id="map_ESE_IofrMapiofrFmTerm" value="iofrFmTerm"/>
+    <string id="map_ESE_IofrMapiofrDefensiveCloseFlush" value="iofrDefensiveCloseFlush"/>
+    <string id="map_ESE_IofrMapiofrDefensiveErrorPath" value="iofrDefensiveErrorPath"/>
+    <string id="map_ESE_IofrMapiofrDefensiveFileHdrWrite" value="iofrDefensiveFileHdrWrite"/>
+    <string id="map_ESE_IofrMapiofrOpeningFileFlush" value="iofrOpeningFileFlush"/>
+    <string id="map_ESE_IofrMapiofrPagePatching" value="iofrPagePatching"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

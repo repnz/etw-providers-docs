@@ -1,0 +1,127 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Devices-Background" guid="{64ef2b1c-4ae1-4e64-8599-1636e441ec88}" resourceFileName="Microsoft-Windows-Devices-Background" messageFileName="Microsoft-Windows-Devices-Background" symbol="MicrosoftWindowsDevicesBackground" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="Applicationinitiateddeviceservicing/updatetask" message="$(string.task_Applicationinitiateddeviceservicing/updatetask)" value="1"/>
+     <task name="Applicationinitiateddevicebackgroundtask" message="$(string.task_Applicationinitiateddevicebackgroundtask)" value="2"/>
+     <task name="DeviceTriggerPerformance" message="$(string.task_DeviceTriggerPerformance)" value="3"/>
+     <task name="DeviceAttemptAssociationAudit" message="$(string.task_DeviceAttemptAssociationAudit)" value="4"/>
+    </tasks>
+    <maps>
+     <valueMap name="DeviceTriggerType">
+      <map value="0x0" message="$(string.map_DeviceTriggerTypeDeviceServicingTrigger)"/>
+      <map value="0x1" message="$(string.map_DeviceTriggerTypeDeviceUseTrigger)"/>
+     </valueMap>
+     <valueMap name="DeviceTriggerDenyReason">
+      <map value="0x0" message="$(string.map_DeviceTriggerDenyReasonUser did not approve servicing task)"/>
+      <map value="0x1" message="$(string.map_DeviceTriggerDenyReasonSystem did not allow servicing task)"/>
+      <map value="0x2" message="$(string.map_DeviceTriggerDenyReasonSystem battery power insufficient for servicing task)"/>
+      <map value="0x3" message="$(string.map_DeviceTriggerDenyReasonUnexpected error)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="Applicationinitiateddeviceservicing/updatetaskStart" version="0" task="Applicationinitiateddeviceservicing/updatetask" opcode="win:Start" level="win:Informational" template="Applicationinitiateddeviceservicing/updatetaskStartArgs"/>
+     <event value="2" symbol="Applicationinitiateddeviceservicing/updatetask" version="0" task="Applicationinitiateddeviceservicing/updatetask" level="win:Informational" template="Applicationinitiateddeviceservicing/updatetaskArgs"/>
+     <event value="3" symbol="Applicationinitiateddeviceservicing/updatetaskStop" version="0" task="Applicationinitiateddeviceservicing/updatetask" opcode="win:Stop" level="win:Error" template="Applicationinitiateddeviceservicing/updatetaskStopArgs"/>
+     <event value="4" symbol="Applicationinitiateddeviceservicing/updatetaskStop4" version="0" task="Applicationinitiateddeviceservicing/updatetask" opcode="win:Stop" level="win:Informational" template="Applicationinitiateddeviceservicing/updatetaskStop4Args"/>
+     <event value="5" symbol="Applicationinitiateddeviceservicing/updatetaskStop5" version="0" task="Applicationinitiateddeviceservicing/updatetask" opcode="win:Stop" level="win:Warning" template="Applicationinitiateddeviceservicing/updatetaskStop5Args"/>
+     <event value="6" symbol="Applicationinitiateddeviceservicing/updatetaskStop6" version="0" task="Applicationinitiateddeviceservicing/updatetask" opcode="win:Stop" level="win:Warning" template="Applicationinitiateddeviceservicing/updatetaskStop6Args"/>
+     <event value="10" symbol="ApplicationinitiateddevicebackgroundtaskStart" version="0" task="Applicationinitiateddevicebackgroundtask" opcode="win:Start" level="win:Informational" template="ApplicationinitiateddevicebackgroundtaskStartArgs"/>
+     <event value="11" symbol="Applicationinitiateddevicebackgroundtask" version="0" task="Applicationinitiateddevicebackgroundtask" level="win:Informational" template="Applicationinitiateddeviceservicing/updatetaskArgs"/>
+     <event value="12" symbol="ApplicationinitiateddevicebackgroundtaskStop" version="0" task="Applicationinitiateddevicebackgroundtask" opcode="win:Stop" level="win:Error" template="Applicationinitiateddeviceservicing/updatetaskStopArgs"/>
+     <event value="13" symbol="ApplicationinitiateddevicebackgroundtaskStop13" version="0" task="Applicationinitiateddevicebackgroundtask" opcode="win:Stop" level="win:Informational" template="Applicationinitiateddeviceservicing/updatetaskStop4Args"/>
+     <event value="14" symbol="ApplicationinitiateddevicebackgroundtaskStop14" version="0" task="Applicationinitiateddevicebackgroundtask" opcode="win:Stop" level="win:Warning" template="ApplicationinitiateddevicebackgroundtaskStop14Args"/>
+     <event value="15" symbol="ApplicationinitiateddevicebackgroundtaskStop15" version="0" task="Applicationinitiateddevicebackgroundtask" opcode="win:Stop" level="win:Warning" template="Applicationinitiateddeviceservicing/updatetaskStop6Args"/>
+     <event value="20" symbol="DeviceTriggerPerformanceStart" version="0" task="DeviceTriggerPerformance" opcode="win:Start" level="win:Informational" template="ApplicationinitiateddevicebackgroundtaskStartArgs"/>
+     <event value="21" symbol="DeviceTriggerPerformanceStop" version="0" task="DeviceTriggerPerformance" opcode="win:Stop" level="win:Informational" template="ApplicationinitiateddevicebackgroundtaskStartArgs"/>
+     <event value="22" symbol="DeviceTriggerPerformanceStop22" version="0" task="DeviceTriggerPerformance" opcode="win:Stop" level="win:Informational" template="ApplicationinitiateddevicebackgroundtaskStartArgs"/>
+     <event value="30" symbol="DeviceAttemptAssociationAudit" version="0" task="DeviceAttemptAssociationAudit" level="win:Informational" template="DeviceAttemptAssociationAuditArgs"/>
+    </events>
+    <templates>
+     <template tid="Applicationinitiateddeviceservicing/updatetaskStartArgs">
+      <data name="TriggerID" inType="win:GUID"/>
+      <data name="Application" inType="win:UnicodeString"/>
+      <data name="TaskType" inType="win:UInt32" map="DeviceTriggerType"/>
+      <data name="Device" inType="win:UnicodeString"/>
+      <data name="HardwareId" inType="win:UnicodeString"/>
+      <data name="Arguments" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Applicationinitiateddeviceservicing/updatetaskArgs">
+      <data name="TriggerID" inType="win:GUID"/>
+      <data name="TaskProcessID" inType="win:Int32"/>
+      <data name="Device" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Applicationinitiateddeviceservicing/updatetaskStopArgs">
+      <data name="TriggerID" inType="win:GUID"/>
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="Device" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Applicationinitiateddeviceservicing/updatetaskStop4Args">
+      <data name="TriggerID" inType="win:GUID"/>
+      <data name="Duration" inType="win:Int32"/>
+     </template>
+     <template tid="Applicationinitiateddeviceservicing/updatetaskStop5Args">
+      <data name="TriggerID" inType="win:GUID"/>
+      <data name="Application" inType="win:UnicodeString"/>
+      <data name="TaskType" inType="win:UInt32"/>
+      <data name="Device" inType="win:UnicodeString"/>
+      <data name="HardwareId" inType="win:UnicodeString"/>
+      <data name="Arguments" inType="win:UnicodeString"/>
+      <data name="Reason" inType="win:UInt32" map="DeviceTriggerDenyReason"/>
+      <data name="Error" inType="win:Int32"/>
+     </template>
+     <template tid="Applicationinitiateddeviceservicing/updatetaskStop6Args">
+      <data name="TriggerID" inType="win:GUID"/>
+      <data name="Application" inType="win:UnicodeString"/>
+      <data name="TaskType" inType="win:UInt32"/>
+      <data name="Device" inType="win:UnicodeString"/>
+      <data name="HardwareId" inType="win:UnicodeString"/>
+      <data name="Arguments" inType="win:UnicodeString"/>
+      <data name="Error" inType="win:Int32"/>
+     </template>
+     <template tid="ApplicationinitiateddevicebackgroundtaskStartArgs">
+      <data name="TriggerID" inType="win:GUID"/>
+      <data name="Application" inType="win:UnicodeString"/>
+      <data name="TaskType" inType="win:UInt32"/>
+      <data name="Device" inType="win:UnicodeString"/>
+      <data name="HardwareId" inType="win:UnicodeString"/>
+      <data name="Arguments" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ApplicationinitiateddevicebackgroundtaskStop14Args">
+      <data name="TriggerID" inType="win:GUID"/>
+      <data name="Application" inType="win:UnicodeString"/>
+      <data name="TaskType" inType="win:UInt32"/>
+      <data name="Device" inType="win:UnicodeString"/>
+      <data name="HardwareId" inType="win:UnicodeString"/>
+      <data name="Arguments" inType="win:UnicodeString"/>
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="Error" inType="win:Int32"/>
+     </template>
+     <template tid="DeviceAttemptAssociationAuditArgs">
+      <data name="packageName" inType="win:UnicodeString"/>
+      <data name="aepId" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_Applicationinitiateddeviceservicing/updatetask" value="Applicationinitiateddeviceservicing/updatetask"/>
+    <string id="task_Applicationinitiateddevicebackgroundtask" value="Applicationinitiateddevicebackgroundtask"/>
+    <string id="task_DeviceTriggerPerformance" value="DeviceTriggerPerformance"/>
+    <string id="task_DeviceAttemptAssociationAudit" value="DeviceAttemptAssociationAudit"/>
+    <string id="map_DeviceTriggerTypeDeviceServicingTrigger" value="DeviceServicingTrigger"/>
+    <string id="map_DeviceTriggerTypeDeviceUseTrigger" value="DeviceUseTrigger"/>
+    <string id="map_DeviceTriggerDenyReasonUser did not approve servicing task" value="User did not approve servicing task"/>
+    <string id="map_DeviceTriggerDenyReasonSystem did not allow servicing task" value="System did not allow servicing task"/>
+    <string id="map_DeviceTriggerDenyReasonSystem battery power insufficient for servicing task" value="System battery power insufficient for servicing task"/>
+    <string id="map_DeviceTriggerDenyReasonUnexpected error" value="Unexpected error"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

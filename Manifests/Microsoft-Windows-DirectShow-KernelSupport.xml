@@ -1,0 +1,51 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-DirectShow-KernelSupport" guid="{3cc2d4af-da5e-4ed4-bcbe-3cf995940483}" resourceFileName="Microsoft-Windows-DirectShow-KernelSupport" messageFileName="Microsoft-Windows-DirectShow-KernelSupport" symbol="MicrosoftWindowsDirectShowKernelSupport" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="KSProxyInfo" message="$(string.task_KSProxyInfo)" value="1">
+>
+      <opcodes>
+       <opcode name="Enter" message="$(string.opcode_KSProxyInfoEnter)" value="10"/>
+       <opcode name="Exit" message="$(string.opcode_KSProxyInfoExit)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="KSProxyBuffer" message="$(string.task_KSProxyBuffer)" value="2"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="KSProxyInfoEnter" version="0" task="KSProxyInfo" opcode="Enter" level="win:Informational"/>
+     <event value="2" symbol="KSProxyInfoExit" version="0" task="KSProxyInfo" opcode="Exit" level="win:Informational"/>
+     <event value="3" symbol="KSProxyInfoEnter3" version="0" task="KSProxyInfo" opcode="Enter" level="win:Informational"/>
+     <event value="4" symbol="KSProxyInfoExit4" version="0" task="KSProxyInfo" opcode="Exit" level="win:Informational"/>
+     <event value="5" symbol="KSProxyInfoEnter5" version="0" task="KSProxyInfo" opcode="Enter" level="win:Informational"/>
+     <event value="6" symbol="KSProxyInfoExit6" version="0" task="KSProxyInfo" opcode="Exit" level="win:Informational"/>
+     <event value="7" symbol="KSProxyBuffer" version="0" task="KSProxyBuffer" level="win:Verbose" template="KSProxyBufferArgs"/>
+     <event value="8" symbol="KSProxyBuffer8" version="0" task="KSProxyBuffer" level="win:Verbose" template="KSProxyBufferArgs"/>
+     <event value="9" symbol="KSProxyBuffer9" version="0" task="KSProxyBuffer" level="win:Verbose" template="KSProxyBufferArgs"/>
+     <event value="10" symbol="KSProxyBuffer10" version="0" task="KSProxyBuffer" level="win:Verbose" template="KSProxyBufferArgs"/>
+     <event value="11" symbol="KSProxyBuffer11" version="0" task="KSProxyBuffer" level="win:Verbose" template="KSProxyBufferArgs"/>
+     <event value="12" symbol="KSProxyBuffer12" version="0" task="KSProxyBuffer" level="win:Verbose" template="KSProxyBufferArgs"/>
+     <event value="13" symbol="KSProxyBuffer13" version="0" task="KSProxyBuffer" level="win:Verbose" template="KSProxyBufferArgs"/>
+    </events>
+    <templates>
+     <template tid="KSProxyBufferArgs">
+      <data name="Buffer" inType="win:Pointer"/>
+      <data name="TimeStamp" inType="win:Int64"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_KSProxyInfo" value="KSProxyInfo"/>
+    <string id="opcode_KSProxyInfoEnter" value="Enter"/>
+    <string id="opcode_KSProxyInfoExit" value="Exit"/>
+    <string id="task_KSProxyBuffer" value="KSProxyBuffer"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

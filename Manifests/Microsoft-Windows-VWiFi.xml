@@ -1,0 +1,39 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-VWiFi" guid="{314b2b0d-81ee-4474-b6e0-c2aaec0ddbde}" resourceFileName="Microsoft-Windows-VWiFi" messageFileName="Microsoft-Windows-VWiFi" symbol="MicrosoftWindowsVWiFi" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="EnableVWiFi" message="$(string.task_EnableVWiFi)" value="24001"/>
+     <task name="DisableVWiFi" message="$(string.task_DisableVWiFi)" value="24002"/>
+    </tasks>
+    <events>
+     <event value="25001" symbol="EnableVWiFiStart" version="0" task="EnableVWiFi" opcode="win:Start" level="win:Informational" template="EnableVWiFiStartArgs"/>
+     <event value="25002" symbol="DisableVWiFiStart" version="0" task="DisableVWiFi" opcode="win:Start" level="win:Informational" template="EnableVWiFiStartArgs"/>
+     <event value="25003" symbol="EnableVWiFiStop" version="0" task="EnableVWiFi" opcode="win:Stop" level="win:Informational" template="EnableVWiFiStopArgs"/>
+     <event value="25004" symbol="DisableVWiFiStop" version="0" task="DisableVWiFi" opcode="win:Stop" level="win:Informational" template="EnableVWiFiStopArgs"/>
+    </events>
+    <templates>
+     <template tid="EnableVWiFiStartArgs">
+      <data name="IfGuid" inType="win:GUID"/>
+      <data name="FriendlyName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="EnableVWiFiStopArgs">
+      <data name="IfGuid" inType="win:GUID"/>
+      <data name="FriendlyName" inType="win:UnicodeString"/>
+      <data name="VIfGuid" inType="win:GUID"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_EnableVWiFi" value="EnableVWiFi"/>
+    <string id="task_DisableVWiFi" value="DisableVWiFi"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

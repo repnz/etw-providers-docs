@@ -1,0 +1,284 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-MCCS-SyncController" guid="{7fcb9791-f481-46d1-846e-2eb6f003c4d3}" resourceFileName="Microsoft-Windows-MCCS-SyncController" messageFileName="Microsoft-Windows-MCCS-SyncController" symbol="MicrosoftWindowsMCCSSyncController" source="Xml" >
+    <keywords>
+     <keyword name="Error" message="$(string.keyword_Error)" mask="0x1"/>
+     <keyword name="Performance" message="$(string.keyword_Performance)" mask="0x2"/>
+     <keyword name="State" message="$(string.keyword_State)" mask="0x4"/>
+     <keyword name="CommsService" message="$(string.keyword_CommsService)" mask="0x1000000000"/>
+     <keyword name="Warning" message="$(string.keyword_Warning)" mask="0x4000000000"/>
+     <keyword name="StateTransition" message="$(string.keyword_StateTransition)" mask="0x8000000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="SPERF_TAG_SYNC_INIT_PROVIDER" message="$(string.task_SPERF_TAG_SYNC_INIT_PROVIDER)" value="1"/>
+     <task name="SPERF_TAG_SYNC_SERVICE_LOADED" message="$(string.task_SPERF_TAG_SYNC_SERVICE_LOADED)" value="2"/>
+     <task name="SPERF_TAG_SYNC_SERVICE_UNLOAD" message="$(string.task_SPERF_TAG_SYNC_SERVICE_UNLOAD)" value="3"/>
+     <task name="SPERF_TAG_BOOKKEEPER_SERVICE_LOADED" message="$(string.task_SPERF_TAG_BOOKKEEPER_SERVICE_LOADED)" value="4"/>
+     <task name="SPERF_TAG_BOOKKEEPER_BOOTSTRAP_ACCOUNTS" message="$(string.task_SPERF_TAG_BOOKKEEPER_BOOTSTRAP_ACCOUNTS)" value="5"/>
+     <task name="SPERF_TAG_BOOKKEEPER_ADD_CONTROLLER" message="$(string.task_SPERF_TAG_BOOKKEEPER_ADD_CONTROLLER)" value="6"/>
+    </tasks>
+    <maps>
+     <valueMap name="SyncModeEnum">
+      <map value="0x1" message="$(string.map_SyncModeEnumbatterysaver)"/>
+      <map value="0x2" message="$(string.map_SyncModeEnumdatasaver)"/>
+      <map value="0x3" message="$(string.map_SyncModeEnumthermalsaver)"/>
+     </valueMap>
+     <valueMap name="EngineGuidEnum">
+      <map value="0x0" message="$(string.map_EngineGuidEnumEAS sync engine)"/>
+      <map value="0x22c7da12" message="$(string.map_EngineGuidEnumEAS sync engine)"/>
+      <map value="0x475743c2" message="$(string.map_EngineGuidEnumsmtp sync engine)"/>
+      <map value="0x59549856" message="$(string.map_EngineGuidEnumcard dav sync engine)"/>
+      <map value="0x99f997ed" message="$(string.map_EngineGuidEnumcaldav sync engine)"/>
+      <map value="0xd277df13" message="$(string.map_EngineGuidEnuminternet mail sync engine)"/>
+     </valueMap>
+     <valueMap name="SaverModeFlags">
+      <map value="0x0" message="$(string.map_SaverModeFlagsnone)"/>
+      <map value="0x2" message="$(string.map_SaverModeFlagsbattery saver on)"/>
+      <map value="0x4" message="$(string.map_SaverModeFlagsdata saver on)"/>
+      <map value="0x8" message="$(string.map_SaverModeFlagsthermal saver on)"/>
+      <map value="0xe" message="$(string.map_SaverModeFlagsall savers on)"/>
+     </valueMap>
+     <valueMap name="EngineIndexEnum">
+      <map value="0x0" message="$(string.map_EngineIndexEnumsmtp sync engine)"/>
+      <map value="0x1" message="$(string.map_EngineIndexEnuminternet mail sync engine)"/>
+      <map value="0x2" message="$(string.map_EngineIndexEnumcaldav sync engine)"/>
+      <map value="0x3" message="$(string.map_EngineIndexEnumcard dav sync engine)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="task_0" version="0" task="task_0" level="win:Error" keywords="Error" template="task_0Args"/>
+     <event value="2" symbol="task_02" version="0" task="task_0" level="win:Warning" keywords="Warning" template="task_0Args"/>
+     <event value="102" symbol="task_0102" version="0" task="task_0" level="win:Warning" keywords="Warning" template="task_0102Args"/>
+     <event value="103" symbol="task_0103" version="0" task="task_0" level="win:Warning" keywords="Warning" template="task_0102Args"/>
+     <event value="104" symbol="task_0104" version="0" task="task_0" level="win:Warning" keywords="Warning" template="task_0104Args"/>
+     <event value="105" symbol="task_0105" version="0" task="task_0" level="win:Warning" keywords="Warning" template="task_0105Args"/>
+     <event value="106" symbol="task_0106" version="0" task="task_0" level="win:Warning" keywords="Warning" template="task_0104Args"/>
+     <event value="191" symbol="task_0191" version="0" task="task_0" level="win:Informational" keywords="CommsService" template="task_0191Args"/>
+     <event value="193" symbol="task_0193" version="0" task="task_0" level="win:Informational" keywords="CommsService" template="task_0193Args"/>
+     <event value="194" symbol="task_0194" version="0" task="task_0" level="win:Error" keywords="CommsService" template="task_0193Args"/>
+     <event value="195" symbol="task_0195" version="0" task="task_0" level="win:Error" keywords="CommsService" template="task_0191Args"/>
+     <event value="196" symbol="task_0196" version="0" task="task_0" level="win:Warning" keywords="CommsService" template="task_0196Args"/>
+     <event value="201" symbol="task_0201" version="0" task="task_0" level="win:Informational" keywords="StateTransition" template="task_0201Args"/>
+     <event value="401" symbol="SPERF_TAG_SYNC_INIT_PROVIDERStart" version="0" task="SPERF_TAG_SYNC_INIT_PROVIDER" opcode="win:Start" level="win:Informational" keywords="Performance"/>
+     <event value="402" symbol="SPERF_TAG_SYNC_INIT_PROVIDERStop" version="0" task="SPERF_TAG_SYNC_INIT_PROVIDER" opcode="win:Stop" level="win:Informational" keywords="Performance"/>
+     <event value="403" symbol="SPERF_TAG_SYNC_SERVICE_LOADEDStart" version="0" task="SPERF_TAG_SYNC_SERVICE_LOADED" opcode="win:Start" level="win:Informational" keywords="Performance"/>
+     <event value="404" symbol="SPERF_TAG_SYNC_SERVICE_LOADEDStop" version="0" task="SPERF_TAG_SYNC_SERVICE_LOADED" opcode="win:Stop" level="win:Informational" keywords="Performance"/>
+     <event value="405" symbol="SPERF_TAG_SYNC_SERVICE_UNLOADStart" version="0" task="SPERF_TAG_SYNC_SERVICE_UNLOAD" opcode="win:Start" level="win:Informational" keywords="Performance"/>
+     <event value="406" symbol="SPERF_TAG_SYNC_SERVICE_UNLOADStop" version="0" task="SPERF_TAG_SYNC_SERVICE_UNLOAD" opcode="win:Stop" level="win:Informational" keywords="Performance"/>
+     <event value="407" symbol="SPERF_TAG_BOOKKEEPER_SERVICE_LOADEDStart" version="0" task="SPERF_TAG_BOOKKEEPER_SERVICE_LOADED" opcode="win:Start" level="win:Informational" keywords="Performance"/>
+     <event value="408" symbol="SPERF_TAG_BOOKKEEPER_SERVICE_LOADEDStop" version="0" task="SPERF_TAG_BOOKKEEPER_SERVICE_LOADED" opcode="win:Stop" level="win:Informational" keywords="Performance"/>
+     <event value="409" symbol="SPERF_TAG_BOOKKEEPER_BOOTSTRAP_ACCOUNTSStart" version="0" task="SPERF_TAG_BOOKKEEPER_BOOTSTRAP_ACCOUNTS" opcode="win:Start" level="win:Informational" keywords="Performance"/>
+     <event value="410" symbol="SPERF_TAG_BOOKKEEPER_BOOTSTRAP_ACCOUNTSStop" version="0" task="SPERF_TAG_BOOKKEEPER_BOOTSTRAP_ACCOUNTS" opcode="win:Stop" level="win:Informational" keywords="Performance"/>
+     <event value="411" symbol="SPERF_TAG_BOOKKEEPER_ADD_CONTROLLERStart" version="0" task="SPERF_TAG_BOOKKEEPER_ADD_CONTROLLER" opcode="win:Start" level="win:Informational" keywords="Performance"/>
+     <event value="412" symbol="SPERF_TAG_BOOKKEEPER_ADD_CONTROLLERStop" version="0" task="SPERF_TAG_BOOKKEEPER_ADD_CONTROLLER" opcode="win:Stop" level="win:Informational" keywords="Performance"/>
+     <event value="500" symbol="task_0500" version="0" task="task_0" level="win:Informational" keywords="CommsService" template="task_0500Args"/>
+     <event value="501" symbol="task_0501" version="0" task="task_0" level="win:Informational" keywords="CommsService" template="task_0501Args"/>
+     <event value="502" symbol="task_0502" version="0" task="task_0" level="win:Informational" keywords="CommsService" template="task_0500Args"/>
+     <event value="503" symbol="task_0503" version="0" task="task_0" level="win:Informational" keywords="CommsService" template="task_0503Args"/>
+     <event value="504" symbol="task_0504" version="0" task="task_0" level="win:Informational" keywords="CommsService" template="task_0504Args"/>
+     <event value="505" symbol="task_0505" version="0" task="task_0" level="win:Informational" keywords="CommsService" template="task_0102Args"/>
+     <event value="506" symbol="task_0506" version="0" task="task_0" level="win:Informational" keywords="CommsService" template="task_0102Args"/>
+     <event value="507" symbol="task_0507" version="0" task="task_0" level="win:Informational" keywords="CommsService" template="task_0507Args"/>
+     <event value="508" symbol="task_0508" version="0" task="task_0" level="win:Informational" keywords="CommsService" template="task_0500Args"/>
+     <event value="509" symbol="task_0509" version="0" task="task_0" level="win:Informational" keywords="CommsService" template="task_0102Args"/>
+     <event value="510" symbol="task_0510" version="0" task="task_0" level="win:Informational" keywords="StateTransition" template="task_0102Args"/>
+     <event value="511" symbol="task_0511" version="0" task="task_0" level="win:Informational" keywords="StateTransition" template="task_0102Args"/>
+     <event value="512" symbol="task_0512" version="0" task="task_0" level="win:Informational" keywords="CommsService" template="task_0102Args"/>
+     <event value="513" symbol="task_0513" version="0" task="task_0" level="win:Informational" keywords="CommsService" template="task_0513Args"/>
+     <event value="516" symbol="task_0516" version="0" task="task_0" level="win:Informational" keywords="StateTransition" template="task_0102Args"/>
+     <event value="517" symbol="task_0517" version="0" task="task_0" level="win:Informational" keywords="StateTransition" template="task_0102Args"/>
+     <event value="518" symbol="task_0518" version="0" task="task_0" level="win:Informational" keywords="StateTransition" template="task_0102Args"/>
+     <event value="519" symbol="task_0519" version="0" task="task_0" level="win:Informational" keywords="StateTransition" template="task_0102Args"/>
+     <event value="522" symbol="task_0522" version="0" task="task_0" level="win:Informational" keywords="StateTransition" template="task_0102Args"/>
+     <event value="523" symbol="task_0523" version="0" task="task_0" level="win:Informational" keywords="StateTransition" template="task_0102Args"/>
+     <event value="524" symbol="task_0524" version="0" task="task_0" level="win:Informational" keywords="StateTransition" template="task_0102Args"/>
+     <event value="525" symbol="task_0525" version="0" task="task_0" level="win:Informational" keywords="StateTransition" template="task_0102Args"/>
+     <event value="526" symbol="task_0526" version="0" task="task_0" level="win:Informational" keywords="StateTransition" template="task_0102Args"/>
+     <event value="527" symbol="task_0527" version="0" task="task_0" level="win:Informational" keywords="StateTransition" template="task_0102Args"/>
+     <event value="528" symbol="task_0528" version="0" task="task_0" level="win:Informational" keywords="StateTransition"/>
+     <event value="529" symbol="task_0529" version="0" task="task_0" level="win:Informational" keywords="StateTransition"/>
+     <event value="530" symbol="task_0530" version="0" task="task_0" level="win:Informational" keywords="StateTransition" template="task_0102Args"/>
+     <event value="531" symbol="task_0531" version="0" task="task_0" level="win:Informational" keywords="StateTransition" template="task_0102Args"/>
+     <event value="534" symbol="task_0534" version="0" task="task_0" level="win:Informational" keywords="StateTransition" template="task_0102Args"/>
+     <event value="535" symbol="task_0535" version="0" task="task_0" level="win:Informational" keywords="StateTransition" template="task_0102Args"/>
+     <event value="536" symbol="task_0536" version="0" task="task_0" level="win:Informational" keywords="StateTransition" template="task_0102Args"/>
+     <event value="537" symbol="task_0537" version="0" task="task_0" level="win:Informational" keywords="StateTransition" template="task_0102Args"/>
+     <event value="538" symbol="task_0538" version="0" task="task_0" level="win:Informational" keywords="CommsService" template="task_0102Args"/>
+     <event value="539" symbol="task_0539" version="0" task="task_0" level="win:Informational" keywords="CommsService" template="task_0513Args"/>
+     <event value="540" symbol="task_0540" version="0" task="task_0" level="win:Informational" keywords="StateTransition" template="task_0102Args"/>
+     <event value="541" symbol="task_0541" version="0" task="task_0" level="win:Informational" keywords="StateTransition" template="task_0102Args"/>
+     <event value="542" symbol="task_0542" version="0" task="task_0" level="win:Informational" keywords="StateTransition" template="task_0102Args"/>
+     <event value="543" symbol="task_0543" version="0" task="task_0" level="win:Informational" keywords="StateTransition" template="task_0102Args"/>
+     <event value="544" symbol="task_0544" version="0" task="task_0" level="win:Informational" keywords="CommsService" template="task_0500Args"/>
+     <event value="545" symbol="task_0545" version="0" task="task_0" level="win:Warning" keywords="StateTransition" template="task_0545Args"/>
+     <event value="550" symbol="task_0550" version="0" task="task_0" level="win:Informational" keywords="CommsService" template="task_0500Args"/>
+     <event value="551" symbol="task_0551" version="0" task="task_0" level="win:Informational" keywords="CommsService" template="task_0551Args"/>
+     <event value="552" symbol="task_0552" version="0" task="task_0" level="win:Warning" keywords="CommsService" template="task_0551Args"/>
+     <event value="553" symbol="task_0553" version="0" task="task_0" level="win:Informational" keywords="CommsService" template="task_0102Args"/>
+     <event value="555" symbol="task_0555" version="0" task="task_0" level="win:Warning" keywords="CommsService" template="task_0555Args"/>
+     <event value="556" symbol="task_0556" version="0" task="task_0" level="win:Warning" keywords="CommsService" template="task_0102Args"/>
+     <event value="561" symbol="task_0561" version="0" task="task_0" level="win:Informational" keywords="CommsService" template="task_0561Args"/>
+     <event value="562" symbol="task_0562" version="0" task="task_0" level="win:Informational" keywords="CommsService" template="task_0500Args"/>
+     <event value="563" symbol="task_0563" version="0" task="task_0" level="win:Informational" keywords="CommsService" template="task_0500Args"/>
+     <event value="570" symbol="task_0570" version="0" task="task_0" level="win:Informational" keywords="CommsService" template="task_0570Args"/>
+     <event value="701" symbol="task_0701" version="0" task="task_0" level="win:Informational" keywords="StateTransition" template="task_0102Args"/>
+     <event value="702" symbol="task_0702" version="0" task="task_0" level="win:Informational" keywords="StateTransition" template="task_0102Args"/>
+     <event value="801" symbol="task_0801" version="0" task="task_0" level="win:Informational" keywords="CommsService" template="task_0801Args"/>
+     <event value="802" symbol="task_0802" version="0" task="task_0" level="win:Informational" keywords="StateTransition" template="task_0802Args"/>
+     <event value="809" symbol="task_0809" version="0" task="task_0" level="win:Informational" keywords="CommsService" template="task_0102Args"/>
+     <event value="810" symbol="task_0810" version="0" task="task_0" level="win:Informational" keywords="CommsService" template="task_0810Args"/>
+     <event value="811" symbol="task_0811" version="0" task="task_0" level="win:Informational" keywords="CommsService" template="task_0105Args"/>
+     <event value="812" symbol="task_0812" version="0" task="task_0" level="win:Informational" keywords="CommsService" template="task_0102Args"/>
+     <event value="813" symbol="task_0813" version="0" task="task_0" level="win:Informational" keywords="CommsService" template="task_0102Args"/>
+     <event value="900" symbol="task_0900" version="0" task="task_0" level="win:Informational" keywords="CommsService" template="task_0196Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="P1_HResult" inType="win:Int32"/>
+      <data name="P2_String" inType="win:AnsiString"/>
+      <data name="P3_UInt32" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0102Args">
+      <data name="Prop_Dword_1" inType="win:HexInt32"/>
+     </template>
+     <template tid="task_0104Args">
+      <data name="Prop_Dword_0" inType="win:HexInt32"/>
+      <data name="Prop_Dword_1" inType="win:HexInt32"/>
+      <data name="Prop_Dword_2" inType="win:HexInt32"/>
+      <data name="Prop_Dword_3" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0105Args">
+      <data name="Prop_Dword_0" inType="win:HexInt32"/>
+      <data name="Prop_Dword_1" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0191Args">
+      <data name="P2_UnicodeString" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0193Args">
+      <data name="P1_Guid" inType="win:GUID"/>
+      <data name="P2_UnicodeString" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0196Args">
+      <data name="P1_Boolean" inType="win:Boolean"/>
+     </template>
+     <template tid="task_0201Args">
+      <data name="SyncMode" inType="win:UInt32" map="SyncModeEnum"/>
+      <data name="Prop_Dword_2" inType="win:HexInt32"/>
+     </template>
+     <template tid="task_0500Args">
+      <data name="Prop_Dword_1" inType="win:HexInt32"/>
+      <data name="EngineGuid" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0501Args">
+      <data name="Prop_Dword_1" inType="win:HexInt32"/>
+      <data name="EngineGuid" inType="win:UInt32" map="EngineGuidEnum"/>
+     </template>
+     <template tid="task_0503Args">
+      <data name="Prop_Dword_0" inType="win:HexInt32"/>
+      <data name="Prop_Dword_1" inType="win:HexInt32"/>
+      <data name="Prop_Dword_2" inType="win:UInt32"/>
+      <data name="Prop_Dword_3" inType="win:UInt32"/>
+      <data name="Prop_Dword_4" inType="win:UInt32"/>
+      <data name="SaverMode" inType="win:UInt32" map="SaverModeFlags"/>
+      <data name="EngineGuid" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0504Args">
+      <data name="Prop_Dword_0" inType="win:HexInt32"/>
+      <data name="Prop_Dword_1" inType="win:HexInt32"/>
+      <data name="Prop_Dword_2" inType="win:UInt32"/>
+      <data name="Prop_Dword_3" inType="win:UInt32"/>
+      <data name="SaverMode" inType="win:UInt32"/>
+      <data name="EngineGuid" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0507Args">
+      <data name="Prop_Dword_0" inType="win:HexInt32"/>
+      <data name="Prop_Dword_1" inType="win:UInt32"/>
+      <data name="Prop_Dword_2" inType="win:UInt32"/>
+      <data name="EngineGuid" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0513Args">
+      <data name="Prop_Dword_1" inType="win:HexInt32"/>
+      <data name="Prop_HResult_2" inType="win:Int32"/>
+     </template>
+     <template tid="task_0545Args">
+      <data name="P1_Guid" inType="win:GUID"/>
+      <data name="P2_UInt" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0551Args">
+      <data name="Prop_Dword_0" inType="win:HexInt32"/>
+      <data name="Prop_Dword_1" inType="win:UInt32"/>
+      <data name="Prop_Dword_2" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0555Args">
+      <data name="Prop_Dword" inType="win:HexInt32"/>
+      <data name="Prop_ScheduleTriggerRequirementFlags" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0561Args">
+      <data name="Prop_Dword_1" inType="win:UInt32" map="EngineIndexEnum"/>
+      <data name="Prop_HResult_2" inType="win:Int32"/>
+     </template>
+     <template tid="task_0570Args">
+      <data name="Prop_Dword_1" inType="win:HexInt32"/>
+      <data name="EngineGuid" inType="win:UInt32"/>
+      <data name="WorkType" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0801Args">
+      <data name="Prop_Dword_1" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0802Args">
+      <data name="Prop_Dword_1" inType="win:UInt32"/>
+      <data name="Prop_Dword_2" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0810Args">
+      <data name="Prop_Guid" inType="win:GUID"/>
+      <data name="Prop_Dword_1" inType="win:HexInt32"/>
+      <data name="Prop_Dword_2" inType="win:UInt32"/>
+      <data name="Prop_Dword_3" inType="win:UInt32"/>
+      <data name="Prop_Dword_4" inType="win:UInt32"/>
+      <data name="Prop_ScheduleTriggerRequirementFlags" inType="win:UInt32"/>
+      <data name="EngineGuid" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Error" value="Error"/>
+    <string id="keyword_Performance" value="Performance"/>
+    <string id="keyword_State" value="State"/>
+    <string id="keyword_CommsService" value="CommsService"/>
+    <string id="keyword_Warning" value="Warning"/>
+    <string id="keyword_StateTransition" value="StateTransition"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_SPERF_TAG_SYNC_INIT_PROVIDER" value="SPERF_TAG_SYNC_INIT_PROVIDER"/>
+    <string id="task_SPERF_TAG_SYNC_SERVICE_LOADED" value="SPERF_TAG_SYNC_SERVICE_LOADED"/>
+    <string id="task_SPERF_TAG_SYNC_SERVICE_UNLOAD" value="SPERF_TAG_SYNC_SERVICE_UNLOAD"/>
+    <string id="task_SPERF_TAG_BOOKKEEPER_SERVICE_LOADED" value="SPERF_TAG_BOOKKEEPER_SERVICE_LOADED"/>
+    <string id="task_SPERF_TAG_BOOKKEEPER_BOOTSTRAP_ACCOUNTS" value="SPERF_TAG_BOOKKEEPER_BOOTSTRAP_ACCOUNTS"/>
+    <string id="task_SPERF_TAG_BOOKKEEPER_ADD_CONTROLLER" value="SPERF_TAG_BOOKKEEPER_ADD_CONTROLLER"/>
+    <string id="map_SyncModeEnumbatterysaver" value="batterysaver"/>
+    <string id="map_SyncModeEnumdatasaver" value="datasaver"/>
+    <string id="map_SyncModeEnumthermalsaver" value="thermalsaver"/>
+    <string id="map_EngineGuidEnumEAS sync engine" value="EAS sync engine"/>
+    <string id="map_EngineGuidEnumEAS sync engine" value="EAS sync engine"/>
+    <string id="map_EngineGuidEnumsmtp sync engine" value="smtp sync engine"/>
+    <string id="map_EngineGuidEnumcard dav sync engine" value="card dav sync engine"/>
+    <string id="map_EngineGuidEnumcaldav sync engine" value="caldav sync engine"/>
+    <string id="map_EngineGuidEnuminternet mail sync engine" value="internet mail sync engine"/>
+    <string id="map_SaverModeFlagsnone" value="none"/>
+    <string id="map_SaverModeFlagsbattery saver on" value="battery saver on"/>
+    <string id="map_SaverModeFlagsdata saver on" value="data saver on"/>
+    <string id="map_SaverModeFlagsthermal saver on" value="thermal saver on"/>
+    <string id="map_SaverModeFlagsall savers on" value="all savers on"/>
+    <string id="map_EngineIndexEnumsmtp sync engine" value="smtp sync engine"/>
+    <string id="map_EngineIndexEnuminternet mail sync engine" value="internet mail sync engine"/>
+    <string id="map_EngineIndexEnumcaldav sync engine" value="caldav sync engine"/>
+    <string id="map_EngineIndexEnumcard dav sync engine" value="card dav sync engine"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

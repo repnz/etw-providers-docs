@@ -1,0 +1,258 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-TSF-msctf" guid="{4fba1227-f606-4e5f-b9e8-fab9ab5740f3}" resourceFileName="Microsoft-Windows-TSF-msctf" messageFileName="Microsoft-Windows-TSF-msctf" symbol="MicrosoftWindowsTSFmsctf" source="Xml" >
+    <keywords>
+     <keyword name="Status" message="$(string.keyword_Status)" mask="0x10000"/>
+     <keyword name="Perf" message="$(string.keyword_Perf)" mask="0x20000"/>
+     <keyword name="CUAS" message="$(string.keyword_CUAS)" mask="0x40000"/>
+     <keyword name="CiceroHook" message="$(string.keyword_CiceroHook)" mask="0x80000"/>
+     <keyword name="Focus" message="$(string.keyword_Focus)" mask="0x100000"/>
+     <keyword name="ALPC" message="$(string.keyword_ALPC)" mask="0x200000"/>
+     <keyword name="Editing" message="$(string.keyword_Editing)" mask="0x400000"/>
+     <keyword name="TSFAPI" message="$(string.keyword_TSFAPI)" mask="0x800000"/>
+     <keyword name="TSFEvent" message="$(string.keyword_TSFEvent)" mask="0x1000000"/>
+     <keyword name="OOPIME" message="$(string.keyword_OOPIME)" mask="0x2000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="InitMSCTFForProcess" message="$(string.task_InitMSCTFForProcess)" value="1"/>
+     <task name="UninitMSCTFForProcess" message="$(string.task_UninitMSCTFForProcess)" value="2"/>
+     <task name="ActivateCiceroForThread" message="$(string.task_ActivateCiceroForThread)" value="3"/>
+     <task name="DeactivateCiceroForThread" message="$(string.task_DeactivateCiceroForThread)" value="4"/>
+     <task name="FLSCallback" message="$(string.task_FLSCallback)" value="6"/>
+     <task name="ConnectServer" message="$(string.task_ConnectServer)" value="7"/>
+     <task name="ActivateTIP" message="$(string.task_ActivateTIP)" value="8"/>
+     <task name="DeactivateTIP" message="$(string.task_DeactivateTIP)" value="9"/>
+     <task name="CheckLastWindowDestroyed" message="$(string.task_CheckLastWindowDestroyed)" value="10"/>
+     <task name="CreateAssemblyList" message="$(string.task_CreateAssemblyList)" value="11"/>
+     <task name="LoadAssemblyList" message="$(string.task_LoadAssemblyList)" value="12"/>
+     <task name="ActivateAssembly" message="$(string.task_ActivateAssembly)" value="13"/>
+     <task name="HandleThreadInputFocusEvent" message="$(string.task_HandleThreadInputFocusEvent)" value="15"/>
+     <task name="HandleGlobalInputFocusEvent" message="$(string.task_HandleGlobalInputFocusEvent)" value="16"/>
+     <task name="CreateMessageWindow" message="$(string.task_CreateMessageWindow)" value="17"/>
+     <task name="SendNotification" message="$(string.task_SendNotification)" value="19"/>
+     <task name="SendSyncRequest" message="$(string.task_SendSyncRequest)" value="20"/>
+     <task name="SendAsyncRequest" message="$(string.task_SendAsyncRequest)" value="21"/>
+     <task name="ReceiveALPCMessages" message="$(string.task_ReceiveALPCMessages)" value="22"/>
+     <task name="ProcessALPCMessage" message="$(string.task_ProcessALPCMessage)" value="23"/>
+     <task name="CreateLangBarItemMgr" message="$(string.task_CreateLangBarItemMgr)" value="24"/>
+     <task name="CiceroServer" message="$(string.task_CiceroServer)" value="25"/>
+     <task name="ITfThreadFocusSink_OnSetThreadFocus" message="$(string.task_ITfThreadFocusSink_OnSetThreadFocus)" value="256"/>
+     <task name="ITfThreadFocusSink_OnKillThreadFocus" message="$(string.task_ITfThreadFocusSink_OnKillThreadFocus)" value="257"/>
+     <task name="ITfThreadMgrEventSink_OnSetFocus" message="$(string.task_ITfThreadMgrEventSink_OnSetFocus)" value="258"/>
+     <task name="GetIconFromFile" message="$(string.task_GetIconFromFile)" value="1024"/>
+     <task name="CreateBitmap" message="$(string.task_CreateBitmap)" value="1025"/>
+     <task name="IMELocalServer" message="$(string.task_IMELocalServer)" value="2048"/>
+     <task name="InputProfileActivation" message="$(string.task_InputProfileActivation)" value="2049"/>
+     <task name="InputProfileDeactivation" message="$(string.task_InputProfileDeactivation)" value="2050"/>
+     <task name="DocumentFocusChange" message="$(string.task_DocumentFocusChange)" value="2051"/>
+     <task name="DocumentContentChange" message="$(string.task_DocumentContentChange)" value="2052"/>
+     <task name="KeyboardEventHandling" message="$(string.task_KeyboardEventHandling)" value="2055"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="InitMSCTFForProcessStart" version="0" task="InitMSCTFForProcess" opcode="win:Start" level="win:Informational" keywords="Perf"/>
+     <event value="2" symbol="InitMSCTFForProcessStop" version="0" task="InitMSCTFForProcess" opcode="win:Stop" level="win:Informational" keywords="Perf"/>
+     <event value="3" symbol="UninitMSCTFForProcessStart" version="0" task="UninitMSCTFForProcess" opcode="win:Start" level="win:Informational" keywords="Perf"/>
+     <event value="4" symbol="UninitMSCTFForProcessStop" version="0" task="UninitMSCTFForProcess" opcode="win:Stop" level="win:Informational" keywords="Perf"/>
+     <event value="5" symbol="ActivateCiceroForThreadStart" version="0" task="ActivateCiceroForThread" opcode="win:Start" level="win:Informational" keywords="Perf" template="ActivateCiceroForThreadStartArgs"/>
+     <event value="6" symbol="ActivateCiceroForThread" version="0" task="ActivateCiceroForThread" level="win:Informational" keywords="Perf"/>
+     <event value="7" symbol="ActivateCiceroForThreadStop" version="0" task="ActivateCiceroForThread" opcode="win:Stop" level="win:Informational" keywords="Perf" template="ActivateCiceroForThreadStartArgs"/>
+     <event value="8" symbol="DeactivateCiceroForThreadStart" version="0" task="DeactivateCiceroForThread" opcode="win:Start" level="win:Informational" keywords="Perf"/>
+     <event value="9" symbol="DeactivateCiceroForThreadStop" version="0" task="DeactivateCiceroForThread" opcode="win:Stop" level="win:Informational" keywords="Perf"/>
+     <event value="10" symbol="FLSCallbackStart" version="0" task="FLSCallback" opcode="win:Start" level="win:Informational" keywords="Perf"/>
+     <event value="11" symbol="FLSCallbackStop" version="0" task="FLSCallback" opcode="win:Stop" level="win:Informational" keywords="Perf"/>
+     <event value="12" symbol="ConnectServerStart" version="0" task="ConnectServer" opcode="win:Start" level="win:Informational" keywords="Perf ALPC"/>
+     <event value="13" symbol="ConnectServer" version="0" task="ConnectServer" level="win:Warning" keywords="ALPC"/>
+     <event value="14" symbol="ConnectServerStop" version="0" task="ConnectServer" opcode="win:Stop" level="win:Informational" keywords="Perf ALPC"/>
+     <event value="15" symbol="task_0" version="0" task="task_0" level="win:Informational" keywords="Status ALPC"/>
+     <event value="16" symbol="CreateMessageWindow" version="0" task="CreateMessageWindow" level="win:Informational" keywords="Status"/>
+     <event value="17" symbol="CreateMessageWindow17" version="0" task="CreateMessageWindow" level="win:Error" keywords="Status"/>
+     <event value="18" symbol="task_018" version="0" task="task_0" level="win:Informational" keywords="Status"/>
+     <event value="19" symbol="ActivateTIPStart" version="0" task="ActivateTIP" opcode="win:Start" level="win:Informational" keywords="Perf" template="ActivateTIPStartArgs"/>
+     <event value="20" symbol="ActivateTIPStop" version="0" task="ActivateTIP" opcode="win:Stop" level="win:Informational" keywords="Perf" template="ActivateTIPStartArgs"/>
+     <event value="21" symbol="DeactivateTIPStart" version="0" task="DeactivateTIP" opcode="win:Start" level="win:Informational" keywords="Perf" template="ActivateTIPStartArgs"/>
+     <event value="22" symbol="DeactivateTIPStop" version="0" task="DeactivateTIP" opcode="win:Stop" level="win:Informational" keywords="Perf" template="ActivateTIPStartArgs"/>
+     <event value="23" symbol="CheckLastWindowDestroyedStart" version="0" task="CheckLastWindowDestroyed" opcode="win:Start" level="win:Informational" keywords="Perf"/>
+     <event value="24" symbol="CheckLastWindowDestroyedStop" version="0" task="CheckLastWindowDestroyed" opcode="win:Stop" level="win:Informational" keywords="Perf"/>
+     <event value="25" symbol="CreateAssemblyListStart" version="0" task="CreateAssemblyList" opcode="win:Start" level="win:Informational" keywords="Perf"/>
+     <event value="26" symbol="CreateAssemblyListStop" version="0" task="CreateAssemblyList" opcode="win:Stop" level="win:Informational" keywords="Perf"/>
+     <event value="27" symbol="LoadAssemblyListStart" version="0" task="LoadAssemblyList" opcode="win:Start" level="win:Informational" keywords="Perf"/>
+     <event value="28" symbol="LoadAssemblyListStop" version="0" task="LoadAssemblyList" opcode="win:Stop" level="win:Informational" keywords="Perf"/>
+     <event value="29" symbol="ActivateAssemblyStart" version="0" task="ActivateAssembly" opcode="win:Start" level="win:Informational" keywords="Perf" template="ActivateAssemblyStartArgs"/>
+     <event value="30" symbol="ActivateAssemblyStop" version="0" task="ActivateAssembly" opcode="win:Stop" level="win:Informational" keywords="Perf" template="ActivateAssemblyStartArgs"/>
+     <event value="31" symbol="HandleThreadInputFocusEventStart" version="0" task="HandleThreadInputFocusEvent" opcode="win:Start" level="win:Informational" keywords="Focus" template="HandleThreadInputFocusEventStartArgs"/>
+     <event value="32" symbol="HandleThreadInputFocusEventStop" version="0" task="HandleThreadInputFocusEvent" opcode="win:Stop" level="win:Informational" keywords="Focus" template="HandleThreadInputFocusEventStopArgs"/>
+     <event value="33" symbol="HandleGlobalInputFocusEventStart" version="0" task="HandleGlobalInputFocusEvent" opcode="win:Start" level="win:Informational" keywords="Focus" template="HandleThreadInputFocusEventStartArgs"/>
+     <event value="34" symbol="HandleGlobalInputFocusEventStop" version="0" task="HandleGlobalInputFocusEvent" opcode="win:Stop" level="win:Informational" keywords="Focus"/>
+     <event value="35" symbol="SendNotificationSend" version="0" task="SendNotification" opcode="win:Send" level="win:Informational" keywords="ALPC" template="SendNotificationSendArgs"/>
+     <event value="36" symbol="SendSyncRequestSuspend" version="0" task="SendSyncRequest" opcode="win:Suspend" level="win:Informational" keywords="ALPC" template="SendNotificationSendArgs"/>
+     <event value="37" symbol="SendSyncRequestResume" version="0" task="SendSyncRequest" opcode="win:Resume" level="win:Informational" keywords="ALPC"/>
+     <event value="38" symbol="SendAsyncRequestStart" version="0" task="SendAsyncRequest" opcode="win:Start" level="win:Informational" keywords="ALPC" template="SendNotificationSendArgs"/>
+     <event value="39" symbol="SendAsyncRequestStop" version="0" task="SendAsyncRequest" opcode="win:Stop" level="win:Informational" keywords="ALPC"/>
+     <event value="40" symbol="ReceiveALPCMessagesStart" version="0" task="ReceiveALPCMessages" opcode="win:Start" level="win:Informational" keywords="ALPC"/>
+     <event value="41" symbol="ReceiveALPCMessagesStop" version="0" task="ReceiveALPCMessages" opcode="win:Stop" level="win:Informational" keywords="ALPC"/>
+     <event value="42" symbol="ProcessALPCMessageStart" version="0" task="ProcessALPCMessage" opcode="win:Start" level="win:Informational" keywords="ALPC" template="SendNotificationSendArgs"/>
+     <event value="43" symbol="ProcessALPCMessageStop" version="0" task="ProcessALPCMessage" opcode="win:Stop" level="win:Error" keywords="ALPC" template="ProcessALPCMessageStopArgs"/>
+     <event value="44" symbol="ProcessALPCMessageStop44" version="0" task="ProcessALPCMessage" opcode="win:Stop" level="win:Informational" keywords="ALPC"/>
+     <event value="45" symbol="ProcessALPCMessageReply" version="0" task="ProcessALPCMessage" opcode="win:Reply" level="win:Informational" keywords="ALPC" template="ProcessALPCMessageReplyArgs"/>
+     <event value="46" symbol="CreateLangBarItemMgrStart" version="0" task="CreateLangBarItemMgr" opcode="win:Start" level="win:Informational" keywords="Perf"/>
+     <event value="47" symbol="CreateLangBarItemMgrStop" version="0" task="CreateLangBarItemMgr" opcode="win:Stop" level="win:Informational" keywords="Perf"/>
+     <event value="48" symbol="GetIconFromFileStart" version="0" task="GetIconFromFile" opcode="win:Start" level="win:Informational" keywords="Perf"/>
+     <event value="49" symbol="GetIconFromFileStop" version="0" task="GetIconFromFile" opcode="win:Stop" level="win:Informational" keywords="Perf"/>
+     <event value="50" symbol="CreateBitmapStart" version="0" task="CreateBitmap" opcode="win:Start" level="win:Informational" keywords="Perf"/>
+     <event value="51" symbol="CreateBitmapStop" version="0" task="CreateBitmap" opcode="win:Stop" level="win:Informational" keywords="Perf"/>
+     <event value="52" symbol="ITfThreadFocusSink_OnSetThreadFocusStart" version="0" task="ITfThreadFocusSink_OnSetThreadFocus" opcode="win:Start" level="win:Informational" keywords="TSFEvent" template="ProcessALPCMessageStopArgs"/>
+     <event value="53" symbol="ITfThreadFocusSink_OnSetThreadFocusStop" version="0" task="ITfThreadFocusSink_OnSetThreadFocus" opcode="win:Stop" level="win:Informational" keywords="TSFEvent" template="ProcessALPCMessageStopArgs"/>
+     <event value="54" symbol="ITfThreadFocusSink_OnKillThreadFocusStart" version="0" task="ITfThreadFocusSink_OnKillThreadFocus" opcode="win:Start" level="win:Informational" keywords="TSFEvent" template="ProcessALPCMessageStopArgs"/>
+     <event value="55" symbol="ITfThreadFocusSink_OnKillThreadFocusStop" version="0" task="ITfThreadFocusSink_OnKillThreadFocus" opcode="win:Stop" level="win:Informational" keywords="TSFEvent" template="ProcessALPCMessageStopArgs"/>
+     <event value="56" symbol="ITfThreadMgrEventSink_OnSetFocusStart" version="0" task="ITfThreadMgrEventSink_OnSetFocus" opcode="win:Start" level="win:Informational" keywords="TSFEvent" template="ITfThreadMgrEventSink_OnSetFocusStartArgs"/>
+     <event value="57" symbol="ITfThreadMgrEventSink_OnSetFocusStop" version="0" task="ITfThreadMgrEventSink_OnSetFocus" opcode="win:Stop" level="win:Informational" keywords="TSFEvent" template="ITfThreadMgrEventSink_OnSetFocusStartArgs"/>
+     <event value="58" symbol="CiceroServerStart" version="0" task="CiceroServer" opcode="win:Start" level="win:Informational" keywords="Status" template="ProcessALPCMessageStopArgs"/>
+     <event value="59" symbol="CiceroServerStop" version="0" task="CiceroServer" opcode="win:Stop" level="win:Informational" keywords="Status" template="ProcessALPCMessageStopArgs"/>
+     <event value="60" symbol="CiceroServer" version="0" task="CiceroServer" level="win:Informational" keywords="Status"/>
+     <event value="61" symbol="CiceroServer61" version="0" task="CiceroServer" level="win:Informational" keywords="Status"/>
+     <event value="62" symbol="CiceroServer62" version="0" task="CiceroServer" level="win:Informational" keywords="Status"/>
+     <event value="63" symbol="CiceroServer63" version="0" task="CiceroServer" level="win:Informational" keywords="Status"/>
+     <event value="64" symbol="task_064" version="0" task="task_0" level="win:Informational" keywords="Status" template="ProcessALPCMessageStopArgs"/>
+     <event value="65" symbol="IMELocalServer" version="0" task="IMELocalServer" level="win:Informational" keywords="OOPIME" template="ActivateTIPStartArgs"/>
+     <event value="66" symbol="IMELocalServer66" version="0" task="IMELocalServer" level="win:Informational" keywords="OOPIME" template="ActivateTIPStartArgs"/>
+     <event value="67" symbol="IMELocalServer67" version="0" task="IMELocalServer" level="win:Informational" keywords="OOPIME" template="ActivateTIPStartArgs"/>
+     <event value="68" symbol="IMELocalServer68" version="0" task="IMELocalServer" level="win:Informational" keywords="OOPIME" template="ActivateTIPStartArgs"/>
+     <event value="69" symbol="IMELocalServer69" version="0" task="IMELocalServer" level="win:Informational" keywords="OOPIME" template="ActivateTIPStartArgs"/>
+     <event value="70" symbol="IMELocalServer70" version="0" task="IMELocalServer" level="win:Informational" keywords="OOPIME" template="ActivateTIPStartArgs"/>
+     <event value="71" symbol="IMELocalServerStart" version="0" task="IMELocalServer" opcode="win:Start" level="win:Informational" keywords="Perf"/>
+     <event value="72" symbol="IMELocalServerStop" version="0" task="IMELocalServer" opcode="win:Stop" level="win:Informational" keywords="Perf"/>
+     <event value="73" symbol="InputProfileActivation" version="0" task="InputProfileActivation" level="win:Informational" keywords="OOPIME"/>
+     <event value="74" symbol="InputProfileActivation74" version="0" task="InputProfileActivation" level="win:Informational" keywords="OOPIME" template="ProcessALPCMessageStopArgs"/>
+     <event value="75" symbol="InputProfileActivation75" version="0" task="InputProfileActivation" level="win:Informational" keywords="OOPIME" template="InputProfileActivation75Args"/>
+     <event value="76" symbol="InputProfileDeactivation" version="0" task="InputProfileDeactivation" level="win:Informational" keywords="OOPIME"/>
+     <event value="77" symbol="InputProfileDeactivation77" version="0" task="InputProfileDeactivation" level="win:Informational" keywords="OOPIME" template="ProcessALPCMessageStopArgs"/>
+     <event value="78" symbol="InputProfileDeactivation78" version="0" task="InputProfileDeactivation" level="win:Informational" keywords="OOPIME"/>
+     <event value="79" symbol="DocumentFocusChange" version="0" task="DocumentFocusChange" level="win:Informational" keywords="OOPIME" template="DocumentFocusChangeArgs"/>
+     <event value="80" symbol="DocumentFocusChange80" version="0" task="DocumentFocusChange" level="win:Informational" keywords="OOPIME" template="DocumentFocusChange80Args"/>
+     <event value="81" symbol="DocumentFocusChange81" version="0" task="DocumentFocusChange" level="win:Informational" keywords="OOPIME" template="DocumentFocusChange80Args"/>
+     <event value="82" symbol="DocumentFocusChange82" version="0" task="DocumentFocusChange" level="win:Informational" keywords="OOPIME" template="DocumentFocusChange82Args"/>
+     <event value="83" symbol="DocumentContentChange" version="0" task="DocumentContentChange" level="win:Informational" keywords="OOPIME"/>
+     <event value="84" symbol="DocumentContentChange84" version="0" task="DocumentContentChange" level="win:Informational" keywords="OOPIME" template="ProcessALPCMessageStopArgs"/>
+     <event value="85" symbol="DocumentContentChange85" version="0" task="DocumentContentChange" level="win:Informational" keywords="OOPIME" template="ProcessALPCMessageStopArgs"/>
+     <event value="86" symbol="DocumentContentChange86" version="0" task="DocumentContentChange" level="win:Informational" keywords="OOPIME"/>
+     <event value="87" symbol="KeyboardEventHandling" version="0" task="KeyboardEventHandling" level="win:Informational" keywords="Perf OOPIME"/>
+     <event value="88" symbol="KeyboardEventHandling88" version="0" task="KeyboardEventHandling" level="win:Informational" keywords="Perf OOPIME"/>
+     <event value="89" symbol="KeyboardEventHandling89" version="0" task="KeyboardEventHandling" level="win:Informational" keywords="Perf OOPIME" template="DocumentFocusChange82Args"/>
+     <event value="90" symbol="KeyboardEventHandling90" version="0" task="KeyboardEventHandling" level="win:Informational" keywords="Perf OOPIME"/>
+     <event value="91" symbol="KeyboardEventHandling91" version="0" task="KeyboardEventHandling" level="win:Informational" keywords="Perf OOPIME"/>
+     <event value="92" symbol="KeyboardEventHandling92" version="0" task="KeyboardEventHandling" level="win:Informational" keywords="Perf OOPIME"/>
+     <event value="93" symbol="KeyboardEventHandling93" version="0" task="KeyboardEventHandling" level="win:Informational" keywords="Perf OOPIME"/>
+     <event value="94" symbol="KeyboardEventHandling94" version="0" task="KeyboardEventHandling" level="win:Informational" keywords="Perf OOPIME"/>
+     <event value="95" symbol="KeyboardEventHandling95" version="0" task="KeyboardEventHandling" level="win:Informational" keywords="Perf OOPIME"/>
+    </events>
+    <templates>
+     <template tid="ActivateCiceroForThreadStartArgs">
+      <data name="thread_flags" inType="win:UInt32"/>
+      <data name="activation_flags" inType="win:UInt32"/>
+     </template>
+     <template tid="ActivateTIPStartArgs">
+      <data name="guid" inType="win:GUID"/>
+     </template>
+     <template tid="ActivateAssemblyStartArgs">
+      <data name="LANGID" inType="win:UInt32"/>
+     </template>
+     <template tid="HandleThreadInputFocusEventStartArgs">
+      <data name="event" inType="win:UInt32"/>
+      <data name="hwnd" inType="win:Pointer"/>
+      <data name="flags" inType="win:UInt32"/>
+      <data name="event_order" inType="win:UInt32"/>
+     </template>
+     <template tid="HandleThreadInputFocusEventStopArgs">
+      <data name="hwnd" inType="win:Pointer"/>
+     </template>
+     <template tid="SendNotificationSendArgs">
+      <data name="message" inType="win:UInt32"/>
+      <data name="target_tid" inType="win:UInt32"/>
+      <data name="params" inType="win:UInt32"/>
+     </template>
+     <template tid="ProcessALPCMessageStopArgs">
+      <data name="param" inType="win:UInt32"/>
+     </template>
+     <template tid="ProcessALPCMessageReplyArgs">
+      <data name="message" inType="win:UInt32"/>
+      <data name="target_tid" inType="win:UInt32"/>
+      <data name="params" inType="win:UInt32"/>
+      <data name="hr" inType="win:UInt32"/>
+     </template>
+     <template tid="ITfThreadMgrEventSink_OnSetFocusStartArgs">
+      <data name="pdimNewFocus" inType="win:Pointer"/>
+      <data name="pdimPrevFocus" inType="win:Pointer"/>
+     </template>
+     <template tid="InputProfileActivation75Args">
+      <data name="guid" inType="win:GUID"/>
+      <data name="langid" inType="win:UInt16"/>
+     </template>
+     <template tid="DocumentFocusChangeArgs">
+      <data name="DocId" inType="win:UInt32"/>
+      <data name="DocThread" inType="win:UInt32"/>
+      <data name="GainFocus" inType="win:Boolean"/>
+     </template>
+     <template tid="DocumentFocusChange80Args">
+      <data name="thread" inType="win:UInt32"/>
+      <data name="document" inType="win:UInt32"/>
+     </template>
+     <template tid="DocumentFocusChange82Args">
+      <data name="boolean" inType="win:Boolean"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Status" value="Status"/>
+    <string id="keyword_Perf" value="Perf"/>
+    <string id="keyword_CUAS" value="CUAS"/>
+    <string id="keyword_CiceroHook" value="CiceroHook"/>
+    <string id="keyword_Focus" value="Focus"/>
+    <string id="keyword_ALPC" value="ALPC"/>
+    <string id="keyword_Editing" value="Editing"/>
+    <string id="keyword_TSFAPI" value="TSFAPI"/>
+    <string id="keyword_TSFEvent" value="TSFEvent"/>
+    <string id="keyword_OOPIME" value="OOPIME"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_InitMSCTFForProcess" value="InitMSCTFForProcess"/>
+    <string id="task_UninitMSCTFForProcess" value="UninitMSCTFForProcess"/>
+    <string id="task_ActivateCiceroForThread" value="ActivateCiceroForThread"/>
+    <string id="task_DeactivateCiceroForThread" value="DeactivateCiceroForThread"/>
+    <string id="task_FLSCallback" value="FLSCallback"/>
+    <string id="task_ConnectServer" value="ConnectServer"/>
+    <string id="task_ActivateTIP" value="ActivateTIP"/>
+    <string id="task_DeactivateTIP" value="DeactivateTIP"/>
+    <string id="task_CheckLastWindowDestroyed" value="CheckLastWindowDestroyed"/>
+    <string id="task_CreateAssemblyList" value="CreateAssemblyList"/>
+    <string id="task_LoadAssemblyList" value="LoadAssemblyList"/>
+    <string id="task_ActivateAssembly" value="ActivateAssembly"/>
+    <string id="task_HandleThreadInputFocusEvent" value="HandleThreadInputFocusEvent"/>
+    <string id="task_HandleGlobalInputFocusEvent" value="HandleGlobalInputFocusEvent"/>
+    <string id="task_CreateMessageWindow" value="CreateMessageWindow"/>
+    <string id="task_SendNotification" value="SendNotification"/>
+    <string id="task_SendSyncRequest" value="SendSyncRequest"/>
+    <string id="task_SendAsyncRequest" value="SendAsyncRequest"/>
+    <string id="task_ReceiveALPCMessages" value="ReceiveALPCMessages"/>
+    <string id="task_ProcessALPCMessage" value="ProcessALPCMessage"/>
+    <string id="task_CreateLangBarItemMgr" value="CreateLangBarItemMgr"/>
+    <string id="task_CiceroServer" value="CiceroServer"/>
+    <string id="task_ITfThreadFocusSink_OnSetThreadFocus" value="ITfThreadFocusSink_OnSetThreadFocus"/>
+    <string id="task_ITfThreadFocusSink_OnKillThreadFocus" value="ITfThreadFocusSink_OnKillThreadFocus"/>
+    <string id="task_ITfThreadMgrEventSink_OnSetFocus" value="ITfThreadMgrEventSink_OnSetFocus"/>
+    <string id="task_GetIconFromFile" value="GetIconFromFile"/>
+    <string id="task_CreateBitmap" value="CreateBitmap"/>
+    <string id="task_IMELocalServer" value="IMELocalServer"/>
+    <string id="task_InputProfileActivation" value="InputProfileActivation"/>
+    <string id="task_InputProfileDeactivation" value="InputProfileDeactivation"/>
+    <string id="task_DocumentFocusChange" value="DocumentFocusChange"/>
+    <string id="task_DocumentContentChange" value="DocumentContentChange"/>
+    <string id="task_KeyboardEventHandling" value="KeyboardEventHandling"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

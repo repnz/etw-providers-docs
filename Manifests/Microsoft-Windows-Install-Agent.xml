@@ -1,0 +1,86 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Install-Agent" guid="{e0c6f6de-258a-50e0-ac1a-103482d118bc}" resourceFileName="Microsoft-Windows-Install-Agent" messageFileName="Microsoft-Windows-Install-Agent" symbol="MicrosoftWindowsInstallAgent" source="Xml" >
+    <keywords>
+     <keyword name="OldMessages" message="$(string.keyword_OldMessages)" mask="0x10000000"/>
+     <keyword name="Messages" message="$(string.keyword_Messages)" mask="0x20000000"/>
+    </keywords>
+    <tasks>
+     <task name="InstallServiceModuleLoaded" message="$(string.task_InstallServiceModuleLoaded)" value="2000"/>
+     <task name="Service(Old)" message="$(string.task_Service(Old))" value="2001">
+>
+      <opcodes>
+       <opcode name="Error" message="$(string.opcode_Service(Old)Error)" value="12"/>
+       <opcode name="Warning" message="$(string.opcode_Service(Old)Warning)" value="13"/>
+       <opcode name="Info" message="$(string.opcode_Service(Old)Info)" value="14"/>
+       <opcode name="Verbose" message="$(string.opcode_Service(Old)Verbose)" value="15"/>
+      </opcodes>
+     </task>
+     <task name="Service" message="$(string.task_Service)" value="2002">
+>
+      <opcodes>
+       <opcode name="Error" message="$(string.opcode_ServiceError)" value="12"/>
+       <opcode name="Warning" message="$(string.opcode_ServiceWarning)" value="13"/>
+       <opcode name="Info" message="$(string.opcode_ServiceInfo)" value="14"/>
+       <opcode name="Verbose" message="$(string.opcode_ServiceVerbose)" value="15"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="2000" symbol="InstallServiceModuleLoaded" version="0" task="InstallServiceModuleLoaded" level="win:Informational" keywords="Messages" template="InstallServiceModuleLoadedArgs"/>
+     <event value="2001" symbol="Service(Old)Verbose" version="0" task="Service(Old)" opcode="Verbose" level="win:Verbose" keywords="OldMessages" template="Service(Old)VerboseArgs"/>
+     <event value="2002" symbol="Service(Old)Info" version="0" task="Service(Old)" opcode="Info" level="win:Informational" keywords="OldMessages" template="Service(Old)VerboseArgs"/>
+     <event value="2003" symbol="Service(Old)Warning" version="0" task="Service(Old)" opcode="Warning" level="win:Warning" keywords="OldMessages" template="Service(Old)VerboseArgs"/>
+     <event value="2004" symbol="Service(Old)Error" version="0" task="Service(Old)" opcode="Error" level="win:Error" keywords="OldMessages" template="Service(Old)VerboseArgs"/>
+     <event value="2005" symbol="ServiceVerbose" version="0" task="Service" opcode="Verbose" level="win:Verbose" keywords="Messages" template="ServiceVerboseArgs"/>
+     <event value="2006" symbol="ServiceInfo" version="0" task="Service" opcode="Info" level="win:Informational" keywords="Messages" template="ServiceVerboseArgs"/>
+     <event value="2007" symbol="ServiceWarning" version="0" task="Service" opcode="Warning" level="win:Warning" keywords="Messages" template="ServiceVerboseArgs"/>
+     <event value="2008" symbol="ServiceError" version="0" task="Service" opcode="Error" level="win:Error" keywords="Messages" template="ServiceVerboseArgs"/>
+    </events>
+    <templates>
+     <template tid="InstallServiceModuleLoadedArgs">
+      <data name="ProcessName" inType="win:UnicodeString"/>
+      <data name="ModuleName" inType="win:UnicodeString"/>
+      <data name="BuildName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Service(Old)VerboseArgs">
+      <data name="Message" inType="win:UnicodeString"/>
+      <data name="Function" inType="win:AnsiString"/>
+      <data name="ErrorCode" inType="win:Int32"/>
+      <data name="Source" inType="win:AnsiString"/>
+      <data name="LineNumber" inType="win:UInt32"/>
+     </template>
+     <template tid="ServiceVerboseArgs">
+      <data name="Message" inType="win:UnicodeString"/>
+      <data name="Function" inType="win:AnsiString"/>
+      <data name="ErrorCode" inType="win:Int32"/>
+      <data name="Source" inType="win:AnsiString"/>
+      <data name="LineNumber" inType="win:UInt32"/>
+      <data name="CorrelationVector" inType="win:AnsiString"/>
+      <data name="ProductId" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_OldMessages" value="OldMessages"/>
+    <string id="keyword_Messages" value="Messages"/>
+    <string id="task_InstallServiceModuleLoaded" value="InstallServiceModuleLoaded"/>
+    <string id="task_Service(Old)" value="Service(Old)"/>
+    <string id="opcode_Service(Old)Error" value="Error"/>
+    <string id="opcode_Service(Old)Warning" value="Warning"/>
+    <string id="opcode_Service(Old)Info" value="Info"/>
+    <string id="opcode_Service(Old)Verbose" value="Verbose"/>
+    <string id="task_Service" value="Service"/>
+    <string id="opcode_ServiceError" value="Error"/>
+    <string id="opcode_ServiceWarning" value="Warning"/>
+    <string id="opcode_ServiceInfo" value="Info"/>
+    <string id="opcode_ServiceVerbose" value="Verbose"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

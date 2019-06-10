@@ -1,0 +1,120 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Wininit" guid="{206f6dea-d3c5-4d10-bc72-989f03c8b84b}" resourceFileName="Microsoft-Windows-Wininit" messageFileName="Microsoft-Windows-Wininit" symbol="MicrosoftWindowsWininit" source="Xml" >
+    <keywords>
+     <keyword name="PerfInstrumentation" message="$(string.keyword_PerfInstrumentation)" mask="0x10000"/>
+     <keyword name="PerfDiagnostics" message="$(string.keyword_PerfDiagnostics)" mask="0x20000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0">
+>
+      <opcodes>
+       <opcode name="opcode_64" message="$(string.opcode_task_0opcode_64)" value="64"/>
+       <opcode name="opcode_128" message="$(string.opcode_task_0opcode_128)" value="128"/>
+       <opcode name="opcode_192" message="$(string.opcode_task_0opcode_192)" value="192"/>
+      </opcodes>
+     </task>
+     <task name="WaitForWinstationShutdown" message="$(string.task_WaitForWinstationShutdown)" value="1"/>
+     <task name="PreShutdownNotification" message="$(string.task_PreShutdownNotification)" value="3"/>
+     <task name="WaitForSystemProcesses" message="$(string.task_WaitForSystemProcesses)" value="5"/>
+     <task name="ShutdownSystemRestore" message="$(string.task_ShutdownSystemRestore)" value="7"/>
+     <task name="ShutdownWindows" message="$(string.task_ShutdownWindows)" value="9"/>
+     <task name="NtShutdownSystem" message="$(string.task_NtShutdownSystem)" value="51"/>
+     <task name="SentLogoffRequest" message="$(string.task_SentLogoffRequest)" value="53"/>
+     <task name="ReceivedShutdownRequest" message="$(string.task_ReceivedShutdownRequest)" value="55"/>
+     <task name="ShutdownDiagnostics" message="$(string.task_ShutdownDiagnostics)" value="6001"/>
+     <task name="PerfTrackFullShutdown" message="$(string.task_PerfTrackFullShutdown)" value="6002"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="WaitForWinstationShutdownStart" version="0" task="WaitForWinstationShutdown" opcode="win:Start" level="win:Informational" keywords="PerfInstrumentation"/>
+     <event value="2" symbol="WaitForWinstationShutdownStop" version="0" task="WaitForWinstationShutdown" opcode="win:Stop" level="win:Informational" keywords="PerfInstrumentation"/>
+     <event value="3" symbol="PreShutdownNotificationStart" version="0" task="PreShutdownNotification" opcode="win:Start" level="win:Informational" keywords="PerfInstrumentation"/>
+     <event value="4" symbol="PreShutdownNotificationStop" version="0" task="PreShutdownNotification" opcode="win:Stop" level="win:Informational" keywords="PerfInstrumentation"/>
+     <event value="5" symbol="WaitForSystemProcessesStart" version="0" task="WaitForSystemProcesses" opcode="win:Start" level="win:Informational" keywords="PerfInstrumentation"/>
+     <event value="6" symbol="WaitForSystemProcessesStop" version="0" task="WaitForSystemProcesses" opcode="win:Stop" level="win:Informational" keywords="PerfInstrumentation"/>
+     <event value="7" symbol="ShutdownSystemRestoreStart" version="0" task="ShutdownSystemRestore" opcode="win:Start" level="win:Informational" keywords="PerfInstrumentation"/>
+     <event value="8" symbol="ShutdownSystemRestoreStop" version="0" task="ShutdownSystemRestore" opcode="win:Stop" level="win:Informational" keywords="PerfInstrumentation"/>
+     <event value="9" symbol="ShutdownWindowsStart" version="0" task="ShutdownWindows" opcode="win:Start" level="win:Informational" keywords="PerfInstrumentation" template="ShutdownWindowsStartArgs"/>
+     <event value="10" symbol="ShutdownWindowsStop" version="0" task="ShutdownWindows" opcode="win:Stop" level="win:Informational" keywords="PerfInstrumentation" template="ShutdownWindowsStopArgs"/>
+     <event value="11" symbol="task_0" version="0" task="task_0" level="win:Warning" template="task_0Args"/>
+     <event value="12" symbol="task_012" version="0" task="task_0" level="win:Informational" template="task_012Args"/>
+     <event value="13" symbol="task_013" version="0" task="task_0" level="win:Informational" template="task_012Args"/>
+     <event value="14" symbol="task_014" version="0" task="task_0" level="win:Informational" template="task_014Args"/>
+     <event value="15" symbol="task_015" version="0" task="task_0" level="win:Warning" template="task_012Args"/>
+     <event value="16" symbol="task_016" version="0" task="task_0" level="win:Error" template="task_012Args"/>
+     <event value="17" symbol="task_017" version="0" task="task_0" level="win:Error" template="task_012Args"/>
+     <event value="51" symbol="NtShutdownSystem" version="0" task="NtShutdownSystem" level="win:Informational" keywords="PerfInstrumentation"/>
+     <event value="53" symbol="SentLogoffRequest" version="0" task="SentLogoffRequest" level="win:Informational" keywords="PerfInstrumentation" template="SentLogoffRequestArgs"/>
+     <event value="55" symbol="ReceivedShutdownRequest" version="0" task="ReceivedShutdownRequest" level="win:Informational" keywords="PerfInstrumentation" template="ReceivedShutdownRequestArgs"/>
+     <event value="1001" symbol="task_0PCODE_64pcode_64" version="0" task="task_0" opcode="opcode_64" level="win:Always"/>
+     <event value="1015" symbol="task_0PCODE_192pcode_192" version="0" task="task_0" opcode="opcode_192" level="win:Always"/>
+     <event value="3002" symbol="task_0PCODE_192pcode_1923002" version="0" task="task_0" opcode="opcode_192" level="win:Always"/>
+     <event value="3003" symbol="task_0PCODE_128pcode_128" version="0" task="task_0" opcode="opcode_128" level="win:Always"/>
+     <event value="3004" symbol="task_0PCODE_128pcode_1283004" version="0" task="task_0" opcode="opcode_128" level="win:Always"/>
+     <event value="3005" symbol="task_0PCODE_192pcode_1923005" version="0" task="task_0" opcode="opcode_192" level="win:Always"/>
+     <event value="6001" symbol="ShutdownDiagnosticsStart" version="0" task="ShutdownDiagnostics" opcode="win:Start" level="win:Informational" keywords="PerfInstrumentation PerfDiagnostics" template="ShutdownWindowsStartArgs"/>
+     <event value="6002" symbol="PerfTrackFullShutdown_V1" version="1" task="PerfTrackFullShutdown" level="win:Informational" keywords="PerfInstrumentation" template="PerfTrackFullShutdownArgs_V1"/>
+    </events>
+    <templates>
+     <template tid="ShutdownWindowsStartArgs">
+      <data name="Flags" inType="win:UInt32"/>
+     </template>
+     <template tid="ShutdownWindowsStopArgs">
+      <data name="Win32Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0Args">
+      <data name="StringCount" inType="win:UInt32"/>
+      <data name="String" inType="win:UnicodeString" count="StringCount"/>
+     </template>
+     <template tid="task_012Args">
+      <data name="Level" inType="win:UInt32"/>
+     </template>
+     <template tid="task_014Args">
+      <data name="Config" inType="win:UInt32"/>
+      <data name="IsTestConfig" inType="win:UInt32"/>
+     </template>
+     <template tid="SentLogoffRequestArgs">
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+     </template>
+     <template tid="ReceivedShutdownRequestArgs">
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="IsRemote" inType="win:UInt32"/>
+      <data name="GracePeriod" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="Message" inType="win:UnicodeString"/>
+     </template>
+     <template tid="PerfTrackFullShutdownArgs_V1">
+      <data name="ShutdownFlags" inType="win:UInt32"/>
+      <data name="SystemShutdownDuration" inType="win:UInt64"/>
+      <data name="SkuHasLogoff" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_PerfInstrumentation" value="PerfInstrumentation"/>
+    <string id="keyword_PerfDiagnostics" value="PerfDiagnostics"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="opcode_task_0opcode_64" value="opcode_64"/>
+    <string id="opcode_task_0opcode_128" value="opcode_128"/>
+    <string id="opcode_task_0opcode_192" value="opcode_192"/>
+    <string id="task_WaitForWinstationShutdown" value="WaitForWinstationShutdown"/>
+    <string id="task_PreShutdownNotification" value="PreShutdownNotification"/>
+    <string id="task_WaitForSystemProcesses" value="WaitForSystemProcesses"/>
+    <string id="task_ShutdownSystemRestore" value="ShutdownSystemRestore"/>
+    <string id="task_ShutdownWindows" value="ShutdownWindows"/>
+    <string id="task_NtShutdownSystem" value="NtShutdownSystem"/>
+    <string id="task_SentLogoffRequest" value="SentLogoffRequest"/>
+    <string id="task_ReceivedShutdownRequest" value="ReceivedShutdownRequest"/>
+    <string id="task_ShutdownDiagnostics" value="ShutdownDiagnostics"/>
+    <string id="task_PerfTrackFullShutdown" value="PerfTrackFullShutdown"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

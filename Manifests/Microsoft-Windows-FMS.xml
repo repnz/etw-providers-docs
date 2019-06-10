@@ -1,0 +1,80 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-FMS" guid="{dea07764-0790-44de-b9c4-49677b17174f}" resourceFileName="Microsoft-Windows-FMS" messageFileName="Microsoft-Windows-FMS" symbol="MicrosoftWindowsFMS" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="FMSDLLinitialization" message="$(string.task_FMSDLLinitialization)" value="30"/>
+     <task name="PerfTrack_DisplayFmsInit" message="$(string.task_PerfTrack_DisplayFmsInit)" value="31"/>
+     <task name="ETWDebugMsg" message="$(string.task_ETWDebugMsg)" value="32">
+>
+      <opcodes>
+       <opcode name="NameResolution" message="$(string.opcode_ETWDebugMsgNameResolution)" value="16"/>
+       <opcode name="GetFontNameTableStart" message="$(string.opcode_ETWDebugMsgGetFontNameTableStart)" value="17"/>
+       <opcode name="GetFontNameTableStop" message="$(string.opcode_ETWDebugMsgGetFontNameTableStop)" value="18"/>
+       <opcode name="GetNameRecordStart" message="$(string.opcode_ETWDebugMsgGetNameRecordStart)" value="19"/>
+       <opcode name="GetNameRecordStop" message="$(string.opcode_ETWDebugMsgGetNameRecordStop)" value="20"/>
+       <opcode name="GetNameStringsStart" message="$(string.opcode_ETWDebugMsgGetNameStringsStart)" value="21"/>
+       <opcode name="GetNameStringsStop" message="$(string.opcode_ETWDebugMsgGetNameStringsStop)" value="22"/>
+       <opcode name="GetFontDataStart" message="$(string.opcode_ETWDebugMsgGetFontDataStart)" value="23"/>
+       <opcode name="GetFontDataStop" message="$(string.opcode_ETWDebugMsgGetFontDataStop)" value="24"/>
+       <opcode name="GdiGetFontRealizationInfoStart" message="$(string.opcode_ETWDebugMsgGdiGetFontRealizationInfoStart)" value="25"/>
+       <opcode name="GdiGetFontRealizationInfoStop" message="$(string.opcode_ETWDebugMsgGdiGetFontRealizationInfoStop)" value="26"/>
+       <opcode name="FmsErrorMessage" message="$(string.opcode_ETWDebugMsgFmsErrorMessage)" value="27"/>
+      </opcodes>
+     </task>
+     <task name="FMSAPIentrycall" message="$(string.task_FMSAPIentrycall)" value="35"/>
+     <task name="FMSAPIexitcall" message="$(string.task_FMSAPIexitcall)" value="36"/>
+    </tasks>
+    <events>
+     <event value="1000" symbol="FMSDLLinitializationStart_V1" version="1" task="FMSDLLinitialization" opcode="win:Start" level="win:Error"/>
+     <event value="2015" symbol="FMSAPIentrycall" version="0" task="FMSAPIentrycall" level="win:Informational" template="FMSAPIentrycallArgs"/>
+     <event value="2016" symbol="FMSAPIexitcall" version="0" task="FMSAPIexitcall" level="win:Informational" template="FMSAPIentrycallArgs"/>
+     <event value="30000" symbol="PerfTrack_DisplayFmsInitStart" version="0" task="PerfTrack_DisplayFmsInit" opcode="win:Start" level="win:Informational"/>
+     <event value="30001" symbol="PerfTrack_DisplayFmsInitStop" version="0" task="PerfTrack_DisplayFmsInit" opcode="win:Stop" level="win:Informational"/>
+     <event value="40000" symbol="ETWDebugMsgNameResolution" version="0" task="ETWDebugMsg" opcode="NameResolution" level="win:Informational" template="FMSAPIentrycallArgs"/>
+     <event value="40001" symbol="ETWDebugMsgGetFontNameTableStart" version="0" task="ETWDebugMsg" opcode="GetFontNameTableStart" level="win:Informational" template="FMSAPIentrycallArgs"/>
+     <event value="40002" symbol="ETWDebugMsgGetFontNameTableStop" version="0" task="ETWDebugMsg" opcode="GetFontNameTableStop" level="win:Informational" template="FMSAPIentrycallArgs"/>
+     <event value="40003" symbol="ETWDebugMsgGetNameRecordStart" version="0" task="ETWDebugMsg" opcode="GetNameRecordStart" level="win:Informational" template="FMSAPIentrycallArgs"/>
+     <event value="40004" symbol="ETWDebugMsgGetNameRecordStop" version="0" task="ETWDebugMsg" opcode="GetNameRecordStop" level="win:Informational" template="FMSAPIentrycallArgs"/>
+     <event value="40005" symbol="ETWDebugMsgGetNameStringsStart" version="0" task="ETWDebugMsg" opcode="GetNameStringsStart" level="win:Informational" template="FMSAPIentrycallArgs"/>
+     <event value="40006" symbol="ETWDebugMsgGetNameStringsStop" version="0" task="ETWDebugMsg" opcode="GetNameStringsStop" level="win:Informational" template="FMSAPIentrycallArgs"/>
+     <event value="40007" symbol="ETWDebugMsgGetFontDataStart" version="0" task="ETWDebugMsg" opcode="GetFontDataStart" level="win:Informational" template="FMSAPIentrycallArgs"/>
+     <event value="40008" symbol="ETWDebugMsgGetFontDataStop" version="0" task="ETWDebugMsg" opcode="GetFontDataStop" level="win:Informational" template="FMSAPIentrycallArgs"/>
+     <event value="40009" symbol="ETWDebugMsgGdiGetFontRealizationInfoStart" version="0" task="ETWDebugMsg" opcode="GdiGetFontRealizationInfoStart" level="win:Informational" template="FMSAPIentrycallArgs"/>
+     <event value="40010" symbol="ETWDebugMsgGdiGetFontRealizationInfoStop" version="0" task="ETWDebugMsg" opcode="GdiGetFontRealizationInfoStop" level="win:Informational" template="FMSAPIentrycallArgs"/>
+     <event value="40011" symbol="ETWDebugMsgFmsErrorMessage" version="0" task="ETWDebugMsg" opcode="FmsErrorMessage" level="win:Informational" template="FMSAPIentrycallArgs"/>
+    </events>
+    <templates>
+     <template tid="FMSAPIentrycallArgs">
+      <data name="ApiName" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_FMSDLLinitialization" value="FMSDLLinitialization"/>
+    <string id="task_PerfTrack_DisplayFmsInit" value="PerfTrack_DisplayFmsInit"/>
+    <string id="task_ETWDebugMsg" value="ETWDebugMsg"/>
+    <string id="opcode_ETWDebugMsgNameResolution" value="NameResolution"/>
+    <string id="opcode_ETWDebugMsgGetFontNameTableStart" value="GetFontNameTableStart"/>
+    <string id="opcode_ETWDebugMsgGetFontNameTableStop" value="GetFontNameTableStop"/>
+    <string id="opcode_ETWDebugMsgGetNameRecordStart" value="GetNameRecordStart"/>
+    <string id="opcode_ETWDebugMsgGetNameRecordStop" value="GetNameRecordStop"/>
+    <string id="opcode_ETWDebugMsgGetNameStringsStart" value="GetNameStringsStart"/>
+    <string id="opcode_ETWDebugMsgGetNameStringsStop" value="GetNameStringsStop"/>
+    <string id="opcode_ETWDebugMsgGetFontDataStart" value="GetFontDataStart"/>
+    <string id="opcode_ETWDebugMsgGetFontDataStop" value="GetFontDataStop"/>
+    <string id="opcode_ETWDebugMsgGdiGetFontRealizationInfoStart" value="GdiGetFontRealizationInfoStart"/>
+    <string id="opcode_ETWDebugMsgGdiGetFontRealizationInfoStop" value="GdiGetFontRealizationInfoStop"/>
+    <string id="opcode_ETWDebugMsgFmsErrorMessage" value="FmsErrorMessage"/>
+    <string id="task_FMSAPIentrycall" value="FMSAPIentrycall"/>
+    <string id="task_FMSAPIexitcall" value="FMSAPIexitcall"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

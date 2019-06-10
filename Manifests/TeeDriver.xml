@@ -1,0 +1,113 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="TeeDriver" guid="{e1da8995-85bc-452b-b62b-0913306a430e}" resourceFileName="TeeDriver" messageFileName="TeeDriver" symbol="TeeDriver" source="Xml" >
+    <keywords>
+     <keyword name="Default" message="$(string.keyword_Default)" mask="0x1"/>
+     <keyword name="Interrupt" message="$(string.keyword_Interrupt)" mask="0x2"/>
+     <keyword name="IRP" message="$(string.keyword_IRP)" mask="0x4"/>
+     <keyword name="Power" message="$(string.keyword_Power)" mask="0x8"/>
+     <keyword name="PlugnPlay" message="$(string.keyword_PlugnPlay)" mask="0x10"/>
+     <keyword name="Performance" message="$(string.keyword_Performance)" mask="0x20"/>
+     <keyword name="Enumeration" message="$(string.keyword_Enumeration)" mask="0x40"/>
+     <keyword name="Register" message="$(string.keyword_Register)" mask="0x80"/>
+     <keyword name="ApiTrace" message="$(string.keyword_ApiTrace)" mask="0x100"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <events>
+     <event value="100" symbol="task_0" version="0" task="task_0" level="win:Always" keywords="Default" template="task_0Args"/>
+     <event value="101" symbol="task_0101" version="0" task="task_0" level="win:Informational" keywords="Default PlugnPlay ApiTrace" template="task_0101Args"/>
+     <event value="102" symbol="task_0102" version="0" task="task_0" level="win:Informational" keywords="Default PlugnPlay ApiTrace" template="task_0102Args"/>
+     <event value="103" symbol="task_0103" version="0" task="task_0" level="win:Informational" keywords="Default Power ApiTrace" template="task_0103Args"/>
+     <event value="104" symbol="task_0104" version="0" task="task_0" level="win:Informational" keywords="Default Power ApiTrace" template="task_0102Args"/>
+     <event value="105" symbol="task_0105" version="0" task="task_0" level="win:Informational" keywords="Default Power ApiTrace" template="task_0103Args"/>
+     <event value="106" symbol="task_0106" version="0" task="task_0" level="win:Informational" keywords="Default Power ApiTrace" template="task_0102Args"/>
+     <event value="107" symbol="task_0107" version="0" task="task_0" level="win:Informational" keywords="Default PlugnPlay ApiTrace" template="task_0101Args"/>
+     <event value="108" symbol="task_0108" version="0" task="task_0" level="win:Informational" keywords="Default PlugnPlay ApiTrace" template="task_0102Args"/>
+     <event value="109" symbol="task_0109" version="0" task="task_0" level="win:Informational" keywords="Default" template="task_0109Args"/>
+     <event value="110" symbol="task_0110" version="0" task="task_0" level="win:Critical" keywords="Default" template="task_0110Args"/>
+     <event value="111" symbol="task_0111" version="0" task="task_0" level="win:Critical" keywords="Default" template="task_0111Args"/>
+     <event value="112" symbol="task_0112" version="0" task="task_0" level="win:Informational" keywords="Default" template="task_0112Args"/>
+     <event value="113" symbol="task_0113" version="0" task="task_0" level="win:Critical" keywords="Default" template="task_0113Args"/>
+     <event value="114" symbol="task_0114" version="0" task="task_0" level="win:Informational" keywords="Default" template="task_0114Args"/>
+     <event value="115" symbol="task_0115" version="0" task="task_0" level="win:Informational" keywords="Default" template="task_0114Args"/>
+     <event value="116" symbol="task_0116" version="0" task="task_0" level="win:Informational" keywords="Default ApiTrace" template="task_0116Args"/>
+     <event value="117" symbol="task_0117" version="0" task="task_0" level="win:Informational" keywords="Default ApiTrace" template="task_0116Args"/>
+     <event value="118" symbol="task_0118" version="0" task="task_0" level="win:Informational" keywords="Default Power"/>
+     <event value="119" symbol="task_0119" version="0" task="task_0" level="win:Informational" keywords="Default" template="task_0119Args"/>
+     <event value="120" symbol="task_0120" version="0" task="task_0" level="win:Informational" keywords="Default" template="task_0119Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="Function" inType="win:AnsiString"/>
+      <data name="NtStatus" inType="win:Int32"/>
+     </template>
+     <template tid="task_0101Args">
+      <data name="FunctionName" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_0102Args">
+      <data name="FunctionName" inType="win:AnsiString"/>
+      <data name="status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0103Args">
+      <data name="PreviousState" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0109Args">
+      <data name="Count" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0110Args">
+      <data name="message" inType="win:AnsiString"/>
+      <data name="status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0111Args">
+      <data name="message" inType="win:AnsiString"/>
+      <data name="register" inType="win:UInt32"/>
+      <data name="status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0112Args">
+      <data name="H_CSR" inType="win:UInt32"/>
+      <data name="ME_CSR" inType="win:UInt32"/>
+      <data name="message" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_0113Args">
+      <data name="Message" inType="win:AnsiString"/>
+      <data name="status" inType="win:UInt32"/>
+      <data name="Function" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_0114Args">
+      <data name="header" inType="win:UInt32"/>
+      <data name="length" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0116Args">
+      <data name="status" inType="win:UInt32"/>
+      <data name="hostid" inType="win:UInt8"/>
+     </template>
+     <template tid="task_0119Args">
+      <data name="data1" inType="win:UInt8"/>
+      <data name="data2" inType="win:UInt8"/>
+      <data name="data3" inType="win:UInt8"/>
+      <data name="data4" inType="win:UInt8"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Default" value="Default"/>
+    <string id="keyword_Interrupt" value="Interrupt"/>
+    <string id="keyword_IRP" value="IRP"/>
+    <string id="keyword_Power" value="Power"/>
+    <string id="keyword_PlugnPlay" value="PlugnPlay"/>
+    <string id="keyword_Performance" value="Performance"/>
+    <string id="keyword_Enumeration" value="Enumeration"/>
+    <string id="keyword_Register" value="Register"/>
+    <string id="keyword_ApiTrace" value="ApiTrace"/>
+    <string id="task_task_0" value="task_0"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

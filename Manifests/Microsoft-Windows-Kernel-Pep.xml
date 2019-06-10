@@ -1,0 +1,87 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Kernel-Pep" guid="{5412704e-b2e1-4624-8ffd-55777b8f7373}" resourceFileName="Microsoft-Windows-Kernel-Pep" messageFileName="Microsoft-Windows-Kernel-Pep" symbol="MicrosoftWindowsKernelPep" source="Xml" >
+    <keywords>
+     <keyword name="popep:Power" message="$(string.keyword_popep:Power)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="PepRailRundown" message="$(string.task_PepRailRundown)" value="1"/>
+     <task name="PepDeviceRundown" message="$(string.task_PepDeviceRundown)" value="2"/>
+     <task name="PepComponentRundown" message="$(string.task_PepComponentRundown)" value="3"/>
+     <task name="PepRailVoltageChange" message="$(string.task_PepRailVoltageChange)" value="4"/>
+     <task name="PepComponentFrequencyChange" message="$(string.task_PepComponentFrequencyChange)" value="5"/>
+     <task name="PepPlatformIdleResidency" message="$(string.task_PepPlatformIdleResidency)" value="6"/>
+     <task name="PepPlatformIdleTransition" message="$(string.task_PepPlatformIdleTransition)" value="7"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="PepRailRundown" version="0" task="PepRailRundown" level="win:Informational" keywords="popep:Power" template="PepRailRundownArgs"/>
+     <event value="2" symbol="PepDeviceRundown" version="0" task="PepDeviceRundown" level="win:Informational" keywords="popep:Power" template="PepDeviceRundownArgs"/>
+     <event value="3" symbol="PepComponentRundown" version="0" task="PepComponentRundown" level="win:Informational" keywords="popep:Power" template="PepComponentRundownArgs"/>
+     <event value="4" symbol="PepRailVoltageChange" version="0" task="PepRailVoltageChange" level="win:Informational" keywords="popep:Power" template="PepRailVoltageChangeArgs"/>
+     <event value="5" symbol="PepComponentFrequencyChange" version="0" task="PepComponentFrequencyChange" level="win:Informational" keywords="popep:Power" template="PepComponentFrequencyChangeArgs"/>
+     <event value="6" symbol="PepPlatformIdleResidency" version="0" task="PepPlatformIdleResidency" level="win:Informational" keywords="popep:Power" template="PepPlatformIdleResidencyArgs"/>
+     <event value="7" symbol="PepPlatformIdleTransition" version="0" task="PepPlatformIdleTransition" level="win:Informational" keywords="popep:Power" template="PepPlatformIdleTransitionArgs"/>
+    </events>
+    <templates>
+     <template tid="PepRailRundownArgs">
+      <data name="VoltageRailId" inType="win:UInt32"/>
+      <data name="VoltageRailName" inType="win:UnicodeString"/>
+      <data name="CurrentVoltageMv" inType="win:UInt32"/>
+      <data name="MaxVoltageMv" inType="win:UInt32"/>
+     </template>
+     <template tid="PepDeviceRundownArgs">
+      <data name="DeviceId" inType="win:Pointer"/>
+      <data name="DeviceName" inType="win:UnicodeString"/>
+      <data name="PlatformStateDependencyCount" inType="win:UInt32"/>
+      <data name="PlatformStateDependency" inType="win:UInt8" count="PlatformStateDependencyCount"/>
+     </template>
+     <template tid="PepComponentRundownArgs">
+      <data name="VoltageRailId" inType="win:UInt32"/>
+      <data name="DeviceId" inType="win:Pointer"/>
+      <data name="ComponentIndex" inType="win:UInt32"/>
+      <data name="CurrentFrequencyKHz" inType="win:UInt32"/>
+      <data name="MaxFrequencyKHz" inType="win:UInt32"/>
+      <data name="PlatformStateDependencyCount" inType="win:UInt32"/>
+      <data name="PlatformStateDependency" inType="win:Int64" count="PlatformStateDependencyCount"/>
+      <data name="ComponentDescriptionLength" inType="win:UInt32"/>
+      <data name="ComponentDescription" inType="win:UnicodeString" length="ComponentDescriptionLength"/>
+     </template>
+     <template tid="PepRailVoltageChangeArgs">
+      <data name="VoltageRailId" inType="win:UInt32"/>
+      <data name="OldRailVoltageMv" inType="win:UInt32"/>
+      <data name="NewRailVoltageMv" inType="win:UInt32"/>
+     </template>
+     <template tid="PepComponentFrequencyChangeArgs">
+      <data name="DeviceId" inType="win:Pointer"/>
+      <data name="ComponentIndex" inType="win:UInt32"/>
+      <data name="OldComponentFrequencyKHz" inType="win:UInt32"/>
+      <data name="NewComponentFrequencyKHz" inType="win:UInt32"/>
+     </template>
+     <template tid="PepPlatformIdleResidencyArgs">
+      <data name="PlatformStateCount" inType="win:UInt32"/>
+      <data name="PlatformIdleStateResidency" inType="win:AnsiString" count="PlatformStateCount"/>
+     </template>
+     <template tid="PepPlatformIdleTransitionArgs">
+      <data name="OldPlatformState" inType="win:UInt32"/>
+      <data name="NewPlatformState" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_popep:Power" value="popep:Power"/>
+    <string id="task_PepRailRundown" value="PepRailRundown"/>
+    <string id="task_PepDeviceRundown" value="PepDeviceRundown"/>
+    <string id="task_PepComponentRundown" value="PepComponentRundown"/>
+    <string id="task_PepRailVoltageChange" value="PepRailVoltageChange"/>
+    <string id="task_PepComponentFrequencyChange" value="PepComponentFrequencyChange"/>
+    <string id="task_PepPlatformIdleResidency" value="PepPlatformIdleResidency"/>
+    <string id="task_PepPlatformIdleTransition" value="PepPlatformIdleTransition"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

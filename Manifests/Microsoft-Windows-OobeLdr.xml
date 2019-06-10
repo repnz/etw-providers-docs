@@ -1,0 +1,55 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-OobeLdr" guid="{75ebc33e-8670-4eb6-b535-3b9d6bb222fd}" resourceFileName="Microsoft-Windows-OobeLdr" messageFileName="Microsoft-Windows-OobeLdr" symbol="MicrosoftWindowsOobeLdr" source="Xml" >
+    <keywords>
+     <keyword name="keyPerformance" message="$(string.keyword_keyPerformance)" mask="0x1"/>
+     <keyword name="keyDiagnostic" message="$(string.keyword_keyDiagnostic)" mask="0x2"/>
+     <keyword name="keyword_200000000000" message="$(string.keyword_keyword_200000000000)" mask="0x200000000000"/>
+    </keywords>
+    <tasks>
+     <task name="RunOobeLdr" message="$(string.task_RunOobeLdr)" value="1000"/>
+     <task name="OobeLdrProcessUnattend" message="$(string.task_OobeLdrProcessUnattend)" value="2000"/>
+     <task name="LaunchOobe" message="$(string.task_LaunchOobe)" value="3000"/>
+    </tasks>
+    <events>
+     <event value="1001" symbol="RunOobeLdrStart" version="0" task="RunOobeLdr" opcode="win:Start" level="win:Informational" keywords="keyPerformance keyword_200000000000" template="RunOobeLdrStartArgs"/>
+     <event value="1002" symbol="RunOobeLdrStop" version="0" task="RunOobeLdr" opcode="win:Stop" level="win:Informational" keywords="keyPerformance keyword_200000000000" template="RunOobeLdrStopArgs"/>
+     <event value="2001" symbol="OobeLdrProcessUnattendStart" version="0" task="OobeLdrProcessUnattend" opcode="win:Start" level="win:Informational" keywords="keyPerformance keyword_200000000000" template="OobeLdrProcessUnattendStartArgs"/>
+     <event value="2002" symbol="OobeLdrProcessUnattendStop" version="0" task="OobeLdrProcessUnattend" opcode="win:Stop" level="win:Informational" keywords="keyPerformance keyword_200000000000" template="RunOobeLdrStopArgs"/>
+     <event value="2003" symbol="OobeLdrProcessUnattendStop2003" version="0" task="OobeLdrProcessUnattend" opcode="win:Stop" level="win:Informational" keywords="keyPerformance keyword_200000000000" template="RunOobeLdrStopArgs"/>
+     <event value="2004" symbol="OobeLdrProcessUnattend" version="0" task="OobeLdrProcessUnattend" level="win:Informational" keywords="keyDiagnostic keyword_200000000000" template="OobeLdrProcessUnattendArgs"/>
+     <event value="3001" symbol="LaunchOobeStart" version="0" task="LaunchOobe" opcode="win:Start" level="win:Informational" keywords="keyPerformance keyword_200000000000"/>
+     <event value="3002" symbol="LaunchOobeStop" version="0" task="LaunchOobe" opcode="win:Stop" level="win:Informational" keywords="keyPerformance keyword_200000000000" template="RunOobeLdrStopArgs"/>
+    </events>
+    <templates>
+     <template tid="RunOobeLdrStartArgs">
+      <data name="CommandLine" inType="win:UnicodeString"/>
+     </template>
+     <template tid="RunOobeLdrStopArgs">
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="OobeLdrProcessUnattendStartArgs">
+      <data name="Pass" inType="win:UnicodeString"/>
+     </template>
+     <template tid="OobeLdrProcessUnattendArgs">
+      <data name="Pass" inType="win:UnicodeString"/>
+      <data name="FilePath" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_keyPerformance" value="keyPerformance"/>
+    <string id="keyword_keyDiagnostic" value="keyDiagnostic"/>
+    <string id="keyword_keyword_200000000000" value="keyword_200000000000"/>
+    <string id="task_RunOobeLdr" value="RunOobeLdr"/>
+    <string id="task_OobeLdrProcessUnattend" value="OobeLdrProcessUnattend"/>
+    <string id="task_LaunchOobe" value="LaunchOobe"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

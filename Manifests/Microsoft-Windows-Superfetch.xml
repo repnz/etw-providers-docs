@@ -1,0 +1,411 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Superfetch" guid="{99806515-9f51-4c2f-b918-1eae407aa8cb}" resourceFileName="Microsoft-Windows-Superfetch" messageFileName="Microsoft-Windows-Superfetch" symbol="MicrosoftWindowsSuperfetch" source="Xml" >
+    <keywords>
+     <keyword name="Prefetch" message="$(string.keyword_Prefetch)" mask="0x1"/>
+     <keyword name="Store" message="$(string.keyword_Store)" mask="0x2"/>
+     <keyword name="StoreLog" message="$(string.keyword_StoreLog)" mask="0x4"/>
+     <keyword name="PfAp" message="$(string.keyword_PfAp)" mask="0x10"/>
+     <keyword name="Combine" message="$(string.keyword_Combine)" mask="0x20"/>
+    </keywords>
+    <tasks>
+     <task name="VirtualRebalance" message="$(string.task_VirtualRebalance)" value="1"/>
+     <task name="EmptyVirtualStore" message="$(string.task_EmptyVirtualStore)" value="2"/>
+     <task name="CreateVirtualStore" message="$(string.task_CreateVirtualStore)" value="3"/>
+     <task name="DeleteVirtualStore" message="$(string.task_DeleteVirtualStore)" value="4"/>
+     <task name="MemoryInversionReaction" message="$(string.task_MemoryInversionReaction)" value="5"/>
+     <task name="InMemoryCompression" message="$(string.task_InMemoryCompression)" value="6"/>
+     <task name="InMemoryDecompression" message="$(string.task_InMemoryDecompression)" value="7"/>
+     <task name="StoreLogAdd" message="$(string.task_StoreLogAdd)" value="8"/>
+     <task name="StoreLogRemove" message="$(string.task_StoreLogRemove)" value="9"/>
+     <task name="StoreLogFull" message="$(string.task_StoreLogFull)" value="10"/>
+     <task name="StoreLogEmpty" message="$(string.task_StoreLogEmpty)" value="11"/>
+     <task name="StoreLogDelete" message="$(string.task_StoreLogDelete)" value="12"/>
+     <task name="PerfTrackWorkingSet" message="$(string.task_PerfTrackWorkingSet)" value="13"/>
+     <task name="PerfTrackPagedPool" message="$(string.task_PerfTrackPagedPool)" value="14"/>
+     <task name="PerfTrackNonPagedPool" message="$(string.task_PerfTrackNonPagedPool)" value="15"/>
+     <task name="PerfTrackPhysical" message="$(string.task_PerfTrackPhysical)" value="16"/>
+     <task name="PerfTrackSessionPool" message="$(string.task_PerfTrackSessionPool)" value="17"/>
+     <task name="PerfTrackNXNonPagedPool" message="$(string.task_PerfTrackNXNonPagedPool)" value="18"/>
+     <task name="PerfTrackNonPagedPoolFrag" message="$(string.task_PerfTrackNonPagedPoolFrag)" value="19"/>
+     <task name="PerfTrackPagedPoolFrag" message="$(string.task_PerfTrackPagedPoolFrag)" value="20"/>
+     <task name="PerfTrackSessionPoolFrag" message="$(string.task_PerfTrackSessionPoolFrag)" value="21"/>
+     <task name="PerfTrackHandleCounts" message="$(string.task_PerfTrackHandleCounts)" value="35"/>
+     <task name="PredictorQuery" message="$(string.task_PredictorQuery)" value="36"/>
+     <task name="PrelaunchHeartBeat" message="$(string.task_PrelaunchHeartBeat)" value="37"/>
+     <task name="PrelaunchPredictorQuery" message="$(string.task_PrelaunchPredictorQuery)" value="38"/>
+     <task name="Prelaunch" message="$(string.task_Prelaunch)" value="39"/>
+     <task name="PrelaunchEnqueue" message="$(string.task_PrelaunchEnqueue)" value="40"/>
+     <task name="PrelaunchDequeue" message="$(string.task_PrelaunchDequeue)" value="41"/>
+     <task name="PrelaunchWorker" message="$(string.task_PrelaunchWorker)" value="42"/>
+     <task name="PrelaunchProcessCommand" message="$(string.task_PrelaunchProcessCommand)" value="43"/>
+     <task name="PrelaunchIdleCheck" message="$(string.task_PrelaunchIdleCheck)" value="44"/>
+     <task name="PerfTrackModernWorkingSet" message="$(string.task_PerfTrackModernWorkingSet)" value="45"/>
+     <task name="PrefetchHeartBeat" message="$(string.task_PrefetchHeartBeat)" value="46"/>
+     <task name="PrefetchPredictorQuery" message="$(string.task_PrefetchPredictorQuery)" value="47"/>
+     <task name="PrefetchScheduleTask" message="$(string.task_PrefetchScheduleTask)" value="48"/>
+     <task name="PostlaunchAppFail" message="$(string.task_PostlaunchAppFail)" value="49"/>
+     <task name="AppSkip" message="$(string.task_AppSkip)" value="50"/>
+     <task name="PrefetchBenefitReport" message="$(string.task_PrefetchBenefitReport)" value="51"/>
+     <task name="PrefetchIsCandidate" message="$(string.task_PrefetchIsCandidate)" value="52"/>
+     <task name="PrefetchDecision" message="$(string.task_PrefetchDecision)" value="53"/>
+     <task name="PrefetchStartCallback" message="$(string.task_PrefetchStartCallback)" value="54"/>
+     <task name="DeploymentCommand" message="$(string.task_DeploymentCommand)" value="55"/>
+     <task name="FetchCommand" message="$(string.task_FetchCommand)" value="56"/>
+     <task name="AppUseCommand" message="$(string.task_AppUseCommand)" value="57"/>
+     <task name="PrelaunchAppCrash" message="$(string.task_PrelaunchAppCrash)" value="58"/>
+     <task name="PageCombining" message="$(string.task_PageCombining)" value="59"/>
+    </tasks>
+    <maps>
+     <valueMap name="PfApPredictionPurpose">
+      <map value="0x0" message="$(string.map_PfApPredictionPurposePrelaunch)"/>
+      <map value="0x1" message="$(string.map_PfApPredictionPurposePrefetch)"/>
+     </valueMap>
+     <valueMap name="PfApAppPrelaunchReason">
+      <map value="0x0" message="$(string.map_PfApAppPrelaunchReasonSpeculative)"/>
+      <map value="0x1" message="$(string.map_PfApAppPrelaunchReasonRPCRequest)"/>
+      <map value="0x2" message="$(string.map_PfApAppPrelaunchReasonInstall)"/>
+     </valueMap>
+     <bitMap name="PfApFetchConditions">
+      <map value="0x1" message="$(string.map_PfApFetchConditionsFreeNetwork)"/>
+      <map value="0x2" message="$(string.map_PfApFetchConditionsBackgroundCostNotHigh)"/>
+      <map value="0x4" message="$(string.map_PfApFetchConditionsACPowered)"/>
+     </bitMap>
+     <valueMap name="PfApAppStatus">
+      <map value="0x0" message="$(string.map_PfApAppStatusThrottled)"/>
+      <map value="0x1" message="$(string.map_PfApAppStatusSuspended)"/>
+      <map value="0x2" message="$(string.map_PfApAppStatusNotThrottled)"/>
+      <map value="0x3" message="$(string.map_PfApAppStatusNotAvailable)"/>
+     </valueMap>
+     <bitMap name="PfApFetchReasonsNotToPrefetch">
+      <map value="0x1" message="$(string.map_PfApFetchReasonsNotToPrefetchTaskAlreadyScheduled)"/>
+      <map value="0x2" message="$(string.map_PfApFetchReasonsNotToPrefetchSwitchedToRecently)"/>
+      <map value="0x4" message="$(string.map_PfApFetchReasonsNotToPrefetchPrefetchedRecently)"/>
+     </bitMap>
+     <valueMap name="PfApDeploymentCommandOperation">
+      <map value="0x0" message="$(string.map_PfApDeploymentCommandOperationInstalled)"/>
+      <map value="0x1" message="$(string.map_PfApDeploymentCommandOperationUninstalled)"/>
+      <map value="0x2" message="$(string.map_PfApDeploymentCommandOperationPrelaunchApp)"/>
+     </valueMap>
+     <valueMap name="PfApAppType">
+      <map value="0x0" message="$(string.map_PfApAppTypeOther)"/>
+      <map value="0x1" message="$(string.map_PfApAppTypeInbox)"/>
+      <map value="0x2" message="$(string.map_PfApAppTypeAppStore)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1000" symbol="VirtualRebalanceStart_V1" version="1" task="VirtualRebalance" opcode="win:Start" level="win:Informational" keywords="Store" template="VirtualRebalanceStartArgs_V1"/>
+     <event value="1001" symbol="VirtualRebalanceStop_V1" version="1" task="VirtualRebalance" opcode="win:Stop" level="win:Informational" keywords="Store" template="VirtualRebalanceStartArgs_V1"/>
+     <event value="1002" symbol="EmptyVirtualStore_V1" version="1" task="EmptyVirtualStore" level="win:Informational" keywords="Store" template="EmptyVirtualStoreArgs_V1"/>
+     <event value="1003" symbol="CreateVirtualStore_V1" version="1" task="CreateVirtualStore" level="win:Informational" keywords="Store" template="EmptyVirtualStoreArgs_V1"/>
+     <event value="1004" symbol="DeleteVirtualStore_V1" version="1" task="DeleteVirtualStore" level="win:Informational" keywords="Store" template="EmptyVirtualStoreArgs_V1"/>
+     <event value="1005" symbol="MemoryInversionReaction_V1" version="1" task="MemoryInversionReaction" level="win:Informational" keywords="Store" template="EmptyVirtualStoreArgs_V1"/>
+     <event value="1006" symbol="InMemoryCompression_V1" version="1" task="InMemoryCompression" level="win:Informational" keywords="Store" template="InMemoryCompressionArgs_V1"/>
+     <event value="1007" symbol="InMemoryDecompression_V1" version="1" task="InMemoryDecompression" level="win:Informational" keywords="Store" template="InMemoryCompressionArgs_V1"/>
+     <event value="1008" symbol="StoreLogAdd_V1" version="1" task="StoreLogAdd" level="win:Informational" keywords="StoreLog" template="StoreLogAddArgs_V1"/>
+     <event value="1009" symbol="StoreLogRemove_V1" version="1" task="StoreLogRemove" level="win:Informational" keywords="StoreLog" template="StoreLogAddArgs_V1"/>
+     <event value="1010" symbol="StoreLogFull_V1" version="1" task="StoreLogFull" level="win:Informational" keywords="StoreLog"/>
+     <event value="1011" symbol="StoreLogEmpty_V1" version="1" task="StoreLogEmpty" level="win:Informational" keywords="StoreLog" template="VirtualRebalanceStartArgs_V1"/>
+     <event value="1012" symbol="StoreLogDelete_V1" version="1" task="StoreLogDelete" level="win:Informational" keywords="StoreLog" template="VirtualRebalanceStartArgs_V1"/>
+     <event value="1013" symbol="PerfTrackWorkingSet_V2" version="2" task="PerfTrackWorkingSet" level="win:Informational" template="PerfTrackWorkingSetArgs_V2"/>
+     <event value="1014" symbol="PerfTrackPagedPool_V1" version="1" task="PerfTrackPagedPool" level="win:Informational" template="PerfTrackPagedPoolArgs_V1"/>
+     <event value="1015" symbol="PerfTrackNonPagedPool_V1" version="1" task="PerfTrackNonPagedPool" level="win:Informational" template="PerfTrackPagedPoolArgs_V1"/>
+     <event value="1016" symbol="PerfTrackPhysical_V1" version="1" task="PerfTrackPhysical" level="win:Informational" template="PerfTrackPhysicalArgs_V1"/>
+     <event value="1017" symbol="PerfTrackSessionPool_V1" version="1" task="PerfTrackSessionPool" level="win:Informational" template="PerfTrackPagedPoolArgs_V1"/>
+     <event value="1018" symbol="PerfTrackNXNonPagedPool_V1" version="1" task="PerfTrackNXNonPagedPool" level="win:Informational" template="PerfTrackPagedPoolArgs_V1"/>
+     <event value="1019" symbol="PerfTrackNonPagedPoolFrag_V1" version="1" task="PerfTrackNonPagedPoolFrag" level="win:Informational" template="PerfTrackNonPagedPoolFragArgs_V1"/>
+     <event value="1020" symbol="PerfTrackPagedPoolFrag_V1" version="1" task="PerfTrackPagedPoolFrag" level="win:Informational" template="PerfTrackNonPagedPoolFragArgs_V1"/>
+     <event value="1021" symbol="PerfTrackSessionPoolFrag_V1" version="1" task="PerfTrackSessionPoolFrag" level="win:Informational" template="PerfTrackNonPagedPoolFragArgs_V1"/>
+     <event value="1038" symbol="PerfTrackHandleCounts_V1" version="1" task="PerfTrackHandleCounts" level="win:Informational" template="PerfTrackHandleCountsArgs_V1"/>
+     <event value="1039" symbol="PredictorQuery_V1" version="1" task="PredictorQuery" level="win:Informational" keywords="PfAp" template="PredictorQueryArgs_V1"/>
+     <event value="1040" symbol="PrelaunchHeartBeatStart_V1" version="1" task="PrelaunchHeartBeat" opcode="win:Start" level="win:Informational" keywords="PfAp"/>
+     <event value="1041" symbol="PrelaunchHeartBeatStop_V2" version="2" task="PrelaunchHeartBeat" opcode="win:Stop" level="win:Informational" keywords="PfAp" template="PrelaunchHeartBeatStopArgs_V2"/>
+     <event value="1042" symbol="PrelaunchPredictorQuery_V1" version="1" task="PrelaunchPredictorQuery" level="win:Informational" keywords="PfAp" template="PrelaunchPredictorQueryArgs_V1"/>
+     <event value="1043" symbol="PrelaunchStart_V1" version="1" task="Prelaunch" opcode="win:Start" level="win:Informational" keywords="PfAp" template="PrelaunchStartArgs_V1"/>
+     <event value="1044" symbol="PrelaunchStop_V1" version="1" task="Prelaunch" opcode="win:Stop" level="win:Informational" keywords="PfAp" template="PrelaunchStopArgs_V1"/>
+     <event value="1045" symbol="PrelaunchEnqueue_V1" version="1" task="PrelaunchEnqueue" level="win:Informational" keywords="PfAp" template="PrelaunchEnqueueArgs_V1"/>
+     <event value="1046" symbol="PrelaunchDequeue_V1" version="1" task="PrelaunchDequeue" level="win:Informational" keywords="PfAp" template="PrelaunchDequeueArgs_V1"/>
+     <event value="1047" symbol="PrelaunchWorkerStart_V1" version="1" task="PrelaunchWorker" opcode="win:Start" level="win:Informational" keywords="PfAp"/>
+     <event value="1048" symbol="PrelaunchWorkerStop_V2" version="2" task="PrelaunchWorker" opcode="win:Stop" level="win:Informational" keywords="PfAp" template="PrelaunchHeartBeatStopArgs_V2"/>
+     <event value="1049" symbol="PrelaunchProcessCommand_V1" version="1" task="PrelaunchProcessCommand" level="win:Informational" keywords="PfAp" template="PrelaunchProcessCommandArgs_V1"/>
+     <event value="1050" symbol="PrelaunchIdleCheck_V1" version="1" task="PrelaunchIdleCheck" level="win:Informational" keywords="PfAp" template="PrelaunchIdleCheckArgs_V1"/>
+     <event value="1051" symbol="PerfTrackModernWorkingSet" version="0" task="PerfTrackModernWorkingSet" level="win:Informational" template="PerfTrackModernWorkingSetArgs"/>
+     <event value="1052" symbol="PrefetchHeartBeatStart_V1" version="1" task="PrefetchHeartBeat" opcode="win:Start" level="win:Informational" keywords="PfAp" template="PrefetchHeartBeatStartArgs_V1"/>
+     <event value="1052" symbol="PrefetchHeartBeatStart_V2" version="2" task="PrefetchHeartBeat" opcode="win:Start" level="win:Informational" keywords="PfAp"/>
+     <event value="1053" symbol="PrefetchHeartBeatStop_V2" version="2" task="PrefetchHeartBeat" opcode="win:Stop" level="win:Informational" keywords="PfAp" template="PrelaunchHeartBeatStopArgs_V2"/>
+     <event value="1054" symbol="PrefetchPredictorQuery_V1" version="1" task="PrefetchPredictorQuery" level="win:Informational" keywords="PfAp" template="PrefetchPredictorQueryArgs_V1"/>
+     <event value="1055" symbol="PrefetchScheduleTask_V1" version="1" task="PrefetchScheduleTask" level="win:Informational" keywords="PfAp" template="PrefetchScheduleTaskArgs_V1"/>
+     <event value="1055" symbol="PrefetchScheduleTask_V2" version="2" task="PrefetchScheduleTask" level="win:Informational" keywords="PfAp" template="PrefetchScheduleTaskArgs_V2"/>
+     <event value="1056" symbol="PostlaunchAppFail_V1" version="1" task="PostlaunchAppFail" level="win:Informational" keywords="PfAp" template="PostlaunchAppFailArgs_V1"/>
+     <event value="1057" symbol="AppSkip_V1" version="1" task="AppSkip" level="win:Informational" keywords="PfAp" template="AppSkipArgs_V1"/>
+     <event value="1058" symbol="PrefetchBenefitReport_V1" version="1" task="PrefetchBenefitReport" level="win:Informational" keywords="PfAp" template="PrefetchBenefitReportArgs_V1"/>
+     <event value="1059" symbol="PrefetchIsCandidate_V1" version="1" task="PrefetchIsCandidate" level="win:Informational" keywords="PfAp" template="PrefetchIsCandidateArgs_V1"/>
+     <event value="1060" symbol="PrefetchDecision_V1" version="1" task="PrefetchDecision" level="win:Informational" keywords="PfAp" template="PrefetchDecisionArgs_V1"/>
+     <event value="1061" symbol="PrefetchStartCallback_V1" version="1" task="PrefetchStartCallback" level="win:Informational" keywords="PfAp" template="PrefetchStartCallbackArgs_V1"/>
+     <event value="1062" symbol="DeploymentCommand_V1" version="1" task="DeploymentCommand" level="win:Informational" keywords="PfAp" template="DeploymentCommandArgs_V1"/>
+     <event value="1063" symbol="FetchCommand_V1" version="1" task="FetchCommand" level="win:Informational" keywords="PfAp" template="FetchCommandArgs_V1"/>
+     <event value="1064" symbol="AppUseCommand_V1" version="1" task="AppUseCommand" level="win:Informational" keywords="PfAp" template="AppUseCommandArgs_V1"/>
+     <event value="1065" symbol="PrelaunchAppCrash_V1" version="1" task="PrelaunchAppCrash" level="win:Informational" keywords="PfAp" template="PrelaunchPredictorQueryArgs_V1"/>
+     <event value="1066" symbol="PageCombiningStart_V1" version="1" task="PageCombining" opcode="win:Start" level="win:Informational" keywords="Combine"/>
+     <event value="1067" symbol="PageCombiningStop_V1" version="1" task="PageCombining" opcode="win:Stop" level="win:Informational" keywords="Combine" template="PageCombiningStopArgs_V1"/>
+    </events>
+    <templates>
+     <template tid="PerfTrackModernWorkingSetArgs">
+      <data name="PrivateWS" inType="win:UInt32"/>
+      <data name="TotalPrivate" inType="win:UInt32"/>
+      <data name="TotalWS" inType="win:UInt32"/>
+      <data name="ProcessAgeMHiandAppStateLo" inType="win:HexInt32"/>
+      <data name="ProcessName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="VirtualRebalanceStartArgs_V1">
+      <data name="StoreBitmap" inType="win:UInt32"/>
+     </template>
+     <template tid="EmptyVirtualStoreArgs_V1">
+      <data name="StoreId" inType="win:UInt32"/>
+     </template>
+     <template tid="InMemoryCompressionArgs_V1">
+      <data name="StoreId" inType="win:UInt32"/>
+      <data name="PageCount" inType="win:UInt32"/>
+      <data name="ScoreLevel" inType="win:UInt32"/>
+     </template>
+     <template tid="StoreLogAddArgs_V1">
+      <data name="ContainerKey" inType="win:Pointer"/>
+      <data name="VirtualAddress" inType="win:Pointer"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="InterpretedPid" inType="win:UInt32"/>
+     </template>
+     <template tid="PerfTrackPagedPoolArgs_V1">
+      <data name="AllocPages" inType="win:UInt32"/>
+      <data name="AllocCount" inType="win:UInt32"/>
+      <data name="FreeCount" inType="win:UInt32"/>
+      <data name="Tag" inType="win:AnsiString"/>
+     </template>
+     <template tid="PerfTrackPhysicalArgs_V1">
+      <data name="InUse" inType="win:UInt32"/>
+      <data name="Free" inType="win:UInt32"/>
+      <data name="Available" inType="win:UInt32"/>
+      <data name="Cached" inType="win:UInt32"/>
+      <data name="PagedPool" inType="win:UInt32"/>
+      <data name="NonPagedPool" inType="win:UInt32"/>
+      <data name="Commit" inType="win:UInt32"/>
+      <data name="CommitLimit" inType="win:UInt32"/>
+     </template>
+     <template tid="PerfTrackNonPagedPoolFragArgs_V1">
+      <data name="Fragmentation" inType="win:UInt32"/>
+      <data name="AllocPages" inType="win:UInt32"/>
+      <data name="CommitPages" inType="win:UInt32"/>
+      <data name="ActivePages" inType="win:UInt32"/>
+     </template>
+     <template tid="PerfTrackHandleCountsArgs_V1">
+      <data name="Processes" inType="win:UInt32"/>
+      <data name="Handles" inType="win:UInt32"/>
+      <data name="Objects" inType="win:UInt32"/>
+      <data name="Threads" inType="win:UInt32"/>
+     </template>
+     <template tid="PredictorQueryArgs_V1">
+      <data name="AppKey" inType="win:HexInt32"/>
+      <data name="PredictionPurpose" inType="win:UInt32" map="PfApPredictionPurpose"/>
+      <data name="Probability" inType="win:Double"/>
+     </template>
+     <template tid="PrelaunchPredictorQueryArgs_V1">
+      <data name="AppKey" inType="win:HexInt32"/>
+      <data name="AUMID" inType="win:UnicodeString"/>
+     </template>
+     <template tid="PrelaunchStartArgs_V1">
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="AUMID" inType="win:UnicodeString"/>
+     </template>
+     <template tid="PrelaunchStopArgs_V1">
+      <data name="HResult" inType="win:HexInt32"/>
+     </template>
+     <template tid="PrelaunchEnqueueArgs_V1">
+      <data name="Reason" inType="win:UInt32" map="PfApAppPrelaunchReason"/>
+      <data name="AUMID" inType="win:UnicodeString"/>
+     </template>
+     <template tid="PrelaunchDequeueArgs_V1">
+      <data name="SecondsSpentInQueue" inType="win:UInt32"/>
+      <data name="AUMID" inType="win:UnicodeString"/>
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="HRESULT" inType="win:HexInt32"/>
+     </template>
+     <template tid="PrelaunchProcessCommandArgs_V1">
+      <data name="CommandCode" inType="win:UInt32"/>
+      <data name="AUMID" inType="win:UnicodeString"/>
+     </template>
+     <template tid="PrelaunchIdleCheckArgs_V1">
+      <data name="CPUUtilization" inType="win:UInt32"/>
+      <data name="DiskUtilization" inType="win:UInt32"/>
+      <data name="GPUUtilization" inType="win:UInt32"/>
+      <data name="AvailableMemory" inType="win:UInt32"/>
+      <data name="ModifiedMemory" inType="win:UInt32"/>
+      <data name="OkToPrelaunch" inType="win:Boolean"/>
+     </template>
+     <template tid="PrefetchHeartBeatStartArgs_V1">
+      <data name="BgTaskCountUnrestricted" inType="win:UInt8"/>
+      <data name="BgTaskCountACOnly" inType="win:UInt8"/>
+     </template>
+     <template tid="PrefetchPredictorQueryArgs_V1">
+      <data name="AppKey" inType="win:HexInt32"/>
+      <data name="FullPackageName" inType="win:UnicodeString"/>
+      <data name="LongLookahead" inType="win:Boolean"/>
+      <data name="BenefitScore" inType="win:Int16"/>
+     </template>
+     <template tid="PrefetchScheduleTaskArgs_V1">
+      <data name="AppKey" inType="win:HexInt32"/>
+      <data name="FullPackageName" inType="win:UnicodeString"/>
+      <data name="UsedConditions" inType="win:UInt32" map="PfApFetchConditions"/>
+     </template>
+     <template tid="PostlaunchAppFailArgs_V1">
+      <data name="AppNameKey" inType="win:HexInt32"/>
+      <data name="AUMID" inType="win:UnicodeString"/>
+      <data name="NewFailCount" inType="win:UInt8"/>
+      <data name="LaunchResult" inType="win:UInt32"/>
+      <data name="Requeue" inType="win:UInt8"/>
+      <data name="AppStatus" inType="win:UInt32" map="PfApAppStatus"/>
+     </template>
+     <template tid="AppSkipArgs_V1">
+      <data name="AppNameKey" inType="win:HexInt32"/>
+      <data name="AUMID" inType="win:UnicodeString"/>
+      <data name="AppSkipReason" inType="win:UInt32"/>
+     </template>
+     <template tid="PrefetchBenefitReportArgs_V1">
+      <data name="AppKey" inType="win:HexInt32"/>
+      <data name="FullPackageName" inType="win:UnicodeString"/>
+      <data name="TimeFromPrefetchToSwitchInMS" inType="win:UInt32"/>
+      <data name="NewBenefitScore" inType="win:Int16"/>
+      <data name="NewAggregateBenefitScore" inType="win:Int16"/>
+     </template>
+     <template tid="PrefetchIsCandidateArgs_V1">
+      <data name="AppKey" inType="win:HexInt32"/>
+      <data name="FullPackageName" inType="win:UnicodeString"/>
+      <data name="ReasonsNotToPrefetch" inType="win:UInt32" map="PfApFetchReasonsNotToPrefetch"/>
+     </template>
+     <template tid="PrefetchDecisionArgs_V1">
+      <data name="AppKey" inType="win:HexInt32"/>
+      <data name="FullPackageName" inType="win:UnicodeString"/>
+      <data name="ACPowered" inType="win:Boolean"/>
+      <data name="Threshold" inType="win:Double"/>
+      <data name="Probability" inType="win:Double"/>
+     </template>
+     <template tid="PrefetchStartCallbackArgs_V1">
+      <data name="AppKey" inType="win:HexInt32"/>
+      <data name="FullPackageName" inType="win:UnicodeString"/>
+      <data name="PreviousPrefetchTime" inType="win:FILETIME"/>
+      <data name="PrefetchCount" inType="win:UInt32"/>
+     </template>
+     <template tid="DeploymentCommandArgs_V1">
+      <data name="AppKey" inType="win:HexInt32"/>
+      <data name="AUMID" inType="win:UnicodeString"/>
+      <data name="Command" inType="win:UInt32" map="PfApDeploymentCommandOperation"/>
+      <data name="AppType" inType="win:UInt32" map="PfApAppType"/>
+     </template>
+     <template tid="FetchCommandArgs_V1">
+      <data name="AppKey" inType="win:HexInt32"/>
+      <data name="FullPackageName" inType="win:UnicodeString"/>
+      <data name="Command" inType="win:UInt32"/>
+     </template>
+     <template tid="AppUseCommandArgs_V1">
+      <data name="AppKey" inType="win:HexInt32"/>
+      <data name="FullPackageName" inType="win:UnicodeString"/>
+      <data name="PID" inType="win:UInt32"/>
+     </template>
+     <template tid="PageCombiningStopArgs_V1">
+      <data name="PagesCombined" inType="win:Pointer"/>
+     </template>
+     <template tid="PerfTrackWorkingSetArgs_V2">
+      <data name="Private" inType="win:UInt32"/>
+      <data name="TotalPrivate" inType="win:UInt32"/>
+      <data name="Total" inType="win:UInt32"/>
+      <data name="ProcessName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="PrelaunchHeartBeatStopArgs_V2">
+      <data name="Result" inType="win:HexInt32"/>
+     </template>
+     <template tid="PrefetchScheduleTaskArgs_V2">
+      <data name="AppKey" inType="win:HexInt32"/>
+      <data name="FullPackageName" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Prefetch" value="Prefetch"/>
+    <string id="keyword_Store" value="Store"/>
+    <string id="keyword_StoreLog" value="StoreLog"/>
+    <string id="keyword_PfAp" value="PfAp"/>
+    <string id="keyword_Combine" value="Combine"/>
+    <string id="task_VirtualRebalance" value="VirtualRebalance"/>
+    <string id="task_EmptyVirtualStore" value="EmptyVirtualStore"/>
+    <string id="task_CreateVirtualStore" value="CreateVirtualStore"/>
+    <string id="task_DeleteVirtualStore" value="DeleteVirtualStore"/>
+    <string id="task_MemoryInversionReaction" value="MemoryInversionReaction"/>
+    <string id="task_InMemoryCompression" value="InMemoryCompression"/>
+    <string id="task_InMemoryDecompression" value="InMemoryDecompression"/>
+    <string id="task_StoreLogAdd" value="StoreLogAdd"/>
+    <string id="task_StoreLogRemove" value="StoreLogRemove"/>
+    <string id="task_StoreLogFull" value="StoreLogFull"/>
+    <string id="task_StoreLogEmpty" value="StoreLogEmpty"/>
+    <string id="task_StoreLogDelete" value="StoreLogDelete"/>
+    <string id="task_PerfTrackWorkingSet" value="PerfTrackWorkingSet"/>
+    <string id="task_PerfTrackPagedPool" value="PerfTrackPagedPool"/>
+    <string id="task_PerfTrackNonPagedPool" value="PerfTrackNonPagedPool"/>
+    <string id="task_PerfTrackPhysical" value="PerfTrackPhysical"/>
+    <string id="task_PerfTrackSessionPool" value="PerfTrackSessionPool"/>
+    <string id="task_PerfTrackNXNonPagedPool" value="PerfTrackNXNonPagedPool"/>
+    <string id="task_PerfTrackNonPagedPoolFrag" value="PerfTrackNonPagedPoolFrag"/>
+    <string id="task_PerfTrackPagedPoolFrag" value="PerfTrackPagedPoolFrag"/>
+    <string id="task_PerfTrackSessionPoolFrag" value="PerfTrackSessionPoolFrag"/>
+    <string id="task_PerfTrackHandleCounts" value="PerfTrackHandleCounts"/>
+    <string id="task_PredictorQuery" value="PredictorQuery"/>
+    <string id="task_PrelaunchHeartBeat" value="PrelaunchHeartBeat"/>
+    <string id="task_PrelaunchPredictorQuery" value="PrelaunchPredictorQuery"/>
+    <string id="task_Prelaunch" value="Prelaunch"/>
+    <string id="task_PrelaunchEnqueue" value="PrelaunchEnqueue"/>
+    <string id="task_PrelaunchDequeue" value="PrelaunchDequeue"/>
+    <string id="task_PrelaunchWorker" value="PrelaunchWorker"/>
+    <string id="task_PrelaunchProcessCommand" value="PrelaunchProcessCommand"/>
+    <string id="task_PrelaunchIdleCheck" value="PrelaunchIdleCheck"/>
+    <string id="task_PerfTrackModernWorkingSet" value="PerfTrackModernWorkingSet"/>
+    <string id="task_PrefetchHeartBeat" value="PrefetchHeartBeat"/>
+    <string id="task_PrefetchPredictorQuery" value="PrefetchPredictorQuery"/>
+    <string id="task_PrefetchScheduleTask" value="PrefetchScheduleTask"/>
+    <string id="task_PostlaunchAppFail" value="PostlaunchAppFail"/>
+    <string id="task_AppSkip" value="AppSkip"/>
+    <string id="task_PrefetchBenefitReport" value="PrefetchBenefitReport"/>
+    <string id="task_PrefetchIsCandidate" value="PrefetchIsCandidate"/>
+    <string id="task_PrefetchDecision" value="PrefetchDecision"/>
+    <string id="task_PrefetchStartCallback" value="PrefetchStartCallback"/>
+    <string id="task_DeploymentCommand" value="DeploymentCommand"/>
+    <string id="task_FetchCommand" value="FetchCommand"/>
+    <string id="task_AppUseCommand" value="AppUseCommand"/>
+    <string id="task_PrelaunchAppCrash" value="PrelaunchAppCrash"/>
+    <string id="task_PageCombining" value="PageCombining"/>
+    <string id="map_PfApPredictionPurposePrelaunch" value="Prelaunch"/>
+    <string id="map_PfApPredictionPurposePrefetch" value="Prefetch"/>
+    <string id="map_PfApAppPrelaunchReasonSpeculative" value="Speculative"/>
+    <string id="map_PfApAppPrelaunchReasonRPCRequest" value="RPCRequest"/>
+    <string id="map_PfApAppPrelaunchReasonInstall" value="Install"/>
+    <string id="map_PfApFetchConditionsFreeNetwork" value="FreeNetwork"/>
+    <string id="map_PfApFetchConditionsBackgroundCostNotHigh" value="BackgroundCostNotHigh"/>
+    <string id="map_PfApFetchConditionsACPowered" value="ACPowered"/>
+    <string id="map_PfApAppStatusThrottled" value="Throttled"/>
+    <string id="map_PfApAppStatusSuspended" value="Suspended"/>
+    <string id="map_PfApAppStatusNotThrottled" value="NotThrottled"/>
+    <string id="map_PfApAppStatusNotAvailable" value="NotAvailable"/>
+    <string id="map_PfApFetchReasonsNotToPrefetchTaskAlreadyScheduled" value="TaskAlreadyScheduled"/>
+    <string id="map_PfApFetchReasonsNotToPrefetchSwitchedToRecently" value="SwitchedToRecently"/>
+    <string id="map_PfApFetchReasonsNotToPrefetchPrefetchedRecently" value="PrefetchedRecently"/>
+    <string id="map_PfApDeploymentCommandOperationInstalled" value="Installed"/>
+    <string id="map_PfApDeploymentCommandOperationUninstalled" value="Uninstalled"/>
+    <string id="map_PfApDeploymentCommandOperationPrelaunchApp" value="PrelaunchApp"/>
+    <string id="map_PfApAppTypeOther" value="Other"/>
+    <string id="map_PfApAppTypeInbox" value="Inbox"/>
+    <string id="map_PfApAppTypeAppStore" value="AppStore"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

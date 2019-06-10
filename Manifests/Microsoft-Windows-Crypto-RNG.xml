@@ -1,0 +1,120 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Crypto-RNG" guid="{54d5ac20-e14f-4fda-92da-ebf7556ff176}" resourceFileName="Microsoft-Windows-Crypto-RNG" messageFileName="Microsoft-Windows-Crypto-RNG" symbol="MicrosoftWindowsCryptoRNG" source="Xml" >
+    <keywords>
+     <keyword name="KEYWORD_SYSTEMRNG_ENTROPY_REGISTRATION" message="$(string.keyword_KEYWORD_SYSTEMRNG_ENTROPY_REGISTRATION)" mask="0x1"/>
+     <keyword name="KEYWORD_SYSTEMRNG_ENTROPY_DATA" message="$(string.keyword_KEYWORD_SYSTEMRNG_ENTROPY_DATA)" mask="0x2"/>
+     <keyword name="KEYWORD_SYSTEMRNG_PRNG" message="$(string.keyword_KEYWORD_SYSTEMRNG_PRNG)" mask="0x4"/>
+    </keywords>
+    <tasks>
+     <task name="Gatherentropyforthesystemrandomnumbergenerator" message="$(string.task_Gatherentropyforthesystemrandomnumbergenerator)" value="10"/>
+     <task name="Prng" message="$(string.task_Prng)" value="20"/>
+    </tasks>
+    <maps>
+     <valueMap name="SystemRngEntropyTypeMap">
+      <map value="0x1" message="$(string.map_SystemRngEntropyTypeMapHigh entropy push)"/>
+      <map value="0x2" message="$(string.map_SystemRngEntropyTypeMapLow entropy push)"/>
+      <map value="0x3" message="$(string.map_SystemRngEntropyTypeMapHigh entropy pull)"/>
+     </valueMap>
+     <valueMap name="SystemRngTpmBootEntropyPolicy">
+      <map value="0x0" message="$(string.map_SystemRngTpmBootEntropyPolicyDefault)"/>
+      <map value="0x1" message="$(string.map_SystemRngTpmBootEntropyPolicyForceDisable)"/>
+      <map value="0x2" message="$(string.map_SystemRngTpmBootEntropyPolicyForceEnable)"/>
+     </valueMap>
+     <valueMap name="SystemRngPoolReseedType">
+      <map value="0x1" message="$(string.map_SystemRngPoolReseedTypeOne pool)"/>
+      <map value="0x2" message="$(string.map_SystemRngPoolReseedTypeOne or more pools)"/>
+      <map value="0x3" message="$(string.map_SystemRngPoolReseedTypeAll pools)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="GatherentropyforthesystemrandomnumbergeneratorStart" version="0" task="Gatherentropyforthesystemrandomnumbergenerator" opcode="win:Start" level="win:Informational" keywords="KEYWORD_SYSTEMRNG_ENTROPY_REGISTRATION" template="GatherentropyforthesystemrandomnumbergeneratorStartArgs"/>
+     <event value="2" symbol="GatherentropyforthesystemrandomnumbergeneratorStop" version="0" task="Gatherentropyforthesystemrandomnumbergenerator" opcode="win:Stop" level="win:Informational" keywords="KEYWORD_SYSTEMRNG_ENTROPY_REGISTRATION" template="GatherentropyforthesystemrandomnumbergeneratorStopArgs"/>
+     <event value="3" symbol="Gatherentropyforthesystemrandomnumbergenerator" version="0" task="Gatherentropyforthesystemrandomnumbergenerator" level="win:Informational" keywords="KEYWORD_SYSTEMRNG_ENTROPY_DATA" template="GatherentropyforthesystemrandomnumbergeneratorArgs"/>
+     <event value="4" symbol="Gatherentropyforthesystemrandomnumbergenerator4" version="0" task="Gatherentropyforthesystemrandomnumbergenerator" level="win:Informational" keywords="KEYWORD_SYSTEMRNG_ENTROPY_DATA" template="Gatherentropyforthesystemrandomnumbergenerator4Args"/>
+     <event value="16" symbol="Gatherentropyforthesystemrandomnumbergenerator16" version="0" task="Gatherentropyforthesystemrandomnumbergenerator" level="win:Informational" keywords="KEYWORD_SYSTEMRNG_ENTROPY_DATA" template="Gatherentropyforthesystemrandomnumbergenerator16Args"/>
+     <event value="32" symbol="Gatherentropyforthesystemrandomnumbergenerator32" version="0" task="Gatherentropyforthesystemrandomnumbergenerator" level="win:Informational" keywords="KEYWORD_SYSTEMRNG_ENTROPY_DATA" template="Gatherentropyforthesystemrandomnumbergenerator32Args"/>
+     <event value="33" symbol="Gatherentropyforthesystemrandomnumbergenerator33" version="0" task="Gatherentropyforthesystemrandomnumbergenerator" level="win:Informational" keywords="KEYWORD_SYSTEMRNG_ENTROPY_DATA" template="Gatherentropyforthesystemrandomnumbergenerator33Args"/>
+     <event value="48" symbol="Prng" version="0" task="Prng" level="win:Informational" keywords="KEYWORD_SYSTEMRNG_PRNG" template="PrngArgs"/>
+     <event value="49" symbol="Prng49" version="0" task="Prng" level="win:Informational" keywords="KEYWORD_SYSTEMRNG_PRNG" template="Prng49Args"/>
+    </events>
+    <templates>
+     <template tid="GatherentropyforthesystemrandomnumbergeneratorStartArgs">
+      <data name="SourceNumber" inType="win:UInt64"/>
+      <data name="SourceName" inType="win:UnicodeString"/>
+      <data name="SourceType" inType="win:UInt32" map="SystemRngEntropyTypeMap"/>
+     </template>
+     <template tid="GatherentropyforthesystemrandomnumbergeneratorStopArgs">
+      <data name="SourceNumber" inType="win:UInt64"/>
+      <data name="SourceName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="GatherentropyforthesystemrandomnumbergeneratorArgs">
+      <data name="SourceNumber" inType="win:UInt64"/>
+      <data name="BytesProvided" inType="win:UInt32"/>
+      <data name="EntropyEstimate" inType="win:Int32"/>
+      <data name="nData" inType="win:UInt32"/>
+      <data name="Data" inType="win:Binary" length="nData"/>
+     </template>
+     <template tid="Gatherentropyforthesystemrandomnumbergenerator4Args">
+      <data name="SourceNumber" inType="win:UInt64"/>
+      <data name="ResultStatus" inType="win:HexInt32"/>
+      <data name="TimeTaken" inType="win:UInt64"/>
+     </template>
+     <template tid="Gatherentropyforthesystemrandomnumbergenerator16Args">
+      <data name="Source" inType="win:UInt32"/>
+      <data name="Policy" inType="win:UInt32" map="SystemRngTpmBootEntropyPolicy"/>
+      <data name="ResultCode" inType="win:UInt32"/>
+      <data name="ResultStatus" inType="win:HexInt32"/>
+      <data name="Time" inType="win:UInt64"/>
+      <data name="BytesProvided" inType="win:UInt32"/>
+      <data name="nData" inType="win:UInt32"/>
+      <data name="Data" inType="win:Binary" length="nData"/>
+     </template>
+     <template tid="Gatherentropyforthesystemrandomnumbergenerator32Args">
+      <data name="PoolReseedCount" inType="win:UInt64"/>
+      <data name="ReseedType" inType="win:UInt32" map="SystemRngPoolReseedType"/>
+      <data name="nData" inType="win:UInt32"/>
+      <data name="Data" inType="win:Binary" length="nData"/>
+     </template>
+     <template tid="Gatherentropyforthesystemrandomnumbergenerator33Args">
+      <data name="PoolNo" inType="win:UInt32"/>
+      <data name="nData" inType="win:UInt32"/>
+      <data name="Data" inType="win:Binary" length="nData"/>
+     </template>
+     <template tid="PrngArgs">
+      <data name="PrngAddress" inType="win:HexInt64"/>
+      <data name="nData" inType="win:UInt32"/>
+      <data name="Data" inType="win:Binary" length="nData"/>
+     </template>
+     <template tid="Prng49Args">
+      <data name="PrngAddress" inType="win:HexInt64"/>
+      <data name="BytesProduced" inType="win:UInt64"/>
+      <data name="nData" inType="win:UInt32"/>
+      <data name="Data" inType="win:Binary" length="nData"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_KEYWORD_SYSTEMRNG_ENTROPY_REGISTRATION" value="KEYWORD_SYSTEMRNG_ENTROPY_REGISTRATION"/>
+    <string id="keyword_KEYWORD_SYSTEMRNG_ENTROPY_DATA" value="KEYWORD_SYSTEMRNG_ENTROPY_DATA"/>
+    <string id="keyword_KEYWORD_SYSTEMRNG_PRNG" value="KEYWORD_SYSTEMRNG_PRNG"/>
+    <string id="task_Gatherentropyforthesystemrandomnumbergenerator" value="Gatherentropyforthesystemrandomnumbergenerator"/>
+    <string id="task_Prng" value="Prng"/>
+    <string id="map_SystemRngEntropyTypeMapHigh entropy push" value="High entropy push"/>
+    <string id="map_SystemRngEntropyTypeMapLow entropy push" value="Low entropy push"/>
+    <string id="map_SystemRngEntropyTypeMapHigh entropy pull" value="High entropy pull"/>
+    <string id="map_SystemRngTpmBootEntropyPolicyDefault" value="Default"/>
+    <string id="map_SystemRngTpmBootEntropyPolicyForceDisable" value="ForceDisable"/>
+    <string id="map_SystemRngTpmBootEntropyPolicyForceEnable" value="ForceEnable"/>
+    <string id="map_SystemRngPoolReseedTypeOne pool" value="One pool"/>
+    <string id="map_SystemRngPoolReseedTypeOne or more pools" value="One or more pools"/>
+    <string id="map_SystemRngPoolReseedTypeAll pools" value="All pools"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

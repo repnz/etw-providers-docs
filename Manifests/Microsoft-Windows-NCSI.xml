@@ -1,0 +1,376 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-NCSI" guid="{314de49f-ce63-4779-ba2b-d616f6963a88}" resourceFileName="Microsoft-Windows-NCSI" messageFileName="Microsoft-Windows-NCSI" symbol="MicrosoftWindowsNCSI" source="Xml" >
+    <keywords>
+     <keyword name="NlaDiagnostics" message="$(string.keyword_NlaDiagnostics)" mask="0x1"/>
+     <keyword name="LwtDiagnostic" message="$(string.keyword_LwtDiagnostic)" mask="0x20"/>
+     <keyword name="ut:SendPath" message="$(string.keyword_ut:SendPath)" mask="0x100000000"/>
+     <keyword name="ut:ReceivePath" message="$(string.keyword_ut:ReceivePath)" mask="0x200000000"/>
+     <keyword name="ut:L3ConnectPath" message="$(string.keyword_ut:L3ConnectPath)" mask="0x400000000"/>
+     <keyword name="ut:L2ConnectPath" message="$(string.keyword_ut:L2ConnectPath)" mask="0x800000000"/>
+     <keyword name="ut:ClosePath" message="$(string.keyword_ut:ClosePath)" mask="0x1000000000"/>
+     <keyword name="ut:Authentication" message="$(string.keyword_ut:Authentication)" mask="0x2000000000"/>
+     <keyword name="ut:Configuration" message="$(string.keyword_ut:Configuration)" mask="0x4000000000"/>
+     <keyword name="ut:Global" message="$(string.keyword_ut:Global)" mask="0x8000000000"/>
+     <keyword name="keyword_200000000000" message="$(string.keyword_keyword_200000000000)" mask="0x200000000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="WaitforNetReady" message="$(string.task_WaitforNetReady)" value="1"/>
+     <task name="WaitforLocalConnectivity" message="$(string.task_WaitforLocalConnectivity)" value="2"/>
+     <task name="WaitforInternetConnectivity" message="$(string.task_WaitforInternetConnectivity)" value="3"/>
+     <task name="WaitforCorporateConnectivity" message="$(string.task_WaitforCorporateConnectivity)" value="4"/>
+     <task name="CheckCorporateInside/outsideLocation" message="$(string.task_CheckCorporateInside/outsideLocation)" value="5"/>
+     <task name="InternetConnectivityDetection" message="$(string.task_InternetConnectivityDetection)" value="6"/>
+     <task name="CorporateConnectivityDetection" message="$(string.task_CorporateConnectivityDetection)" value="7"/>
+     <task name="ProxyDetection" message="$(string.task_ProxyDetection)" value="8"/>
+     <task name="Inside/Outsidedetectionverification" message="$(string.task_Inside/Outsidedetectionverification)" value="9"/>
+     <task name="Suspectstate" message="$(string.task_Suspectstate)" value="10"/>
+     <task name="CorporateSuspectstate" message="$(string.task_CorporateSuspectstate)" value="11"/>
+    </tasks>
+    <maps>
+     <valueMap name="CorpCheckDisabledReasonMap">
+      <map value="0x1" message="$(string.map_CorpCheckDisabledReasonMapCorporate configuration is not available)"/>
+      <map value="0x2" message="$(string.map_CorpCheckDisabledReasonMapCorporate configuration is not valid)"/>
+     </valueMap>
+     <valueMap name="StateMap">
+      <map value="0x0" message="$(string.map_StateMapInterface Disconnected)"/>
+      <map value="0x1" message="$(string.map_StateMapInterface Arrival)"/>
+      <map value="0x2" message="$(string.map_StateMapInterface NetReady)"/>
+      <map value="0x3" message="$(string.map_StateMapLocal Connectivity)"/>
+      <map value="0x4" message="$(string.map_StateMapInternet Connectivity)"/>
+      <map value="0x5" message="$(string.map_StateMapNo Corporate Connectivity)"/>
+      <map value="0x6" message="$(string.map_StateMapCorporate Connectivity)"/>
+      <map value="0x7" message="$(string.map_StateMapCorporate Location Identifying)"/>
+      <map value="0x8" message="$(string.map_StateMapCorporate Location Identified)"/>
+     </valueMap>
+     <valueMap name="CorpLocationMap">
+      <map value="0x0" message="$(string.map_CorpLocationMapOUTSIDE)"/>
+      <map value="0x1" message="$(string.map_CorpLocationMapINSIDE)"/>
+     </valueMap>
+     <valueMap name="FamilyMap">
+      <map value="0x0" message="$(string.map_FamilyMapV4)"/>
+      <map value="0x1" message="$(string.map_FamilyMapV6)"/>
+     </valueMap>
+     <valueMap name="CapabilityMap">
+      <map value="0x0" message="$(string.map_CapabilityMapNone)"/>
+      <map value="0x1" message="$(string.map_CapabilityMapLocal)"/>
+      <map value="0x2" message="$(string.map_CapabilityMapInternet)"/>
+     </valueMap>
+     <valueMap name="InternetCapabilityMap">
+      <map value="0x0" message="$(string.map_InternetCapabilityMapfalse)"/>
+      <map value="0x1" message="$(string.map_InternetCapabilityMaptrue)"/>
+      <map value="0x2" message="$(string.map_InternetCapabilityMapcaptive portal)"/>
+      <map value="0xff" message="$(string.map_InternetCapabilityMapno data)"/>
+     </valueMap>
+     <valueMap name="InternetTestMap">
+      <map value="0x0" message="$(string.map_InternetTestMapHTTP)"/>
+      <map value="0x1" message="$(string.map_InternetTestMapDNS)"/>
+      <map value="0x2" message="$(string.map_InternetTestMappassive)"/>
+      <map value="0xff" message="$(string.map_InternetTestMapno data)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="2001" symbol="WaitforCorporateConnectivity" version="0" task="WaitforCorporateConnectivity" level="win:Warning" keywords="LwtDiagnostic ut:L3ConnectPath" template="WaitforCorporateConnectivityArgs"/>
+     <event value="2002" symbol="WaitforCorporateConnectivity2002" version="0" task="WaitforCorporateConnectivity" level="win:Informational" keywords="LwtDiagnostic ut:L3ConnectPath"/>
+     <event value="2003" symbol="CheckCorporateInside/outsideLocation" version="0" task="CheckCorporateInside/outsideLocation" level="win:Warning" keywords="LwtDiagnostic ut:L3ConnectPath" template="CheckCorporateInside/outsideLocationArgs"/>
+     <event value="2004" symbol="CheckCorporateInside/outsideLocation2004" version="0" task="CheckCorporateInside/outsideLocation" level="win:Informational" keywords="LwtDiagnostic ut:L3ConnectPath"/>
+     <event value="4001" symbol="WaitforNetReady" version="0" task="WaitforNetReady" level="win:Informational" keywords="keyword_200000000000" template="WaitforNetReadyArgs"/>
+     <event value="4002" symbol="WaitforNetReady4002" version="0" task="WaitforNetReady" level="win:Informational" keywords="keyword_200000000000" template="WaitforNetReady4002Args"/>
+     <event value="4003" symbol="WaitforLocalConnectivity" version="0" task="WaitforLocalConnectivity" level="win:Informational" keywords="keyword_200000000000" template="WaitforNetReadyArgs"/>
+     <event value="4004" symbol="WaitforLocalConnectivity4004" version="0" task="WaitforLocalConnectivity" level="win:Informational" keywords="keyword_200000000000" template="WaitforNetReadyArgs"/>
+     <event value="4005" symbol="WaitforInternetConnectivity" version="0" task="WaitforInternetConnectivity" level="win:Informational" keywords="keyword_200000000000" template="WaitforNetReadyArgs"/>
+     <event value="4006" symbol="WaitforInternetConnectivity4006" version="0" task="WaitforInternetConnectivity" level="win:Informational" keywords="keyword_200000000000" template="WaitforNetReadyArgs"/>
+     <event value="4007" symbol="WaitforCorporateConnectivity4007" version="0" task="WaitforCorporateConnectivity" level="win:Informational" keywords="keyword_200000000000" template="WaitforNetReadyArgs"/>
+     <event value="4008" symbol="WaitforCorporateConnectivity4008" version="0" task="WaitforCorporateConnectivity" level="win:Informational" keywords="keyword_200000000000" template="WaitforNetReadyArgs"/>
+     <event value="4009" symbol="CheckCorporateInside/outsideLocation4009" version="0" task="CheckCorporateInside/outsideLocation" level="win:Informational" keywords="LwtDiagnostic keyword_200000000000" template="WaitforNetReadyArgs"/>
+     <event value="4010" symbol="CheckCorporateInside/outsideLocation4010" version="0" task="CheckCorporateInside/outsideLocation" level="win:Informational" keywords="LwtDiagnostic keyword_200000000000" template="CheckCorporateInside/outsideLocation4010Args"/>
+     <event value="4011" symbol="CheckCorporateInside/outsideLocation4011" version="0" task="CheckCorporateInside/outsideLocation" level="win:Informational" keywords="ut:L3ConnectPath"/>
+     <event value="4012" symbol="CheckCorporateInside/outsideLocation4012" version="0" task="CheckCorporateInside/outsideLocation" level="win:Warning" keywords="LwtDiagnostic ut:L3ConnectPath" template="CheckCorporateInside/outsideLocation4012Args"/>
+     <event value="4013" symbol="InternetConnectivityDetectionStart" version="0" task="InternetConnectivityDetection" opcode="win:Start" level="win:Informational" keywords="LwtDiagnostic keyword_200000000000" template="InternetConnectivityDetectionStartArgs"/>
+     <event value="4014" symbol="InternetConnectivityDetectionStop" version="0" task="InternetConnectivityDetection" opcode="win:Stop" level="win:Informational" keywords="LwtDiagnostic keyword_200000000000" template="InternetConnectivityDetectionStopArgs"/>
+     <event value="4015" symbol="InternetConnectivityDetectionStart4015" version="0" task="InternetConnectivityDetection" opcode="win:Start" level="win:Informational" keywords="LwtDiagnostic keyword_200000000000" template="InternetConnectivityDetectionStart4015Args"/>
+     <event value="4016" symbol="InternetConnectivityDetectionStop4016" version="0" task="InternetConnectivityDetection" opcode="win:Stop" level="win:Informational" keywords="LwtDiagnostic keyword_200000000000" template="InternetConnectivityDetectionStop4016Args"/>
+     <event value="4017" symbol="InternetConnectivityDetectionStart4017" version="0" task="InternetConnectivityDetection" opcode="win:Start" level="win:Informational" keywords="LwtDiagnostic keyword_200000000000" template="InternetConnectivityDetectionStop4016Args"/>
+     <event value="4018" symbol="InternetConnectivityDetectionStop4018" version="0" task="InternetConnectivityDetection" opcode="win:Stop" level="win:Informational" keywords="LwtDiagnostic keyword_200000000000" template="InternetConnectivityDetectionStop4016Args"/>
+     <event value="4019" symbol="CorporateConnectivityDetectionStart" version="0" task="CorporateConnectivityDetection" opcode="win:Start" level="win:Informational" keywords="keyword_200000000000" template="CorporateConnectivityDetectionStartArgs"/>
+     <event value="4020" symbol="CorporateConnectivityDetectionStop" version="0" task="CorporateConnectivityDetection" opcode="win:Stop" level="win:Informational" keywords="keyword_200000000000" template="CorporateConnectivityDetectionStopArgs"/>
+     <event value="4021" symbol="CorporateConnectivityDetectionStart4021" version="0" task="CorporateConnectivityDetection" opcode="win:Start" level="win:Informational" keywords="LwtDiagnostic keyword_200000000000" template="CorporateConnectivityDetectionStartArgs"/>
+     <event value="4022" symbol="CorporateConnectivityDetectionStop4022" version="0" task="CorporateConnectivityDetection" opcode="win:Stop" level="win:Informational" keywords="LwtDiagnostic keyword_200000000000" template="CorporateConnectivityDetectionStartArgs"/>
+     <event value="4023" symbol="CorporateConnectivityDetectionStart4023" version="0" task="CorporateConnectivityDetection" opcode="win:Start" level="win:Informational" keywords="LwtDiagnostic keyword_200000000000" template="CorporateConnectivityDetectionStartArgs"/>
+     <event value="4024" symbol="CorporateConnectivityDetectionStop4024" version="0" task="CorporateConnectivityDetection" opcode="win:Stop" level="win:Informational" keywords="LwtDiagnostic keyword_200000000000" template="CorporateConnectivityDetectionStartArgs"/>
+     <event value="4025" symbol="ProxyDetectionStart" version="0" task="ProxyDetection" opcode="win:Start" level="win:Informational" keywords="LwtDiagnostic keyword_200000000000"/>
+     <event value="4026" symbol="ProxyDetectionStop" version="0" task="ProxyDetection" opcode="win:Stop" level="win:Informational" keywords="LwtDiagnostic keyword_200000000000" template="ProxyDetectionStopArgs"/>
+     <event value="4027" symbol="InternetConnectivityDetection" version="0" task="InternetConnectivityDetection" level="win:Informational" keywords="ut:L3ConnectPath" template="InternetConnectivityDetectionStop4016Args"/>
+     <event value="4028" symbol="Inside/Outsidedetectionverification" version="0" task="Inside/Outsidedetectionverification" level="win:Warning" keywords="NlaDiagnostics"/>
+     <event value="4029" symbol="Suspectstate" version="0" task="Suspectstate" level="win:Informational" keywords="keyword_200000000000" template="SuspectstateArgs"/>
+     <event value="4030" symbol="Suspectstate4030" version="0" task="Suspectstate" level="win:Informational" keywords="keyword_200000000000" template="Suspectstate4030Args"/>
+     <event value="4031" symbol="Suspectstate4031" version="0" task="Suspectstate" level="win:Informational" keywords="keyword_200000000000" template="Suspectstate4030Args"/>
+     <event value="4032" symbol="CorporateSuspectstate" version="0" task="CorporateSuspectstate" level="win:Informational" keywords="keyword_200000000000" template="CorporateSuspectstateArgs"/>
+     <event value="4033" symbol="CorporateSuspectstate4033" version="0" task="CorporateSuspectstate" level="win:Informational" keywords="keyword_200000000000" template="CorporateSuspectstateArgs"/>
+     <event value="4034" symbol="CorporateSuspectstate4034" version="0" task="CorporateSuspectstate" level="win:Informational" keywords="keyword_200000000000" template="CorporateSuspectstateArgs"/>
+     <event value="4035" symbol="InternetConnectivityDetection4035" version="0" task="InternetConnectivityDetection" level="win:Informational" keywords="keyword_200000000000" template="CorporateConnectivityDetectionStartArgs"/>
+     <event value="4036" symbol="CheckCorporateInside/outsideLocation4036" version="0" task="CheckCorporateInside/outsideLocation" level="win:Informational" template="CorporateConnectivityDetectionStartArgs"/>
+     <event value="4037" symbol="InternetConnectivityDetection4037" version="0" task="InternetConnectivityDetection" level="win:Informational" template="InternetConnectivityDetection4037Args"/>
+     <event value="4038" symbol="InternetConnectivityDetection4038" version="0" task="InternetConnectivityDetection" level="win:Informational" template="InternetConnectivityDetection4037Args"/>
+     <event value="4039" symbol="InternetConnectivityDetection4039" version="0" task="InternetConnectivityDetection" level="win:Informational" template="InternetConnectivityDetection4037Args"/>
+     <event value="4040" symbol="task_0" version="0" task="task_0" level="win:Informational" keywords="LwtDiagnostic ut:L3ConnectPath" template="task_0Args"/>
+     <event value="4041" symbol="task_04041" version="0" task="task_0" level="win:Informational" keywords="LwtDiagnostic ut:L3ConnectPath" template="task_04041Args"/>
+     <event value="4042" symbol="task_04042" version="0" task="task_0" level="win:Informational" keywords="LwtDiagnostic" template="task_04042Args"/>
+     <event value="4043" symbol="task_04043" version="0" task="task_0" level="win:Informational" keywords="LwtDiagnostic" template="task_04043Args"/>
+     <event value="4044" symbol="task_04044" version="0" task="task_0" level="win:Informational" keywords="LwtDiagnostic" template="task_04044Args"/>
+     <event value="4045" symbol="task_04045" version="0" task="task_0" level="win:Informational" keywords="LwtDiagnostic" template="task_04045Args"/>
+     <event value="4046" symbol="task_04046" version="0" task="task_0" level="win:Informational" keywords="LwtDiagnostic" template="task_04046Args"/>
+     <event value="4047" symbol="task_04047" version="0" task="task_0" level="win:Informational" keywords="LwtDiagnostic" template="task_04047Args"/>
+     <event value="4048" symbol="task_04048" version="0" task="task_0" level="win:Informational" keywords="LwtDiagnostic" template="task_04048Args"/>
+     <event value="4049" symbol="task_04049" version="0" task="task_0" level="win:Informational" keywords="LwtDiagnostic" template="task_04049Args"/>
+     <event value="4050" symbol="task_04050" version="0" task="task_0" level="win:Informational" keywords="LwtDiagnostic" template="task_04050Args"/>
+     <event value="4051" symbol="task_04051" version="0" task="task_0" level="win:Warning" keywords="LwtDiagnostic" template="task_04051Args"/>
+     <event value="4052" symbol="task_04052" version="0" task="task_0" level="win:Informational" keywords="LwtDiagnostic" template="task_04052Args"/>
+     <event value="4053" symbol="task_04053" version="0" task="task_0" level="win:Informational" keywords="LwtDiagnostic" template="InternetConnectivityDetectionStop4016Args"/>
+     <event value="4054" symbol="task_04054" version="0" task="task_0" level="win:Informational" keywords="LwtDiagnostic" template="InternetConnectivityDetectionStop4016Args"/>
+    </events>
+    <templates>
+     <template tid="WaitforCorporateConnectivityArgs">
+      <data name="CorpCheckDisabledReason" inType="win:UInt8" map="CorpCheckDisabledReasonMap"/>
+     </template>
+     <template tid="CheckCorporateInside/outsideLocationArgs">
+      <data name="CorpCheckDisabledReason" inType="win:UInt8"/>
+     </template>
+     <template tid="WaitforNetReadyArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="CurrentOrNextState" inType="win:UInt8"/>
+      <data name="IfLuid" inType="win:UInt64"/>
+     </template>
+     <template tid="WaitforNetReady4002Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="CurrentOrNextState" inType="win:UInt8" map="StateMap"/>
+      <data name="IfLuid" inType="win:UInt64"/>
+     </template>
+     <template tid="CheckCorporateInside/outsideLocation4010Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="CurrentOrNextState" inType="win:UInt8"/>
+      <data name="IfLuid" inType="win:UInt64"/>
+      <data name="CorporateLocation" inType="win:UInt8" map="CorpLocationMap"/>
+      <data name="CorporateLocationMetadata" inType="win:UInt32"/>
+     </template>
+     <template tid="CheckCorporateInside/outsideLocation4012Args">
+      <data name="IfLuid" inType="win:UInt64"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="ProbeHost" inType="win:UnicodeString"/>
+      <data name="ProbePath" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="ErrorString" inType="win:UnicodeString"/>
+      <data name="RetryInterval" inType="win:UInt32"/>
+     </template>
+     <template tid="InternetConnectivityDetectionStartArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="ForceWeb" inType="win:Boolean"/>
+      <data name="UseProxyCache" inType="win:Boolean"/>
+     </template>
+     <template tid="InternetConnectivityDetectionStopArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="Succeeded" inType="win:Boolean"/>
+      <data name="UsedDnsProbe" inType="win:Boolean"/>
+      <data name="UsedProxy" inType="win:Boolean"/>
+      <data name="ContentComparison" inType="win:Boolean"/>
+      <data name="WebCompleted" inType="win:Boolean"/>
+      <data name="WebRedirected" inType="win:Boolean"/>
+      <data name="LocalErrorOccured" inType="win:Boolean"/>
+     </template>
+     <template tid="InternetConnectivityDetectionStart4015Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="Family" inType="win:UInt32" map="FamilyMap"/>
+     </template>
+     <template tid="InternetConnectivityDetectionStop4016Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="Family" inType="win:UInt32"/>
+     </template>
+     <template tid="CorporateConnectivityDetectionStartArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+     </template>
+     <template tid="CorporateConnectivityDetectionStopArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="Succeeded" inType="win:Boolean"/>
+      <data name="LocalErrorOccured" inType="win:Boolean"/>
+     </template>
+     <template tid="ProxyDetectionStopArgs">
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="Source" inType="win:UInt8"/>
+     </template>
+     <template tid="SuspectstateArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="IfLuid" inType="win:UInt64"/>
+      <data name="Family" inType="win:UInt32"/>
+      <data name="SuspectStateReason" inType="win:UInt8"/>
+     </template>
+     <template tid="Suspectstate4030Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="IfLuid" inType="win:UInt64"/>
+      <data name="Family" inType="win:UInt32"/>
+     </template>
+     <template tid="CorporateSuspectstateArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="IfLuid" inType="win:UInt64"/>
+     </template>
+     <template tid="InternetConnectivityDetection4037Args">
+      <data name="IfLuid" inType="win:UInt64"/>
+      <data name="Family" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0Args">
+      <data name="ConnectedInterfaceGuid" inType="win:GUID"/>
+      <data name="IfLuid" inType="win:UInt64"/>
+     </template>
+     <template tid="task_04041Args">
+      <data name="DisconnectedInterfaceGuid" inType="win:GUID"/>
+      <data name="IfLuid" inType="win:UInt64"/>
+     </template>
+     <template tid="task_04042Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="IfLuid" inType="win:UInt64"/>
+      <data name="Family" inType="win:UInt32"/>
+      <data name="Capability" inType="win:UInt32" map="CapabilityMap"/>
+      <data name="CapabilityChangeReason" inType="win:UInt32"/>
+      <data name="PreviousCapability" inType="win:UInt32"/>
+     </template>
+     <template tid="task_04043Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="IfLuid" inType="win:UInt64"/>
+      <data name="Family" inType="win:UInt32"/>
+      <data name="ProxiedCapability" inType="win:UInt32"/>
+     </template>
+     <template tid="task_04044Args">
+      <data name="ShouldPassivePollRun" inType="win:Boolean"/>
+      <data name="WasPassivePollRunning" inType="win:Boolean"/>
+      <data name="IsPassivePollAllowed" inType="win:Boolean"/>
+      <data name="ClientPresent" inType="win:Boolean"/>
+      <data name="UserPresent" inType="win:Boolean"/>
+      <data name="NetworkQuietMode" inType="win:Boolean"/>
+      <data name="DeadUserPollCount" inType="win:UInt32"/>
+      <data name="DeadNetPollCountV4" inType="win:UInt32"/>
+      <data name="DeadNetPollCountV6" inType="win:UInt32"/>
+     </template>
+     <template tid="task_04045Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="IfLuid" inType="win:UInt64"/>
+      <data name="Family" inType="win:UInt32"/>
+      <data name="NetReady" inType="win:Boolean"/>
+     </template>
+     <template tid="task_04046Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="IfLuid" inType="win:UInt64"/>
+      <data name="Family" inType="win:UInt32"/>
+      <data name="HasCorporateConnectivity" inType="win:Boolean"/>
+     </template>
+     <template tid="task_04047Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="IfLuid" inType="win:UInt64"/>
+      <data name="Family" inType="win:UInt32"/>
+      <data name="IpAddressLength" inType="win:UInt32"/>
+      <data name="IpAddress" inType="win:Binary" length="IpAddressLength"/>
+      <data name="MacAddressLength" inType="win:UInt32"/>
+      <data name="MacAddress" inType="win:Binary" length="MacAddressLength"/>
+      <data name="KnownProxyless" inType="win:Boolean"/>
+      <data name="KnownHotspot" inType="win:Boolean"/>
+      <data name="KnownOppInternet" inType="win:Boolean"/>
+      <data name="KnownProxiedOppInternet" inType="win:Boolean"/>
+     </template>
+     <template tid="task_04048Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="IfLuid" inType="win:UInt64"/>
+      <data name="Family" inType="win:UInt32"/>
+      <data name="HasNextHopToInternet" inType="win:Boolean"/>
+      <data name="NextHopAddressLength" inType="win:UInt32"/>
+      <data name="NextHopAddress" inType="win:Binary" length="NextHopAddressLength"/>
+     </template>
+     <template tid="task_04049Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="IfLuid" inType="win:UInt64"/>
+      <data name="Family" inType="win:UInt32"/>
+      <data name="HasPreferredAddress" inType="win:Boolean"/>
+      <data name="AddressSuffixOrigins" inType="win:UInt32"/>
+     </template>
+     <template tid="task_04050Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="IfLuid" inType="win:UInt64"/>
+      <data name="Family" inType="win:UInt32"/>
+      <data name="HasPreferredGlobalAddress" inType="win:Boolean"/>
+      <data name="AddressSuffixOrigins" inType="win:UInt32"/>
+     </template>
+     <template tid="task_04051Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="IfLuid" inType="win:UInt64"/>
+      <data name="Family" inType="win:UInt32"/>
+      <data name="ActiveProbeResultCode" inType="win:UInt32"/>
+     </template>
+     <template tid="task_04052Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="IfLuid" inType="win:UInt64"/>
+      <data name="HasPreferredGlobalAddressIPv4" inType="win:Boolean"/>
+      <data name="HasPreferredGlobalAddressIPv6" inType="win:Boolean"/>
+      <data name="InternetCapabilityIPv4" inType="win:UInt8" map="InternetCapabilityMap"/>
+      <data name="InternetCapabilityIPv6" inType="win:UInt8"/>
+      <data name="InternetTestIPv4" inType="win:UInt8" map="InternetTestMap"/>
+      <data name="InternetTestIPv6" inType="win:UInt8"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_NlaDiagnostics" value="NlaDiagnostics"/>
+    <string id="keyword_LwtDiagnostic" value="LwtDiagnostic"/>
+    <string id="keyword_ut:SendPath" value="ut:SendPath"/>
+    <string id="keyword_ut:ReceivePath" value="ut:ReceivePath"/>
+    <string id="keyword_ut:L3ConnectPath" value="ut:L3ConnectPath"/>
+    <string id="keyword_ut:L2ConnectPath" value="ut:L2ConnectPath"/>
+    <string id="keyword_ut:ClosePath" value="ut:ClosePath"/>
+    <string id="keyword_ut:Authentication" value="ut:Authentication"/>
+    <string id="keyword_ut:Configuration" value="ut:Configuration"/>
+    <string id="keyword_ut:Global" value="ut:Global"/>
+    <string id="keyword_keyword_200000000000" value="keyword_200000000000"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_WaitforNetReady" value="WaitforNetReady"/>
+    <string id="task_WaitforLocalConnectivity" value="WaitforLocalConnectivity"/>
+    <string id="task_WaitforInternetConnectivity" value="WaitforInternetConnectivity"/>
+    <string id="task_WaitforCorporateConnectivity" value="WaitforCorporateConnectivity"/>
+    <string id="task_CheckCorporateInside/outsideLocation" value="CheckCorporateInside/outsideLocation"/>
+    <string id="task_InternetConnectivityDetection" value="InternetConnectivityDetection"/>
+    <string id="task_CorporateConnectivityDetection" value="CorporateConnectivityDetection"/>
+    <string id="task_ProxyDetection" value="ProxyDetection"/>
+    <string id="task_Inside/Outsidedetectionverification" value="Inside/Outsidedetectionverification"/>
+    <string id="task_Suspectstate" value="Suspectstate"/>
+    <string id="task_CorporateSuspectstate" value="CorporateSuspectstate"/>
+    <string id="map_CorpCheckDisabledReasonMapCorporate configuration is not available" value="Corporate configuration is not available"/>
+    <string id="map_CorpCheckDisabledReasonMapCorporate configuration is not valid" value="Corporate configuration is not valid"/>
+    <string id="map_StateMapInterface Disconnected" value="Interface Disconnected"/>
+    <string id="map_StateMapInterface Arrival" value="Interface Arrival"/>
+    <string id="map_StateMapInterface NetReady" value="Interface NetReady"/>
+    <string id="map_StateMapLocal Connectivity" value="Local Connectivity"/>
+    <string id="map_StateMapInternet Connectivity" value="Internet Connectivity"/>
+    <string id="map_StateMapNo Corporate Connectivity" value="No Corporate Connectivity"/>
+    <string id="map_StateMapCorporate Connectivity" value="Corporate Connectivity"/>
+    <string id="map_StateMapCorporate Location Identifying" value="Corporate Location Identifying"/>
+    <string id="map_StateMapCorporate Location Identified" value="Corporate Location Identified"/>
+    <string id="map_CorpLocationMapOUTSIDE" value="OUTSIDE"/>
+    <string id="map_CorpLocationMapINSIDE" value="INSIDE"/>
+    <string id="map_FamilyMapV4" value="V4"/>
+    <string id="map_FamilyMapV6" value="V6"/>
+    <string id="map_CapabilityMapNone" value="None"/>
+    <string id="map_CapabilityMapLocal" value="Local"/>
+    <string id="map_CapabilityMapInternet" value="Internet"/>
+    <string id="map_InternetCapabilityMapfalse" value="false"/>
+    <string id="map_InternetCapabilityMaptrue" value="true"/>
+    <string id="map_InternetCapabilityMapcaptive portal" value="captive portal"/>
+    <string id="map_InternetCapabilityMapno data" value="no data"/>
+    <string id="map_InternetTestMapHTTP" value="HTTP"/>
+    <string id="map_InternetTestMapDNS" value="DNS"/>
+    <string id="map_InternetTestMappassive" value="passive"/>
+    <string id="map_InternetTestMapno data" value="no data"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

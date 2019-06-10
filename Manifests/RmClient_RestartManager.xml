@@ -1,0 +1,152 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-RestartManager" guid="{0888e5ef-9b98-4695-979d-e92ce4247224}" resourceFileName="Microsoft-Windows-RestartManager" messageFileName="Microsoft-Windows-RestartManager" symbol="MicrosoftWindowsRestartManager" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <maps>
+     <valueMap name="RM_APP_TYPE_MAP">
+      <map value="0x0" message="$(string.map_RM_APP_TYPE_MAPUnknown App)"/>
+      <map value="0x1" message="$(string.map_RM_APP_TYPE_MAPWindow App)"/>
+      <map value="0x2" message="$(string.map_RM_APP_TYPE_MAPOtherWindow App)"/>
+      <map value="0x3" message="$(string.map_RM_APP_TYPE_MAPService)"/>
+      <map value="0x4" message="$(string.map_RM_APP_TYPE_MAPExplorer)"/>
+      <map value="0x5" message="$(string.map_RM_APP_TYPE_MAPConsole App)"/>
+      <map value="0x3e8" message="$(string.map_RM_APP_TYPE_MAPCritical App)"/>
+     </valueMap>
+     <bitMap name="RM_STATUS_MAP">
+      <map value="0x1" message="$(string.map_RM_STATUS_MAPRmStatusRunning)"/>
+      <map value="0x2" message="$(string.map_RM_STATUS_MAPRmStatusStopped)"/>
+      <map value="0x4" message="$(string.map_RM_STATUS_MAPRmStatusStoppedOther)"/>
+      <map value="0x8" message="$(string.map_RM_STATUS_MAPRmStatusRestarted)"/>
+      <map value="0x10" message="$(string.map_RM_STATUS_MAPRmStatusErrorOnStop)"/>
+      <map value="0x20" message="$(string.map_RM_STATUS_MAPRmStatusErrorOnRestart)"/>
+     </bitMap>
+     <valueMap name="RM_UNSUP_RESTART_REASON_MAP">
+      <map value="0x0" message="$(string.map_RM_UNSUP_RESTART_REASON_MAPUnknown)"/>
+      <map value="0x1" message="$(string.map_RM_UNSUP_RESTART_REASON_MAPApplication SID does not match Conductor SID.)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="10000" symbol="task_0" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+     <event value="10001" symbol="task_010001" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+     <event value="10002" symbol="task_010002" version="0" task="task_0" level="win:Informational" template="task_010002Args"/>
+     <event value="10003" symbol="task_010003" version="0" task="task_0" level="win:Informational" template="task_010003Args"/>
+     <event value="10004" symbol="task_010004" version="0" task="task_0" level="win:Informational" template="task_010004Args"/>
+     <event value="10005" symbol="task_010005" version="0" task="task_0" level="win:Informational" template="task_010005Args"/>
+     <event value="10006" symbol="task_010006" version="0" task="task_0" level="win:Error" template="task_010006Args"/>
+     <event value="10007" symbol="task_010007" version="0" task="task_0" level="win:Error" template="task_010006Args"/>
+     <event value="10008" symbol="task_010008" version="0" task="task_0" level="win:Error" template="task_010008Args"/>
+     <event value="10009" symbol="task_010009" version="0" task="task_0" level="win:Warning" template="task_010009Args"/>
+     <event value="10010" symbol="task_010010" version="0" task="task_0" level="win:Warning" template="task_010010Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="RmSessionId" inType="win:UInt32"/>
+      <data name="UTCStartTime" inType="win:FILETIME"/>
+     </template>
+     <template tid="task_010002Args">
+      <data name="RmSessionId" inType="win:UInt32"/>
+      <data name="FullPath" inType="win:UnicodeString"/>
+      <data name="DisplayName" inType="win:UnicodeString"/>
+      <data name="AppVersion" inType="win:UInt32"/>
+      <data name="AppType" inType="win:UInt32" map="RM_APP_TYPE_MAP"/>
+      <data name="TSSessionId" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="Pid" inType="win:UInt32"/>
+      <data name="nFiles" inType="win:UInt32"/>
+      <data name="File" inType="win:UnicodeString" count="nFiles"/>
+     </template>
+     <template tid="task_010003Args">
+      <data name="RmSessionId" inType="win:UInt32"/>
+      <data name="FullPath" inType="win:UnicodeString"/>
+      <data name="DisplayName" inType="win:UnicodeString"/>
+      <data name="AppVersion" inType="win:UInt32"/>
+      <data name="AppType" inType="win:UInt32"/>
+      <data name="TSSessionId" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32" map="RM_STATUS_MAP"/>
+      <data name="Pid" inType="win:UInt32"/>
+      <data name="nFiles" inType="win:UInt32"/>
+      <data name="File" inType="win:UnicodeString" count="nFiles"/>
+     </template>
+     <template tid="task_010004Args">
+      <data name="RmSessionId" inType="win:UInt32"/>
+      <data name="nFiles" inType="win:UInt32"/>
+      <data name="nRegProcs" inType="win:UInt32"/>
+      <data name="nRegServices" inType="win:UInt32"/>
+      <data name="Files" inType="win:UnicodeString" count="nFiles"/>
+      <data name="RegProcs" inType="win:UnicodeString" count="nRegProcs"/>
+      <data name="RegServices" inType="win:UnicodeString" count="nRegServices"/>
+     </template>
+     <template tid="task_010005Args">
+      <data name="RmSessionId" inType="win:UInt32"/>
+      <data name="nApplications" inType="win:UInt32"/>
+      <data name="Applications" inType="win:UnicodeString" count="nApplications"/>
+      <data name="dwRebootReasons" inType="win:UInt32"/>
+     </template>
+     <template tid="task_010006Args">
+      <data name="RmSessionId" inType="win:UInt32"/>
+      <data name="FullPath" inType="win:UnicodeString"/>
+      <data name="DisplayName" inType="win:UnicodeString"/>
+      <data name="AppVersion" inType="win:UInt32"/>
+      <data name="AppType" inType="win:UInt32"/>
+      <data name="TSSessionId" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="Pid" inType="win:UInt32"/>
+      <data name="nFiles" inType="win:UInt32"/>
+      <data name="File" inType="win:UnicodeString" count="nFiles"/>
+     </template>
+     <template tid="task_010008Args">
+      <data name="RmSessionId" inType="win:UInt32"/>
+      <data name="cbSize" inType="win:UInt32"/>
+      <data name="pbBinary" inType="win:Binary" length="cbSize"/>
+     </template>
+     <template tid="task_010009Args">
+      <data name="RmSessionId" inType="win:UInt32"/>
+      <data name="SvcHostPid" inType="win:UInt32"/>
+      <data name="nFiles" inType="win:UInt32"/>
+      <data name="nServices" inType="win:UInt32"/>
+      <data name="FileName" inType="win:UnicodeString" count="nFiles"/>
+      <data name="Service" inType="win:UnicodeString" count="nServices"/>
+     </template>
+     <template tid="task_010010Args">
+      <data name="RmSessionId" inType="win:UInt32"/>
+      <data name="Pid" inType="win:UInt32"/>
+      <data name="FullPath" inType="win:UnicodeString"/>
+      <data name="DisplayName" inType="win:UnicodeString"/>
+      <data name="AppVersion" inType="win:UInt32"/>
+      <data name="AppType" inType="win:UInt32"/>
+      <data name="TSSessionId" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="Reason" inType="win:UInt32" map="RM_UNSUP_RESTART_REASON_MAP"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_task_0" value="task_0"/>
+    <string id="map_RM_APP_TYPE_MAPUnknown App" value="Unknown App"/>
+    <string id="map_RM_APP_TYPE_MAPWindow App" value="Window App"/>
+    <string id="map_RM_APP_TYPE_MAPOtherWindow App" value="OtherWindow App"/>
+    <string id="map_RM_APP_TYPE_MAPService" value="Service"/>
+    <string id="map_RM_APP_TYPE_MAPExplorer" value="Explorer"/>
+    <string id="map_RM_APP_TYPE_MAPConsole App" value="Console App"/>
+    <string id="map_RM_APP_TYPE_MAPCritical App" value="Critical App"/>
+    <string id="map_RM_STATUS_MAPRmStatusRunning" value="RmStatusRunning"/>
+    <string id="map_RM_STATUS_MAPRmStatusStopped" value="RmStatusStopped"/>
+    <string id="map_RM_STATUS_MAPRmStatusStoppedOther" value="RmStatusStoppedOther"/>
+    <string id="map_RM_STATUS_MAPRmStatusRestarted" value="RmStatusRestarted"/>
+    <string id="map_RM_STATUS_MAPRmStatusErrorOnStop" value="RmStatusErrorOnStop"/>
+    <string id="map_RM_STATUS_MAPRmStatusErrorOnRestart" value="RmStatusErrorOnRestart"/>
+    <string id="map_RM_UNSUP_RESTART_REASON_MAPUnknown" value="Unknown"/>
+    <string id="map_RM_UNSUP_RESTART_REASON_MAPApplication SID does not match Conductor SID." value="Application SID does not match Conductor SID."/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

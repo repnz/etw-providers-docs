@@ -1,0 +1,69 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-DLNA-Namespace" guid="{d38fb874-33e4-4dcf-911e-1b53bb106d53}" resourceFileName="Microsoft-Windows-DLNA-Namespace" messageFileName="Microsoft-Windows-DLNA-Namespace" symbol="MicrosoftWindowsDLNANamespace" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="GetThumbnailProvider" message="$(string.task_GetThumbnailProvider)" value="101"/>
+     <task name="Browse" message="$(string.task_Browse)" value="102"/>
+     <task name="Search" message="$(string.task_Search)" value="103"/>
+     <task name="Results2ShellProperties" message="$(string.task_Results2ShellProperties)" value="104"/>
+     <task name="Discover" message="$(string.task_Discover)" value="105"/>
+     <task name="Add" message="$(string.task_Add)" value="106"/>
+    </tasks>
+    <events>
+     <event value="1001" symbol="GetThumbnailProviderStart" version="0" task="GetThumbnailProvider" opcode="win:Start" level="win:Informational" template="GetThumbnailProviderStartArgs"/>
+     <event value="1002" symbol="GetThumbnailProviderStop" version="0" task="GetThumbnailProvider" opcode="win:Stop" level="win:Informational" template="GetThumbnailProviderStartArgs"/>
+     <event value="1003" symbol="BrowseStart" version="0" task="Browse" opcode="win:Start" level="win:Informational" template="BrowseStartArgs"/>
+     <event value="1004" symbol="BrowseStop" version="0" task="Browse" opcode="win:Stop" level="win:Informational" template="BrowseStartArgs"/>
+     <event value="1005" symbol="SearchStart" version="0" task="Search" opcode="win:Start" level="win:Informational" template="SearchStartArgs"/>
+     <event value="1006" symbol="SearchStop" version="0" task="Search" opcode="win:Stop" level="win:Informational" template="SearchStartArgs"/>
+     <event value="1007" symbol="Results2ShellPropertiesStart" version="0" task="Results2ShellProperties" opcode="win:Start" level="win:Informational"/>
+     <event value="1008" symbol="Results2ShellPropertiesStop" version="0" task="Results2ShellProperties" opcode="win:Stop" level="win:Informational"/>
+     <event value="1009" symbol="Discover" version="0" task="Discover" level="win:Informational"/>
+     <event value="1010" symbol="Add" version="0" task="Add" level="win:Informational"/>
+    </events>
+    <templates>
+     <template tid="GetThumbnailProviderStartArgs">
+      <data name="HResultParam" inType="win:UInt32"/>
+     </template>
+     <template tid="BrowseStartArgs">
+      <data name="ObjectID" inType="win:UnicodeString"/>
+      <data name="IsBrowseDirectChildren" inType="win:UInt32"/>
+      <data name="Filter" inType="win:UnicodeString"/>
+      <data name="SortCriteria" inType="win:UnicodeString"/>
+      <data name="StartingOffset" inType="win:UInt32"/>
+      <data name="NumItemsToRetrieve" inType="win:UInt32"/>
+      <data name="NumItemsReturned" inType="win:UInt32"/>
+      <data name="NumItemsMatched" inType="win:UInt32"/>
+      <data name="HResultParam" inType="win:UInt32"/>
+     </template>
+     <template tid="SearchStartArgs">
+      <data name="ObjectID" inType="win:UnicodeString"/>
+      <data name="SearchCriteria" inType="win:UnicodeString"/>
+      <data name="Filter" inType="win:UnicodeString"/>
+      <data name="SortCriteria" inType="win:UnicodeString"/>
+      <data name="StartingOffset" inType="win:UInt32"/>
+      <data name="NumItemsToRetrieve" inType="win:UInt32"/>
+      <data name="NumItemsReturned" inType="win:UInt32"/>
+      <data name="NumItemsMatched" inType="win:UInt32"/>
+      <data name="HResultParam" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_GetThumbnailProvider" value="GetThumbnailProvider"/>
+    <string id="task_Browse" value="Browse"/>
+    <string id="task_Search" value="Search"/>
+    <string id="task_Results2ShellProperties" value="Results2ShellProperties"/>
+    <string id="task_Discover" value="Discover"/>
+    <string id="task_Add" value="Add"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,74 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-WCN-Config-Registrar" guid="{c100becf-d33a-4a4b-bf23-bbef4663d017}" resourceFileName="Microsoft-Windows-WCN-Config-Registrar" messageFileName="Microsoft-Windows-WCN-Config-Registrar" symbol="MicrosoftWindowsWCNConfigRegistrar" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <maps>
+     <valueMap name="tid_SessionBegin.Reason">
+      <map value="0x0" message="$(string.map_tid_SessionBegin.ReasonDiscovery)"/>
+      <map value="0x1" message="$(string.map_tid_SessionBegin.ReasonInbound request)"/>
+      <map value="0x2" message="$(string.map_tid_SessionBegin.ReasonAPI request)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="8000" symbol="task_0" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+     <event value="8001" symbol="task_08001" version="0" task="task_0" level="win:Informational" template="task_08001Args"/>
+     <event value="8003" symbol="task_08003" version="0" task="task_0" level="win:Informational" template="task_08003Args"/>
+     <event value="8004" symbol="task_08004" version="0" task="task_0" level="win:Informational" template="task_08003Args"/>
+     <event value="8010" symbol="task_08010" version="0" task="task_0" level="win:Informational" template="task_08001Args"/>
+     <event value="8011" symbol="task_08011" version="0" task="task_0" level="win:Error" template="task_08011Args"/>
+     <event value="8020" symbol="task_08020" version="0" task="task_0" level="win:Informational" template="task_08020Args"/>
+     <event value="8021" symbol="task_08021" version="0" task="task_0" level="win:Informational" template="task_08020Args"/>
+     <event value="8030" symbol="task_08030" version="0" task="task_0" level="win:Informational" template="task_08030Args"/>
+     <event value="8031" symbol="task_08031" version="0" task="task_0" level="win:Informational" template="task_08030Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="SessionGuid" inType="win:GUID"/>
+      <data name="PeerUuid" inType="win:GUID"/>
+      <data name="Trigger" inType="win:UInt32" map="tid_SessionBegin.Reason"/>
+     </template>
+     <template tid="task_08001Args">
+      <data name="SessionGuid" inType="win:GUID"/>
+     </template>
+     <template tid="task_08003Args">
+      <data name="SessionGuid" inType="win:GUID"/>
+      <data name="MessageGuid" inType="win:GUID"/>
+      <data name="MessageBlobLength" inType="win:UInt16"/>
+      <data name="MessageBlob" inType="win:Binary" length="MessageBlobLength"/>
+     </template>
+     <template tid="task_08011Args">
+      <data name="SessionGuid" inType="win:GUID"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="task_08020Args">
+      <data name="Transport" inType="win:UnicodeString"/>
+      <data name="TransportSubType" inType="win:UnicodeString"/>
+      <data name="MessageGuid" inType="win:GUID"/>
+      <data name="MessageBlobLength" inType="win:UInt16"/>
+      <data name="MessageBlob" inType="win:Binary" length="MessageBlobLength"/>
+     </template>
+     <template tid="task_08030Args">
+      <data name="Transport" inType="win:UnicodeString"/>
+      <data name="MessageBlobLength" inType="win:UInt16"/>
+      <data name="MessageBlob" inType="win:Binary" length="MessageBlobLength"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_task_0" value="task_0"/>
+    <string id="map_tid_SessionBegin.ReasonDiscovery" value="Discovery"/>
+    <string id="map_tid_SessionBegin.ReasonInbound request" value="Inbound request"/>
+    <string id="map_tid_SessionBegin.ReasonAPI request" value="API request"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

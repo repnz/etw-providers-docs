@@ -1,0 +1,146 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-ProcessStateManager" guid="{d49918cf-9489-4bf1-9d7b-014d864cf71f}" resourceFileName="Microsoft-Windows-ProcessStateManager" messageFileName="Microsoft-Windows-ProcessStateManager" symbol="MicrosoftWindowsProcessStateManager" source="Xml" >
+    <keywords>
+     <keyword name="StateChange" message="$(string.keyword_StateChange)" mask="0x1"/>
+     <keyword name="Policy" message="$(string.keyword_Policy)" mask="0x2"/>
+     <keyword name="PriorityChange" message="$(string.keyword_PriorityChange)" mask="0x4"/>
+     <keyword name="Rundown" message="$(string.keyword_Rundown)" mask="0x8"/>
+     <keyword name="ProcessRegister" message="$(string.keyword_ProcessRegister)" mask="0x10"/>
+    </keywords>
+    <tasks>
+     <task name="StateChange" message="$(string.task_StateChange)" value="100"/>
+     <task name="PolicySuspend" message="$(string.task_PolicySuspend)" value="101"/>
+     <task name="PolicyResume" message="$(string.task_PolicyResume)" value="102"/>
+     <task name="PriorityChange" message="$(string.task_PriorityChange)" value="103"/>
+     <task name="Rundown" message="$(string.task_Rundown)" value="104"/>
+     <task name="ProcessRegister" message="$(string.task_ProcessRegister)" value="105"/>
+    </tasks>
+    <maps>
+     <valueMap name="PsmStateMap">
+      <map value="0x0" message="$(string.map_PsmStateMapActive)"/>
+      <map value="0x1" message="$(string.map_PsmStateMapBrokered)"/>
+      <map value="0x2" message="$(string.map_PsmStateMapSandboxed)"/>
+      <map value="0x3" message="$(string.map_PsmStateMapQuiescing)"/>
+      <map value="0x4" message="$(string.map_PsmStateMapHalted)"/>
+      <map value="0x5" message="$(string.map_PsmStateMapTerminating)"/>
+      <map value="0x6" message="$(string.map_PsmStateMapTerminated)"/>
+      <map value="0x8" message="$(string.map_PsmStateMapDeleted)"/>
+      <map value="0x9" message="$(string.map_PsmStateMapInitialized)"/>
+     </valueMap>
+     <valueMap name="PsmPriorityMap">
+      <map value="0x0" message="$(string.map_PsmPriorityMapNormal)"/>
+      <map value="0x1" message="$(string.map_PsmPriorityMapLow)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="StateChange" version="0" task="StateChange" level="win:Informational" keywords="StateChange" template="StateChangeArgs"/>
+     <event value="2" symbol="PolicySuspend" version="0" task="PolicySuspend" level="win:Informational" keywords="Policy" template="PolicySuspendArgs"/>
+     <event value="3" symbol="PolicyResume" version="0" task="PolicyResume" level="win:Informational" keywords="Policy" template="PolicySuspendArgs"/>
+     <event value="4" symbol="PriorityChange" version="0" task="PriorityChange" level="win:Informational" keywords="PriorityChange" template="PriorityChangeArgs"/>
+     <event value="100" symbol="StateChangeDCStop" version="0" task="StateChange" opcode="win:DC_Stop" level="win:Informational" keywords="StateChange" template="StateChangeDCStopArgs"/>
+     <event value="101" symbol="PriorityChangeDCStop" version="0" task="PriorityChange" opcode="win:DC_Stop" level="win:Informational" keywords="PriorityChange" template="PriorityChangeDCStopArgs"/>
+     <event value="102" symbol="RundownDCStop" version="0" task="Rundown" opcode="win:DC_Stop" level="win:Informational" keywords="Rundown" template="RundownDCStopArgs"/>
+     <event value="103" symbol="ProcessRegisterDCStop" version="0" task="ProcessRegister" opcode="win:DC_Stop" level="win:Informational" keywords="ProcessRegister" template="ProcessRegisterDCStopArgs"/>
+    </events>
+    <templates>
+     <template tid="StateChangeArgs">
+      <data name="ApplicationId" inType="win:UInt64"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="PsmKey" inType="win:UnicodeString"/>
+      <data name="OldState" inType="win:UInt32" map="PsmStateMap"/>
+      <data name="NewState" inType="win:UInt32"/>
+      <data name="MixedWorkItems" inType="win:UInt32"/>
+      <data name="PureWorkItems" inType="win:UInt32"/>
+      <data name="SystemWorkItems" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="CycleTime" inType="win:UInt64"/>
+      <data name="NetworkTokens" inType="win:UInt64"/>
+     </template>
+     <template tid="PolicySuspendArgs">
+      <data name="ApplicationId" inType="win:UInt64"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="PsmKey" inType="win:UnicodeString"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="CycleTime" inType="win:UInt64"/>
+      <data name="NetworkTokens" inType="win:UInt64"/>
+     </template>
+     <template tid="PriorityChangeArgs">
+      <data name="ApplicationId" inType="win:UInt64"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="PsmKey" inType="win:UnicodeString"/>
+      <data name="PlmRequestedPriority" inType="win:UInt32" map="PsmPriorityMap"/>
+      <data name="EffectivePriority" inType="win:UInt32"/>
+     </template>
+     <template tid="StateChangeDCStopArgs">
+      <data name="ApplicationId" inType="win:UInt64"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="PsmKey" inType="win:UnicodeString"/>
+      <data name="OldState" inType="win:UInt32"/>
+      <data name="NewState" inType="win:UInt32"/>
+      <data name="MixedWorkItems" inType="win:UInt32"/>
+      <data name="PureWorkItems" inType="win:UInt32"/>
+      <data name="SystemWorkItems" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="CycleTime" inType="win:UInt64"/>
+      <data name="NetworkTokens" inType="win:UInt64"/>
+     </template>
+     <template tid="PriorityChangeDCStopArgs">
+      <data name="ApplicationId" inType="win:UInt64"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="PsmKey" inType="win:UnicodeString"/>
+      <data name="PlmRequestedPriority" inType="win:UInt32"/>
+      <data name="EffectivePriority" inType="win:UInt32"/>
+     </template>
+     <template tid="RundownDCStopArgs">
+      <data name="ApplicationId" inType="win:UInt64"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="PsmKey" inType="win:UnicodeString"/>
+      <data name="State" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="PlmRequestedPriority" inType="win:UInt32"/>
+      <data name="EffectivePriority" inType="win:UInt32"/>
+      <data name="CycleTime" inType="win:UInt64"/>
+      <data name="NetworkTokens" inType="win:UInt64"/>
+     </template>
+     <template tid="ProcessRegisterDCStopArgs">
+      <data name="ApplicationId" inType="win:UInt64"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="PsmKey" inType="win:UnicodeString"/>
+      <data name="ActivationFlags" inType="win:UInt32"/>
+      <data name="HostId" inType="win:UInt64"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_StateChange" value="StateChange"/>
+    <string id="keyword_Policy" value="Policy"/>
+    <string id="keyword_PriorityChange" value="PriorityChange"/>
+    <string id="keyword_Rundown" value="Rundown"/>
+    <string id="keyword_ProcessRegister" value="ProcessRegister"/>
+    <string id="task_StateChange" value="StateChange"/>
+    <string id="task_PolicySuspend" value="PolicySuspend"/>
+    <string id="task_PolicyResume" value="PolicyResume"/>
+    <string id="task_PriorityChange" value="PriorityChange"/>
+    <string id="task_Rundown" value="Rundown"/>
+    <string id="task_ProcessRegister" value="ProcessRegister"/>
+    <string id="map_PsmStateMapActive" value="Active"/>
+    <string id="map_PsmStateMapBrokered" value="Brokered"/>
+    <string id="map_PsmStateMapSandboxed" value="Sandboxed"/>
+    <string id="map_PsmStateMapQuiescing" value="Quiescing"/>
+    <string id="map_PsmStateMapHalted" value="Halted"/>
+    <string id="map_PsmStateMapTerminating" value="Terminating"/>
+    <string id="map_PsmStateMapTerminated" value="Terminated"/>
+    <string id="map_PsmStateMapDeleted" value="Deleted"/>
+    <string id="map_PsmStateMapInitialized" value="Initialized"/>
+    <string id="map_PsmPriorityMapNormal" value="Normal"/>
+    <string id="map_PsmPriorityMapLow" value="Low"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

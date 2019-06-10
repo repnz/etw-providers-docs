@@ -1,0 +1,593 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-WindowsPhone-CoreMessaging" guid="{922cdcf3-6123-42da-a877-1a24f23e39c5}" resourceFileName="Microsoft-WindowsPhone-CoreMessaging" messageFileName="Microsoft-WindowsPhone-CoreMessaging" symbol="MicrosoftWindowsPhoneCoreMessaging" source="Xml" >
+    <keywords>
+     <keyword name="Error" message="$(string.keyword_Error)" mask="0x1"/>
+     <keyword name="Performance" message="$(string.keyword_Performance)" mask="0x2"/>
+     <keyword name="CoreUIService" message="$(string.keyword_CoreUIService)" mask="0x200000"/>
+     <keyword name="MessagingPerformance" message="$(string.keyword_MessagingPerformance)" mask="0x100000000"/>
+     <keyword name="Session" message="$(string.keyword_Session)" mask="0x200000000"/>
+     <keyword name="Dispatcher" message="$(string.keyword_Dispatcher)" mask="0x400000000"/>
+     <keyword name="RegistrarClient" message="$(string.keyword_RegistrarClient)" mask="0x800000000"/>
+     <keyword name="Messaging" message="$(string.keyword_Messaging)" mask="0x1000000000"/>
+     <keyword name="Formatting" message="$(string.keyword_Formatting)" mask="0x2000000000"/>
+     <keyword name="keyword_40000000000" message="$(string.keyword_keyword_40000000000)" mask="0x40000000000"/>
+     <keyword name="keyword_80000000000" message="$(string.keyword_keyword_80000000000)" mask="0x80000000000"/>
+    </keywords>
+    <tasks>
+     <task name="ETW_Init" message="$(string.task_ETW_Init)" value="1"/>
+     <task name="ETW_Uninit" message="$(string.task_ETW_Uninit)" value="2"/>
+     <task name="System_OutOfMemory" message="$(string.task_System_OutOfMemory)" value="10"/>
+     <task name="CoreUIService_ServerThread_Started" message="$(string.task_CoreUIService_ServerThread_Started)" value="20"/>
+     <task name="CoreUIService_ServerThread_Exiting" message="$(string.task_CoreUIService_ServerThread_Exiting)" value="21"/>
+     <task name="CoreUIService_InitializeService" message="$(string.task_CoreUIService_InitializeService)" value="22"/>
+     <task name="CoreUIService_UninitializeService" message="$(string.task_CoreUIService_UninitializeService)" value="23"/>
+     <task name="CoreUIService_ServiceObjectCreated" message="$(string.task_CoreUIService_ServiceObjectCreated)" value="24"/>
+     <task name="CoreUIService_ServiceObjectDestroyed" message="$(string.task_CoreUIService_ServiceObjectDestroyed)" value="25"/>
+     <task name="CoreUIService_UpdateServiceStatus" message="$(string.task_CoreUIService_UpdateServiceStatus)" value="26"/>
+     <task name="CoreUIService_ServiceObjectServiceMain" message="$(string.task_CoreUIService_ServiceObjectServiceMain)" value="27"/>
+     <task name="CoreUIService_CoreUIServiceMain_UnknownService" message="$(string.task_CoreUIService_CoreUIServiceMain_UnknownService)" value="28"/>
+     <task name="Session_CoreUICreate" message="$(string.task_Session_CoreUICreate)" value="40"/>
+     <task name="Session_CoreUICreate_InitializeCnContext" message="$(string.task_Session_CoreUICreate_InitializeCnContext)" value="41"/>
+     <task name="Session_CoreUICreate_ExportSession" message="$(string.task_Session_CoreUICreate_ExportSession)" value="42"/>
+     <task name="Session_ConstructThreadContext" message="$(string.task_Session_ConstructThreadContext)" value="43"/>
+     <task name="Dispatcher_DispatchLoop" message="$(string.task_Dispatcher_DispatchLoop)" value="50"/>
+     <task name="Dispatcher_DispatchItem" message="$(string.task_Dispatcher_DispatchItem)" value="51"/>
+     <task name="Dispatcher_WakeLevel_UpdateWakeLevel" message="$(string.task_Dispatcher_WakeLevel_UpdateWakeLevel)" value="52"/>
+     <task name="Dispatcher_DoWait" message="$(string.task_Dispatcher_DoWait)" value="53"/>
+     <task name="Dispatcher_CallDispatchCallback" message="$(string.task_Dispatcher_CallDispatchCallback)" value="54"/>
+     <task name="Adapter_ScheduleDispatch" message="$(string.task_Adapter_ScheduleDispatch)" value="60"/>
+     <task name="Adapter_HostModeRun" message="$(string.task_Adapter_HostModeRun)" value="61"/>
+     <task name="Adapter_OnUserDispatch" message="$(string.task_Adapter_OnUserDispatch)" value="62"/>
+     <task name="Adapter_IntegratedLoopWait" message="$(string.task_Adapter_IntegratedLoopWait)" value="63"/>
+     <task name="Adapter_PostMessageError_QueueFull" message="$(string.task_Adapter_PostMessageError_QueueFull)" value="64"/>
+     <task name="Adapter_KernelPostMessageError" message="$(string.task_Adapter_KernelPostMessageError)" value="65"/>
+     <task name="RegistrarClient_Initialize" message="$(string.task_RegistrarClient_Initialize)" value="70"/>
+     <task name="RegistrarClient_ConnectToRegistrarServer" message="$(string.task_RegistrarClient_ConnectToRegistrarServer)" value="71"/>
+     <task name="RemoteRegistrarClient_Connect" message="$(string.task_RemoteRegistrarClient_Connect)" value="81"/>
+     <task name="RemoteRegistrarClient_RegisterThread" message="$(string.task_RemoteRegistrarClient_RegisterThread)" value="82"/>
+     <task name="RemoteRegistrarClient_RegisterAlpcPort" message="$(string.task_RemoteRegistrarClient_RegisterAlpcPort)" value="83"/>
+     <task name="RemoteRegistrarClient_UnregisterAlpcPort" message="$(string.task_RemoteRegistrarClient_UnregisterAlpcPort)" value="84"/>
+     <task name="RemoteRegistrarClient_PrepareConnection" message="$(string.task_RemoteRegistrarClient_PrepareConnection)" value="85"/>
+     <task name="RemoteRegistrarClient_CloseConnection" message="$(string.task_RemoteRegistrarClient_CloseConnection)" value="86"/>
+     <task name="RemoteRegistrarClient_CompleteCrossProcConnection" message="$(string.task_RemoteRegistrarClient_CompleteCrossProcConnection)" value="87"/>
+     <task name="RemoteRegistrarClient_CrossProcClientDisconnected" message="$(string.task_RemoteRegistrarClient_CrossProcClientDisconnected)" value="88"/>
+     <task name="RemoteRegistrarClient_RegisterObject" message="$(string.task_RemoteRegistrarClient_RegisterObject)" value="89"/>
+     <task name="RemoteRegistrarClient_UnregisterObject" message="$(string.task_RemoteRegistrarClient_UnregisterObject)" value="90"/>
+     <task name="RemoteRegistrarClient_FindObject" message="$(string.task_RemoteRegistrarClient_FindObject)" value="91"/>
+     <task name="RemoteRegistrarClient_CompleteLocalConnection" message="$(string.task_RemoteRegistrarClient_CompleteLocalConnection)" value="92"/>
+     <task name="RemoteRegistrarClient_LocalClientDisconnected" message="$(string.task_RemoteRegistrarClient_LocalClientDisconnected)" value="93"/>
+     <task name="RemoteRegistrarClient_GetOrCreateReverseConnectionPortID" message="$(string.task_RemoteRegistrarClient_GetOrCreateReverseConnectionPortID)" value="94"/>
+     <task name="RemoteRegistrarClient_UnregisterReverseConnectionPort" message="$(string.task_RemoteRegistrarClient_UnregisterReverseConnectionPort)" value="95"/>
+     <task name="RemoteRegistrarClient_FindConversationServer" message="$(string.task_RemoteRegistrarClient_FindConversationServer)" value="96"/>
+     <task name="RemoteRegistrarClient_RegisterConversation" message="$(string.task_RemoteRegistrarClient_RegisterConversation)" value="97"/>
+     <task name="RemoteRegistrarClient_ReleaseConversationServer" message="$(string.task_RemoteRegistrarClient_ReleaseConversationServer)" value="98"/>
+     <task name="RemoteRegistrarClient_ReleaseConversationClient" message="$(string.task_RemoteRegistrarClient_ReleaseConversationClient)" value="99"/>
+     <task name="RemoteRegistrarClient_RegisterConversationClient" message="$(string.task_RemoteRegistrarClient_RegisterConversationClient)" value="100"/>
+     <task name="RemoteRegistrarClient_ConnectPendingConversationClient" message="$(string.task_RemoteRegistrarClient_ConnectPendingConversationClient)" value="101"/>
+     <task name="RemoteRegistrarClient_ReleaseConversationClientConnection" message="$(string.task_RemoteRegistrarClient_ReleaseConversationClientConnection)" value="102"/>
+     <task name="RemoteRegistrarClient_FindPendingConversationClient" message="$(string.task_RemoteRegistrarClient_FindPendingConversationClient)" value="103"/>
+     <task name="RemoteRegistrarClient_FindCrossProcConnection" message="$(string.task_RemoteRegistrarClient_FindCrossProcConnection)" value="104"/>
+     <task name="RemoteRegistrarClient_RegisterPendingConversationClientForServer" message="$(string.task_RemoteRegistrarClient_RegisterPendingConversationClientForServer)" value="105"/>
+     <task name="Messaging_ConstructMessageSession" message="$(string.task_Messaging_ConstructMessageSession)" value="110"/>
+     <task name="Messaging_CreateConnection" message="$(string.task_Messaging_CreateConnection)" value="111"/>
+     <task name="Messaging_AllocatedMessage" message="$(string.task_Messaging_AllocatedMessage)" value="112"/>
+     <task name="Messaging_StreamDirty" message="$(string.task_Messaging_StreamDirty)" value="113"/>
+     <task name="Messaging_FlushPendingStreams" message="$(string.task_Messaging_FlushPendingStreams)" value="114"/>
+     <task name="Messaging_LocalReceive" message="$(string.task_Messaging_LocalReceive)" value="115"/>
+     <task name="Messaging_InterconnectSend" message="$(string.task_Messaging_InterconnectSend)" value="116"/>
+     <task name="Messaging_InterconnectFlush" message="$(string.task_Messaging_InterconnectFlush)" value="117"/>
+     <task name="Messaging_InterconnectReceive" message="$(string.task_Messaging_InterconnectReceive)" value="118"/>
+     <task name="Messaging_AlpcSend" message="$(string.task_Messaging_AlpcSend)" value="119"/>
+     <task name="Messaging_AlpcFlush" message="$(string.task_Messaging_AlpcFlush)" value="120"/>
+     <task name="Messaging_AlpcReceive" message="$(string.task_Messaging_AlpcReceive)" value="121"/>
+     <task name="Formatting_MessageMethod" message="$(string.task_Formatting_MessageMethod)" value="130"/>
+     <task name="SelfHostInfo_ObjectRegistered" message="$(string.task_SelfHostInfo_ObjectRegistered)" value="140"/>
+     <task name="SelfHostInfo_ObjectRevoked" message="$(string.task_SelfHostInfo_ObjectRevoked)" value="141"/>
+     <task name="SelfHostInfo_ConnectionSevered" message="$(string.task_SelfHostInfo_ConnectionSevered)" value="142"/>
+     <task name="SelfHostInfo_OutOfConversationPeerHandles" message="$(string.task_SelfHostInfo_OutOfConversationPeerHandles)" value="143"/>
+     <task name="SelfHostInfo_MaxConversationClientsConnected" message="$(string.task_SelfHostInfo_MaxConversationClientsConnected)" value="144"/>
+     <task name="SelfHostInfo_UniquenessProtectedUs" message="$(string.task_SelfHostInfo_UniquenessProtectedUs)" value="145"/>
+     <task name="SelfHostInfo_MaxUniquenessHit" message="$(string.task_SelfHostInfo_MaxUniquenessHit)" value="146"/>
+     <task name="SelfHostInfo_SlotPassedOver" message="$(string.task_SelfHostInfo_SlotPassedOver)" value="147"/>
+     <task name="SelfHostInfo_HIdentityAllocatorGrown" message="$(string.task_SelfHostInfo_HIdentityAllocatorGrown)" value="148"/>
+     <task name="SelfHostError_ThrownException" message="$(string.task_SelfHostError_ThrownException)" value="150"/>
+     <task name="SelfHostError_ObjectNotFound" message="$(string.task_SelfHostError_ObjectNotFound)" value="151"/>
+     <task name="SelfHostError_ConnectionFailed" message="$(string.task_SelfHostError_ConnectionFailed)" value="152"/>
+     <task name="SelfHostError_DisconnectClient" message="$(string.task_SelfHostError_DisconnectClient)" value="153"/>
+     <task name="SelfHostError_AlpcConnectionFailed" message="$(string.task_SelfHostError_AlpcConnectionFailed)" value="154"/>
+     <task name="SelfHostError_ConversationNotFound" message="$(string.task_SelfHostError_ConversationNotFound)" value="155"/>
+     <task name="IoCompletionPort" message="$(string.task_IoCompletionPort)" value="160"/>
+    </tasks>
+    <maps>
+     <valueMap name="CoreUIServiceType">
+      <map value="0x0" message="$(string.map_CoreUIServiceTypeInvalid)"/>
+      <map value="0x1" message="$(string.map_CoreUIServiceTypeRegistrar)"/>
+     </valueMap>
+     <valueMap name="InternalPriority">
+      <map value="0x0" message="$(string.map_InternalPriorityDormant)"/>
+      <map value="0x1" message="$(string.map_InternalPriorityWaitForNewEvents)"/>
+      <map value="0x2" message="$(string.map_InternalPrioritySendMessagesLow)"/>
+      <map value="0x3" message="$(string.map_InternalPriorityLow)"/>
+      <map value="0x4" message="$(string.map_InternalPrioritySendMessagesNormal)"/>
+      <map value="0x5" message="$(string.map_InternalPrioritySynchronizeOutput)"/>
+      <map value="0x6" message="$(string.map_InternalPriorityNormal)"/>
+      <map value="0x7" message="$(string.map_InternalPrioritySynchronizeInput)"/>
+      <map value="0x8" message="$(string.map_InternalPriorityReceiveMessagesNormal)"/>
+      <map value="0x9" message="$(string.map_InternalPriorityReceiveDeferredMessagesNormal)"/>
+      <map value="0xa" message="$(string.map_InternalPriorityDeliverTimeouts)"/>
+      <map value="0xb" message="$(string.map_InternalPrioritySendMessagesHigh)"/>
+      <map value="0xc" message="$(string.map_InternalPriorityHigh)"/>
+      <map value="0xd" message="$(string.map_InternalPriorityReceiveMessagesHigh)"/>
+      <map value="0xe" message="$(string.map_InternalPriorityReceiveDeferredMessagesHigh)"/>
+      <map value="0xf" message="$(string.map_InternalPriorityInfinite)"/>
+     </valueMap>
+     <valueMap name="UserPriority">
+      <map value="0x0" message="$(string.map_UserPriorityDormant)"/>
+      <map value="0x1" message="$(string.map_UserPriorityTimer)"/>
+      <map value="0x2" message="$(string.map_UserPriorityPaint)"/>
+      <map value="0x3" message="$(string.map_UserPriorityInput)"/>
+      <map value="0x4" message="$(string.map_UserPriorityPost)"/>
+      <map value="0x5" message="$(string.map_UserPrioritySend)"/>
+     </valueMap>
+     <valueMap name="ExternalPriority">
+      <map value="0x0" message="$(string.map_ExternalPriorityDormant)"/>
+      <map value="0x1" message="$(string.map_ExternalPriorityLow)"/>
+      <map value="0x2" message="$(string.map_ExternalPrioritySynchronizeOutput)"/>
+      <map value="0x3" message="$(string.map_ExternalPriorityNormal)"/>
+      <map value="0x4" message="$(string.map_ExternalPriorityHigh)"/>
+     </valueMap>
+     <valueMap name="RegisteredObjectType">
+      <map value="0x0" message="$(string.map_RegisteredObjectTypeEndpoint)"/>
+      <map value="0x1" message="$(string.map_RegisteredObjectTypeCrossProcessReceivePort)"/>
+      <map value="0x2" message="$(string.map_RegisteredObjectTypeConversation)"/>
+     </valueMap>
+     <valueMap name="RegistrarScope">
+      <map value="0x0" message="$(string.map_RegistrarScopeLocal)"/>
+      <map value="0x1" message="$(string.map_RegistrarScopeSystem)"/>
+      <map value="0x2" message="$(string.map_RegistrarScopeProcess)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1000" symbol="ETW_Init" version="0" task="ETW_Init" level="win:Verbose" keywords="Performance" template="ETW_InitArgs"/>
+     <event value="1001" symbol="ETW_Uninit" version="0" task="ETW_Uninit" level="win:Verbose" keywords="Performance" template="ETW_InitArgs"/>
+     <event value="1050" symbol="System_OutOfMemory" version="0" task="System_OutOfMemory" level="win:Error" keywords="Error"/>
+     <event value="2900" symbol="CoreUIService_ServerThread_Started" version="0" task="CoreUIService_ServerThread_Started" level="win:Informational" keywords="CoreUIService" template="CoreUIService_ServerThread_StartedArgs"/>
+     <event value="2901" symbol="CoreUIService_ServerThread_Exiting" version="0" task="CoreUIService_ServerThread_Exiting" level="win:Informational" keywords="CoreUIService" template="CoreUIService_ServerThread_ExitingArgs"/>
+     <event value="2902" symbol="CoreUIService_InitializeService" version="0" task="CoreUIService_InitializeService" level="win:Informational" keywords="CoreUIService" template="CoreUIService_ServerThread_ExitingArgs"/>
+     <event value="2903" symbol="CoreUIService_UninitializeService" version="0" task="CoreUIService_UninitializeService" level="win:Informational" keywords="CoreUIService" template="CoreUIService_ServerThread_ExitingArgs"/>
+     <event value="2904" symbol="CoreUIService_ServiceObjectCreated" version="0" task="CoreUIService_ServiceObjectCreated" level="win:Informational" keywords="CoreUIService" template="CoreUIService_ServerThread_ExitingArgs"/>
+     <event value="2905" symbol="CoreUIService_ServiceObjectDestroyed" version="0" task="CoreUIService_ServiceObjectDestroyed" level="win:Informational" keywords="CoreUIService" template="CoreUIService_ServerThread_ExitingArgs"/>
+     <event value="2906" symbol="CoreUIService_UpdateServiceStatus" version="0" task="CoreUIService_UpdateServiceStatus" level="win:Informational" keywords="CoreUIService" template="CoreUIService_ServerThread_ExitingArgs"/>
+     <event value="2907" symbol="CoreUIService_ServiceObjectServiceMain" version="0" task="CoreUIService_ServiceObjectServiceMain" level="win:Informational" keywords="CoreUIService" template="CoreUIService_ServerThread_ExitingArgs"/>
+     <event value="2908" symbol="CoreUIService_CoreUIServiceMain_UnknownService" version="0" task="CoreUIService_CoreUIServiceMain_UnknownService" level="win:Informational" keywords="CoreUIService" template="CoreUIService_CoreUIServiceMain_UnknownServiceArgs"/>
+     <event value="3100" symbol="Session_CoreUICreateStart" version="0" task="Session_CoreUICreate" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance Session"/>
+     <event value="3101" symbol="Session_CoreUICreateStop" version="0" task="Session_CoreUICreate" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance Session"/>
+     <event value="3102" symbol="Session_CoreUICreate_InitializeCnContextStart" version="0" task="Session_CoreUICreate_InitializeCnContext" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance Session"/>
+     <event value="3103" symbol="Session_CoreUICreate_InitializeCnContextStop" version="0" task="Session_CoreUICreate_InitializeCnContext" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance Session"/>
+     <event value="3106" symbol="Session_CoreUICreate_ExportSessionStart" version="0" task="Session_CoreUICreate_ExportSession" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance Session"/>
+     <event value="3107" symbol="Session_CoreUICreate_ExportSessionStop" version="0" task="Session_CoreUICreate_ExportSession" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance Session"/>
+     <event value="3110" symbol="Session_ConstructThreadContextStart" version="0" task="Session_ConstructThreadContext" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance Session"/>
+     <event value="3111" symbol="Session_ConstructThreadContextStop" version="0" task="Session_ConstructThreadContext" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance Session"/>
+     <event value="3210" symbol="Dispatcher_DispatchLoopStart" version="0" task="Dispatcher_DispatchLoop" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance Dispatcher"/>
+     <event value="3211" symbol="Dispatcher_DispatchLoopStop" version="0" task="Dispatcher_DispatchLoop" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance Dispatcher"/>
+     <event value="3214" symbol="Dispatcher_DispatchItemStart" version="0" task="Dispatcher_DispatchItem" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance Dispatcher" template="Dispatcher_DispatchItemStartArgs"/>
+     <event value="3215" symbol="Dispatcher_DispatchItemStop" version="0" task="Dispatcher_DispatchItem" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance Dispatcher" template="Dispatcher_DispatchItemStopArgs"/>
+     <event value="3216" symbol="Dispatcher_WakeLevel_UpdateWakeLevel" version="0" task="Dispatcher_WakeLevel_UpdateWakeLevel" level="win:Verbose" keywords="MessagingPerformance Dispatcher" template="Dispatcher_WakeLevel_UpdateWakeLevelArgs"/>
+     <event value="3220" symbol="Dispatcher_DoWaitStart" version="0" task="Dispatcher_DoWait" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance Dispatcher" template="ETW_InitArgs"/>
+     <event value="3221" symbol="Dispatcher_DoWaitStop" version="0" task="Dispatcher_DoWait" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance Dispatcher" template="Dispatcher_DoWaitStopArgs"/>
+     <event value="3222" symbol="Dispatcher_CallDispatchCallbackStart" version="0" task="Dispatcher_CallDispatchCallback" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance Dispatcher" template="Dispatcher_CallDispatchCallbackStartArgs"/>
+     <event value="3223" symbol="Dispatcher_CallDispatchCallbackStop" version="0" task="Dispatcher_CallDispatchCallback" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance Dispatcher" template="Dispatcher_CallDispatchCallbackStopArgs"/>
+     <event value="3224" symbol="Adapter_ScheduleDispatch" version="0" task="Adapter_ScheduleDispatch" level="win:Verbose" keywords="MessagingPerformance Dispatcher" template="Adapter_ScheduleDispatchArgs"/>
+     <event value="3225" symbol="Adapter_HostModeRunStart" version="0" task="Adapter_HostModeRun" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance Dispatcher" template="Adapter_HostModeRunStartArgs"/>
+     <event value="3226" symbol="Adapter_HostModeRunStop" version="0" task="Adapter_HostModeRun" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance Dispatcher" template="Adapter_HostModeRunStopArgs"/>
+     <event value="3227" symbol="Adapter_OnUserDispatchStart" version="0" task="Adapter_OnUserDispatch" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance Dispatcher" template="Adapter_OnUserDispatchStartArgs"/>
+     <event value="3228" symbol="Adapter_OnUserDispatchStop" version="0" task="Adapter_OnUserDispatch" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance Dispatcher" template="Adapter_OnUserDispatchStopArgs"/>
+     <event value="3229" symbol="Adapter_IntegratedLoopWaitStart" version="0" task="Adapter_IntegratedLoopWait" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance Dispatcher"/>
+     <event value="3230" symbol="Adapter_IntegratedLoopWaitStop" version="0" task="Adapter_IntegratedLoopWait" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance Dispatcher"/>
+     <event value="3231" symbol="Adapter_PostMessageError_QueueFull" version="0" task="Adapter_PostMessageError_QueueFull" level="win:Error" keywords="Error Dispatcher"/>
+     <event value="3232" symbol="Adapter_KernelPostMessageError" version="0" task="Adapter_KernelPostMessageError" level="win:Error" keywords="Error Dispatcher"/>
+     <event value="3300" symbol="RegistrarClient_InitializeStart" version="0" task="RegistrarClient_Initialize" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3301" symbol="RegistrarClient_InitializeStop" version="0" task="RegistrarClient_Initialize" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3310" symbol="RegistrarClient_ConnectToRegistrarServerStart" version="0" task="RegistrarClient_ConnectToRegistrarServer" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3311" symbol="RegistrarClient_ConnectToRegistrarServerStop" version="0" task="RegistrarClient_ConnectToRegistrarServer" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3400" symbol="RemoteRegistrarClient_ConnectStart" version="0" task="RemoteRegistrarClient_Connect" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3401" symbol="RemoteRegistrarClient_ConnectStop" version="0" task="RemoteRegistrarClient_Connect" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3402" symbol="RemoteRegistrarClient_RegisterThreadStart" version="0" task="RemoteRegistrarClient_RegisterThread" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3403" symbol="RemoteRegistrarClient_RegisterThreadStop" version="0" task="RemoteRegistrarClient_RegisterThread" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3404" symbol="RemoteRegistrarClient_RegisterAlpcPortStart" version="0" task="RemoteRegistrarClient_RegisterAlpcPort" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3405" symbol="RemoteRegistrarClient_RegisterAlpcPortStop" version="0" task="RemoteRegistrarClient_RegisterAlpcPort" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3406" symbol="RemoteRegistrarClient_UnregisterAlpcPortStart" version="0" task="RemoteRegistrarClient_UnregisterAlpcPort" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3407" symbol="RemoteRegistrarClient_UnregisterAlpcPortStop" version="0" task="RemoteRegistrarClient_UnregisterAlpcPort" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3408" symbol="RemoteRegistrarClient_PrepareConnectionStart" version="0" task="RemoteRegistrarClient_PrepareConnection" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3409" symbol="RemoteRegistrarClient_PrepareConnectionStop" version="0" task="RemoteRegistrarClient_PrepareConnection" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3410" symbol="RemoteRegistrarClient_CloseConnectionStart" version="0" task="RemoteRegistrarClient_CloseConnection" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3411" symbol="RemoteRegistrarClient_CloseConnectionStop" version="0" task="RemoteRegistrarClient_CloseConnection" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3412" symbol="RemoteRegistrarClient_CompleteCrossProcConnectionStart" version="0" task="RemoteRegistrarClient_CompleteCrossProcConnection" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3413" symbol="RemoteRegistrarClient_CompleteCrossProcConnectionStop" version="0" task="RemoteRegistrarClient_CompleteCrossProcConnection" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3414" symbol="RemoteRegistrarClient_CrossProcClientDisconnectedStart" version="0" task="RemoteRegistrarClient_CrossProcClientDisconnected" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3415" symbol="RemoteRegistrarClient_CrossProcClientDisconnectedStop" version="0" task="RemoteRegistrarClient_CrossProcClientDisconnected" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3418" symbol="RemoteRegistrarClient_RegisterObjectStart" version="0" task="RemoteRegistrarClient_RegisterObject" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance RegistrarClient" template="CoreUIService_CoreUIServiceMain_UnknownServiceArgs"/>
+     <event value="3419" symbol="RemoteRegistrarClient_RegisterObjectStop" version="0" task="RemoteRegistrarClient_RegisterObject" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3420" symbol="RemoteRegistrarClient_UnregisterObjectStart" version="0" task="RemoteRegistrarClient_UnregisterObject" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance RegistrarClient" template="CoreUIService_CoreUIServiceMain_UnknownServiceArgs"/>
+     <event value="3421" symbol="RemoteRegistrarClient_UnregisterObjectStop" version="0" task="RemoteRegistrarClient_UnregisterObject" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3424" symbol="RemoteRegistrarClient_FindObjectStart" version="0" task="RemoteRegistrarClient_FindObject" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance RegistrarClient" template="CoreUIService_CoreUIServiceMain_UnknownServiceArgs"/>
+     <event value="3425" symbol="RemoteRegistrarClient_FindObjectStop" version="0" task="RemoteRegistrarClient_FindObject" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3426" symbol="RemoteRegistrarClient_CompleteLocalConnectionStart" version="0" task="RemoteRegistrarClient_CompleteLocalConnection" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3427" symbol="RemoteRegistrarClient_CompleteLocalConnectionStop" version="0" task="RemoteRegistrarClient_CompleteLocalConnection" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3428" symbol="RemoteRegistrarClient_LocalClientDisconnectedStart" version="0" task="RemoteRegistrarClient_LocalClientDisconnected" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3429" symbol="RemoteRegistrarClient_LocalClientDisconnectedStop" version="0" task="RemoteRegistrarClient_LocalClientDisconnected" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3430" symbol="RemoteRegistrarClient_GetOrCreateReverseConnectionPortIDStart" version="0" task="RemoteRegistrarClient_GetOrCreateReverseConnectionPortID" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3431" symbol="RemoteRegistrarClient_GetOrCreateReverseConnectionPortIDStop" version="0" task="RemoteRegistrarClient_GetOrCreateReverseConnectionPortID" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3432" symbol="RemoteRegistrarClient_UnregisterReverseConnectionPortStart" version="0" task="RemoteRegistrarClient_UnregisterReverseConnectionPort" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3433" symbol="RemoteRegistrarClient_UnregisterReverseConnectionPortStop" version="0" task="RemoteRegistrarClient_UnregisterReverseConnectionPort" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3434" symbol="RemoteRegistrarClient_FindConversationServerStart" version="0" task="RemoteRegistrarClient_FindConversationServer" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance RegistrarClient" template="CoreUIService_CoreUIServiceMain_UnknownServiceArgs"/>
+     <event value="3435" symbol="RemoteRegistrarClient_FindConversationServerStop" version="0" task="RemoteRegistrarClient_FindConversationServer" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3436" symbol="RemoteRegistrarClient_RegisterConversationStart" version="0" task="RemoteRegistrarClient_RegisterConversation" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance RegistrarClient" template="CoreUIService_CoreUIServiceMain_UnknownServiceArgs"/>
+     <event value="3437" symbol="RemoteRegistrarClient_RegisterConversationStop" version="0" task="RemoteRegistrarClient_RegisterConversation" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3438" symbol="RemoteRegistrarClient_ReleaseConversationServerStart" version="0" task="RemoteRegistrarClient_ReleaseConversationServer" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance RegistrarClient" template="RemoteRegistrarClient_ReleaseConversationServerStartArgs"/>
+     <event value="3439" symbol="RemoteRegistrarClient_ReleaseConversationServerStop" version="0" task="RemoteRegistrarClient_ReleaseConversationServer" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3440" symbol="RemoteRegistrarClient_RegisterConversationClientStart" version="0" task="RemoteRegistrarClient_RegisterConversationClient" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance RegistrarClient" template="CoreUIService_CoreUIServiceMain_UnknownServiceArgs"/>
+     <event value="3441" symbol="RemoteRegistrarClient_RegisterConversationClientStop" version="0" task="RemoteRegistrarClient_RegisterConversationClient" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3442" symbol="RemoteRegistrarClient_ConnectPendingConversationClientStart" version="0" task="RemoteRegistrarClient_ConnectPendingConversationClient" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance RegistrarClient" template="RemoteRegistrarClient_ConnectPendingConversationClientStartArgs"/>
+     <event value="3443" symbol="RemoteRegistrarClient_ConnectPendingConversationClientStop" version="0" task="RemoteRegistrarClient_ConnectPendingConversationClient" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3444" symbol="RemoteRegistrarClient_RegisterPendingConversationClientForServerStart" version="0" task="RemoteRegistrarClient_RegisterPendingConversationClientForServer" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance RegistrarClient" template="RemoteRegistrarClient_ConnectPendingConversationClientStartArgs"/>
+     <event value="3445" symbol="RemoteRegistrarClient_RegisterPendingConversationClientForServerStop" version="0" task="RemoteRegistrarClient_RegisterPendingConversationClientForServer" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3446" symbol="RemoteRegistrarClient_ReleaseConversationClientConnectionStart" version="0" task="RemoteRegistrarClient_ReleaseConversationClientConnection" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance RegistrarClient" template="RemoteRegistrarClient_ReleaseConversationClientConnectionStartArgs"/>
+     <event value="3447" symbol="RemoteRegistrarClient_ReleaseConversationClientConnectionStop" version="0" task="RemoteRegistrarClient_ReleaseConversationClientConnection" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3450" symbol="RemoteRegistrarClient_FindPendingConversationClientStart" version="0" task="RemoteRegistrarClient_FindPendingConversationClient" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance RegistrarClient" template="RemoteRegistrarClient_ConnectPendingConversationClientStartArgs"/>
+     <event value="3451" symbol="RemoteRegistrarClient_FindPendingConversationClientStop" version="0" task="RemoteRegistrarClient_FindPendingConversationClient" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3452" symbol="RemoteRegistrarClient_FindCrossProcConnectionStart" version="0" task="RemoteRegistrarClient_FindCrossProcConnection" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3453" symbol="RemoteRegistrarClient_FindCrossProcConnectionStop" version="0" task="RemoteRegistrarClient_FindCrossProcConnection" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="3454" symbol="RemoteRegistrarClient_ReleaseConversationClientStart" version="0" task="RemoteRegistrarClient_ReleaseConversationClient" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance RegistrarClient" template="RemoteRegistrarClient_ReleaseConversationServerStartArgs"/>
+     <event value="3455" symbol="RemoteRegistrarClient_ReleaseConversationClientStop" version="0" task="RemoteRegistrarClient_ReleaseConversationClient" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance RegistrarClient"/>
+     <event value="4000" symbol="Messaging_ConstructMessageSessionStart" version="0" task="Messaging_ConstructMessageSession" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance Messaging"/>
+     <event value="4001" symbol="Messaging_ConstructMessageSessionStop" version="0" task="Messaging_ConstructMessageSession" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance Messaging"/>
+     <event value="4010" symbol="Messaging_CreateConnectionStart" version="0" task="Messaging_CreateConnection" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance Messaging" template="Dispatcher_DoWaitStopArgs"/>
+     <event value="4011" symbol="Messaging_CreateConnectionStop" version="0" task="Messaging_CreateConnection" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance Messaging" template="Dispatcher_DoWaitStopArgs"/>
+     <event value="4020" symbol="Messaging_AllocatedMessage" version="0" task="Messaging_AllocatedMessage" level="win:Verbose" keywords="MessagingPerformance Messaging" template="Messaging_AllocatedMessageArgs"/>
+     <event value="4021" symbol="Messaging_StreamDirty" version="0" task="Messaging_StreamDirty" level="win:Verbose" keywords="MessagingPerformance Messaging" template="Messaging_StreamDirtyArgs"/>
+     <event value="4022" symbol="Messaging_FlushPendingStreamsStart" version="0" task="Messaging_FlushPendingStreams" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance Messaging" template="Messaging_FlushPendingStreamsStartArgs"/>
+     <event value="4023" symbol="Messaging_FlushPendingStreamsStop" version="0" task="Messaging_FlushPendingStreams" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance Messaging"/>
+     <event value="4030" symbol="Messaging_LocalReceiveStart" version="0" task="Messaging_LocalReceive" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance Messaging"/>
+     <event value="4031" symbol="Messaging_LocalReceiveStop" version="0" task="Messaging_LocalReceive" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance Messaging" template="Dispatcher_DoWaitStopArgs"/>
+     <event value="4041" symbol="Messaging_InterconnectSend" version="0" task="Messaging_InterconnectSend" level="win:Verbose" keywords="MessagingPerformance Messaging" template="Dispatcher_DoWaitStopArgs"/>
+     <event value="4042" symbol="Messaging_InterconnectFlushStart" version="0" task="Messaging_InterconnectFlush" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance Messaging" template="Messaging_InterconnectFlushStartArgs"/>
+     <event value="4043" symbol="Messaging_InterconnectFlushStop" version="0" task="Messaging_InterconnectFlush" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance Messaging" template="Messaging_InterconnectFlushStartArgs"/>
+     <event value="4044" symbol="Messaging_InterconnectReceiveStart" version="0" task="Messaging_InterconnectReceive" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance Messaging"/>
+     <event value="4045" symbol="Messaging_InterconnectReceiveStop" version="0" task="Messaging_InterconnectReceive" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance Messaging" template="Messaging_InterconnectReceiveStopArgs"/>
+     <event value="4051" symbol="Messaging_AlpcSend" version="0" task="Messaging_AlpcSend" level="win:Verbose" keywords="MessagingPerformance Messaging" template="Dispatcher_DoWaitStopArgs"/>
+     <event value="4052" symbol="Messaging_AlpcFlushStart" version="0" task="Messaging_AlpcFlush" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance Messaging" template="Messaging_InterconnectFlushStartArgs"/>
+     <event value="4053" symbol="Messaging_AlpcFlushStop" version="0" task="Messaging_AlpcFlush" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance Messaging" template="Messaging_InterconnectFlushStartArgs"/>
+     <event value="4054" symbol="Messaging_AlpcReceiveStart" version="0" task="Messaging_AlpcReceive" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance Messaging"/>
+     <event value="4055" symbol="Messaging_AlpcReceiveStop" version="0" task="Messaging_AlpcReceive" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance Messaging" template="Messaging_AlpcReceiveStopArgs"/>
+     <event value="5050" symbol="Formatting_MessageMethodStart" version="0" task="Formatting_MessageMethod" opcode="win:Start" level="win:Verbose" keywords="MessagingPerformance Formatting" template="CoreUIService_CoreUIServiceMain_UnknownServiceArgs"/>
+     <event value="5051" symbol="Formatting_MessageMethodStop" version="0" task="Formatting_MessageMethod" opcode="win:Stop" level="win:Verbose" keywords="MessagingPerformance Formatting"/>
+     <event value="7000" symbol="SelfHostInfo_ObjectRegistered" version="0" task="SelfHostInfo_ObjectRegistered" level="win:Informational" keywords="keyword_40000000000" template="SelfHostInfo_ObjectRegisteredArgs"/>
+     <event value="7001" symbol="SelfHostInfo_ObjectRevoked" version="0" task="SelfHostInfo_ObjectRevoked" level="win:Informational" keywords="keyword_40000000000" template="SelfHostInfo_ObjectRevokedArgs"/>
+     <event value="7002" symbol="SelfHostInfo_ConnectionSevered" version="0" task="SelfHostInfo_ConnectionSevered" level="win:Informational" keywords="keyword_40000000000" template="SelfHostInfo_ConnectionSeveredArgs"/>
+     <event value="7003" symbol="SelfHostInfo_OutOfConversationPeerHandles" version="0" task="SelfHostInfo_OutOfConversationPeerHandles" level="win:Informational" keywords="keyword_40000000000" template="CoreUIService_CoreUIServiceMain_UnknownServiceArgs"/>
+     <event value="7004" symbol="SelfHostInfo_MaxConversationClientsConnected" version="0" task="SelfHostInfo_MaxConversationClientsConnected" level="win:Informational" keywords="keyword_40000000000" template="CoreUIService_CoreUIServiceMain_UnknownServiceArgs"/>
+     <event value="7005" symbol="SelfHostInfo_UniquenessProtectedUs" version="0" task="SelfHostInfo_UniquenessProtectedUs" level="win:Informational" keywords="keyword_40000000000" template="SelfHostInfo_UniquenessProtectedUsArgs"/>
+     <event value="7006" symbol="SelfHostInfo_MaxUniquenessHit" version="0" task="SelfHostInfo_MaxUniquenessHit" level="win:Informational" keywords="keyword_40000000000" template="ETW_InitArgs"/>
+     <event value="7007" symbol="SelfHostInfo_SlotPassedOver" version="0" task="SelfHostInfo_SlotPassedOver" level="win:Informational" keywords="keyword_40000000000" template="Messaging_StreamDirtyArgs"/>
+     <event value="7008" symbol="SelfHostInfo_HIdentityAllocatorGrown" version="0" task="SelfHostInfo_HIdentityAllocatorGrown" level="win:Informational" keywords="keyword_40000000000" template="Messaging_StreamDirtyArgs"/>
+     <event value="8000" symbol="IoCompletionPort" version="0" task="IoCompletionPort" level="win:Informational" keywords="MessagingPerformance" template="IoCompletionPortArgs"/>
+     <event value="8001" symbol="IoCompletionPort8001" version="0" task="IoCompletionPort" level="win:Error" keywords="MessagingPerformance" template="IoCompletionPort8001Args"/>
+     <event value="8002" symbol="IoCompletionPort8002" version="0" task="IoCompletionPort" level="win:Informational" keywords="MessagingPerformance" template="IoCompletionPort8002Args"/>
+     <event value="8003" symbol="IoCompletionPort8003" version="0" task="IoCompletionPort" level="win:Informational" keywords="MessagingPerformance" template="IoCompletionPort8003Args"/>
+     <event value="8004" symbol="IoCompletionPort8004" version="0" task="IoCompletionPort" level="win:Informational" keywords="MessagingPerformance" template="IoCompletionPort8004Args"/>
+     <event value="8005" symbol="IoCompletionPort8005" version="0" task="IoCompletionPort" level="win:Informational" keywords="MessagingPerformance" template="IoCompletionPort8004Args"/>
+     <event value="8006" symbol="IoCompletionPort8006" version="0" task="IoCompletionPort" level="win:Informational" keywords="MessagingPerformance"/>
+     <event value="8007" symbol="IoCompletionPort8007" version="0" task="IoCompletionPort" level="win:Informational" keywords="MessagingPerformance" template="IoCompletionPort8004Args"/>
+     <event value="20000" symbol="SelfHostError_ThrownException" version="0" task="SelfHostError_ThrownException" level="win:Error" keywords="MessagingPerformance Session Dispatcher RegistrarClient Messaging keyword_80000000000" template="SelfHostError_ThrownExceptionArgs"/>
+     <event value="20001" symbol="SelfHostError_ObjectNotFound" version="0" task="SelfHostError_ObjectNotFound" level="win:Error" keywords="keyword_80000000000" template="SelfHostError_ObjectNotFoundArgs"/>
+     <event value="20002" symbol="SelfHostError_ConnectionFailed" version="0" task="SelfHostError_ConnectionFailed" level="win:Error" keywords="keyword_80000000000" template="SelfHostInfo_ConnectionSeveredArgs"/>
+     <event value="20003" symbol="SelfHostError_DisconnectClient" version="0" task="SelfHostError_DisconnectClient" level="win:Error" keywords="keyword_80000000000" template="Messaging_StreamDirtyArgs"/>
+     <event value="20004" symbol="SelfHostError_AlpcConnectionFailed" version="0" task="SelfHostError_AlpcConnectionFailed" level="win:Error" keywords="keyword_80000000000" template="SelfHostError_AlpcConnectionFailedArgs"/>
+     <event value="20005" symbol="SelfHostError_ConversationNotFound" version="0" task="SelfHostError_ConversationNotFound" level="win:Error" keywords="keyword_80000000000" template="CoreUIService_CoreUIServiceMain_UnknownServiceArgs"/>
+    </events>
+    <templates>
+     <template tid="ETW_InitArgs">
+      <data name="hex" inType="win:UInt32"/>
+     </template>
+     <template tid="CoreUIService_ServerThread_StartedArgs">
+      <data name="coreUIServiceType" inType="win:UInt32" map="CoreUIServiceType"/>
+     </template>
+     <template tid="CoreUIService_ServerThread_ExitingArgs">
+      <data name="coreUIServiceType" inType="win:UInt32"/>
+     </template>
+     <template tid="CoreUIService_CoreUIServiceMain_UnknownServiceArgs">
+      <data name="pwsz" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Dispatcher_DispatchItemStartArgs">
+      <data name="InternalPriority" inType="win:UInt32"/>
+     </template>
+     <template tid="Dispatcher_DispatchItemStopArgs">
+      <data name="InternalPriority" inType="win:UInt32" map="InternalPriority"/>
+     </template>
+     <template tid="Dispatcher_WakeLevel_UpdateWakeLevelArgs">
+      <data name="unParam" inType="win:UInt32"/>
+      <data name="InternalPriority" inType="win:UInt32"/>
+      <data name="InternalPriority2" inType="win:UInt32"/>
+     </template>
+     <template tid="Dispatcher_DoWaitStopArgs">
+      <data name="unParam" inType="win:UInt32"/>
+      <data name="unParam2" inType="win:UInt32"/>
+     </template>
+     <template tid="Dispatcher_CallDispatchCallbackStartArgs">
+      <data name="fBool" inType="win:Boolean"/>
+      <data name="unParam" inType="win:UInt64"/>
+     </template>
+     <template tid="Dispatcher_CallDispatchCallbackStopArgs">
+      <data name="unParam" inType="win:UInt64"/>
+     </template>
+     <template tid="Adapter_ScheduleDispatchArgs">
+      <data name="unParam" inType="win:UInt32"/>
+      <data name="UserPriority" inType="win:UInt32" map="UserPriority"/>
+     </template>
+     <template tid="Adapter_HostModeRunStartArgs">
+      <data name="RunMode" inType="win:UInt32"/>
+      <data name="fBool" inType="win:Boolean"/>
+     </template>
+     <template tid="Adapter_HostModeRunStopArgs">
+      <data name="param" inType="win:Int32"/>
+     </template>
+     <template tid="Adapter_OnUserDispatchStartArgs">
+      <data name="UserPriority" inType="win:UInt32"/>
+     </template>
+     <template tid="Adapter_OnUserDispatchStopArgs">
+      <data name="fBool" inType="win:Boolean"/>
+     </template>
+     <template tid="RemoteRegistrarClient_ReleaseConversationServerStartArgs">
+      <data name="pwsz" inType="win:UnicodeString"/>
+      <data name="unParam" inType="win:UInt32"/>
+     </template>
+     <template tid="RemoteRegistrarClient_ConnectPendingConversationClientStartArgs">
+      <data name="pwsz" inType="win:UnicodeString"/>
+      <data name="unParam" inType="win:UInt32"/>
+      <data name="unParam2" inType="win:UInt32"/>
+     </template>
+     <template tid="RemoteRegistrarClient_ReleaseConversationClientConnectionStartArgs">
+      <data name="pwsz" inType="win:UnicodeString"/>
+      <data name="unParam" inType="win:UInt32"/>
+      <data name="unParam2" inType="win:UInt32"/>
+      <data name="unParam3" inType="win:UInt32"/>
+     </template>
+     <template tid="Messaging_AllocatedMessageArgs">
+      <data name="ExternalPriority" inType="win:UInt32" map="ExternalPriority"/>
+      <data name="unParam" inType="win:UInt32"/>
+      <data name="hex" inType="win:UInt32"/>
+      <data name="hex2" inType="win:UInt32"/>
+     </template>
+     <template tid="Messaging_StreamDirtyArgs">
+      <data name="hex" inType="win:UInt32"/>
+      <data name="hex2" inType="win:UInt32"/>
+     </template>
+     <template tid="Messaging_FlushPendingStreamsStartArgs">
+      <data name="ExternalPriority" inType="win:UInt32"/>
+     </template>
+     <template tid="Messaging_InterconnectFlushStartArgs">
+      <data name="ExternalPriority" inType="win:UInt32"/>
+      <data name="unParam" inType="win:UInt32"/>
+      <data name="unParam2" inType="win:UInt32"/>
+     </template>
+     <template tid="Messaging_InterconnectReceiveStopArgs">
+      <data name="unParam" inType="win:UInt32"/>
+      <data name="unParam2" inType="win:UInt32"/>
+      <data name="unParam3" inType="win:UInt32"/>
+     </template>
+     <template tid="Messaging_AlpcReceiveStopArgs">
+      <data name="unParam" inType="win:UInt32"/>
+      <data name="unParam2" inType="win:UInt32"/>
+      <data name="unParam3" inType="win:UInt32"/>
+      <data name="unParam4" inType="win:UInt32"/>
+     </template>
+     <template tid="SelfHostInfo_ObjectRegisteredArgs">
+      <data name="pwsz" inType="win:UnicodeString"/>
+      <data name="RegisteredObjectType" inType="win:UInt32" map="RegisteredObjectType"/>
+      <data name="RegistrarScope" inType="win:UInt32" map="RegistrarScope"/>
+      <data name="hex" inType="win:UInt32"/>
+      <data name="hex2" inType="win:UInt32"/>
+      <data name="hex3" inType="win:UInt32"/>
+     </template>
+     <template tid="SelfHostInfo_ObjectRevokedArgs">
+      <data name="pwsz" inType="win:UnicodeString"/>
+      <data name="RegisteredObjectType" inType="win:UInt32"/>
+      <data name="RegistrarScope" inType="win:UInt32"/>
+      <data name="hex" inType="win:UInt32"/>
+      <data name="hex2" inType="win:UInt32"/>
+      <data name="hex3" inType="win:UInt32"/>
+      <data name="fBool" inType="win:Boolean"/>
+     </template>
+     <template tid="SelfHostInfo_ConnectionSeveredArgs">
+      <data name="hex" inType="win:UInt32"/>
+      <data name="hex2" inType="win:UInt32"/>
+      <data name="guid" inType="win:GUID"/>
+     </template>
+     <template tid="SelfHostInfo_UniquenessProtectedUsArgs">
+      <data name="hex" inType="win:UInt32"/>
+      <data name="hex2" inType="win:UInt32"/>
+      <data name="hex3" inType="win:UInt32"/>
+     </template>
+     <template tid="IoCompletionPortArgs">
+      <data name="ptr1" inType="win:Pointer"/>
+      <data name="ptr2" inType="win:Pointer"/>
+      <data name="ptr3" inType="win:Pointer"/>
+     </template>
+     <template tid="IoCompletionPort8001Args">
+      <data name="ptr1" inType="win:Pointer"/>
+      <data name="ptr2" inType="win:Pointer"/>
+      <data name="ptr3" inType="win:Pointer"/>
+      <data name="hex" inType="win:UInt32"/>
+     </template>
+     <template tid="IoCompletionPort8002Args">
+      <data name="ptr" inType="win:Pointer"/>
+      <data name="hex" inType="win:UInt32"/>
+      <data name="fBool1" inType="win:Boolean"/>
+      <data name="fBool2" inType="win:Boolean"/>
+     </template>
+     <template tid="IoCompletionPort8003Args">
+      <data name="ptr1" inType="win:Pointer"/>
+      <data name="ptr2" inType="win:Pointer"/>
+      <data name="fBool" inType="win:Boolean"/>
+     </template>
+     <template tid="IoCompletionPort8004Args">
+      <data name="ptr1" inType="win:Pointer"/>
+      <data name="ptr2" inType="win:Pointer"/>
+     </template>
+     <template tid="SelfHostError_ThrownExceptionArgs">
+      <data name="pwsz" inType="win:UnicodeString"/>
+      <data name="hex" inType="win:UInt32"/>
+      <data name="pwsz2" inType="win:UnicodeString"/>
+     </template>
+     <template tid="SelfHostError_ObjectNotFoundArgs">
+      <data name="pwsz" inType="win:UnicodeString"/>
+      <data name="RegisteredObjectType" inType="win:UInt32"/>
+      <data name="RegistrarScope" inType="win:UInt32"/>
+     </template>
+     <template tid="SelfHostError_AlpcConnectionFailedArgs">
+      <data name="pwsz" inType="win:UnicodeString"/>
+      <data name="hresult" inType="win:Int32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Error" value="Error"/>
+    <string id="keyword_Performance" value="Performance"/>
+    <string id="keyword_CoreUIService" value="CoreUIService"/>
+    <string id="keyword_MessagingPerformance" value="MessagingPerformance"/>
+    <string id="keyword_Session" value="Session"/>
+    <string id="keyword_Dispatcher" value="Dispatcher"/>
+    <string id="keyword_RegistrarClient" value="RegistrarClient"/>
+    <string id="keyword_Messaging" value="Messaging"/>
+    <string id="keyword_Formatting" value="Formatting"/>
+    <string id="keyword_keyword_40000000000" value="keyword_40000000000"/>
+    <string id="keyword_keyword_80000000000" value="keyword_80000000000"/>
+    <string id="task_ETW_Init" value="ETW_Init"/>
+    <string id="task_ETW_Uninit" value="ETW_Uninit"/>
+    <string id="task_System_OutOfMemory" value="System_OutOfMemory"/>
+    <string id="task_CoreUIService_ServerThread_Started" value="CoreUIService_ServerThread_Started"/>
+    <string id="task_CoreUIService_ServerThread_Exiting" value="CoreUIService_ServerThread_Exiting"/>
+    <string id="task_CoreUIService_InitializeService" value="CoreUIService_InitializeService"/>
+    <string id="task_CoreUIService_UninitializeService" value="CoreUIService_UninitializeService"/>
+    <string id="task_CoreUIService_ServiceObjectCreated" value="CoreUIService_ServiceObjectCreated"/>
+    <string id="task_CoreUIService_ServiceObjectDestroyed" value="CoreUIService_ServiceObjectDestroyed"/>
+    <string id="task_CoreUIService_UpdateServiceStatus" value="CoreUIService_UpdateServiceStatus"/>
+    <string id="task_CoreUIService_ServiceObjectServiceMain" value="CoreUIService_ServiceObjectServiceMain"/>
+    <string id="task_CoreUIService_CoreUIServiceMain_UnknownService" value="CoreUIService_CoreUIServiceMain_UnknownService"/>
+    <string id="task_Session_CoreUICreate" value="Session_CoreUICreate"/>
+    <string id="task_Session_CoreUICreate_InitializeCnContext" value="Session_CoreUICreate_InitializeCnContext"/>
+    <string id="task_Session_CoreUICreate_ExportSession" value="Session_CoreUICreate_ExportSession"/>
+    <string id="task_Session_ConstructThreadContext" value="Session_ConstructThreadContext"/>
+    <string id="task_Dispatcher_DispatchLoop" value="Dispatcher_DispatchLoop"/>
+    <string id="task_Dispatcher_DispatchItem" value="Dispatcher_DispatchItem"/>
+    <string id="task_Dispatcher_WakeLevel_UpdateWakeLevel" value="Dispatcher_WakeLevel_UpdateWakeLevel"/>
+    <string id="task_Dispatcher_DoWait" value="Dispatcher_DoWait"/>
+    <string id="task_Dispatcher_CallDispatchCallback" value="Dispatcher_CallDispatchCallback"/>
+    <string id="task_Adapter_ScheduleDispatch" value="Adapter_ScheduleDispatch"/>
+    <string id="task_Adapter_HostModeRun" value="Adapter_HostModeRun"/>
+    <string id="task_Adapter_OnUserDispatch" value="Adapter_OnUserDispatch"/>
+    <string id="task_Adapter_IntegratedLoopWait" value="Adapter_IntegratedLoopWait"/>
+    <string id="task_Adapter_PostMessageError_QueueFull" value="Adapter_PostMessageError_QueueFull"/>
+    <string id="task_Adapter_KernelPostMessageError" value="Adapter_KernelPostMessageError"/>
+    <string id="task_RegistrarClient_Initialize" value="RegistrarClient_Initialize"/>
+    <string id="task_RegistrarClient_ConnectToRegistrarServer" value="RegistrarClient_ConnectToRegistrarServer"/>
+    <string id="task_RemoteRegistrarClient_Connect" value="RemoteRegistrarClient_Connect"/>
+    <string id="task_RemoteRegistrarClient_RegisterThread" value="RemoteRegistrarClient_RegisterThread"/>
+    <string id="task_RemoteRegistrarClient_RegisterAlpcPort" value="RemoteRegistrarClient_RegisterAlpcPort"/>
+    <string id="task_RemoteRegistrarClient_UnregisterAlpcPort" value="RemoteRegistrarClient_UnregisterAlpcPort"/>
+    <string id="task_RemoteRegistrarClient_PrepareConnection" value="RemoteRegistrarClient_PrepareConnection"/>
+    <string id="task_RemoteRegistrarClient_CloseConnection" value="RemoteRegistrarClient_CloseConnection"/>
+    <string id="task_RemoteRegistrarClient_CompleteCrossProcConnection" value="RemoteRegistrarClient_CompleteCrossProcConnection"/>
+    <string id="task_RemoteRegistrarClient_CrossProcClientDisconnected" value="RemoteRegistrarClient_CrossProcClientDisconnected"/>
+    <string id="task_RemoteRegistrarClient_RegisterObject" value="RemoteRegistrarClient_RegisterObject"/>
+    <string id="task_RemoteRegistrarClient_UnregisterObject" value="RemoteRegistrarClient_UnregisterObject"/>
+    <string id="task_RemoteRegistrarClient_FindObject" value="RemoteRegistrarClient_FindObject"/>
+    <string id="task_RemoteRegistrarClient_CompleteLocalConnection" value="RemoteRegistrarClient_CompleteLocalConnection"/>
+    <string id="task_RemoteRegistrarClient_LocalClientDisconnected" value="RemoteRegistrarClient_LocalClientDisconnected"/>
+    <string id="task_RemoteRegistrarClient_GetOrCreateReverseConnectionPortID" value="RemoteRegistrarClient_GetOrCreateReverseConnectionPortID"/>
+    <string id="task_RemoteRegistrarClient_UnregisterReverseConnectionPort" value="RemoteRegistrarClient_UnregisterReverseConnectionPort"/>
+    <string id="task_RemoteRegistrarClient_FindConversationServer" value="RemoteRegistrarClient_FindConversationServer"/>
+    <string id="task_RemoteRegistrarClient_RegisterConversation" value="RemoteRegistrarClient_RegisterConversation"/>
+    <string id="task_RemoteRegistrarClient_ReleaseConversationServer" value="RemoteRegistrarClient_ReleaseConversationServer"/>
+    <string id="task_RemoteRegistrarClient_ReleaseConversationClient" value="RemoteRegistrarClient_ReleaseConversationClient"/>
+    <string id="task_RemoteRegistrarClient_RegisterConversationClient" value="RemoteRegistrarClient_RegisterConversationClient"/>
+    <string id="task_RemoteRegistrarClient_ConnectPendingConversationClient" value="RemoteRegistrarClient_ConnectPendingConversationClient"/>
+    <string id="task_RemoteRegistrarClient_ReleaseConversationClientConnection" value="RemoteRegistrarClient_ReleaseConversationClientConnection"/>
+    <string id="task_RemoteRegistrarClient_FindPendingConversationClient" value="RemoteRegistrarClient_FindPendingConversationClient"/>
+    <string id="task_RemoteRegistrarClient_FindCrossProcConnection" value="RemoteRegistrarClient_FindCrossProcConnection"/>
+    <string id="task_RemoteRegistrarClient_RegisterPendingConversationClientForServer" value="RemoteRegistrarClient_RegisterPendingConversationClientForServer"/>
+    <string id="task_Messaging_ConstructMessageSession" value="Messaging_ConstructMessageSession"/>
+    <string id="task_Messaging_CreateConnection" value="Messaging_CreateConnection"/>
+    <string id="task_Messaging_AllocatedMessage" value="Messaging_AllocatedMessage"/>
+    <string id="task_Messaging_StreamDirty" value="Messaging_StreamDirty"/>
+    <string id="task_Messaging_FlushPendingStreams" value="Messaging_FlushPendingStreams"/>
+    <string id="task_Messaging_LocalReceive" value="Messaging_LocalReceive"/>
+    <string id="task_Messaging_InterconnectSend" value="Messaging_InterconnectSend"/>
+    <string id="task_Messaging_InterconnectFlush" value="Messaging_InterconnectFlush"/>
+    <string id="task_Messaging_InterconnectReceive" value="Messaging_InterconnectReceive"/>
+    <string id="task_Messaging_AlpcSend" value="Messaging_AlpcSend"/>
+    <string id="task_Messaging_AlpcFlush" value="Messaging_AlpcFlush"/>
+    <string id="task_Messaging_AlpcReceive" value="Messaging_AlpcReceive"/>
+    <string id="task_Formatting_MessageMethod" value="Formatting_MessageMethod"/>
+    <string id="task_SelfHostInfo_ObjectRegistered" value="SelfHostInfo_ObjectRegistered"/>
+    <string id="task_SelfHostInfo_ObjectRevoked" value="SelfHostInfo_ObjectRevoked"/>
+    <string id="task_SelfHostInfo_ConnectionSevered" value="SelfHostInfo_ConnectionSevered"/>
+    <string id="task_SelfHostInfo_OutOfConversationPeerHandles" value="SelfHostInfo_OutOfConversationPeerHandles"/>
+    <string id="task_SelfHostInfo_MaxConversationClientsConnected" value="SelfHostInfo_MaxConversationClientsConnected"/>
+    <string id="task_SelfHostInfo_UniquenessProtectedUs" value="SelfHostInfo_UniquenessProtectedUs"/>
+    <string id="task_SelfHostInfo_MaxUniquenessHit" value="SelfHostInfo_MaxUniquenessHit"/>
+    <string id="task_SelfHostInfo_SlotPassedOver" value="SelfHostInfo_SlotPassedOver"/>
+    <string id="task_SelfHostInfo_HIdentityAllocatorGrown" value="SelfHostInfo_HIdentityAllocatorGrown"/>
+    <string id="task_SelfHostError_ThrownException" value="SelfHostError_ThrownException"/>
+    <string id="task_SelfHostError_ObjectNotFound" value="SelfHostError_ObjectNotFound"/>
+    <string id="task_SelfHostError_ConnectionFailed" value="SelfHostError_ConnectionFailed"/>
+    <string id="task_SelfHostError_DisconnectClient" value="SelfHostError_DisconnectClient"/>
+    <string id="task_SelfHostError_AlpcConnectionFailed" value="SelfHostError_AlpcConnectionFailed"/>
+    <string id="task_SelfHostError_ConversationNotFound" value="SelfHostError_ConversationNotFound"/>
+    <string id="task_IoCompletionPort" value="IoCompletionPort"/>
+    <string id="map_CoreUIServiceTypeInvalid" value="Invalid"/>
+    <string id="map_CoreUIServiceTypeRegistrar" value="Registrar"/>
+    <string id="map_InternalPriorityDormant" value="Dormant"/>
+    <string id="map_InternalPriorityWaitForNewEvents" value="WaitForNewEvents"/>
+    <string id="map_InternalPrioritySendMessagesLow" value="SendMessagesLow"/>
+    <string id="map_InternalPriorityLow" value="Low"/>
+    <string id="map_InternalPrioritySendMessagesNormal" value="SendMessagesNormal"/>
+    <string id="map_InternalPrioritySynchronizeOutput" value="SynchronizeOutput"/>
+    <string id="map_InternalPriorityNormal" value="Normal"/>
+    <string id="map_InternalPrioritySynchronizeInput" value="SynchronizeInput"/>
+    <string id="map_InternalPriorityReceiveMessagesNormal" value="ReceiveMessagesNormal"/>
+    <string id="map_InternalPriorityReceiveDeferredMessagesNormal" value="ReceiveDeferredMessagesNormal"/>
+    <string id="map_InternalPriorityDeliverTimeouts" value="DeliverTimeouts"/>
+    <string id="map_InternalPrioritySendMessagesHigh" value="SendMessagesHigh"/>
+    <string id="map_InternalPriorityHigh" value="High"/>
+    <string id="map_InternalPriorityReceiveMessagesHigh" value="ReceiveMessagesHigh"/>
+    <string id="map_InternalPriorityReceiveDeferredMessagesHigh" value="ReceiveDeferredMessagesHigh"/>
+    <string id="map_InternalPriorityInfinite" value="Infinite"/>
+    <string id="map_UserPriorityDormant" value="Dormant"/>
+    <string id="map_UserPriorityTimer" value="Timer"/>
+    <string id="map_UserPriorityPaint" value="Paint"/>
+    <string id="map_UserPriorityInput" value="Input"/>
+    <string id="map_UserPriorityPost" value="Post"/>
+    <string id="map_UserPrioritySend" value="Send"/>
+    <string id="map_ExternalPriorityDormant" value="Dormant"/>
+    <string id="map_ExternalPriorityLow" value="Low"/>
+    <string id="map_ExternalPrioritySynchronizeOutput" value="SynchronizeOutput"/>
+    <string id="map_ExternalPriorityNormal" value="Normal"/>
+    <string id="map_ExternalPriorityHigh" value="High"/>
+    <string id="map_RegisteredObjectTypeEndpoint" value="Endpoint"/>
+    <string id="map_RegisteredObjectTypeCrossProcessReceivePort" value="CrossProcessReceivePort"/>
+    <string id="map_RegisteredObjectTypeConversation" value="Conversation"/>
+    <string id="map_RegistrarScopeLocal" value="Local"/>
+    <string id="map_RegistrarScopeSystem" value="System"/>
+    <string id="map_RegistrarScopeProcess" value="Process"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

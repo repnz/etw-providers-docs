@@ -1,0 +1,119 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-BitLocker-DrivePreparationTool" guid="{632f767e-0ec3-47b9-ba1c-a0e62a74728a}" resourceFileName="Microsoft-Windows-BitLocker-DrivePreparationTool" messageFileName="Microsoft-Windows-BitLocker-DrivePreparationTool" symbol="MicrosoftWindowsBitLockerDrivePreparationTool" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0">
+>
+      <opcodes>
+       <opcode name="Initialization" message="$(string.opcode_task_0Initialization)" value="10"/>
+       <opcode name="Shrink" message="$(string.opcode_task_0Shrink)" value="11"/>
+       <opcode name="Create" message="$(string.opcode_task_0Create)" value="12"/>
+       <opcode name="Prepare" message="$(string.opcode_task_0Prepare)" value="13"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="1" symbol="task_0Initialization_V1" version="1" task="task_0" opcode="Initialization" level="win:Error" template="task_0InitializationArgs_V1"/>
+     <event value="2" symbol="task_0Shrink_V1" version="1" task="task_0" opcode="Shrink" level="win:Error" template="task_0InitializationArgs_V1"/>
+     <event value="3" symbol="task_0Create_V1" version="1" task="task_0" opcode="Create" level="win:Error" template="task_0InitializationArgs_V1"/>
+     <event value="4" symbol="task_0Prepare_V1" version="1" task="task_0" opcode="Prepare" level="win:Error" template="task_0InitializationArgs_V1"/>
+     <event value="5" symbol="task_0_V1" version="1" task="task_0" level="win:Error" template="task_0InitializationArgs_V1"/>
+     <event value="256" symbol="task_0256_V1" version="1" task="task_0" level="win:Warning" template="task_0InitializationArgs_V1"/>
+     <event value="512" symbol="task_0512_V1" version="1" task="task_0" level="win:Informational"/>
+     <event value="4096" symbol="task_0Initialization4096_V1" version="1" task="task_0" opcode="Initialization" level="win:Verbose" template="task_0Initialization4096Args_V1"/>
+     <event value="4097" symbol="task_0Initialization4097_V1" version="1" task="task_0" opcode="Initialization" level="win:Informational" template="task_0Initialization4097Args_V1"/>
+     <event value="4098" symbol="task_0Initialization4098_V1" version="1" task="task_0" opcode="Initialization" level="win:Verbose" template="task_0Initialization4097Args_V1"/>
+     <event value="4099" symbol="task_0Initialization4099_V1" version="1" task="task_0" opcode="Initialization" level="win:Informational" template="task_0Initialization4099Args_V1"/>
+     <event value="4100" symbol="task_0Initialization4100_V1" version="1" task="task_0" opcode="Initialization" level="win:Informational" template="task_0Initialization4100Args_V1"/>
+     <event value="4101" symbol="task_0Initialization4101_V1" version="1" task="task_0" opcode="Initialization" level="win:Informational" template="task_0Initialization4101Args_V1"/>
+     <event value="4102" symbol="task_0Initialization4102_V1" version="1" task="task_0" opcode="Initialization" level="win:Informational" template="task_0Initialization4102Args_V1"/>
+     <event value="4103" symbol="task_0Initialization4103_V1" version="1" task="task_0" opcode="Initialization" level="win:Informational" template="task_0Initialization4103Args_V1"/>
+     <event value="4104" symbol="task_0Initialization4104_V1" version="1" task="task_0" opcode="Initialization" level="win:Informational" template="task_0Initialization4104Args_V1"/>
+    </events>
+    <templates>
+     <template tid="task_0InitializationArgs_V1">
+      <data name="MessageCode" inType="win:HexInt32"/>
+      <data name="MessageText" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0Initialization4096Args_V1">
+      <data name="Shrinkable" inType="win:Boolean"/>
+      <data name="ContainsWinRE" inType="win:Boolean"/>
+      <data name="VolumeName" inType="win:UnicodeString"/>
+      <data name="VolumeSize" inType="win:UInt64"/>
+      <data name="VolumeFreeSpace" inType="win:UInt64"/>
+      <data name="VolumeMaxShrinkSize" inType="win:UInt64"/>
+      <data name="VolumeFlags" inType="win:HexInt32"/>
+      <data name="DriveLetter" inType="win:UnicodeString"/>
+      <data name="DiskNumber" inType="win:UInt32"/>
+      <data name="PartitionNumber" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0Initialization4097Args_V1">
+      <data name="DiskId" inType="win:GUID"/>
+      <data name="Type" inType="win:HexInt32"/>
+      <data name="Offset" inType="win:UInt64"/>
+      <data name="Size" inType="win:UInt64"/>
+      <data name="VolumeId" inType="win:GUID"/>
+     </template>
+     <template tid="task_0Initialization4099Args_V1">
+      <data name="RawCommandLine" inType="win:UnicodeString"/>
+      <data name="ShowUsage" inType="win:Boolean"/>
+      <data name="DisplayDriveInfo" inType="win:Boolean"/>
+      <data name="TargetDriveLetter" inType="win:UnicodeString"/>
+      <data name="TargetAction" inType="win:UInt32"/>
+      <data name="NewSystemDriveLetter" inType="win:UnicodeString"/>
+      <data name="ShrinkSize" inType="win:Int64"/>
+      <data name="QuietMode" inType="win:Boolean"/>
+      <data name="AutoRestart" inType="win:Boolean"/>
+     </template>
+     <template tid="task_0Initialization4100Args_V1">
+      <data name="VolumeName" inType="win:UnicodeString"/>
+      <data name="DriveLetter" inType="win:UnicodeString"/>
+      <data name="DiskNumber" inType="win:UInt32"/>
+      <data name="PartitionNumber" inType="win:UInt32"/>
+      <data name="ShrinkSize" inType="win:UInt64"/>
+      <data name="NewDriveLetter" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0Initialization4101Args_V1">
+      <data name="ExtentOffset" inType="win:UInt64"/>
+      <data name="NewPartitionSize" inType="win:UInt64"/>
+      <data name="NewDriveLetter" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0Initialization4102Args_V1">
+      <data name="VolumeName" inType="win:UnicodeString"/>
+      <data name="DriveLetter" inType="win:UnicodeString"/>
+      <data name="DiskNumber" inType="win:UInt32"/>
+      <data name="PartitionNumber" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0Initialization4103Args_V1">
+      <data name="WinREVolumeName" inType="win:UnicodeString"/>
+      <data name="DriveLetter" inType="win:UnicodeString"/>
+      <data name="DiskNumber" inType="win:UInt32"/>
+      <data name="PartitionNumber" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0Initialization4104Args_V1">
+      <data name="MessageCode" inType="win:HexInt32"/>
+      <data name="MessageText" inType="win:UnicodeString"/>
+      <data name="VolumeName" inType="win:UnicodeString"/>
+      <data name="DriveLetter" inType="win:UnicodeString"/>
+      <data name="DiskNumber" inType="win:UInt32"/>
+      <data name="PartitionNumber" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_task_0" value="task_0"/>
+    <string id="opcode_task_0Initialization" value="Initialization"/>
+    <string id="opcode_task_0Shrink" value="Shrink"/>
+    <string id="opcode_task_0Create" value="Create"/>
+    <string id="opcode_task_0Prepare" value="Prepare"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

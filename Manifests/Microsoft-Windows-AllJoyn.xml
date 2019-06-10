@@ -1,0 +1,53 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-AllJoyn" guid="{2ed299d2-2f6b-411d-8d15-f4cc6fde0c70}" resourceFileName="Microsoft-Windows-AllJoyn" messageFileName="Microsoft-Windows-AllJoyn" symbol="MicrosoftWindowsAllJoyn" source="Xml" >
+    <keywords>
+     <keyword name="AJKeyword" message="$(string.keyword_AJKeyword)" mask="0x1"/>
+     <keyword name="keyword_400000000000" message="$(string.keyword_keyword_400000000000)" mask="0x400000000000"/>
+    </keywords>
+    <tasks>
+     <task name="AJ" message="$(string.task_AJ)" value="1">
+>
+      <opcodes>
+       <opcode name="Error" message="$(string.opcode_AJError)" value="10"/>
+       <opcode name="Trace" message="$(string.opcode_AJTrace)" value="11"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="1" symbol="AJError" version="0" task="AJ" opcode="Error" level="win:Error" keywords="AJKeyword" template="AJErrorArgs"/>
+     <event value="2" symbol="AJError2" version="0" task="AJ" opcode="Error" level="win:Error" keywords="AJKeyword keyword_400000000000" template="AJErrorArgs"/>
+     <event value="3" symbol="AJTrace" version="0" task="AJ" opcode="Trace" level="win:Verbose" keywords="AJKeyword" template="AJTraceArgs"/>
+     <event value="4" symbol="AJTrace4" version="0" task="AJ" opcode="Trace" level="win:Verbose" keywords="AJKeyword keyword_400000000000" template="AJTraceArgs"/>
+    </events>
+    <templates>
+     <template tid="AJErrorArgs">
+      <data name="QStatus" inType="win:HexInt32"/>
+      <data name="Message" inType="win:AnsiString"/>
+      <data name="Module" inType="win:AnsiString"/>
+      <data name="File" inType="win:AnsiString"/>
+      <data name="Line" inType="win:UInt32"/>
+     </template>
+     <template tid="AJTraceArgs">
+      <data name="Message" inType="win:AnsiString"/>
+      <data name="Module" inType="win:AnsiString"/>
+      <data name="File" inType="win:AnsiString"/>
+      <data name="Line" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_AJKeyword" value="AJKeyword"/>
+    <string id="keyword_keyword_400000000000" value="keyword_400000000000"/>
+    <string id="task_AJ" value="AJ"/>
+    <string id="opcode_AJError" value="Error"/>
+    <string id="opcode_AJTrace" value="Trace"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,479 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-LiveId" guid="{05f02597-fe85-4e67-8542-69567ab8fd4f}" resourceFileName="Microsoft-Windows-LiveId" messageFileName="Microsoft-Windows-LiveId" symbol="MicrosoftWindowsLiveId" source="Xml" >
+    <keywords>
+     <keyword name="Telemetry" message="$(string.keyword_Telemetry)" mask="0x1"/>
+     <keyword name="Error" message="$(string.keyword_Error)" mask="0x2"/>
+     <keyword name="Analytic" message="$(string.keyword_Analytic)" mask="0x4"/>
+     <keyword name="Function" message="$(string.keyword_Function)" mask="0x8"/>
+     <keyword name="Operational" message="$(string.keyword_Operational)" mask="0x10"/>
+     <keyword name="Warning" message="$(string.keyword_Warning)" mask="0x20"/>
+     <keyword name="Critical" message="$(string.keyword_Critical)" mask="0x40"/>
+     <keyword name="RequestStart" message="$(string.keyword_RequestStart)" mask="0x80"/>
+     <keyword name="LiveSsp" message="$(string.keyword_LiveSsp)" mask="0x100"/>
+     <keyword name="CredProv" message="$(string.keyword_CredProv)" mask="0x200"/>
+     <keyword name="WlidNsp" message="$(string.keyword_WlidNsp)" mask="0x400"/>
+     <keyword name="WlidSvc" message="$(string.keyword_WlidSvc)" mask="0x800"/>
+     <keyword name="WlidModern" message="$(string.keyword_WlidModern)" mask="0x1000"/>
+     <keyword name="WlidCli" message="$(string.keyword_WlidCli)" mask="0x2000"/>
+     <keyword name="WlidProv" message="$(string.keyword_WlidProv)" mask="0x4000"/>
+     <keyword name="WlidBho" message="$(string.keyword_WlidBho)" mask="0x8000"/>
+     <keyword name="TokenProvider" message="$(string.keyword_TokenProvider)" mask="0x10000"/>
+     <keyword name="Extension" message="$(string.keyword_Extension)" mask="0x20000"/>
+     <keyword name="Cache" message="$(string.keyword_Cache)" mask="0x40000"/>
+     <keyword name="Credentials" message="$(string.keyword_Credentials)" mask="0x80000"/>
+     <keyword name="StateMachine" message="$(string.keyword_StateMachine)" mask="0x100000"/>
+     <keyword name="SOAP" message="$(string.keyword_SOAP)" mask="0x200000"/>
+     <keyword name="RPC" message="$(string.keyword_RPC)" mask="0x400000"/>
+     <keyword name="keyword_400000000000" message="$(string.keyword_keyword_400000000000)" mask="0x400000000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="WLIDServiceOperation" message="$(string.task_WLIDServiceOperation)" value="101"/>
+     <task name="IdentityProviderOperation" message="$(string.task_IdentityProviderOperation)" value="103"/>
+     <task name="LiveIdModernAPIOperation" message="$(string.task_LiveIdModernAPIOperation)" value="104"/>
+     <task name="WLIDCredProvOperation" message="$(string.task_WLIDCredProvOperation)" value="105"/>
+     <task name="FunctionCall" message="$(string.task_FunctionCall)" value="200"/>
+    </tasks>
+    <maps>
+     <valueMap name="SOAPRequestType">
+      <map value="0x0" message="$(string.map_SOAPRequestTypeAuth)"/>
+      <map value="0x1" message="$(string.map_SOAPRequestTypeService)"/>
+      <map value="0x2" message="$(string.map_SOAPRequestTypeDeviceAuth)"/>
+      <map value="0x3" message="$(string.map_SOAPRequestTypeDeleteDevice)"/>
+      <map value="0x4" message="$(string.map_SOAPRequestTypeUpdateDevice)"/>
+      <map value="0x5" message="$(string.map_SOAPRequestTypeAddCredential)"/>
+      <map value="0x6" message="$(string.map_SOAPRequestTypeAssociateDevice)"/>
+      <map value="0x7" message="$(string.map_SOAPRequestTypeDisassociateDevice)"/>
+      <map value="0x8" message="$(string.map_SOAPRequestTypeResolveDevice)"/>
+      <map value="0x9" message="$(string.map_SOAPRequestTypePublishDevice)"/>
+      <map value="0xa" message="$(string.map_SOAPRequestTypeUpdateDeviceReaders)"/>
+      <map value="0xb" message="$(string.map_SOAPRequestTypeResolveUser)"/>
+      <map value="0xc" message="$(string.map_SOAPRequestTypeOTC)"/>
+      <map value="0xd" message="$(string.map_SOAPRequestTypeEnumDevices)"/>
+      <map value="0xe" message="$(string.map_SOAPRequestTypeUpdateDeviceProperties)"/>
+      <map value="0xf" message="$(string.map_SOAPRequestTypeGetUserKeyData)"/>
+      <map value="0x10" message="$(string.map_SOAPRequestTypeCount)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1005" symbol="IdentityProviderOperationStart" version="0" task="IdentityProviderOperation" opcode="win:Start" level="win:Informational" keywords="Analytic"/>
+     <event value="1006" symbol="IdentityProviderOperationStop" version="0" task="IdentityProviderOperation" opcode="win:Stop" level="win:Informational" keywords="Analytic" template="IdentityProviderOperationStopArgs"/>
+     <event value="1007" symbol="IdentityProviderOperationStart1007" version="0" task="IdentityProviderOperation" opcode="win:Start" level="win:Informational" keywords="Analytic"/>
+     <event value="1008" symbol="IdentityProviderOperationStop1008" version="0" task="IdentityProviderOperation" opcode="win:Stop" level="win:Informational" keywords="Analytic" template="IdentityProviderOperationStopArgs"/>
+     <event value="1013" symbol="WLIDServiceOperationStart" version="0" task="WLIDServiceOperation" opcode="win:Start" level="win:Informational" keywords="Analytic"/>
+     <event value="1014" symbol="WLIDServiceOperationStop" version="0" task="WLIDServiceOperation" opcode="win:Stop" level="win:Informational" keywords="Analytic" template="WLIDServiceOperationStopArgs"/>
+     <event value="1015" symbol="LiveIdModernAPIOperationStart" version="0" task="LiveIdModernAPIOperation" opcode="win:Start" level="win:Informational" keywords="Analytic"/>
+     <event value="1016" symbol="LiveIdModernAPIOperationStop" version="0" task="LiveIdModernAPIOperation" opcode="win:Stop" level="win:Informational" keywords="Analytic" template="LiveIdModernAPIOperationStopArgs"/>
+     <event value="1017" symbol="LiveIdModernAPIOperationStart1017" version="0" task="LiveIdModernAPIOperation" opcode="win:Start" level="win:Informational" keywords="Analytic"/>
+     <event value="1018" symbol="LiveIdModernAPIOperationStop1018" version="0" task="LiveIdModernAPIOperation" opcode="win:Stop" level="win:Informational" keywords="Analytic" template="LiveIdModernAPIOperationStopArgs"/>
+     <event value="1019" symbol="LiveIdModernAPIOperationStart1019" version="0" task="LiveIdModernAPIOperation" opcode="win:Start" level="win:Informational" keywords="Analytic"/>
+     <event value="1020" symbol="LiveIdModernAPIOperationStop1020" version="0" task="LiveIdModernAPIOperation" opcode="win:Stop" level="win:Informational" keywords="Analytic" template="IdentityProviderOperationStopArgs"/>
+     <event value="1021" symbol="LiveIdModernAPIOperation" version="0" task="LiveIdModernAPIOperation" level="win:Error" keywords="Error Operational" template="LiveIdModernAPIOperationArgs"/>
+     <event value="1022" symbol="LiveIdModernAPIOperation1022" version="0" task="LiveIdModernAPIOperation" level="win:Error" keywords="Error Operational" template="LiveIdModernAPIOperationArgs"/>
+     <event value="2008" symbol="LiveIdModernAPIOperationStart2008" version="0" task="LiveIdModernAPIOperation" opcode="win:Start" level="win:Informational" keywords="Analytic"/>
+     <event value="2009" symbol="LiveIdModernAPIOperationStop2009" version="0" task="LiveIdModernAPIOperation" opcode="win:Stop" level="win:Informational" keywords="Analytic"/>
+     <event value="2010" symbol="LiveIdModernAPIOperationStart2010" version="0" task="LiveIdModernAPIOperation" opcode="win:Start" level="win:Informational" keywords="Analytic"/>
+     <event value="2011" symbol="LiveIdModernAPIOperationStop2011" version="0" task="LiveIdModernAPIOperation" opcode="win:Stop" level="win:Informational" keywords="Analytic"/>
+     <event value="2012" symbol="LiveIdModernAPIOperationStart2012" version="0" task="LiveIdModernAPIOperation" opcode="win:Start" level="win:Informational" keywords="Analytic"/>
+     <event value="2013" symbol="LiveIdModernAPIOperationStop2013" version="0" task="LiveIdModernAPIOperation" opcode="win:Stop" level="win:Informational" keywords="Analytic"/>
+     <event value="2014" symbol="WLIDServiceOperationStart2014" version="0" task="WLIDServiceOperation" opcode="win:Start" level="win:Informational" keywords="Analytic"/>
+     <event value="2015" symbol="WLIDCredProvOperationStart" version="0" task="WLIDCredProvOperation" opcode="win:Start" level="win:Informational" keywords="Analytic"/>
+     <event value="2016" symbol="WLIDCredProvOperationStop" version="0" task="WLIDCredProvOperation" opcode="win:Stop" level="win:Informational" keywords="Analytic" template="IdentityProviderOperationStopArgs"/>
+     <event value="2017" symbol="WLIDCredProvOperationStart2017" version="0" task="WLIDCredProvOperation" opcode="win:Start" level="win:Informational" keywords="Analytic"/>
+     <event value="2018" symbol="WLIDCredProvOperationStop2018" version="0" task="WLIDCredProvOperation" opcode="win:Stop" level="win:Informational" keywords="Analytic" template="IdentityProviderOperationStopArgs"/>
+     <event value="2019" symbol="WLIDCredProvOperationStart2019" version="0" task="WLIDCredProvOperation" opcode="win:Start" level="win:Informational" keywords="Analytic"/>
+     <event value="2020" symbol="WLIDCredProvOperationStop2020" version="0" task="WLIDCredProvOperation" opcode="win:Stop" level="win:Informational" keywords="Analytic" template="IdentityProviderOperationStopArgs"/>
+     <event value="2021" symbol="WLIDCredProvOperationStart2021" version="0" task="WLIDCredProvOperation" opcode="win:Start" level="win:Informational" keywords="Analytic"/>
+     <event value="2022" symbol="WLIDCredProvOperationStop2022" version="0" task="WLIDCredProvOperation" opcode="win:Stop" level="win:Informational" keywords="Analytic" template="IdentityProviderOperationStopArgs"/>
+     <event value="2023" symbol="WLIDServiceOperation" version="0" task="WLIDServiceOperation" level="win:Informational" keywords="Operational" template="WLIDServiceOperationArgs"/>
+     <event value="2024" symbol="WLIDServiceOperation2024" version="0" task="WLIDServiceOperation" level="win:Informational" keywords="Operational" template="WLIDServiceOperation2024Args"/>
+     <event value="2025" symbol="WLIDServiceOperation2025" version="0" task="WLIDServiceOperation" level="win:Error" keywords="Error Operational keyword_400000000000" template="WLIDServiceOperation2025Args"/>
+     <event value="2026" symbol="task_0" version="0" task="task_0" level="win:Informational" keywords="Telemetry" template="task_0Args"/>
+     <event value="2027" symbol="task_02027" version="0" task="task_0" level="win:Informational" keywords="Telemetry" template="task_02027Args"/>
+     <event value="2028" symbol="task_02028" version="0" task="task_0" level="win:Error" keywords="Telemetry Error" template="task_02028Args"/>
+     <event value="3000" symbol="task_03000" version="0" task="task_0" level="win:Critical" keywords="Critical LiveSsp" template="task_03000Args"/>
+     <event value="3001" symbol="task_03001" version="0" task="task_0" level="win:Error" keywords="Error LiveSsp" template="task_03000Args"/>
+     <event value="3002" symbol="task_03002" version="0" task="task_0" level="win:Warning" keywords="Warning LiveSsp" template="task_03000Args"/>
+     <event value="3003" symbol="task_03003" version="0" task="task_0" level="win:Informational" keywords="LiveSsp" template="task_03000Args"/>
+     <event value="3004" symbol="task_03004" version="0" task="task_0" level="win:Critical" keywords="Critical LiveSsp" template="task_03004Args"/>
+     <event value="3005" symbol="task_03005" version="0" task="task_0" level="win:Error" keywords="Error LiveSsp" template="task_03004Args"/>
+     <event value="3006" symbol="task_03006" version="0" task="task_0" level="win:Warning" keywords="Warning LiveSsp" template="task_03004Args"/>
+     <event value="3007" symbol="task_03007" version="0" task="task_0" level="win:Informational" keywords="LiveSsp" template="task_03004Args"/>
+     <event value="3008" symbol="task_03008" version="0" task="task_0" level="win:Verbose" keywords="Function LiveSsp" template="task_03008Args"/>
+     <event value="3009" symbol="task_03009" version="0" task="task_0" level="win:Verbose" keywords="Function LiveSsp" template="task_02028Args"/>
+     <event value="3010" symbol="task_03010" version="0" task="task_0" level="win:Error" keywords="Error Function LiveSsp" template="task_02028Args"/>
+     <event value="3011" symbol="task_03011" version="0" task="task_0" level="win:Verbose" keywords="Function LiveSsp" template="task_03011Args"/>
+     <event value="3012" symbol="task_03012" version="0" task="task_0" level="win:Error" keywords="Error LiveSsp" template="task_03012Args"/>
+     <event value="3013" symbol="task_03013" version="0" task="task_0" level="win:Error" keywords="Error LiveSsp" template="task_03013Args"/>
+     <event value="3014" symbol="task_03014" version="0" task="task_0" level="win:Warning" keywords="Function Warning LiveSsp" template="task_02028Args"/>
+     <event value="3015" symbol="task_03015" version="0" task="task_0" level="win:Verbose" keywords="LiveSsp" template="task_03000Args"/>
+     <event value="3016" symbol="task_03016" version="0" task="task_0" level="win:Verbose" keywords="LiveSsp" template="task_03004Args"/>
+     <event value="4000" symbol="task_04000" version="0" task="task_0" level="win:Critical" keywords="Critical CredProv" template="task_03000Args"/>
+     <event value="4001" symbol="task_04001" version="0" task="task_0" level="win:Error" keywords="Error CredProv" template="task_03000Args"/>
+     <event value="4002" symbol="task_04002" version="0" task="task_0" level="win:Warning" keywords="Warning CredProv" template="task_03000Args"/>
+     <event value="4003" symbol="task_04003" version="0" task="task_0" level="win:Informational" keywords="CredProv" template="task_03000Args"/>
+     <event value="4004" symbol="task_04004" version="0" task="task_0" level="win:Critical" keywords="Critical CredProv" template="task_03004Args"/>
+     <event value="4005" symbol="task_04005" version="0" task="task_0" level="win:Error" keywords="Error CredProv" template="task_03004Args"/>
+     <event value="4006" symbol="task_04006" version="0" task="task_0" level="win:Warning" keywords="Warning CredProv" template="task_03004Args"/>
+     <event value="4007" symbol="task_04007" version="0" task="task_0" level="win:Informational" keywords="CredProv" template="task_03004Args"/>
+     <event value="4008" symbol="task_04008" version="0" task="task_0" level="win:Verbose" keywords="Function CredProv" template="task_03008Args"/>
+     <event value="4009" symbol="task_04009" version="0" task="task_0" level="win:Verbose" keywords="Function CredProv" template="task_02028Args"/>
+     <event value="4010" symbol="task_04010" version="0" task="task_0" level="win:Error" keywords="Error Function CredProv" template="task_02028Args"/>
+     <event value="4011" symbol="task_04011" version="0" task="task_0" level="win:Verbose" keywords="Function CredProv" template="task_03011Args"/>
+     <event value="4012" symbol="task_04012" version="0" task="task_0" level="win:Error" keywords="Error CredProv" template="task_03012Args"/>
+     <event value="4013" symbol="task_04013" version="0" task="task_0" level="win:Error" keywords="Error CredProv" template="task_03013Args"/>
+     <event value="4014" symbol="task_04014" version="0" task="task_0" level="win:Warning" keywords="Function Warning CredProv" template="task_02028Args"/>
+     <event value="4015" symbol="task_04015" version="0" task="task_0" level="win:Verbose" keywords="CredProv" template="task_03000Args"/>
+     <event value="4016" symbol="task_04016" version="0" task="task_0" level="win:Verbose" keywords="CredProv" template="task_03004Args"/>
+     <event value="5000" symbol="task_05000" version="0" task="task_0" level="win:Critical" keywords="Critical WlidNsp" template="task_03000Args"/>
+     <event value="5001" symbol="task_05001" version="0" task="task_0" level="win:Error" keywords="Error WlidNsp" template="task_03000Args"/>
+     <event value="5002" symbol="task_05002" version="0" task="task_0" level="win:Warning" keywords="Warning WlidNsp" template="task_03000Args"/>
+     <event value="5003" symbol="task_05003" version="0" task="task_0" level="win:Informational" keywords="WlidNsp" template="task_03000Args"/>
+     <event value="5004" symbol="task_05004" version="0" task="task_0" level="win:Critical" keywords="Critical WlidNsp" template="task_03004Args"/>
+     <event value="5005" symbol="task_05005" version="0" task="task_0" level="win:Error" keywords="Error WlidNsp" template="task_03004Args"/>
+     <event value="5006" symbol="task_05006" version="0" task="task_0" level="win:Warning" keywords="Warning WlidNsp" template="task_03004Args"/>
+     <event value="5007" symbol="task_05007" version="0" task="task_0" level="win:Informational" keywords="WlidNsp" template="task_03004Args"/>
+     <event value="5008" symbol="task_05008" version="0" task="task_0" level="win:Verbose" keywords="Function WlidNsp" template="task_03008Args"/>
+     <event value="5009" symbol="task_05009" version="0" task="task_0" level="win:Verbose" keywords="Function WlidNsp" template="task_02028Args"/>
+     <event value="5010" symbol="task_05010" version="0" task="task_0" level="win:Error" keywords="Error Function WlidNsp" template="task_02028Args"/>
+     <event value="5011" symbol="task_05011" version="0" task="task_0" level="win:Verbose" keywords="Function WlidNsp" template="task_03011Args"/>
+     <event value="5012" symbol="task_05012" version="0" task="task_0" level="win:Error" keywords="Error WlidNsp" template="task_03012Args"/>
+     <event value="5013" symbol="task_05013" version="0" task="task_0" level="win:Error" keywords="Error WlidNsp" template="task_03013Args"/>
+     <event value="5014" symbol="task_05014" version="0" task="task_0" level="win:Warning" keywords="Function Warning WlidNsp" template="task_02028Args"/>
+     <event value="5015" symbol="task_05015" version="0" task="task_0" level="win:Verbose" keywords="WlidNsp" template="task_03000Args"/>
+     <event value="5016" symbol="task_05016" version="0" task="task_0" level="win:Verbose" keywords="WlidNsp" template="task_03004Args"/>
+     <event value="6000" symbol="task_06000" version="0" task="task_0" level="win:Critical" keywords="Critical WlidSvc" template="task_03000Args"/>
+     <event value="6001" symbol="task_06001" version="0" task="task_0" level="win:Error" keywords="Error WlidSvc" template="task_03000Args"/>
+     <event value="6002" symbol="task_06002" version="0" task="task_0" level="win:Warning" keywords="Warning WlidSvc" template="task_03000Args"/>
+     <event value="6003" symbol="task_06003" version="0" task="task_0" level="win:Informational" keywords="WlidSvc" template="task_03000Args"/>
+     <event value="6004" symbol="task_06004" version="0" task="task_0" level="win:Critical" keywords="Critical WlidSvc" template="task_03004Args"/>
+     <event value="6005" symbol="task_06005" version="0" task="task_0" level="win:Error" keywords="Error WlidSvc" template="task_03004Args"/>
+     <event value="6006" symbol="task_06006" version="0" task="task_0" level="win:Warning" keywords="Warning WlidSvc" template="task_03004Args"/>
+     <event value="6007" symbol="task_06007" version="0" task="task_0" level="win:Informational" keywords="WlidSvc" template="task_03004Args"/>
+     <event value="6008" symbol="FunctionCallStart" version="0" task="FunctionCall" opcode="win:Start" level="win:Verbose" keywords="Function WlidSvc" template="task_03008Args"/>
+     <event value="6009" symbol="FunctionCallStop" version="0" task="FunctionCall" opcode="win:Stop" level="win:Verbose" keywords="Function WlidSvc" template="task_02028Args"/>
+     <event value="6010" symbol="FunctionCallStop6010" version="0" task="FunctionCall" opcode="win:Stop" level="win:Error" keywords="Error Function WlidSvc" template="task_02028Args"/>
+     <event value="6011" symbol="FunctionCallStop6011" version="0" task="FunctionCall" opcode="win:Stop" level="win:Verbose" keywords="Function WlidSvc" template="task_03011Args"/>
+     <event value="6012" symbol="task_06012" version="0" task="task_0" level="win:Error" keywords="Error WlidSvc" template="task_03012Args"/>
+     <event value="6013" symbol="task_06013" version="0" task="task_0" level="win:Error" keywords="Error WlidSvc" template="task_03013Args"/>
+     <event value="6014" symbol="task_06014" version="0" task="task_0" level="win:Warning" keywords="Function Warning WlidSvc" template="task_02028Args"/>
+     <event value="6015" symbol="task_06015" version="0" task="task_0" level="win:Verbose" keywords="WlidSvc" template="task_03000Args"/>
+     <event value="6016" symbol="task_06016" version="0" task="task_0" level="win:Verbose" keywords="WlidSvc" template="task_03004Args"/>
+     <event value="6100" symbol="task_06100" version="0" task="task_0" level="win:Informational" keywords="RequestStart WlidSvc" template="task_06100Args"/>
+     <event value="6101" symbol="task_06101" version="0" task="task_0" level="win:Informational" keywords="WlidSvc Credentials" template="task_06101Args"/>
+     <event value="6102" symbol="task_06102" version="0" task="task_0" level="win:Informational" keywords="WlidSvc Credentials" template="task_06100Args"/>
+     <event value="6103" symbol="task_06103" version="0" task="task_0" level="win:Informational" keywords="WlidSvc Credentials" template="task_06100Args"/>
+     <event value="6104" symbol="task_06104" version="0" task="task_0" level="win:Informational" keywords="WlidSvc Credentials" template="task_06104Args"/>
+     <event value="6105" symbol="task_06105" version="0" task="task_0" level="win:Informational" keywords="WlidSvc Credentials" template="task_06104Args"/>
+     <event value="6112" symbol="task_06112" version="0" task="task_0" level="win:Informational" keywords="WlidSvc Credentials" template="task_06112Args"/>
+     <event value="6113" symbol="task_06113" version="0" task="task_0" level="win:Error" keywords="Error Operational WlidSvc RPC" template="task_06113Args"/>
+     <event value="6114" symbol="task_06114" version="0" task="task_0" level="win:Error" keywords="Error Operational WlidSvc SOAP" template="task_06114Args"/>
+     <event value="6115" symbol="task_06115" version="0" task="task_0" level="win:Informational" keywords="WlidSvc SOAP" template="task_06115Args"/>
+     <event value="6116" symbol="task_06116" version="0" task="task_0" level="win:Informational" keywords="WlidSvc SOAP" template="task_06115Args"/>
+     <event value="6117" symbol="task_06117" version="0" task="task_0" level="win:Informational" keywords="WlidSvc SOAP" template="task_06117Args"/>
+     <event value="7000" symbol="task_07000" version="0" task="task_0" level="win:Critical" keywords="Critical WlidModern" template="task_03000Args"/>
+     <event value="7001" symbol="task_07001" version="0" task="task_0" level="win:Error" keywords="Error WlidModern" template="task_03000Args"/>
+     <event value="7002" symbol="task_07002" version="0" task="task_0" level="win:Warning" keywords="Warning WlidModern" template="task_03000Args"/>
+     <event value="7003" symbol="task_07003" version="0" task="task_0" level="win:Informational" keywords="WlidModern" template="task_03000Args"/>
+     <event value="7004" symbol="task_07004" version="0" task="task_0" level="win:Critical" keywords="Critical WlidModern" template="task_03004Args"/>
+     <event value="7005" symbol="task_07005" version="0" task="task_0" level="win:Error" keywords="Error WlidModern" template="task_03004Args"/>
+     <event value="7006" symbol="task_07006" version="0" task="task_0" level="win:Warning" keywords="Warning WlidModern" template="task_03004Args"/>
+     <event value="7007" symbol="task_07007" version="0" task="task_0" level="win:Informational" keywords="WlidModern" template="task_03004Args"/>
+     <event value="7008" symbol="task_07008" version="0" task="task_0" level="win:Verbose" keywords="Function WlidModern" template="task_03008Args"/>
+     <event value="7009" symbol="task_07009" version="0" task="task_0" level="win:Verbose" keywords="Function WlidModern" template="task_02028Args"/>
+     <event value="7010" symbol="task_07010" version="0" task="task_0" level="win:Error" keywords="Error Function WlidModern" template="task_02028Args"/>
+     <event value="7011" symbol="task_07011" version="0" task="task_0" level="win:Verbose" keywords="Function WlidModern" template="task_03011Args"/>
+     <event value="7012" symbol="task_07012" version="0" task="task_0" level="win:Error" keywords="Error WlidModern" template="task_03012Args"/>
+     <event value="7013" symbol="task_07013" version="0" task="task_0" level="win:Error" keywords="Error WlidModern" template="task_03013Args"/>
+     <event value="7014" symbol="task_07014" version="0" task="task_0" level="win:Warning" keywords="Function Warning WlidModern" template="task_02028Args"/>
+     <event value="7015" symbol="task_07015" version="0" task="task_0" level="win:Verbose" keywords="WlidModern" template="task_03000Args"/>
+     <event value="7016" symbol="task_07016" version="0" task="task_0" level="win:Verbose" keywords="WlidModern" template="task_03004Args"/>
+     <event value="7100" symbol="task_07100" version="0" task="task_0" level="win:Informational" keywords="WlidModern Cache" template="task_07100Args"/>
+     <event value="7101" symbol="task_07101" version="0" task="task_0" level="win:Informational" keywords="WlidModern" template="task_07101Args"/>
+     <event value="7102" symbol="task_07102" version="0" task="task_0" level="win:Informational" keywords="RequestStart WlidModern" template="task_06100Args"/>
+     <event value="7103" symbol="task_07103" version="0" task="task_0" level="win:Informational" keywords="WlidModern Cache" template="task_07101Args"/>
+     <event value="7104" symbol="task_07104" version="0" task="task_0" level="win:Informational" keywords="WlidModern StateMachine" template="task_07104Args"/>
+     <event value="7105" symbol="task_07105" version="0" task="task_0" level="win:Verbose" keywords="WlidModern Credentials" template="task_06100Args"/>
+     <event value="8000" symbol="task_08000" version="0" task="task_0" level="win:Critical" keywords="Critical WlidCli" template="task_03000Args"/>
+     <event value="8001" symbol="task_08001" version="0" task="task_0" level="win:Error" keywords="Error WlidCli" template="task_03000Args"/>
+     <event value="8002" symbol="task_08002" version="0" task="task_0" level="win:Warning" keywords="Warning WlidCli" template="task_03000Args"/>
+     <event value="8003" symbol="task_08003" version="0" task="task_0" level="win:Informational" keywords="WlidCli" template="task_03000Args"/>
+     <event value="8004" symbol="task_08004" version="0" task="task_0" level="win:Critical" keywords="Critical WlidCli" template="task_03004Args"/>
+     <event value="8005" symbol="task_08005" version="0" task="task_0" level="win:Error" keywords="Error WlidCli" template="task_03004Args"/>
+     <event value="8006" symbol="task_08006" version="0" task="task_0" level="win:Warning" keywords="Warning WlidCli" template="task_03004Args"/>
+     <event value="8007" symbol="task_08007" version="0" task="task_0" level="win:Informational" keywords="WlidCli" template="task_03004Args"/>
+     <event value="8008" symbol="task_08008" version="0" task="task_0" level="win:Verbose" keywords="Function WlidCli" template="task_03008Args"/>
+     <event value="8009" symbol="task_08009" version="0" task="task_0" level="win:Verbose" keywords="Function WlidCli" template="task_02028Args"/>
+     <event value="8010" symbol="task_08010" version="0" task="task_0" level="win:Error" keywords="Error Function WlidCli" template="task_02028Args"/>
+     <event value="8011" symbol="task_08011" version="0" task="task_0" level="win:Verbose" keywords="Function WlidCli" template="task_03011Args"/>
+     <event value="8012" symbol="task_08012" version="0" task="task_0" level="win:Error" keywords="Error WlidCli" template="task_03012Args"/>
+     <event value="8013" symbol="task_08013" version="0" task="task_0" level="win:Error" keywords="Error WlidCli" template="task_03013Args"/>
+     <event value="8014" symbol="task_08014" version="0" task="task_0" level="win:Warning" keywords="Function Warning WlidCli" template="task_02028Args"/>
+     <event value="8015" symbol="task_08015" version="0" task="task_0" level="win:Verbose" keywords="WlidCli" template="task_03000Args"/>
+     <event value="8016" symbol="task_08016" version="0" task="task_0" level="win:Verbose" keywords="WlidCli" template="task_03004Args"/>
+     <event value="9000" symbol="task_09000" version="0" task="task_0" level="win:Critical" keywords="Critical WlidProv" template="task_03000Args"/>
+     <event value="9001" symbol="task_09001" version="0" task="task_0" level="win:Error" keywords="Error WlidProv" template="task_03000Args"/>
+     <event value="9002" symbol="task_09002" version="0" task="task_0" level="win:Warning" keywords="Warning WlidProv" template="task_03000Args"/>
+     <event value="9003" symbol="task_09003" version="0" task="task_0" level="win:Informational" keywords="WlidProv" template="task_03000Args"/>
+     <event value="9004" symbol="task_09004" version="0" task="task_0" level="win:Critical" keywords="Critical WlidProv" template="task_03004Args"/>
+     <event value="9005" symbol="task_09005" version="0" task="task_0" level="win:Error" keywords="Error WlidProv" template="task_03004Args"/>
+     <event value="9006" symbol="task_09006" version="0" task="task_0" level="win:Warning" keywords="Warning WlidProv" template="task_03004Args"/>
+     <event value="9007" symbol="task_09007" version="0" task="task_0" level="win:Informational" keywords="WlidProv" template="task_03004Args"/>
+     <event value="9008" symbol="task_09008" version="0" task="task_0" level="win:Verbose" keywords="Function WlidProv" template="task_03008Args"/>
+     <event value="9009" symbol="task_09009" version="0" task="task_0" level="win:Verbose" keywords="Function WlidProv" template="task_02028Args"/>
+     <event value="9010" symbol="task_09010" version="0" task="task_0" level="win:Error" keywords="Error Function WlidProv" template="task_02028Args"/>
+     <event value="9011" symbol="task_09011" version="0" task="task_0" level="win:Verbose" keywords="Function WlidProv" template="task_03011Args"/>
+     <event value="9012" symbol="task_09012" version="0" task="task_0" level="win:Error" keywords="Error WlidProv" template="task_03012Args"/>
+     <event value="9013" symbol="task_09013" version="0" task="task_0" level="win:Error" keywords="Error WlidProv" template="task_03013Args"/>
+     <event value="9014" symbol="task_09014" version="0" task="task_0" level="win:Warning" keywords="Function Warning WlidProv" template="task_02028Args"/>
+     <event value="9015" symbol="task_09015" version="0" task="task_0" level="win:Verbose" keywords="WlidProv" template="task_03000Args"/>
+     <event value="9016" symbol="task_09016" version="0" task="task_0" level="win:Verbose" keywords="WlidProv" template="task_03004Args"/>
+     <event value="9100" symbol="task_09100" version="0" task="task_0" level="win:Verbose" keywords="WlidProv Credentials" template="task_06100Args"/>
+     <event value="10000" symbol="task_010000" version="0" task="task_0" level="win:Critical" keywords="Critical WlidBho" template="task_03000Args"/>
+     <event value="10001" symbol="task_010001" version="0" task="task_0" level="win:Error" keywords="Error WlidBho" template="task_03000Args"/>
+     <event value="10002" symbol="task_010002" version="0" task="task_0" level="win:Warning" keywords="Warning WlidBho" template="task_03000Args"/>
+     <event value="10003" symbol="task_010003" version="0" task="task_0" level="win:Informational" keywords="WlidBho" template="task_03000Args"/>
+     <event value="10004" symbol="task_010004" version="0" task="task_0" level="win:Critical" keywords="Critical WlidBho" template="task_03004Args"/>
+     <event value="10005" symbol="task_010005" version="0" task="task_0" level="win:Error" keywords="Error WlidBho" template="task_03004Args"/>
+     <event value="10006" symbol="task_010006" version="0" task="task_0" level="win:Warning" keywords="Warning WlidBho" template="task_03004Args"/>
+     <event value="10007" symbol="task_010007" version="0" task="task_0" level="win:Informational" keywords="WlidBho" template="task_03004Args"/>
+     <event value="10008" symbol="task_010008" version="0" task="task_0" level="win:Verbose" keywords="Function WlidBho" template="task_03008Args"/>
+     <event value="10009" symbol="task_010009" version="0" task="task_0" level="win:Verbose" keywords="Function WlidBho" template="task_02028Args"/>
+     <event value="10010" symbol="task_010010" version="0" task="task_0" level="win:Error" keywords="Error Function WlidBho" template="task_02028Args"/>
+     <event value="10011" symbol="task_010011" version="0" task="task_0" level="win:Verbose" keywords="Function WlidBho" template="task_03011Args"/>
+     <event value="10012" symbol="task_010012" version="0" task="task_0" level="win:Error" keywords="Error WlidBho" template="task_03012Args"/>
+     <event value="10013" symbol="task_010013" version="0" task="task_0" level="win:Error" keywords="Error WlidBho" template="task_03013Args"/>
+     <event value="10014" symbol="task_010014" version="0" task="task_0" level="win:Warning" keywords="Function Warning WlidBho" template="task_02028Args"/>
+     <event value="10015" symbol="task_010015" version="0" task="task_0" level="win:Verbose" keywords="WlidBho" template="task_03000Args"/>
+     <event value="10016" symbol="task_010016" version="0" task="task_0" level="win:Verbose" keywords="WlidBho" template="task_03004Args"/>
+     <event value="11000" symbol="task_011000" version="0" task="task_0" level="win:Critical" keywords="Critical TokenProvider" template="task_03000Args"/>
+     <event value="11001" symbol="task_011001" version="0" task="task_0" level="win:Error" keywords="Error TokenProvider" template="task_03000Args"/>
+     <event value="11002" symbol="task_011002" version="0" task="task_0" level="win:Warning" keywords="Warning TokenProvider" template="task_03000Args"/>
+     <event value="11003" symbol="task_011003" version="0" task="task_0" level="win:Informational" keywords="TokenProvider" template="task_03000Args"/>
+     <event value="11004" symbol="task_011004" version="0" task="task_0" level="win:Critical" keywords="Critical TokenProvider" template="task_03004Args"/>
+     <event value="11005" symbol="task_011005" version="0" task="task_0" level="win:Error" keywords="Error TokenProvider" template="task_03004Args"/>
+     <event value="11006" symbol="task_011006" version="0" task="task_0" level="win:Warning" keywords="Warning TokenProvider" template="task_03004Args"/>
+     <event value="11007" symbol="task_011007" version="0" task="task_0" level="win:Informational" keywords="TokenProvider" template="task_03004Args"/>
+     <event value="11008" symbol="task_011008" version="0" task="task_0" level="win:Verbose" keywords="Function TokenProvider" template="task_03008Args"/>
+     <event value="11009" symbol="task_011009" version="0" task="task_0" level="win:Verbose" keywords="Function TokenProvider" template="task_02028Args"/>
+     <event value="11010" symbol="task_011010" version="0" task="task_0" level="win:Error" keywords="Error Function TokenProvider" template="task_02028Args"/>
+     <event value="11011" symbol="task_011011" version="0" task="task_0" level="win:Verbose" keywords="Function TokenProvider" template="task_03011Args"/>
+     <event value="11012" symbol="task_011012" version="0" task="task_0" level="win:Error" keywords="Error TokenProvider" template="task_03012Args"/>
+     <event value="11013" symbol="task_011013" version="0" task="task_0" level="win:Error" keywords="Error TokenProvider" template="task_03013Args"/>
+     <event value="11014" symbol="task_011014" version="0" task="task_0" level="win:Warning" keywords="Function Warning TokenProvider" template="task_02028Args"/>
+     <event value="11015" symbol="task_011015" version="0" task="task_0" level="win:Verbose" keywords="TokenProvider" template="task_03000Args"/>
+     <event value="11016" symbol="task_011016" version="0" task="task_0" level="win:Verbose" keywords="TokenProvider" template="task_03004Args"/>
+     <event value="12000" symbol="task_012000" version="0" task="task_0" level="win:Critical" keywords="Critical Extension" template="task_03000Args"/>
+     <event value="12001" symbol="task_012001" version="0" task="task_0" level="win:Error" keywords="Error Extension" template="task_03000Args"/>
+     <event value="12002" symbol="task_012002" version="0" task="task_0" level="win:Warning" keywords="Warning Extension" template="task_03000Args"/>
+     <event value="12003" symbol="task_012003" version="0" task="task_0" level="win:Informational" keywords="Extension" template="task_03000Args"/>
+     <event value="12004" symbol="task_012004" version="0" task="task_0" level="win:Critical" keywords="Critical Extension" template="task_03004Args"/>
+     <event value="12005" symbol="task_012005" version="0" task="task_0" level="win:Error" keywords="Error Extension" template="task_03004Args"/>
+     <event value="12006" symbol="task_012006" version="0" task="task_0" level="win:Warning" keywords="Warning Extension" template="task_03004Args"/>
+     <event value="12007" symbol="task_012007" version="0" task="task_0" level="win:Informational" keywords="Extension" template="task_03004Args"/>
+     <event value="12008" symbol="task_012008" version="0" task="task_0" level="win:Verbose" keywords="Function Extension" template="task_03008Args"/>
+     <event value="12009" symbol="task_012009" version="0" task="task_0" level="win:Verbose" keywords="Function Extension" template="task_02028Args"/>
+     <event value="12010" symbol="task_012010" version="0" task="task_0" level="win:Error" keywords="Error Function Extension" template="task_02028Args"/>
+     <event value="12011" symbol="task_012011" version="0" task="task_0" level="win:Verbose" keywords="Function Extension" template="task_03011Args"/>
+     <event value="12012" symbol="task_012012" version="0" task="task_0" level="win:Error" keywords="Error Extension" template="task_03012Args"/>
+     <event value="12013" symbol="task_012013" version="0" task="task_0" level="win:Error" keywords="Error Extension" template="task_03013Args"/>
+     <event value="12014" symbol="task_012014" version="0" task="task_0" level="win:Warning" keywords="Function Warning Extension" template="task_02028Args"/>
+     <event value="12015" symbol="task_012015" version="0" task="task_0" level="win:Verbose" keywords="Extension" template="task_03000Args"/>
+     <event value="12016" symbol="task_012016" version="0" task="task_0" level="win:Verbose" keywords="Extension" template="task_03004Args"/>
+    </events>
+    <templates>
+     <template tid="IdentityProviderOperationStopArgs">
+      <data name="Result" inType="win:Int32"/>
+     </template>
+     <template tid="WLIDServiceOperationStopArgs">
+      <data name="NoOfTargets" inType="win:UInt32"/>
+      <data name="RequestType" inType="win:UInt32" map="SOAPRequestType"/>
+     </template>
+     <template tid="LiveIdModernAPIOperationStopArgs">
+      <data name="TicketsCached" inType="win:Boolean"/>
+      <data name="Result" inType="win:HexInt32"/>
+     </template>
+     <template tid="LiveIdModernAPIOperationArgs">
+      <data name="RegistryLocation" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:HexInt32"/>
+     </template>
+     <template tid="WLIDServiceOperationArgs">
+      <data name="Operation" inType="win:UnicodeString"/>
+      <data name="Target" inType="win:UnicodeString"/>
+      <data name="Result" inType="win:HexInt32"/>
+     </template>
+     <template tid="WLIDServiceOperation2024Args">
+      <data name="Operation" inType="win:UnicodeString"/>
+      <data name="Details" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:HexInt32"/>
+     </template>
+     <template tid="WLIDServiceOperation2025Args">
+      <data name="Operation" inType="win:UnicodeString"/>
+      <data name="Reason" inType="win:UnicodeString"/>
+      <data name="Result" inType="win:HexInt32"/>
+     </template>
+     <template tid="task_0Args">
+      <data name="PointType" inType="win:UnicodeString"/>
+      <data name="AppName" inType="win:UnicodeString"/>
+      <data name="ModuleName" inType="win:UnicodeString"/>
+      <data name="ModuleVersion" inType="win:UnicodeString"/>
+      <data name="FileName" inType="win:AnsiString"/>
+      <data name="FunctionName" inType="win:AnsiString"/>
+      <data name="LineNumber" inType="win:UInt32"/>
+      <data name="ErrorCode" inType="win:Int32"/>
+     </template>
+     <template tid="task_02027Args">
+      <data name="cid" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_02028Args">
+      <data name="FunctionName" inType="win:AnsiString"/>
+      <data name="ErrorCode" inType="win:Int32"/>
+     </template>
+     <template tid="task_03000Args">
+      <data name="FileName" inType="win:AnsiString"/>
+      <data name="LineNumber" inType="win:UInt32"/>
+      <data name="description" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_03004Args">
+      <data name="FileName" inType="win:AnsiString"/>
+      <data name="LineNumber" inType="win:UInt32"/>
+      <data name="description" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_03008Args">
+      <data name="FileName" inType="win:AnsiString"/>
+      <data name="FunctionName" inType="win:AnsiString"/>
+      <data name="LineNumber" inType="win:UInt32"/>
+      <data name="description" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_03011Args">
+      <data name="FunctionName" inType="win:AnsiString"/>
+      <data name="Address" inType="win:Pointer"/>
+     </template>
+     <template tid="task_03012Args">
+      <data name="ProcessName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_03013Args">
+      <data name="FileName" inType="win:AnsiString"/>
+      <data name="FunctionName" inType="win:AnsiString"/>
+      <data name="LineNumber" inType="win:UInt32"/>
+      <data name="Expression" inType="win:AnsiString"/>
+      <data name="ErrorCode" inType="win:Int32"/>
+     </template>
+     <template tid="task_06100Args">
+      <data name="value" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_06101Args">
+      <data name="TargetName" inType="win:UnicodeString"/>
+      <data name="ExpiryTime" inType="win:FILETIME"/>
+     </template>
+     <template tid="task_06104Args">
+      <data name="value" inType="win:Int32"/>
+     </template>
+     <template tid="task_06112Args">
+      <data name="value1" inType="win:UnicodeString"/>
+      <data name="value2" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_06113Args">
+      <data name="FunctionName" inType="win:AnsiString"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="task_06114Args">
+      <data name="RequestType" inType="win:UInt32"/>
+      <data name="cid" inType="win:AnsiString"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="MachineEnvironment" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_06115Args">
+      <data name="Value" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_06117Args">
+      <data name="ResourceURI" inType="win:AnsiString"/>
+      <data name="Created" inType="win:SYSTEMTIME"/>
+      <data name="Expires" inType="win:SYSTEMTIME"/>
+      <data name="TokenType" inType="win:AnsiString"/>
+      <data name="AuthRequired" inType="win:Int32"/>
+      <data name="RequestStatus" inType="win:Int32"/>
+      <data name="HasFlowUrl" inType="win:Boolean"/>
+      <data name="HasAuthUrl" inType="win:Boolean"/>
+      <data name="HasEndAuthUrl" inType="win:Boolean"/>
+     </template>
+     <template tid="task_07100Args">
+      <data name="Uri" inType="win:UnicodeString"/>
+      <data name="Policy" inType="win:UnicodeString"/>
+      <data name="TimeToLive" inType="win:UInt32"/>
+     </template>
+     <template tid="task_07101Args">
+      <data name="value1" inType="win:UnicodeString"/>
+      <data name="value2" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_07104Args">
+      <data name="Attempts" inType="win:UInt32"/>
+      <data name="latestIterationResult" inType="win:UInt32"/>
+      <data name="continueRetry" inType="win:Boolean"/>
+      <data name="isConnected" inType="win:Boolean"/>
+      <data name="flowUrl" inType="win:UnicodeString"/>
+      <data name="defaultUser" inType="win:UnicodeString"/>
+      <data name="promptType" inType="win:UInt32"/>
+      <data name="authUrl" inType="win:UnicodeString"/>
+      <data name="endAuthUrl" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Telemetry" value="Telemetry"/>
+    <string id="keyword_Error" value="Error"/>
+    <string id="keyword_Analytic" value="Analytic"/>
+    <string id="keyword_Function" value="Function"/>
+    <string id="keyword_Operational" value="Operational"/>
+    <string id="keyword_Warning" value="Warning"/>
+    <string id="keyword_Critical" value="Critical"/>
+    <string id="keyword_RequestStart" value="RequestStart"/>
+    <string id="keyword_LiveSsp" value="LiveSsp"/>
+    <string id="keyword_CredProv" value="CredProv"/>
+    <string id="keyword_WlidNsp" value="WlidNsp"/>
+    <string id="keyword_WlidSvc" value="WlidSvc"/>
+    <string id="keyword_WlidModern" value="WlidModern"/>
+    <string id="keyword_WlidCli" value="WlidCli"/>
+    <string id="keyword_WlidProv" value="WlidProv"/>
+    <string id="keyword_WlidBho" value="WlidBho"/>
+    <string id="keyword_TokenProvider" value="TokenProvider"/>
+    <string id="keyword_Extension" value="Extension"/>
+    <string id="keyword_Cache" value="Cache"/>
+    <string id="keyword_Credentials" value="Credentials"/>
+    <string id="keyword_StateMachine" value="StateMachine"/>
+    <string id="keyword_SOAP" value="SOAP"/>
+    <string id="keyword_RPC" value="RPC"/>
+    <string id="keyword_keyword_400000000000" value="keyword_400000000000"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_WLIDServiceOperation" value="WLIDServiceOperation"/>
+    <string id="task_IdentityProviderOperation" value="IdentityProviderOperation"/>
+    <string id="task_LiveIdModernAPIOperation" value="LiveIdModernAPIOperation"/>
+    <string id="task_WLIDCredProvOperation" value="WLIDCredProvOperation"/>
+    <string id="task_FunctionCall" value="FunctionCall"/>
+    <string id="map_SOAPRequestTypeAuth" value="Auth"/>
+    <string id="map_SOAPRequestTypeService" value="Service"/>
+    <string id="map_SOAPRequestTypeDeviceAuth" value="DeviceAuth"/>
+    <string id="map_SOAPRequestTypeDeleteDevice" value="DeleteDevice"/>
+    <string id="map_SOAPRequestTypeUpdateDevice" value="UpdateDevice"/>
+    <string id="map_SOAPRequestTypeAddCredential" value="AddCredential"/>
+    <string id="map_SOAPRequestTypeAssociateDevice" value="AssociateDevice"/>
+    <string id="map_SOAPRequestTypeDisassociateDevice" value="DisassociateDevice"/>
+    <string id="map_SOAPRequestTypeResolveDevice" value="ResolveDevice"/>
+    <string id="map_SOAPRequestTypePublishDevice" value="PublishDevice"/>
+    <string id="map_SOAPRequestTypeUpdateDeviceReaders" value="UpdateDeviceReaders"/>
+    <string id="map_SOAPRequestTypeResolveUser" value="ResolveUser"/>
+    <string id="map_SOAPRequestTypeOTC" value="OTC"/>
+    <string id="map_SOAPRequestTypeEnumDevices" value="EnumDevices"/>
+    <string id="map_SOAPRequestTypeUpdateDeviceProperties" value="UpdateDeviceProperties"/>
+    <string id="map_SOAPRequestTypeGetUserKeyData" value="GetUserKeyData"/>
+    <string id="map_SOAPRequestTypeCount" value="Count"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,1126 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-WebIO" guid="{50b3e73c-9370-461d-bb9f-26f32d68887d}" resourceFileName="Microsoft-Windows-WebIO" messageFileName="Microsoft-Windows-WebIO" symbol="MicrosoftWindowsWebIO" source="Xml" >
+    <keywords>
+     <keyword name="Keyword.API" message="$(string.keyword_Keyword.API)" mask="0x1"/>
+     <keyword name="Keyword.SEND" message="$(string.keyword_Keyword.SEND)" mask="0x100000000"/>
+     <keyword name="Keyword.RECEIVE" message="$(string.keyword_Keyword.RECEIVE)" mask="0x200000000"/>
+     <keyword name="Keyword.L3_CONNECT" message="$(string.keyword_Keyword.L3_CONNECT)" mask="0x400000000"/>
+     <keyword name="Keyword.CLOSE" message="$(string.keyword_Keyword.CLOSE)" mask="0x1000000000"/>
+     <keyword name="Keyword.SECURITY" message="$(string.keyword_Keyword.SECURITY)" mask="0x2000000000"/>
+     <keyword name="Keyword.CONFIGURATION" message="$(string.keyword_Keyword.CONFIGURATION)" mask="0x4000000000"/>
+     <keyword name="Keyword.GLOBAL" message="$(string.keyword_Keyword.GLOBAL)" mask="0x8000000000"/>
+     <keyword name="keyword_20000000000" message="$(string.keyword_keyword_20000000000)" mask="0x20000000000"/>
+    </keywords>
+    <tasks>
+     <task name="WebIOAPI" message="$(string.task_WebIOAPI)" value="109"/>
+     <task name="WebIODebug" message="$(string.task_WebIODebug)" value="110"/>
+     <task name="ApiInit" message="$(string.task_ApiInit)" value="111"/>
+     <task name="ApiTerminate" message="$(string.task_ApiTerminate)" value="112"/>
+     <task name="SessionCreate" message="$(string.task_SessionCreate)" value="113"/>
+     <task name="SessionClose" message="$(string.task_SessionClose)" value="114"/>
+     <task name="SyncApiWait" message="$(string.task_SyncApiWait)" value="115"/>
+     <task name="RequestCreate" message="$(string.task_RequestCreate)" value="200"/>
+     <task name="RequestConfiguration" message="$(string.task_RequestConfiguration)" value="201">
+>
+      <opcodes>
+       <opcode name="Set" message="$(string.opcode_RequestConfigurationSet)" value="14"/>
+      </opcodes>
+     </task>
+     <task name="RequestClose" message="$(string.task_RequestClose)" value="202"/>
+     <task name="RequestHeader" message="$(string.task_RequestHeader)" value="400"/>
+     <task name="ProxyResolution" message="$(string.task_ProxyResolution)" value="401"/>
+     <task name="Endpoint" message="$(string.task_Endpoint)" value="403"/>
+     <task name="RequestGenerateHeaders" message="$(string.task_RequestGenerateHeaders)" value="404"/>
+     <task name="RequestSendEntity" message="$(string.task_RequestSendEntity)" value="405"/>
+     <task name="RequestEntityTracker" message="$(string.task_RequestEntityTracker)" value="406">
+>
+      <opcodes>
+       <opcode name="Queue" message="$(string.opcode_RequestEntityTrackerQueue)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="RequestEntityCompleteCallback" message="$(string.task_RequestEntityCompleteCallback)" value="407"/>
+     <task name="ResponseRecieveEntity" message="$(string.task_ResponseRecieveEntity)" value="408"/>
+     <task name="ResponseEntityCompleteCallback" message="$(string.task_ResponseEntityCompleteCallback)" value="409"/>
+     <task name="RequestWaitingForConnection" message="$(string.task_RequestWaitingForConnection)" value="410"/>
+     <task name="ResponseParser" message="$(string.task_ResponseParser)" value="411">
+>
+      <opcodes>
+       <opcode name="Reset" message="$(string.opcode_ResponseParserReset)" value="16"/>
+      </opcodes>
+     </task>
+     <task name="ResponseDirectReceiveEntity" message="$(string.task_ResponseDirectReceiveEntity)" value="412"/>
+     <task name="RequestSend" message="$(string.task_RequestSend)" value="413"/>
+     <task name="ResponseReceive" message="$(string.task_ResponseReceive)" value="414"/>
+     <task name="ResponseConnectionBufferReceive" message="$(string.task_ResponseConnectionBufferReceive)" value="415">
+>
+      <opcodes>
+       <opcode name="Reallocate" message="$(string.opcode_ResponseConnectionBufferReceiveReallocate)" value="15"/>
+      </opcodes>
+     </task>
+     <task name="RequestCancel" message="$(string.task_RequestCancel)" value="416"/>
+     <task name="ConnectionSocketConnect" message="$(string.task_ConnectionSocketConnect)" value="417"/>
+     <task name="ConnectionSocketCreate" message="$(string.task_ConnectionSocketCreate)" value="418"/>
+     <task name="ConnectionSocketClose" message="$(string.task_ConnectionSocketClose)" value="419"/>
+     <task name="ConnectionNameResolution" message="$(string.task_ConnectionNameResolution)" value="420"/>
+     <task name="ConnectionSocketSend" message="$(string.task_ConnectionSocketSend)" value="421"/>
+     <task name="ConnectionSocketReceive" message="$(string.task_ConnectionSocketReceive)" value="423"/>
+     <task name="SSLEncryptMessage" message="$(string.task_SSLEncryptMessage)" value="424"/>
+     <task name="SSLInitializeSecurityContext" message="$(string.task_SSLInitializeSecurityContext)" value="425"/>
+     <task name="SSLSendEntity" message="$(string.task_SSLSendEntity)" value="426"/>
+     <task name="SSLCertValidation" message="$(string.task_SSLCertValidation)" value="427"/>
+     <task name="SSLReceiveEntity" message="$(string.task_SSLReceiveEntity)" value="428"/>
+     <task name="SSLDecryptMessage" message="$(string.task_SSLDecryptMessage)" value="429"/>
+     <task name="SSLConnectionBufferReceive" message="$(string.task_SSLConnectionBufferReceive)" value="430">
+>
+      <opcodes>
+       <opcode name="Reallocate" message="$(string.opcode_SSLConnectionBufferReceiveReallocate)" value="15"/>
+      </opcodes>
+     </task>
+     <task name="ThreadToken" message="$(string.task_ThreadToken)" value="431">
+>
+      <opcodes>
+       <opcode name="Get" message="$(string.opcode_ThreadTokenGet)" value="13"/>
+      </opcodes>
+     </task>
+     <task name="ResponseReceiveCompleteCallback" message="$(string.task_ResponseReceiveCompleteCallback)" value="432"/>
+     <task name="ThreadAction" message="$(string.task_ThreadAction)" value="433">
+>
+      <opcodes>
+       <opcode name="Queue" message="$(string.opcode_ThreadActionQueue)" value="11"/>
+       <opcode name="Cancel" message="$(string.opcode_ThreadActionCancel)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="Information" message="$(string.task_Information)" value="434"/>
+     <task name="ConnectionNameResolutionRequest" message="$(string.task_ConnectionNameResolutionRequest)" value="435"/>
+     <task name="SSLAcquireCredentialsHandle" message="$(string.task_SSLAcquireCredentialsHandle)" value="436"/>
+     <task name="ProtocolSendData" message="$(string.task_ProtocolSendData)" value="500"/>
+     <task name="ProtocolSendDataCallback" message="$(string.task_ProtocolSendDataCallback)" value="501"/>
+     <task name="ProtocolReceiveData" message="$(string.task_ProtocolReceiveData)" value="502"/>
+     <task name="ProtocolReceiveDataCallback" message="$(string.task_ProtocolReceiveDataCallback)" value="503"/>
+     <task name="ProtocolCancelHandle" message="$(string.task_ProtocolCancelHandle)" value="504"/>
+     <task name="ProtocolConfiguration" message="$(string.task_ProtocolConfiguration)" value="505">
+>
+      <opcodes>
+       <opcode name="Set" message="$(string.opcode_ProtocolConfigurationSet)" value="14"/>
+      </opcodes>
+     </task>
+     <task name="CompleteProtocolUpgrade" message="$(string.task_CompleteProtocolUpgrade)" value="506"/>
+     <task name="CloseProtocolHandle" message="$(string.task_CloseProtocolHandle)" value="507"/>
+     <task name="RequestState" message="$(string.task_RequestState)" value="901"/>
+    </tasks>
+    <maps>
+     <valueMap name="mapRequestOption">
+      <map value="0x0" message="$(string.map_mapRequestOptionAuthSchemeState)"/>
+      <map value="0x1" message="$(string.map_mapRequestOptionDisableAuthentication)"/>
+      <map value="0x2" message="$(string.map_mapRequestOptionClientCertificate)"/>
+      <map value="0x3" message="$(string.map_mapRequestOptionClientCertificateIssuerList)"/>
+      <map value="0x4" message="$(string.map_mapRequestOptionChannelBindingToken)"/>
+      <map value="0x5" message="$(string.map_mapRequestOptionIgnoredServerCertErrors)"/>
+      <map value="0x6" message="$(string.map_mapRequestOptionSecureProtocols)"/>
+      <map value="0x7" message="$(string.map_mapRequestOptionProxyAuthSchemes)"/>
+      <map value="0x8" message="$(string.map_mapRequestOptionProxyAuthState)"/>
+      <map value="0x9" message="$(string.map_mapRequestOptionProxyAutoLogonState)"/>
+      <map value="0xa" message="$(string.map_mapRequestOptionProxyConfig)"/>
+      <map value="0xb" message="$(string.map_mapRequestOptionProxyConnectHeaders)"/>
+      <map value="0xc" message="$(string.map_mapRequestOptionProxyCreds)"/>
+      <map value="0xd" message="$(string.map_mapRequestOptionProxySpnUsage)"/>
+      <map value="0xe" message="$(string.map_mapRequestOptionRedirectionLimit)"/>
+      <map value="0xf" message="$(string.map_mapRequestOptionSecureProtocolInformation)"/>
+      <map value="0x10" message="$(string.map_mapRequestOptionServerAuthSchemes)"/>
+      <map value="0x11" message="$(string.map_mapRequestOptionServerAuthState)"/>
+      <map value="0x12" message="$(string.map_mapRequestOptionServerAutoLogonState)"/>
+      <map value="0x13" message="$(string.map_mapRequestOptionServerCert)"/>
+      <map value="0x14" message="$(string.map_mapRequestOptionServerCreds)"/>
+      <map value="0x15" message="$(string.map_mapRequestOptionServerSpnUsage)"/>
+      <map value="0x16" message="$(string.map_mapRequestOptionSocketAddress)"/>
+      <map value="0x17" message="$(string.map_mapRequestOptionThirdPartyCookies)"/>
+      <map value="0x18" message="$(string.map_mapRequestOptionPathCodePage)"/>
+      <map value="0x19" message="$(string.map_mapRequestOptionExtraInfoCodePage)"/>
+      <map value="0x1a" message="$(string.map_mapRequestOptionServerCertErrors)"/>
+      <map value="0x1b" message="$(string.map_mapRequestOptionCookiesEnabled)"/>
+      <map value="0x1c" message="$(string.map_mapRequestOptionResponseHeadersSizeLimit)"/>
+      <map value="0x1d" message="$(string.map_mapRequestOptionServerSpnUsed)"/>
+      <map value="0x1e" message="$(string.map_mapRequestOptionProxySpnUsed)"/>
+      <map value="0x1f" message="$(string.map_mapRequestOptionConnectTimeout)"/>
+      <map value="0x20" message="$(string.map_mapRequestOptionResolveTimeout)"/>
+      <map value="0x21" message="$(string.map_mapRequestOptionSendTimeout)"/>
+      <map value="0x22" message="$(string.map_mapRequestOptionReceiveTimeout)"/>
+      <map value="0x23" message="$(string.map_mapRequestOptionConnectRetryCount)"/>
+      <map value="0x24" message="$(string.map_mapRequestOptionUnsafeHeaderParsing)"/>
+      <map value="0x4000" message="$(string.map_mapRequestOptionRevertToSelfClientCertificate)"/>
+      <map value="0x4001" message="$(string.map_mapRequestOptionNetworkInterfaceAffinity)"/>
+      <map value="0x4002" message="$(string.map_mapRequestOptionTcpAutoTuningRestricted)"/>
+      <map value="0x4003" message="$(string.map_mapRequestOptionDnsIdnTransformDisabled)"/>
+      <map value="0x4004" message="$(string.map_mapRequestOptionPeerDistExtension)"/>
+      <map value="0x4005" message="$(string.map_mapRequestOptionMaximumConnectCount)"/>
+      <map value="0x4006" message="$(string.map_mapRequestOptionGlobalKeepAlivePoolState)"/>
+      <map value="0x4007" message="$(string.map_mapRequestOptionConnectionState)"/>
+      <map value="0x4008" message="$(string.map_mapRequestOptionExceededResponseHeaderSizeLimit)"/>
+      <map value="0x400a" message="$(string.map_mapRequestOptionDnsInterfaceAffinity)"/>
+      <map value="0x4014" message="$(string.map_mapRequestOptionConnectionIdleTimeout)"/>
+     </valueMap>
+     <valueMap name="TCPCloseReasonType">
+      <map value="0x0" message="$(string.map_TCPCloseReasonTypeLocal Graceful)"/>
+      <map value="0x1" message="$(string.map_TCPCloseReasonTypeRemote Graceful)"/>
+      <map value="0x2" message="$(string.map_TCPCloseReasonTypeLocal Reset)"/>
+      <map value="0x3" message="$(string.map_TCPCloseReasonTypeRemote Reset)"/>
+      <map value="0x4" message="$(string.map_TCPCloseReasonTypeConnect Timeout)"/>
+      <map value="0x5" message="$(string.map_TCPCloseReasonTypeSend Timeout)"/>
+      <map value="0x6" message="$(string.map_TCPCloseReasonTypeReceive Timeout)"/>
+      <map value="0x7" message="$(string.map_TCPCloseReasonTypeScavenged)"/>
+      <map value="0x8" message="$(string.map_TCPCloseReasonTypeNo Reason)"/>
+      <map value="0x9" message="$(string.map_TCPCloseReasonTypeCleanup after hitting an error condition)"/>
+     </valueMap>
+     <valueMap name="SecurityApiRetValMap">
+      <map value="0x0" message="$(string.map_SecurityApiRetValMapSTATUS_SUCCESS)"/>
+      <map value="0x90300" message="$(string.map_SecurityApiRetValMapSEC_E_INSUFFICIENT_MEMORY)"/>
+      <map value="0x90301" message="$(string.map_SecurityApiRetValMapSEC_E_INVALID_HANDLE)"/>
+      <map value="0x90302" message="$(string.map_SecurityApiRetValMapSEC_E_UNSUPPORTED_FUNCTION)"/>
+      <map value="0x90303" message="$(string.map_SecurityApiRetValMapSEC_E_TARGET_UNKNOWN)"/>
+      <map value="0x90304" message="$(string.map_SecurityApiRetValMapSEC_E_INTERNAL_ERROR)"/>
+      <map value="0x90305" message="$(string.map_SecurityApiRetValMapSEC_E_SECPKG_NOT_FOUND)"/>
+      <map value="0x90306" message="$(string.map_SecurityApiRetValMapSEC_E_NOT_OWNER)"/>
+      <map value="0x90307" message="$(string.map_SecurityApiRetValMapSEC_E_CANNOT_INSTALL)"/>
+      <map value="0x90308" message="$(string.map_SecurityApiRetValMapSEC_E_INVALID_TOKEN)"/>
+      <map value="0x90309" message="$(string.map_SecurityApiRetValMapSEC_E_CANNOT_PACK)"/>
+      <map value="0x9030a" message="$(string.map_SecurityApiRetValMapSEC_E_QOP_NOT_SUPPORTED)"/>
+      <map value="0x9030b" message="$(string.map_SecurityApiRetValMapSEC_E_NO_IMPERSONATION)"/>
+      <map value="0x9030c" message="$(string.map_SecurityApiRetValMapSEC_E_LOGON_DENIED)"/>
+      <map value="0x9030d" message="$(string.map_SecurityApiRetValMapSEC_E_UNKNOWN_CREDENTIALS)"/>
+      <map value="0x9030e" message="$(string.map_SecurityApiRetValMapSEC_E_NO_CREDENTIALS)"/>
+      <map value="0x9030f" message="$(string.map_SecurityApiRetValMapSEC_E_MESSAGE_ALTERED)"/>
+      <map value="0x90310" message="$(string.map_SecurityApiRetValMapSEC_E_OUT_OF_SEQUENCE)"/>
+      <map value="0x90311" message="$(string.map_SecurityApiRetValMapSEC_E_NO_AUTHENTICATING_AUTHORITY)"/>
+      <map value="0x90312" message="$(string.map_SecurityApiRetValMapSEC_I_CONTINUE_NEEDED)"/>
+      <map value="0x90313" message="$(string.map_SecurityApiRetValMapSEC_I_COMPLETE_NEEDED)"/>
+      <map value="0x90314" message="$(string.map_SecurityApiRetValMapSEC_I_COMPLETE_AND_CONTINUE)"/>
+      <map value="0x90315" message="$(string.map_SecurityApiRetValMapSEC_I_LOCAL_LOGON)"/>
+      <map value="0x90316" message="$(string.map_SecurityApiRetValMapSEC_E_BAD_PKGID)"/>
+      <map value="0x90317" message="$(string.map_SecurityApiRetValMapSEC_E_CONTEXT_EXPIRED)"/>
+      <map value="0x90318" message="$(string.map_SecurityApiRetValMapSEC_E_INCOMPLETE_MESSAGE)"/>
+      <map value="0x80092010" message="$(string.map_SecurityApiRetValMapCRYPT_E_REVOKED)"/>
+      <map value="0x80092012" message="$(string.map_SecurityApiRetValMapCRYPT_E_NO_REVOCATION_CHECK)"/>
+      <map value="0x80092013" message="$(string.map_SecurityApiRetValMapCRYPT_E_REVOCATION_OFFLINE)"/>
+      <map value="0x80096004" message="$(string.map_SecurityApiRetValMapTRUST_E_CERT_SIGNATURE)"/>
+      <map value="0x80096019" message="$(string.map_SecurityApiRetValMapTRUST_E_BASIC_CONSTRAINTS)"/>
+      <map value="0x800b0101" message="$(string.map_SecurityApiRetValMapCERT_E_EXPIRED)"/>
+      <map value="0x800b0102" message="$(string.map_SecurityApiRetValMapCERT_E_VALIDITYPERIODNESTING)"/>
+      <map value="0x800b0103" message="$(string.map_SecurityApiRetValMapCERT_E_ROLE)"/>
+      <map value="0x800b0104" message="$(string.map_SecurityApiRetValMapCERT_E_PATHLENCONST)"/>
+      <map value="0x800b0105" message="$(string.map_SecurityApiRetValMapCERT_E_CRITICAL)"/>
+      <map value="0x800b0106" message="$(string.map_SecurityApiRetValMapCERT_E_PURPOSE)"/>
+      <map value="0x800b0107" message="$(string.map_SecurityApiRetValMapCERT_E_ISSUERCHAINING)"/>
+      <map value="0x800b0108" message="$(string.map_SecurityApiRetValMapCERT_E_MALFORMED)"/>
+      <map value="0x800b0109" message="$(string.map_SecurityApiRetValMapCERT_E_UNTRUSTEDROOT)"/>
+      <map value="0x800b010a" message="$(string.map_SecurityApiRetValMapCERT_E_CHAINING)"/>
+      <map value="0x800b010f" message="$(string.map_SecurityApiRetValMapCERT_E_CN_NO_MATCH)"/>
+      <map value="0x800b0110" message="$(string.map_SecurityApiRetValMapCERT_E_WRONG_USAGE)"/>
+      <map value="0x800b0111" message="$(string.map_SecurityApiRetValMapTRUST_E_EXPLICIT_DISTRUST)"/>
+      <map value="0x800b0113" message="$(string.map_SecurityApiRetValMapCERT_E_INVALID_POLICY)"/>
+      <map value="0x800b0114" message="$(string.map_SecurityApiRetValMapCERT_E_INVALID_NAME)"/>
+     </valueMap>
+     <valueMap name="mapVerifiyCertFailureReason">
+      <map value="0x0" message="$(string.map_mapVerifiyCertFailureReasonNo Error)"/>
+      <map value="0x1" message="$(string.map_mapVerifiyCertFailureReasonUnable to Get Cert)"/>
+      <map value="0x2" message="$(string.map_mapVerifiyCertFailureReasonNULL cert context)"/>
+      <map value="0x3" message="$(string.map_mapVerifiyCertFailureReasonUnable to Get Cert Chain)"/>
+      <map value="0x4" message="$(string.map_mapVerifiyCertFailureReasonUnable to Process URL to Hostname)"/>
+      <map value="0x5" message="$(string.map_mapVerifiyCertFailureReasonCert Validation Failure)"/>
+      <map value="0x6" message="$(string.map_mapVerifiyCertFailureReasonUnable to get Stream Sizes)"/>
+      <map value="0x7" message="$(string.map_mapVerifiyCertFailureReasonUnable to get Endpoint Bindings)"/>
+      <map value="0x8" message="$(string.map_mapVerifiyCertFailureReasonUnable to get secure connection information)"/>
+     </valueMap>
+     <bitMap name="mapSChannelProtocolIdentifiers">
+      <map value="0x1" message="$(string.map_mapSChannelProtocolIdentifiersSP_PROT_PCT1_SERVER)"/>
+      <map value="0x2" message="$(string.map_mapSChannelProtocolIdentifiersSP_PROT_PCT1_CLIENT)"/>
+      <map value="0x4" message="$(string.map_mapSChannelProtocolIdentifiersSP_PROT_SSL2_SERVER)"/>
+      <map value="0x8" message="$(string.map_mapSChannelProtocolIdentifiersSP_PROT_SSL2_CLIENT)"/>
+      <map value="0x10" message="$(string.map_mapSChannelProtocolIdentifiersSP_PROT_SSL3_SERVER)"/>
+      <map value="0x20" message="$(string.map_mapSChannelProtocolIdentifiersSP_PROT_SSL3_CLIENT)"/>
+      <map value="0x40" message="$(string.map_mapSChannelProtocolIdentifiersSP_PROT_TLS1_SERVER)"/>
+      <map value="0x80" message="$(string.map_mapSChannelProtocolIdentifiersSP_PROT_TLS1_CLIENT)"/>
+      <map value="0x100" message="$(string.map_mapSChannelProtocolIdentifiersSP_PROT_TLS1_1_SERVER)"/>
+      <map value="0x200" message="$(string.map_mapSChannelProtocolIdentifiersSP_PROT_TLS1_1_CLIENT)"/>
+      <map value="0x400" message="$(string.map_mapSChannelProtocolIdentifiersSP_PROT_TLS1_2_SERVER)"/>
+      <map value="0x800" message="$(string.map_mapSChannelProtocolIdentifiersSP_PROT_TLS1_2_CLIENT)"/>
+      <map value="0x40000000" message="$(string.map_mapSChannelProtocolIdentifiersSP_PROT_UNI_SERVER)"/>
+      <map value="0x80000000" message="$(string.map_mapSChannelProtocolIdentifiersSP_PROT_UNI_CLIENT)"/>
+     </bitMap>
+     <valueMap name="mapQueueActionType">
+      <map value="0x1" message="$(string.map_mapQueueActionTypeTimer)"/>
+      <map value="0x2" message="$(string.map_mapQueueActionTypeWorkItem)"/>
+      <map value="0x3" message="$(string.map_mapQueueActionTypeOverlapped IO)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="ApiInit" version="0" task="ApiInit" level="win:Informational" keywords="Keyword.API" template="ApiInitArgs"/>
+     <event value="2" symbol="ApiInit2" version="0" task="ApiInit" level="win:Error" keywords="Keyword.API" template="ApiInitArgs"/>
+     <event value="3" symbol="ApiTerminate" version="0" task="ApiTerminate" level="win:Informational" keywords="Keyword.API" template="ApiTerminateArgs"/>
+     <event value="4" symbol="ApiTerminate4" version="0" task="ApiTerminate" level="win:Error" keywords="Keyword.API" template="ApiTerminateArgs"/>
+     <event value="5" symbol="SessionCreate" version="0" task="SessionCreate" level="win:Informational" keywords="Keyword.API" template="SessionCreateArgs"/>
+     <event value="6" symbol="SessionCreate6" version="0" task="SessionCreate" level="win:Error" keywords="Keyword.API" template="SessionCreateArgs"/>
+     <event value="7" symbol="SessionCloseStart" version="0" task="SessionClose" opcode="win:Start" level="win:Informational" keywords="Keyword.API" template="ApiTerminateArgs"/>
+     <event value="8" symbol="SessionCloseStop" version="0" task="SessionClose" opcode="win:Stop" level="win:Error" keywords="Keyword.API" template="ApiTerminateArgs"/>
+     <event value="9" symbol="WebIOAPIStart" version="0" task="WebIOAPI" opcode="win:Start" level="win:Informational" keywords="Keyword.API" template="WebIOAPIStartArgs"/>
+     <event value="10" symbol="WebIOAPIStop" version="0" task="WebIOAPI" opcode="win:Stop" level="win:Informational" keywords="Keyword.API" template="WebIOAPIStopArgs"/>
+     <event value="11" symbol="WebIOAPIStop11" version="0" task="WebIOAPI" opcode="win:Stop" level="win:Error" keywords="Keyword.API" template="WebIOAPIStopArgs"/>
+     <event value="12" symbol="WebIOAPI" version="0" task="WebIOAPI" level="win:Informational" keywords="Keyword.API" template="WebIOAPIStartArgs"/>
+     <event value="13" symbol="WebIOAPIStop13" version="0" task="WebIOAPI" opcode="win:Stop" level="win:Informational" keywords="Keyword.API" template="WebIOAPIStopArgs"/>
+     <event value="14" symbol="WebIOAPIStop14" version="0" task="WebIOAPI" opcode="win:Stop" level="win:Error" keywords="Keyword.API" template="WebIOAPIStopArgs"/>
+     <event value="15" symbol="RequestConfigurationSet" version="0" task="RequestConfiguration" opcode="Set" level="win:Informational" keywords="Keyword.API Keyword.CONFIGURATION" template="RequestConfigurationSetArgs"/>
+     <event value="17" symbol="RequestCreate" version="0" task="RequestCreate" level="win:Informational" keywords="Keyword.API Keyword.CONFIGURATION" template="RequestCreateArgs"/>
+     <event value="18" symbol="RequestCreate18" version="0" task="RequestCreate" level="win:Error" keywords="Keyword.API Keyword.CONFIGURATION" template="RequestCreateArgs"/>
+     <event value="19" symbol="RequestCloseStart" version="0" task="RequestClose" opcode="win:Start" level="win:Informational" keywords="Keyword.API" template="ApiTerminateArgs"/>
+     <event value="20" symbol="RequestCloseStop" version="0" task="RequestClose" opcode="win:Stop" level="win:Error" keywords="Keyword.API" template="ApiTerminateArgs"/>
+     <event value="21" symbol="SyncApiWait" version="0" task="SyncApiWait" level="win:Informational" keywords="Keyword.API" template="SyncApiWaitArgs"/>
+     <event value="22" symbol="SyncApiWait22" version="0" task="SyncApiWait" level="win:Error" keywords="Keyword.API" template="SyncApiWaitArgs"/>
+     <event value="23" symbol="RequestConfigurationSet23" version="0" task="RequestConfiguration" opcode="Set" level="win:Informational" keywords="Keyword.API Keyword.CONFIGURATION" template="RequestConfigurationSet23Args"/>
+     <event value="24" symbol="RequestConfigurationSet24" version="0" task="RequestConfiguration" opcode="Set" level="win:Error" keywords="Keyword.API Keyword.CONFIGURATION" template="RequestConfigurationSet23Args"/>
+     <event value="25" symbol="RequestConfigurationSet25" version="0" task="RequestConfiguration" opcode="Set" level="win:Informational" keywords="Keyword.API Keyword.CONFIGURATION" template="RequestConfigurationSet23Args"/>
+     <event value="26" symbol="RequestConfigurationSet26" version="0" task="RequestConfiguration" opcode="Set" level="win:Error" keywords="Keyword.API Keyword.CONFIGURATION" template="RequestConfigurationSet23Args"/>
+     <event value="27" symbol="Information" version="0" task="Information" level="win:Informational" keywords="Keyword.API" template="InformationArgs"/>
+     <event value="28" symbol="Information28" version="0" task="Information" level="win:Informational" keywords="Keyword.API" template="InformationArgs"/>
+     <event value="29" symbol="SessionCloseStop29" version="0" task="SessionClose" opcode="win:Stop" level="win:Informational" keywords="Keyword.API" template="ApiTerminateArgs"/>
+     <event value="30" symbol="RequestCloseStop30" version="0" task="RequestClose" opcode="win:Stop" level="win:Informational" keywords="Keyword.API" template="ApiTerminateArgs"/>
+     <event value="100" symbol="RequestHeader" version="0" task="RequestHeader" level="win:Informational" keywords="Keyword.SEND keyword_20000000000" template="RequestHeaderArgs"/>
+     <event value="101" symbol="RequestHeader101" version="0" task="RequestHeader" level="win:Informational" keywords="Keyword.RECEIVE keyword_20000000000" template="RequestHeaderArgs"/>
+     <event value="102" symbol="ProxyResolutionStart" version="0" task="ProxyResolution" opcode="win:Start" level="win:Informational" template="ProxyResolutionStartArgs"/>
+     <event value="103" symbol="ProxyResolutionStop" version="0" task="ProxyResolution" opcode="win:Stop" level="win:Informational" template="ProxyResolutionStartArgs"/>
+     <event value="104" symbol="RequestWaitingForConnectionStop" version="0" task="RequestWaitingForConnection" opcode="win:Stop" level="win:Informational" template="RequestWaitingForConnectionStopArgs"/>
+     <event value="105" symbol="Endpoint" version="0" task="Endpoint" level="win:Informational" template="EndpointArgs"/>
+     <event value="106" symbol="RequestGenerateHeadersStop" version="0" task="RequestGenerateHeaders" opcode="win:Stop" level="win:Informational" template="RequestGenerateHeadersStopArgs"/>
+     <event value="107" symbol="RequestSendEntityStart" version="0" task="RequestSendEntity" opcode="win:Start" level="win:Informational" keywords="Keyword.API Keyword.SEND" template="RequestSendEntityStartArgs"/>
+     <event value="108" symbol="RequestSendEntityStop" version="0" task="RequestSendEntity" opcode="win:Stop" level="win:Informational" keywords="Keyword.API Keyword.SEND" template="RequestSendEntityStartArgs"/>
+     <event value="109" symbol="RequestEntityTrackerQueue" version="0" task="RequestEntityTracker" opcode="Queue" level="win:Informational" keywords="Keyword.SEND" template="RequestEntityTrackerQueueArgs"/>
+     <event value="110" symbol="RequestEntityTrackerStart" version="0" task="RequestEntityTracker" opcode="win:Start" level="win:Informational" keywords="Keyword.SEND" template="RequestEntityTrackerStartArgs"/>
+     <event value="111" symbol="RequestEntityTracker" version="0" task="RequestEntityTracker" level="win:Verbose" keywords="Keyword.SEND keyword_20000000000" template="RequestEntityTrackerArgs"/>
+     <event value="112" symbol="RequestEntityTrackerStop" version="0" task="RequestEntityTracker" opcode="win:Stop" level="win:Informational" keywords="Keyword.SEND" template="RequestEntityTrackerStartArgs"/>
+     <event value="113" symbol="RequestEntityCompleteCallbackStart" version="0" task="RequestEntityCompleteCallback" opcode="win:Start" level="win:Informational" keywords="Keyword.API Keyword.SEND" template="RequestEntityCompleteCallbackStartArgs"/>
+     <event value="114" symbol="RequestEntityCompleteCallbackStop" version="0" task="RequestEntityCompleteCallback" opcode="win:Stop" level="win:Informational" keywords="Keyword.API Keyword.SEND" template="RequestEntityCompleteCallbackStartArgs"/>
+     <event value="115" symbol="ResponseRecieveEntityStart" version="0" task="ResponseRecieveEntity" opcode="win:Start" level="win:Informational" keywords="Keyword.API Keyword.RECEIVE" template="RequestSendEntityStartArgs"/>
+     <event value="116" symbol="ResponseRecieveEntityStop" version="0" task="ResponseRecieveEntity" opcode="win:Stop" level="win:Informational" keywords="Keyword.API Keyword.RECEIVE" template="RequestSendEntityStartArgs"/>
+     <event value="117" symbol="ResponseEntityCompleteCallbackStart" version="0" task="ResponseEntityCompleteCallback" opcode="win:Start" level="win:Informational" keywords="Keyword.API Keyword.RECEIVE" template="RequestEntityCompleteCallbackStartArgs"/>
+     <event value="118" symbol="ResponseEntityCompleteCallbackStop" version="0" task="ResponseEntityCompleteCallback" opcode="win:Stop" level="win:Informational" keywords="Keyword.API Keyword.RECEIVE" template="RequestEntityCompleteCallbackStartArgs"/>
+     <event value="119" symbol="ResponseConnectionBufferReceiveReallocate" version="0" task="ResponseConnectionBufferReceive" opcode="Reallocate" level="win:Verbose" keywords="Keyword.RECEIVE" template="ResponseConnectionBufferReceiveReallocateArgs"/>
+     <event value="120" symbol="ResponseConnectionBufferReceiveStart" version="0" task="ResponseConnectionBufferReceive" opcode="win:Start" level="win:Verbose" keywords="Keyword.RECEIVE" template="ResponseConnectionBufferReceiveStartArgs"/>
+     <event value="121" symbol="ResponseConnectionBufferReceiveStop" version="0" task="ResponseConnectionBufferReceive" opcode="win:Stop" level="win:Verbose" keywords="Keyword.RECEIVE" template="ResponseConnectionBufferReceiveStartArgs"/>
+     <event value="122" symbol="ResponseConnectionBufferReceive" version="0" task="ResponseConnectionBufferReceive" level="win:Verbose" keywords="Keyword.RECEIVE keyword_20000000000" template="ResponseConnectionBufferReceiveArgs"/>
+     <event value="123" symbol="ResponseParserStart" version="0" task="ResponseParser" opcode="win:Start" level="win:Verbose" keywords="Keyword.RECEIVE" template="ResponseParserStartArgs"/>
+     <event value="124" symbol="ResponseParserStop" version="0" task="ResponseParser" opcode="win:Stop" level="win:Verbose" keywords="Keyword.RECEIVE" template="ResponseParserStartArgs"/>
+     <event value="125" symbol="ResponseParserReset" version="0" task="ResponseParser" opcode="Reset" level="win:Informational" keywords="Keyword.RECEIVE" template="ResponseParserResetArgs"/>
+     <event value="126" symbol="ResponseParser" version="0" task="ResponseParser" level="win:Verbose" keywords="Keyword.RECEIVE" template="ResponseParserArgs"/>
+     <event value="127" symbol="ResponseDirectReceiveEntityStart" version="0" task="ResponseDirectReceiveEntity" opcode="win:Start" level="win:Verbose" keywords="Keyword.RECEIVE" template="ResponseDirectReceiveEntityStartArgs"/>
+     <event value="128" symbol="ResponseDirectReceiveEntityStop" version="0" task="ResponseDirectReceiveEntity" opcode="win:Stop" level="win:Verbose" keywords="Keyword.RECEIVE" template="ResponseDirectReceiveEntityStartArgs"/>
+     <event value="129" symbol="ResponseDirectReceiveEntity" version="0" task="ResponseDirectReceiveEntity" level="win:Verbose" keywords="Keyword.RECEIVE keyword_20000000000" template="ResponseDirectReceiveEntityArgs"/>
+     <event value="130" symbol="RequestSendStart" version="0" task="RequestSend" opcode="win:Start" level="win:Informational" keywords="Keyword.API Keyword.SEND" template="RequestSendEntityStartArgs"/>
+     <event value="131" symbol="RequestSendStop" version="0" task="RequestSend" opcode="win:Stop" level="win:Informational" keywords="Keyword.API Keyword.SEND" template="RequestSendEntityStartArgs"/>
+     <event value="132" symbol="ResponseReceiveStart" version="0" task="ResponseReceive" opcode="win:Start" level="win:Informational" keywords="Keyword.API Keyword.RECEIVE" template="ResponseReceiveStartArgs"/>
+     <event value="133" symbol="ResponseReceiveStop" version="0" task="ResponseReceive" opcode="win:Stop" level="win:Informational" keywords="Keyword.API Keyword.RECEIVE" template="ResponseReceiveStartArgs"/>
+     <event value="134" symbol="ResponseReceiveCompleteCallbackStart" version="0" task="ResponseReceiveCompleteCallback" opcode="win:Start" level="win:Informational" keywords="Keyword.API Keyword.RECEIVE" template="ResponseReceiveCompleteCallbackStartArgs"/>
+     <event value="135" symbol="ResponseReceiveCompleteCallbackStop" version="0" task="ResponseReceiveCompleteCallback" opcode="win:Stop" level="win:Informational" keywords="Keyword.API Keyword.RECEIVE" template="ResponseReceiveCompleteCallbackStartArgs"/>
+     <event value="136" symbol="RequestCancelStart" version="0" task="RequestCancel" opcode="win:Start" level="win:Informational" keywords="Keyword.API" template="RequestCancelStartArgs"/>
+     <event value="137" symbol="RequestCancelStop" version="0" task="RequestCancel" opcode="win:Stop" level="win:Informational" keywords="Keyword.API" template="RequestCancelStartArgs"/>
+     <event value="200" symbol="ConnectionSocketConnectStart" version="0" task="ConnectionSocketConnect" opcode="win:Start" level="win:Informational" keywords="Keyword.L3_CONNECT" template="ConnectionSocketConnectStartArgs"/>
+     <event value="201" symbol="ConnectionSocketConnectStop" version="0" task="ConnectionSocketConnect" opcode="win:Stop" level="win:Informational" keywords="Keyword.L3_CONNECT" template="ConnectionSocketConnectStartArgs"/>
+     <event value="202" symbol="ConnectionSocketConnectStop202" version="0" task="ConnectionSocketConnect" opcode="win:Stop" level="win:Error" keywords="Keyword.L3_CONNECT" template="ConnectionSocketConnectStartArgs"/>
+     <event value="203" symbol="ConnectionSocketCreate" version="0" task="ConnectionSocketCreate" level="win:Informational" template="ConnectionSocketCreateArgs"/>
+     <event value="204" symbol="ConnectionSocketClose" version="0" task="ConnectionSocketClose" level="win:Informational" template="ConnectionSocketCloseArgs"/>
+     <event value="205" symbol="ConnectionNameResolutionRequestStart" version="0" task="ConnectionNameResolutionRequest" opcode="win:Start" level="win:Informational" template="ConnectionNameResolutionRequestStartArgs"/>
+     <event value="206" symbol="ConnectionNameResolutionRequestStop" version="0" task="ConnectionNameResolutionRequest" opcode="win:Stop" level="win:Informational" template="ConnectionNameResolutionRequestStopArgs"/>
+     <event value="207" symbol="ConnectionNameResolutionRequestStop207" version="0" task="ConnectionNameResolutionRequest" opcode="win:Stop" level="win:Informational" template="ConnectionNameResolutionRequestStop207Args"/>
+     <event value="208" symbol="ConnectionNameResolutionRequest" version="0" task="ConnectionNameResolutionRequest" level="win:Informational" template="ConnectionNameResolutionRequestArgs"/>
+     <event value="209" symbol="ConnectionNameResolutionRequest209" version="0" task="ConnectionNameResolutionRequest" level="win:Informational" template="ConnectionNameResolutionRequest209Args"/>
+     <event value="210" symbol="ConnectionNameResolutionRequest210" version="0" task="ConnectionNameResolutionRequest" level="win:Informational" template="ConnectionNameResolutionRequest209Args"/>
+     <event value="211" symbol="ConnectionNameResolutionStart" version="0" task="ConnectionNameResolution" opcode="win:Start" level="win:Informational" template="ConnectionNameResolutionStartArgs"/>
+     <event value="212" symbol="ConnectionNameResolutionStop" version="0" task="ConnectionNameResolution" opcode="win:Stop" level="win:Informational" template="ConnectionNameResolutionStartArgs"/>
+     <event value="213" symbol="ConnectionSocketSendStart" version="0" task="ConnectionSocketSend" opcode="win:Start" level="win:Informational" keywords="Keyword.SEND" template="ConnectionSocketSendStartArgs"/>
+     <event value="214" symbol="ConnectionSocketSendStop" version="0" task="ConnectionSocketSend" opcode="win:Stop" level="win:Informational" keywords="Keyword.SEND" template="ConnectionSocketSendStartArgs"/>
+     <event value="215" symbol="ConnectionSocketReceiveStart" version="0" task="ConnectionSocketReceive" opcode="win:Start" level="win:Informational" keywords="Keyword.RECEIVE" template="ConnectionSocketSendStartArgs"/>
+     <event value="216" symbol="ConnectionSocketReceiveStop" version="0" task="ConnectionSocketReceive" opcode="win:Stop" level="win:Informational" keywords="Keyword.RECEIVE" template="ConnectionSocketSendStartArgs"/>
+     <event value="700" symbol="SSLInitializeSecurityContextStart" version="0" task="SSLInitializeSecurityContext" opcode="win:Start" level="win:Informational" keywords="Keyword.SECURITY" template="SSLInitializeSecurityContextStartArgs"/>
+     <event value="703" symbol="SSLInitializeSecurityContextStop" version="0" task="SSLInitializeSecurityContext" opcode="win:Stop" level="win:Informational" keywords="Keyword.SECURITY" template="SSLInitializeSecurityContextStopArgs"/>
+     <event value="704" symbol="SSLInitializeSecurityContext" version="0" task="SSLInitializeSecurityContext" level="win:Verbose" keywords="Keyword.SECURITY" template="SSLInitializeSecurityContextArgs"/>
+     <event value="705" symbol="SSLInitializeSecurityContext705" version="0" task="SSLInitializeSecurityContext" level="win:Verbose" keywords="Keyword.SECURITY" template="SSLInitializeSecurityContext705Args"/>
+     <event value="706" symbol="SSLEncryptMessageStart" version="0" task="SSLEncryptMessage" opcode="win:Start" level="win:Verbose" keywords="Keyword.SEND Keyword.SECURITY" template="SSLEncryptMessageStartArgs"/>
+     <event value="707" symbol="SSLEncryptMessageStop" version="0" task="SSLEncryptMessage" opcode="win:Stop" level="win:Verbose" keywords="Keyword.SEND Keyword.SECURITY" template="SSLEncryptMessageStartArgs"/>
+     <event value="708" symbol="SSLEncryptMessageStop708" version="0" task="SSLEncryptMessage" opcode="win:Stop" level="win:Error" keywords="Keyword.SEND Keyword.SECURITY" template="SSLEncryptMessageStartArgs"/>
+     <event value="709" symbol="SSLEncryptMessage" version="0" task="SSLEncryptMessage" level="win:Verbose" keywords="Keyword.SEND Keyword.SECURITY" template="SSLEncryptMessageArgs"/>
+     <event value="710" symbol="SSLSendEntityStart" version="0" task="SSLSendEntity" opcode="win:Start" level="win:Verbose" keywords="Keyword.SEND" template="SSLSendEntityStartArgs"/>
+     <event value="711" symbol="SSLSendEntityStop" version="0" task="SSLSendEntity" opcode="win:Stop" level="win:Verbose" keywords="Keyword.SEND" template="SSLSendEntityStartArgs"/>
+     <event value="712" symbol="SSLCertValidationStop" version="0" task="SSLCertValidation" opcode="win:Stop" level="win:Informational" keywords="Keyword.SECURITY" template="SSLCertValidationStopArgs"/>
+     <event value="713" symbol="SSLCertValidationStop713" version="0" task="SSLCertValidation" opcode="win:Stop" level="win:Error" keywords="Keyword.SECURITY" template="SSLCertValidationStop713Args"/>
+     <event value="720" symbol="SSLReceiveEntityStart" version="0" task="SSLReceiveEntity" opcode="win:Start" level="win:Verbose" keywords="Keyword.RECEIVE" template="SSLReceiveEntityStartArgs"/>
+     <event value="721" symbol="SSLReceiveEntityStop" version="0" task="SSLReceiveEntity" opcode="win:Stop" level="win:Verbose" keywords="Keyword.RECEIVE" template="SSLReceiveEntityStopArgs"/>
+     <event value="722" symbol="SSLDecryptMessageStart" version="0" task="SSLDecryptMessage" opcode="win:Start" level="win:Verbose" keywords="Keyword.RECEIVE" template="SSLDecryptMessageStartArgs"/>
+     <event value="723" symbol="SSLDecryptMessageStop" version="0" task="SSLDecryptMessage" opcode="win:Stop" level="win:Verbose" keywords="Keyword.RECEIVE" template="SSLDecryptMessageStartArgs"/>
+     <event value="724" symbol="SSLConnectionBufferReceiveStart" version="0" task="SSLConnectionBufferReceive" opcode="win:Start" level="win:Verbose" keywords="Keyword.RECEIVE" template="SSLConnectionBufferReceiveStartArgs"/>
+     <event value="725" symbol="SSLConnectionBufferReceiveStop" version="0" task="SSLConnectionBufferReceive" opcode="win:Stop" level="win:Verbose" keywords="Keyword.RECEIVE" template="SSLConnectionBufferReceiveStartArgs"/>
+     <event value="726" symbol="SSLConnectionBufferReceive" version="0" task="SSLConnectionBufferReceive" level="win:Verbose" keywords="Keyword.RECEIVE" template="SSLConnectionBufferReceiveArgs"/>
+     <event value="727" symbol="SSLConnectionBufferReceiveReallocate" version="0" task="SSLConnectionBufferReceive" opcode="Reallocate" level="win:Verbose" keywords="Keyword.RECEIVE" template="SSLConnectionBufferReceiveReallocateArgs"/>
+     <event value="728" symbol="SSLAcquireCredentialsHandleStart" version="0" task="SSLAcquireCredentialsHandle" opcode="win:Start" level="win:Informational" keywords="Keyword.SECURITY" template="SSLAcquireCredentialsHandleStartArgs"/>
+     <event value="728" symbol="SSLAcquireCredentialsHandleStart_V1" version="1" task="SSLAcquireCredentialsHandle" opcode="win:Start" level="win:Informational" keywords="Keyword.SECURITY" template="SSLAcquireCredentialsHandleStartArgs_V1"/>
+     <event value="729" symbol="SSLAcquireCredentialsHandleStop" version="0" task="SSLAcquireCredentialsHandle" opcode="win:Stop" level="win:Informational" keywords="Keyword.SECURITY" template="SSLAcquireCredentialsHandleStopArgs"/>
+     <event value="729" symbol="SSLAcquireCredentialsHandleStop_V1" version="1" task="SSLAcquireCredentialsHandle" opcode="win:Stop" level="win:Informational" keywords="Keyword.SECURITY" template="SSLAcquireCredentialsHandleStartArgs_V1"/>
+     <event value="730" symbol="SSLAcquireCredentialsHandleStop730" version="0" task="SSLAcquireCredentialsHandle" opcode="win:Stop" level="win:Error" keywords="Keyword.SECURITY" template="SSLAcquireCredentialsHandleStartArgs"/>
+     <event value="730" symbol="SSLAcquireCredentialsHandleStop730_V1" version="1" task="SSLAcquireCredentialsHandle" opcode="win:Stop" level="win:Error" keywords="Keyword.SECURITY" template="SSLAcquireCredentialsHandleStartArgs_V1"/>
+     <event value="900" symbol="CompleteProtocolUpgrade" version="0" task="CompleteProtocolUpgrade" level="win:Informational" keywords="Keyword.API Keyword.CONFIGURATION" template="CompleteProtocolUpgradeArgs"/>
+     <event value="901" symbol="CompleteProtocolUpgrade901" version="0" task="CompleteProtocolUpgrade" level="win:Informational" keywords="Keyword.API Keyword.CONFIGURATION" template="CompleteProtocolUpgradeArgs"/>
+     <event value="902" symbol="ProtocolCancelHandleStart" version="0" task="ProtocolCancelHandle" opcode="win:Start" level="win:Informational" keywords="Keyword.API" template="RequestCancelStartArgs"/>
+     <event value="903" symbol="ProtocolCancelHandleStop" version="0" task="ProtocolCancelHandle" opcode="win:Stop" level="win:Informational" keywords="Keyword.API" template="RequestCancelStartArgs"/>
+     <event value="904" symbol="CloseProtocolHandleStart" version="0" task="CloseProtocolHandle" opcode="win:Start" level="win:Informational" keywords="Keyword.API" template="ApiTerminateArgs"/>
+     <event value="905" symbol="CloseProtocolHandleStart905" version="0" task="CloseProtocolHandle" opcode="win:Start" level="win:Informational" keywords="Keyword.API" template="ApiTerminateArgs"/>
+     <event value="906" symbol="ProtocolConfigurationSet" version="0" task="ProtocolConfiguration" opcode="Set" level="win:Informational" keywords="Keyword.API Keyword.CONFIGURATION" template="ProtocolConfigurationSetArgs"/>
+     <event value="907" symbol="ProtocolSendDataStart" version="0" task="ProtocolSendData" opcode="win:Start" level="win:Informational" keywords="Keyword.API Keyword.SEND" template="RequestSendEntityStartArgs"/>
+     <event value="908" symbol="ProtocolSendDataStop" version="0" task="ProtocolSendData" opcode="win:Stop" level="win:Informational" keywords="Keyword.API Keyword.SEND" template="RequestSendEntityStartArgs"/>
+     <event value="909" symbol="ProtocolSendDataCallbackStart" version="0" task="ProtocolSendDataCallback" opcode="win:Start" level="win:Informational" keywords="Keyword.API Keyword.SEND" template="ProtocolSendDataCallbackStartArgs"/>
+     <event value="910" symbol="ProtocolSendDataCallbackStop" version="0" task="ProtocolSendDataCallback" opcode="win:Stop" level="win:Informational" keywords="Keyword.API Keyword.SEND" template="ProtocolSendDataCallbackStartArgs"/>
+     <event value="911" symbol="ProtocolReceiveDataStart" version="0" task="ProtocolReceiveData" opcode="win:Start" level="win:Informational" keywords="Keyword.API Keyword.RECEIVE" template="RequestSendEntityStartArgs"/>
+     <event value="912" symbol="ProtocolReceiveDataStop" version="0" task="ProtocolReceiveData" opcode="win:Stop" level="win:Informational" keywords="Keyword.API Keyword.RECEIVE" template="RequestSendEntityStartArgs"/>
+     <event value="913" symbol="ProtocolReceiveDataCallbackStart" version="0" task="ProtocolReceiveDataCallback" opcode="win:Start" level="win:Informational" keywords="Keyword.API Keyword.RECEIVE" template="ProtocolSendDataCallbackStartArgs"/>
+     <event value="914" symbol="ProtocolReceiveDataCallbackStop" version="0" task="ProtocolReceiveDataCallback" opcode="win:Stop" level="win:Informational" keywords="Keyword.API Keyword.RECEIVE" template="ProtocolSendDataCallbackStartArgs"/>
+     <event value="2100" symbol="RequestState" version="0" task="RequestState" level="win:Informational" template="ProxyResolutionStartArgs"/>
+     <event value="2101" symbol="RequestState2101" version="0" task="RequestState" level="win:Informational" template="ProxyResolutionStartArgs"/>
+     <event value="2102" symbol="RequestState2102" version="0" task="RequestState" level="win:Informational" template="ProxyResolutionStartArgs"/>
+     <event value="2111" symbol="RequestState2111" version="0" task="RequestState" level="win:Informational" template="ProxyResolutionStartArgs"/>
+     <event value="2112" symbol="RequestState2112" version="0" task="RequestState" level="win:Informational" template="ProxyResolutionStartArgs"/>
+     <event value="2113" symbol="RequestState2113" version="0" task="RequestState" level="win:Informational" template="ProxyResolutionStartArgs"/>
+     <event value="2114" symbol="RequestState2114" version="0" task="RequestState" level="win:Informational" template="ProxyResolutionStartArgs"/>
+     <event value="2120" symbol="RequestState2120" version="0" task="RequestState" level="win:Informational" template="ProxyResolutionStartArgs"/>
+     <event value="2121" symbol="RequestState2121" version="0" task="RequestState" level="win:Informational" template="ProxyResolutionStartArgs"/>
+     <event value="2122" symbol="RequestState2122" version="0" task="RequestState" level="win:Informational" template="ProxyResolutionStartArgs"/>
+     <event value="2123" symbol="RequestState2123" version="0" task="RequestState" level="win:Informational" template="ProxyResolutionStartArgs"/>
+     <event value="2130" symbol="RequestState2130" version="0" task="RequestState" level="win:Informational" template="ProxyResolutionStartArgs"/>
+     <event value="2131" symbol="RequestState2131" version="0" task="RequestState" level="win:Informational" template="ProxyResolutionStartArgs"/>
+     <event value="2132" symbol="RequestState2132" version="0" task="RequestState" level="win:Informational" template="ProxyResolutionStartArgs"/>
+     <event value="2140" symbol="RequestState2140" version="0" task="RequestState" level="win:Informational" template="ProxyResolutionStartArgs"/>
+     <event value="2141" symbol="RequestState2141" version="0" task="RequestState" level="win:Informational" template="ProxyResolutionStartArgs"/>
+     <event value="59992" symbol="ThreadTokenStop" version="0" task="ThreadToken" opcode="win:Stop" level="win:Verbose" template="ThreadTokenStopArgs"/>
+     <event value="59993" symbol="ThreadTokenStart" version="0" task="ThreadToken" opcode="win:Start" level="win:Verbose" template="ThreadTokenStartArgs"/>
+     <event value="59994" symbol="ThreadTokenGet" version="0" task="ThreadToken" opcode="Get" level="win:Verbose" template="ThreadTokenGetArgs"/>
+     <event value="59995" symbol="ThreadActionCancel" version="0" task="ThreadAction" opcode="Cancel" level="win:Verbose" template="ThreadActionCancelArgs"/>
+     <event value="59996" symbol="ThreadActionQueue" version="0" task="ThreadAction" opcode="Queue" level="win:Verbose" template="ThreadActionQueueArgs"/>
+     <event value="59997" symbol="ThreadActionStop" version="0" task="ThreadAction" opcode="win:Stop" level="win:Verbose" template="ThreadActionQueueArgs"/>
+     <event value="59998" symbol="ThreadActionStart" version="0" task="ThreadAction" opcode="win:Start" level="win:Verbose" template="ThreadActionQueueArgs"/>
+     <event value="59999" symbol="WebIODebug" version="0" task="WebIODebug" level="win:Verbose" template="WebIODebugArgs"/>
+    </events>
+    <templates>
+     <template tid="ApiInitArgs">
+      <data name="ApiObject" inType="win:Pointer"/>
+      <data name="ApiHandle" inType="win:UInt64"/>
+      <data name="ApiVersion" inType="win:UInt64"/>
+      <data name="Flags" inType="win:UInt64"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="ApiTerminateArgs">
+      <data name="ApiObject" inType="win:Pointer"/>
+      <data name="ApiHandle" inType="win:UInt64"/>
+      <data name="Flags" inType="win:UInt64"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="SessionCreateArgs">
+      <data name="ApiObject" inType="win:Pointer"/>
+      <data name="ApiHandle" inType="win:UInt64"/>
+      <data name="Session" inType="win:Pointer"/>
+      <data name="SessionHandle" inType="win:UInt64"/>
+      <data name="Flags" inType="win:UInt64"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="WebIOAPIStartArgs">
+      <data name="ApiHandle" inType="win:UInt64"/>
+      <data name="Api" inType="win:AnsiString"/>
+     </template>
+     <template tid="WebIOAPIStopArgs">
+      <data name="ApiHandle" inType="win:UInt64"/>
+      <data name="Api" inType="win:AnsiString"/>
+      <data name="Result" inType="win:UInt32"/>
+     </template>
+     <template tid="RequestConfigurationSetArgs">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="RequestHandle" inType="win:UInt64"/>
+      <data name="Option" inType="win:UInt32" map="mapRequestOption"/>
+      <data name="Length" inType="win:UInt32"/>
+      <data name="Value" inType="win:Binary" length="Length"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="RequestCreateArgs">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="RequestHandle" inType="win:UInt64"/>
+      <data name="Session" inType="win:Pointer"/>
+      <data name="SessionHandle" inType="win:UInt64"/>
+      <data name="Method" inType="win:AnsiString"/>
+      <data name="URI" inType="win:UnicodeString"/>
+      <data name="VersionMajor" inType="win:UInt16"/>
+      <data name="VersionMinor" inType="win:UInt16"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="SyncApiWaitArgs">
+      <data name="Handle" inType="win:UInt64"/>
+      <data name="Event" inType="win:UInt64"/>
+      <data name="Error" inType="win:UInt32"/>
+      <data name="Information" inType="win:UInt64"/>
+     </template>
+     <template tid="RequestConfigurationSet23Args">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="RequestHandle" inType="win:UInt64"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="InformationRoutine" inType="win:Pointer"/>
+      <data name="InformationContext" inType="win:Pointer"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="InformationArgs">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="PendingCount" inType="win:UInt32"/>
+      <data name="InformationRoutine" inType="win:Pointer"/>
+      <data name="InformationContext" inType="win:Pointer"/>
+      <data name="Type" inType="win:UInt32"/>
+      <data name="Information" inType="win:Pointer"/>
+      <data name="InformationLength" inType="win:UInt64"/>
+     </template>
+     <template tid="RequestHeaderArgs">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="Length" inType="win:UInt16"/>
+      <data name="Headers" inType="win:AnsiString" length="Length"/>
+     </template>
+     <template tid="ProxyResolutionStartArgs">
+      <data name="Context" inType="win:Pointer"/>
+     </template>
+     <template tid="RequestWaitingForConnectionStopArgs">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="ConnMgr" inType="win:Pointer"/>
+      <data name="Connection" inType="win:Pointer"/>
+     </template>
+     <template tid="EndpointArgs">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="ServerEndpoint" inType="win:Pointer"/>
+      <data name="ProxyEndpoint" inType="win:Pointer"/>
+      <data name="ConnectionManager" inType="win:Pointer"/>
+     </template>
+     <template tid="RequestGenerateHeadersStopArgs">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="DataChunks" inType="win:Pointer"/>
+      <data name="Length" inType="win:UInt64"/>
+     </template>
+     <template tid="RequestSendEntityStartArgs">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="RequestHandle" inType="win:UInt64"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="DataChunks" inType="win:Pointer"/>
+      <data name="DataChunkCount" inType="win:UInt32"/>
+      <data name="CompletionContext" inType="win:Pointer"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="RequestEntityTrackerQueueArgs">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="DataChunks" inType="win:Pointer"/>
+      <data name="TotalChunkLength" inType="win:UInt64"/>
+      <data name="IsEntity" inType="win:Boolean"/>
+      <data name="RequestEntityComplete" inType="win:Boolean"/>
+     </template>
+     <template tid="RequestEntityTrackerStartArgs">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="DataChunks" inType="win:Pointer"/>
+      <data name="PendingSendCount" inType="win:UInt32"/>
+      <data name="LastSend" inType="win:Boolean"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="RequestEntityTrackerArgs">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="DataChunks" inType="win:Pointer"/>
+      <data name="Index" inType="win:UInt32"/>
+      <data name="Buffer" inType="win:Pointer"/>
+      <data name="Length" inType="win:UInt32"/>
+      <data name="Data" inType="win:Binary" length="Length"/>
+     </template>
+     <template tid="RequestEntityCompleteCallbackStartArgs">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="DataChunks" inType="win:Pointer"/>
+      <data name="Error" inType="win:UInt32"/>
+      <data name="CompletionContext" inType="win:Pointer"/>
+      <data name="CompletionInformation" inType="win:UInt64"/>
+     </template>
+     <template tid="ResponseConnectionBufferReceiveReallocateArgs">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="OldBuffer" inType="win:Pointer"/>
+      <data name="OldBufferLength" inType="win:UInt32"/>
+      <data name="BufferLengthData" inType="win:UInt32"/>
+      <data name="NewBuffer" inType="win:Pointer"/>
+      <data name="NewBufferLength" inType="win:UInt32"/>
+     </template>
+     <template tid="ResponseConnectionBufferReceiveStartArgs">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="DataChunks" inType="win:Pointer"/>
+      <data name="Buffer" inType="win:Pointer"/>
+      <data name="BufferLengthConsumed" inType="win:UInt32"/>
+      <data name="BufferLengthData" inType="win:UInt32"/>
+      <data name="BufferLengthRemaining" inType="win:UInt32"/>
+      <data name="Error" inType="win:UInt32"/>
+      <data name="Information" inType="win:UInt64"/>
+     </template>
+     <template tid="ResponseConnectionBufferReceiveArgs">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="DataChunks" inType="win:Pointer"/>
+      <data name="Length" inType="win:UInt32"/>
+      <data name="Data" inType="win:Binary" length="Length"/>
+     </template>
+     <template tid="ResponseParserStartArgs">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="Buffer" inType="win:Pointer"/>
+      <data name="BufferLengthConsumed" inType="win:UInt32"/>
+      <data name="BufferLengthData" inType="win:UInt32"/>
+      <data name="BufferLengthRemaining" inType="win:UInt32"/>
+      <data name="ChunkData" inType="win:Pointer"/>
+      <data name="ChunkDataLength" inType="win:UInt32"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="ResponseParserResetArgs">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="Buffer" inType="win:Pointer"/>
+      <data name="HttpResponseCode" inType="win:UInt32"/>
+     </template>
+     <template tid="ResponseParserArgs">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="DataChunks" inType="win:Pointer"/>
+      <data name="ChunkData" inType="win:Pointer"/>
+      <data name="ChunkDataLength" inType="win:UInt32"/>
+      <data name="Error" inType="win:UInt32"/>
+      <data name="CompletionContext" inType="win:Pointer"/>
+      <data name="CompletionInformation" inType="win:UInt64"/>
+     </template>
+     <template tid="ResponseDirectReceiveEntityStartArgs">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="DataChunks" inType="win:Pointer"/>
+      <data name="BytesToReceive" inType="win:UInt32"/>
+      <data name="Error" inType="win:UInt32"/>
+      <data name="CompletionContext" inType="win:Pointer"/>
+      <data name="CompletionInformation" inType="win:UInt64"/>
+     </template>
+     <template tid="ResponseDirectReceiveEntityArgs">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="DataChunks" inType="win:Pointer"/>
+      <data name="Index" inType="win:UInt32"/>
+      <data name="Length" inType="win:UInt32"/>
+      <data name="Data" inType="win:Binary" length="Length"/>
+     </template>
+     <template tid="ResponseReceiveStartArgs">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="RequestHandle" inType="win:UInt64"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="ResponseFlags" inType="win:UInt32"/>
+      <data name="CompletionContext" inType="win:Pointer"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="ResponseReceiveCompleteCallbackStartArgs">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="ResponseFlags" inType="win:UInt32"/>
+      <data name="Error" inType="win:UInt32"/>
+      <data name="CompletionContext" inType="win:Pointer"/>
+     </template>
+     <template tid="RequestCancelStartArgs">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="RequestHandle" inType="win:UInt64"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="ConnectionSocketConnectStartArgs">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="SocketHandle" inType="win:UInt64"/>
+      <data name="AddressLength" inType="win:UInt32"/>
+      <data name="Address" inType="win:UnicodeString" length="AddressLength"/>
+      <data name="Context" inType="win:Pointer"/>
+      <data name="RemainingAddressCount" inType="win:UInt64"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="ConnectionSocketCreateArgs">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="SocketHandle" inType="win:UInt64"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="ConnectionSocketCloseArgs">
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="Socket" inType="win:UInt64"/>
+      <data name="Reason" inType="win:UInt32" map="TCPCloseReasonType"/>
+      <data name="Result" inType="win:UInt32"/>
+     </template>
+     <template tid="ConnectionNameResolutionRequestStartArgs">
+      <data name="DnsQuery" inType="win:Pointer"/>
+      <data name="HostName" inType="win:UnicodeString"/>
+      <data name="Timeout" inType="win:UInt32"/>
+      <data name="CompletionContext" inType="win:UInt64"/>
+     </template>
+     <template tid="ConnectionNameResolutionRequestStopArgs">
+      <data name="DnsQuery" inType="win:Pointer"/>
+      <data name="FQDN" inType="win:UnicodeString"/>
+      <data name="CanonicalName" inType="win:UnicodeString"/>
+      <data name="AddressCount" inType="win:UInt32"/>
+      <data name="SockaddrLength" inType="win:UInt32"/>
+      <data name="SockAddr" inType="win:Binary" length="SockaddrLength"/>
+     </template>
+     <template tid="ConnectionNameResolutionRequestStop207Args">
+      <data name="DnsQuery" inType="win:Pointer"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="ConnectionNameResolutionRequestArgs">
+      <data name="DnsQuery" inType="win:Pointer"/>
+      <data name="CacheEntry" inType="win:Pointer"/>
+     </template>
+     <template tid="ConnectionNameResolutionRequest209Args">
+      <data name="ReferenceContext" inType="win:Pointer"/>
+     </template>
+     <template tid="ConnectionNameResolutionStartArgs">
+      <data name="CacheEntry" inType="win:Pointer"/>
+      <data name="ResolveName" inType="win:UnicodeString"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="Error" inType="win:UInt32"/>
+      <data name="AddressCount" inType="win:UInt32"/>
+     </template>
+     <template tid="ConnectionSocketSendStartArgs">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="DataChunks" inType="win:Pointer"/>
+      <data name="SocketHandle" inType="win:UInt64"/>
+      <data name="Buffer" inType="win:Pointer"/>
+      <data name="Context" inType="win:Pointer"/>
+      <data name="Error" inType="win:UInt32"/>
+      <data name="Information" inType="win:UInt64"/>
+     </template>
+     <template tid="SSLInitializeSecurityContextStartArgs">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="SecurityHandleHigh" inType="win:UInt64"/>
+      <data name="SecurityHandleLow" inType="win:UInt64"/>
+      <data name="CredHandleHigh" inType="win:UInt64"/>
+      <data name="CredHandleLow" inType="win:UInt64"/>
+      <data name="HostName" inType="win:UnicodeString"/>
+      <data name="InputFlags" inType="win:UInt32"/>
+      <data name="Buffer" inType="win:Pointer"/>
+      <data name="BufferLengthData" inType="win:UInt32"/>
+      <data name="BufferLengthRemaining" inType="win:UInt32"/>
+      <data name="OutputFlags" inType="win:UInt32"/>
+      <data name="DataChunks" inType="win:Pointer"/>
+      <data name="DataChunkBufferLength" inType="win:UInt32"/>
+      <data name="Result" inType="win:UInt32"/>
+     </template>
+     <template tid="SSLInitializeSecurityContextStopArgs">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="SecurityHandleHigh" inType="win:UInt64"/>
+      <data name="SecurityHandleLow" inType="win:UInt64"/>
+      <data name="CredHandleHigh" inType="win:UInt64"/>
+      <data name="CredHandleLow" inType="win:UInt64"/>
+      <data name="HostName" inType="win:UnicodeString"/>
+      <data name="InputFlags" inType="win:UInt32"/>
+      <data name="Buffer" inType="win:Pointer"/>
+      <data name="BufferLengthData" inType="win:UInt32"/>
+      <data name="BufferLengthRemaining" inType="win:UInt32"/>
+      <data name="OutputFlags" inType="win:UInt32"/>
+      <data name="DataChunks" inType="win:Pointer"/>
+      <data name="DataChunkBufferLength" inType="win:UInt32"/>
+      <data name="Result" inType="win:UInt32" map="SecurityApiRetValMap"/>
+     </template>
+     <template tid="SSLInitializeSecurityContextArgs">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="SecurityHandleHigh" inType="win:UInt64"/>
+      <data name="SecurityHandleLow" inType="win:UInt64"/>
+      <data name="Buffer" inType="win:Pointer"/>
+      <data name="BufferLengthData" inType="win:UInt32"/>
+      <data name="BufferLengthRemaining" inType="win:UInt32"/>
+      <data name="Data" inType="win:Binary" length="BufferLengthData"/>
+     </template>
+     <template tid="SSLInitializeSecurityContext705Args">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="SecurityHandleHigh" inType="win:UInt64"/>
+      <data name="SecurityHandleLow" inType="win:UInt64"/>
+      <data name="DataChunks" inType="win:Pointer"/>
+      <data name="DataChunkBufferLength" inType="win:UInt32"/>
+      <data name="Data" inType="win:Binary" length="DataChunkBufferLength"/>
+     </template>
+     <template tid="SSLEncryptMessageStartArgs">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="SslIOContext" inType="win:Pointer"/>
+      <data name="CredHandleHigh" inType="win:UInt64"/>
+      <data name="CredHandleLow" inType="win:UInt64"/>
+      <data name="DataChunks" inType="win:Pointer"/>
+      <data name="Index" inType="win:UInt32"/>
+      <data name="Buffer" inType="win:Pointer"/>
+      <data name="Length" inType="win:UInt64"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="SSLEncryptMessageArgs">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="SslIOContext" inType="win:Pointer"/>
+      <data name="CredHandleHigh" inType="win:UInt64"/>
+      <data name="CredHandleLow" inType="win:UInt64"/>
+      <data name="DataChunks" inType="win:Pointer"/>
+      <data name="Index" inType="win:UInt32"/>
+      <data name="Buffer" inType="win:Pointer"/>
+      <data name="Length" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="Data" inType="win:Binary" length="Length"/>
+     </template>
+     <template tid="SSLSendEntityStartArgs">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="SslIOContext" inType="win:Pointer"/>
+      <data name="DataChunks" inType="win:Pointer"/>
+      <data name="RequestDisconnect" inType="win:Boolean"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="SSLCertValidationStopArgs">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="ContextHandleHigh" inType="win:UInt64"/>
+      <data name="ContextHandleLow" inType="win:UInt64"/>
+      <data name="IgnoredServerCertErrors" inType="win:UInt32"/>
+      <data name="ServerCertErrors" inType="win:UInt32"/>
+      <data name="Error" inType="win:UInt32"/>
+      <data name="Reason" inType="win:UInt32" map="mapVerifiyCertFailureReason"/>
+     </template>
+     <template tid="SSLCertValidationStop713Args">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="ContextHandleHigh" inType="win:UInt64"/>
+      <data name="ContextHandleLow" inType="win:UInt64"/>
+      <data name="IgnoredServerCertErrors" inType="win:UInt32"/>
+      <data name="ServerCertErrors" inType="win:UInt32"/>
+      <data name="Error" inType="win:UInt32"/>
+      <data name="Reason" inType="win:UInt32"/>
+     </template>
+     <template tid="SSLReceiveEntityStartArgs">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="SslIOContext" inType="win:Pointer"/>
+      <data name="DataChunks" inType="win:Pointer"/>
+     </template>
+     <template tid="SSLReceiveEntityStopArgs">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="SslIOContext" inType="win:Pointer"/>
+      <data name="DataChunks" inType="win:Pointer"/>
+      <data name="PlainData" inType="win:Pointer"/>
+      <data name="PlainDataLength" inType="win:UInt32"/>
+      <data name="Information" inType="win:UInt32"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="SSLDecryptMessageStartArgs">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="ContextHandleHigh" inType="win:UInt64"/>
+      <data name="ContextHandleLow" inType="win:UInt64"/>
+      <data name="Buffer" inType="win:Pointer"/>
+      <data name="BufferLengthData" inType="win:UInt32"/>
+      <data name="BufferLengthRemaining" inType="win:UInt32"/>
+      <data name="PlainData" inType="win:Pointer"/>
+      <data name="PlainDataLength" inType="win:UInt32"/>
+      <data name="SecStatus" inType="win:UInt32"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="SSLConnectionBufferReceiveStartArgs">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="DataChunks" inType="win:Pointer"/>
+      <data name="Buffer" inType="win:Pointer"/>
+      <data name="Consumed" inType="win:UInt32"/>
+      <data name="Available" inType="win:UInt32"/>
+      <data name="Information" inType="win:UInt32"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="SSLConnectionBufferReceiveArgs">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="Buffer" inType="win:Pointer"/>
+      <data name="BufferLengthData" inType="win:UInt32"/>
+      <data name="BufferLengthRemaining" inType="win:UInt32"/>
+      <data name="Data" inType="win:Binary" length="BufferLengthData"/>
+      <data name="DummyWorkaroundVal" inType="win:Boolean"/>
+     </template>
+     <template tid="SSLConnectionBufferReceiveReallocateArgs">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="OldBuffer" inType="win:Pointer"/>
+      <data name="NewBuffer" inType="win:Pointer"/>
+     </template>
+     <template tid="SSLAcquireCredentialsHandleStartArgs">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="EnabledProtocols" inType="win:UInt32"/>
+      <data name="SSLClientCert" inType="win:Pointer"/>
+      <data name="EnableRevertToSelfClientCertificate" inType="win:UInt16"/>
+      <data name="CredHandleHigh" inType="win:UInt64"/>
+      <data name="CredHandleLow" inType="win:UInt64"/>
+      <data name="Result" inType="win:UInt32"/>
+     </template>
+     <template tid="SSLAcquireCredentialsHandleStopArgs">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="EnabledProtocols" inType="win:UInt32" map="mapSChannelProtocolIdentifiers"/>
+      <data name="SSLClientCert" inType="win:Pointer"/>
+      <data name="EnableRevertToSelfClientCertificate" inType="win:UInt16"/>
+      <data name="CredHandleHigh" inType="win:UInt64"/>
+      <data name="CredHandleLow" inType="win:UInt64"/>
+      <data name="Result" inType="win:UInt32"/>
+     </template>
+     <template tid="CompleteProtocolUpgradeArgs">
+      <data name="ProtocolObject" inType="win:Pointer"/>
+      <data name="ProtocolHandle" inType="win:UInt64"/>
+      <data name="Request" inType="win:Pointer"/>
+      <data name="RequestHandle" inType="win:UInt64"/>
+      <data name="Session" inType="win:Pointer"/>
+      <data name="SessionHandle" inType="win:UInt64"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="ProtocolConfigurationSetArgs">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="RequestHandle" inType="win:UInt64"/>
+      <data name="Option" inType="win:UInt32"/>
+      <data name="Length" inType="win:UInt32"/>
+      <data name="Value" inType="win:Binary" length="Length"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="ProtocolSendDataCallbackStartArgs">
+      <data name="ProtocolObject" inType="win:Pointer"/>
+      <data name="Handle" inType="win:UInt64"/>
+      <data name="Context" inType="win:Pointer"/>
+      <data name="Error" inType="win:UInt32"/>
+      <data name="Information" inType="win:UInt64"/>
+     </template>
+     <template tid="ThreadTokenStopArgs">
+      <data name="Token" inType="win:UInt64"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="ThreadTokenStartArgs">
+      <data name="Token" inType="win:UInt64"/>
+      <data name="OldToken" inType="win:UInt64"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="ThreadTokenGetArgs">
+      <data name="Token" inType="win:UInt64"/>
+      <data name="SID" inType="win:SID"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="ThreadActionCancelArgs">
+      <data name="Context" inType="win:Pointer"/>
+      <data name="EtwQueueActionType" inType="win:UInt32" map="mapQueueActionType"/>
+     </template>
+     <template tid="ThreadActionQueueArgs">
+      <data name="Context" inType="win:Pointer"/>
+      <data name="EtwQueueActionType" inType="win:UInt32"/>
+     </template>
+     <template tid="WebIODebugArgs">
+      <data name="Length" inType="win:UInt16"/>
+      <data name="Message" inType="win:AnsiString" length="Length"/>
+     </template>
+     <template tid="SSLAcquireCredentialsHandleStartArgs_V1">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="EnabledProtocols" inType="win:UInt32"/>
+      <data name="SSLClientCert" inType="win:Pointer"/>
+      <data name="EnableRevertToSelfClientCertificate" inType="win:UInt16"/>
+      <data name="CipherConfig" inType="win:UInt32"/>
+      <data name="CredHandleHigh" inType="win:UInt64"/>
+      <data name="CredHandleLow" inType="win:UInt64"/>
+      <data name="Result" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Keyword.API" value="Keyword.API"/>
+    <string id="keyword_Keyword.SEND" value="Keyword.SEND"/>
+    <string id="keyword_Keyword.RECEIVE" value="Keyword.RECEIVE"/>
+    <string id="keyword_Keyword.L3_CONNECT" value="Keyword.L3_CONNECT"/>
+    <string id="keyword_Keyword.CLOSE" value="Keyword.CLOSE"/>
+    <string id="keyword_Keyword.SECURITY" value="Keyword.SECURITY"/>
+    <string id="keyword_Keyword.CONFIGURATION" value="Keyword.CONFIGURATION"/>
+    <string id="keyword_Keyword.GLOBAL" value="Keyword.GLOBAL"/>
+    <string id="keyword_keyword_20000000000" value="keyword_20000000000"/>
+    <string id="task_WebIOAPI" value="WebIOAPI"/>
+    <string id="task_WebIODebug" value="WebIODebug"/>
+    <string id="task_ApiInit" value="ApiInit"/>
+    <string id="task_ApiTerminate" value="ApiTerminate"/>
+    <string id="task_SessionCreate" value="SessionCreate"/>
+    <string id="task_SessionClose" value="SessionClose"/>
+    <string id="task_SyncApiWait" value="SyncApiWait"/>
+    <string id="task_RequestCreate" value="RequestCreate"/>
+    <string id="task_RequestConfiguration" value="RequestConfiguration"/>
+    <string id="opcode_RequestConfigurationSet" value="Set"/>
+    <string id="task_RequestClose" value="RequestClose"/>
+    <string id="task_RequestHeader" value="RequestHeader"/>
+    <string id="task_ProxyResolution" value="ProxyResolution"/>
+    <string id="task_Endpoint" value="Endpoint"/>
+    <string id="task_RequestGenerateHeaders" value="RequestGenerateHeaders"/>
+    <string id="task_RequestSendEntity" value="RequestSendEntity"/>
+    <string id="task_RequestEntityTracker" value="RequestEntityTracker"/>
+    <string id="opcode_RequestEntityTrackerQueue" value="Queue"/>
+    <string id="task_RequestEntityCompleteCallback" value="RequestEntityCompleteCallback"/>
+    <string id="task_ResponseRecieveEntity" value="ResponseRecieveEntity"/>
+    <string id="task_ResponseEntityCompleteCallback" value="ResponseEntityCompleteCallback"/>
+    <string id="task_RequestWaitingForConnection" value="RequestWaitingForConnection"/>
+    <string id="task_ResponseParser" value="ResponseParser"/>
+    <string id="opcode_ResponseParserReset" value="Reset"/>
+    <string id="task_ResponseDirectReceiveEntity" value="ResponseDirectReceiveEntity"/>
+    <string id="task_RequestSend" value="RequestSend"/>
+    <string id="task_ResponseReceive" value="ResponseReceive"/>
+    <string id="task_ResponseConnectionBufferReceive" value="ResponseConnectionBufferReceive"/>
+    <string id="opcode_ResponseConnectionBufferReceiveReallocate" value="Reallocate"/>
+    <string id="task_RequestCancel" value="RequestCancel"/>
+    <string id="task_ConnectionSocketConnect" value="ConnectionSocketConnect"/>
+    <string id="task_ConnectionSocketCreate" value="ConnectionSocketCreate"/>
+    <string id="task_ConnectionSocketClose" value="ConnectionSocketClose"/>
+    <string id="task_ConnectionNameResolution" value="ConnectionNameResolution"/>
+    <string id="task_ConnectionSocketSend" value="ConnectionSocketSend"/>
+    <string id="task_ConnectionSocketReceive" value="ConnectionSocketReceive"/>
+    <string id="task_SSLEncryptMessage" value="SSLEncryptMessage"/>
+    <string id="task_SSLInitializeSecurityContext" value="SSLInitializeSecurityContext"/>
+    <string id="task_SSLSendEntity" value="SSLSendEntity"/>
+    <string id="task_SSLCertValidation" value="SSLCertValidation"/>
+    <string id="task_SSLReceiveEntity" value="SSLReceiveEntity"/>
+    <string id="task_SSLDecryptMessage" value="SSLDecryptMessage"/>
+    <string id="task_SSLConnectionBufferReceive" value="SSLConnectionBufferReceive"/>
+    <string id="opcode_SSLConnectionBufferReceiveReallocate" value="Reallocate"/>
+    <string id="task_ThreadToken" value="ThreadToken"/>
+    <string id="opcode_ThreadTokenGet" value="Get"/>
+    <string id="task_ResponseReceiveCompleteCallback" value="ResponseReceiveCompleteCallback"/>
+    <string id="task_ThreadAction" value="ThreadAction"/>
+    <string id="opcode_ThreadActionQueue" value="Queue"/>
+    <string id="opcode_ThreadActionCancel" value="Cancel"/>
+    <string id="task_Information" value="Information"/>
+    <string id="task_ConnectionNameResolutionRequest" value="ConnectionNameResolutionRequest"/>
+    <string id="task_SSLAcquireCredentialsHandle" value="SSLAcquireCredentialsHandle"/>
+    <string id="task_ProtocolSendData" value="ProtocolSendData"/>
+    <string id="task_ProtocolSendDataCallback" value="ProtocolSendDataCallback"/>
+    <string id="task_ProtocolReceiveData" value="ProtocolReceiveData"/>
+    <string id="task_ProtocolReceiveDataCallback" value="ProtocolReceiveDataCallback"/>
+    <string id="task_ProtocolCancelHandle" value="ProtocolCancelHandle"/>
+    <string id="task_ProtocolConfiguration" value="ProtocolConfiguration"/>
+    <string id="opcode_ProtocolConfigurationSet" value="Set"/>
+    <string id="task_CompleteProtocolUpgrade" value="CompleteProtocolUpgrade"/>
+    <string id="task_CloseProtocolHandle" value="CloseProtocolHandle"/>
+    <string id="task_RequestState" value="RequestState"/>
+    <string id="map_mapRequestOptionAuthSchemeState" value="AuthSchemeState"/>
+    <string id="map_mapRequestOptionDisableAuthentication" value="DisableAuthentication"/>
+    <string id="map_mapRequestOptionClientCertificate" value="ClientCertificate"/>
+    <string id="map_mapRequestOptionClientCertificateIssuerList" value="ClientCertificateIssuerList"/>
+    <string id="map_mapRequestOptionChannelBindingToken" value="ChannelBindingToken"/>
+    <string id="map_mapRequestOptionIgnoredServerCertErrors" value="IgnoredServerCertErrors"/>
+    <string id="map_mapRequestOptionSecureProtocols" value="SecureProtocols"/>
+    <string id="map_mapRequestOptionProxyAuthSchemes" value="ProxyAuthSchemes"/>
+    <string id="map_mapRequestOptionProxyAuthState" value="ProxyAuthState"/>
+    <string id="map_mapRequestOptionProxyAutoLogonState" value="ProxyAutoLogonState"/>
+    <string id="map_mapRequestOptionProxyConfig" value="ProxyConfig"/>
+    <string id="map_mapRequestOptionProxyConnectHeaders" value="ProxyConnectHeaders"/>
+    <string id="map_mapRequestOptionProxyCreds" value="ProxyCreds"/>
+    <string id="map_mapRequestOptionProxySpnUsage" value="ProxySpnUsage"/>
+    <string id="map_mapRequestOptionRedirectionLimit" value="RedirectionLimit"/>
+    <string id="map_mapRequestOptionSecureProtocolInformation" value="SecureProtocolInformation"/>
+    <string id="map_mapRequestOptionServerAuthSchemes" value="ServerAuthSchemes"/>
+    <string id="map_mapRequestOptionServerAuthState" value="ServerAuthState"/>
+    <string id="map_mapRequestOptionServerAutoLogonState" value="ServerAutoLogonState"/>
+    <string id="map_mapRequestOptionServerCert" value="ServerCert"/>
+    <string id="map_mapRequestOptionServerCreds" value="ServerCreds"/>
+    <string id="map_mapRequestOptionServerSpnUsage" value="ServerSpnUsage"/>
+    <string id="map_mapRequestOptionSocketAddress" value="SocketAddress"/>
+    <string id="map_mapRequestOptionThirdPartyCookies" value="ThirdPartyCookies"/>
+    <string id="map_mapRequestOptionPathCodePage" value="PathCodePage"/>
+    <string id="map_mapRequestOptionExtraInfoCodePage" value="ExtraInfoCodePage"/>
+    <string id="map_mapRequestOptionServerCertErrors" value="ServerCertErrors"/>
+    <string id="map_mapRequestOptionCookiesEnabled" value="CookiesEnabled"/>
+    <string id="map_mapRequestOptionResponseHeadersSizeLimit" value="ResponseHeadersSizeLimit"/>
+    <string id="map_mapRequestOptionServerSpnUsed" value="ServerSpnUsed"/>
+    <string id="map_mapRequestOptionProxySpnUsed" value="ProxySpnUsed"/>
+    <string id="map_mapRequestOptionConnectTimeout" value="ConnectTimeout"/>
+    <string id="map_mapRequestOptionResolveTimeout" value="ResolveTimeout"/>
+    <string id="map_mapRequestOptionSendTimeout" value="SendTimeout"/>
+    <string id="map_mapRequestOptionReceiveTimeout" value="ReceiveTimeout"/>
+    <string id="map_mapRequestOptionConnectRetryCount" value="ConnectRetryCount"/>
+    <string id="map_mapRequestOptionUnsafeHeaderParsing" value="UnsafeHeaderParsing"/>
+    <string id="map_mapRequestOptionRevertToSelfClientCertificate" value="RevertToSelfClientCertificate"/>
+    <string id="map_mapRequestOptionNetworkInterfaceAffinity" value="NetworkInterfaceAffinity"/>
+    <string id="map_mapRequestOptionTcpAutoTuningRestricted" value="TcpAutoTuningRestricted"/>
+    <string id="map_mapRequestOptionDnsIdnTransformDisabled" value="DnsIdnTransformDisabled"/>
+    <string id="map_mapRequestOptionPeerDistExtension" value="PeerDistExtension"/>
+    <string id="map_mapRequestOptionMaximumConnectCount" value="MaximumConnectCount"/>
+    <string id="map_mapRequestOptionGlobalKeepAlivePoolState" value="GlobalKeepAlivePoolState"/>
+    <string id="map_mapRequestOptionConnectionState" value="ConnectionState"/>
+    <string id="map_mapRequestOptionExceededResponseHeaderSizeLimit" value="ExceededResponseHeaderSizeLimit"/>
+    <string id="map_mapRequestOptionDnsInterfaceAffinity" value="DnsInterfaceAffinity"/>
+    <string id="map_mapRequestOptionConnectionIdleTimeout" value="ConnectionIdleTimeout"/>
+    <string id="map_TCPCloseReasonTypeLocal Graceful" value="Local Graceful"/>
+    <string id="map_TCPCloseReasonTypeRemote Graceful" value="Remote Graceful"/>
+    <string id="map_TCPCloseReasonTypeLocal Reset" value="Local Reset"/>
+    <string id="map_TCPCloseReasonTypeRemote Reset" value="Remote Reset"/>
+    <string id="map_TCPCloseReasonTypeConnect Timeout" value="Connect Timeout"/>
+    <string id="map_TCPCloseReasonTypeSend Timeout" value="Send Timeout"/>
+    <string id="map_TCPCloseReasonTypeReceive Timeout" value="Receive Timeout"/>
+    <string id="map_TCPCloseReasonTypeScavenged" value="Scavenged"/>
+    <string id="map_TCPCloseReasonTypeNo Reason" value="No Reason"/>
+    <string id="map_TCPCloseReasonTypeCleanup after hitting an error condition" value="Cleanup after hitting an error condition"/>
+    <string id="map_SecurityApiRetValMapSTATUS_SUCCESS" value="STATUS_SUCCESS"/>
+    <string id="map_SecurityApiRetValMapSEC_E_INSUFFICIENT_MEMORY" value="SEC_E_INSUFFICIENT_MEMORY"/>
+    <string id="map_SecurityApiRetValMapSEC_E_INVALID_HANDLE" value="SEC_E_INVALID_HANDLE"/>
+    <string id="map_SecurityApiRetValMapSEC_E_UNSUPPORTED_FUNCTION" value="SEC_E_UNSUPPORTED_FUNCTION"/>
+    <string id="map_SecurityApiRetValMapSEC_E_TARGET_UNKNOWN" value="SEC_E_TARGET_UNKNOWN"/>
+    <string id="map_SecurityApiRetValMapSEC_E_INTERNAL_ERROR" value="SEC_E_INTERNAL_ERROR"/>
+    <string id="map_SecurityApiRetValMapSEC_E_SECPKG_NOT_FOUND" value="SEC_E_SECPKG_NOT_FOUND"/>
+    <string id="map_SecurityApiRetValMapSEC_E_NOT_OWNER" value="SEC_E_NOT_OWNER"/>
+    <string id="map_SecurityApiRetValMapSEC_E_CANNOT_INSTALL" value="SEC_E_CANNOT_INSTALL"/>
+    <string id="map_SecurityApiRetValMapSEC_E_INVALID_TOKEN" value="SEC_E_INVALID_TOKEN"/>
+    <string id="map_SecurityApiRetValMapSEC_E_CANNOT_PACK" value="SEC_E_CANNOT_PACK"/>
+    <string id="map_SecurityApiRetValMapSEC_E_QOP_NOT_SUPPORTED" value="SEC_E_QOP_NOT_SUPPORTED"/>
+    <string id="map_SecurityApiRetValMapSEC_E_NO_IMPERSONATION" value="SEC_E_NO_IMPERSONATION"/>
+    <string id="map_SecurityApiRetValMapSEC_E_LOGON_DENIED" value="SEC_E_LOGON_DENIED"/>
+    <string id="map_SecurityApiRetValMapSEC_E_UNKNOWN_CREDENTIALS" value="SEC_E_UNKNOWN_CREDENTIALS"/>
+    <string id="map_SecurityApiRetValMapSEC_E_NO_CREDENTIALS" value="SEC_E_NO_CREDENTIALS"/>
+    <string id="map_SecurityApiRetValMapSEC_E_MESSAGE_ALTERED" value="SEC_E_MESSAGE_ALTERED"/>
+    <string id="map_SecurityApiRetValMapSEC_E_OUT_OF_SEQUENCE" value="SEC_E_OUT_OF_SEQUENCE"/>
+    <string id="map_SecurityApiRetValMapSEC_E_NO_AUTHENTICATING_AUTHORITY" value="SEC_E_NO_AUTHENTICATING_AUTHORITY"/>
+    <string id="map_SecurityApiRetValMapSEC_I_CONTINUE_NEEDED" value="SEC_I_CONTINUE_NEEDED"/>
+    <string id="map_SecurityApiRetValMapSEC_I_COMPLETE_NEEDED" value="SEC_I_COMPLETE_NEEDED"/>
+    <string id="map_SecurityApiRetValMapSEC_I_COMPLETE_AND_CONTINUE" value="SEC_I_COMPLETE_AND_CONTINUE"/>
+    <string id="map_SecurityApiRetValMapSEC_I_LOCAL_LOGON" value="SEC_I_LOCAL_LOGON"/>
+    <string id="map_SecurityApiRetValMapSEC_E_BAD_PKGID" value="SEC_E_BAD_PKGID"/>
+    <string id="map_SecurityApiRetValMapSEC_E_CONTEXT_EXPIRED" value="SEC_E_CONTEXT_EXPIRED"/>
+    <string id="map_SecurityApiRetValMapSEC_E_INCOMPLETE_MESSAGE" value="SEC_E_INCOMPLETE_MESSAGE"/>
+    <string id="map_SecurityApiRetValMapCRYPT_E_REVOKED" value="CRYPT_E_REVOKED"/>
+    <string id="map_SecurityApiRetValMapCRYPT_E_NO_REVOCATION_CHECK" value="CRYPT_E_NO_REVOCATION_CHECK"/>
+    <string id="map_SecurityApiRetValMapCRYPT_E_REVOCATION_OFFLINE" value="CRYPT_E_REVOCATION_OFFLINE"/>
+    <string id="map_SecurityApiRetValMapTRUST_E_CERT_SIGNATURE" value="TRUST_E_CERT_SIGNATURE"/>
+    <string id="map_SecurityApiRetValMapTRUST_E_BASIC_CONSTRAINTS" value="TRUST_E_BASIC_CONSTRAINTS"/>
+    <string id="map_SecurityApiRetValMapCERT_E_EXPIRED" value="CERT_E_EXPIRED"/>
+    <string id="map_SecurityApiRetValMapCERT_E_VALIDITYPERIODNESTING" value="CERT_E_VALIDITYPERIODNESTING"/>
+    <string id="map_SecurityApiRetValMapCERT_E_ROLE" value="CERT_E_ROLE"/>
+    <string id="map_SecurityApiRetValMapCERT_E_PATHLENCONST" value="CERT_E_PATHLENCONST"/>
+    <string id="map_SecurityApiRetValMapCERT_E_CRITICAL" value="CERT_E_CRITICAL"/>
+    <string id="map_SecurityApiRetValMapCERT_E_PURPOSE" value="CERT_E_PURPOSE"/>
+    <string id="map_SecurityApiRetValMapCERT_E_ISSUERCHAINING" value="CERT_E_ISSUERCHAINING"/>
+    <string id="map_SecurityApiRetValMapCERT_E_MALFORMED" value="CERT_E_MALFORMED"/>
+    <string id="map_SecurityApiRetValMapCERT_E_UNTRUSTEDROOT" value="CERT_E_UNTRUSTEDROOT"/>
+    <string id="map_SecurityApiRetValMapCERT_E_CHAINING" value="CERT_E_CHAINING"/>
+    <string id="map_SecurityApiRetValMapCERT_E_CN_NO_MATCH" value="CERT_E_CN_NO_MATCH"/>
+    <string id="map_SecurityApiRetValMapCERT_E_WRONG_USAGE" value="CERT_E_WRONG_USAGE"/>
+    <string id="map_SecurityApiRetValMapTRUST_E_EXPLICIT_DISTRUST" value="TRUST_E_EXPLICIT_DISTRUST"/>
+    <string id="map_SecurityApiRetValMapCERT_E_INVALID_POLICY" value="CERT_E_INVALID_POLICY"/>
+    <string id="map_SecurityApiRetValMapCERT_E_INVALID_NAME" value="CERT_E_INVALID_NAME"/>
+    <string id="map_mapVerifiyCertFailureReasonNo Error" value="No Error"/>
+    <string id="map_mapVerifiyCertFailureReasonUnable to Get Cert" value="Unable to Get Cert"/>
+    <string id="map_mapVerifiyCertFailureReasonNULL cert context" value="NULL cert context"/>
+    <string id="map_mapVerifiyCertFailureReasonUnable to Get Cert Chain" value="Unable to Get Cert Chain"/>
+    <string id="map_mapVerifiyCertFailureReasonUnable to Process URL to Hostname" value="Unable to Process URL to Hostname"/>
+    <string id="map_mapVerifiyCertFailureReasonCert Validation Failure" value="Cert Validation Failure"/>
+    <string id="map_mapVerifiyCertFailureReasonUnable to get Stream Sizes" value="Unable to get Stream Sizes"/>
+    <string id="map_mapVerifiyCertFailureReasonUnable to get Endpoint Bindings" value="Unable to get Endpoint Bindings"/>
+    <string id="map_mapVerifiyCertFailureReasonUnable to get secure connection information" value="Unable to get secure connection information"/>
+    <string id="map_mapSChannelProtocolIdentifiersSP_PROT_PCT1_SERVER" value="SP_PROT_PCT1_SERVER"/>
+    <string id="map_mapSChannelProtocolIdentifiersSP_PROT_PCT1_CLIENT" value="SP_PROT_PCT1_CLIENT"/>
+    <string id="map_mapSChannelProtocolIdentifiersSP_PROT_SSL2_SERVER" value="SP_PROT_SSL2_SERVER"/>
+    <string id="map_mapSChannelProtocolIdentifiersSP_PROT_SSL2_CLIENT" value="SP_PROT_SSL2_CLIENT"/>
+    <string id="map_mapSChannelProtocolIdentifiersSP_PROT_SSL3_SERVER" value="SP_PROT_SSL3_SERVER"/>
+    <string id="map_mapSChannelProtocolIdentifiersSP_PROT_SSL3_CLIENT" value="SP_PROT_SSL3_CLIENT"/>
+    <string id="map_mapSChannelProtocolIdentifiersSP_PROT_TLS1_SERVER" value="SP_PROT_TLS1_SERVER"/>
+    <string id="map_mapSChannelProtocolIdentifiersSP_PROT_TLS1_CLIENT" value="SP_PROT_TLS1_CLIENT"/>
+    <string id="map_mapSChannelProtocolIdentifiersSP_PROT_TLS1_1_SERVER" value="SP_PROT_TLS1_1_SERVER"/>
+    <string id="map_mapSChannelProtocolIdentifiersSP_PROT_TLS1_1_CLIENT" value="SP_PROT_TLS1_1_CLIENT"/>
+    <string id="map_mapSChannelProtocolIdentifiersSP_PROT_TLS1_2_SERVER" value="SP_PROT_TLS1_2_SERVER"/>
+    <string id="map_mapSChannelProtocolIdentifiersSP_PROT_TLS1_2_CLIENT" value="SP_PROT_TLS1_2_CLIENT"/>
+    <string id="map_mapSChannelProtocolIdentifiersSP_PROT_UNI_SERVER" value="SP_PROT_UNI_SERVER"/>
+    <string id="map_mapSChannelProtocolIdentifiersSP_PROT_UNI_CLIENT" value="SP_PROT_UNI_CLIENT"/>
+    <string id="map_mapQueueActionTypeTimer" value="Timer"/>
+    <string id="map_mapQueueActionTypeWorkItem" value="WorkItem"/>
+    <string id="map_mapQueueActionTypeOverlapped IO" value="Overlapped IO"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

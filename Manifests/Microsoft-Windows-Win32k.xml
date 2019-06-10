@@ -1,0 +1,1766 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Win32k" guid="{8c416c79-d49b-4f01-a467-e56d3aa8234c}" resourceFileName="Microsoft-Windows-Win32k" messageFileName="Microsoft-Windows-Win32k" symbol="MicrosoftWindowsWin32k" source="Xml" >
+    <keywords>
+     <keyword name="AuditApiCalls" message="$(string.keyword_AuditApiCalls)" mask="0x400"/>
+     <keyword name="CompatImpact" message="$(string.keyword_CompatImpact)" mask="0x800"/>
+     <keyword name="Updates" message="$(string.keyword_Updates)" mask="0x1000"/>
+     <keyword name="Focus" message="$(string.keyword_Focus)" mask="0x2000"/>
+     <keyword name="UIPI" message="$(string.keyword_UIPI)" mask="0x4000"/>
+     <keyword name="win32Power" message="$(string.keyword_win32Power)" mask="0x8000"/>
+     <keyword name="Concurrency" message="$(string.keyword_Concurrency)" mask="0x10000"/>
+     <keyword name="UserActivity" message="$(string.keyword_UserActivity)" mask="0x20000"/>
+     <keyword name="UIUnresponsiveness" message="$(string.keyword_UIUnresponsiveness)" mask="0x40000"/>
+     <keyword name="ThreadRundown" message="$(string.keyword_ThreadRundown)" mask="0x80000"/>
+     <keyword name="Rendering" message="$(string.keyword_Rendering)" mask="0x100000"/>
+     <keyword name="ThreadInfo" message="$(string.keyword_ThreadInfo)" mask="0x200000"/>
+     <keyword name="MessagePump" message="$(string.keyword_MessagePump)" mask="0x400000"/>
+     <keyword name="MessagePumpInternalAndInput" message="$(string.keyword_MessagePumpInternalAndInput)" mask="0x800000"/>
+     <keyword name="TouchInput" message="$(string.keyword_TouchInput)" mask="0x1000000"/>
+     <keyword name="TimerSurvey" message="$(string.keyword_TimerSurvey)" mask="0x2000000"/>
+     <keyword name="PointerInput" message="$(string.keyword_PointerInput)" mask="0x4000000"/>
+     <keyword name="AutoRotation" message="$(string.keyword_AutoRotation)" mask="0x8000000"/>
+     <keyword name="Contention" message="$(string.keyword_Contention)" mask="0x10000000"/>
+     <keyword name="TimerInfo" message="$(string.keyword_TimerInfo)" mask="0x20000000"/>
+     <keyword name="ComponentHosting" message="$(string.keyword_ComponentHosting)" mask="0x40000000"/>
+     <keyword name="TrappedACRendering" message="$(string.keyword_TrappedACRendering)" mask="0x80000000"/>
+     <keyword name="Fonts" message="$(string.keyword_Fonts)" mask="0x100000000"/>
+     <keyword name="NullMessages" message="$(string.keyword_NullMessages)" mask="0x200000000"/>
+     <keyword name="Visualization" message="$(string.keyword_Visualization)" mask="0x400000000"/>
+     <keyword name="DCompDetails" message="$(string.keyword_DCompDetails)" mask="0x800000000"/>
+     <keyword name="PrecisionTouchpad" message="$(string.keyword_PrecisionTouchpad)" mask="0x1000000000"/>
+     <keyword name="ContentionTelemetry" message="$(string.keyword_ContentionTelemetry)" mask="0x2000000000"/>
+     <keyword name="ProcessInfo" message="$(string.keyword_ProcessInfo)" mask="0x4000000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="WindowUpdate" message="$(string.task_WindowUpdate)" value="1"/>
+     <task name="FocusChange" message="$(string.task_FocusChange)" value="2"/>
+     <task name="UIPIMsgError" message="$(string.task_UIPIMsgError)" value="3"/>
+     <task name="UIPIHookError" message="$(string.task_UIPIHookError)" value="4"/>
+     <task name="UIPIEventHookError" message="$(string.task_UIPIEventHookError)" value="5"/>
+     <task name="UIPIHandleValError" message="$(string.task_UIPIHandleValError)" value="6"/>
+     <task name="UIPIInputError" message="$(string.task_UIPIInputError)" value="7"/>
+     <task name="UIPIClipboardError" message="$(string.task_UIPIClipboardError)" value="8"/>
+     <task name="UIPISystemError" message="$(string.task_UIPISystemError)" value="9"/>
+     <task name="PowerDisplayChange" message="$(string.task_PowerDisplayChange)" value="10"/>
+     <task name="IdleActionExpiration" message="$(string.task_IdleActionExpiration)" value="11"/>
+     <task name="DisplayReqChange" message="$(string.task_DisplayReqChange)" value="12"/>
+     <task name="DisplayTimeoutReset" message="$(string.task_DisplayTimeoutReset)" value="13"/>
+     <task name="LockAcquireExclusive" message="$(string.task_LockAcquireExclusive)" value="14"/>
+     <task name="LockAcquireShared" message="$(string.task_LockAcquireShared)" value="15"/>
+     <task name="LockAcquireSharedStarveExclusive" message="$(string.task_LockAcquireSharedStarveExclusive)" value="16"/>
+     <task name="LockRelease" message="$(string.task_LockRelease)" value="17"/>
+     <task name="SwapChainBind" message="$(string.task_SwapChainBind)" value="18"/>
+     <task name="SwapChainSetStats" message="$(string.task_SwapChainSetStats)" value="19"/>
+     <task name="SwapChainUnBind" message="$(string.task_SwapChainUnBind)" value="20"/>
+     <task name="IdleStatusTracing" message="$(string.task_IdleStatusTracing)" value="21"/>
+     <task name="ScreenSaverProcess" message="$(string.task_ScreenSaverProcess)" value="22"/>
+     <task name="WinlogonSleepStart" message="$(string.task_WinlogonSleepStart)" value="23"/>
+     <task name="WinlogonSleepEnd" message="$(string.task_WinlogonSleepEnd)" value="24"/>
+     <task name="UserActive" message="$(string.task_UserActive)" value="25"/>
+     <task name="FocusedProcessChange" message="$(string.task_FocusedProcessChange)" value="26"/>
+     <task name="DwmSpriteCreate" message="$(string.task_DwmSpriteCreate)" value="27"/>
+     <task name="DwmSpriteDestroy" message="$(string.task_DwmSpriteDestroy)" value="28"/>
+     <task name="LogicalSurfCreate" message="$(string.task_LogicalSurfCreate)" value="29"/>
+     <task name="LogicalSurfDestroy" message="$(string.task_LogicalSurfDestroy)" value="30"/>
+     <task name="LogicalSurfPhysSurfBind" message="$(string.task_LogicalSurfPhysSurfBind)" value="31"/>
+     <task name="LogicalSurfPhysSurfUnbind" message="$(string.task_LogicalSurfPhysSurfUnbind)" value="32"/>
+     <task name="GdiSysMemToken" message="$(string.task_GdiSysMemToken)" value="33"/>
+     <task name="WaitCursor" message="$(string.task_WaitCursor)" value="35"/>
+     <task name="ThreadInfoRundown" message="$(string.task_ThreadInfoRundown)" value="36"/>
+     <task name="InputProcessDelay" message="$(string.task_InputProcessDelay)" value="37"/>
+     <task name="MessageCheckDelay" message="$(string.task_MessageCheckDelay)" value="38"/>
+     <task name="Rendering" message="$(string.task_Rendering)" value="39">
+>
+      <opcodes>
+       <opcode name="OldToNewRendering" message="$(string.opcode_RenderingOldToNewRendering)" value="10"/>
+       <opcode name="NewRendering" message="$(string.opcode_RenderingNewRendering)" value="11"/>
+       <opcode name="AppRenderingUpdate" message="$(string.opcode_RenderingAppRenderingUpdate)" value="12"/>
+       <opcode name="AppRenderingTightUpdate" message="$(string.opcode_RenderingAppRenderingTightUpdate)" value="13"/>
+       <opcode name="ValidateWindow" message="$(string.opcode_RenderingValidateWindow)" value="17"/>
+       <opcode name="InvalidateWindow" message="$(string.opcode_RenderingInvalidateWindow)" value="18"/>
+       <opcode name="TranslationUpdate" message="$(string.opcode_RenderingTranslationUpdate)" value="21"/>
+       <opcode name="TranslationUpdateRectClip" message="$(string.opcode_RenderingTranslationUpdateRectClip)" value="23"/>
+       <opcode name="UpdateDxAccumFromGDI" message="$(string.opcode_RenderingUpdateDxAccumFromGDI)" value="24"/>
+       <opcode name="UpdateDxAccumFromDX" message="$(string.opcode_RenderingUpdateDxAccumFromDX)" value="25"/>
+       <opcode name="GetDxAccum" message="$(string.opcode_RenderingGetDxAccum)" value="26"/>
+      </opcodes>
+     </task>
+     <task name="ThreadExit" message="$(string.task_ThreadExit)" value="45"/>
+     <task name="BindLogicalSurface" message="$(string.task_BindLogicalSurface)" value="46"/>
+     <task name="UnBindLogicalSurface" message="$(string.task_UnBindLogicalSurface)" value="47"/>
+     <task name="BindLogicalSurfaceRH" message="$(string.task_BindLogicalSurfaceRH)" value="48"/>
+     <task name="DwmSpriteLogicalSurfBind" message="$(string.task_DwmSpriteLogicalSurfBind)" value="49"/>
+     <task name="DwmSpriteLogicalSurfUnBind" message="$(string.task_DwmSpriteLogicalSurfUnBind)" value="50"/>
+     <task name="LogicalSurfEnableDirtyNotification" message="$(string.task_LogicalSurfEnableDirtyNotification)" value="51"/>
+     <task name="PhysicalSurfCreate" message="$(string.task_PhysicalSurfCreate)" value="52"/>
+     <task name="ModifyRgn" message="$(string.task_ModifyRgn)" value="53"/>
+     <task name="SwapChainGetStats" message="$(string.task_SwapChainGetStats)" value="54"/>
+     <task name="SwapChainBindingOpen" message="$(string.task_SwapChainBindingOpen)" value="55"/>
+     <task name="SwapChainBindingRelease" message="$(string.task_SwapChainBindingRelease)" value="56"/>
+     <task name="SwapChainBindingStatus" message="$(string.task_SwapChainBindingStatus)" value="57"/>
+     <task name="DesktopResolutionFailure" message="$(string.task_DesktopResolutionFailure)" value="58"/>
+     <task name="QueuePostMessage" message="$(string.task_QueuePostMessage)" value="59"/>
+     <task name="SendMessage" message="$(string.task_SendMessage)" value="60"/>
+     <task name="WakePump" message="$(string.task_WakePump)" value="61"/>
+     <task name="InputQueueLocked" message="$(string.task_InputQueueLocked)" value="62"/>
+     <task name="UserCallback" message="$(string.task_UserCallback)" value="64"/>
+     <task name="RetrievePostMessage" message="$(string.task_RetrievePostMessage)" value="65"/>
+     <task name="RetrieveSendMessage" message="$(string.task_RetrieveSendMessage)" value="66"/>
+     <task name="RetrieveInputMessage" message="$(string.task_RetrieveInputMessage)" value="67"/>
+     <task name="RetrievePseudoMessage" message="$(string.task_RetrievePseudoMessage)" value="68"/>
+     <task name="AppMessagePump" message="$(string.task_AppMessagePump)" value="69"/>
+     <task name="InputDeviceRead" message="$(string.task_InputDeviceRead)" value="70"/>
+     <task name="MessageInjection" message="$(string.task_MessageInjection)" value="71">
+>
+      <opcodes>
+       <opcode name="PostGestureInputMessage" message="$(string.opcode_MessageInjectionPostGestureInputMessage)" value="19"/>
+       <opcode name="PostGestureMessage" message="$(string.opcode_MessageInjectionPostGestureMessage)" value="20"/>
+       <opcode name="InjectTouchEvent" message="$(string.opcode_MessageInjectionInjectTouchEvent)" value="27"/>
+      </opcodes>
+     </task>
+     <task name="WakeRIT" message="$(string.task_WakeRIT)" value="72"/>
+     <task name="PointerMotion" message="$(string.task_PointerMotion)" value="73"/>
+     <task name="InjectMouse" message="$(string.task_InjectMouse)" value="74"/>
+     <task name="GUIProcess" message="$(string.task_GUIProcess)" value="76"/>
+     <task name="GUIThread" message="$(string.task_GUIThread)" value="77"/>
+     <task name="SendMessageTimeOutToBlocking" message="$(string.task_SendMessageTimeOutToBlocking)" value="78"/>
+     <task name="QueueInputMessage" message="$(string.task_QueueInputMessage)" value="79"/>
+     <task name="TranslateMessage" message="$(string.task_TranslateMessage)" value="80"/>
+     <task name="DispatchMessage" message="$(string.task_DispatchMessage)" value="81"/>
+     <task name="TouchTargetingSpeedHitTest" message="$(string.task_TouchTargetingSpeedHitTest)" value="82"/>
+     <task name="TouchTargetingWindowHitTest" message="$(string.task_TouchTargetingWindowHitTest)" value="83"/>
+     <task name="TouchTargetingPointerTarget" message="$(string.task_TouchTargetingPointerTarget)" value="84"/>
+     <task name="PseudoDevCreation" message="$(string.task_PseudoDevCreation)" value="85"/>
+     <task name="ContactVisualization" message="$(string.task_ContactVisualization)" value="86"/>
+     <task name="TouchTargetingOffset" message="$(string.task_TouchTargetingOffset)" value="87"/>
+     <task name="TouchTargetingPointerEvent" message="$(string.task_TouchTargetingPointerEvent)" value="88"/>
+     <task name="PointerDeviceRead" message="$(string.task_PointerDeviceRead)" value="89"/>
+     <task name="PointerDeviceMessage" message="$(string.task_PointerDeviceMessage)" value="90"/>
+     <task name="PointerDeviceTransformation" message="$(string.task_PointerDeviceTransformation)" value="91"/>
+     <task name="ModifyDxAccumRgn" message="$(string.task_ModifyDxAccumRgn)" value="92"/>
+     <task name="LogicalSurfRemovedTranslationFromDirty" message="$(string.task_LogicalSurfRemovedTranslationFromDirty)" value="93"/>
+     <task name="PointerDeviceDiscovery" message="$(string.task_PointerDeviceDiscovery)" value="94"/>
+     <task name="TouchInjectionEvent" message="$(string.task_TouchInjectionEvent)" value="95"/>
+     <task name="PointerFrameCreation" message="$(string.task_PointerFrameCreation)" value="96"/>
+     <task name="PointerFrameBuildPartial" message="$(string.task_PointerFrameBuildPartial)" value="97"/>
+     <task name="PointerFrameCommit" message="$(string.task_PointerFrameCommit)" value="98"/>
+     <task name="PointerFrameCoalesce" message="$(string.task_PointerFrameCoalesce)" value="99"/>
+     <task name="PointerMessageGeneration" message="$(string.task_PointerMessageGeneration)" value="100"/>
+     <task name="PointerMessageRetrieve" message="$(string.task_PointerMessageRetrieve)" value="101"/>
+     <task name="PointerUpdateMessageRetrieve" message="$(string.task_PointerUpdateMessageRetrieve)" value="102"/>
+     <task name="PointerSetTargetWindows" message="$(string.task_PointerSetTargetWindows)" value="103"/>
+     <task name="PointerUpdateSetTargetWindows" message="$(string.task_PointerUpdateSetTargetWindows)" value="104"/>
+     <task name="InputQueueNoRemoveLocker" message="$(string.task_InputQueueNoRemoveLocker)" value="105"/>
+     <task name="InputQueueLockedPeekRecursion" message="$(string.task_InputQueueLockedPeekRecursion)" value="106"/>
+     <task name="DCompCommitBatch" message="$(string.task_DCompCommitBatch)" value="107"/>
+     <task name="DelegateInputUserCallback" message="$(string.task_DelegateInputUserCallback)" value="108"/>
+     <task name="DelegatedInputWorker" message="$(string.task_DelegatedInputWorker)" value="109"/>
+     <task name="SmoothRotation" message="$(string.task_SmoothRotation)" value="110"/>
+     <task name="DCompGetBatch" message="$(string.task_DCompGetBatch)" value="111"/>
+     <task name="PointerFrameMessageGeneration" message="$(string.task_PointerFrameMessageGeneration)" value="112"/>
+     <task name="ExclusiveUserCrit" message="$(string.task_ExclusiveUserCrit)" value="113"/>
+     <task name="SharedUserCrit" message="$(string.task_SharedUserCrit)" value="114"/>
+     <task name="ReleaseUserCrit" message="$(string.task_ReleaseUserCrit)" value="115"/>
+     <task name="SleepInputIdle" message="$(string.task_SleepInputIdle)" value="116"/>
+     <task name="WakeInputIdle" message="$(string.task_WakeInputIdle)" value="117"/>
+     <task name="EdgyDetection" message="$(string.task_EdgyDetection)" value="118"/>
+     <task name="ImmersiveInputProcessDelay" message="$(string.task_ImmersiveInputProcessDelay)" value="119"/>
+     <task name="ImmersiveMessageCheckDelay" message="$(string.task_ImmersiveMessageCheckDelay)" value="120"/>
+     <task name="THQAEvent" message="$(string.task_THQAEvent)" value="121"/>
+     <task name="PointerPrediction" message="$(string.task_PointerPrediction)" value="122"/>
+     <task name="MoveRgn" message="$(string.task_MoveRgn)" value="123"/>
+     <task name="DirtyRgn" message="$(string.task_DirtyRgn)" value="124"/>
+     <task name="LogicalSurfRemovedTranslationFromMove" message="$(string.task_LogicalSurfRemovedTranslationFromMove)" value="125"/>
+     <task name="DwmGetRgn" message="$(string.task_DwmGetRgn)" value="126"/>
+     <task name="DirtyRectUpdate" message="$(string.task_DirtyRectUpdate)" value="127"/>
+     <task name="TranslationUpdateOffset" message="$(string.task_TranslationUpdateOffset)" value="128"/>
+     <task name="TranslationUpdateOffsetDWM" message="$(string.task_TranslationUpdateOffsetDWM)" value="129"/>
+     <task name="InternalSetTimerCoalescing" message="$(string.task_InternalSetTimerCoalescing)" value="130"/>
+     <task name="InternalSetTimerNoCoalescing" message="$(string.task_InternalSetTimerNoCoalescing)" value="131"/>
+     <task name="KillTimer" message="$(string.task_KillTimer)" value="132"/>
+     <task name="ProcTimerCoalescing" message="$(string.task_ProcTimerCoalescing)" value="133"/>
+     <task name="ProcTimerNoCoalescing" message="$(string.task_ProcTimerNoCoalescing)" value="134"/>
+     <task name="DrvChangeDisplaySettings" message="$(string.task_DrvChangeDisplaySettings)" value="135"/>
+     <task name="ChangeDisplayMode" message="$(string.task_ChangeDisplayMode)" value="136"/>
+     <task name="TouchHWTimeStamp" message="$(string.task_TouchHWTimeStamp)" value="137"/>
+     <task name="TokenCompositionSurfaceObject" message="$(string.task_TokenCompositionSurfaceObject)" value="138"/>
+     <task name="CompositionSurfaceObjectUpdate" message="$(string.task_CompositionSurfaceObjectUpdate)" value="139"/>
+     <task name="QueueEventMessage" message="$(string.task_QueueEventMessage)" value="140"/>
+     <task name="RetrieveQueueEventMessage" message="$(string.task_RetrieveQueueEventMessage)" value="141"/>
+     <task name="ForegroundWindowFullScreen" message="$(string.task_ForegroundWindowFullScreen)" value="208"/>
+     <task name="ChangeDisplayModeBroadcast" message="$(string.task_ChangeDisplayModeBroadcast)" value="209"/>
+     <task name="ChangeDisplayModeDeferral" message="$(string.task_ChangeDisplayModeDeferral)" value="210"/>
+     <task name="ConvertibleState" message="$(string.task_ConvertibleState)" value="211"/>
+     <task name="DockState" message="$(string.task_DockState)" value="212"/>
+     <task name="TouchPadHWTimeStamp" message="$(string.task_TouchPadHWTimeStamp)" value="213"/>
+     <task name="WakeDIT" message="$(string.task_WakeDIT)" value="214"/>
+     <task name="ArmDitMouseFlush" message="$(string.task_ArmDitMouseFlush)" value="215"/>
+     <task name="ProcessQueuedMouseEvents" message="$(string.task_ProcessQueuedMouseEvents)" value="216"/>
+     <task name="DITSpeedHitTestFailedRevalidation" message="$(string.task_DITSpeedHitTestFailedRevalidation)" value="217"/>
+     <task name="TransformAgeDecay" message="$(string.task_TransformAgeDecay)" value="218"/>
+     <task name="InputRedirection" message="$(string.task_InputRedirection)" value="219"/>
+     <task name="OnInputXformUpdate" message="$(string.task_OnInputXformUpdate)" value="220"/>
+     <task name="DitWaitForRitDisEngagement" message="$(string.task_DitWaitForRitDisEngagement)" value="221"/>
+     <task name="RitDisEngaged" message="$(string.task_RitDisEngaged)" value="222"/>
+     <task name="DitEngaged" message="$(string.task_DitEngaged)" value="223"/>
+     <task name="RitReEngaged" message="$(string.task_RitReEngaged)" value="224"/>
+     <task name="DitDisEngaged" message="$(string.task_DitDisEngaged)" value="225"/>
+     <task name="DitTerminated" message="$(string.task_DitTerminated)" value="226"/>
+     <task name="DitShutdown" message="$(string.task_DitShutdown)" value="227"/>
+     <task name="TouchPadAAP" message="$(string.task_TouchPadAAP)" value="228"/>
+     <task name="TouchPadTypeDiscovered" message="$(string.task_TouchPadTypeDiscovered)" value="229"/>
+     <task name="TouchPadEnabledStatusChange" message="$(string.task_TouchPadEnabledStatusChange)" value="230"/>
+     <task name="MouseInputApc" message="$(string.task_MouseInputApc)" value="231"/>
+     <task name="MouseInputCoalesced" message="$(string.task_MouseInputCoalesced)" value="232"/>
+     <task name="PTPReadThresholds" message="$(string.task_PTPReadThresholds)" value="233"/>
+     <task name="TouchPadConfidenceCleared" message="$(string.task_TouchPadConfidenceCleared)" value="234"/>
+     <task name="TouchPadConfidenceUpped" message="$(string.task_TouchPadConfidenceUpped)" value="235"/>
+     <task name="PTPElasticDragMode" message="$(string.task_PTPElasticDragMode)" value="236"/>
+     <task name="LegacyTouchPadDetection" message="$(string.task_LegacyTouchPadDetection)" value="237"/>
+     <task name="TouchPadCurtainState" message="$(string.task_TouchPadCurtainState)" value="238"/>
+     <task name="TouchPadCurtainSize" message="$(string.task_TouchPadCurtainSize)" value="239"/>
+     <task name="TouchpadStopInertia" message="$(string.task_TouchpadStopInertia)" value="240"/>
+     <task name="CursorSize" message="$(string.task_CursorSize)" value="241"/>
+     <task name="TrappedAppContainerRender" message="$(string.task_TrappedAppContainerRender)" value="242"/>
+     <task name="FocusedProcessChangeGained" message="$(string.task_FocusedProcessChangeGained)" value="258"/>
+     <task name="FocusedProcessChangeLost" message="$(string.task_FocusedProcessChangeLost)" value="259"/>
+     <task name="FontLoadAttempt" message="$(string.task_FontLoadAttempt)" value="260"/>
+     <task name="TokenStateChanged" message="$(string.task_TokenStateChanged)" value="301"/>
+     <task name="DCompDeferBatch" message="$(string.task_DCompDeferBatch)" value="400"/>
+     <task name="TouchPadHIDProcessing" message="$(string.task_TouchPadHIDProcessing)" value="401"/>
+     <task name="TouchPadWMPointerProcessing" message="$(string.task_TouchPadWMPointerProcessing)" value="402"/>
+     <task name="DitMmcssWork" message="$(string.task_DitMmcssWork)" value="403"/>
+     <task name="TouchPadGesture" message="$(string.task_TouchPadGesture)" value="404"/>
+     <task name="CopyPointerInputFrame" message="$(string.task_CopyPointerInputFrame)" value="405"/>
+     <task name="LatencyModeProcessing" message="$(string.task_LatencyModeProcessing)" value="410"/>
+     <task name="DCompBeginFrame" message="$(string.task_DCompBeginFrame)" value="412"/>
+     <task name="TokenIndependentFlipSkipComplete" message="$(string.task_TokenIndependentFlipSkipComplete)" value="413"/>
+     <task name="DwmManipulationFrameStart" message="$(string.task_DwmManipulationFrameStart)" value="414"/>
+     <task name="DwmManipulationFrameRouted" message="$(string.task_DwmManipulationFrameRouted)" value="415"/>
+     <task name="ExclusiveUserCritTelemetry" message="$(string.task_ExclusiveUserCritTelemetry)" value="416"/>
+     <task name="SharedUserCritTelemetry" message="$(string.task_SharedUserCritTelemetry)" value="417"/>
+     <task name="QueueNullPostMessage" message="$(string.task_QueueNullPostMessage)" value="426"/>
+     <task name="SyscallFilterMessage" message="$(string.task_SyscallFilterMessage)" value="427"/>
+     <task name="SPIBlockedByFiltering" message="$(string.task_SPIBlockedByFiltering)" value="428"/>
+     <task name="PowerWatchdog" message="$(string.task_PowerWatchdog)" value="429"/>
+     <task name="PowerRequest" message="$(string.task_PowerRequest)" value="430"/>
+     <task name="DCompResourceMapping" message="$(string.task_DCompResourceMapping)" value="431"/>
+     <task name="DCompResourcePropertyUpdate" message="$(string.task_DCompResourcePropertyUpdate)" value="432"/>
+     <task name="DCompCommandType" message="$(string.task_DCompCommandType)" value="433"/>
+     <task name="DCompCommandsInBatch" message="$(string.task_DCompCommandsInBatch)" value="434"/>
+     <task name="HighWorkLoadBatchCountUpdatedSubmit" message="$(string.task_HighWorkLoadBatchCountUpdatedSubmit)" value="435"/>
+     <task name="HighWorkLoadBatchCountUpdatedConfirm" message="$(string.task_HighWorkLoadBatchCountUpdatedConfirm)" value="436"/>
+     <task name="HighWorkLoadBatchCountUpdatedPending" message="$(string.task_HighWorkLoadBatchCountUpdatedPending)" value="437"/>
+     <task name="WindowLayoutChange" message="$(string.task_WindowLayoutChange)" value="10001"/>
+    </tasks>
+    <maps>
+     <valueMap name="UIPIInputType">
+      <map value="0x1" message="$(string.map_UIPIInputTypeSendInput)"/>
+      <map value="0x2" message="$(string.map_UIPIInputTypeInput Queue)"/>
+      <map value="0x3" message="$(string.map_UIPIInputTypeKey State)"/>
+      <map value="0x4" message="$(string.map_UIPIInputTypeMouse State)"/>
+      <map value="0x5" message="$(string.map_UIPIInputTypeRaw Input)"/>
+      <map value="0x6" message="$(string.map_UIPIInputTypeLow Level Hooks)"/>
+      <map value="0x7" message="$(string.map_UIPIInputTypeHotKey)"/>
+      <map value="0x8" message="$(string.map_UIPIInputTypeMessage Post-Processing)"/>
+     </valueMap>
+     <valueMap name="UIPISysErrType">
+      <map value="0x1" message="$(string.map_UIPISysErrTypeSPI Set)"/>
+      <map value="0x2" message="$(string.map_UIPISysErrTypeBlockInput)"/>
+      <map value="0x3" message="$(string.map_UIPISysErrTypeChange Window Message Filter)"/>
+      <map value="0x4" message="$(string.map_UIPISysErrTypeJournal Hook)"/>
+      <map value="0x5" message="$(string.map_UIPISysErrTypeGesture Engine)"/>
+     </valueMap>
+     <valueMap name="ScreenSaverProcessActionType">
+      <map value="0x1" message="$(string.map_ScreenSaverProcessActionTypeScreenSaver Process Start)"/>
+      <map value="0x2" message="$(string.map_ScreenSaverProcessActionTypeScreenSaver Process End)"/>
+     </valueMap>
+     <valueMap name="WinlogonNotificationActionType">
+      <map value="0x0" message="$(string.map_WinlogonNotificationActionTypeWinlogon Notification End)"/>
+      <map value="0x1" message="$(string.map_WinlogonNotificationActionTypeWinlogon Notification Start)"/>
+     </valueMap>
+     <bitMap name="ThreadInfoFlags">
+      <map value="0x1" message="$(string.map_ThreadInfoFlagsThread had input messages)"/>
+      <map value="0x2" message="$(string.map_ThreadInfoFlagsThread had visible windows)"/>
+      <map value="0x4" message="$(string.map_ThreadInfoFlagsThread has new input)"/>
+      <map value="0x8" message="$(string.map_ThreadInfoFlagsThread has visible windows)"/>
+      <map value="0x10" message="$(string.map_ThreadInfoFlagsThread has windows)"/>
+      <map value="0x20" message="$(string.map_ThreadInfoFlagsThread has ghosted windows)"/>
+      <map value="0x40" message="$(string.map_ThreadInfoFlagsThread is being destroyed)"/>
+      <map value="0x80" message="$(string.map_ThreadInfoFlagsThread pumped per-window messages)"/>
+      <map value="0x100" message="$(string.map_ThreadInfoFlagsThread has input messages)"/>
+      <map value="0x200" message="$(string.map_ThreadInfoFlagsThread is spinning making windowing API calls)"/>
+      <map value="0x400" message="$(string.map_ThreadInfoFlagsThread has window focus)"/>
+      <map value="0x800" message="$(string.map_ThreadInfoFlagsThread is foreground)"/>
+     </bitMap>
+     <valueMap name="SurfaceType">
+      <map value="0x0" message="$(string.map_SurfaceTypeSystem Memory)"/>
+      <map value="0x1" message="$(string.map_SurfaceTypeDevice Bitmap)"/>
+     </valueMap>
+     <valueMap name="LogicalSurfaceRegionType">
+      <map value="0x0" message="$(string.map_LogicalSurfaceRegionTypeAccumulated dirty region since last time it was cleared)"/>
+      <map value="0x1" message="$(string.map_LogicalSurfaceRegionTypeAccumulated dirty region since the surface was created)"/>
+      <map value="0x2" message="$(string.map_LogicalSurfaceRegionTypeClip region derived from the Window region)"/>
+      <map value="0x3" message="$(string.map_LogicalSurfaceRegionTypeClip region derived from bit blit)"/>
+      <map value="0x4" message="$(string.map_LogicalSurfaceRegionTypeDX accumulation region)"/>
+      <map value="0x5" message="$(string.map_LogicalSurfaceRegionTypeRead DX accumulation region)"/>
+      <map value="0x6" message="$(string.map_LogicalSurfaceRegionTypeMove Region)"/>
+     </valueMap>
+     <valueMap name="FontSourceType">
+      <map value="0x0" message="$(string.map_FontSourceTypeFile)"/>
+      <map value="0x1" message="$(string.map_FontSourceTypeMemory)"/>
+      <map value="0x2" message="$(string.map_FontSourceTypeRemote (Printer))"/>
+      <map value="0x3" message="$(string.map_FontSourceTypeDevice)"/>
+     </valueMap>
+     <valueMap name="PowerWatchdogType">
+      <map value="0x10" message="$(string.map_PowerWatchdogTypeRequestQueue)"/>
+      <map value="0x20" message="$(string.map_PowerWatchdogTypePoCallout)"/>
+      <map value="0x30" message="$(string.map_PowerWatchdogTypePowerOnGdi)"/>
+      <map value="0x40" message="$(string.map_PowerWatchdogTypeDwmSyncFlush)"/>
+      <map value="0x50" message="$(string.map_PowerWatchdogTypeDrvSetMonitor)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="WindowUpdate" version="0" task="WindowUpdate" level="win:Informational" keywords="Updates" template="WindowUpdateArgs"/>
+     <event value="2" symbol="FocusChange" version="0" task="FocusChange" level="win:Informational" keywords="Focus" template="FocusChangeArgs"/>
+     <event value="3" symbol="UIPIMsgError" version="0" task="UIPIMsgError" level="win:Informational" keywords="UIPI" template="UIPIMsgErrorArgs"/>
+     <event value="4" symbol="UIPIHookError" version="0" task="UIPIHookError" level="win:Informational" keywords="UIPI" template="UIPIHookErrorArgs"/>
+     <event value="5" symbol="UIPIEventHookError" version="0" task="UIPIEventHookError" level="win:Informational" keywords="UIPI" template="UIPIEventHookErrorArgs"/>
+     <event value="6" symbol="UIPIHandleValError" version="0" task="UIPIHandleValError" level="win:Informational" keywords="UIPI" template="UIPIHandleValErrorArgs"/>
+     <event value="7" symbol="UIPIInputError" version="0" task="UIPIInputError" level="win:Informational" keywords="UIPI" template="UIPIInputErrorArgs"/>
+     <event value="8" symbol="UIPIClipboardError" version="0" task="UIPIClipboardError" level="win:Informational" keywords="UIPI" template="UIPIClipboardErrorArgs"/>
+     <event value="9" symbol="UIPISystemError" version="0" task="UIPISystemError" level="win:Informational" keywords="UIPI" template="UIPISystemErrorArgs"/>
+     <event value="10" symbol="PowerDisplayChange" version="0" task="PowerDisplayChange" level="win:Informational" keywords="win32Power" template="PowerDisplayChangeArgs"/>
+     <event value="11" symbol="IdleActionExpiration" version="0" task="IdleActionExpiration" level="win:Informational" keywords="win32Power" template="IdleActionExpirationArgs"/>
+     <event value="12" symbol="DisplayReqChange" version="0" task="DisplayReqChange" level="win:Informational" keywords="win32Power" template="DisplayReqChangeArgs"/>
+     <event value="13" symbol="DisplayTimeoutReset" version="0" task="DisplayTimeoutReset" level="win:Informational" keywords="win32Power" template="DisplayTimeoutResetArgs"/>
+     <event value="14" symbol="LockAcquireExclusive" version="0" task="LockAcquireExclusive" level="win:Informational" keywords="Concurrency" template="LockAcquireExclusiveArgs"/>
+     <event value="15" symbol="LockAcquireShared" version="0" task="LockAcquireShared" level="win:Informational" keywords="Concurrency" template="LockAcquireSharedArgs"/>
+     <event value="16" symbol="LockAcquireSharedStarveExclusive" version="0" task="LockAcquireSharedStarveExclusive" level="win:Informational" keywords="Concurrency" template="LockAcquireSharedArgs"/>
+     <event value="17" symbol="LockRelease" version="0" task="LockRelease" level="win:Informational" keywords="Concurrency" template="LockAcquireSharedArgs"/>
+     <event value="18" symbol="SwapChainBind" version="0" task="SwapChainBind" level="win:Informational" keywords="Updates" template="SwapChainBindArgs"/>
+     <event value="19" symbol="SwapChainUnBind" version="0" task="SwapChainUnBind" level="win:Informational" keywords="Updates" template="SwapChainBindArgs"/>
+     <event value="20" symbol="IdleStatusTracing" version="0" task="IdleStatusTracing" level="win:Informational" keywords="win32Power" template="IdleStatusTracingArgs"/>
+     <event value="21" symbol="SwapChainSetStats" version="0" task="SwapChainSetStats" level="win:Informational" keywords="Updates" template="SwapChainSetStatsArgs"/>
+     <event value="22" symbol="ScreenSaverProcess" version="0" task="ScreenSaverProcess" level="win:Informational" keywords="win32Power" template="ScreenSaverProcessArgs"/>
+     <event value="23" symbol="WinlogonSleepStart" version="0" task="WinlogonSleepStart" level="win:Informational" keywords="win32Power" template="WinlogonSleepStartArgs"/>
+     <event value="24" symbol="WinlogonSleepEnd" version="0" task="WinlogonSleepEnd" level="win:Informational" keywords="win32Power" template="WinlogonSleepEndArgs"/>
+     <event value="25" symbol="UserActive" version="0" task="UserActive" level="win:Informational" keywords="UserActivity" template="UserActiveArgs"/>
+     <event value="26" symbol="FocusedProcessChange" version="0" task="FocusedProcessChange" level="win:Informational" keywords="UserActivity" template="FocusedProcessChangeArgs"/>
+     <event value="27" symbol="DwmSpriteCreate" version="0" task="DwmSpriteCreate" level="win:Informational" keywords="Updates" template="DwmSpriteCreateArgs"/>
+     <event value="28" symbol="DwmSpriteDestroy" version="0" task="DwmSpriteDestroy" level="win:Informational" keywords="Updates" template="DwmSpriteCreateArgs"/>
+     <event value="29" symbol="LogicalSurfCreate" version="0" task="LogicalSurfCreate" level="win:Informational" keywords="Updates" template="LogicalSurfCreateArgs"/>
+     <event value="30" symbol="LogicalSurfDestroy" version="0" task="LogicalSurfDestroy" level="win:Informational" keywords="Updates" template="LogicalSurfCreateArgs"/>
+     <event value="31" symbol="LogicalSurfPhysSurfBind" version="0" task="LogicalSurfPhysSurfBind" level="win:Informational" keywords="Updates" template="LogicalSurfPhysSurfBindArgs"/>
+     <event value="32" symbol="LogicalSurfPhysSurfUnbind" version="0" task="LogicalSurfPhysSurfUnbind" level="win:Informational" keywords="Updates" template="LogicalSurfPhysSurfBindArgs"/>
+     <event value="33" symbol="GdiSysMemToken" version="0" task="GdiSysMemToken" level="win:Informational" keywords="Updates" template="GdiSysMemTokenArgs"/>
+     <event value="35" symbol="WaitCursor" version="0" task="WaitCursor" level="win:Informational" keywords="UIUnresponsiveness" template="WaitCursorArgs"/>
+     <event value="36" symbol="ThreadInfoRundown" version="0" task="ThreadInfoRundown" level="win:Informational" keywords="ThreadRundown" template="ThreadInfoRundownArgs"/>
+     <event value="37" symbol="InputProcessDelay" version="0" task="InputProcessDelay" level="win:Informational" keywords="UIUnresponsiveness" template="InputProcessDelayArgs"/>
+     <event value="38" symbol="MessageCheckDelay" version="0" task="MessageCheckDelay" level="win:Informational" keywords="UIUnresponsiveness" template="MessageCheckDelayArgs"/>
+     <event value="39" symbol="RenderingNewRendering" version="0" task="Rendering" opcode="NewRendering" level="win:Informational" keywords="Rendering" template="RenderingNewRenderingArgs"/>
+     <event value="40" symbol="RenderingOldToNewRendering" version="0" task="Rendering" opcode="OldToNewRendering" level="win:Informational" keywords="Rendering" template="RenderingNewRenderingArgs"/>
+     <event value="41" symbol="RenderingAppRenderingUpdate" version="0" task="Rendering" opcode="AppRenderingUpdate" level="win:Informational" keywords="Rendering" template="RenderingAppRenderingUpdateArgs"/>
+     <event value="42" symbol="RenderingAppRenderingTightUpdate" version="0" task="Rendering" opcode="AppRenderingTightUpdate" level="win:Informational" keywords="Rendering" template="RenderingAppRenderingUpdateArgs"/>
+     <event value="43" symbol="RenderingValidateWindow" version="0" task="Rendering" opcode="ValidateWindow" level="win:Informational" keywords="Rendering" template="RenderingValidateWindowArgs"/>
+     <event value="44" symbol="RenderingInvalidateWindow" version="0" task="Rendering" opcode="InvalidateWindow" level="win:Informational" keywords="Rendering" template="RenderingValidateWindowArgs"/>
+     <event value="45" symbol="ThreadExit" version="0" task="ThreadExit" level="win:Informational" keywords="ThreadInfo" template="ThreadInfoRundownArgs"/>
+     <event value="46" symbol="BindLogicalSurface" version="0" task="BindLogicalSurface" level="win:Informational" keywords="Updates" template="BindLogicalSurfaceArgs"/>
+     <event value="47" symbol="UnBindLogicalSurface" version="0" task="UnBindLogicalSurface" level="win:Informational" keywords="Updates" template="BindLogicalSurfaceArgs"/>
+     <event value="48" symbol="BindLogicalSurfaceRH" version="0" task="BindLogicalSurfaceRH" level="win:Informational" keywords="Updates" template="BindLogicalSurfaceRHArgs"/>
+     <event value="49" symbol="DwmSpriteLogicalSurfBind" version="0" task="DwmSpriteLogicalSurfBind" level="win:Informational" keywords="Updates" template="DwmSpriteLogicalSurfBindArgs"/>
+     <event value="50" symbol="DwmSpriteLogicalSurfUnBind" version="0" task="DwmSpriteLogicalSurfUnBind" level="win:Informational" keywords="Updates" template="DwmSpriteLogicalSurfBindArgs"/>
+     <event value="51" symbol="LogicalSurfEnableDirtyNotification" version="0" task="LogicalSurfEnableDirtyNotification" level="win:Informational" keywords="Updates" template="LogicalSurfEnableDirtyNotificationArgs"/>
+     <event value="52" symbol="PhysicalSurfCreate" version="0" task="PhysicalSurfCreate" level="win:Informational" keywords="Updates" template="PhysicalSurfCreateArgs"/>
+     <event value="53" symbol="ModifyRgn" version="0" task="ModifyRgn" level="win:Informational" keywords="Updates" template="ModifyRgnArgs"/>
+     <event value="54" symbol="SwapChainGetStats" version="0" task="SwapChainGetStats" level="win:Informational" keywords="Updates" template="SwapChainSetStatsArgs"/>
+     <event value="55" symbol="SwapChainBindingOpen" version="0" task="SwapChainBindingOpen" level="win:Informational" keywords="Updates" template="SwapChainBindingOpenArgs"/>
+     <event value="56" symbol="SwapChainBindingRelease" version="0" task="SwapChainBindingRelease" level="win:Informational" keywords="Updates" template="SwapChainBindingReleaseArgs"/>
+     <event value="57" symbol="SwapChainBindingStatus" version="0" task="SwapChainBindingStatus" level="win:Informational" keywords="Updates" template="SwapChainBindingStatusArgs"/>
+     <event value="58" symbol="DesktopResolutionFailure" version="0" task="DesktopResolutionFailure" level="win:Informational" keywords="Updates" template="DesktopResolutionFailureArgs"/>
+     <event value="59" symbol="QueuePostMessage" version="0" task="QueuePostMessage" level="win:Informational" keywords="MessagePump" template="QueuePostMessageArgs"/>
+     <event value="60" symbol="SendMessageStart" version="0" task="SendMessage" opcode="win:Start" level="win:Informational" keywords="MessagePump" template="SendMessageStartArgs"/>
+     <event value="61" symbol="RetrievePostMessage" version="0" task="RetrievePostMessage" level="win:Informational" keywords="MessagePump" template="RetrievePostMessageArgs"/>
+     <event value="62" symbol="RetrieveSendMessageStart" version="0" task="RetrieveSendMessage" opcode="win:Start" level="win:Informational" keywords="MessagePump" template="QueuePostMessageArgs"/>
+     <event value="63" symbol="RetrieveInputMessage" version="0" task="RetrieveInputMessage" level="win:Informational" keywords="MessagePump ComponentHosting" template="RetrieveInputMessageArgs"/>
+     <event value="64" symbol="RetrievePseudoMessage" version="0" task="RetrievePseudoMessage" level="win:Always" keywords="MessagePump" template="RetrievePostMessageArgs"/>
+     <event value="65" symbol="WakePump" version="0" task="WakePump" level="win:Informational" keywords="MessagePump" template="QueuePostMessageArgs"/>
+     <event value="66" symbol="InputQueueLocked" version="0" task="InputQueueLocked" level="win:Informational" keywords="MessagePumpInternalAndInput" template="InputQueueLockedArgs"/>
+     <event value="67" symbol="InputQueueLocked67" version="0" task="InputQueueLocked" level="win:Informational" keywords="MessagePumpInternalAndInput" template="InputQueueLockedArgs"/>
+     <event value="68" symbol="UserCallbackStart" version="0" task="UserCallback" opcode="win:Start" level="win:Informational" keywords="MessagePumpInternalAndInput" template="UserCallbackStartArgs"/>
+     <event value="69" symbol="UserCallbackStop" version="0" task="UserCallback" opcode="win:Stop" level="win:Informational" keywords="MessagePumpInternalAndInput" template="UserCallbackStartArgs"/>
+     <event value="70" symbol="SendMessageStop" version="0" task="SendMessage" opcode="win:Stop" level="win:Informational" keywords="MessagePump" template="SendMessageStopArgs"/>
+     <event value="71" symbol="SendMessageTimeOutToBlocking" version="0" task="SendMessageTimeOutToBlocking" level="win:Informational" keywords="MessagePumpInternalAndInput" template="SendMessageTimeOutToBlockingArgs"/>
+     <event value="72" symbol="InputDeviceReadStart" version="0" task="InputDeviceRead" opcode="win:Start" level="win:Informational" keywords="MessagePumpInternalAndInput" template="InputDeviceReadStartArgs"/>
+     <event value="73" symbol="InputDeviceReadStop" version="0" task="InputDeviceRead" opcode="win:Stop" level="win:Informational" keywords="MessagePumpInternalAndInput" template="InputDeviceReadStartArgs"/>
+     <event value="74" symbol="MessageInjectionPostGestureInputMessage" version="0" task="MessageInjection" opcode="PostGestureInputMessage" level="win:Informational" keywords="MessagePumpInternalAndInput" template="MessageInjectionPostGestureInputMessageArgs"/>
+     <event value="75" symbol="MessageInjectionPostGestureMessage" version="0" task="MessageInjection" opcode="PostGestureMessage" level="win:Informational" keywords="MessagePumpInternalAndInput" template="MessageInjectionPostGestureInputMessageArgs"/>
+     <event value="76" symbol="AppMessagePumpStart" version="0" task="AppMessagePump" opcode="win:Start" level="win:Informational" keywords="MessagePumpInternalAndInput" template="AppMessagePumpStartArgs"/>
+     <event value="77" symbol="AppMessagePumpStop" version="0" task="AppMessagePump" opcode="win:Stop" level="win:Informational" keywords="MessagePumpInternalAndInput" template="AppMessagePumpStopArgs"/>
+     <event value="78" symbol="WakeRIT" version="0" task="WakeRIT" level="win:Informational" keywords="MessagePumpInternalAndInput" template="WakeRITArgs"/>
+     <event value="79" symbol="PointerMotionStart" version="0" task="PointerMotion" opcode="win:Start" level="win:Informational" keywords="MessagePumpInternalAndInput" template="PointerMotionStartArgs"/>
+     <event value="80" symbol="PointerMotionStop" version="0" task="PointerMotion" opcode="win:Stop" level="win:Informational" keywords="MessagePumpInternalAndInput" template="PointerMotionStartArgs"/>
+     <event value="81" symbol="InjectMouseStart" version="0" task="InjectMouse" opcode="win:Start" level="win:Informational" keywords="MessagePumpInternalAndInput" template="InjectMouseStartArgs"/>
+     <event value="82" symbol="InjectMouseStop" version="0" task="InjectMouse" opcode="win:Stop" level="win:Informational" keywords="MessagePumpInternalAndInput" template="InjectMouseStartArgs"/>
+     <event value="83" symbol="RetrieveSendMessageStop" version="0" task="RetrieveSendMessage" opcode="win:Stop" level="win:Informational" keywords="MessagePump" template="SendMessageStopArgs"/>
+     <event value="84" symbol="GUIProcessStart" version="0" task="GUIProcess" opcode="win:Start" level="win:Informational" keywords="ThreadInfo"/>
+     <event value="85" symbol="GUIProcessStop" version="0" task="GUIProcess" opcode="win:Stop" level="win:Informational" keywords="ThreadInfo"/>
+     <event value="86" symbol="GUIThreadStart" version="0" task="GUIThread" opcode="win:Start" level="win:Informational" keywords="ThreadInfo"/>
+     <event value="87" symbol="GUIThreadStop" version="0" task="GUIThread" opcode="win:Stop" level="win:Informational" keywords="ThreadInfo"/>
+     <event value="88" symbol="QueueInputMessage" version="0" task="QueueInputMessage" level="win:Informational" keywords="MessagePump ComponentHosting" template="QueueInputMessageArgs"/>
+     <event value="89" symbol="TranslateMessageStart" version="0" task="TranslateMessage" opcode="win:Start" level="win:Informational" keywords="MessagePump" template="TranslateMessageStartArgs"/>
+     <event value="91" symbol="TranslateMessageStop" version="0" task="TranslateMessage" opcode="win:Stop" level="win:Informational" keywords="MessagePump" template="TranslateMessageStartArgs"/>
+     <event value="92" symbol="DispatchMessageStart" version="0" task="DispatchMessage" opcode="win:Start" level="win:Informational" keywords="MessagePump" template="TranslateMessageStartArgs"/>
+     <event value="93" symbol="DispatchMessageStop" version="0" task="DispatchMessage" opcode="win:Stop" level="win:Informational" keywords="MessagePump" template="TranslateMessageStartArgs"/>
+     <event value="94" symbol="TouchTargetingSpeedHitTestStart" version="0" task="TouchTargetingSpeedHitTest" opcode="win:Start" level="win:Informational" keywords="MessagePumpInternalAndInput"/>
+     <event value="95" symbol="TouchTargetingSpeedHitTestStop" version="0" task="TouchTargetingSpeedHitTest" opcode="win:Stop" level="win:Informational" keywords="MessagePumpInternalAndInput"/>
+     <event value="96" symbol="TouchTargetingWindowHitTestStart" version="0" task="TouchTargetingWindowHitTest" opcode="win:Start" level="win:Informational" keywords="MessagePumpInternalAndInput"/>
+     <event value="97" symbol="TouchTargetingWindowHitTestStop" version="0" task="TouchTargetingWindowHitTest" opcode="win:Stop" level="win:Informational" keywords="MessagePumpInternalAndInput"/>
+     <event value="98" symbol="TouchTargetingPointerTargetStart" version="0" task="TouchTargetingPointerTarget" opcode="win:Start" level="win:Informational" keywords="MessagePumpInternalAndInput"/>
+     <event value="99" symbol="TouchTargetingPointerTargetStop" version="0" task="TouchTargetingPointerTarget" opcode="win:Stop" level="win:Informational" keywords="MessagePumpInternalAndInput"/>
+     <event value="100" symbol="MessageInjectionInjectTouchEvent" version="0" task="MessageInjection" opcode="InjectTouchEvent" level="win:Informational" keywords="MessagePumpInternalAndInput" template="SendMessageTimeOutToBlockingArgs"/>
+     <event value="102" symbol="task_0" version="0" task="task_0" level="win:Informational" keywords="TimerSurvey" template="task_0Args"/>
+     <event value="103" symbol="task_0103" version="0" task="task_0" level="win:Informational" keywords="TimerSurvey" template="task_0103Args"/>
+     <event value="104" symbol="ContactVisualizationStart" version="0" task="ContactVisualization" opcode="win:Start" level="win:Informational" keywords="UserActivity Rendering"/>
+     <event value="105" symbol="ContactVisualizationStop" version="0" task="ContactVisualization" opcode="win:Stop" level="win:Informational" keywords="UserActivity Rendering"/>
+     <event value="106" symbol="TouchTargetingOffset" version="0" task="TouchTargetingOffset" level="win:Informational" keywords="MessagePumpInternalAndInput" template="TouchTargetingOffsetArgs"/>
+     <event value="107" symbol="TouchTargetingPointerEvent" version="0" task="TouchTargetingPointerEvent" level="win:Informational" keywords="MessagePumpInternalAndInput" template="TouchTargetingPointerEventArgs"/>
+     <event value="108" symbol="TouchTargetingPointerEvent108" version="0" task="TouchTargetingPointerEvent" level="win:Verbose" keywords="MessagePumpInternalAndInput" template="TouchTargetingPointerEventArgs"/>
+     <event value="109" symbol="PointerDeviceReadStart" version="0" task="PointerDeviceRead" opcode="win:Start" level="win:Informational" keywords="MessagePumpInternalAndInput"/>
+     <event value="110" symbol="PointerDeviceReadStop" version="0" task="PointerDeviceRead" opcode="win:Stop" level="win:Informational" keywords="MessagePumpInternalAndInput"/>
+     <event value="111" symbol="PointerDeviceMessageStart" version="0" task="PointerDeviceMessage" opcode="win:Start" level="win:Informational" keywords="MessagePumpInternalAndInput"/>
+     <event value="112" symbol="PointerDeviceMessageStop" version="0" task="PointerDeviceMessage" opcode="win:Stop" level="win:Informational" keywords="MessagePumpInternalAndInput"/>
+     <event value="113" symbol="PointerDeviceMessageStart113" version="0" task="PointerDeviceMessage" opcode="win:Start" level="win:Informational" keywords="MessagePumpInternalAndInput"/>
+     <event value="114" symbol="PointerDeviceMessageStop114" version="0" task="PointerDeviceMessage" opcode="win:Stop" level="win:Informational" keywords="MessagePumpInternalAndInput"/>
+     <event value="115" symbol="PointerDeviceTransformationStart" version="0" task="PointerDeviceTransformation" opcode="win:Start" level="win:Informational" keywords="MessagePumpInternalAndInput" template="PointerDeviceTransformationStartArgs"/>
+     <event value="116" symbol="PointerDeviceTransformationStop" version="0" task="PointerDeviceTransformation" opcode="win:Stop" level="win:Informational" keywords="MessagePumpInternalAndInput" template="PointerDeviceTransformationStartArgs"/>
+     <event value="117" symbol="RenderingTranslationUpdate" version="0" task="Rendering" opcode="TranslationUpdate" level="win:Informational" keywords="Rendering" template="RenderingTranslationUpdateArgs"/>
+     <event value="118" symbol="TranslationUpdateOffset" version="0" task="TranslationUpdateOffset" level="win:Informational" keywords="Rendering" template="TranslationUpdateOffsetArgs"/>
+     <event value="119" symbol="RenderingTranslationUpdateRectClip" version="0" task="Rendering" opcode="TranslationUpdateRectClip" level="win:Informational" keywords="Rendering" template="RenderingTranslationUpdateArgs"/>
+     <event value="120" symbol="RenderingUpdateDxAccumFromGDI" version="0" task="Rendering" opcode="UpdateDxAccumFromGDI" level="win:Informational" keywords="Rendering" template="RenderingTranslationUpdateArgs"/>
+     <event value="121" symbol="RenderingUpdateDxAccumFromDX" version="0" task="Rendering" opcode="UpdateDxAccumFromDX" level="win:Informational" keywords="Rendering" template="RenderingTranslationUpdateArgs"/>
+     <event value="122" symbol="RenderingGetDxAccum" version="0" task="Rendering" opcode="GetDxAccum" level="win:Informational" keywords="Rendering" template="RenderingGetDxAccumArgs"/>
+     <event value="123" symbol="ModifyDxAccumRgn" version="0" task="ModifyDxAccumRgn" level="win:Informational" keywords="Updates" template="ModifyDxAccumRgnArgs"/>
+     <event value="124" symbol="LogicalSurfRemovedTranslationFromDirty" version="0" task="LogicalSurfRemovedTranslationFromDirty" level="win:Informational" keywords="Updates" template="RenderingTranslationUpdateArgs"/>
+     <event value="125" symbol="PointerDeviceDiscoveryStart" version="0" task="PointerDeviceDiscovery" opcode="win:Start" level="win:Informational" keywords="MessagePumpInternalAndInput"/>
+     <event value="126" symbol="PointerDeviceDiscoveryStop" version="0" task="PointerDeviceDiscovery" opcode="win:Stop" level="win:Informational" keywords="MessagePumpInternalAndInput"/>
+     <event value="127" symbol="PointerDeviceMessageStart127" version="0" task="PointerDeviceMessage" opcode="win:Start" level="win:Informational" keywords="MessagePumpInternalAndInput"/>
+     <event value="128" symbol="PointerDeviceMessageStop128" version="0" task="PointerDeviceMessage" opcode="win:Stop" level="win:Informational" keywords="MessagePumpInternalAndInput"/>
+     <event value="129" symbol="TouchInjectionEventStart" version="0" task="TouchInjectionEvent" opcode="win:Start" level="win:Informational" keywords="MessagePumpInternalAndInput"/>
+     <event value="130" symbol="TouchInjectionEventStop" version="0" task="TouchInjectionEvent" opcode="win:Stop" level="win:Informational" keywords="MessagePumpInternalAndInput"/>
+     <event value="131" symbol="PointerFrameCreationStart" version="0" task="PointerFrameCreation" opcode="win:Start" level="win:Informational" keywords="PointerInput" template="PointerFrameCreationStartArgs"/>
+     <event value="132" symbol="PointerFrameCreationStop" version="0" task="PointerFrameCreation" opcode="win:Stop" level="win:Informational" keywords="PointerInput" template="PointerFrameCreationStartArgs"/>
+     <event value="133" symbol="PointerFrameBuildPartialStart" version="0" task="PointerFrameBuildPartial" opcode="win:Start" level="win:Informational" keywords="PointerInput" template="PointerFrameCreationStartArgs"/>
+     <event value="134" symbol="PointerFrameBuildPartialStop" version="0" task="PointerFrameBuildPartial" opcode="win:Stop" level="win:Informational" keywords="PointerInput" template="PointerFrameCreationStartArgs"/>
+     <event value="135" symbol="PointerFrameCommitStart" version="0" task="PointerFrameCommit" opcode="win:Start" level="win:Informational" keywords="PointerInput" template="PointerFrameCreationStartArgs"/>
+     <event value="136" symbol="PointerFrameCommitStop" version="0" task="PointerFrameCommit" opcode="win:Stop" level="win:Informational" keywords="PointerInput" template="PointerFrameCreationStartArgs"/>
+     <event value="137" symbol="PointerFrameCoalesceStart" version="0" task="PointerFrameCoalesce" opcode="win:Start" level="win:Informational" keywords="PointerInput" template="PointerFrameCreationStartArgs"/>
+     <event value="138" symbol="PointerFrameCoalesceStop" version="0" task="PointerFrameCoalesce" opcode="win:Stop" level="win:Informational" keywords="PointerInput" template="PointerFrameCreationStartArgs"/>
+     <event value="139" symbol="PointerFrameMessageGenerationStart" version="0" task="PointerFrameMessageGeneration" opcode="win:Start" level="win:Informational" keywords="PointerInput" template="PointerFrameCreationStartArgs"/>
+     <event value="140" symbol="PointerFrameMessageGenerationStop" version="0" task="PointerFrameMessageGeneration" opcode="win:Stop" level="win:Informational" keywords="PointerInput" template="PointerFrameCreationStartArgs"/>
+     <event value="141" symbol="PointerMessageRetrieveStart" version="0" task="PointerMessageRetrieve" opcode="win:Start" level="win:Informational" keywords="PointerInput" template="PointerMessageRetrieveStartArgs"/>
+     <event value="142" symbol="PointerMessageRetrieveStop" version="0" task="PointerMessageRetrieve" opcode="win:Stop" level="win:Informational" keywords="PointerInput" template="PointerMessageRetrieveStartArgs"/>
+     <event value="143" symbol="PointerUpdateMessageRetrieveStart" version="0" task="PointerUpdateMessageRetrieve" opcode="win:Start" level="win:Verbose" keywords="PointerInput" template="PointerMessageRetrieveStartArgs"/>
+     <event value="144" symbol="PointerUpdateMessageRetrieveStop" version="0" task="PointerUpdateMessageRetrieve" opcode="win:Stop" level="win:Verbose" keywords="PointerInput" template="PointerMessageRetrieveStartArgs"/>
+     <event value="145" symbol="PointerSetTargetWindowsStart" version="0" task="PointerSetTargetWindows" opcode="win:Start" level="win:Informational" keywords="PointerInput"/>
+     <event value="146" symbol="PointerSetTargetWindowsStop" version="0" task="PointerSetTargetWindows" opcode="win:Stop" level="win:Informational" keywords="PointerInput"/>
+     <event value="147" symbol="PointerUpdateSetTargetWindowsStart" version="0" task="PointerUpdateSetTargetWindows" opcode="win:Start" level="win:Verbose" keywords="PointerInput"/>
+     <event value="148" symbol="PointerUpdateSetTargetWindowsStop" version="0" task="PointerUpdateSetTargetWindows" opcode="win:Stop" level="win:Verbose" keywords="PointerInput"/>
+     <event value="149" symbol="InputQueueNoRemoveLockerStop" version="0" task="InputQueueNoRemoveLocker" opcode="win:Stop" level="win:Informational" keywords="MessagePumpInternalAndInput" template="InputQueueLockedArgs"/>
+     <event value="150" symbol="InputQueueLockedPeekRecursionStop" version="0" task="InputQueueLockedPeekRecursion" opcode="win:Stop" level="win:Informational" keywords="MessagePumpInternalAndInput" template="InputQueueLockedArgs"/>
+     <event value="151" symbol="DCompCommitBatch" version="0" task="DCompCommitBatch" level="win:Informational" keywords="Updates Visualization" template="DCompCommitBatchArgs"/>
+     <event value="152" symbol="DelegateInputUserCallbackStart" version="0" task="DelegateInputUserCallback" opcode="win:Start" level="win:Informational" keywords="MessagePumpInternalAndInput" template="QueueInputMessageArgs"/>
+     <event value="153" symbol="DelegateInputUserCallbackStop" version="0" task="DelegateInputUserCallback" opcode="win:Stop" level="win:Informational" keywords="MessagePumpInternalAndInput" template="QueueInputMessageArgs"/>
+     <event value="154" symbol="DelegatedInputWorkerStart" version="0" task="DelegatedInputWorker" opcode="win:Start" level="win:Informational" keywords="MessagePumpInternalAndInput" template="DelegatedInputWorkerStartArgs"/>
+     <event value="155" symbol="DelegatedInputWorkerStop" version="0" task="DelegatedInputWorker" opcode="win:Stop" level="win:Informational" keywords="MessagePumpInternalAndInput" template="DelegatedInputWorkerStartArgs"/>
+     <event value="156" symbol="PointerDeviceMessage" version="0" task="PointerDeviceMessage" level="win:Informational" keywords="MessagePumpInternalAndInput" template="PointerDeviceMessageArgs"/>
+     <event value="157" symbol="PointerMessageGenerationStart" version="0" task="PointerMessageGeneration" opcode="win:Start" level="win:Informational" keywords="PointerInput" template="PointerMessageGenerationStartArgs"/>
+     <event value="158" symbol="PointerMessageGenerationStop" version="0" task="PointerMessageGeneration" opcode="win:Stop" level="win:Informational" keywords="PointerInput" template="PointerMessageGenerationStartArgs"/>
+     <event value="159" symbol="PointerFrameCoalesce" version="0" task="PointerFrameCoalesce" level="win:Informational" keywords="PointerInput" template="PointerFrameCoalesceArgs"/>
+     <event value="160" symbol="SmoothRotationStart" version="0" task="SmoothRotation" opcode="win:Start" level="win:Informational" keywords="UIUnresponsiveness AutoRotation" template="SmoothRotationStartArgs"/>
+     <event value="161" symbol="SmoothRotationStop" version="0" task="SmoothRotation" opcode="win:Stop" level="win:Informational" keywords="UIUnresponsiveness AutoRotation" template="SmoothRotationStopArgs"/>
+     <event value="162" symbol="DCompGetBatch" version="0" task="DCompGetBatch" level="win:Informational" keywords="Updates Visualization" template="DCompGetBatchArgs"/>
+     <event value="163" symbol="ExclusiveUserCrit" version="0" task="ExclusiveUserCrit" level="win:Informational" keywords="Contention" template="ExclusiveUserCritArgs"/>
+     <event value="164" symbol="ExclusiveUserCrit164" version="0" task="ExclusiveUserCrit" level="win:Informational" keywords="Contention" template="ExclusiveUserCritArgs"/>
+     <event value="165" symbol="SharedUserCrit" version="0" task="SharedUserCrit" level="win:Informational" keywords="Contention" template="ExclusiveUserCritArgs"/>
+     <event value="166" symbol="SharedUserCrit166" version="0" task="SharedUserCrit" level="win:Informational" keywords="Contention" template="ExclusiveUserCritArgs"/>
+     <event value="167" symbol="ReleaseUserCrit" version="0" task="ReleaseUserCrit" level="win:Informational" keywords="Contention" template="ReleaseUserCritArgs"/>
+     <event value="168" symbol="SleepInputIdle" version="0" task="SleepInputIdle" level="win:Informational" keywords="MessagePumpInternalAndInput" template="SleepInputIdleArgs"/>
+     <event value="169" symbol="WakeInputIdle" version="0" task="WakeInputIdle" level="win:Informational" keywords="MessagePumpInternalAndInput" template="SleepInputIdleArgs"/>
+     <event value="170" symbol="EdgyDetectionStart" version="0" task="EdgyDetection" opcode="win:Start" level="win:Informational" keywords="UserActivity PointerInput"/>
+     <event value="171" symbol="EdgyDetectionStop" version="0" task="EdgyDetection" opcode="win:Stop" level="win:Informational" keywords="UserActivity PointerInput" template="EdgyDetectionStopArgs"/>
+     <event value="172" symbol="ImmersiveInputProcessDelay" version="0" task="ImmersiveInputProcessDelay" level="win:Informational" keywords="UIUnresponsiveness" template="ImmersiveInputProcessDelayArgs"/>
+     <event value="173" symbol="ImmersiveMessageCheckDelay" version="0" task="ImmersiveMessageCheckDelay" level="win:Informational" keywords="UIUnresponsiveness" template="ImmersiveMessageCheckDelayArgs"/>
+     <event value="174" symbol="THQAEventStart" version="0" task="THQAEvent" opcode="win:Start" level="win:Informational" keywords="MessagePumpInternalAndInput"/>
+     <event value="175" symbol="THQAEventStop" version="0" task="THQAEvent" opcode="win:Stop" level="win:Informational" keywords="MessagePumpInternalAndInput"/>
+     <event value="176" symbol="PointerPredictionStart" version="0" task="PointerPrediction" opcode="win:Start" level="win:Informational" keywords="MessagePumpInternalAndInput" template="PointerDeviceTransformationStartArgs"/>
+     <event value="177" symbol="PointerPredictionStop" version="0" task="PointerPrediction" opcode="win:Stop" level="win:Informational" keywords="MessagePumpInternalAndInput" template="PointerDeviceTransformationStartArgs"/>
+     <event value="178" symbol="MoveRgn" version="0" task="MoveRgn" level="win:Informational" keywords="Updates" template="ModifyRgnArgs"/>
+     <event value="179" symbol="DirtyRgn" version="0" task="DirtyRgn" level="win:Informational" keywords="Updates" template="ModifyRgnArgs"/>
+     <event value="180" symbol="LogicalSurfRemovedTranslationFromMove" version="0" task="LogicalSurfRemovedTranslationFromMove" level="win:Informational" keywords="Updates" template="RenderingTranslationUpdateArgs"/>
+     <event value="181" symbol="DirtyRectUpdate" version="0" task="DirtyRectUpdate" level="win:Informational" keywords="Updates" template="RenderingTranslationUpdateArgs"/>
+     <event value="182" symbol="TranslationUpdateOffsetDWM" version="0" task="TranslationUpdateOffsetDWM" level="win:Informational" keywords="Rendering" template="TranslationUpdateOffsetArgs"/>
+     <event value="183" symbol="DwmGetRgn" version="0" task="DwmGetRgn" level="win:Informational" keywords="Updates" template="ModifyRgnArgs"/>
+     <event value="184" symbol="PointerFrameCoalesceStart184" version="0" task="PointerFrameCoalesce" opcode="win:Start" level="win:Informational" keywords="PointerInput" template="PointerFrameCreationStartArgs"/>
+     <event value="185" symbol="PointerFrameCoalesceStop185" version="0" task="PointerFrameCoalesce" opcode="win:Stop" level="win:Informational" keywords="PointerInput" template="PointerFrameCreationStartArgs"/>
+     <event value="186" symbol="PointerFrameCoalesce186" version="0" task="PointerFrameCoalesce" level="win:Informational" keywords="PointerInput" template="PointerFrameCoalesceArgs"/>
+     <event value="187" symbol="InternalSetTimerCoalescing" version="0" task="InternalSetTimerCoalescing" level="win:Informational" keywords="TimerInfo" template="InternalSetTimerCoalescingArgs"/>
+     <event value="188" symbol="InternalSetTimerNoCoalescing" version="0" task="InternalSetTimerNoCoalescing" level="win:Informational" keywords="TimerInfo" template="InternalSetTimerNoCoalescingArgs"/>
+     <event value="189" symbol="KillTimer" version="0" task="KillTimer" level="win:Informational" keywords="TimerInfo" template="KillTimerArgs"/>
+     <event value="190" symbol="ProcTimerCoalescing" version="0" task="ProcTimerCoalescing" level="win:Informational" keywords="TimerInfo" template="InternalSetTimerCoalescingArgs"/>
+     <event value="191" symbol="ProcTimerNoCoalescing" version="0" task="ProcTimerNoCoalescing" level="win:Informational" keywords="TimerInfo" template="InternalSetTimerNoCoalescingArgs"/>
+     <event value="192" symbol="DrvChangeDisplaySettingsStart" version="0" task="DrvChangeDisplaySettings" opcode="win:Start" level="win:Informational"/>
+     <event value="193" symbol="DrvChangeDisplaySettingsStop" version="0" task="DrvChangeDisplaySettings" opcode="win:Stop" level="win:Informational"/>
+     <event value="194" symbol="ChangeDisplayModeStart" version="0" task="ChangeDisplayMode" opcode="win:Start" level="win:Informational"/>
+     <event value="195" symbol="ChangeDisplayModeStop" version="0" task="ChangeDisplayMode" opcode="win:Stop" level="win:Informational"/>
+     <event value="196" symbol="PseudoDevCreationStart" version="0" task="PseudoDevCreation" opcode="win:Start" level="win:Informational" keywords="MessagePumpInternalAndInput"/>
+     <event value="197" symbol="PseudoDevCreationStop" version="0" task="PseudoDevCreation" opcode="win:Stop" level="win:Informational" keywords="MessagePumpInternalAndInput"/>
+     <event value="198" symbol="TouchHWTimeStamp" version="0" task="TouchHWTimeStamp" level="win:Informational" keywords="MessagePumpInternalAndInput" template="TouchHWTimeStampArgs"/>
+     <event value="199" symbol="PointerFrameCoalesce199" version="0" task="PointerFrameCoalesce" level="win:Informational" keywords="PointerInput" template="PointerFrameCoalesceArgs"/>
+     <event value="200" symbol="PointerFrameCoalesce200" version="0" task="PointerFrameCoalesce" level="win:Informational" keywords="PointerInput" template="PointerFrameCoalesceArgs"/>
+     <event value="201" symbol="TokenCompositionSurfaceObject" version="0" task="TokenCompositionSurfaceObject" level="win:Informational" keywords="Updates Visualization" template="TokenCompositionSurfaceObjectArgs"/>
+     <event value="202" symbol="CompositionSurfaceObjectUpdate" version="0" task="CompositionSurfaceObjectUpdate" level="win:Informational" keywords="Updates Visualization" template="CompositionSurfaceObjectUpdateArgs"/>
+     <event value="203" symbol="QueueEventMessage" version="0" task="QueueEventMessage" level="win:Informational" keywords="MessagePumpInternalAndInput" template="QueueEventMessageArgs"/>
+     <event value="204" symbol="RetrieveQueueEventMessage" version="0" task="RetrieveQueueEventMessage" level="win:Informational" keywords="MessagePumpInternalAndInput" template="QueueEventMessageArgs"/>
+     <event value="205" symbol="ForegroundWindowFullScreenStart" version="0" task="ForegroundWindowFullScreen" opcode="win:Start" level="win:Informational" keywords="UIUnresponsiveness AutoRotation"/>
+     <event value="206" symbol="ForegroundWindowFullScreenStop" version="0" task="ForegroundWindowFullScreen" opcode="win:Stop" level="win:Informational" keywords="UIUnresponsiveness AutoRotation"/>
+     <event value="207" symbol="ChangeDisplayModeBroadcast" version="0" task="ChangeDisplayModeBroadcast" level="win:Informational"/>
+     <event value="213" symbol="ContactVisualization" version="0" task="ContactVisualization" level="win:Informational" keywords="UserActivity Rendering" template="ContactVisualizationArgs"/>
+     <event value="214" symbol="ChangeDisplayModeDeferral" version="0" task="ChangeDisplayModeDeferral" level="win:Informational"/>
+     <event value="215" symbol="ConvertibleState" version="0" task="ConvertibleState" level="win:Informational" keywords="UserActivity" template="ConvertibleStateArgs"/>
+     <event value="216" symbol="DockState" version="0" task="DockState" level="win:Informational" keywords="UserActivity" template="DockStateArgs"/>
+     <event value="217" symbol="TouchPadHWTimeStamp" version="0" task="TouchPadHWTimeStamp" level="win:Informational" keywords="TouchInput" template="TouchPadHWTimeStampArgs"/>
+     <event value="218" symbol="TransformAgeDecay" version="0" task="TransformAgeDecay" level="win:Informational" template="TransformAgeDecayArgs"/>
+     <event value="219" symbol="WakeDIT" version="0" task="WakeDIT" level="win:Informational" keywords="MessagePumpInternalAndInput ComponentHosting" template="WakeRITArgs"/>
+     <event value="220" symbol="ArmDitMouseFlush" version="0" task="ArmDitMouseFlush" level="win:Informational" keywords="MessagePumpInternalAndInput ComponentHosting"/>
+     <event value="221" symbol="ProcessQueuedMouseEventsStart" version="0" task="ProcessQueuedMouseEvents" opcode="win:Start" level="win:Informational" keywords="MessagePumpInternalAndInput ComponentHosting"/>
+     <event value="222" symbol="ProcessQueuedMouseEventsStop" version="0" task="ProcessQueuedMouseEvents" opcode="win:Stop" level="win:Informational" keywords="MessagePumpInternalAndInput ComponentHosting"/>
+     <event value="223" symbol="DITSpeedHitTestFailedRevalidation" version="0" task="DITSpeedHitTestFailedRevalidation" level="win:Informational" keywords="MessagePumpInternalAndInput ComponentHosting" template="DITSpeedHitTestFailedRevalidationArgs"/>
+     <event value="224" symbol="InputRedirection" version="0" task="InputRedirection" level="win:Informational" keywords="MessagePumpInternalAndInput ComponentHosting" template="InputRedirectionArgs"/>
+     <event value="225" symbol="OnInputXformUpdate" version="0" task="OnInputXformUpdate" level="win:Informational" keywords="MessagePumpInternalAndInput ComponentHosting" template="OnInputXformUpdateArgs"/>
+     <event value="226" symbol="DitWaitForRitDisEngagement" version="0" task="DitWaitForRitDisEngagement" level="win:Informational" keywords="MessagePumpInternalAndInput ComponentHosting"/>
+     <event value="227" symbol="RitDisEngaged" version="0" task="RitDisEngaged" level="win:Informational" keywords="MessagePumpInternalAndInput ComponentHosting"/>
+     <event value="228" symbol="DitEngaged" version="0" task="DitEngaged" level="win:Informational" keywords="MessagePumpInternalAndInput ComponentHosting"/>
+     <event value="229" symbol="RitReEngaged" version="0" task="RitReEngaged" level="win:Informational" keywords="MessagePumpInternalAndInput ComponentHosting"/>
+     <event value="230" symbol="DitDisEngaged" version="0" task="DitDisEngaged" level="win:Informational" keywords="MessagePumpInternalAndInput ComponentHosting"/>
+     <event value="231" symbol="DitTerminated" version="0" task="DitTerminated" level="win:Informational" keywords="MessagePumpInternalAndInput ComponentHosting"/>
+     <event value="232" symbol="DitShutdown" version="0" task="DitShutdown" level="win:Informational" keywords="MessagePumpInternalAndInput ComponentHosting"/>
+     <event value="233" symbol="TouchPadAAP" version="0" task="TouchPadAAP" level="win:Informational" keywords="TouchInput" template="TouchPadAAPArgs"/>
+     <event value="234" symbol="MouseInputApc" version="0" task="MouseInputApc" level="win:Informational" keywords="MessagePumpInternalAndInput ComponentHosting"/>
+     <event value="235" symbol="MouseInputCoalesced" version="0" task="MouseInputCoalesced" level="win:Informational" keywords="MessagePumpInternalAndInput ComponentHosting"/>
+     <event value="236" symbol="TouchPadTypeDiscovered" version="0" task="TouchPadTypeDiscovered" level="win:Informational" keywords="TouchInput" template="TouchPadTypeDiscoveredArgs"/>
+     <event value="237" symbol="TouchPadEnabledStatusChangeStart" version="0" task="TouchPadEnabledStatusChange" opcode="win:Start" level="win:Informational" keywords="TouchInput"/>
+     <event value="238" symbol="TouchPadEnabledStatusChangeStop" version="0" task="TouchPadEnabledStatusChange" opcode="win:Stop" level="win:Informational" keywords="TouchInput"/>
+     <event value="239" symbol="PTPReadThresholdsStart" version="0" task="PTPReadThresholds" opcode="win:Start" level="win:Informational" keywords="TouchInput"/>
+     <event value="240" symbol="PTPReadThresholdsStop" version="0" task="PTPReadThresholds" opcode="win:Stop" level="win:Informational" keywords="TouchInput"/>
+     <event value="241" symbol="TouchPadConfidenceCleared" version="0" task="TouchPadConfidenceCleared" level="win:Informational" keywords="TouchInput" template="TouchPadConfidenceClearedArgs"/>
+     <event value="242" symbol="TouchPadConfidenceUpped" version="0" task="TouchPadConfidenceUpped" level="win:Informational" keywords="TouchInput" template="TouchPadConfidenceUppedArgs"/>
+     <event value="243" symbol="PTPElasticDragModeStart" version="0" task="PTPElasticDragMode" opcode="win:Start" level="win:Informational" keywords="TouchInput"/>
+     <event value="244" symbol="PTPElasticDragModeStop" version="0" task="PTPElasticDragMode" opcode="win:Stop" level="win:Informational" keywords="TouchInput"/>
+     <event value="245" symbol="LegacyTouchPadDetectionStart" version="0" task="LegacyTouchPadDetection" opcode="win:Start" level="win:Informational" keywords="TouchInput"/>
+     <event value="246" symbol="LegacyTouchPadDetectionStop" version="0" task="LegacyTouchPadDetection" opcode="win:Stop" level="win:Informational" keywords="TouchInput"/>
+     <event value="247" symbol="LegacyTouchPadDetection" version="0" task="LegacyTouchPadDetection" level="win:Informational" keywords="TouchInput"/>
+     <event value="248" symbol="LegacyTouchPadDetection248" version="0" task="LegacyTouchPadDetection" level="win:Informational" keywords="TouchInput"/>
+     <event value="249" symbol="TouchPadCurtainState" version="0" task="TouchPadCurtainState" level="win:Informational" keywords="TouchInput" template="TouchPadCurtainStateArgs"/>
+     <event value="250" symbol="TouchPadCurtainSize" version="0" task="TouchPadCurtainSize" level="win:Informational" keywords="TouchInput" template="TouchPadCurtainSizeArgs"/>
+     <event value="251" symbol="TouchpadStopInertia" version="0" task="TouchpadStopInertia" level="win:Informational" keywords="TouchInput"/>
+     <event value="252" symbol="TouchpadStopInertia252" version="0" task="TouchpadStopInertia" level="win:Informational" keywords="TouchInput"/>
+     <event value="253" symbol="TouchpadStopInertia253" version="0" task="TouchpadStopInertia" level="win:Informational" keywords="TouchInput"/>
+     <event value="254" symbol="TrappedAppContainerRender" version="0" task="TrappedAppContainerRender" level="win:Error" keywords="TrappedACRendering" template="TrappedAppContainerRenderArgs"/>
+     <event value="255" symbol="CursorSize" version="0" task="CursorSize" level="win:Informational" keywords="Updates" template="CursorSizeArgs"/>
+     <event value="256" symbol="DitMmcssWorkStart" version="0" task="DitMmcssWork" opcode="win:Start" level="win:Informational" keywords="MessagePumpInternalAndInput ComponentHosting"/>
+     <event value="257" symbol="DitMmcssWorkStop" version="0" task="DitMmcssWork" opcode="win:Stop" level="win:Informational" keywords="MessagePumpInternalAndInput ComponentHosting"/>
+     <event value="258" symbol="FocusedProcessChangeGained" version="0" task="FocusedProcessChangeGained" level="win:Informational" keywords="UserActivity" template="FocusedProcessChangeGainedArgs"/>
+     <event value="259" symbol="FocusedProcessChangeLost" version="0" task="FocusedProcessChangeLost" level="win:Informational" keywords="UserActivity" template="FocusedProcessChangeLostArgs"/>
+     <event value="260" symbol="FontLoadAttempt" version="0" task="FontLoadAttempt" level="win:Informational" keywords="Fonts" template="FontLoadAttemptArgs"/>
+     <event value="301" symbol="TokenStateChanged" version="0" task="TokenStateChanged" level="win:Informational" keywords="Updates" template="TokenStateChangedArgs"/>
+     <event value="400" symbol="DCompDeferBatch" version="0" task="DCompDeferBatch" level="win:Informational" keywords="Updates" template="DCompDeferBatchArgs"/>
+     <event value="401" symbol="TouchPadHIDProcessingStart" version="0" task="TouchPadHIDProcessing" opcode="win:Start" level="win:Informational" keywords="MessagePumpInternalAndInput"/>
+     <event value="402" symbol="TouchPadHIDProcessingStop" version="0" task="TouchPadHIDProcessing" opcode="win:Stop" level="win:Informational" keywords="MessagePumpInternalAndInput"/>
+     <event value="403" symbol="TouchPadWMPointerProcessingStart" version="0" task="TouchPadWMPointerProcessing" opcode="win:Start" level="win:Informational" keywords="MessagePumpInternalAndInput"/>
+     <event value="404" symbol="TouchPadWMPointerProcessingStop" version="0" task="TouchPadWMPointerProcessing" opcode="win:Stop" level="win:Informational" keywords="MessagePumpInternalAndInput"/>
+     <event value="405" symbol="TouchPadGesture" version="0" task="TouchPadGesture" level="win:Informational" keywords="MessagePumpInternalAndInput"/>
+     <event value="406" symbol="CopyPointerInputFrameStart" version="0" task="CopyPointerInputFrame" opcode="win:Start" level="win:Informational" keywords="MessagePumpInternalAndInput"/>
+     <event value="407" symbol="CopyPointerInputFrameStop" version="0" task="CopyPointerInputFrame" opcode="win:Stop" level="win:Informational" keywords="MessagePumpInternalAndInput"/>
+     <event value="410" symbol="LatencyModeProcessingStart" version="0" task="LatencyModeProcessing" opcode="win:Start" level="win:Informational"/>
+     <event value="411" symbol="LatencyModeProcessingStop" version="0" task="LatencyModeProcessing" opcode="win:Stop" level="win:Informational"/>
+     <event value="412" symbol="DCompBeginFrame" version="0" task="DCompBeginFrame" level="win:Informational" keywords="Updates" template="DCompBeginFrameArgs"/>
+     <event value="413" symbol="TokenIndependentFlipSkipComplete" version="0" task="TokenIndependentFlipSkipComplete" level="win:Informational" keywords="Updates" template="TokenIndependentFlipSkipCompleteArgs"/>
+     <event value="414" symbol="DwmManipulationFrameStart" version="0" task="DwmManipulationFrameStart" level="win:Informational" keywords="Updates" template="DwmManipulationFrameStartArgs"/>
+     <event value="415" symbol="DwmManipulationFrameRouted" version="0" task="DwmManipulationFrameRouted" level="win:Informational" keywords="Updates" template="DwmManipulationFrameStartArgs"/>
+     <event value="416" symbol="ExclusiveUserCritTelemetry" version="0" task="ExclusiveUserCritTelemetry" level="win:Informational" keywords="Contention ContentionTelemetry" template="ExclusiveUserCritArgs"/>
+     <event value="417" symbol="SharedUserCritTelemetry" version="0" task="SharedUserCritTelemetry" level="win:Informational" keywords="Contention ContentionTelemetry" template="ExclusiveUserCritArgs"/>
+     <event value="418" symbol="PowerDisplayChangeStart" version="0" task="PowerDisplayChange" opcode="win:Start" level="win:Informational" keywords="win32Power" template="PowerDisplayChangeStartArgs"/>
+     <event value="419" symbol="PowerDisplayChangeStop" version="0" task="PowerDisplayChange" opcode="win:Stop" level="win:Informational" keywords="win32Power" template="PowerDisplayChangeStartArgs"/>
+     <event value="420" symbol="PowerDisplayChangeStart420" version="0" task="PowerDisplayChange" opcode="win:Start" level="win:Informational" keywords="win32Power" template="PowerDisplayChangeStartArgs"/>
+     <event value="421" symbol="PowerDisplayChangeStop421" version="0" task="PowerDisplayChange" opcode="win:Stop" level="win:Informational" keywords="win32Power" template="PowerDisplayChangeStartArgs"/>
+     <event value="422" symbol="PowerDisplayChangeStart422" version="0" task="PowerDisplayChange" opcode="win:Start" level="win:Informational" keywords="win32Power" template="PowerDisplayChangeStartArgs"/>
+     <event value="423" symbol="PowerDisplayChangeStop423" version="0" task="PowerDisplayChange" opcode="win:Stop" level="win:Informational" keywords="win32Power" template="PowerDisplayChangeStartArgs"/>
+     <event value="424" symbol="PowerDisplayChangeStart424" version="0" task="PowerDisplayChange" opcode="win:Start" level="win:Informational" keywords="win32Power" template="PowerDisplayChangeStartArgs"/>
+     <event value="425" symbol="PowerDisplayChangeStop425" version="0" task="PowerDisplayChange" opcode="win:Stop" level="win:Informational" keywords="win32Power" template="PowerDisplayChangeStartArgs"/>
+     <event value="426" symbol="QueueNullPostMessage" version="0" task="QueueNullPostMessage" level="win:Informational" keywords="MessagePump NullMessages" template="QueueNullPostMessageArgs"/>
+     <event value="427" symbol="SyscallFilterMessage" version="0" task="SyscallFilterMessage" level="win:Informational" template="SyscallFilterMessageArgs"/>
+     <event value="428" symbol="SPIBlockedByFiltering" version="0" task="SPIBlockedByFiltering" level="win:Informational" template="SPIBlockedByFilteringArgs"/>
+     <event value="429" symbol="PowerWatchdogStart" version="0" task="PowerWatchdog" opcode="win:Start" level="win:Informational" keywords="win32Power" template="PowerWatchdogStartArgs"/>
+     <event value="430" symbol="PowerWatchdogStop" version="0" task="PowerWatchdog" opcode="win:Stop" level="win:Informational" keywords="win32Power" template="PowerWatchdogStopArgs"/>
+     <event value="431" symbol="PowerRequestStart" version="0" task="PowerRequest" opcode="win:Start" level="win:Informational" keywords="win32Power" template="PowerRequestStartArgs"/>
+     <event value="432" symbol="PowerRequestStop" version="0" task="PowerRequest" opcode="win:Stop" level="win:Informational" keywords="win32Power" template="PowerRequestStartArgs"/>
+     <event value="433" symbol="PowerRequestStart433" version="0" task="PowerRequest" opcode="win:Start" level="win:Informational" keywords="win32Power" template="PowerRequestStart433Args"/>
+     <event value="434" symbol="PowerRequestStop434" version="0" task="PowerRequest" opcode="win:Stop" level="win:Informational" keywords="win32Power" template="PowerRequestStart433Args"/>
+     <event value="435" symbol="PowerRequestStart435" version="0" task="PowerRequest" opcode="win:Start" level="win:Informational" keywords="win32Power" template="PowerRequestStart435Args"/>
+     <event value="436" symbol="PowerRequestStop436" version="0" task="PowerRequest" opcode="win:Stop" level="win:Informational" keywords="win32Power" template="PowerRequestStart435Args"/>
+     <event value="437" symbol="PowerRequestStart437" version="0" task="PowerRequest" opcode="win:Start" level="win:Informational" keywords="win32Power" template="PowerRequestStart437Args"/>
+     <event value="438" symbol="PowerRequest" version="0" task="PowerRequest" level="win:Informational" keywords="win32Power" template="PowerRequestArgs"/>
+     <event value="439" symbol="PowerRequest439" version="0" task="PowerRequest" level="win:Informational" keywords="win32Power" template="PowerRequestArgs"/>
+     <event value="440" symbol="PowerRequestStop440" version="0" task="PowerRequest" opcode="win:Stop" level="win:Informational" keywords="win32Power" template="PowerRequestArgs"/>
+     <event value="441" symbol="PowerRequestStart441" version="0" task="PowerRequest" opcode="win:Start" level="win:Informational" keywords="win32Power" template="PowerRequestStart441Args"/>
+     <event value="442" symbol="PowerRequestStop442" version="0" task="PowerRequest" opcode="win:Stop" level="win:Informational" keywords="win32Power"/>
+     <event value="443" symbol="DCompResourceMapping" version="0" task="DCompResourceMapping" level="win:Informational" keywords="DCompDetails" template="DCompResourceMappingArgs"/>
+     <event value="444" symbol="DCompResourcePropertyUpdate" version="0" task="DCompResourcePropertyUpdate" level="win:Informational" keywords="Updates Visualization" template="DCompResourcePropertyUpdateArgs"/>
+     <event value="445" symbol="DCompCommandType" version="0" task="DCompCommandType" level="win:Informational" keywords="Updates Visualization" template="DCompCommandTypeArgs"/>
+     <event value="446" symbol="DCompCommandsInBatch" version="0" task="DCompCommandsInBatch" level="win:Informational" keywords="Updates Visualization" template="DCompCommandsInBatchArgs"/>
+     <event value="447" symbol="HighWorkLoadBatchCountUpdatedSubmit" version="0" task="HighWorkLoadBatchCountUpdatedSubmit" level="win:Verbose" keywords="Updates Visualization" template="HighWorkLoadBatchCountUpdatedSubmitArgs"/>
+     <event value="448" symbol="HighWorkLoadBatchCountUpdatedConfirm" version="0" task="HighWorkLoadBatchCountUpdatedConfirm" level="win:Verbose" keywords="Updates Visualization" template="HighWorkLoadBatchCountUpdatedConfirmArgs"/>
+     <event value="449" symbol="HighWorkLoadBatchCountUpdatedPending" version="0" task="HighWorkLoadBatchCountUpdatedPending" level="win:Verbose" keywords="Updates Visualization" template="HighWorkLoadBatchCountUpdatedPendingArgs"/>
+     <event value="1000" symbol="task_01000" version="0" task="task_0" level="win:Informational" keywords="AuditApiCalls" template="task_01000Args"/>
+     <event value="1001" symbol="task_01001" version="0" task="task_0" level="win:Informational" keywords="AuditApiCalls" template="task_01001Args"/>
+     <event value="1002" symbol="task_01002" version="0" task="task_0" level="win:Informational" keywords="AuditApiCalls" template="task_01002Args"/>
+     <event value="1003" symbol="task_01003" version="0" task="task_0" level="win:Informational" keywords="AuditApiCalls" template="task_01003Args"/>
+     <event value="2000" symbol="task_02000" version="0" task="task_0" level="win:Informational" keywords="ProcessInfo" template="task_02000Args"/>
+     <event value="10002" symbol="WindowLayoutChangeStop" version="0" task="WindowLayoutChange" opcode="win:Stop" level="win:Informational" template="WindowLayoutChangeStopArgs"/>
+    </events>
+    <templates>
+     <template tid="WindowUpdateArgs">
+      <data name="Hwnd" inType="win:Pointer"/>
+      <data name="Type" inType="win:UInt32"/>
+     </template>
+     <template tid="FocusChangeArgs">
+      <data name="OldThreadId" inType="win:UInt32"/>
+      <data name="NewThreadId" inType="win:UInt32"/>
+     </template>
+     <template tid="UIPIMsgErrorArgs">
+      <data name="UIPI_Trace_Header" inType="win:UInt8"/>
+      <data name="Message" inType="win:UInt32"/>
+      <data name="wParam" inType="win:UInt64"/>
+      <data name="lParam" inType="win:UInt64"/>
+     </template>
+     <template tid="UIPIHookErrorArgs">
+      <data name="UIPI_Trace_Header" inType="win:UInt16"/>
+      <data name="HookID" inType="win:Int32"/>
+      <data name="Flags" inType="win:Int8"/>
+      <data name="nCode" inType="win:Int32"/>
+      <data name="wParam" inType="win:UInt64"/>
+      <data name="lParam" inType="win:UInt64"/>
+     </template>
+     <template tid="UIPIEventHookErrorArgs">
+      <data name="UIPI_Trace_Header" inType="win:UInt32"/>
+      <data name="WinEvent" inType="win:UInt32"/>
+      <data name="WndHandle" inType="win:UInt64"/>
+      <data name="ObjectID" inType="win:UInt32"/>
+      <data name="ChildID" inType="win:UInt32"/>
+      <data name="SenderTID" inType="win:Int32"/>
+      <data name="Time" inType="win:Int32"/>
+      <data name="Flags" inType="win:UInt32"/>
+     </template>
+     <template tid="UIPIHandleValErrorArgs">
+      <data name="UIPI_Trace_Header" inType="win:UInt8"/>
+      <data name="Handle" inType="win:UInt64"/>
+      <data name="HandleType" inType="win:UInt32"/>
+      <data name="Reserved" inType="win:UInt32"/>
+     </template>
+     <template tid="UIPIInputErrorArgs">
+      <data name="UIPI_Trace_Header" inType="win:UInt8"/>
+      <data name="InputType" inType="win:UInt32" map="UIPIInputType"/>
+      <data name="QIL" inType="win:UInt32"/>
+      <data name="QLBN" inType="win:UInt32"/>
+     </template>
+     <template tid="UIPIClipboardErrorArgs">
+      <data name="UIPI_Trace_Header" inType="win:UInt8"/>
+      <data name="ClipFormat" inType="win:UInt32"/>
+      <data name="ClipIL" inType="win:UInt32"/>
+      <data name="ClipLBN" inType="win:UInt32"/>
+     </template>
+     <template tid="UIPISystemErrorArgs">
+      <data name="UIPI_Trace_Header" inType="win:AnsiString"/>
+      <data name="SysErrorType" inType="win:UInt32" map="UIPISysErrType"/>
+     </template>
+     <template tid="PowerDisplayChangeArgs">
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="PreviousStateTime" inType="win:UInt32"/>
+      <data name="PreviousState" inType="win:UInt16"/>
+      <data name="NewState" inType="win:UInt16"/>
+      <data name="IsConsoleSession" inType="win:UInt16"/>
+     </template>
+     <template tid="IdleActionExpirationArgs">
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="IdleAction" inType="win:UInt32"/>
+      <data name="TimeoutValueMs" inType="win:UInt32"/>
+      <data name="IdleStartTime" inType="win:UInt32"/>
+      <data name="IsConsoleSession" inType="win:UInt16"/>
+     </template>
+     <template tid="DisplayReqChangeArgs">
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="IsConsoleSession" inType="win:UInt16"/>
+      <data name="NewCount" inType="win:UInt32"/>
+     </template>
+     <template tid="DisplayTimeoutResetArgs">
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="IsConsoleSession" inType="win:UInt16"/>
+      <data name="DisplayTimeoutValueMs" inType="win:UInt32"/>
+     </template>
+     <template tid="LockAcquireExclusiveArgs">
+      <data name="LockId" inType="win:Pointer"/>
+      <data name="LockLevel" inType="win:UInt32"/>
+      <data name="LockName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="LockAcquireSharedArgs">
+      <data name="LockId" inType="win:Pointer"/>
+      <data name="LockName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="SwapChainBindArgs">
+      <data name="hWnd" inType="win:UInt64"/>
+      <data name="hLogicalSurfSwapChainBind" inType="win:UInt64"/>
+     </template>
+     <template tid="IdleStatusTracingArgs">
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="AccruedIdleTime" inType="win:UInt32"/>
+      <data name="DisplayTimeoutValueMs" inType="win:UInt32"/>
+      <data name="ScreenSaverTimeoutValueMs" inType="win:UInt32"/>
+      <data name="DimTimeoutValueMs" inType="win:UInt32"/>
+      <data name="DimBrightnessValue" inType="win:UInt32"/>
+      <data name="NormalBrightnessValue" inType="win:UInt32"/>
+     </template>
+     <template tid="SwapChainSetStatsArgs">
+      <data name="hLogicalSurfSwapChainBind" inType="win:UInt64"/>
+      <data name="ConfirmReason" inType="win:UInt32"/>
+      <data name="LastPresentId" inType="win:UInt32"/>
+      <data name="LastFrameCount" inType="win:UInt32"/>
+      <data name="SyncFrameCount" inType="win:UInt32"/>
+      <data name="LastFrameTime" inType="win:UInt64"/>
+     </template>
+     <template tid="ScreenSaverProcessArgs">
+      <data name="Action" inType="win:UInt32" map="ScreenSaverProcessActionType"/>
+     </template>
+     <template tid="WinlogonSleepStartArgs">
+      <data name="Action" inType="win:UInt32"/>
+     </template>
+     <template tid="WinlogonSleepEndArgs">
+      <data name="Action" inType="win:UInt32" map="WinlogonNotificationActionType"/>
+     </template>
+     <template tid="UserActiveArgs">
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="ProcessIdOwningFocus" inType="win:UInt32"/>
+      <data name="ProcessCreateTimeOwningFocus" inType="win:FILETIME"/>
+     </template>
+     <template tid="FocusedProcessChangeArgs">
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="OldProcessId" inType="win:UInt32"/>
+      <data name="NewProcessId" inType="win:UInt32"/>
+     </template>
+     <template tid="DwmSpriteCreateArgs">
+      <data name="hWnd" inType="win:UInt64"/>
+      <data name="hSprite" inType="win:UInt64"/>
+     </template>
+     <template tid="LogicalSurfCreateArgs">
+      <data name="hLogicalSurf" inType="win:UInt64"/>
+      <data name="Flags" inType="win:UInt32"/>
+     </template>
+     <template tid="LogicalSurfPhysSurfBindArgs">
+      <data name="hLogicalSurf" inType="win:UInt64"/>
+      <data name="hPhysicalSurf" inType="win:UInt64"/>
+     </template>
+     <template tid="GdiSysMemTokenArgs">
+      <data name="Pending" inType="win:UInt32"/>
+      <data name="dwDirtyFlags" inType="win:UInt32"/>
+      <data name="hLogicalSurf" inType="win:UInt64"/>
+      <data name="uiCookie" inType="win:UInt64"/>
+     </template>
+     <template tid="WaitCursorArgs">
+      <data name="CursorThreadId" inType="win:UInt32"/>
+      <data name="CursorProcessId" inType="win:UInt32"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="CursorType" inType="win:UInt32"/>
+      <data name="DisplayTimeMs" inType="win:UInt32"/>
+     </template>
+     <template tid="ThreadInfoRundownArgs">
+      <data name="ThreadId" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="TimeSinceInputCheckMs" inType="win:UInt32"/>
+      <data name="TimeSinceInputRemoveMs" inType="win:UInt32"/>
+      <data name="TimeSinceOldestInputMs" inType="win:UInt32"/>
+     </template>
+     <template tid="InputProcessDelayArgs">
+      <data name="Flags" inType="win:UInt32" map="ThreadInfoFlags"/>
+      <data name="TimeSinceInputRemoveMs" inType="win:UInt32"/>
+      <data name="TimeSinceOldestInputMs" inType="win:UInt32"/>
+      <data name="ClassName" inType="win:UnicodeString"/>
+      <data name="TopLevelClassName" inType="win:UnicodeString"/>
+      <data name="ImagePath" inType="win:UnicodeString"/>
+      <data name="MessageId" inType="win:UInt32"/>
+      <data name="WParam" inType="win:UInt64"/>
+     </template>
+     <template tid="MessageCheckDelayArgs">
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="DelayTimeMs" inType="win:UInt32"/>
+      <data name="TimeSinceInputRemoveMs" inType="win:UInt32"/>
+      <data name="TimeSinceOldestInputMs" inType="win:UInt32"/>
+      <data name="ClassName" inType="win:UnicodeString"/>
+      <data name="TopLevelClassName" inType="win:UnicodeString"/>
+      <data name="ImagePath" inType="win:UnicodeString"/>
+      <data name="MessageId" inType="win:UInt32"/>
+      <data name="WParam" inType="win:UInt64"/>
+     </template>
+     <template tid="RenderingNewRenderingArgs">
+      <data name="hwndDst" inType="win:Pointer"/>
+      <data name="hwndDstSprite" inType="win:Pointer"/>
+      <data name="hbmDst" inType="win:Pointer"/>
+      <data name="DstLeft" inType="win:UInt32"/>
+      <data name="DstTop" inType="win:UInt32"/>
+      <data name="DstRight" inType="win:UInt32"/>
+      <data name="DstBottom" inType="win:UInt32"/>
+      <data name="hwndSrc" inType="win:Pointer"/>
+      <data name="hwndSrcSprite" inType="win:Pointer"/>
+      <data name="hbmSrc" inType="win:Pointer"/>
+      <data name="SrcLeft" inType="win:UInt32"/>
+      <data name="SrcTop" inType="win:UInt32"/>
+      <data name="SrcRight" inType="win:UInt32"/>
+      <data name="SrcBottom" inType="win:UInt32"/>
+     </template>
+     <template tid="RenderingAppRenderingUpdateArgs">
+      <data name="hwnd" inType="win:Pointer"/>
+      <data name="bitmapCX" inType="win:UInt32"/>
+      <data name="bitmapCY" inType="win:UInt32"/>
+      <data name="DirtyLeft" inType="win:UInt32"/>
+      <data name="DirtyTop" inType="win:UInt32"/>
+      <data name="DirtyRight" inType="win:UInt32"/>
+      <data name="DirtyBottom" inType="win:UInt32"/>
+     </template>
+     <template tid="RenderingValidateWindowArgs">
+      <data name="hwnd" inType="win:Pointer"/>
+      <data name="FULL" inType="win:UInt32"/>
+      <data name="Left" inType="win:UInt32"/>
+      <data name="Top" inType="win:UInt32"/>
+      <data name="Right" inType="win:UInt32"/>
+      <data name="Bottom" inType="win:UInt32"/>
+     </template>
+     <template tid="BindLogicalSurfaceArgs">
+      <data name="hWnd" inType="win:UInt64"/>
+      <data name="hLogicalSurf" inType="win:UInt64"/>
+     </template>
+     <template tid="BindLogicalSurfaceRHArgs">
+      <data name="hLogicalSurf" inType="win:UInt64"/>
+      <data name="bCreated" inType="win:UInt64"/>
+     </template>
+     <template tid="DwmSpriteLogicalSurfBindArgs">
+      <data name="hDwmSprite" inType="win:UInt64"/>
+      <data name="hLogicalSurf" inType="win:UInt64"/>
+     </template>
+     <template tid="LogicalSurfEnableDirtyNotificationArgs">
+      <data name="hLogicalSurf" inType="win:UInt64"/>
+      <data name="hPhysSurf" inType="win:UInt64"/>
+     </template>
+     <template tid="PhysicalSurfCreateArgs">
+      <data name="hPhysicalSurf" inType="win:UInt64"/>
+      <data name="Type" inType="win:UInt32" map="SurfaceType"/>
+      <data name="hDxSharedSurface" inType="win:UInt64"/>
+      <data name="Flags" inType="win:UInt32"/>
+     </template>
+     <template tid="ModifyRgnArgs">
+      <data name="hLogicalSurface" inType="win:UInt64"/>
+      <data name="RgnType" inType="win:UInt32"/>
+      <data name="rcBounds" inType="win:Int16"/>
+      <data name="NumRects" inType="win:UInt32"/>
+      <data name="rcData" inType="win:Int64" count="NumRects"/>
+     </template>
+     <template tid="SwapChainBindingOpenArgs">
+      <data name="hLogicalSurfSwapChainBinding" inType="win:UInt64"/>
+      <data name="luidAdapter" inType="win:UInt64"/>
+      <data name="nWidth" inType="win:UInt32"/>
+      <data name="nHeight" inType="win:UInt32"/>
+      <data name="DxgiColorFormat" inType="win:UInt32"/>
+      <data name="hmonAssociation" inType="win:UInt64"/>
+      <data name="uiPresentLimitSemaphoreId" inType="win:UInt64"/>
+      <data name="cBuffers" inType="win:UInt32"/>
+      <data name="BindingInfoHandle" inType="win:Int64" count="cBuffers"/>
+     </template>
+     <template tid="SwapChainBindingReleaseArgs">
+      <data name="hLogicalSurfSwapChainBinding" inType="win:UInt64"/>
+      <data name="DesktopCompositorProcess" inType="win:UInt8"/>
+      <data name="DesktopCompositorError" inType="win:UInt8"/>
+      <data name="DesktopCompositorRef" inType="win:UInt8"/>
+      <data name="DesktopCompositorStatus" inType="win:UInt8"/>
+      <data name="pEventConfirmed" inType="win:UInt64"/>
+     </template>
+     <template tid="SwapChainBindingStatusArgs">
+      <data name="hLogicalSurfSwapChainBinding" inType="win:UInt64"/>
+      <data name="DesktopCompositorStatus" inType="win:UInt8"/>
+     </template>
+     <template tid="DesktopResolutionFailureArgs">
+      <data name="ProcessId" inType="win:UInt32"/>
+      <data name="FailureStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="QueuePostMessageArgs">
+      <data name="CallbackCount" inType="win:Int8"/>
+      <data name="pqmsg" inType="win:Pointer"/>
+      <data name="hwnd" inType="win:Pointer"/>
+      <data name="WParam" inType="win:Pointer"/>
+      <data name="LParam" inType="win:Pointer"/>
+      <data name="message" inType="win:UInt32"/>
+      <data name="inputReadyTimeMs" inType="win:UInt32"/>
+     </template>
+     <template tid="SendMessageStartArgs">
+      <data name="CallbackCount" inType="win:Int8"/>
+      <data name="pqmsg" inType="win:Pointer"/>
+      <data name="hwnd" inType="win:Pointer"/>
+      <data name="WParam" inType="win:Pointer"/>
+      <data name="LParam" inType="win:Pointer"/>
+      <data name="message" inType="win:UInt32"/>
+      <data name="inputReadyTimeMs" inType="win:UInt32"/>
+      <data name="flags" inType="win:UInt32"/>
+      <data name="pidReceiver" inType="win:UInt32"/>
+      <data name="tidReceiver" inType="win:UInt32"/>
+     </template>
+     <template tid="RetrievePostMessageArgs">
+      <data name="CallbackCount" inType="win:Int8"/>
+      <data name="pqmsg" inType="win:Pointer"/>
+      <data name="hwnd" inType="win:Pointer"/>
+      <data name="WParam" inType="win:Pointer"/>
+      <data name="LParam" inType="win:Pointer"/>
+      <data name="message" inType="win:UInt32"/>
+      <data name="inputReadyTimeMs" inType="win:UInt32"/>
+      <data name="flags" inType="win:UInt32"/>
+     </template>
+     <template tid="RetrieveInputMessageArgs">
+      <data name="CallbackCount" inType="win:Int8"/>
+      <data name="hwnd" inType="win:Pointer"/>
+      <data name="WParam" inType="win:Pointer"/>
+      <data name="LParam" inType="win:Pointer"/>
+      <data name="message" inType="win:UInt32"/>
+      <data name="inputReadyTimeMs" inType="win:UInt32"/>
+      <data name="flags" inType="win:UInt32"/>
+     </template>
+     <template tid="InputQueueLockedArgs">
+      <data name="CallbackCount" inType="win:Int8"/>
+      <data name="pQueue" inType="win:Pointer"/>
+      <data name="ownerThread" inType="win:UInt32"/>
+     </template>
+     <template tid="UserCallbackStartArgs">
+      <data name="CallbackCount" inType="win:Int8"/>
+      <data name="api" inType="win:Int32"/>
+     </template>
+     <template tid="SendMessageStopArgs">
+      <data name="CallbackCount" inType="win:Int8"/>
+      <data name="pqmsg" inType="win:Pointer"/>
+     </template>
+     <template tid="SendMessageTimeOutToBlockingArgs">
+      <data name="CallbackCount" inType="win:Int8"/>
+     </template>
+     <template tid="InputDeviceReadStartArgs">
+      <data name="DeviceType" inType="win:Int32"/>
+      <data name="dwFlags" inType="win:UInt32"/>
+     </template>
+     <template tid="MessageInjectionPostGestureInputMessageArgs">
+      <data name="CallbackCount" inType="win:Int8"/>
+      <data name="hwnd" inType="win:Pointer"/>
+      <data name="hGestureInfo" inType="win:Pointer"/>
+     </template>
+     <template tid="AppMessagePumpStartArgs">
+      <data name="CallbackCount" inType="win:Int8"/>
+      <data name="fGetMessage" inType="win:Int32"/>
+      <data name="dwFlags" inType="win:UInt32"/>
+      <data name="Message" inType="win:UInt32"/>
+     </template>
+     <template tid="AppMessagePumpStopArgs">
+      <data name="CallbackCount" inType="win:Int8"/>
+      <data name="fGetMessage" inType="win:Int32"/>
+     </template>
+     <template tid="WakeRITArgs">
+      <data name="CallbackCount" inType="win:Int8"/>
+      <data name="WakeReason" inType="win:Int32"/>
+     </template>
+     <template tid="PointerMotionStartArgs">
+      <data name="Time" inType="win:Int32"/>
+      <data name="X" inType="win:Int32"/>
+      <data name="Y" inType="win:Int32"/>
+     </template>
+     <template tid="InjectMouseStartArgs">
+      <data name="CallbackCount" inType="win:Int8"/>
+      <data name="Time" inType="win:Int32"/>
+      <data name="X" inType="win:Int32"/>
+      <data name="Y" inType="win:Int32"/>
+     </template>
+     <template tid="QueueInputMessageArgs">
+      <data name="CallbackCount" inType="win:Int8"/>
+      <data name="pqmsg" inType="win:Pointer"/>
+      <data name="WindowDelegated" inType="win:Boolean"/>
+      <data name="WasWindowDelegated" inType="win:Boolean"/>
+      <data name="Delegated" inType="win:Boolean"/>
+      <data name="WasDelegated" inType="win:Boolean"/>
+      <data name="Processed" inType="win:Boolean"/>
+      <data name="fDelayedFree" inType="win:Boolean"/>
+      <data name="hwnd" inType="win:Pointer"/>
+      <data name="WParam" inType="win:Pointer"/>
+      <data name="LParam" inType="win:Pointer"/>
+      <data name="message" inType="win:UInt32"/>
+      <data name="inputReadyTimeMs" inType="win:UInt32"/>
+     </template>
+     <template tid="TranslateMessageStartArgs">
+      <data name="CallbackCount" inType="win:Int8"/>
+      <data name="message" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0Args">
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="cLineWidth" inType="win:UInt32"/>
+      <data name="TimerStatisticsThreshold" inType="win:Int16" count="cLineWidth"/>
+      <data name="cElements" inType="win:UInt32"/>
+      <data name="TimerStatisticsInfo" inType="win:UInt16" count="cElements"/>
+     </template>
+     <template tid="task_0103Args">
+      <data name="ProcName" inType="win:AnsiString"/>
+      <data name="ClassName" inType="win:UnicodeString"/>
+      <data name="WindowName" inType="win:UnicodeString"/>
+      <data name="uId" inType="win:UInt32"/>
+      <data name="uElapse" inType="win:UInt32"/>
+      <data name="uType" inType="win:UInt32"/>
+     </template>
+     <template tid="TouchTargetingOffsetArgs">
+      <data name="ptOffsetX" inType="win:Int32"/>
+      <data name="ptOffsetY" inType="win:Int32"/>
+      <data name="pointerId" inType="win:Int32"/>
+      <data name="cursorId" inType="win:Int32"/>
+     </template>
+     <template tid="TouchTargetingPointerEventArgs">
+      <data name="pointerId" inType="win:Int32"/>
+      <data name="cursorId" inType="win:Int32"/>
+      <data name="pointerType" inType="win:Int32"/>
+      <data name="pointerFlags" inType="win:Int32"/>
+      <data name="touchMask" inType="win:Int32"/>
+      <data name="ptLocationX" inType="win:Int32"/>
+      <data name="ptLocationY" inType="win:Int32"/>
+      <data name="rcContactLeft" inType="win:Int32"/>
+      <data name="rcContactRight" inType="win:Int32"/>
+      <data name="rcContactTop" inType="win:Int32"/>
+      <data name="rcContactBottom" inType="win:Int32"/>
+      <data name="orientation" inType="win:Int32"/>
+     </template>
+     <template tid="PointerDeviceTransformationStartArgs">
+      <data name="ulContactId" inType="win:UInt32"/>
+     </template>
+     <template tid="RenderingTranslationUpdateArgs">
+      <data name="hwnd" inType="win:Pointer"/>
+      <data name="DirtyLeft" inType="win:UInt32"/>
+      <data name="DirtyTop" inType="win:UInt32"/>
+      <data name="DirtyRight" inType="win:UInt32"/>
+      <data name="DirtyBottom" inType="win:UInt32"/>
+     </template>
+     <template tid="TranslationUpdateOffsetArgs">
+      <data name="hwnd" inType="win:Pointer"/>
+      <data name="Offsetx" inType="win:Int32"/>
+      <data name="Offsety" inType="win:Int32"/>
+     </template>
+     <template tid="RenderingGetDxAccumArgs">
+      <data name="hSprite" inType="win:UInt64"/>
+      <data name="hWnd" inType="win:Pointer"/>
+     </template>
+     <template tid="ModifyDxAccumRgnArgs">
+      <data name="hLogicalSurface" inType="win:UInt64"/>
+      <data name="RgnType" inType="win:UInt32" map="LogicalSurfaceRegionType"/>
+      <data name="rcBounds" inType="win:Int16"/>
+      <data name="NumRects" inType="win:UInt32"/>
+      <data name="rcData" inType="win:Int64" count="NumRects"/>
+     </template>
+     <template tid="PointerFrameCreationStartArgs">
+      <data name="FrameId" inType="win:UInt32"/>
+      <data name="PointerCount" inType="win:UInt32"/>
+      <data name="PendingPointerCount" inType="win:UInt32"/>
+     </template>
+     <template tid="PointerMessageRetrieveStartArgs">
+      <data name="pqmsg" inType="win:Pointer"/>
+      <data name="PointerId" inType="win:UInt32"/>
+      <data name="Message" inType="win:UInt32"/>
+     </template>
+     <template tid="DCompCommitBatchArgs">
+      <data name="channelHandle" inType="win:UInt32"/>
+      <data name="pBatch" inType="win:Pointer"/>
+      <data name="batchID" inType="win:UInt32"/>
+     </template>
+     <template tid="DelegatedInputWorkerStartArgs">
+      <data name="CallbackCount" inType="win:Int8"/>
+      <data name="pqmsg" inType="win:Pointer"/>
+      <data name="WindowDelegated" inType="win:Boolean"/>
+      <data name="WasWindowDelegated" inType="win:Boolean"/>
+      <data name="Delegated" inType="win:Boolean"/>
+      <data name="WasDelegated" inType="win:Boolean"/>
+      <data name="Processed" inType="win:Boolean"/>
+      <data name="fDelayedFree" inType="win:Boolean"/>
+      <data name="hwnd" inType="win:Pointer"/>
+      <data name="WParam" inType="win:Pointer"/>
+      <data name="LParam" inType="win:Pointer"/>
+      <data name="message" inType="win:UInt32"/>
+      <data name="inputReadyTimeMs" inType="win:UInt32"/>
+      <data name="hdfResponse" inType="win:UInt32"/>
+     </template>
+     <template tid="PointerDeviceMessageArgs">
+      <data name="bNew" inType="win:UInt32"/>
+      <data name="ulContactId" inType="win:UInt32"/>
+      <data name="dwCursorId" inType="win:UInt32"/>
+      <data name="X" inType="win:Int32"/>
+      <data name="Y" inType="win:Int32"/>
+     </template>
+     <template tid="PointerMessageGenerationStartArgs">
+      <data name="wCursorId" inType="win:UInt16"/>
+      <data name="wPointerId" inType="win:UInt16"/>
+     </template>
+     <template tid="PointerFrameCoalesceArgs">
+      <data name="wCursorId" inType="win:UInt16"/>
+      <data name="wPointerId" inType="win:UInt16"/>
+      <data name="dwReason" inType="win:UInt32"/>
+     </template>
+     <template tid="SmoothRotationStartArgs">
+      <data name="Orientation" inType="win:UInt32"/>
+      <data name="SensorOriginated" inType="win:Boolean"/>
+      <data name="ActiveProcessId" inType="win:UInt32"/>
+     </template>
+     <template tid="SmoothRotationStopArgs">
+      <data name="Orientation" inType="win:UInt32"/>
+      <data name="SensorOriginated" inType="win:Boolean"/>
+     </template>
+     <template tid="DCompGetBatchArgs">
+      <data name="pBatch" inType="win:Pointer"/>
+     </template>
+     <template tid="ExclusiveUserCritArgs">
+      <data name="AcquireQpcCounts" inType="win:UInt64"/>
+      <data name="AcquireTimeUs" inType="win:UInt32"/>
+      <data name="Token" inType="win:UInt64"/>
+     </template>
+     <template tid="ReleaseUserCritArgs">
+      <data name="HoldQpcCounts" inType="win:UInt64"/>
+      <data name="HoldTimeMs" inType="win:UInt32"/>
+      <data name="Token" inType="win:UInt64"/>
+     </template>
+     <template tid="SleepInputIdleArgs">
+      <data name="pti" inType="win:Pointer"/>
+     </template>
+     <template tid="EdgyDetectionStopArgs">
+      <data name="Info" inType="win:UInt32"/>
+     </template>
+     <template tid="ImmersiveInputProcessDelayArgs">
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="TimeSinceInputRemoveMs" inType="win:UInt32"/>
+      <data name="TimeSinceOldestInputMs" inType="win:UInt32"/>
+      <data name="ClassName" inType="win:UnicodeString"/>
+      <data name="TopLevelClassName" inType="win:UnicodeString"/>
+      <data name="PackageMoniker" inType="win:UnicodeString"/>
+      <data name="AppUserModelId" inType="win:UnicodeString"/>
+      <data name="MessageId" inType="win:UInt32"/>
+      <data name="WParam" inType="win:UInt64"/>
+     </template>
+     <template tid="ImmersiveMessageCheckDelayArgs">
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="DelayTimeMs" inType="win:UInt32"/>
+      <data name="TimeSinceInputRemoveMs" inType="win:UInt32"/>
+      <data name="TimeSinceOldestInputMs" inType="win:UInt32"/>
+      <data name="ClassName" inType="win:UnicodeString"/>
+      <data name="TopLevelClassName" inType="win:UnicodeString"/>
+      <data name="PackageMoniker" inType="win:UnicodeString"/>
+      <data name="AppUserModelId" inType="win:UnicodeString"/>
+      <data name="MessageId" inType="win:UInt32"/>
+      <data name="WParam" inType="win:UInt64"/>
+     </template>
+     <template tid="InternalSetTimerCoalescingArgs">
+      <data name="Hwnd" inType="win:Pointer"/>
+      <data name="uId" inType="win:UInt32"/>
+      <data name="uElapse" inType="win:UInt32"/>
+      <data name="uCoalescingTolerance" inType="win:UInt32"/>
+      <data name="uType" inType="win:UInt32"/>
+     </template>
+     <template tid="InternalSetTimerNoCoalescingArgs">
+      <data name="Hwnd" inType="win:Pointer"/>
+      <data name="uId" inType="win:UInt32"/>
+      <data name="uElapse" inType="win:UInt32"/>
+      <data name="uType" inType="win:UInt32"/>
+     </template>
+     <template tid="KillTimerArgs">
+      <data name="Hwnd" inType="win:Pointer"/>
+      <data name="uId" inType="win:UInt32"/>
+     </template>
+     <template tid="TouchHWTimeStampArgs">
+      <data name="ScanTime" inType="win:Int32"/>
+      <data name="dwTime" inType="win:Int32"/>
+      <data name="QPC" inType="win:UInt64"/>
+      <data name="XRawPosition" inType="win:Int32"/>
+      <data name="YRawPosition" inType="win:Int32"/>
+      <data name="XPredictedPosition" inType="win:Int32"/>
+      <data name="YPredictedPosition" inType="win:Int32"/>
+     </template>
+     <template tid="TokenCompositionSurfaceObjectArgs">
+      <data name="pToken" inType="win:Pointer"/>
+      <data name="pCompositionSurfaceObject" inType="win:Pointer"/>
+      <data name="SwapChainIndex" inType="win:UInt32"/>
+      <data name="PresentCount" inType="win:UInt64"/>
+      <data name="CompositionSurfaceLuid" inType="win:UInt64"/>
+      <data name="BindId" inType="win:UInt64"/>
+     </template>
+     <template tid="CompositionSurfaceObjectUpdateArgs">
+      <data name="pCompositionSurfaceObject" inType="win:Pointer"/>
+      <data name="SwapChainIndex" inType="win:UInt32"/>
+     </template>
+     <template tid="QueueEventMessageArgs">
+      <data name="CallbackCount" inType="win:Int8"/>
+      <data name="pqmsg" inType="win:Pointer"/>
+      <data name="pti" inType="win:Pointer"/>
+      <data name="dwQEvent" inType="win:UInt32"/>
+      <data name="hwnd" inType="win:Pointer"/>
+     </template>
+     <template tid="ContactVisualizationArgs">
+      <data name="data" inType="win:UInt32"/>
+     </template>
+     <template tid="ConvertibleStateArgs">
+      <data name="ConvertibleState" inType="win:UInt32"/>
+     </template>
+     <template tid="DockStateArgs">
+      <data name="DockState" inType="win:UInt32"/>
+     </template>
+     <template tid="TouchPadHWTimeStampArgs">
+      <data name="ScanTime" inType="win:UInt32"/>
+      <data name="dwTime" inType="win:UInt32"/>
+      <data name="QPCTime" inType="win:UInt64"/>
+      <data name="XLogicalT" inType="win:UInt32"/>
+      <data name="YLogicalT" inType="win:UInt32"/>
+      <data name="XLogicalC" inType="win:UInt32"/>
+      <data name="YLogicalC" inType="win:UInt32"/>
+      <data name="XHimetricT" inType="win:UInt32"/>
+      <data name="YHimetricT" inType="win:UInt32"/>
+      <data name="Button" inType="win:Boolean"/>
+      <data name="Count" inType="win:UInt32"/>
+      <data name="Identifier" inType="win:UInt32"/>
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+      <data name="Confidence" inType="win:Boolean"/>
+      <data name="Pressure" inType="win:UInt32"/>
+      <data name="DeviceType" inType="win:UInt32"/>
+     </template>
+     <template tid="TransformAgeDecayArgs">
+      <data name="InputTransformList" inType="win:Pointer"/>
+      <data name="PerformanceCount" inType="win:UInt64"/>
+     </template>
+     <template tid="DITSpeedHitTestFailedRevalidationArgs">
+      <data name="Hwnd" inType="win:Pointer"/>
+     </template>
+     <template tid="InputRedirectionArgs">
+      <data name="hDCompInputHandle" inType="win:Pointer"/>
+      <data name="Hwnd" inType="win:Pointer"/>
+      <data name="XformQPCTime" inType="win:UInt64"/>
+      <data name="XformStored" inType="win:UInt32"/>
+     </template>
+     <template tid="OnInputXformUpdateArgs">
+      <data name="Hwnd" inType="win:Pointer"/>
+      <data name="XformQPCTime" inType="win:UInt64"/>
+      <data name="XformUpdated" inType="win:UInt32"/>
+     </template>
+     <template tid="TouchPadAAPArgs">
+      <data name="LastKeyDownTime" inType="win:UInt32"/>
+      <data name="LastKeyUpTime" inType="win:UInt32"/>
+      <data name="TapTime" inType="win:UInt32"/>
+      <data name="Blocked" inType="win:Boolean"/>
+      <data name="Feature" inType="win:UInt32"/>
+     </template>
+     <template tid="TouchPadTypeDiscoveredArgs">
+      <data name="deviceType" inType="win:UInt32"/>
+     </template>
+     <template tid="TouchPadConfidenceClearedArgs">
+      <data name="ContactId" inType="win:UInt32"/>
+      <data name="OnUp" inType="win:Boolean"/>
+      <data name="NeedsUp" inType="win:Boolean"/>
+     </template>
+     <template tid="TouchPadConfidenceUppedArgs">
+      <data name="ContactId" inType="win:UInt32"/>
+     </template>
+     <template tid="TouchPadCurtainStateArgs">
+      <data name="CurtainsOn" inType="win:Boolean"/>
+     </template>
+     <template tid="TouchPadCurtainSizeArgs">
+      <data name="Top" inType="win:UInt32"/>
+      <data name="Left" inType="win:UInt32"/>
+      <data name="Right" inType="win:UInt32"/>
+      <data name="Enabled" inType="win:Boolean"/>
+     </template>
+     <template tid="TrappedAppContainerRenderArgs">
+      <data name="RenderSourceProcessName" inType="win:AnsiString"/>
+      <data name="RenderSourcePackageName" inType="win:UnicodeString"/>
+      <data name="RenderTargetProcessName" inType="win:AnsiString"/>
+      <data name="RenderTargetPackageName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="CursorSizeArgs">
+      <data name="iCursorDim" inType="win:UInt32"/>
+      <data name="cx" inType="win:UInt32"/>
+      <data name="cy" inType="win:UInt32"/>
+     </template>
+     <template tid="FocusedProcessChangeGainedArgs">
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="NewProcessId" inType="win:UInt32"/>
+      <data name="NewProcessCreateTime" inType="win:FILETIME"/>
+     </template>
+     <template tid="FocusedProcessChangeLostArgs">
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="OldProcessId" inType="win:UInt32"/>
+      <data name="OldProcessCreateTime" inType="win:FILETIME"/>
+     </template>
+     <template tid="FontLoadAttemptArgs">
+      <data name="SourceProcessName" inType="win:UnicodeString"/>
+      <data name="SourceType" inType="win:UInt32" map="FontSourceType"/>
+      <data name="FontSourcePath" inType="win:UnicodeString"/>
+      <data name="Blocked" inType="win:Boolean"/>
+     </template>
+     <template tid="TokenStateChangedArgs">
+      <data name="pCompositionSurfaceObject" inType="win:Pointer"/>
+      <data name="SwapChainIndex" inType="win:UInt32"/>
+      <data name="PresentCount" inType="win:UInt32"/>
+      <data name="FenceValue" inType="win:UInt64"/>
+      <data name="NewState" inType="win:UInt32"/>
+      <data name="IndependentFlip" inType="win:Boolean"/>
+      <data name="SkipIndependentFlip" inType="win:Boolean"/>
+      <data name="CompositionSurfaceLuid" inType="win:UInt64"/>
+      <data name="BindId" inType="win:UInt64"/>
+     </template>
+     <template tid="DCompDeferBatchArgs">
+      <data name="channelHandle" inType="win:UInt32"/>
+      <data name="pBatch" inType="win:Pointer"/>
+      <data name="batchID" inType="win:UInt32"/>
+      <data name="submissionTime" inType="win:UInt64"/>
+      <data name="submissionDeadline" inType="win:UInt64"/>
+      <data name="deferReason" inType="win:UInt32"/>
+     </template>
+     <template tid="DCompBeginFrameArgs">
+      <data name="hConnection" inType="win:UInt64"/>
+      <data name="SyncRefreshCount" inType="win:UInt32"/>
+     </template>
+     <template tid="TokenIndependentFlipSkipCompleteArgs">
+      <data name="SyncRefreshCount" inType="win:UInt32"/>
+      <data name="PresentCount" inType="win:UInt32"/>
+      <data name="CompositionSurfaceLuid" inType="win:UInt64"/>
+      <data name="BindId" inType="win:UInt64"/>
+     </template>
+     <template tid="DwmManipulationFrameStartArgs">
+      <data name="FrameId" inType="win:UInt32"/>
+      <data name="PointerCount" inType="win:UInt32"/>
+     </template>
+     <template tid="PowerDisplayChangeStartArgs">
+      <data name="Location" inType="win:Int32"/>
+     </template>
+     <template tid="QueueNullPostMessageArgs">
+      <data name="SourceProcessId" inType="win:UInt32"/>
+      <data name="SourceThreadId" inType="win:UInt32"/>
+      <data name="SourceProcessName" inType="win:AnsiString"/>
+      <data name="DestinationHwnd" inType="win:Pointer"/>
+     </template>
+     <template tid="SyscallFilterMessageArgs">
+      <data name="SyscallName" inType="win:AnsiString"/>
+      <data name="AppContainerSid" inType="win:UnicodeString"/>
+      <data name="ProcessCommandLine" inType="win:UnicodeString"/>
+      <data name="FilterSetId" inType="win:UInt32"/>
+     </template>
+     <template tid="SPIBlockedByFilteringArgs">
+      <data name="SPIAction" inType="win:UInt32"/>
+     </template>
+     <template tid="PowerWatchdogStartArgs">
+      <data name="Instance" inType="win:UInt64"/>
+      <data name="WatchdogType" inType="win:UInt32" map="PowerWatchdogType"/>
+     </template>
+     <template tid="PowerWatchdogStopArgs">
+      <data name="Instance" inType="win:UInt64"/>
+     </template>
+     <template tid="PowerRequestStartArgs">
+      <data name="CalloutType" inType="win:Int32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="PowerRequestStart433Args">
+      <data name="PowerTaskState" inType="win:Int32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="PowerRequestStart435Args">
+      <data name="EventNumber" inType="win:Int32"/>
+      <data name="Code" inType="win:UInt64"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="PowerRequestStart437Args">
+      <data name="Address" inType="win:UInt64"/>
+      <data name="EventNumber" inType="win:Int32"/>
+      <data name="Code" inType="win:UInt64"/>
+     </template>
+     <template tid="PowerRequestArgs">
+      <data name="Address" inType="win:UInt64"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="PowerRequestStart441Args">
+      <data name="NeedWaitForRit" inType="win:Boolean"/>
+      <data name="NeedPowerOnGdi" inType="win:Boolean"/>
+     </template>
+     <template tid="DCompResourceMappingArgs">
+      <data name="Channel" inType="win:UInt32"/>
+      <data name="InternalHandle" inType="win:UInt32"/>
+      <data name="ExternalHandle" inType="win:UInt32"/>
+      <data name="ResourceType" inType="win:UInt32"/>
+     </template>
+     <template tid="DCompResourcePropertyUpdateArgs">
+      <data name="Channel" inType="win:UInt32"/>
+      <data name="InternalHandle" inType="win:UInt32"/>
+      <data name="ExternalHandle" inType="win:UInt32"/>
+      <data name="ResourceType" inType="win:UInt32"/>
+      <data name="PropertyId" inType="win:UInt32"/>
+     </template>
+     <template tid="DCompCommandTypeArgs">
+      <data name="CommandType" inType="win:UInt32"/>
+      <data name="status" inType="win:UInt64"/>
+     </template>
+     <template tid="DCompCommandsInBatchArgs">
+      <data name="CommandsCount" inType="win:UInt64"/>
+     </template>
+     <template tid="HighWorkLoadBatchCountUpdatedSubmitArgs">
+      <data name="Submitted" inType="win:Int64"/>
+     </template>
+     <template tid="HighWorkLoadBatchCountUpdatedConfirmArgs">
+      <data name="Pending" inType="win:Int64"/>
+      <data name="Submitted" inType="win:Int64"/>
+     </template>
+     <template tid="HighWorkLoadBatchCountUpdatedPendingArgs">
+      <data name="Pending" inType="win:Int64"/>
+     </template>
+     <template tid="task_01000Args">
+      <data name="eventMin" inType="win:UInt32"/>
+      <data name="eventMax" inType="win:UInt32"/>
+      <data name="idEventProcess" inType="win:UInt32"/>
+      <data name="idEventThread" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="HookInstance" inType="win:Pointer"/>
+     </template>
+     <template tid="task_01001Args">
+      <data name="ReturnValue" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01002Args">
+      <data name="FilterType" inType="win:UInt32"/>
+      <data name="pstrLib" inType="win:UnicodeString"/>
+      <data name="hmod" inType="win:Pointer"/>
+      <data name="pfnFilterProc" inType="win:Pointer"/>
+      <data name="ReturnValue" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01003Args">
+      <data name="PID" inType="win:UInt32"/>
+      <data name="MsSinceLastKeyEvent" inType="win:UInt32"/>
+      <data name="BackgroundCallCount" inType="win:UInt32"/>
+     </template>
+     <template tid="task_02000Args">
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="ProcessId" inType="win:UInt32"/>
+      <data name="ProcessCreateTime" inType="win:FILETIME"/>
+      <data name="ProcessStartKey" inType="win:UInt64"/>
+     </template>
+     <template tid="WindowLayoutChangeStopArgs">
+      <data name="hWnd" inType="win:UInt32"/>
+      <data name="Packed_High_Height_Low_Width" inType="win:UInt32"/>
+      <data name="PRAID" inType="win:UnicodeString"/>
+      <data name="PackageFullName" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_AuditApiCalls" value="AuditApiCalls"/>
+    <string id="keyword_CompatImpact" value="CompatImpact"/>
+    <string id="keyword_Updates" value="Updates"/>
+    <string id="keyword_Focus" value="Focus"/>
+    <string id="keyword_UIPI" value="UIPI"/>
+    <string id="keyword_win32Power" value="win32Power"/>
+    <string id="keyword_Concurrency" value="Concurrency"/>
+    <string id="keyword_UserActivity" value="UserActivity"/>
+    <string id="keyword_UIUnresponsiveness" value="UIUnresponsiveness"/>
+    <string id="keyword_ThreadRundown" value="ThreadRundown"/>
+    <string id="keyword_Rendering" value="Rendering"/>
+    <string id="keyword_ThreadInfo" value="ThreadInfo"/>
+    <string id="keyword_MessagePump" value="MessagePump"/>
+    <string id="keyword_MessagePumpInternalAndInput" value="MessagePumpInternalAndInput"/>
+    <string id="keyword_TouchInput" value="TouchInput"/>
+    <string id="keyword_TimerSurvey" value="TimerSurvey"/>
+    <string id="keyword_PointerInput" value="PointerInput"/>
+    <string id="keyword_AutoRotation" value="AutoRotation"/>
+    <string id="keyword_Contention" value="Contention"/>
+    <string id="keyword_TimerInfo" value="TimerInfo"/>
+    <string id="keyword_ComponentHosting" value="ComponentHosting"/>
+    <string id="keyword_TrappedACRendering" value="TrappedACRendering"/>
+    <string id="keyword_Fonts" value="Fonts"/>
+    <string id="keyword_NullMessages" value="NullMessages"/>
+    <string id="keyword_Visualization" value="Visualization"/>
+    <string id="keyword_DCompDetails" value="DCompDetails"/>
+    <string id="keyword_PrecisionTouchpad" value="PrecisionTouchpad"/>
+    <string id="keyword_ContentionTelemetry" value="ContentionTelemetry"/>
+    <string id="keyword_ProcessInfo" value="ProcessInfo"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_WindowUpdate" value="WindowUpdate"/>
+    <string id="task_FocusChange" value="FocusChange"/>
+    <string id="task_UIPIMsgError" value="UIPIMsgError"/>
+    <string id="task_UIPIHookError" value="UIPIHookError"/>
+    <string id="task_UIPIEventHookError" value="UIPIEventHookError"/>
+    <string id="task_UIPIHandleValError" value="UIPIHandleValError"/>
+    <string id="task_UIPIInputError" value="UIPIInputError"/>
+    <string id="task_UIPIClipboardError" value="UIPIClipboardError"/>
+    <string id="task_UIPISystemError" value="UIPISystemError"/>
+    <string id="task_PowerDisplayChange" value="PowerDisplayChange"/>
+    <string id="task_IdleActionExpiration" value="IdleActionExpiration"/>
+    <string id="task_DisplayReqChange" value="DisplayReqChange"/>
+    <string id="task_DisplayTimeoutReset" value="DisplayTimeoutReset"/>
+    <string id="task_LockAcquireExclusive" value="LockAcquireExclusive"/>
+    <string id="task_LockAcquireShared" value="LockAcquireShared"/>
+    <string id="task_LockAcquireSharedStarveExclusive" value="LockAcquireSharedStarveExclusive"/>
+    <string id="task_LockRelease" value="LockRelease"/>
+    <string id="task_SwapChainBind" value="SwapChainBind"/>
+    <string id="task_SwapChainSetStats" value="SwapChainSetStats"/>
+    <string id="task_SwapChainUnBind" value="SwapChainUnBind"/>
+    <string id="task_IdleStatusTracing" value="IdleStatusTracing"/>
+    <string id="task_ScreenSaverProcess" value="ScreenSaverProcess"/>
+    <string id="task_WinlogonSleepStart" value="WinlogonSleepStart"/>
+    <string id="task_WinlogonSleepEnd" value="WinlogonSleepEnd"/>
+    <string id="task_UserActive" value="UserActive"/>
+    <string id="task_FocusedProcessChange" value="FocusedProcessChange"/>
+    <string id="task_DwmSpriteCreate" value="DwmSpriteCreate"/>
+    <string id="task_DwmSpriteDestroy" value="DwmSpriteDestroy"/>
+    <string id="task_LogicalSurfCreate" value="LogicalSurfCreate"/>
+    <string id="task_LogicalSurfDestroy" value="LogicalSurfDestroy"/>
+    <string id="task_LogicalSurfPhysSurfBind" value="LogicalSurfPhysSurfBind"/>
+    <string id="task_LogicalSurfPhysSurfUnbind" value="LogicalSurfPhysSurfUnbind"/>
+    <string id="task_GdiSysMemToken" value="GdiSysMemToken"/>
+    <string id="task_WaitCursor" value="WaitCursor"/>
+    <string id="task_ThreadInfoRundown" value="ThreadInfoRundown"/>
+    <string id="task_InputProcessDelay" value="InputProcessDelay"/>
+    <string id="task_MessageCheckDelay" value="MessageCheckDelay"/>
+    <string id="task_Rendering" value="Rendering"/>
+    <string id="opcode_RenderingOldToNewRendering" value="OldToNewRendering"/>
+    <string id="opcode_RenderingNewRendering" value="NewRendering"/>
+    <string id="opcode_RenderingAppRenderingUpdate" value="AppRenderingUpdate"/>
+    <string id="opcode_RenderingAppRenderingTightUpdate" value="AppRenderingTightUpdate"/>
+    <string id="opcode_RenderingValidateWindow" value="ValidateWindow"/>
+    <string id="opcode_RenderingInvalidateWindow" value="InvalidateWindow"/>
+    <string id="opcode_RenderingTranslationUpdate" value="TranslationUpdate"/>
+    <string id="opcode_RenderingTranslationUpdateRectClip" value="TranslationUpdateRectClip"/>
+    <string id="opcode_RenderingUpdateDxAccumFromGDI" value="UpdateDxAccumFromGDI"/>
+    <string id="opcode_RenderingUpdateDxAccumFromDX" value="UpdateDxAccumFromDX"/>
+    <string id="opcode_RenderingGetDxAccum" value="GetDxAccum"/>
+    <string id="task_ThreadExit" value="ThreadExit"/>
+    <string id="task_BindLogicalSurface" value="BindLogicalSurface"/>
+    <string id="task_UnBindLogicalSurface" value="UnBindLogicalSurface"/>
+    <string id="task_BindLogicalSurfaceRH" value="BindLogicalSurfaceRH"/>
+    <string id="task_DwmSpriteLogicalSurfBind" value="DwmSpriteLogicalSurfBind"/>
+    <string id="task_DwmSpriteLogicalSurfUnBind" value="DwmSpriteLogicalSurfUnBind"/>
+    <string id="task_LogicalSurfEnableDirtyNotification" value="LogicalSurfEnableDirtyNotification"/>
+    <string id="task_PhysicalSurfCreate" value="PhysicalSurfCreate"/>
+    <string id="task_ModifyRgn" value="ModifyRgn"/>
+    <string id="task_SwapChainGetStats" value="SwapChainGetStats"/>
+    <string id="task_SwapChainBindingOpen" value="SwapChainBindingOpen"/>
+    <string id="task_SwapChainBindingRelease" value="SwapChainBindingRelease"/>
+    <string id="task_SwapChainBindingStatus" value="SwapChainBindingStatus"/>
+    <string id="task_DesktopResolutionFailure" value="DesktopResolutionFailure"/>
+    <string id="task_QueuePostMessage" value="QueuePostMessage"/>
+    <string id="task_SendMessage" value="SendMessage"/>
+    <string id="task_WakePump" value="WakePump"/>
+    <string id="task_InputQueueLocked" value="InputQueueLocked"/>
+    <string id="task_UserCallback" value="UserCallback"/>
+    <string id="task_RetrievePostMessage" value="RetrievePostMessage"/>
+    <string id="task_RetrieveSendMessage" value="RetrieveSendMessage"/>
+    <string id="task_RetrieveInputMessage" value="RetrieveInputMessage"/>
+    <string id="task_RetrievePseudoMessage" value="RetrievePseudoMessage"/>
+    <string id="task_AppMessagePump" value="AppMessagePump"/>
+    <string id="task_InputDeviceRead" value="InputDeviceRead"/>
+    <string id="task_MessageInjection" value="MessageInjection"/>
+    <string id="opcode_MessageInjectionPostGestureInputMessage" value="PostGestureInputMessage"/>
+    <string id="opcode_MessageInjectionPostGestureMessage" value="PostGestureMessage"/>
+    <string id="opcode_MessageInjectionInjectTouchEvent" value="InjectTouchEvent"/>
+    <string id="task_WakeRIT" value="WakeRIT"/>
+    <string id="task_PointerMotion" value="PointerMotion"/>
+    <string id="task_InjectMouse" value="InjectMouse"/>
+    <string id="task_GUIProcess" value="GUIProcess"/>
+    <string id="task_GUIThread" value="GUIThread"/>
+    <string id="task_SendMessageTimeOutToBlocking" value="SendMessageTimeOutToBlocking"/>
+    <string id="task_QueueInputMessage" value="QueueInputMessage"/>
+    <string id="task_TranslateMessage" value="TranslateMessage"/>
+    <string id="task_DispatchMessage" value="DispatchMessage"/>
+    <string id="task_TouchTargetingSpeedHitTest" value="TouchTargetingSpeedHitTest"/>
+    <string id="task_TouchTargetingWindowHitTest" value="TouchTargetingWindowHitTest"/>
+    <string id="task_TouchTargetingPointerTarget" value="TouchTargetingPointerTarget"/>
+    <string id="task_PseudoDevCreation" value="PseudoDevCreation"/>
+    <string id="task_ContactVisualization" value="ContactVisualization"/>
+    <string id="task_TouchTargetingOffset" value="TouchTargetingOffset"/>
+    <string id="task_TouchTargetingPointerEvent" value="TouchTargetingPointerEvent"/>
+    <string id="task_PointerDeviceRead" value="PointerDeviceRead"/>
+    <string id="task_PointerDeviceMessage" value="PointerDeviceMessage"/>
+    <string id="task_PointerDeviceTransformation" value="PointerDeviceTransformation"/>
+    <string id="task_ModifyDxAccumRgn" value="ModifyDxAccumRgn"/>
+    <string id="task_LogicalSurfRemovedTranslationFromDirty" value="LogicalSurfRemovedTranslationFromDirty"/>
+    <string id="task_PointerDeviceDiscovery" value="PointerDeviceDiscovery"/>
+    <string id="task_TouchInjectionEvent" value="TouchInjectionEvent"/>
+    <string id="task_PointerFrameCreation" value="PointerFrameCreation"/>
+    <string id="task_PointerFrameBuildPartial" value="PointerFrameBuildPartial"/>
+    <string id="task_PointerFrameCommit" value="PointerFrameCommit"/>
+    <string id="task_PointerFrameCoalesce" value="PointerFrameCoalesce"/>
+    <string id="task_PointerMessageGeneration" value="PointerMessageGeneration"/>
+    <string id="task_PointerMessageRetrieve" value="PointerMessageRetrieve"/>
+    <string id="task_PointerUpdateMessageRetrieve" value="PointerUpdateMessageRetrieve"/>
+    <string id="task_PointerSetTargetWindows" value="PointerSetTargetWindows"/>
+    <string id="task_PointerUpdateSetTargetWindows" value="PointerUpdateSetTargetWindows"/>
+    <string id="task_InputQueueNoRemoveLocker" value="InputQueueNoRemoveLocker"/>
+    <string id="task_InputQueueLockedPeekRecursion" value="InputQueueLockedPeekRecursion"/>
+    <string id="task_DCompCommitBatch" value="DCompCommitBatch"/>
+    <string id="task_DelegateInputUserCallback" value="DelegateInputUserCallback"/>
+    <string id="task_DelegatedInputWorker" value="DelegatedInputWorker"/>
+    <string id="task_SmoothRotation" value="SmoothRotation"/>
+    <string id="task_DCompGetBatch" value="DCompGetBatch"/>
+    <string id="task_PointerFrameMessageGeneration" value="PointerFrameMessageGeneration"/>
+    <string id="task_ExclusiveUserCrit" value="ExclusiveUserCrit"/>
+    <string id="task_SharedUserCrit" value="SharedUserCrit"/>
+    <string id="task_ReleaseUserCrit" value="ReleaseUserCrit"/>
+    <string id="task_SleepInputIdle" value="SleepInputIdle"/>
+    <string id="task_WakeInputIdle" value="WakeInputIdle"/>
+    <string id="task_EdgyDetection" value="EdgyDetection"/>
+    <string id="task_ImmersiveInputProcessDelay" value="ImmersiveInputProcessDelay"/>
+    <string id="task_ImmersiveMessageCheckDelay" value="ImmersiveMessageCheckDelay"/>
+    <string id="task_THQAEvent" value="THQAEvent"/>
+    <string id="task_PointerPrediction" value="PointerPrediction"/>
+    <string id="task_MoveRgn" value="MoveRgn"/>
+    <string id="task_DirtyRgn" value="DirtyRgn"/>
+    <string id="task_LogicalSurfRemovedTranslationFromMove" value="LogicalSurfRemovedTranslationFromMove"/>
+    <string id="task_DwmGetRgn" value="DwmGetRgn"/>
+    <string id="task_DirtyRectUpdate" value="DirtyRectUpdate"/>
+    <string id="task_TranslationUpdateOffset" value="TranslationUpdateOffset"/>
+    <string id="task_TranslationUpdateOffsetDWM" value="TranslationUpdateOffsetDWM"/>
+    <string id="task_InternalSetTimerCoalescing" value="InternalSetTimerCoalescing"/>
+    <string id="task_InternalSetTimerNoCoalescing" value="InternalSetTimerNoCoalescing"/>
+    <string id="task_KillTimer" value="KillTimer"/>
+    <string id="task_ProcTimerCoalescing" value="ProcTimerCoalescing"/>
+    <string id="task_ProcTimerNoCoalescing" value="ProcTimerNoCoalescing"/>
+    <string id="task_DrvChangeDisplaySettings" value="DrvChangeDisplaySettings"/>
+    <string id="task_ChangeDisplayMode" value="ChangeDisplayMode"/>
+    <string id="task_TouchHWTimeStamp" value="TouchHWTimeStamp"/>
+    <string id="task_TokenCompositionSurfaceObject" value="TokenCompositionSurfaceObject"/>
+    <string id="task_CompositionSurfaceObjectUpdate" value="CompositionSurfaceObjectUpdate"/>
+    <string id="task_QueueEventMessage" value="QueueEventMessage"/>
+    <string id="task_RetrieveQueueEventMessage" value="RetrieveQueueEventMessage"/>
+    <string id="task_ForegroundWindowFullScreen" value="ForegroundWindowFullScreen"/>
+    <string id="task_ChangeDisplayModeBroadcast" value="ChangeDisplayModeBroadcast"/>
+    <string id="task_ChangeDisplayModeDeferral" value="ChangeDisplayModeDeferral"/>
+    <string id="task_ConvertibleState" value="ConvertibleState"/>
+    <string id="task_DockState" value="DockState"/>
+    <string id="task_TouchPadHWTimeStamp" value="TouchPadHWTimeStamp"/>
+    <string id="task_WakeDIT" value="WakeDIT"/>
+    <string id="task_ArmDitMouseFlush" value="ArmDitMouseFlush"/>
+    <string id="task_ProcessQueuedMouseEvents" value="ProcessQueuedMouseEvents"/>
+    <string id="task_DITSpeedHitTestFailedRevalidation" value="DITSpeedHitTestFailedRevalidation"/>
+    <string id="task_TransformAgeDecay" value="TransformAgeDecay"/>
+    <string id="task_InputRedirection" value="InputRedirection"/>
+    <string id="task_OnInputXformUpdate" value="OnInputXformUpdate"/>
+    <string id="task_DitWaitForRitDisEngagement" value="DitWaitForRitDisEngagement"/>
+    <string id="task_RitDisEngaged" value="RitDisEngaged"/>
+    <string id="task_DitEngaged" value="DitEngaged"/>
+    <string id="task_RitReEngaged" value="RitReEngaged"/>
+    <string id="task_DitDisEngaged" value="DitDisEngaged"/>
+    <string id="task_DitTerminated" value="DitTerminated"/>
+    <string id="task_DitShutdown" value="DitShutdown"/>
+    <string id="task_TouchPadAAP" value="TouchPadAAP"/>
+    <string id="task_TouchPadTypeDiscovered" value="TouchPadTypeDiscovered"/>
+    <string id="task_TouchPadEnabledStatusChange" value="TouchPadEnabledStatusChange"/>
+    <string id="task_MouseInputApc" value="MouseInputApc"/>
+    <string id="task_MouseInputCoalesced" value="MouseInputCoalesced"/>
+    <string id="task_PTPReadThresholds" value="PTPReadThresholds"/>
+    <string id="task_TouchPadConfidenceCleared" value="TouchPadConfidenceCleared"/>
+    <string id="task_TouchPadConfidenceUpped" value="TouchPadConfidenceUpped"/>
+    <string id="task_PTPElasticDragMode" value="PTPElasticDragMode"/>
+    <string id="task_LegacyTouchPadDetection" value="LegacyTouchPadDetection"/>
+    <string id="task_TouchPadCurtainState" value="TouchPadCurtainState"/>
+    <string id="task_TouchPadCurtainSize" value="TouchPadCurtainSize"/>
+    <string id="task_TouchpadStopInertia" value="TouchpadStopInertia"/>
+    <string id="task_CursorSize" value="CursorSize"/>
+    <string id="task_TrappedAppContainerRender" value="TrappedAppContainerRender"/>
+    <string id="task_FocusedProcessChangeGained" value="FocusedProcessChangeGained"/>
+    <string id="task_FocusedProcessChangeLost" value="FocusedProcessChangeLost"/>
+    <string id="task_FontLoadAttempt" value="FontLoadAttempt"/>
+    <string id="task_TokenStateChanged" value="TokenStateChanged"/>
+    <string id="task_DCompDeferBatch" value="DCompDeferBatch"/>
+    <string id="task_TouchPadHIDProcessing" value="TouchPadHIDProcessing"/>
+    <string id="task_TouchPadWMPointerProcessing" value="TouchPadWMPointerProcessing"/>
+    <string id="task_DitMmcssWork" value="DitMmcssWork"/>
+    <string id="task_TouchPadGesture" value="TouchPadGesture"/>
+    <string id="task_CopyPointerInputFrame" value="CopyPointerInputFrame"/>
+    <string id="task_LatencyModeProcessing" value="LatencyModeProcessing"/>
+    <string id="task_DCompBeginFrame" value="DCompBeginFrame"/>
+    <string id="task_TokenIndependentFlipSkipComplete" value="TokenIndependentFlipSkipComplete"/>
+    <string id="task_DwmManipulationFrameStart" value="DwmManipulationFrameStart"/>
+    <string id="task_DwmManipulationFrameRouted" value="DwmManipulationFrameRouted"/>
+    <string id="task_ExclusiveUserCritTelemetry" value="ExclusiveUserCritTelemetry"/>
+    <string id="task_SharedUserCritTelemetry" value="SharedUserCritTelemetry"/>
+    <string id="task_QueueNullPostMessage" value="QueueNullPostMessage"/>
+    <string id="task_SyscallFilterMessage" value="SyscallFilterMessage"/>
+    <string id="task_SPIBlockedByFiltering" value="SPIBlockedByFiltering"/>
+    <string id="task_PowerWatchdog" value="PowerWatchdog"/>
+    <string id="task_PowerRequest" value="PowerRequest"/>
+    <string id="task_DCompResourceMapping" value="DCompResourceMapping"/>
+    <string id="task_DCompResourcePropertyUpdate" value="DCompResourcePropertyUpdate"/>
+    <string id="task_DCompCommandType" value="DCompCommandType"/>
+    <string id="task_DCompCommandsInBatch" value="DCompCommandsInBatch"/>
+    <string id="task_HighWorkLoadBatchCountUpdatedSubmit" value="HighWorkLoadBatchCountUpdatedSubmit"/>
+    <string id="task_HighWorkLoadBatchCountUpdatedConfirm" value="HighWorkLoadBatchCountUpdatedConfirm"/>
+    <string id="task_HighWorkLoadBatchCountUpdatedPending" value="HighWorkLoadBatchCountUpdatedPending"/>
+    <string id="task_WindowLayoutChange" value="WindowLayoutChange"/>
+    <string id="map_UIPIInputTypeSendInput" value="SendInput"/>
+    <string id="map_UIPIInputTypeInput Queue" value="Input Queue"/>
+    <string id="map_UIPIInputTypeKey State" value="Key State"/>
+    <string id="map_UIPIInputTypeMouse State" value="Mouse State"/>
+    <string id="map_UIPIInputTypeRaw Input" value="Raw Input"/>
+    <string id="map_UIPIInputTypeLow Level Hooks" value="Low Level Hooks"/>
+    <string id="map_UIPIInputTypeHotKey" value="HotKey"/>
+    <string id="map_UIPIInputTypeMessage Post-Processing" value="Message Post-Processing"/>
+    <string id="map_UIPISysErrTypeSPI Set" value="SPI Set"/>
+    <string id="map_UIPISysErrTypeBlockInput" value="BlockInput"/>
+    <string id="map_UIPISysErrTypeChange Window Message Filter" value="Change Window Message Filter"/>
+    <string id="map_UIPISysErrTypeJournal Hook" value="Journal Hook"/>
+    <string id="map_UIPISysErrTypeGesture Engine" value="Gesture Engine"/>
+    <string id="map_ScreenSaverProcessActionTypeScreenSaver Process Start" value="ScreenSaver Process Start"/>
+    <string id="map_ScreenSaverProcessActionTypeScreenSaver Process End" value="ScreenSaver Process End"/>
+    <string id="map_WinlogonNotificationActionTypeWinlogon Notification End" value="Winlogon Notification End"/>
+    <string id="map_WinlogonNotificationActionTypeWinlogon Notification Start" value="Winlogon Notification Start"/>
+    <string id="map_ThreadInfoFlagsThread had input messages" value="Thread had input messages"/>
+    <string id="map_ThreadInfoFlagsThread had visible windows" value="Thread had visible windows"/>
+    <string id="map_ThreadInfoFlagsThread has new input" value="Thread has new input"/>
+    <string id="map_ThreadInfoFlagsThread has visible windows" value="Thread has visible windows"/>
+    <string id="map_ThreadInfoFlagsThread has windows" value="Thread has windows"/>
+    <string id="map_ThreadInfoFlagsThread has ghosted windows" value="Thread has ghosted windows"/>
+    <string id="map_ThreadInfoFlagsThread is being destroyed" value="Thread is being destroyed"/>
+    <string id="map_ThreadInfoFlagsThread pumped per-window messages" value="Thread pumped per-window messages"/>
+    <string id="map_ThreadInfoFlagsThread has input messages" value="Thread has input messages"/>
+    <string id="map_ThreadInfoFlagsThread is spinning making windowing API calls" value="Thread is spinning making windowing API calls"/>
+    <string id="map_ThreadInfoFlagsThread has window focus" value="Thread has window focus"/>
+    <string id="map_ThreadInfoFlagsThread is foreground" value="Thread is foreground"/>
+    <string id="map_SurfaceTypeSystem Memory" value="System Memory"/>
+    <string id="map_SurfaceTypeDevice Bitmap" value="Device Bitmap"/>
+    <string id="map_LogicalSurfaceRegionTypeAccumulated dirty region since last time it was cleared" value="Accumulated dirty region since last time it was cleared"/>
+    <string id="map_LogicalSurfaceRegionTypeAccumulated dirty region since the surface was created" value="Accumulated dirty region since the surface was created"/>
+    <string id="map_LogicalSurfaceRegionTypeClip region derived from the Window region" value="Clip region derived from the Window region"/>
+    <string id="map_LogicalSurfaceRegionTypeClip region derived from bit blit" value="Clip region derived from bit blit"/>
+    <string id="map_LogicalSurfaceRegionTypeDX accumulation region" value="DX accumulation region"/>
+    <string id="map_LogicalSurfaceRegionTypeRead DX accumulation region" value="Read DX accumulation region"/>
+    <string id="map_LogicalSurfaceRegionTypeMove Region" value="Move Region"/>
+    <string id="map_FontSourceTypeFile" value="File"/>
+    <string id="map_FontSourceTypeMemory" value="Memory"/>
+    <string id="map_FontSourceTypeRemote (Printer)" value="Remote (Printer)"/>
+    <string id="map_FontSourceTypeDevice" value="Device"/>
+    <string id="map_PowerWatchdogTypeRequestQueue" value="RequestQueue"/>
+    <string id="map_PowerWatchdogTypePoCallout" value="PoCallout"/>
+    <string id="map_PowerWatchdogTypePowerOnGdi" value="PowerOnGdi"/>
+    <string id="map_PowerWatchdogTypeDwmSyncFlush" value="DwmSyncFlush"/>
+    <string id="map_PowerWatchdogTypeDrvSetMonitor" value="DrvSetMonitor"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

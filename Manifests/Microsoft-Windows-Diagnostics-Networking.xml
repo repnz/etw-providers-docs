@@ -1,0 +1,163 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Diagnostics-Networking" guid="{36c23e18-0e66-11d9-bbeb-505054503030}" resourceFileName="Microsoft-Windows-Diagnostics-Networking" messageFileName="Microsoft-Windows-Diagnostics-Networking" symbol="MicrosoftWindowsDiagnosticsNetworking" source="Xml" >
+    <keywords>
+     <keyword name="ndf:NDFCoreEvents" message="$(string.keyword_ndf:NDFCoreEvents)" mask="0x1"/>
+     <keyword name="ndf:NDFHelperClassEvents" message="$(string.keyword_ndf:NDFHelperClassEvents)" mask="0x2"/>
+     <keyword name="ndf:Performance" message="$(string.keyword_ndf:Performance)" mask="0x4"/>
+     <keyword name="ut:SendPath" message="$(string.keyword_ut:SendPath)" mask="0x100000000"/>
+     <keyword name="ut:ReceivePath" message="$(string.keyword_ut:ReceivePath)" mask="0x200000000"/>
+     <keyword name="ut:L3ConnectPath" message="$(string.keyword_ut:L3ConnectPath)" mask="0x400000000"/>
+     <keyword name="ut:L2ConnectPath" message="$(string.keyword_ut:L2ConnectPath)" mask="0x800000000"/>
+     <keyword name="ut:ClosePath" message="$(string.keyword_ut:ClosePath)" mask="0x1000000000"/>
+     <keyword name="ut:Authentication" message="$(string.keyword_ut:Authentication)" mask="0x2000000000"/>
+     <keyword name="ut:Configuration" message="$(string.keyword_ut:Configuration)" mask="0x4000000000"/>
+     <keyword name="ut:Global" message="$(string.keyword_ut:Global)" mask="0x8000000000"/>
+     <keyword name="keyword_400000000000" message="$(string.keyword_keyword_400000000000)" mask="0x400000000000"/>
+    </keywords>
+    <tasks>
+     <task name="Start" message="$(string.task_Start)" value="1"/>
+     <task name="Stop" message="$(string.task_Stop)" value="2"/>
+     <task name="Fail" message="$(string.task_Fail)" value="3">
+>
+      <opcodes>
+       <opcode name="ThefailureoccurredintheFrameworkcode." message="$(string.opcode_FailThefailureoccurredintheFrameworkcode.)" value="20"/>
+       <opcode name="ThefailureoccurredintheHelperclasscode." message="$(string.opcode_FailThefailureoccurredintheHelperclasscode.)" value="21"/>
+      </opcodes>
+     </task>
+     <task name="DiagnosisSuccess" message="$(string.task_DiagnosisSuccess)" value="4"/>
+     <task name="DiagnosisFailure" message="$(string.task_DiagnosisFailure)" value="5"/>
+     <task name="ValidationSuccess" message="$(string.task_ValidationSuccess)" value="6"/>
+     <task name="ValidationFailure" message="$(string.task_ValidationFailure)" value="7"/>
+     <task name="RepairOptionFailure" message="$(string.task_RepairOptionFailure)" value="9"/>
+     <task name="RepairFailure" message="$(string.task_RepairFailure)" value="10"/>
+     <task name="Debug" message="$(string.task_Debug)" value="11"/>
+     <task name="HelperClassInfo" message="$(string.task_HelperClassInfo)" value="12"/>
+    </tasks>
+    <events>
+     <event value="1000" symbol="Start" version="0" task="Start" opcode="win:Start" level="win:Informational" keywords="ndf:NDFCoreEvents keyword_400000000000" template="StartArgs"/>
+     <event value="2000" symbol="Stop" version="0" task="Stop" opcode="win:Stop" level="win:Informational" keywords="ndf:NDFCoreEvents keyword_400000000000" template="StopArgs"/>
+     <event value="2100" symbol="Stop2100" version="0" task="Stop" opcode="win:Stop" level="win:Informational" keywords="ndf:NDFCoreEvents keyword_400000000000" template="StopArgs"/>
+     <event value="2200" symbol="Stop2200" version="0" task="Stop" opcode="win:Stop" level="win:Informational" keywords="ndf:NDFCoreEvents keyword_400000000000" template="StopArgs"/>
+     <event value="2300" symbol="Stop2300" version="0" task="Stop" opcode="win:Stop" level="win:Informational" keywords="ndf:NDFCoreEvents keyword_400000000000" template="StopArgs"/>
+     <event value="2400" symbol="Stop2400" version="0" task="Stop" opcode="win:Stop" level="win:Informational" keywords="ndf:NDFCoreEvents keyword_400000000000" template="StopArgs"/>
+     <event value="2500" symbol="Stop2500" version="0" task="Stop" opcode="win:Stop" level="win:Informational" keywords="ndf:NDFCoreEvents keyword_400000000000" template="StopArgs"/>
+     <event value="3000" symbol="FailThefailureoccurredintheFrameworkcode." version="0" task="Fail" opcode="ThefailureoccurredintheFrameworkcode." level="win:Error" keywords="ndf:NDFCoreEvents keyword_400000000000" template="StopArgs"/>
+     <event value="3100" symbol="FailThefailureoccurredintheHelperclasscode." version="0" task="Fail" opcode="ThefailureoccurredintheHelperclasscode." level="win:Error" keywords="ndf:NDFCoreEvents keyword_400000000000" template="StopArgs"/>
+     <event value="4000" symbol="DiagnosisSuccess" version="0" task="DiagnosisSuccess" level="win:Informational" keywords="ndf:NDFCoreEvents" template="DiagnosisSuccessArgs"/>
+     <event value="4000" symbol="DiagnosisSuccess_V1" version="1" task="DiagnosisSuccess" level="win:Informational" keywords="ndf:NDFCoreEvents keyword_400000000000" template="DiagnosisSuccessArgs_V1"/>
+     <event value="4100" symbol="DiagnosisSuccess4100" version="0" task="DiagnosisSuccess" level="win:Informational" keywords="ndf:NDFCoreEvents keyword_400000000000"/>
+     <event value="4200" symbol="DiagnosisFailure" version="0" task="DiagnosisFailure" level="win:Error" keywords="ndf:NDFCoreEvents keyword_400000000000" template="StopArgs"/>
+     <event value="5000" symbol="ValidationSuccess" version="0" task="ValidationSuccess" level="win:Informational" keywords="ndf:NDFCoreEvents" template="ValidationSuccessArgs"/>
+     <event value="5000" symbol="ValidationSuccess_V1" version="1" task="ValidationSuccess" level="win:Informational" keywords="ndf:NDFCoreEvents keyword_400000000000" template="DiagnosisSuccessArgs_V1"/>
+     <event value="5100" symbol="ValidationFailure" version="0" task="ValidationFailure" level="win:Informational" keywords="ndf:NDFCoreEvents" template="ValidationSuccessArgs"/>
+     <event value="5100" symbol="ValidationFailure_V1" version="1" task="ValidationFailure" level="win:Informational" keywords="ndf:NDFCoreEvents keyword_400000000000" template="DiagnosisSuccessArgs_V1"/>
+     <event value="5200" symbol="RepairOptionFailure" version="0" task="RepairOptionFailure" level="win:Informational" keywords="ndf:NDFCoreEvents" template="DiagnosisSuccessArgs"/>
+     <event value="5200" symbol="RepairOptionFailure_V1" version="1" task="RepairOptionFailure" level="win:Informational" keywords="ndf:NDFCoreEvents keyword_400000000000" template="DiagnosisSuccessArgs_V1"/>
+     <event value="5300" symbol="RepairFailure" version="0" task="RepairFailure" level="win:Error" keywords="ndf:NDFCoreEvents keyword_400000000000" template="StopArgs"/>
+     <event value="6000" symbol="HelperClassInfo" version="0" task="HelperClassInfo" level="win:Informational" keywords="ndf:NDFHelperClassEvents keyword_400000000000" template="HelperClassInfoArgs"/>
+     <event value="6100" symbol="HelperClassInfo6100" version="0" task="HelperClassInfo" level="win:Informational" keywords="ndf:NDFHelperClassEvents keyword_400000000000" template="HelperClassInfoArgs"/>
+     <event value="6200" symbol="HelperClassInfo6200" version="0" task="HelperClassInfo" level="win:Informational" keywords="ndf:NDFHelperClassEvents keyword_400000000000" template="HelperClassInfoArgs"/>
+     <event value="7000" symbol="Debug" version="0" task="Debug" level="win:Informational" keywords="ndf:NDFCoreEvents keyword_400000000000" template="DebugArgs"/>
+     <event value="7010" symbol="Debug7010" version="0" task="Debug" level="win:Informational" keywords="ndf:NDFCoreEvents keyword_400000000000" template="DebugArgs"/>
+     <event value="7020" symbol="Debug7020" version="0" task="Debug" level="win:Informational" keywords="ndf:NDFCoreEvents keyword_400000000000" template="DebugArgs"/>
+     <event value="7030" symbol="Debug7030" version="0" task="Debug" level="win:Informational" keywords="ndf:NDFCoreEvents keyword_400000000000" template="DebugArgs"/>
+     <event value="7040" symbol="Debug7040" version="0" task="Debug" level="win:Informational" keywords="ndf:NDFCoreEvents keyword_400000000000" template="DebugArgs"/>
+     <event value="7050" symbol="Debug7050" version="0" task="Debug" level="win:Informational" keywords="ndf:NDFCoreEvents keyword_400000000000" template="DebugArgs"/>
+     <event value="7100" symbol="Debug7100" version="0" task="Debug" level="win:Informational" keywords="ndf:NDFCoreEvents keyword_400000000000" template="DebugArgs"/>
+     <event value="8001" symbol="Start8001" version="0" task="Start" opcode="win:Start" level="win:Informational" keywords="ndf:Performance"/>
+     <event value="8002" symbol="Stop8002" version="0" task="Stop" opcode="win:Stop" level="win:Informational" keywords="ndf:Performance"/>
+     <event value="8003" symbol="Start8003" version="0" task="Start" opcode="win:Start" level="win:Informational" keywords="ndf:Performance"/>
+     <event value="8004" symbol="Stop8004" version="0" task="Stop" opcode="win:Stop" level="win:Informational" keywords="ndf:Performance"/>
+     <event value="8005" symbol="Start8005" version="0" task="Start" opcode="win:Start" level="win:Informational" keywords="ndf:Performance"/>
+     <event value="8006" symbol="Stop8006" version="0" task="Stop" opcode="win:Stop" level="win:Informational" keywords="ndf:Performance"/>
+     <event value="8007" symbol="Start8007" version="0" task="Start" opcode="win:Start" level="win:Informational" keywords="ndf:Performance"/>
+     <event value="8008" symbol="Stop8008" version="0" task="Stop" opcode="win:Stop" level="win:Informational" keywords="ndf:Performance"/>
+     <event value="8009" symbol="Start8009" version="0" task="Start" opcode="win:Start" level="win:Informational" keywords="ndf:Performance"/>
+     <event value="8010" symbol="Stop8010" version="0" task="Stop" opcode="win:Stop" level="win:Informational" keywords="ndf:Performance"/>
+     <event value="8103" symbol="Start8103" version="0" task="Start" opcode="win:Start" level="win:Informational" keywords="ndf:Performance" template="Start8103Args"/>
+     <event value="8104" symbol="Stop8104" version="0" task="Stop" opcode="win:Stop" level="win:Informational" keywords="ndf:Performance" template="Start8103Args"/>
+     <event value="8107" symbol="Start8107" version="0" task="Start" opcode="win:Start" level="win:Informational" keywords="ndf:Performance" template="Start8103Args"/>
+     <event value="8108" symbol="Stop8108" version="0" task="Stop" opcode="win:Stop" level="win:Informational" keywords="ndf:Performance" template="Start8103Args"/>
+    </events>
+    <templates>
+     <template tid="StartArgs">
+      <data name="HelperClassName" inType="win:UnicodeString"/>
+      <data name="NumberOfAttributes" inType="win:UInt32"/>
+      <data name="HelperClassAttributes" inType="win:UnicodeString"/>
+     </template>
+     <template tid="StopArgs">
+      <data name="ResultHR" inType="win:UInt32"/>
+     </template>
+     <template tid="DiagnosisSuccessArgs">
+      <data name="RepairOption" inType="win:UnicodeString"/>
+      <data name="RepairGUID" inType="win:GUID"/>
+      <data name="SecondsRequired" inType="win:UInt32"/>
+      <data name="SIDTypeRequired" inType="win:UInt32"/>
+     </template>
+     <template tid="ValidationSuccessArgs">
+      <data name="RepairOption" inType="win:UnicodeString"/>
+      <data name="RepairGUID" inType="win:GUID"/>
+      <data name="SecondsRequired" inType="win:UInt32"/>
+      <data name="SIDTypeRequired" inType="win:UInt32"/>
+      <data name="HelperClassName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="HelperClassInfoArgs">
+      <data name="HelperClassName" inType="win:UnicodeString"/>
+      <data name="EventDescription" inType="win:UnicodeString"/>
+      <data name="EventVerbosity" inType="win:UInt16"/>
+     </template>
+     <template tid="DebugArgs">
+      <data name="DebugMessage" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Start8103Args">
+      <data name="HelperClassName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="DiagnosisSuccessArgs_V1">
+      <data name="RootCause" inType="win:UnicodeString"/>
+      <data name="RootCauseGUID" inType="win:GUID"/>
+      <data name="RepairOption" inType="win:UnicodeString"/>
+      <data name="RepairGUID" inType="win:GUID"/>
+      <data name="SecondsRequired" inType="win:UInt32"/>
+      <data name="SIDTypeRequired" inType="win:UInt32"/>
+      <data name="HelperClassName" inType="win:UnicodeString"/>
+      <data name="InterfaceDesc" inType="win:UnicodeString"/>
+      <data name="InterfaceGUID" inType="win:GUID"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_ndf:NDFCoreEvents" value="ndf:NDFCoreEvents"/>
+    <string id="keyword_ndf:NDFHelperClassEvents" value="ndf:NDFHelperClassEvents"/>
+    <string id="keyword_ndf:Performance" value="ndf:Performance"/>
+    <string id="keyword_ut:SendPath" value="ut:SendPath"/>
+    <string id="keyword_ut:ReceivePath" value="ut:ReceivePath"/>
+    <string id="keyword_ut:L3ConnectPath" value="ut:L3ConnectPath"/>
+    <string id="keyword_ut:L2ConnectPath" value="ut:L2ConnectPath"/>
+    <string id="keyword_ut:ClosePath" value="ut:ClosePath"/>
+    <string id="keyword_ut:Authentication" value="ut:Authentication"/>
+    <string id="keyword_ut:Configuration" value="ut:Configuration"/>
+    <string id="keyword_ut:Global" value="ut:Global"/>
+    <string id="keyword_keyword_400000000000" value="keyword_400000000000"/>
+    <string id="task_Start" value="Start"/>
+    <string id="task_Stop" value="Stop"/>
+    <string id="task_Fail" value="Fail"/>
+    <string id="opcode_FailThefailureoccurredintheFrameworkcode." value="ThefailureoccurredintheFrameworkcode."/>
+    <string id="opcode_FailThefailureoccurredintheHelperclasscode." value="ThefailureoccurredintheHelperclasscode."/>
+    <string id="task_DiagnosisSuccess" value="DiagnosisSuccess"/>
+    <string id="task_DiagnosisFailure" value="DiagnosisFailure"/>
+    <string id="task_ValidationSuccess" value="ValidationSuccess"/>
+    <string id="task_ValidationFailure" value="ValidationFailure"/>
+    <string id="task_RepairOptionFailure" value="RepairOptionFailure"/>
+    <string id="task_RepairFailure" value="RepairFailure"/>
+    <string id="task_Debug" value="Debug"/>
+    <string id="task_HelperClassInfo" value="HelperClassInfo"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

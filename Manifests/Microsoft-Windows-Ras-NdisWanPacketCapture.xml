@@ -1,0 +1,40 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Ras-NdisWanPacketCapture" guid="{d84521f7-2235-4237-a7c0-14e3a9676286}" resourceFileName="Microsoft-Windows-Ras-NdisWanPacketCapture" messageFileName="Microsoft-Windows-Ras-NdisWanPacketCapture" symbol="MicrosoftWindowsRasNdisWanPacketCapture" source="Xml" >
+    <keywords>
+     <keyword name="rras_ndiswan_sendpath" message="$(string.keyword_rras_ndiswan_sendpath)" mask="0x100000000"/>
+     <keyword name="rras_ndiswan_recvpath" message="$(string.keyword_rras_ndiswan_recvpath)" mask="0x200000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <events>
+     <event value="5001" symbol="task_0" version="0" task="task_0" level="win:Verbose" keywords="rras_ndiswan_sendpath" template="task_0Args"/>
+     <event value="5002" symbol="task_05002" version="0" task="task_0" level="win:Verbose" keywords="rras_ndiswan_recvpath" template="task_0Args"/>
+     <event value="5003" symbol="task_05003" version="0" task="task_0" level="win:Verbose" template="task_05003Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="RoutingDomainID" inType="win:UnicodeString"/>
+      <data name="RRASUserName" inType="win:UnicodeString"/>
+      <data name="FragmentSize" inType="win:UInt32"/>
+      <data name="Fragment" inType="win:Binary" length="FragmentSize"/>
+     </template>
+     <template tid="task_05003Args">
+      <data name="param1" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_rras_ndiswan_sendpath" value="rras_ndiswan_sendpath"/>
+    <string id="keyword_rras_ndiswan_recvpath" value="rras_ndiswan_recvpath"/>
+    <string id="task_task_0" value="task_0"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

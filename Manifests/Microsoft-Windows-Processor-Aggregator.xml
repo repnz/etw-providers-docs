@@ -1,0 +1,36 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Processor-Aggregator" guid="{cba16cf2-2fab-49f8-89ae-894e718649e7}" resourceFileName="Microsoft-Windows-Processor-Aggregator" messageFileName="Microsoft-Windows-Processor-Aggregator" symbol="MicrosoftWindowsProcessorAggregator" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="LogicalProcessorIdlingPUR" message="$(string.task_LogicalProcessorIdlingPUR)" value="1"/>
+     <task name="LogicalProcessorIdlingOST" message="$(string.task_LogicalProcessorIdlingOST)" value="2"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="LogicalProcessorIdlingPUR" version="0" task="LogicalProcessorIdlingPUR" level="win:Informational" template="LogicalProcessorIdlingPURArgs"/>
+     <event value="2" symbol="LogicalProcessorIdlingOST" version="0" task="LogicalProcessorIdlingOST" level="win:Informational" template="LogicalProcessorIdlingOSTArgs"/>
+    </events>
+    <templates>
+     <template tid="LogicalProcessorIdlingPURArgs">
+      <data name="NumProcessors" inType="win:UInt32"/>
+     </template>
+     <template tid="LogicalProcessorIdlingOSTArgs">
+      <data name="Requested" inType="win:UInt32"/>
+      <data name="Acknowledged" inType="win:UInt32"/>
+      <data name="IsSuccess" inType="win:Boolean"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_LogicalProcessorIdlingPUR" value="LogicalProcessorIdlingPUR"/>
+    <string id="task_LogicalProcessorIdlingOST" value="LogicalProcessorIdlingOST"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,201 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-UniversalTelemetryClient" guid="{6489b27f-7c43-5886-1d00-0a61bb2a375b}" resourceFileName="Microsoft-Windows-UniversalTelemetryClient" messageFileName="Microsoft-Windows-UniversalTelemetryClient" symbol="MicrosoftWindowsUniversalTelemetryClient" source="Xml" >
+    <keywords>
+     <keyword name="Tenant" message="$(string.keyword_Tenant)" mask="0x10000"/>
+     <keyword name="Upload" message="$(string.keyword_Upload)" mask="0x20000"/>
+     <keyword name="Service" message="$(string.keyword_Service)" mask="0x40000"/>
+     <keyword name="Agent" message="$(string.keyword_Agent)" mask="0x80000"/>
+    </keywords>
+    <tasks>
+     <task name="Tenant_Register" message="$(string.task_Tenant_Register)" value="1"/>
+     <task name="Tenant_Unregister" message="$(string.task_Tenant_Unregister)" value="2"/>
+     <task name="Tenant_UpdateDailyUploadQuota" message="$(string.task_Tenant_UpdateDailyUploadQuota)" value="3"/>
+     <task name="Upload_UrlChanged" message="$(string.task_Upload_UrlChanged)" value="20"/>
+     <task name="Upload_ConnectionError" message="$(string.task_Upload_ConnectionError)" value="21"/>
+     <task name="Upload_SevilleBandwidthMonitor_TierChange" message="$(string.task_Upload_SevilleBandwidthMonitor_TierChange)" value="22"/>
+     <task name="Upload_SevilleEventStorage_TierChange" message="$(string.task_Upload_SevilleEventStorage_TierChange)" value="23"/>
+     <task name="Upload_UnconfiguredDynamicRegion" message="$(string.task_Upload_UnconfiguredDynamicRegion)" value="24"/>
+     <task name="Upload_SevilleEventStorage_StorageThrottled" message="$(string.task_Upload_SevilleEventStorage_StorageThrottled)" value="25"/>
+     <task name="Upload_SevilleBandwidth_Throttled" message="$(string.task_Upload_SevilleBandwidth_Throttled)" value="26"/>
+     <task name="Upload_SevilleEventlog_Info" message="$(string.task_Upload_SevilleEventlog_Info)" value="27"/>
+     <task name="Upload_SevilleEventlog_Warning" message="$(string.task_Upload_SevilleEventlog_Warning)" value="28"/>
+     <task name="Upload_SevilleEventlog_Error" message="$(string.task_Upload_SevilleEventlog_Error)" value="29"/>
+     <task name="Service_ServiceStart" message="$(string.task_Service_ServiceStart)" value="50"/>
+     <task name="Service_InternetAvailable" message="$(string.task_Service_InternetAvailable)" value="55"/>
+     <task name="Service_FreeNetworkAvailable" message="$(string.task_Service_FreeNetworkAvailable)" value="56"/>
+     <task name="Service_OnBatteryPower" message="$(string.task_Service_OnBatteryPower)" value="60"/>
+     <task name="Service_OnBatterySaver" message="$(string.task_Service_OnBatterySaver)" value="61"/>
+     <task name="Service_InConnectedStandby" message="$(string.task_Service_InConnectedStandby)" value="62"/>
+     <task name="Service_PowerLimitExceeded" message="$(string.task_Service_PowerLimitExceeded)" value="63"/>
+     <task name="Service_OptInLevelChange" message="$(string.task_Service_OptInLevelChange)" value="64"/>
+     <task name="Agent_IdleStateChange" message="$(string.task_Agent_IdleStateChange)" value="65"/>
+     <task name="Service_OptInApiEventlog_Info" message="$(string.task_Service_OptInApiEventlog_Info)" value="66"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="Tenant_Register" version="0" task="Tenant_Register" level="win:Informational" keywords="Tenant" template="Tenant_RegisterArgs"/>
+     <event value="2" symbol="Tenant_Unregister" version="0" task="Tenant_Unregister" level="win:Informational" keywords="Tenant" template="Tenant_UnregisterArgs"/>
+     <event value="3" symbol="Tenant_UpdateDailyUploadQuota" version="0" task="Tenant_UpdateDailyUploadQuota" level="win:Informational" keywords="Tenant" template="Tenant_UpdateDailyUploadQuotaArgs"/>
+     <event value="20" symbol="Upload_UrlChanged" version="0" task="Upload_UrlChanged" level="win:Informational" keywords="Upload" template="Upload_UrlChangedArgs"/>
+     <event value="21" symbol="Upload_ConnectionError" version="0" task="Upload_ConnectionError" level="win:Informational" keywords="Upload" template="Upload_ConnectionErrorArgs"/>
+     <event value="22" symbol="Upload_SevilleBandwidthMonitor_TierChange" version="0" task="Upload_SevilleBandwidthMonitor_TierChange" level="win:Informational" keywords="Upload" template="Upload_SevilleBandwidthMonitor_TierChangeArgs"/>
+     <event value="23" symbol="Upload_SevilleEventStorage_TierChange" version="0" task="Upload_SevilleEventStorage_TierChange" level="win:Informational" keywords="Upload" template="Upload_SevilleEventStorage_TierChangeArgs"/>
+     <event value="24" symbol="Upload_UnconfiguredDynamicRegion" version="0" task="Upload_UnconfiguredDynamicRegion" level="win:Warning" keywords="Upload" template="Upload_UnconfiguredDynamicRegionArgs"/>
+     <event value="25" symbol="Upload_SevilleEventStorage_StorageThrottled" version="0" task="Upload_SevilleEventStorage_StorageThrottled" level="win:Informational" keywords="Upload" template="Upload_SevilleEventStorage_StorageThrottledArgs"/>
+     <event value="26" symbol="Upload_SevilleBandwidth_Throttled" version="0" task="Upload_SevilleBandwidth_Throttled" level="win:Informational" keywords="Upload" template="Upload_SevilleBandwidth_ThrottledArgs"/>
+     <event value="27" symbol="Upload_SevilleEventlog_Info" version="0" task="Upload_SevilleEventlog_Info" level="win:Informational" keywords="Upload" template="Upload_SevilleEventlog_InfoArgs"/>
+     <event value="28" symbol="Upload_SevilleEventlog_Warning" version="0" task="Upload_SevilleEventlog_Warning" level="win:Warning" keywords="Upload" template="Upload_SevilleEventlog_WarningArgs"/>
+     <event value="29" symbol="Upload_SevilleEventlog_Error" version="0" task="Upload_SevilleEventlog_Error" level="win:Error" keywords="Upload" template="Upload_SevilleEventlog_ErrorArgs"/>
+     <event value="50" symbol="Service_ServiceStart" version="0" task="Service_ServiceStart" level="win:Informational" keywords="Service" template="Service_ServiceStartArgs"/>
+     <event value="55" symbol="Service_InternetAvailable" version="0" task="Service_InternetAvailable" level="win:Informational" keywords="Service" template="Service_InternetAvailableArgs"/>
+     <event value="56" symbol="Service_FreeNetworkAvailable" version="0" task="Service_FreeNetworkAvailable" level="win:Informational" keywords="Service" template="Service_InternetAvailableArgs"/>
+     <event value="60" symbol="Service_OnBatteryPower" version="0" task="Service_OnBatteryPower" level="win:Informational" keywords="Service" template="Service_InternetAvailableArgs"/>
+     <event value="61" symbol="Service_OnBatterySaver" version="0" task="Service_OnBatterySaver" level="win:Informational" keywords="Service" template="Service_InternetAvailableArgs"/>
+     <event value="62" symbol="Service_InConnectedStandby" version="0" task="Service_InConnectedStandby" level="win:Informational" keywords="Service" template="Service_InternetAvailableArgs"/>
+     <event value="63" symbol="Service_PowerLimitExceeded" version="0" task="Service_PowerLimitExceeded" level="win:Informational" keywords="Service" template="Service_InternetAvailableArgs"/>
+     <event value="64" symbol="Service_OptInLevelChange" version="0" task="Service_OptInLevelChange" level="win:Informational" keywords="Service" template="Service_OptInLevelChangeArgs"/>
+     <event value="65" symbol="Agent_IdleStateChange" version="0" task="Agent_IdleStateChange" level="win:Informational" keywords="Agent" template="Agent_IdleStateChangeArgs"/>
+     <event value="66" symbol="Service_OptInApiEventlog_Info" version="0" task="Service_OptInApiEventlog_Info" level="win:Informational" keywords="Upload" template="Service_OptInApiEventlog_InfoArgs"/>
+    </events>
+    <templates>
+     <template tid="Tenant_RegisterArgs">
+      <data name="Environment" inType="win:UnicodeString"/>
+      <data name="IKey" inType="win:UnicodeString"/>
+      <data name="DiskSizeInBytes" inType="win:UInt32"/>
+      <data name="DailyUploadQuotaInBytes" inType="win:UInt32"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="Tenant_UnregisterArgs">
+      <data name="Environment" inType="win:UnicodeString"/>
+      <data name="IKey" inType="win:UnicodeString"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="Tenant_UpdateDailyUploadQuotaArgs">
+      <data name="Environment" inType="win:UnicodeString"/>
+      <data name="IKey" inType="win:UnicodeString"/>
+      <data name="DailyUploadQuotaInBytes" inType="win:UInt32"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="Upload_UrlChangedArgs">
+      <data name="Environment" inType="win:UnicodeString"/>
+      <data name="Url" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Upload_ConnectionErrorArgs">
+      <data name="Environment" inType="win:UnicodeString"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="Upload_SevilleBandwidthMonitor_TierChangeArgs">
+      <data name="Environment" inType="win:UnicodeString"/>
+      <data name="BytesUploadedSoFar" inType="win:UInt64"/>
+      <data name="BytesAllowed" inType="win:UInt64"/>
+      <data name="PercentageUsed" inType="win:UInt32"/>
+      <data name="NewTier" inType="win:UInt32"/>
+      <data name="OldTier" inType="win:UInt32"/>
+     </template>
+     <template tid="Upload_SevilleEventStorage_TierChangeArgs">
+      <data name="Environment" inType="win:UnicodeString"/>
+      <data name="PercentageFullInEachRingBuffer" inType="win:UInt32"/>
+     </template>
+     <template tid="Upload_UnconfiguredDynamicRegionArgs">
+      <data name="Environment" inType="win:UnicodeString"/>
+      <data name="Region" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Upload_SevilleEventStorage_StorageThrottledArgs">
+      <data name="Environment" inType="win:UnicodeString"/>
+      <data name="UploadQuota" inType="win:UInt32"/>
+      <data name="PercentageQuotaUsed" inType="win:Double"/>
+     </template>
+     <template tid="Upload_SevilleBandwidth_ThrottledArgs">
+      <data name="Environment" inType="win:UnicodeString"/>
+      <data name="UploadQuota" inType="win:UInt64"/>
+     </template>
+     <template tid="Upload_SevilleEventlog_InfoArgs">
+      <data name="Environment" inType="win:UnicodeString"/>
+      <data name="EventsUploaded" inType="win:UInt32"/>
+      <data name="EventsDropped" inType="win:UInt32"/>
+      <data name="LastEventlogWrittenTime" inType="win:UInt64"/>
+     </template>
+     <template tid="Upload_SevilleEventlog_WarningArgs">
+      <data name="Environment" inType="win:UnicodeString"/>
+      <data name="EventsUploaded" inType="win:UInt32"/>
+      <data name="EventsDropped" inType="win:UInt32"/>
+      <data name="LastEventlogWrittenTime" inType="win:UInt64"/>
+      <data name="SuccessfulConnections" inType="win:UInt32"/>
+      <data name="FailedConnections" inType="win:UInt32"/>
+      <data name="LastHttpError" inType="win:UInt32"/>
+     </template>
+     <template tid="Upload_SevilleEventlog_ErrorArgs">
+      <data name="Environment" inType="win:UnicodeString"/>
+      <data name="EventsUploaded" inType="win:UInt32"/>
+      <data name="EventsDropped" inType="win:UInt32"/>
+      <data name="LastEventlogWrittenTime" inType="win:UInt64"/>
+      <data name="FailedConnections" inType="win:UInt32"/>
+      <data name="LastHttpError" inType="win:UInt32"/>
+      <data name="ProxySettingDetected" inType="win:Boolean"/>
+      <data name="SslCertValidationFailures" inType="win:UInt32"/>
+      <data name="LastSslCertFailure" inType="win:UInt32"/>
+     </template>
+     <template tid="Service_ServiceStartArgs">
+      <data name="Environment" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="Service_InternetAvailableArgs">
+      <data name="Environment" inType="win:UnicodeString"/>
+      <data name="State" inType="win:Boolean"/>
+     </template>
+     <template tid="Service_OptInLevelChangeArgs">
+      <data name="Environment" inType="win:UnicodeString"/>
+      <data name="OldInfo" inType="win:UInt32"/>
+      <data name="NewInfo" inType="win:UInt32"/>
+      <data name="SettingAuthority" inType="win:Int32"/>
+     </template>
+     <template tid="Agent_IdleStateChangeArgs">
+      <data name="Environment" inType="win:UnicodeString"/>
+      <data name="AgentId" inType="win:UnicodeString"/>
+      <data name="IsIdle" inType="win:Boolean"/>
+      <data name="IdleDurationMillis" inType="win:UInt64"/>
+     </template>
+     <template tid="Service_OptInApiEventlog_InfoArgs">
+      <data name="OldLevel" inType="win:UInt32"/>
+      <data name="NewLevel" inType="win:UInt32"/>
+      <data name="Source" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Tenant" value="Tenant"/>
+    <string id="keyword_Upload" value="Upload"/>
+    <string id="keyword_Service" value="Service"/>
+    <string id="keyword_Agent" value="Agent"/>
+    <string id="task_Tenant_Register" value="Tenant_Register"/>
+    <string id="task_Tenant_Unregister" value="Tenant_Unregister"/>
+    <string id="task_Tenant_UpdateDailyUploadQuota" value="Tenant_UpdateDailyUploadQuota"/>
+    <string id="task_Upload_UrlChanged" value="Upload_UrlChanged"/>
+    <string id="task_Upload_ConnectionError" value="Upload_ConnectionError"/>
+    <string id="task_Upload_SevilleBandwidthMonitor_TierChange" value="Upload_SevilleBandwidthMonitor_TierChange"/>
+    <string id="task_Upload_SevilleEventStorage_TierChange" value="Upload_SevilleEventStorage_TierChange"/>
+    <string id="task_Upload_UnconfiguredDynamicRegion" value="Upload_UnconfiguredDynamicRegion"/>
+    <string id="task_Upload_SevilleEventStorage_StorageThrottled" value="Upload_SevilleEventStorage_StorageThrottled"/>
+    <string id="task_Upload_SevilleBandwidth_Throttled" value="Upload_SevilleBandwidth_Throttled"/>
+    <string id="task_Upload_SevilleEventlog_Info" value="Upload_SevilleEventlog_Info"/>
+    <string id="task_Upload_SevilleEventlog_Warning" value="Upload_SevilleEventlog_Warning"/>
+    <string id="task_Upload_SevilleEventlog_Error" value="Upload_SevilleEventlog_Error"/>
+    <string id="task_Service_ServiceStart" value="Service_ServiceStart"/>
+    <string id="task_Service_InternetAvailable" value="Service_InternetAvailable"/>
+    <string id="task_Service_FreeNetworkAvailable" value="Service_FreeNetworkAvailable"/>
+    <string id="task_Service_OnBatteryPower" value="Service_OnBatteryPower"/>
+    <string id="task_Service_OnBatterySaver" value="Service_OnBatterySaver"/>
+    <string id="task_Service_InConnectedStandby" value="Service_InConnectedStandby"/>
+    <string id="task_Service_PowerLimitExceeded" value="Service_PowerLimitExceeded"/>
+    <string id="task_Service_OptInLevelChange" value="Service_OptInLevelChange"/>
+    <string id="task_Agent_IdleStateChange" value="Agent_IdleStateChange"/>
+    <string id="task_Service_OptInApiEventlog_Info" value="Service_OptInApiEventlog_Info"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

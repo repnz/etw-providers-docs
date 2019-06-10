@@ -1,0 +1,51 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-CoreSystem-SmsRouter" guid="{a9c11050-9e93-4fa4-8fe0-7c4750a345b2}" resourceFileName="Microsoft-Windows-CoreSystem-SmsRouter" messageFileName="Microsoft-Windows-CoreSystem-SmsRouter" symbol="MicrosoftWindowsCoreSystemSmsRouter" source="Xml" >
+    <keywords>
+     <keyword name="Error" message="$(string.keyword_Error)" mask="0x1"/>
+     <keyword name="Performance" message="$(string.keyword_Performance)" mask="0x2"/>
+     <keyword name="Information" message="$(string.keyword_Information)" mask="0x4"/>
+     <keyword name="Trace" message="$(string.keyword_Trace)" mask="0x8"/>
+    </keywords>
+    <tasks>
+     <task name="SmsRouter" message="$(string.task_SmsRouter)" value="1"/>
+     <task name="SmsBroker" message="$(string.task_SmsBroker)" value="2"/>
+    </tasks>
+    <events>
+     <event value="100" symbol="SmsRouterStart" version="0" task="SmsRouter" opcode="win:Start" level="win:Informational" keywords="Performance"/>
+     <event value="101" symbol="SmsRouterStop" version="0" task="SmsRouter" opcode="win:Stop" level="win:Informational" keywords="Performance"/>
+     <event value="102" symbol="SmsRouter" version="0" task="SmsRouter" level="win:Error" keywords="Error" template="SmsRouterArgs"/>
+     <event value="103" symbol="SmsRouter103" version="0" task="SmsRouter" level="win:Informational" keywords="Performance" template="SmsRouter103Args"/>
+     <event value="200" symbol="SmsBrokerStart" version="0" task="SmsBroker" opcode="win:Start" level="win:Informational" keywords="Performance"/>
+     <event value="201" symbol="SmsBrokerStop" version="0" task="SmsBroker" opcode="win:Stop" level="win:Informational" keywords="Performance"/>
+    </events>
+    <templates>
+     <template tid="SmsRouterArgs">
+      <data name="AnsiStringName" inType="win:AnsiString"/>
+      <data name="LineNumber" inType="win:UInt32"/>
+      <data name="HResultName" inType="win:Int32"/>
+      <data name="Context" inType="win:AnsiString"/>
+     </template>
+     <template tid="SmsRouter103Args">
+      <data name="AnsiStringName" inType="win:AnsiString"/>
+      <data name="LineNumber" inType="win:UInt32"/>
+      <data name="Context" inType="win:AnsiString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Error" value="Error"/>
+    <string id="keyword_Performance" value="Performance"/>
+    <string id="keyword_Information" value="Information"/>
+    <string id="keyword_Trace" value="Trace"/>
+    <string id="task_SmsRouter" value="SmsRouter"/>
+    <string id="task_SmsBroker" value="SmsBroker"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

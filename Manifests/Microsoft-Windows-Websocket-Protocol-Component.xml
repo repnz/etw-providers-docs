@@ -1,0 +1,55 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Websocket-Protocol-Component" guid="{cba5f63c-e2cf-4b36-8305-bde1311924fc}" resourceFileName="Microsoft-Windows-Websocket-Protocol-Component" messageFileName="Microsoft-Windows-Websocket-Protocol-Component" symbol="MicrosoftWindowsWebsocketProtocolComponent" source="Xml" >
+    <keywords>
+     <keyword name="keywords.KW_ALL" message="$(string.keyword_keywords.KW_ALL)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="Parser" message="$(string.task_Parser)" value="1"/>
+     <task name="Actionqueue" message="$(string.task_Actionqueue)" value="2"/>
+    </tasks>
+    <maps>
+     <valueMap name="OperationTypeMap">
+      <map value="0x0" message="$(string.map_OperationTypeMapReceive)"/>
+      <map value="0x1" message="$(string.map_OperationTypeMapSend)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="Parser" version="0" task="Parser" level="win:Error" keywords="keywords.KW_ALL" template="ParserArgs"/>
+     <event value="2" symbol="ActionqueueStart" version="0" task="Actionqueue" opcode="win:Start" level="win:Informational" keywords="keywords.KW_ALL" template="ActionqueueStartArgs"/>
+     <event value="3" symbol="Actionqueue" version="0" task="Actionqueue" level="win:Informational" keywords="keywords.KW_ALL" template="ActionqueueArgs"/>
+     <event value="4" symbol="ActionqueueStop" version="0" task="Actionqueue" opcode="win:Stop" level="win:Informational" keywords="keywords.KW_ALL" template="ActionqueueStopArgs"/>
+    </events>
+    <templates>
+     <template tid="ParserArgs">
+      <data name="TraceMessage" inType="win:UnicodeString"/>
+      <data name="Error" inType="win:HexInt32"/>
+     </template>
+     <template tid="ActionqueueStartArgs">
+      <data name="Id" inType="win:UInt32"/>
+      <data name="OperationType" inType="win:UInt32" map="OperationTypeMap"/>
+     </template>
+     <template tid="ActionqueueArgs">
+      <data name="Id" inType="win:UInt32"/>
+      <data name="ActionType" inType="win:UInt32"/>
+     </template>
+     <template tid="ActionqueueStopArgs">
+      <data name="Id" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_keywords.KW_ALL" value="keywords.KW_ALL"/>
+    <string id="task_Parser" value="Parser"/>
+    <string id="task_Actionqueue" value="Actionqueue"/>
+    <string id="map_OperationTypeMapReceive" value="Receive"/>
+    <string id="map_OperationTypeMapSend" value="Send"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

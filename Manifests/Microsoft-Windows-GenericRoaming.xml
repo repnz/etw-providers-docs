@@ -1,0 +1,44 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-GenericRoaming" guid="{4eacb4d0-263b-4b93-8cd6-778a278e5642}" resourceFileName="Microsoft-Windows-GenericRoaming" messageFileName="Microsoft-Windows-GenericRoaming" symbol="MicrosoftWindowsGenericRoaming" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="SettingHandlerTask" message="$(string.task_SettingHandlerTask)" value="1"/>
+     <task name="TriggerSyncTask" message="$(string.task_TriggerSyncTask)" value="2"/>
+    </tasks>
+    <events>
+     <event value="3" symbol="SettingHandlerTask" version="0" task="SettingHandlerTask" level="win:Error" template="SettingHandlerTaskArgs"/>
+     <event value="4" symbol="SettingHandlerTask4" version="0" task="SettingHandlerTask" level="win:Error" template="SettingHandlerTaskArgs"/>
+     <event value="5" symbol="SettingHandlerTask5" version="0" task="SettingHandlerTask" level="win:Error" template="SettingHandlerTaskArgs"/>
+     <event value="6" symbol="SettingHandlerTask6" version="0" task="SettingHandlerTask" level="win:Error" template="SettingHandlerTask6Args"/>
+     <event value="7" symbol="TriggerSyncTask" version="0" task="TriggerSyncTask" level="win:Error" template="TriggerSyncTaskArgs"/>
+    </events>
+    <templates>
+     <template tid="SettingHandlerTaskArgs">
+      <data name="CollectionId" inType="win:UnicodeString"/>
+      <data name="UnitId" inType="win:UnicodeString"/>
+      <data name="HResultFailure" inType="win:Int32"/>
+     </template>
+     <template tid="SettingHandlerTask6Args">
+      <data name="CollectionId" inType="win:UnicodeString"/>
+      <data name="HResultFailure" inType="win:Int32"/>
+     </template>
+     <template tid="TriggerSyncTaskArgs">
+      <data name="Username" inType="win:UnicodeString"/>
+      <data name="HResultFailure" inType="win:Int32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_SettingHandlerTask" value="SettingHandlerTask"/>
+    <string id="task_TriggerSyncTask" value="TriggerSyncTask"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

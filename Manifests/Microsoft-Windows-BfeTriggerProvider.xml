@@ -1,0 +1,41 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-BfeTriggerProvider" guid="{54732ee5-61ca-4727-9da1-10be5a4f773d}" resourceFileName="Microsoft-Windows-BfeTriggerProvider" messageFileName="Microsoft-Windows-BfeTriggerProvider" symbol="MicrosoftWindowsBfeTriggerProvider" source="Xml" >
+    <keywords>
+     <keyword name="Keyword_FirewallPortOpenEvent" message="$(string.keyword_Keyword_FirewallPortOpenEvent)" mask="0x1"/>
+     <keyword name="Keyword_FirewallPortCloseEvent" message="$(string.keyword_Keyword_FirewallPortCloseEvent)" mask="0x2"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0">
+>
+      <opcodes>
+       <opcode name="Opcode_FirewallPortOpenEvent" message="$(string.opcode_task_0Opcode_FirewallPortOpenEvent)" value="100"/>
+       <opcode name="Opcode_FirewallPortCloseEvent" message="$(string.opcode_task_0Opcode_FirewallPortCloseEvent)" value="101"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="1" symbol="task_0Opcode_FirewallPortOpenEvent" version="0" task="task_0" opcode="Opcode_FirewallPortOpenEvent" level="win:Informational" keywords="Keyword_FirewallPortOpenEvent" template="task_0Opcode_FirewallPortOpenEventArgs"/>
+     <event value="2" symbol="task_0Opcode_FirewallPortCloseEvent" version="0" task="task_0" opcode="Opcode_FirewallPortCloseEvent" level="win:Informational" keywords="Keyword_FirewallPortCloseEvent" template="task_0Opcode_FirewallPortOpenEventArgs"/>
+    </events>
+    <templates>
+     <template tid="task_0Opcode_FirewallPortOpenEventArgs">
+      <data name="FirewallPortStatusChangeGuid" inType="win:GUID"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Keyword_FirewallPortOpenEvent" value="Keyword_FirewallPortOpenEvent"/>
+    <string id="keyword_Keyword_FirewallPortCloseEvent" value="Keyword_FirewallPortCloseEvent"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="opcode_task_0Opcode_FirewallPortOpenEvent" value="Opcode_FirewallPortOpenEvent"/>
+    <string id="opcode_task_0Opcode_FirewallPortCloseEvent" value="Opcode_FirewallPortCloseEvent"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

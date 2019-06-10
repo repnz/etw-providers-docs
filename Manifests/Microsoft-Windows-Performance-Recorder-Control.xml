@@ -1,0 +1,165 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Performance-Recorder-Control" guid="{36b6f488-aad7-48c2-afe3-d4ec2c8b46fa}" resourceFileName="Microsoft-Windows-Performance-Recorder-Control" messageFileName="Microsoft-Windows-Performance-Recorder-Control" symbol="MicrosoftWindowsPerformanceRecorderControl" source="Xml" >
+    <keywords>
+     <keyword name="PerfStatusVerbose" message="$(string.keyword_PerfStatusVerbose)" mask="0x1000"/>
+     <keyword name="PerfStatus" message="$(string.keyword_PerfStatus)" mask="0x10000"/>
+     <keyword name="DebugStatus" message="$(string.keyword_DebugStatus)" mask="0x20000"/>
+     <keyword name="Informational" message="$(string.keyword_Informational)" mask="0x40000"/>
+    </keywords>
+    <tasks>
+     <task name="Perf_ExternalCall" message="$(string.task_Perf_ExternalCall)" value="100"/>
+     <task name="Perf_LoadProfileFromFile" message="$(string.task_Perf_LoadProfileFromFile)" value="101"/>
+     <task name="Perf_LoadProfileFromString" message="$(string.task_Perf_LoadProfileFromString)" value="102"/>
+     <task name="Perf_AddProfileToCollection" message="$(string.task_Perf_AddProfileToCollection)" value="103"/>
+     <task name="Perf_RemoveProfileFromCollection" message="$(string.task_Perf_RemoveProfileFromCollection)" value="104"/>
+     <task name="Perf_IsEqualProfile" message="$(string.task_Perf_IsEqualProfile)" value="105"/>
+     <task name="Perf_IsEqualProfileCollection" message="$(string.task_Perf_IsEqualProfileCollection)" value="106"/>
+     <task name="Perf_IsEqualTraceMergeProperties" message="$(string.task_Perf_IsEqualTraceMergeProperties)" value="107"/>
+     <task name="Perf_LoadTraceMergePropertiesFromFile" message="$(string.task_Perf_LoadTraceMergePropertiesFromFile)" value="108"/>
+     <task name="Perf_LoadTraceMergePropertiesFromString" message="$(string.task_Perf_LoadTraceMergePropertiesFromString)" value="109"/>
+     <task name="Perf_StartProfiles" message="$(string.task_Perf_StartProfiles)" value="110"/>
+     <task name="Perf_UpdateProfiles" message="$(string.task_Perf_UpdateProfiles)" value="111"/>
+     <task name="Perf_CancelProfiles" message="$(string.task_Perf_CancelProfiles)" value="112"/>
+     <task name="Perf_SaveProfiles" message="$(string.task_Perf_SaveProfiles)" value="113"/>
+     <task name="Perf_StopProfiles" message="$(string.task_Perf_StopProfiles)" value="114"/>
+     <task name="Perf_QueryProfiles" message="$(string.task_Perf_QueryProfiles)" value="115"/>
+     <task name="Perf_EnableBootTracing" message="$(string.task_Perf_EnableBootTracing)" value="116"/>
+     <task name="Perf_DisableBootTracing" message="$(string.task_Perf_DisableBootTracing)" value="117"/>
+     <task name="Perf_QueryBuiltInProfiles" message="$(string.task_Perf_QueryBuiltInProfiles)" value="118"/>
+     <task name="Perf_ControlProgressHandlerBegin" message="$(string.task_Perf_ControlProgressHandlerBegin)" value="119"/>
+     <task name="Perf_ControlProgressHandlerUpdate" message="$(string.task_Perf_ControlProgressHandlerUpdate)" value="120"/>
+     <task name="Perf_ControlProgressHandlerEnd" message="$(string.task_Perf_ControlProgressHandlerEnd)" value="121"/>
+     <task name="Perf_StartShutdownProfiles" message="$(string.task_Perf_StartShutdownProfiles)" value="122"/>
+     <task name="Perf_UpdateShutdownProfiles" message="$(string.task_Perf_UpdateShutdownProfiles)" value="123"/>
+     <task name="Perf_MergeShutdownProfiles" message="$(string.task_Perf_MergeShutdownProfiles)" value="124"/>
+     <task name="Perf_CaptureState" message="$(string.task_Perf_CaptureState)" value="125"/>
+     <task name="Perf_WPRProfileIds" message="$(string.task_Perf_WPRProfileIds)" value="126"/>
+     <task name="Debug_WPRCControl" message="$(string.task_Debug_WPRCControl)" value="200"/>
+    </tasks>
+    <events>
+     <event value="100" symbol="Perf_ExternalCallStart" version="0" task="Perf_ExternalCall" opcode="win:Start" level="win:Informational" keywords="PerfStatusVerbose"/>
+     <event value="101" symbol="Perf_ExternalCallStop" version="0" task="Perf_ExternalCall" opcode="win:Stop" level="win:Informational" keywords="PerfStatusVerbose"/>
+     <event value="102" symbol="Perf_LoadProfileFromFileStart" version="0" task="Perf_LoadProfileFromFile" opcode="win:Start" level="win:Informational" keywords="PerfStatus" template="Perf_LoadProfileFromFileStartArgs"/>
+     <event value="103" symbol="Perf_LoadProfileFromFileStop" version="0" task="Perf_LoadProfileFromFile" opcode="win:Stop" level="win:Informational" keywords="PerfStatus"/>
+     <event value="104" symbol="Perf_LoadProfileFromStringStart" version="0" task="Perf_LoadProfileFromString" opcode="win:Start" level="win:Informational" keywords="PerfStatus"/>
+     <event value="105" symbol="Perf_LoadProfileFromStringStop" version="0" task="Perf_LoadProfileFromString" opcode="win:Stop" level="win:Informational" keywords="PerfStatus"/>
+     <event value="106" symbol="Perf_AddProfileToCollectionStart" version="0" task="Perf_AddProfileToCollection" opcode="win:Start" level="win:Informational" keywords="PerfStatus"/>
+     <event value="107" symbol="Perf_IsEqualProfileStart" version="0" task="Perf_IsEqualProfile" opcode="win:Start" level="win:Informational" keywords="PerfStatus"/>
+     <event value="108" symbol="Perf_IsEqualProfileStart108" version="0" task="Perf_IsEqualProfile" opcode="win:Start" level="win:Informational" keywords="PerfStatus"/>
+     <event value="109" symbol="Perf_AddProfileToCollectionStop" version="0" task="Perf_AddProfileToCollection" opcode="win:Stop" level="win:Informational" keywords="PerfStatus"/>
+     <event value="110" symbol="Perf_RemoveProfileFromCollectionStart" version="0" task="Perf_RemoveProfileFromCollection" opcode="win:Start" level="win:Informational" keywords="PerfStatus"/>
+     <event value="111" symbol="Perf_RemoveProfileFromCollectionStop" version="0" task="Perf_RemoveProfileFromCollection" opcode="win:Stop" level="win:Informational" keywords="PerfStatus"/>
+     <event value="112" symbol="Perf_IsEqualProfileCollectionStop" version="0" task="Perf_IsEqualProfileCollection" opcode="win:Stop" level="win:Informational" keywords="PerfStatus"/>
+     <event value="113" symbol="Perf_IsEqualProfileCollectionStop113" version="0" task="Perf_IsEqualProfileCollection" opcode="win:Stop" level="win:Informational" keywords="PerfStatus"/>
+     <event value="114" symbol="Perf_LoadTraceMergePropertiesFromFileStart" version="0" task="Perf_LoadTraceMergePropertiesFromFile" opcode="win:Start" level="win:Informational" keywords="PerfStatus" template="Perf_LoadTraceMergePropertiesFromFileStartArgs"/>
+     <event value="115" symbol="Perf_LoadTraceMergePropertiesFromFileStop" version="0" task="Perf_LoadTraceMergePropertiesFromFile" opcode="win:Stop" level="win:Informational" keywords="PerfStatus"/>
+     <event value="116" symbol="Perf_LoadTraceMergePropertiesFromStringStart" version="0" task="Perf_LoadTraceMergePropertiesFromString" opcode="win:Start" level="win:Informational" keywords="PerfStatus"/>
+     <event value="117" symbol="Perf_LoadTraceMergePropertiesFromStringStop" version="0" task="Perf_LoadTraceMergePropertiesFromString" opcode="win:Stop" level="win:Informational" keywords="PerfStatus"/>
+     <event value="118" symbol="Perf_IsEqualTraceMergePropertiesStop" version="0" task="Perf_IsEqualTraceMergeProperties" opcode="win:Stop" level="win:Informational" keywords="PerfStatus"/>
+     <event value="119" symbol="Perf_IsEqualTraceMergePropertiesStop119" version="0" task="Perf_IsEqualTraceMergeProperties" opcode="win:Stop" level="win:Informational" keywords="PerfStatus"/>
+     <event value="120" symbol="Perf_StartProfilesStart" version="0" task="Perf_StartProfiles" opcode="win:Start" level="win:Informational" keywords="PerfStatus"/>
+     <event value="121" symbol="Perf_StartProfilesStop" version="0" task="Perf_StartProfiles" opcode="win:Stop" level="win:Informational" keywords="PerfStatus"/>
+     <event value="122" symbol="Perf_UpdateProfilesStart" version="0" task="Perf_UpdateProfiles" opcode="win:Start" level="win:Informational" keywords="PerfStatus"/>
+     <event value="123" symbol="Perf_UpdateProfilesStop" version="0" task="Perf_UpdateProfiles" opcode="win:Stop" level="win:Informational" keywords="PerfStatus"/>
+     <event value="124" symbol="Perf_CancelProfilesStart" version="0" task="Perf_CancelProfiles" opcode="win:Start" level="win:Informational" keywords="PerfStatus"/>
+     <event value="125" symbol="Perf_CancelProfilesStop" version="0" task="Perf_CancelProfiles" opcode="win:Stop" level="win:Informational" keywords="PerfStatus"/>
+     <event value="126" symbol="Perf_SaveProfilesStart" version="0" task="Perf_SaveProfiles" opcode="win:Start" level="win:Informational" keywords="PerfStatus" template="Perf_SaveProfilesStartArgs"/>
+     <event value="127" symbol="Perf_SaveProfilesStop" version="0" task="Perf_SaveProfiles" opcode="win:Stop" level="win:Informational" keywords="PerfStatus"/>
+     <event value="128" symbol="Perf_StopProfilesStart" version="0" task="Perf_StopProfiles" opcode="win:Start" level="win:Informational" keywords="PerfStatus" template="Perf_SaveProfilesStartArgs"/>
+     <event value="129" symbol="Perf_StopProfilesStop" version="0" task="Perf_StopProfiles" opcode="win:Stop" level="win:Informational" keywords="PerfStatus"/>
+     <event value="130" symbol="Perf_QueryProfilesStart" version="0" task="Perf_QueryProfiles" opcode="win:Start" level="win:Informational" keywords="PerfStatus"/>
+     <event value="131" symbol="Perf_QueryProfilesStop" version="0" task="Perf_QueryProfiles" opcode="win:Stop" level="win:Informational" keywords="PerfStatus"/>
+     <event value="132" symbol="Perf_EnableBootTracingStart" version="0" task="Perf_EnableBootTracing" opcode="win:Start" level="win:Informational" keywords="PerfStatus"/>
+     <event value="133" symbol="Perf_EnableBootTracingStop" version="0" task="Perf_EnableBootTracing" opcode="win:Stop" level="win:Informational" keywords="PerfStatus"/>
+     <event value="134" symbol="Perf_DisableBootTracingStart" version="0" task="Perf_DisableBootTracing" opcode="win:Start" level="win:Informational" keywords="PerfStatus"/>
+     <event value="135" symbol="Perf_DisableBootTracingStop" version="0" task="Perf_DisableBootTracing" opcode="win:Stop" level="win:Informational" keywords="PerfStatus"/>
+     <event value="136" symbol="Perf_QueryBuiltInProfilesStart" version="0" task="Perf_QueryBuiltInProfiles" opcode="win:Start" level="win:Informational" keywords="PerfStatus"/>
+     <event value="137" symbol="Perf_QueryBuiltInProfilesStop" version="0" task="Perf_QueryBuiltInProfiles" opcode="win:Stop" level="win:Informational" keywords="PerfStatus"/>
+     <event value="138" symbol="Perf_ControlProgressHandlerBeginStart" version="0" task="Perf_ControlProgressHandlerBegin" opcode="win:Start" level="win:Informational" keywords="PerfStatus"/>
+     <event value="139" symbol="Perf_ControlProgressHandlerBeginStop" version="0" task="Perf_ControlProgressHandlerBegin" opcode="win:Stop" level="win:Informational" keywords="PerfStatus"/>
+     <event value="140" symbol="Perf_ControlProgressHandlerUpdateStart" version="0" task="Perf_ControlProgressHandlerUpdate" opcode="win:Start" level="win:Informational" keywords="PerfStatus"/>
+     <event value="141" symbol="Perf_ControlProgressHandlerUpdateStop" version="0" task="Perf_ControlProgressHandlerUpdate" opcode="win:Stop" level="win:Informational" keywords="PerfStatus"/>
+     <event value="142" symbol="Perf_ControlProgressHandlerEndStart" version="0" task="Perf_ControlProgressHandlerEnd" opcode="win:Start" level="win:Informational" keywords="PerfStatus"/>
+     <event value="143" symbol="Perf_ControlProgressHandlerEndStop" version="0" task="Perf_ControlProgressHandlerEnd" opcode="win:Stop" level="win:Informational" keywords="PerfStatus"/>
+     <event value="144" symbol="Perf_StartShutdownProfilesStart" version="0" task="Perf_StartShutdownProfiles" opcode="win:Start" level="win:Informational" keywords="PerfStatus"/>
+     <event value="145" symbol="Perf_StartShutdownProfilesStop" version="0" task="Perf_StartShutdownProfiles" opcode="win:Stop" level="win:Informational" keywords="PerfStatus"/>
+     <event value="146" symbol="Perf_UpdateShutdownProfilesStart" version="0" task="Perf_UpdateShutdownProfiles" opcode="win:Start" level="win:Informational" keywords="PerfStatus"/>
+     <event value="147" symbol="Perf_UpdateShutdownProfilesStop" version="0" task="Perf_UpdateShutdownProfiles" opcode="win:Stop" level="win:Informational" keywords="PerfStatus"/>
+     <event value="148" symbol="Perf_MergeShutdownProfilesStart" version="0" task="Perf_MergeShutdownProfiles" opcode="win:Start" level="win:Informational" keywords="PerfStatus" template="Perf_SaveProfilesStartArgs"/>
+     <event value="149" symbol="Perf_MergeShutdownProfilesStop" version="0" task="Perf_MergeShutdownProfiles" opcode="win:Stop" level="win:Informational" keywords="PerfStatus"/>
+     <event value="150" symbol="Perf_CaptureState" version="0" task="Perf_CaptureState" level="win:Informational" keywords="PerfStatus" template="Perf_CaptureStateArgs"/>
+     <event value="151" symbol="Perf_WPRProfileIds" version="0" task="Perf_WPRProfileIds" level="win:Informational" keywords="Informational" template="Perf_WPRProfileIdsArgs"/>
+     <event value="200" symbol="Debug_WPRCControl" version="0" task="Debug_WPRCControl" level="win:Warning" keywords="DebugStatus" template="Debug_WPRCControlArgs"/>
+    </events>
+    <templates>
+     <template tid="Perf_LoadProfileFromFileStartArgs">
+      <data name="ProfileName" inType="win:UnicodeString"/>
+      <data name="FileName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Perf_LoadTraceMergePropertiesFromFileStartArgs">
+      <data name="TraceMergePropertyName" inType="win:UnicodeString"/>
+      <data name="FileName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Perf_SaveProfilesStartArgs">
+      <data name="FileName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Perf_CaptureStateArgs">
+      <data name="Provider" inType="win:UnicodeString"/>
+      <data name="Error" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Perf_WPRProfileIdsArgs">
+      <data name="ProfileIds" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Debug_WPRCControlArgs">
+      <data name="DebugType" inType="win:UInt32"/>
+      <data name="ObjectType" inType="win:UInt32"/>
+      <data name="HResult" inType="win:Int32"/>
+      <data name="LineNumber" inType="win:UInt32"/>
+      <data name="FileName" inType="win:UnicodeString"/>
+      <data name="FunctionName" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_PerfStatusVerbose" value="PerfStatusVerbose"/>
+    <string id="keyword_PerfStatus" value="PerfStatus"/>
+    <string id="keyword_DebugStatus" value="DebugStatus"/>
+    <string id="keyword_Informational" value="Informational"/>
+    <string id="task_Perf_ExternalCall" value="Perf_ExternalCall"/>
+    <string id="task_Perf_LoadProfileFromFile" value="Perf_LoadProfileFromFile"/>
+    <string id="task_Perf_LoadProfileFromString" value="Perf_LoadProfileFromString"/>
+    <string id="task_Perf_AddProfileToCollection" value="Perf_AddProfileToCollection"/>
+    <string id="task_Perf_RemoveProfileFromCollection" value="Perf_RemoveProfileFromCollection"/>
+    <string id="task_Perf_IsEqualProfile" value="Perf_IsEqualProfile"/>
+    <string id="task_Perf_IsEqualProfileCollection" value="Perf_IsEqualProfileCollection"/>
+    <string id="task_Perf_IsEqualTraceMergeProperties" value="Perf_IsEqualTraceMergeProperties"/>
+    <string id="task_Perf_LoadTraceMergePropertiesFromFile" value="Perf_LoadTraceMergePropertiesFromFile"/>
+    <string id="task_Perf_LoadTraceMergePropertiesFromString" value="Perf_LoadTraceMergePropertiesFromString"/>
+    <string id="task_Perf_StartProfiles" value="Perf_StartProfiles"/>
+    <string id="task_Perf_UpdateProfiles" value="Perf_UpdateProfiles"/>
+    <string id="task_Perf_CancelProfiles" value="Perf_CancelProfiles"/>
+    <string id="task_Perf_SaveProfiles" value="Perf_SaveProfiles"/>
+    <string id="task_Perf_StopProfiles" value="Perf_StopProfiles"/>
+    <string id="task_Perf_QueryProfiles" value="Perf_QueryProfiles"/>
+    <string id="task_Perf_EnableBootTracing" value="Perf_EnableBootTracing"/>
+    <string id="task_Perf_DisableBootTracing" value="Perf_DisableBootTracing"/>
+    <string id="task_Perf_QueryBuiltInProfiles" value="Perf_QueryBuiltInProfiles"/>
+    <string id="task_Perf_ControlProgressHandlerBegin" value="Perf_ControlProgressHandlerBegin"/>
+    <string id="task_Perf_ControlProgressHandlerUpdate" value="Perf_ControlProgressHandlerUpdate"/>
+    <string id="task_Perf_ControlProgressHandlerEnd" value="Perf_ControlProgressHandlerEnd"/>
+    <string id="task_Perf_StartShutdownProfiles" value="Perf_StartShutdownProfiles"/>
+    <string id="task_Perf_UpdateShutdownProfiles" value="Perf_UpdateShutdownProfiles"/>
+    <string id="task_Perf_MergeShutdownProfiles" value="Perf_MergeShutdownProfiles"/>
+    <string id="task_Perf_CaptureState" value="Perf_CaptureState"/>
+    <string id="task_Perf_WPRProfileIds" value="Perf_WPRProfileIds"/>
+    <string id="task_Debug_WPRCControl" value="Debug_WPRCControl"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

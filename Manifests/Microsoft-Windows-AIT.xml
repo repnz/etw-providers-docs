@@ -1,0 +1,83 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-AIT" guid="{6addabf4-8c54-4eab-bf4f-fbef61b62eb0}" resourceFileName="Microsoft-Windows-AIT" messageFileName="Microsoft-Windows-AIT" symbol="MicrosoftWindowsAIT" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="AitFeature" message="$(string.task_AitFeature)" value="1"/>
+     <task name="AitParentAitFeature" message="$(string.task_AitParentAitFeature)" value="2"/>
+     <task name="AitAppInfo" message="$(string.task_AitAppInfo)" value="3"/>
+     <task name="AitSystemUsageByDll" message="$(string.task_AitSystemUsageByDll)" value="4"/>
+     <task name="AitSystemUsageByExe" message="$(string.task_AitSystemUsageByExe)" value="5"/>
+     <task name="AitProcessEnd" message="$(string.task_AitProcessEnd)" value="6"/>
+     <task name="KitFeature" message="$(string.task_KitFeature)" value="7"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="AitFeature" version="0" task="AitFeature" level="win:Informational" template="AitFeatureArgs"/>
+     <event value="2" symbol="AitParentAitFeature" version="0" task="AitParentAitFeature" level="win:Informational" template="AitParentAitFeatureArgs"/>
+     <event value="3" symbol="AitAppInfo" version="0" task="AitAppInfo" level="win:Informational" template="AitAppInfoArgs"/>
+     <event value="4" symbol="AitSystemUsageByDll" version="0" task="AitSystemUsageByDll" level="win:Informational" template="AitSystemUsageByDllArgs"/>
+     <event value="5" symbol="AitSystemUsageByExe" version="0" task="AitSystemUsageByExe" level="win:Informational" template="AitSystemUsageByExeArgs"/>
+     <event value="6" symbol="AitProcessEnd" version="0" task="AitProcessEnd" level="win:Informational"/>
+     <event value="7" symbol="KitFeature" version="0" task="KitFeature" level="win:Informational" template="KitFeatureArgs"/>
+    </events>
+    <templates>
+     <template tid="AitFeatureArgs">
+      <data name="FeatureGuid" inType="win:GUID"/>
+      <data name="ApplicationImageHeaderHash" inType="win:Binary"/>
+     </template>
+     <template tid="AitParentAitFeatureArgs">
+      <data name="cchParentImagePathIncludingNull" inType="win:UInt16"/>
+      <data name="FeatureGuid" inType="win:GUID"/>
+      <data name="ParentProcessImageHeaderHash" inType="win:Binary"/>
+      <data name="ParentImagePath" inType="win:UnicodeString" length="cchParentImagePathIncludingNull"/>
+     </template>
+     <template tid="AitAppInfoArgs">
+      <data name="cchAppPathIncludingNull" inType="win:UInt16"/>
+      <data name="ApplicationImageHeaderHash" inType="win:Binary"/>
+      <data name="AppPath" inType="win:UnicodeString" length="cchAppPathIncludingNull"/>
+     </template>
+     <template tid="AitSystemUsageByDllArgs">
+      <data name="Flags" inType="win:Binary"/>
+      <data name="cchIdStringIncludingNull" inType="win:UInt16"/>
+      <data name="cchDllPathIncludingNull" inType="win:UInt16"/>
+      <data name="Category" inType="win:UInt32"/>
+      <data name="ManifestVersion" inType="win:UInt32"/>
+      <data name="DllHeaderHash" inType="win:Binary"/>
+      <data name="ApplicationImageHeaderHash" inType="win:Binary"/>
+      <data name="IdString" inType="win:AnsiString" length="cchIdStringIncludingNull"/>
+      <data name="DllPath" inType="win:UnicodeString" length="cchDllPathIncludingNull"/>
+     </template>
+     <template tid="AitSystemUsageByExeArgs">
+      <data name="Flags" inType="win:Binary"/>
+      <data name="cchIdStringIncludingNull" inType="win:UInt16"/>
+      <data name="Category" inType="win:UInt32"/>
+      <data name="ManifestVersion" inType="win:UInt32"/>
+      <data name="ApplicationImageHeaderHash" inType="win:Binary"/>
+      <data name="IdString" inType="win:AnsiString" length="cchIdStringIncludingNull"/>
+     </template>
+     <template tid="KitFeatureArgs">
+      <data name="FeatureGuid" inType="win:GUID"/>
+      <data name="CallerIdType" inType="win:UInt32"/>
+      <data name="cchImagePath" inType="win:UInt16"/>
+      <data name="ImagePath" inType="win:UnicodeString" length="cchImagePath"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_AitFeature" value="AitFeature"/>
+    <string id="task_AitParentAitFeature" value="AitParentAitFeature"/>
+    <string id="task_AitAppInfo" value="AitAppInfo"/>
+    <string id="task_AitSystemUsageByDll" value="AitSystemUsageByDll"/>
+    <string id="task_AitSystemUsageByExe" value="AitSystemUsageByExe"/>
+    <string id="task_AitProcessEnd" value="AitProcessEnd"/>
+    <string id="task_KitFeature" value="KitFeature"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,422 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-WindowsColorSystem" guid="{d53270e3-c8cf-4707-958a-dad20c90073c}" resourceFileName="Microsoft-Windows-WindowsColorSystem" messageFileName="Microsoft-Windows-WindowsColorSystem" symbol="MicrosoftWindowsWindowsColorSystem" source="Xml" >
+    <keywords>
+     <keyword name="wcse:Lino" message="$(string.keyword_wcse:Lino)" mask="0x1"/>
+     <keyword name="wcse:Cite" message="$(string.keyword_wcse:Cite)" mask="0x2"/>
+    </keywords>
+    <tasks>
+     <task name="ProfileManagement" message="$(string.task_ProfileManagement)" value="1"/>
+     <task name="TransformCreation" message="$(string.task_TransformCreation)" value="2"/>
+     <task name="ColorTranslation" message="$(string.task_ColorTranslation)" value="3"/>
+     <task name="ColorCalibration" message="$(string.task_ColorCalibration)" value="4"/>
+    </tasks>
+    <maps>
+     <valueMap name="Scope">
+      <map value="0x0" message="$(string.map_Scopesystem-wide)"/>
+      <map value="0x1" message="$(string.map_Scopecurrent user)"/>
+     </valueMap>
+     <valueMap name="Intent">
+      <map value="0x0" message="$(string.map_Intentperceptual)"/>
+      <map value="0x1" message="$(string.map_Intentrelative colorimetric)"/>
+      <map value="0x2" message="$(string.map_Intentsaturation)"/>
+      <map value="0x3" message="$(string.map_Intentabsolute colorimetric)"/>
+      <map value="0xfffffffe" message="$(string.map_Intent(invalid))"/>
+      <map value="0xffffffff" message="$(string.map_Intentembedded)"/>
+     </valueMap>
+     <valueMap name="Present">
+      <map value="0x0" message="$(string.map_Presentnot present)"/>
+      <map value="0x1" message="$(string.map_Presentpresent)"/>
+     </valueMap>
+     <valueMap name="ProfileType">
+      <map value="0x1" message="$(string.map_ProfileTypefile based)"/>
+      <map value="0x2" message="$(string.map_ProfileTypememory based)"/>
+      <map value="0xffffffff" message="$(string.map_ProfileTypenot used)"/>
+     </valueMap>
+     <valueMap name="Access">
+      <map value="0x1" message="$(string.map_Accessread-only)"/>
+      <map value="0x2" message="$(string.map_Accessread-write)"/>
+     </valueMap>
+     <valueMap name="FloatingPointOrIntegerLutType">
+      <map value="0x0" message="$(string.map_FloatingPointOrIntegerLutTypefloating point)"/>
+      <map value="0x1" message="$(string.map_FloatingPointOrIntegerLutTypeinteger)"/>
+     </valueMap>
+     <valueMap name="GamutOrNormalLutType">
+      <map value="0x0" message="$(string.map_GamutOrNormalLutTypegamut)"/>
+      <map value="0x1" message="$(string.map_GamutOrNormalLutTypenormal)"/>
+     </valueMap>
+     <valueMap name="ColorType">
+      <map value="0x1" message="$(string.map_ColorTypegray)"/>
+      <map value="0x2" message="$(string.map_ColorTypeRGB)"/>
+      <map value="0x3" message="$(string.map_ColorTypeXYZ)"/>
+      <map value="0x4" message="$(string.map_ColorTypeYxy)"/>
+      <map value="0x5" message="$(string.map_ColorTypeLab)"/>
+      <map value="0x6" message="$(string.map_ColorType3-channel)"/>
+      <map value="0x7" message="$(string.map_ColorTypeCMYK)"/>
+      <map value="0x8" message="$(string.map_ColorType5-channel)"/>
+      <map value="0x9" message="$(string.map_ColorType6-channel)"/>
+      <map value="0xa" message="$(string.map_ColorType7-channel)"/>
+      <map value="0xb" message="$(string.map_ColorType8-channel)"/>
+      <map value="0xc" message="$(string.map_ColorTypenamed)"/>
+     </valueMap>
+     <valueMap name="ColorDataType">
+      <map value="0x1" message="$(string.map_ColorDataTypebyte)"/>
+      <map value="0x2" message="$(string.map_ColorDataTypeword)"/>
+      <map value="0x3" message="$(string.map_ColorDataTypefloat)"/>
+      <map value="0x4" message="$(string.map_ColorDataTypeS2.13 fixed-point)"/>
+     </valueMap>
+     <valueMap name="BitmapFormat">
+      <map value="0x0" message="$(string.map_BitmapFormatx555 RGB)"/>
+      <map value="0x1" message="$(string.map_BitmapFormat565 RGB)"/>
+      <map value="0x2" message="$(string.map_BitmapFormatRGB triplets)"/>
+      <map value="0x4" message="$(string.map_BitmapFormatBGR triplets)"/>
+      <map value="0x8" message="$(string.map_BitmapFormatxRGB quads)"/>
+      <map value="0x9" message="$(string.map_BitmapFormat10-bit RGB)"/>
+      <map value="0xa" message="$(string.map_BitmapFormat16-bit RGB)"/>
+      <map value="0x10" message="$(string.map_BitmapFormatxBGR quads)"/>
+      <map value="0x20" message="$(string.map_BitmapFormatCMYK quads)"/>
+      <map value="0x101" message="$(string.map_BitmapFormatx555 XYZ)"/>
+      <map value="0x102" message="$(string.map_BitmapFormatx555 Yxy)"/>
+      <map value="0x103" message="$(string.map_BitmapFormatx555 Lab)"/>
+      <map value="0x104" message="$(string.map_BitmapFormatx555 G3CH)"/>
+      <map value="0x201" message="$(string.map_BitmapFormatXYZ triplets)"/>
+      <map value="0x202" message="$(string.map_BitmapFormatYxy triplets)"/>
+      <map value="0x203" message="$(string.map_BitmapFormatLab triplets)"/>
+      <map value="0x204" message="$(string.map_BitmapFormatG3CH triplets)"/>
+      <map value="0x205" message="$(string.map_BitmapFormat5-channel)"/>
+      <map value="0x206" message="$(string.map_BitmapFormat6-channel)"/>
+      <map value="0x207" message="$(string.map_BitmapFormat7-channel)"/>
+      <map value="0x208" message="$(string.map_BitmapFormat8-channel)"/>
+      <map value="0x209" message="$(string.map_BitmapFormatgray)"/>
+      <map value="0x304" message="$(string.map_BitmapFormatG3CH quads)"/>
+      <map value="0x305" message="$(string.map_BitmapFormatKYMC quads)"/>
+      <map value="0x401" message="$(string.map_BitmapFormat10-bit XYZ)"/>
+      <map value="0x402" message="$(string.map_BitmapFormat10-bit Yxy)"/>
+      <map value="0x403" message="$(string.map_BitmapFormat10-bit Lab)"/>
+      <map value="0x404" message="$(string.map_BitmapFormat10-bit G3CH)"/>
+      <map value="0x405" message="$(string.map_BitmapFormatnamed index)"/>
+      <map value="0x501" message="$(string.map_BitmapFormat16-bit XYZ)"/>
+      <map value="0x502" message="$(string.map_BitmapFormat16-bit Yxy)"/>
+      <map value="0x503" message="$(string.map_BitmapFormat16-bit Lab)"/>
+      <map value="0x504" message="$(string.map_BitmapFormat16-bit G3CH)"/>
+      <map value="0x505" message="$(string.map_BitmapFormat16-bit gray)"/>
+      <map value="0x601" message="$(string.map_BitmapFormat32-bit scRGB)"/>
+      <map value="0x602" message="$(string.map_BitmapFormat32-bit scARGB)"/>
+      <map value="0x603" message="$(string.map_BitmapFormatS2.13 fixed-point scRGB)"/>
+      <map value="0x604" message="$(string.map_BitmapFormatS2.13 fixed-point scARGB)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="ProfileManagement" version="0" task="ProfileManagement" level="win:Informational" template="ProfileManagementArgs"/>
+     <event value="2" symbol="ProfileManagement2" version="0" task="ProfileManagement" level="win:Informational" template="ProfileManagementArgs"/>
+     <event value="3" symbol="ProfileManagement3" version="0" task="ProfileManagement" level="win:Informational" template="ProfileManagement3Args"/>
+     <event value="4" symbol="ProfileManagement4" version="0" task="ProfileManagement" level="win:Informational" template="ProfileManagement4Args"/>
+     <event value="5" symbol="ProfileManagement5" version="0" task="ProfileManagement" level="win:Informational" template="ProfileManagement4Args"/>
+     <event value="6" symbol="ProfileManagement6" version="0" task="ProfileManagement" level="win:Informational" template="ProfileManagement6Args"/>
+     <event value="8" symbol="ProfileManagement8" version="0" task="ProfileManagement" level="win:Informational" template="ProfileManagement8Args"/>
+     <event value="9" symbol="ProfileManagement9" version="0" task="ProfileManagement" level="win:Informational" template="ProfileManagement9Args"/>
+     <event value="10" symbol="ProfileManagement10" version="0" task="ProfileManagement" level="win:Informational" template="ProfileManagement10Args"/>
+     <event value="11" symbol="ProfileManagement11" version="0" task="ProfileManagement" level="win:Informational" template="ProfileManagement8Args"/>
+     <event value="12" symbol="ProfileManagement12" version="0" task="ProfileManagement" level="win:Informational" template="ProfileManagement12Args"/>
+     <event value="13" symbol="ProfileManagement13" version="0" task="ProfileManagement" level="win:Informational" template="ProfileManagement13Args"/>
+     <event value="14" symbol="ProfileManagement14" version="0" task="ProfileManagement" level="win:Informational" template="ProfileManagement14Args"/>
+     <event value="15" symbol="ProfileManagement15" version="0" task="ProfileManagement" level="win:Informational" template="ProfileManagement9Args"/>
+     <event value="16" symbol="TransformCreation" version="0" task="TransformCreation" level="win:Error" template="TransformCreationArgs"/>
+     <event value="19" symbol="TransformCreation19" version="0" task="TransformCreation" level="win:Informational" keywords="wcse:Lino" template="TransformCreation19Args"/>
+     <event value="20" symbol="TransformCreation20" version="0" task="TransformCreation" level="win:Informational" keywords="wcse:Lino"/>
+     <event value="21" symbol="TransformCreation21" version="0" task="TransformCreation" level="win:Informational" keywords="wcse:Lino"/>
+     <event value="22" symbol="TransformCreation22" version="0" task="TransformCreation" level="win:Informational" keywords="wcse:Lino"/>
+     <event value="23" symbol="TransformCreation23" version="0" task="TransformCreation" level="win:Informational" keywords="wcse:Lino"/>
+     <event value="24" symbol="TransformCreation24" version="0" task="TransformCreation" level="win:Informational" keywords="wcse:Lino"/>
+     <event value="25" symbol="TransformCreation25" version="0" task="TransformCreation" level="win:Informational" keywords="wcse:Lino"/>
+     <event value="26" symbol="TransformCreation26" version="0" task="TransformCreation" level="win:Informational" keywords="wcse:Cite" template="TransformCreation26Args"/>
+     <event value="27" symbol="TransformCreation27" version="0" task="TransformCreation" level="win:Informational" keywords="wcse:Cite" template="TransformCreation27Args"/>
+     <event value="28" symbol="TransformCreation28" version="0" task="TransformCreation" level="win:Informational" keywords="wcse:Cite" template="TransformCreation28Args"/>
+     <event value="29" symbol="TransformCreation29" version="0" task="TransformCreation" level="win:Informational" keywords="wcse:Cite" template="TransformCreation28Args"/>
+     <event value="31" symbol="TransformCreation31" version="0" task="TransformCreation" level="win:Error" keywords="wcse:Cite" template="TransformCreation31Args"/>
+     <event value="32" symbol="TransformCreation32" version="0" task="TransformCreation" level="win:Informational" template="TransformCreation32Args"/>
+     <event value="33" symbol="TransformCreation33" version="0" task="TransformCreation" level="win:Informational"/>
+     <event value="34" symbol="TransformCreation34" version="0" task="TransformCreation" level="win:Error" template="TransformCreation31Args"/>
+     <event value="35" symbol="TransformCreation35" version="0" task="TransformCreation" level="win:Informational" template="TransformCreation35Args"/>
+     <event value="36" symbol="TransformCreation36" version="0" task="TransformCreation" level="win:Informational"/>
+     <event value="37" symbol="TransformCreation37" version="0" task="TransformCreation" level="win:Informational" template="TransformCreation37Args"/>
+     <event value="38" symbol="TransformCreation38" version="0" task="TransformCreation" level="win:Informational" keywords="wcse:Cite" template="TransformCreation38Args"/>
+     <event value="39" symbol="TransformCreation39" version="0" task="TransformCreation" level="win:Informational" keywords="wcse:Lino" template="TransformCreation39Args"/>
+     <event value="40" symbol="TransformCreation40" version="0" task="TransformCreation" level="win:Informational" template="TransformCreation40Args"/>
+     <event value="41" symbol="TransformCreation41" version="0" task="TransformCreation" level="win:Informational" template="TransformCreation41Args"/>
+     <event value="42" symbol="TransformCreation42" version="0" task="TransformCreation" level="win:Informational" template="TransformCreation42Args"/>
+     <event value="43" symbol="TransformCreation43" version="0" task="TransformCreation" level="win:Error" template="TransformCreation31Args"/>
+     <event value="44" symbol="ColorTranslation" version="0" task="ColorTranslation" level="win:Informational" template="ColorTranslationArgs"/>
+     <event value="45" symbol="ColorTranslation45" version="0" task="ColorTranslation" level="win:Informational" template="ColorTranslation45Args"/>
+     <event value="46" symbol="ColorTranslation46" version="0" task="ColorTranslation" level="win:Informational" template="ColorTranslation46Args"/>
+     <event value="47" symbol="ColorTranslation47" version="0" task="ColorTranslation" level="win:Informational"/>
+     <event value="48" symbol="ColorTranslation48" version="0" task="ColorTranslation" level="win:Error" template="TransformCreation31Args"/>
+     <event value="49" symbol="ColorCalibration" version="0" task="ColorCalibration" level="win:Informational" template="ColorCalibrationArgs"/>
+     <event value="50" symbol="ColorCalibration50" version="0" task="ColorCalibration" level="win:Informational" template="ColorCalibration50Args"/>
+     <event value="51" symbol="ColorCalibration51" version="0" task="ColorCalibration" level="win:Informational" template="ColorCalibration51Args"/>
+     <event value="52" symbol="ColorCalibration52" version="0" task="ColorCalibration" level="win:Informational" template="ColorCalibration52Args"/>
+     <event value="53" symbol="ColorCalibration53" version="0" task="ColorCalibration" level="win:Informational" template="ColorCalibration53Args"/>
+     <event value="54" symbol="ColorCalibration54" version="0" task="ColorCalibration" level="win:Informational"/>
+     <event value="55" symbol="ColorCalibration55" version="0" task="ColorCalibration" level="win:Informational"/>
+     <event value="56" symbol="ColorCalibration56" version="0" task="ColorCalibration" level="win:Error"/>
+     <event value="57" symbol="ColorCalibration57" version="0" task="ColorCalibration" level="win:Error" template="ColorCalibration57Args"/>
+     <event value="58" symbol="ColorCalibration58" version="0" task="ColorCalibration" level="win:Error" template="ColorCalibration51Args"/>
+    </events>
+    <templates>
+     <template tid="ProfileManagementArgs">
+      <data name="Profile" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ProfileManagement3Args">
+      <data name="Profile" inType="win:UnicodeString"/>
+      <data name="Device" inType="win:UnicodeString"/>
+      <data name="Scope" inType="win:UInt32" map="Scope"/>
+     </template>
+     <template tid="ProfileManagement4Args">
+      <data name="Profile" inType="win:UnicodeString"/>
+      <data name="Device" inType="win:UnicodeString"/>
+      <data name="Scope" inType="win:UInt32"/>
+     </template>
+     <template tid="ProfileManagement6Args">
+      <data name="Device" inType="win:UnicodeString"/>
+      <data name="Setting" inType="win:Boolean"/>
+     </template>
+     <template tid="ProfileManagement8Args">
+      <data name="Intent" inType="win:UInt32"/>
+      <data name="Scope" inType="win:UInt32"/>
+     </template>
+     <template tid="ProfileManagement9Args">
+      <data name="Scope" inType="win:UInt32"/>
+     </template>
+     <template tid="ProfileManagement10Args">
+      <data name="Intent" inType="win:UInt32" map="Intent"/>
+      <data name="Profile" inType="win:UnicodeString"/>
+      <data name="Scope" inType="win:UInt32"/>
+     </template>
+     <template tid="ProfileManagement12Args">
+      <data name="WorkingSpace" inType="win:UnicodeString"/>
+      <data name="Profile" inType="win:UnicodeString"/>
+      <data name="Scope" inType="win:UInt32"/>
+     </template>
+     <template tid="ProfileManagement13Args">
+      <data name="WorkingSpace" inType="win:UnicodeString"/>
+      <data name="Scope" inType="win:UInt32"/>
+     </template>
+     <template tid="ProfileManagement14Args">
+      <data name="Profile" inType="win:UnicodeString"/>
+      <data name="Scope" inType="win:UInt32"/>
+     </template>
+     <template tid="TransformCreationArgs">
+      <data name="Profile" inType="win:UnicodeString"/>
+      <data name="Reason" inType="win:UnicodeString"/>
+     </template>
+     <template tid="TransformCreation19Args">
+      <data name="Tag" inType="win:UnicodeString"/>
+      <data name="BCurves" inType="win:UInt32" map="Present"/>
+      <data name="Matrix" inType="win:UInt32"/>
+      <data name="MCurves" inType="win:UInt32"/>
+      <data name="CLut" inType="win:UInt32"/>
+      <data name="ACurves" inType="win:UInt32"/>
+     </template>
+     <template tid="TransformCreation26Args">
+      <data name="RMin" inType="win:Float"/>
+      <data name="RMax" inType="win:Float"/>
+      <data name="GMin" inType="win:Float"/>
+      <data name="GMax" inType="win:Float"/>
+      <data name="BMin" inType="win:Float"/>
+      <data name="BMax" inType="win:Float"/>
+     </template>
+     <template tid="TransformCreation27Args">
+      <data name="Min" inType="win:Float"/>
+      <data name="Max" inType="win:Float"/>
+     </template>
+     <template tid="TransformCreation28Args">
+      <data name="Intent" inType="win:UInt32"/>
+     </template>
+     <template tid="TransformCreation31Args">
+      <data name="ErrorCode" inType="win:HexInt32"/>
+     </template>
+     <template tid="TransformCreation32Args">
+      <data name="CdmType" inType="win:UInt32"/>
+      <data name="CdmFileName" inType="win:UnicodeString"/>
+      <data name="CamType" inType="win:UInt32" map="ProfileType"/>
+      <data name="CamFileName" inType="win:UnicodeString"/>
+      <data name="GmmType" inType="win:UInt32"/>
+      <data name="GmmFileName" inType="win:UnicodeString"/>
+      <data name="Access" inType="win:UInt32" map="Access"/>
+      <data name="Share" inType="win:UInt32"/>
+      <data name="Creation" inType="win:UInt32"/>
+     </template>
+     <template tid="TransformCreation35Args">
+      <data name="Size" inType="win:UInt32"/>
+      <data name="Version" inType="win:HexInt32"/>
+      <data name="DeviceClass" inType="win:UnicodeString"/>
+      <data name="ColorSpace" inType="win:UnicodeString"/>
+      <data name="Pcs" inType="win:UnicodeString"/>
+     </template>
+     <template tid="TransformCreation37Args">
+      <data name="Optimization" inType="win:UInt32"/>
+     </template>
+     <template tid="TransformCreation38Args">
+      <data name="LutType" inType="win:UInt32" map="FloatingPointOrIntegerLutType"/>
+     </template>
+     <template tid="TransformCreation39Args">
+      <data name="Tag" inType="win:UnicodeString"/>
+      <data name="LutType" inType="win:UInt32" map="GamutOrNormalLutType"/>
+      <data name="Class" inType="win:UnicodeString"/>
+      <data name="Intent" inType="win:UInt32"/>
+     </template>
+     <template tid="TransformCreation40Args">
+      <data name="LcsCSType" inType="win:UInt32"/>
+      <data name="LcsIntent" inType="win:UInt32"/>
+      <data name="SourceProfileName" inType="win:UnicodeString"/>
+      <data name="DestProfileType" inType="win:UInt32"/>
+      <data name="DestProfileName" inType="win:UnicodeString"/>
+      <data name="TargetProfileType" inType="win:UInt32"/>
+      <data name="TargetProfileName" inType="win:UnicodeString"/>
+      <data name="Flags" inType="win:HexInt32"/>
+     </template>
+     <template tid="TransformCreation41Args">
+      <data name="NumProfiles" inType="win:UInt32"/>
+      <data name="NumIntents" inType="win:UInt32"/>
+      <data name="Flags" inType="win:HexInt32"/>
+     </template>
+     <template tid="TransformCreation42Args">
+      <data name="HXform" inType="win:HexInt32"/>
+     </template>
+     <template tid="ColorTranslationArgs">
+      <data name="HXform" inType="win:HexInt32"/>
+      <data name="NumColors" inType="win:UInt32"/>
+      <data name="InColorType" inType="win:UInt32"/>
+      <data name="OutColorType" inType="win:UInt32" map="ColorType"/>
+     </template>
+     <template tid="ColorTranslation45Args">
+      <data name="HXform" inType="win:HexInt32"/>
+      <data name="NumColors" inType="win:UInt32"/>
+      <data name="NumInChannels" inType="win:UInt32"/>
+      <data name="InDataType" inType="win:UInt32" map="ColorDataType"/>
+      <data name="NumInBytes" inType="win:UInt32"/>
+      <data name="NumOutChannels" inType="win:UInt32"/>
+      <data name="OutDataType" inType="win:UInt32"/>
+      <data name="NumOutBytes" inType="win:UInt32"/>
+     </template>
+     <template tid="ColorTranslation46Args">
+      <data name="HXform" inType="win:HexInt32"/>
+      <data name="InBitmapFormat" inType="win:HexInt32"/>
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+      <data name="InStride" inType="win:UInt32"/>
+      <data name="OutBitmapFormat" inType="win:HexInt32" map="BitmapFormat"/>
+      <data name="OutStride" inType="win:UInt32"/>
+     </template>
+     <template tid="ColorCalibrationArgs">
+      <data name="CalibrationManagementEnabled" inType="win:Boolean"/>
+     </template>
+     <template tid="ColorCalibration50Args">
+      <data name="DeviceName" inType="win:UnicodeString"/>
+      <data name="ColorProfileExistsAndContainsCalibrationData" inType="win:Boolean"/>
+     </template>
+     <template tid="ColorCalibration51Args">
+      <data name="ReturnCode" inType="win:HexInt32"/>
+     </template>
+     <template tid="ColorCalibration52Args">
+      <data name="AdapterGammaAdjustments" inType="win:Boolean"/>
+      <data name="MonitorAdjustments" inType="win:Boolean"/>
+     </template>
+     <template tid="ColorCalibration53Args">
+      <data name="NewValue" inType="win:Boolean"/>
+     </template>
+     <template tid="ColorCalibration57Args">
+      <data name="ProfileName" inType="win:UnicodeString"/>
+      <data name="ReturnCode" inType="win:HexInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_wcse:Lino" value="wcse:Lino"/>
+    <string id="keyword_wcse:Cite" value="wcse:Cite"/>
+    <string id="task_ProfileManagement" value="ProfileManagement"/>
+    <string id="task_TransformCreation" value="TransformCreation"/>
+    <string id="task_ColorTranslation" value="ColorTranslation"/>
+    <string id="task_ColorCalibration" value="ColorCalibration"/>
+    <string id="map_Scopesystem-wide" value="system-wide"/>
+    <string id="map_Scopecurrent user" value="current user"/>
+    <string id="map_Intentperceptual" value="perceptual"/>
+    <string id="map_Intentrelative colorimetric" value="relative colorimetric"/>
+    <string id="map_Intentsaturation" value="saturation"/>
+    <string id="map_Intentabsolute colorimetric" value="absolute colorimetric"/>
+    <string id="map_Intent(invalid)" value="(invalid)"/>
+    <string id="map_Intentembedded" value="embedded"/>
+    <string id="map_Presentnot present" value="not present"/>
+    <string id="map_Presentpresent" value="present"/>
+    <string id="map_ProfileTypefile based" value="file based"/>
+    <string id="map_ProfileTypememory based" value="memory based"/>
+    <string id="map_ProfileTypenot used" value="not used"/>
+    <string id="map_Accessread-only" value="read-only"/>
+    <string id="map_Accessread-write" value="read-write"/>
+    <string id="map_FloatingPointOrIntegerLutTypefloating point" value="floating point"/>
+    <string id="map_FloatingPointOrIntegerLutTypeinteger" value="integer"/>
+    <string id="map_GamutOrNormalLutTypegamut" value="gamut"/>
+    <string id="map_GamutOrNormalLutTypenormal" value="normal"/>
+    <string id="map_ColorTypegray" value="gray"/>
+    <string id="map_ColorTypeRGB" value="RGB"/>
+    <string id="map_ColorTypeXYZ" value="XYZ"/>
+    <string id="map_ColorTypeYxy" value="Yxy"/>
+    <string id="map_ColorTypeLab" value="Lab"/>
+    <string id="map_ColorType3-channel" value="3-channel"/>
+    <string id="map_ColorTypeCMYK" value="CMYK"/>
+    <string id="map_ColorType5-channel" value="5-channel"/>
+    <string id="map_ColorType6-channel" value="6-channel"/>
+    <string id="map_ColorType7-channel" value="7-channel"/>
+    <string id="map_ColorType8-channel" value="8-channel"/>
+    <string id="map_ColorTypenamed" value="named"/>
+    <string id="map_ColorDataTypebyte" value="byte"/>
+    <string id="map_ColorDataTypeword" value="word"/>
+    <string id="map_ColorDataTypefloat" value="float"/>
+    <string id="map_ColorDataTypeS2.13 fixed-point" value="S2.13 fixed-point"/>
+    <string id="map_BitmapFormatx555 RGB" value="x555 RGB"/>
+    <string id="map_BitmapFormat565 RGB" value="565 RGB"/>
+    <string id="map_BitmapFormatRGB triplets" value="RGB triplets"/>
+    <string id="map_BitmapFormatBGR triplets" value="BGR triplets"/>
+    <string id="map_BitmapFormatxRGB quads" value="xRGB quads"/>
+    <string id="map_BitmapFormat10-bit RGB" value="10-bit RGB"/>
+    <string id="map_BitmapFormat16-bit RGB" value="16-bit RGB"/>
+    <string id="map_BitmapFormatxBGR quads" value="xBGR quads"/>
+    <string id="map_BitmapFormatCMYK quads" value="CMYK quads"/>
+    <string id="map_BitmapFormatx555 XYZ" value="x555 XYZ"/>
+    <string id="map_BitmapFormatx555 Yxy" value="x555 Yxy"/>
+    <string id="map_BitmapFormatx555 Lab" value="x555 Lab"/>
+    <string id="map_BitmapFormatx555 G3CH" value="x555 G3CH"/>
+    <string id="map_BitmapFormatXYZ triplets" value="XYZ triplets"/>
+    <string id="map_BitmapFormatYxy triplets" value="Yxy triplets"/>
+    <string id="map_BitmapFormatLab triplets" value="Lab triplets"/>
+    <string id="map_BitmapFormatG3CH triplets" value="G3CH triplets"/>
+    <string id="map_BitmapFormat5-channel" value="5-channel"/>
+    <string id="map_BitmapFormat6-channel" value="6-channel"/>
+    <string id="map_BitmapFormat7-channel" value="7-channel"/>
+    <string id="map_BitmapFormat8-channel" value="8-channel"/>
+    <string id="map_BitmapFormatgray" value="gray"/>
+    <string id="map_BitmapFormatG3CH quads" value="G3CH quads"/>
+    <string id="map_BitmapFormatKYMC quads" value="KYMC quads"/>
+    <string id="map_BitmapFormat10-bit XYZ" value="10-bit XYZ"/>
+    <string id="map_BitmapFormat10-bit Yxy" value="10-bit Yxy"/>
+    <string id="map_BitmapFormat10-bit Lab" value="10-bit Lab"/>
+    <string id="map_BitmapFormat10-bit G3CH" value="10-bit G3CH"/>
+    <string id="map_BitmapFormatnamed index" value="named index"/>
+    <string id="map_BitmapFormat16-bit XYZ" value="16-bit XYZ"/>
+    <string id="map_BitmapFormat16-bit Yxy" value="16-bit Yxy"/>
+    <string id="map_BitmapFormat16-bit Lab" value="16-bit Lab"/>
+    <string id="map_BitmapFormat16-bit G3CH" value="16-bit G3CH"/>
+    <string id="map_BitmapFormat16-bit gray" value="16-bit gray"/>
+    <string id="map_BitmapFormat32-bit scRGB" value="32-bit scRGB"/>
+    <string id="map_BitmapFormat32-bit scARGB" value="32-bit scARGB"/>
+    <string id="map_BitmapFormatS2.13 fixed-point scRGB" value="S2.13 fixed-point scRGB"/>
+    <string id="map_BitmapFormatS2.13 fixed-point scARGB" value="S2.13 fixed-point scARGB"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

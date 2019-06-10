@@ -1,0 +1,765 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Runtime-WebAPI" guid="{6bd96334-dc49-441a-b9c4-41425ba628d8}" resourceFileName="Microsoft-Windows-Runtime-WebAPI" messageFileName="Microsoft-Windows-Runtime-WebAPI" symbol="MicrosoftWindowsRuntimeWebAPI" source="Xml" >
+    <keywords>
+     <keyword name="keywords.API" message="$(string.keyword_keywords.API)" mask="0x1"/>
+     <keyword name="keywords.AtomPub" message="$(string.keyword_keywords.AtomPub)" mask="0x2"/>
+     <keyword name="keywords.Json" message="$(string.keyword_keywords.Json)" mask="0x4"/>
+     <keyword name="keywords.Format" message="$(string.keyword_keywords.Format)" mask="0x8"/>
+     <keyword name="keywords.AsyncOperation" message="$(string.keyword_keywords.AsyncOperation)" mask="0x10"/>
+     <keyword name="keywords.Http" message="$(string.keyword_keywords.Http)" mask="0x20"/>
+    </keywords>
+    <tasks>
+     <task name="APIs" message="$(string.task_APIs)" value="1">
+>
+      <opcodes>
+       <opcode name="APIEnter" message="$(string.opcode_APIsAPIEnter)" value="10"/>
+       <opcode name="APIExit" message="$(string.opcode_APIsAPIExit)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="Parse" message="$(string.task_Parse)" value="2">
+>
+      <opcodes>
+       <opcode name="HTTPoperation" message="$(string.opcode_ParseHTTPoperation)" value="19"/>
+       <opcode name="Checkrequiredelement" message="$(string.opcode_ParseCheckrequiredelement)" value="21"/>
+       <opcode name="Checkrequiredattribute" message="$(string.opcode_ParseCheckrequiredattribute)" value="22"/>
+       <opcode name="Checkduplicatedelement" message="$(string.opcode_ParseCheckduplicatedelement)" value="23"/>
+       <opcode name="ParseURI" message="$(string.opcode_ParseParseURI)" value="24"/>
+       <opcode name="Parsedatetimestring" message="$(string.opcode_ParseParsedatetimestring)" value="25"/>
+       <opcode name="Parseinteger" message="$(string.opcode_ParseParseinteger)" value="26"/>
+       <opcode name="ParseXML" message="$(string.opcode_ParseParseXML)" value="27"/>
+       <opcode name="Checkcustomattribute" message="$(string.opcode_ParseCheckcustomattribute)" value="28"/>
+       <opcode name="Checkcustomelement" message="$(string.opcode_ParseCheckcustomelement)" value="29"/>
+       <opcode name="ParseJSONstring" message="$(string.opcode_ParseParseJSONstring)" value="30"/>
+       <opcode name="Ignoreunexpectedcontent" message="$(string.opcode_ParseIgnoreunexpectedcontent)" value="33"/>
+       <opcode name="Addcustomattribute" message="$(string.opcode_ParseAddcustomattribute)" value="34"/>
+      </opcodes>
+     </task>
+     <task name="Serialize" message="$(string.task_Serialize)" value="3">
+>
+      <opcodes>
+       <opcode name="Adddefaultvalue" message="$(string.opcode_SerializeAdddefaultvalue)" value="31"/>
+       <opcode name="Addfirstvalue" message="$(string.opcode_SerializeAddfirstvalue)" value="32"/>
+      </opcodes>
+     </task>
+     <task name="AsyncI/O" message="$(string.task_AsyncI/O)" value="4">
+>
+      <opcodes>
+       <opcode name="Asyncoperationstart" message="$(string.opcode_AsyncI/OAsyncoperationstart)" value="12"/>
+       <opcode name="Asyncoperationcomplete" message="$(string.opcode_AsyncI/OAsyncoperationcomplete)" value="13"/>
+       <opcode name="Asyncoperationfailure" message="$(string.opcode_AsyncI/OAsyncoperationfailure)" value="14"/>
+       <opcode name="Asyncoperationabort" message="$(string.opcode_AsyncI/OAsyncoperationabort)" value="15"/>
+       <opcode name="Asyncoperationclose" message="$(string.opcode_AsyncI/OAsyncoperationclose)" value="16"/>
+       <opcode name="Asyncoperationcompletion" message="$(string.opcode_AsyncI/OAsyncoperationcompletion)" value="17"/>
+       <opcode name="Asyncoperationprogress" message="$(string.opcode_AsyncI/OAsyncoperationprogress)" value="18"/>
+       <opcode name="HTTPoperation" message="$(string.opcode_AsyncI/OHTTPoperation)" value="19"/>
+       <opcode name="Parsecategorydocument" message="$(string.opcode_AsyncI/OParsecategorydocument)" value="20"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <maps>
+     <valueMap name="AsyncOperationNameType">
+      <map value="0x1" message="$(string.map_AsyncOperationNameTypeRetrieveFeedOperation)"/>
+      <map value="0x2" message="$(string.map_AsyncOperationNameTypeRetrieveServiceDocumentOperation)"/>
+      <map value="0x3" message="$(string.map_AsyncOperationNameTypeCreateResourceOperation)"/>
+      <map value="0x4" message="$(string.map_AsyncOperationNameTypeRetrieveResourceOperation)"/>
+      <map value="0x5" message="$(string.map_AsyncOperationNameTypeUpdateResourceOperation)"/>
+      <map value="0x6" message="$(string.map_AsyncOperationNameTypeDeleteResourceOperation)"/>
+      <map value="0x7" message="$(string.map_AsyncOperationNameTypeRetrieveMediaResourceOperation)"/>
+      <map value="0x8" message="$(string.map_AsyncOperationNameTypeUpdateMediaResourceOperation)"/>
+     </valueMap>
+     <valueMap name="RuntimeClassNameType">
+      <map value="0x1" message="$(string.map_RuntimeClassNameTypeSyndicationAttribute)"/>
+      <map value="0x2" message="$(string.map_RuntimeClassNameTypeISyndicationAttributeFactory)"/>
+      <map value="0x3" message="$(string.map_RuntimeClassNameTypeSyndicationNode)"/>
+      <map value="0x4" message="$(string.map_RuntimeClassNameTypeISyndicationNodeFactory)"/>
+      <map value="0x5" message="$(string.map_RuntimeClassNameTypeSyndicationGenerator)"/>
+      <map value="0x6" message="$(string.map_RuntimeClassNameTypeISyndicationGeneratorFactory)"/>
+      <map value="0x7" message="$(string.map_RuntimeClassNameTypeSyndicationText)"/>
+      <map value="0x8" message="$(string.map_RuntimeClassNameTypeISyndicationTextFactory)"/>
+      <map value="0x9" message="$(string.map_RuntimeClassNameTypeSyndicationContent)"/>
+      <map value="0xa" message="$(string.map_RuntimeClassNameTypeISyndicationContentFactory)"/>
+      <map value="0xb" message="$(string.map_RuntimeClassNameTypeSyndicationLink)"/>
+      <map value="0xc" message="$(string.map_RuntimeClassNameTypeISyndicationLinkFactory)"/>
+      <map value="0xd" message="$(string.map_RuntimeClassNameTypeSyndicationPerson)"/>
+      <map value="0xe" message="$(string.map_RuntimeClassNameTypeISyndicationPersonFactory)"/>
+      <map value="0xf" message="$(string.map_RuntimeClassNameTypeSyndicationCategory)"/>
+      <map value="0x10" message="$(string.map_RuntimeClassNameTypeISyndicationCategoryFactory)"/>
+      <map value="0x11" message="$(string.map_RuntimeClassNameTypeSyndicationItem)"/>
+      <map value="0x12" message="$(string.map_RuntimeClassNameTypeISyndicationItemFactory)"/>
+      <map value="0x13" message="$(string.map_RuntimeClassNameTypeSyndicationFeed)"/>
+      <map value="0x14" message="$(string.map_RuntimeClassNameTypeISyndicationFeedFactory)"/>
+      <map value="0x15" message="$(string.map_RuntimeClassNameTypeRetrieveFeedOperation)"/>
+      <map value="0x16" message="$(string.map_RuntimeClassNameTypeSyndicationClient)"/>
+      <map value="0x17" message="$(string.map_RuntimeClassNameTypeISyndicationClientFactory)"/>
+      <map value="0x18" message="$(string.map_RuntimeClassNameTypeJsonValue)"/>
+      <map value="0x19" message="$(string.map_RuntimeClassNameTypeJsonObject)"/>
+      <map value="0x1a" message="$(string.map_RuntimeClassNameTypeIJsonObjectFactory)"/>
+      <map value="0x1b" message="$(string.map_RuntimeClassNameTypeJsonArray)"/>
+      <map value="0x1c" message="$(string.map_RuntimeClassNameTypeIJsonArrayFactory)"/>
+      <map value="0x1d" message="$(string.map_RuntimeClassNameTypeResourceCollection)"/>
+      <map value="0x1e" message="$(string.map_RuntimeClassNameTypeWorkspace)"/>
+      <map value="0x1f" message="$(string.map_RuntimeClassNameTypeServiceDocument)"/>
+      <map value="0x20" message="$(string.map_RuntimeClassNameTypeRetrieveServiceDocumentOperation)"/>
+      <map value="0x21" message="$(string.map_RuntimeClassNameTypeCreateResourceOperation)"/>
+      <map value="0x22" message="$(string.map_RuntimeClassNameTypeRetrieveResourceOperation)"/>
+      <map value="0x23" message="$(string.map_RuntimeClassNameTypeUpdateResourceOperation)"/>
+      <map value="0x24" message="$(string.map_RuntimeClassNameTypeDeleteResourceOperation)"/>
+      <map value="0x25" message="$(string.map_RuntimeClassNameTypeRetrieveMediaResourceOperation)"/>
+      <map value="0x26" message="$(string.map_RuntimeClassNameTypeAtomPubClient)"/>
+      <map value="0x27" message="$(string.map_RuntimeClassNameTypeIAtomPubClientFactory)"/>
+     </valueMap>
+     <valueMap name="ApiNameType">
+      <map value="0x1" message="$(string.map_ApiNameTypeget_Name)"/>
+      <map value="0x2" message="$(string.map_ApiNameTypeput_Name)"/>
+      <map value="0x3" message="$(string.map_ApiNameTypeget_Namespace)"/>
+      <map value="0x4" message="$(string.map_ApiNameTypeput_Namespace)"/>
+      <map value="0x5" message="$(string.map_ApiNameTypeget_Value)"/>
+      <map value="0x6" message="$(string.map_ApiNameTypeput_Value)"/>
+      <map value="0x7" message="$(string.map_ApiNameTypeCreateSyndicationAttribute)"/>
+      <map value="0x8" message="$(string.map_ApiNameTypeget_NodeName)"/>
+      <map value="0x9" message="$(string.map_ApiNameTypeput_NodeName)"/>
+      <map value="0xa" message="$(string.map_ApiNameTypeget_NodeNamespace)"/>
+      <map value="0xb" message="$(string.map_ApiNameTypeput_NodeNamespace)"/>
+      <map value="0xc" message="$(string.map_ApiNameTypeget_NodeValue)"/>
+      <map value="0xd" message="$(string.map_ApiNameTypeput_NodeValue)"/>
+      <map value="0xe" message="$(string.map_ApiNameTypeget_Language)"/>
+      <map value="0xf" message="$(string.map_ApiNameTypeput_Language)"/>
+      <map value="0x10" message="$(string.map_ApiNameTypeget_BaseUri)"/>
+      <map value="0x11" message="$(string.map_ApiNameTypeput_BaseUri)"/>
+      <map value="0x12" message="$(string.map_ApiNameTypeget_AttributeExtensions)"/>
+      <map value="0x13" message="$(string.map_ApiNameTypeget_ElementExtensions)"/>
+      <map value="0x14" message="$(string.map_ApiNameTypeGetXmlDocument)"/>
+      <map value="0x15" message="$(string.map_ApiNameTypeCreateSyndicationNode)"/>
+      <map value="0x16" message="$(string.map_ApiNameTypeget_Text)"/>
+      <map value="0x17" message="$(string.map_ApiNameTypeput_Text)"/>
+      <map value="0x18" message="$(string.map_ApiNameTypeget_Uri)"/>
+      <map value="0x19" message="$(string.map_ApiNameTypeput_Uri)"/>
+      <map value="0x1a" message="$(string.map_ApiNameTypeget_Version)"/>
+      <map value="0x1b" message="$(string.map_ApiNameTypeput_Version)"/>
+      <map value="0x1c" message="$(string.map_ApiNameTypeCreateSyndicationGenerator)"/>
+      <map value="0x1d" message="$(string.map_ApiNameTypeget_Type)"/>
+      <map value="0x1e" message="$(string.map_ApiNameTypeput_Type)"/>
+      <map value="0x1f" message="$(string.map_ApiNameTypeget_Xml)"/>
+      <map value="0x20" message="$(string.map_ApiNameTypeput_Xml)"/>
+      <map value="0x21" message="$(string.map_ApiNameTypeToString)"/>
+      <map value="0x22" message="$(string.map_ApiNameTypeCreateSyndicationText)"/>
+      <map value="0x23" message="$(string.map_ApiNameTypeCreateSyndicationTextEx)"/>
+      <map value="0x24" message="$(string.map_ApiNameTypeget_SourceUri)"/>
+      <map value="0x25" message="$(string.map_ApiNameTypeput_SourceUri)"/>
+      <map value="0x26" message="$(string.map_ApiNameTypeCreateSyndicationContent)"/>
+      <map value="0x27" message="$(string.map_ApiNameTypeCreateSyndicationContentWithSourceUri)"/>
+      <map value="0x28" message="$(string.map_ApiNameTypeget_Length)"/>
+      <map value="0x29" message="$(string.map_ApiNameTypeput_Length)"/>
+      <map value="0x2a" message="$(string.map_ApiNameTypeget_MediaType)"/>
+      <map value="0x2b" message="$(string.map_ApiNameTypeput_MediaType)"/>
+      <map value="0x2c" message="$(string.map_ApiNameTypeget_Relationship)"/>
+      <map value="0x2d" message="$(string.map_ApiNameTypeput_Relationship)"/>
+      <map value="0x2e" message="$(string.map_ApiNameTypeget_Title)"/>
+      <map value="0x2f" message="$(string.map_ApiNameTypeput_Title)"/>
+      <map value="0x30" message="$(string.map_ApiNameTypeget_ResourceLanguage)"/>
+      <map value="0x31" message="$(string.map_ApiNameTypeput_ResourceLanguage)"/>
+      <map value="0x32" message="$(string.map_ApiNameTypeCreateSyndicationLink)"/>
+      <map value="0x33" message="$(string.map_ApiNameTypeCreateSyndicationLinkEx)"/>
+      <map value="0x34" message="$(string.map_ApiNameTypeget_Email)"/>
+      <map value="0x35" message="$(string.map_ApiNameTypeput_Email)"/>
+      <map value="0x36" message="$(string.map_ApiNameTypeCreateSyndicationPerson)"/>
+      <map value="0x37" message="$(string.map_ApiNameTypeCreateSyndicationPersonEx)"/>
+      <map value="0x38" message="$(string.map_ApiNameTypeget_Label)"/>
+      <map value="0x39" message="$(string.map_ApiNameTypeput_Label)"/>
+      <map value="0x3a" message="$(string.map_ApiNameTypeget_Scheme)"/>
+      <map value="0x3b" message="$(string.map_ApiNameTypeput_Scheme)"/>
+      <map value="0x3c" message="$(string.map_ApiNameTypeget_Term)"/>
+      <map value="0x3d" message="$(string.map_ApiNameTypeput_Term)"/>
+      <map value="0x3e" message="$(string.map_ApiNameTypeCreateSyndicationCategory)"/>
+      <map value="0x3f" message="$(string.map_ApiNameTypeCreateSyndicationCategoryEx)"/>
+      <map value="0x40" message="$(string.map_ApiNameTypeget_Authors)"/>
+      <map value="0x41" message="$(string.map_ApiNameTypeget_Categories)"/>
+      <map value="0x42" message="$(string.map_ApiNameTypeget_Contributors)"/>
+      <map value="0x43" message="$(string.map_ApiNameTypeget_Content)"/>
+      <map value="0x44" message="$(string.map_ApiNameTypeput_Content)"/>
+      <map value="0x45" message="$(string.map_ApiNameTypeget_Id)"/>
+      <map value="0x46" message="$(string.map_ApiNameTypeput_Id)"/>
+      <map value="0x47" message="$(string.map_ApiNameTypeget_LastUpdatedTime)"/>
+      <map value="0x48" message="$(string.map_ApiNameTypeput_LastUpdatedTime)"/>
+      <map value="0x49" message="$(string.map_ApiNameTypeget_Links)"/>
+      <map value="0x4a" message="$(string.map_ApiNameTypeget_PublishedDate)"/>
+      <map value="0x4b" message="$(string.map_ApiNameTypeput_PublishedDate)"/>
+      <map value="0x4c" message="$(string.map_ApiNameTypeget_Rights)"/>
+      <map value="0x4d" message="$(string.map_ApiNameTypeput_Rights)"/>
+      <map value="0x4e" message="$(string.map_ApiNameTypeget_Source)"/>
+      <map value="0x4f" message="$(string.map_ApiNameTypeput_Source)"/>
+      <map value="0x50" message="$(string.map_ApiNameTypeget_Summary)"/>
+      <map value="0x51" message="$(string.map_ApiNameTypeput_Summary)"/>
+      <map value="0x52" message="$(string.map_ApiNameTypeget_CommentsUri)"/>
+      <map value="0x53" message="$(string.map_ApiNameTypeput_CommentsUri)"/>
+      <map value="0x54" message="$(string.map_ApiNameTypeget_EditUri)"/>
+      <map value="0x55" message="$(string.map_ApiNameTypeget_EditMediaUri)"/>
+      <map value="0x56" message="$(string.map_ApiNameTypeget_ETag)"/>
+      <map value="0x57" message="$(string.map_ApiNameTypeget_FeedUri)"/>
+      <map value="0x58" message="$(string.map_ApiNameTypeget_ItemUri)"/>
+      <map value="0x59" message="$(string.map_ApiNameTypeLoad)"/>
+      <map value="0x5a" message="$(string.map_ApiNameTypeLoadFromXml)"/>
+      <map value="0x5b" message="$(string.map_ApiNameTypeCreateSyndicationItem)"/>
+      <map value="0x5c" message="$(string.map_ApiNameTypeget_Generator)"/>
+      <map value="0x5d" message="$(string.map_ApiNameTypeput_Generator)"/>
+      <map value="0x5e" message="$(string.map_ApiNameTypeget_IconUri)"/>
+      <map value="0x5f" message="$(string.map_ApiNameTypeput_IconUri)"/>
+      <map value="0x60" message="$(string.map_ApiNameTypeget_Items)"/>
+      <map value="0x61" message="$(string.map_ApiNameTypeget_ImageUri)"/>
+      <map value="0x62" message="$(string.map_ApiNameTypeput_ImageUri)"/>
+      <map value="0x63" message="$(string.map_ApiNameTypeget_Subtitle)"/>
+      <map value="0x64" message="$(string.map_ApiNameTypeput_Subtitle)"/>
+      <map value="0x65" message="$(string.map_ApiNameTypeget_FirstUri)"/>
+      <map value="0x66" message="$(string.map_ApiNameTypeget_LastUri)"/>
+      <map value="0x67" message="$(string.map_ApiNameTypeget_NextUri)"/>
+      <map value="0x68" message="$(string.map_ApiNameTypeget_PreviousUri)"/>
+      <map value="0x69" message="$(string.map_ApiNameTypeget_SourceFormat)"/>
+      <map value="0x6a" message="$(string.map_ApiNameTypeCreateSyndicationFeed)"/>
+      <map value="0x6b" message="$(string.map_ApiNameTypeput_Progress)"/>
+      <map value="0x6c" message="$(string.map_ApiNameTypeget_Progress)"/>
+      <map value="0x6d" message="$(string.map_ApiNameTypeput_Completed)"/>
+      <map value="0x6e" message="$(string.map_ApiNameTypeget_Completed)"/>
+      <map value="0x6f" message="$(string.map_ApiNameTypeGetResults)"/>
+      <map value="0x70" message="$(string.map_ApiNameTypeget_ServerCredential)"/>
+      <map value="0x71" message="$(string.map_ApiNameTypeput_ServerCredential)"/>
+      <map value="0x72" message="$(string.map_ApiNameTypeget_ProxyCredential)"/>
+      <map value="0x73" message="$(string.map_ApiNameTypeput_ProxyCredential)"/>
+      <map value="0x74" message="$(string.map_ApiNameTypeget_MaxResponseBufferSize)"/>
+      <map value="0x75" message="$(string.map_ApiNameTypeput_MaxResponseBufferSize)"/>
+      <map value="0x76" message="$(string.map_ApiNameTypeget_Timeout)"/>
+      <map value="0x77" message="$(string.map_ApiNameTypeput_Timeout)"/>
+      <map value="0x78" message="$(string.map_ApiNameTypeget_BypassCacheOnRetrieve)"/>
+      <map value="0x79" message="$(string.map_ApiNameTypeput_BypassCacheOnRetrieve)"/>
+      <map value="0x7a" message="$(string.map_ApiNameTypeSetRequestHeader)"/>
+      <map value="0x7b" message="$(string.map_ApiNameTypeRetrieveFeedAsync)"/>
+      <map value="0x7c" message="$(string.map_ApiNameTypeCreateSyndicationClient)"/>
+      <map value="0x7d" message="$(string.map_ApiNameTypeget_ValueType)"/>
+      <map value="0x7e" message="$(string.map_ApiNameTypeParse)"/>
+      <map value="0x7f" message="$(string.map_ApiNameTypeStringify)"/>
+      <map value="0x80" message="$(string.map_ApiNameTypeGetString)"/>
+      <map value="0x82" message="$(string.map_ApiNameTypeGetNumber)"/>
+      <map value="0x84" message="$(string.map_ApiNameTypeGetBoolean)"/>
+      <map value="0x86" message="$(string.map_ApiNameTypeGetArray)"/>
+      <map value="0x87" message="$(string.map_ApiNameTypeGetObject)"/>
+      <map value="0x88" message="$(string.map_ApiNameTypeCreateBooleanValue)"/>
+      <map value="0x89" message="$(string.map_ApiNameTypeCreateNumberValue)"/>
+      <map value="0x8a" message="$(string.map_ApiNameTypeCreateStringValue)"/>
+      <map value="0x8b" message="$(string.map_ApiNameTypeGetNamedValue)"/>
+      <map value="0x8c" message="$(string.map_ApiNameTypeSetNamedValue)"/>
+      <map value="0x8d" message="$(string.map_ApiNameTypeGetNamedObject)"/>
+      <map value="0x8e" message="$(string.map_ApiNameTypeGetNamedArray)"/>
+      <map value="0x8f" message="$(string.map_ApiNameTypeGetNamedString)"/>
+      <map value="0x90" message="$(string.map_ApiNameTypeGetNamedNumber)"/>
+      <map value="0x91" message="$(string.map_ApiNameTypeGetNamedBoolean)"/>
+      <map value="0x92" message="$(string.map_ApiNameTypeCreateJsonObject)"/>
+      <map value="0x93" message="$(string.map_ApiNameTypeGetObjectAt)"/>
+      <map value="0x94" message="$(string.map_ApiNameTypeGetArrayAt)"/>
+      <map value="0x95" message="$(string.map_ApiNameTypeGetStringAt)"/>
+      <map value="0x96" message="$(string.map_ApiNameTypeGetNumberAt)"/>
+      <map value="0x97" message="$(string.map_ApiNameTypeGetBooleanAt)"/>
+      <map value="0x98" message="$(string.map_ApiNameTypeCreateJsonArray)"/>
+      <map value="0x99" message="$(string.map_ApiNameTypeget_Accepts)"/>
+      <map value="0x9a" message="$(string.map_ApiNameTypeget_Collections)"/>
+      <map value="0x9b" message="$(string.map_ApiNameTypeget_Workspaces)"/>
+      <map value="0x9c" message="$(string.map_ApiNameTypeRetrieveServiceDocumentAsync)"/>
+      <map value="0x9d" message="$(string.map_ApiNameTypeRetrieveMediaResourceAsync)"/>
+      <map value="0x9e" message="$(string.map_ApiNameTypeRetrieveResourceAsync)"/>
+      <map value="0x9f" message="$(string.map_ApiNameTypeCreateResourceAsync)"/>
+      <map value="0xa0" message="$(string.map_ApiNameTypeCreateMediaResourceAsync)"/>
+      <map value="0xa1" message="$(string.map_ApiNameTypeUpdateMediaResourceAsync)"/>
+      <map value="0xa2" message="$(string.map_ApiNameTypeUpdateResourceAsync)"/>
+      <map value="0xa3" message="$(string.map_ApiNameTypeUpdateResourceItemAsync)"/>
+      <map value="0xa4" message="$(string.map_ApiNameTypeDeleteResourceAsync)"/>
+      <map value="0xa5" message="$(string.map_ApiNameTypeDeleteResourceItemAsync)"/>
+      <map value="0xa6" message="$(string.map_ApiNameTypeCancelAsyncOperations)"/>
+      <map value="0xa7" message="$(string.map_ApiNameTypeCreateAtomPubClientWithCredentials)"/>
+      <map value="0xa8" message="$(string.map_ApiNameTypeFirst)"/>
+      <map value="0xa9" message="$(string.map_ApiNameTypeGetAt)"/>
+      <map value="0xaa" message="$(string.map_ApiNameTypeget_Size)"/>
+      <map value="0xab" message="$(string.map_ApiNameTypeGetView)"/>
+      <map value="0xac" message="$(string.map_ApiNameTypeIndexOf)"/>
+      <map value="0xad" message="$(string.map_ApiNameTypeSetAt)"/>
+      <map value="0xae" message="$(string.map_ApiNameTypeInsertAt)"/>
+      <map value="0xaf" message="$(string.map_ApiNameTypeInsert)"/>
+      <map value="0xb0" message="$(string.map_ApiNameTypeRemoveAt)"/>
+      <map value="0xb1" message="$(string.map_ApiNameTypeRemove)"/>
+      <map value="0xb2" message="$(string.map_ApiNameTypeAppend)"/>
+      <map value="0xb3" message="$(string.map_ApiNameTypeRemoveAtEnd)"/>
+      <map value="0xb4" message="$(string.map_ApiNameTypeClear)"/>
+      <map value="0xb5" message="$(string.map_ApiNameTypeLookup)"/>
+      <map value="0xb6" message="$(string.map_ApiNameTypeHasKey)"/>
+      <map value="0xb7" message="$(string.map_ApiNameTypeTryParse)"/>
+      <map value="0xb8" message="$(string.map_ApiNameTypeGetNamedValueOrDefault)"/>
+      <map value="0xb9" message="$(string.map_ApiNameTypeGetNamedObjectOrDefault)"/>
+      <map value="0xba" message="$(string.map_ApiNameTypeGetNamedArrayOrDefault)"/>
+      <map value="0xbb" message="$(string.map_ApiNameTypeGetNamedStringOrDefault)"/>
+      <map value="0xbc" message="$(string.map_ApiNameTypeGetNamedNumberOrDefault)"/>
+      <map value="0xbd" message="$(string.map_ApiNameTypeGetNamedBooleanOrDefault)"/>
+      <map value="0xbe" message="$(string.map_ApiNameTypeCreateNullValue)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="AsyncI/OAsyncoperationstart" version="0" task="AsyncI/O" opcode="Asyncoperationstart" level="win:Informational" keywords="keywords.AsyncOperation" template="AsyncI/OAsyncoperationstartArgs"/>
+     <event value="2" symbol="AsyncI/OAsyncoperationfailure" version="0" task="AsyncI/O" opcode="Asyncoperationfailure" level="win:Error" keywords="keywords.AsyncOperation" template="AsyncI/OAsyncoperationfailureArgs"/>
+     <event value="3" symbol="AsyncI/OAsyncoperationcomplete" version="0" task="AsyncI/O" opcode="Asyncoperationcomplete" level="win:Informational" keywords="keywords.AsyncOperation" template="AsyncI/OAsyncoperationcompleteArgs"/>
+     <event value="4" symbol="AsyncI/OAsyncoperationfailure4" version="0" task="AsyncI/O" opcode="Asyncoperationfailure" level="win:Error" keywords="keywords.AsyncOperation" template="AsyncI/OAsyncoperationfailureArgs"/>
+     <event value="5" symbol="AsyncI/OAsyncoperationabort" version="0" task="AsyncI/O" opcode="Asyncoperationabort" level="win:Informational" keywords="keywords.AsyncOperation" template="AsyncI/OAsyncoperationcompleteArgs"/>
+     <event value="6" symbol="AsyncI/OAsyncoperationclose" version="0" task="AsyncI/O" opcode="Asyncoperationclose" level="win:Informational" keywords="keywords.AsyncOperation" template="AsyncI/OAsyncoperationcompleteArgs"/>
+     <event value="7" symbol="AsyncI/OAsyncoperationcompletion" version="0" task="AsyncI/O" opcode="Asyncoperationcompletion" level="win:Informational" keywords="keywords.AsyncOperation" template="AsyncI/OAsyncoperationcompletionArgs"/>
+     <event value="8" symbol="AsyncI/OAsyncoperationprogress" version="0" task="AsyncI/O" opcode="Asyncoperationprogress" level="win:Informational" keywords="keywords.AsyncOperation" template="AsyncI/OAsyncoperationcompletionArgs"/>
+     <event value="9" symbol="AsyncI/OAsyncoperationfailure9" version="0" task="AsyncI/O" opcode="Asyncoperationfailure" level="win:Error" keywords="keywords.AsyncOperation" template="AsyncI/OAsyncoperationfailureArgs"/>
+     <event value="10" symbol="AsyncI/OAsyncoperationfailure10" version="0" task="AsyncI/O" opcode="Asyncoperationfailure" level="win:Error" keywords="keywords.AsyncOperation" template="AsyncI/OAsyncoperationfailureArgs"/>
+     <event value="11" symbol="AsyncI/OAsyncoperationfailure11" version="0" task="AsyncI/O" opcode="Asyncoperationfailure" level="win:Error" keywords="keywords.AsyncOperation" template="AsyncI/OAsyncoperationfailureArgs"/>
+     <event value="12" symbol="ParseParseURI" version="0" task="Parse" opcode="ParseURI" level="win:Warning" keywords="keywords.Format" template="ParseParseURIArgs"/>
+     <event value="13" symbol="ParseParseURI13" version="0" task="Parse" opcode="ParseURI" level="win:Warning" keywords="keywords.Format" template="ParseParseURI13Args"/>
+     <event value="14" symbol="AsyncI/OHTTPoperation" version="0" task="AsyncI/O" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="ParseParseURI13Args"/>
+     <event value="15" symbol="AsyncI/OHTTPoperation15" version="0" task="AsyncI/O" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="ParseParseURI13Args"/>
+     <event value="16" symbol="AsyncI/OHTTPoperation16" version="0" task="AsyncI/O" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="ParseParseURIArgs"/>
+     <event value="17" symbol="AsyncI/OHTTPoperation17" version="0" task="AsyncI/O" opcode="HTTPoperation" level="win:Error" keywords="keywords.Http" template="AsyncI/OHTTPoperation17Args"/>
+     <event value="18" symbol="AsyncI/OHTTPoperation18" version="0" task="AsyncI/O" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="AsyncI/OHTTPoperation18Args"/>
+     <event value="19" symbol="AsyncI/OHTTPoperation19" version="0" task="AsyncI/O" opcode="HTTPoperation" level="win:Error" keywords="keywords.Http" template="AsyncI/OHTTPoperation17Args"/>
+     <event value="20" symbol="AsyncI/OHTTPoperation20" version="0" task="AsyncI/O" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="AsyncI/OHTTPoperation20Args"/>
+     <event value="21" symbol="AsyncI/OHTTPoperation21" version="0" task="AsyncI/O" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="AsyncI/OHTTPoperation21Args"/>
+     <event value="22" symbol="AsyncI/OHTTPoperation22" version="0" task="AsyncI/O" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="AsyncI/OHTTPoperation21Args"/>
+     <event value="23" symbol="AsyncI/OHTTPoperation23" version="0" task="AsyncI/O" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="AsyncI/OHTTPoperation23Args"/>
+     <event value="24" symbol="AsyncI/OHTTPoperation24" version="0" task="AsyncI/O" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="AsyncI/OHTTPoperation23Args"/>
+     <event value="25" symbol="AsyncI/OHTTPoperation25" version="0" task="AsyncI/O" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="AsyncI/OHTTPoperation21Args"/>
+     <event value="26" symbol="AsyncI/OHTTPoperation26" version="0" task="AsyncI/O" opcode="HTTPoperation" level="win:Error" keywords="keywords.Http" template="AsyncI/OHTTPoperation26Args"/>
+     <event value="27" symbol="AsyncI/OHTTPoperation27" version="0" task="AsyncI/O" opcode="HTTPoperation" level="win:Verbose" keywords="keywords.Http" template="AsyncI/OHTTPoperation27Args"/>
+     <event value="28" symbol="AsyncI/OHTTPoperation28" version="0" task="AsyncI/O" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="AsyncI/OHTTPoperation23Args"/>
+     <event value="29" symbol="AsyncI/OHTTPoperation29" version="0" task="AsyncI/O" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="AsyncI/OHTTPoperation29Args"/>
+     <event value="30" symbol="AsyncI/OHTTPoperation30" version="0" task="AsyncI/O" opcode="HTTPoperation" level="win:Verbose" keywords="keywords.Http" template="AsyncI/OHTTPoperation27Args"/>
+     <event value="31" symbol="AsyncI/OHTTPoperation31" version="0" task="AsyncI/O" opcode="HTTPoperation" level="win:Error" keywords="keywords.Http" template="AsyncI/OHTTPoperation26Args"/>
+     <event value="32" symbol="AsyncI/OHTTPoperation32" version="0" task="AsyncI/O" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="AsyncI/OHTTPoperation32Args"/>
+     <event value="33" symbol="AsyncI/OHTTPoperation33" version="0" task="AsyncI/O" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="AsyncI/OHTTPoperation23Args"/>
+     <event value="34" symbol="AsyncI/OHTTPoperation34" version="0" task="AsyncI/O" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="AsyncI/OHTTPoperation27Args"/>
+     <event value="35" symbol="AsyncI/OHTTPoperation35" version="0" task="AsyncI/O" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="AsyncI/OHTTPoperation23Args"/>
+     <event value="36" symbol="AsyncI/OHTTPoperation36" version="0" task="AsyncI/O" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="AsyncI/OHTTPoperation36Args"/>
+     <event value="37" symbol="AsyncI/OHTTPoperation37" version="0" task="AsyncI/O" opcode="HTTPoperation" level="win:Error" keywords="keywords.Http" template="AsyncI/OHTTPoperation37Args"/>
+     <event value="38" symbol="ParseHTTPoperation" version="0" task="Parse" opcode="HTTPoperation" level="win:Error" keywords="keywords.Format" template="ParseHTTPoperationArgs"/>
+     <event value="39" symbol="APIsAPIEnter" version="0" task="APIs" opcode="APIEnter" level="win:Verbose" keywords="keywords.API" template="APIsAPIEnterArgs"/>
+     <event value="40" symbol="APIsAPIExit" version="0" task="APIs" opcode="APIExit" level="win:Verbose" keywords="keywords.API" template="APIsAPIExitArgs"/>
+     <event value="41" symbol="APIsAPIExit41" version="0" task="APIs" opcode="APIExit" level="win:Error" keywords="keywords.API" template="APIsAPIExit41Args"/>
+     <event value="42" symbol="AsyncI/OHTTPoperation42" version="0" task="AsyncI/O" opcode="HTTPoperation" level="win:Informational" keywords="keywords.AtomPub" template="ParseParseURIArgs"/>
+     <event value="43" symbol="AsyncI/OHTTPoperation43" version="0" task="AsyncI/O" opcode="HTTPoperation" level="win:Informational" keywords="keywords.AtomPub" template="ParseParseURIArgs"/>
+     <event value="44" symbol="AsyncI/OHTTPoperation44" version="0" task="AsyncI/O" opcode="HTTPoperation" level="win:Warning" keywords="keywords.AtomPub" template="AsyncI/OHTTPoperation37Args"/>
+     <event value="45" symbol="AsyncI/OHTTPoperation45" version="0" task="AsyncI/O" opcode="HTTPoperation" level="win:Informational" keywords="keywords.AtomPub" template="AsyncI/OHTTPoperation45Args"/>
+     <event value="46" symbol="AsyncI/OParsecategorydocument" version="0" task="AsyncI/O" opcode="Parsecategorydocument" level="win:Warning" keywords="keywords.AtomPub" template="AsyncI/OHTTPoperation37Args"/>
+     <event value="47" symbol="ParseCheckrequiredelement" version="0" task="Parse" opcode="Checkrequiredelement" level="win:Warning" keywords="keywords.Format" template="ParseParseURIArgs"/>
+     <event value="48" symbol="ParseCheckrequiredattribute" version="0" task="Parse" opcode="Checkrequiredattribute" level="win:Warning" keywords="keywords.Format" template="ParseParseURI13Args"/>
+     <event value="49" symbol="ParseCheckduplicatedelement" version="0" task="Parse" opcode="Checkduplicatedelement" level="win:Warning" keywords="keywords.Format" template="ParseParseURIArgs"/>
+     <event value="50" symbol="SerializeAdddefaultvalue" version="0" task="Serialize" opcode="Adddefaultvalue" level="win:Warning" keywords="keywords.Format" template="ParseParseURIArgs"/>
+     <event value="51" symbol="SerializeAdddefaultvalue51" version="0" task="Serialize" opcode="Adddefaultvalue" level="win:Warning" keywords="keywords.Format" template="ParseParseURI13Args"/>
+     <event value="52" symbol="ParseCheckrequiredelement52" version="0" task="Parse" opcode="Checkrequiredelement" level="win:Warning" keywords="keywords.Format"/>
+     <event value="53" symbol="SerializeAddfirstvalue" version="0" task="Serialize" opcode="Addfirstvalue" level="win:Warning" keywords="keywords.Format" template="ParseParseURIArgs"/>
+     <event value="54" symbol="ParseIgnoreunexpectedcontent" version="0" task="Parse" opcode="Ignoreunexpectedcontent" level="win:Warning" keywords="keywords.Format"/>
+     <event value="55" symbol="ParseCheckrequiredelement55" version="0" task="Parse" opcode="Checkrequiredelement" level="win:Warning" keywords="keywords.Format" template="ParseParseURIArgs"/>
+     <event value="56" symbol="ParseCheckrequiredelement56" version="0" task="Parse" opcode="Checkrequiredelement" level="win:Warning" keywords="keywords.Format" template="ParseParseURIArgs"/>
+     <event value="57" symbol="ParseCheckrequiredattribute57" version="0" task="Parse" opcode="Checkrequiredattribute" level="win:Warning" keywords="keywords.Format" template="ParseParseURIArgs"/>
+     <event value="58" symbol="ParseIgnoreunexpectedcontent58" version="0" task="Parse" opcode="Ignoreunexpectedcontent" level="win:Warning" keywords="keywords.Format" template="ParseParseURIArgs"/>
+     <event value="59" symbol="ParseIgnoreunexpectedcontent59" version="0" task="Parse" opcode="Ignoreunexpectedcontent" level="win:Warning" keywords="keywords.Format" template="ParseParseURI13Args"/>
+     <event value="60" symbol="ParseIgnoreunexpectedcontent60" version="0" task="Parse" opcode="Ignoreunexpectedcontent" level="win:Warning" keywords="keywords.Format" template="ParseParseURI13Args"/>
+     <event value="61" symbol="ParseIgnoreunexpectedcontent61" version="0" task="Parse" opcode="Ignoreunexpectedcontent" level="win:Warning" keywords="keywords.Format" template="ParseParseURI13Args"/>
+     <event value="62" symbol="ParseIgnoreunexpectedcontent62" version="0" task="Parse" opcode="Ignoreunexpectedcontent" level="win:Warning" keywords="keywords.Format" template="ParseParseURIArgs"/>
+     <event value="63" symbol="ParseParsedatetimestring" version="0" task="Parse" opcode="Parsedatetimestring" level="win:Warning" keywords="keywords.Format" template="ParseParseURIArgs"/>
+     <event value="64" symbol="ParseParseinteger" version="0" task="Parse" opcode="Parseinteger" level="win:Warning" keywords="keywords.Format" template="ParseParseURIArgs"/>
+     <event value="65" symbol="ParseParseXML" version="0" task="Parse" opcode="ParseXML" level="win:Warning" keywords="keywords.Format" template="ParseParseURIArgs"/>
+     <event value="66" symbol="ParseCheckcustomattribute" version="0" task="Parse" opcode="Checkcustomattribute" level="win:Error" keywords="keywords.Format" template="ParseParseURI13Args"/>
+     <event value="67" symbol="ParseCheckcustomelement" version="0" task="Parse" opcode="Checkcustomelement" level="win:Error" keywords="keywords.Format" template="ParseParseURI13Args"/>
+     <event value="68" symbol="ParseAddcustomattribute" version="0" task="Parse" opcode="Addcustomattribute" level="win:Error" keywords="keywords.Format" template="ParseParseURI13Args"/>
+     <event value="69" symbol="ParseParseJSONstring" version="0" task="Parse" opcode="ParseJSONstring" level="win:Error" keywords="keywords.Format" template="AsyncI/OHTTPoperation45Args"/>
+     <event value="70" symbol="ParseParseJSONstring70" version="0" task="Parse" opcode="ParseJSONstring" level="win:Error" keywords="keywords.Format" template="ParseParseJSONstring70Args"/>
+     <event value="71" symbol="AsyncI/O" version="0" task="AsyncI/O" level="win:Informational" template="AsyncI/OHTTPoperation23Args"/>
+    </events>
+    <templates>
+     <template tid="AsyncI/OAsyncoperationstartArgs">
+      <data name="asyncOperation" inType="win:UInt32" map="AsyncOperationNameType"/>
+      <data name="asyncObject" inType="win:Pointer"/>
+     </template>
+     <template tid="AsyncI/OAsyncoperationfailureArgs">
+      <data name="asyncOperation" inType="win:UInt32"/>
+      <data name="asyncObject" inType="win:Pointer"/>
+      <data name="errorCode" inType="win:UInt32"/>
+      <data name="hresult" inType="win:Int32"/>
+     </template>
+     <template tid="AsyncI/OAsyncoperationcompleteArgs">
+      <data name="asyncOperation" inType="win:UInt32"/>
+      <data name="asyncObject" inType="win:Pointer"/>
+     </template>
+     <template tid="AsyncI/OAsyncoperationcompletionArgs">
+      <data name="asyncOperation" inType="win:UInt32"/>
+      <data name="asyncObject" inType="win:Pointer"/>
+      <data name="callback" inType="win:Pointer"/>
+     </template>
+     <template tid="ParseParseURIArgs">
+      <data name="uri" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ParseParseURI13Args">
+      <data name="str1" inType="win:UnicodeString"/>
+      <data name="str2" inType="win:UnicodeString"/>
+     </template>
+     <template tid="AsyncI/OHTTPoperation17Args">
+      <data name="uri" inType="win:UnicodeString"/>
+      <data name="port" inType="win:UInt32"/>
+      <data name="errorCode" inType="win:UInt32"/>
+      <data name="errorMessage" inType="win:UInt32"/>
+     </template>
+     <template tid="AsyncI/OHTTPoperation18Args">
+      <data name="str1" inType="win:UnicodeString"/>
+      <data name="str2" inType="win:UnicodeString"/>
+      <data name="flags" inType="win:HexInt32"/>
+     </template>
+     <template tid="AsyncI/OHTTPoperation20Args">
+      <data name="obj1" inType="win:Pointer"/>
+      <data name="obj2" inType="win:Pointer"/>
+      <data name="uri" inType="win:UnicodeString"/>
+     </template>
+     <template tid="AsyncI/OHTTPoperation21Args">
+      <data name="obj" inType="win:Pointer"/>
+      <data name="length" inType="win:UInt32"/>
+     </template>
+     <template tid="AsyncI/OHTTPoperation23Args">
+      <data name="obj" inType="win:Pointer"/>
+     </template>
+     <template tid="AsyncI/OHTTPoperation26Args">
+      <data name="obj" inType="win:Pointer"/>
+      <data name="errorCode" inType="win:UInt32"/>
+      <data name="errorMessage" inType="win:UInt32"/>
+     </template>
+     <template tid="AsyncI/OHTTPoperation27Args">
+      <data name="obj" inType="win:Pointer"/>
+      <data name="statusDescription" inType="win:UnicodeString"/>
+     </template>
+     <template tid="AsyncI/OHTTPoperation29Args">
+      <data name="obj" inType="win:Pointer"/>
+      <data name="statusCode" inType="win:UInt32"/>
+      <data name="statusDescription" inType="win:UnicodeString"/>
+     </template>
+     <template tid="AsyncI/OHTTPoperation32Args">
+      <data name="obj" inType="win:Pointer"/>
+      <data name="length" inType="win:UInt32"/>
+      <data name="limit" inType="win:UInt32"/>
+     </template>
+     <template tid="AsyncI/OHTTPoperation36Args">
+      <data name="statusDescription" inType="win:UnicodeString"/>
+      <data name="int1" inType="win:UInt32"/>
+      <data name="int2" inType="win:UInt32"/>
+      <data name="int3" inType="win:UInt32"/>
+      <data name="int4" inType="win:UInt32"/>
+     </template>
+     <template tid="AsyncI/OHTTPoperation37Args">
+      <data name="uri" inType="win:UnicodeString"/>
+      <data name="hresult" inType="win:UInt32"/>
+      <data name="errorMessage" inType="win:Int32"/>
+     </template>
+     <template tid="ParseHTTPoperationArgs">
+      <data name="asyncOperation" inType="win:UInt32"/>
+      <data name="asyncObject" inType="win:Pointer"/>
+      <data name="response" inType="win:UnicodeString"/>
+      <data name="errorCode" inType="win:UInt32"/>
+      <data name="hresult" inType="win:Int32"/>
+     </template>
+     <template tid="APIsAPIEnterArgs">
+      <data name="runtimeClass" inType="win:UInt32"/>
+      <data name="api" inType="win:UInt32"/>
+     </template>
+     <template tid="APIsAPIExitArgs">
+      <data name="runtimeClass" inType="win:UInt32" map="RuntimeClassNameType"/>
+      <data name="api" inType="win:UInt32"/>
+     </template>
+     <template tid="APIsAPIExit41Args">
+      <data name="runtimeClass" inType="win:UInt32"/>
+      <data name="api" inType="win:UInt32" map="ApiNameType"/>
+      <data name="hresult" inType="win:UInt32"/>
+      <data name="errorMessage" inType="win:Int32"/>
+     </template>
+     <template tid="AsyncI/OHTTPoperation45Args">
+      <data name="uri" inType="win:UnicodeString"/>
+      <data name="statusCode" inType="win:UInt32"/>
+     </template>
+     <template tid="ParseParseJSONstring70Args">
+      <data name="obj" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_keywords.API" value="keywords.API"/>
+    <string id="keyword_keywords.AtomPub" value="keywords.AtomPub"/>
+    <string id="keyword_keywords.Json" value="keywords.Json"/>
+    <string id="keyword_keywords.Format" value="keywords.Format"/>
+    <string id="keyword_keywords.AsyncOperation" value="keywords.AsyncOperation"/>
+    <string id="keyword_keywords.Http" value="keywords.Http"/>
+    <string id="task_APIs" value="APIs"/>
+    <string id="opcode_APIsAPIEnter" value="APIEnter"/>
+    <string id="opcode_APIsAPIExit" value="APIExit"/>
+    <string id="task_Parse" value="Parse"/>
+    <string id="opcode_ParseHTTPoperation" value="HTTPoperation"/>
+    <string id="opcode_ParseCheckrequiredelement" value="Checkrequiredelement"/>
+    <string id="opcode_ParseCheckrequiredattribute" value="Checkrequiredattribute"/>
+    <string id="opcode_ParseCheckduplicatedelement" value="Checkduplicatedelement"/>
+    <string id="opcode_ParseParseURI" value="ParseURI"/>
+    <string id="opcode_ParseParsedatetimestring" value="Parsedatetimestring"/>
+    <string id="opcode_ParseParseinteger" value="Parseinteger"/>
+    <string id="opcode_ParseParseXML" value="ParseXML"/>
+    <string id="opcode_ParseCheckcustomattribute" value="Checkcustomattribute"/>
+    <string id="opcode_ParseCheckcustomelement" value="Checkcustomelement"/>
+    <string id="opcode_ParseParseJSONstring" value="ParseJSONstring"/>
+    <string id="opcode_ParseIgnoreunexpectedcontent" value="Ignoreunexpectedcontent"/>
+    <string id="opcode_ParseAddcustomattribute" value="Addcustomattribute"/>
+    <string id="task_Serialize" value="Serialize"/>
+    <string id="opcode_SerializeAdddefaultvalue" value="Adddefaultvalue"/>
+    <string id="opcode_SerializeAddfirstvalue" value="Addfirstvalue"/>
+    <string id="task_AsyncI/O" value="AsyncI/O"/>
+    <string id="opcode_AsyncI/OAsyncoperationstart" value="Asyncoperationstart"/>
+    <string id="opcode_AsyncI/OAsyncoperationcomplete" value="Asyncoperationcomplete"/>
+    <string id="opcode_AsyncI/OAsyncoperationfailure" value="Asyncoperationfailure"/>
+    <string id="opcode_AsyncI/OAsyncoperationabort" value="Asyncoperationabort"/>
+    <string id="opcode_AsyncI/OAsyncoperationclose" value="Asyncoperationclose"/>
+    <string id="opcode_AsyncI/OAsyncoperationcompletion" value="Asyncoperationcompletion"/>
+    <string id="opcode_AsyncI/OAsyncoperationprogress" value="Asyncoperationprogress"/>
+    <string id="opcode_AsyncI/OHTTPoperation" value="HTTPoperation"/>
+    <string id="opcode_AsyncI/OParsecategorydocument" value="Parsecategorydocument"/>
+    <string id="map_AsyncOperationNameTypeRetrieveFeedOperation" value="RetrieveFeedOperation"/>
+    <string id="map_AsyncOperationNameTypeRetrieveServiceDocumentOperation" value="RetrieveServiceDocumentOperation"/>
+    <string id="map_AsyncOperationNameTypeCreateResourceOperation" value="CreateResourceOperation"/>
+    <string id="map_AsyncOperationNameTypeRetrieveResourceOperation" value="RetrieveResourceOperation"/>
+    <string id="map_AsyncOperationNameTypeUpdateResourceOperation" value="UpdateResourceOperation"/>
+    <string id="map_AsyncOperationNameTypeDeleteResourceOperation" value="DeleteResourceOperation"/>
+    <string id="map_AsyncOperationNameTypeRetrieveMediaResourceOperation" value="RetrieveMediaResourceOperation"/>
+    <string id="map_AsyncOperationNameTypeUpdateMediaResourceOperation" value="UpdateMediaResourceOperation"/>
+    <string id="map_RuntimeClassNameTypeSyndicationAttribute" value="SyndicationAttribute"/>
+    <string id="map_RuntimeClassNameTypeISyndicationAttributeFactory" value="ISyndicationAttributeFactory"/>
+    <string id="map_RuntimeClassNameTypeSyndicationNode" value="SyndicationNode"/>
+    <string id="map_RuntimeClassNameTypeISyndicationNodeFactory" value="ISyndicationNodeFactory"/>
+    <string id="map_RuntimeClassNameTypeSyndicationGenerator" value="SyndicationGenerator"/>
+    <string id="map_RuntimeClassNameTypeISyndicationGeneratorFactory" value="ISyndicationGeneratorFactory"/>
+    <string id="map_RuntimeClassNameTypeSyndicationText" value="SyndicationText"/>
+    <string id="map_RuntimeClassNameTypeISyndicationTextFactory" value="ISyndicationTextFactory"/>
+    <string id="map_RuntimeClassNameTypeSyndicationContent" value="SyndicationContent"/>
+    <string id="map_RuntimeClassNameTypeISyndicationContentFactory" value="ISyndicationContentFactory"/>
+    <string id="map_RuntimeClassNameTypeSyndicationLink" value="SyndicationLink"/>
+    <string id="map_RuntimeClassNameTypeISyndicationLinkFactory" value="ISyndicationLinkFactory"/>
+    <string id="map_RuntimeClassNameTypeSyndicationPerson" value="SyndicationPerson"/>
+    <string id="map_RuntimeClassNameTypeISyndicationPersonFactory" value="ISyndicationPersonFactory"/>
+    <string id="map_RuntimeClassNameTypeSyndicationCategory" value="SyndicationCategory"/>
+    <string id="map_RuntimeClassNameTypeISyndicationCategoryFactory" value="ISyndicationCategoryFactory"/>
+    <string id="map_RuntimeClassNameTypeSyndicationItem" value="SyndicationItem"/>
+    <string id="map_RuntimeClassNameTypeISyndicationItemFactory" value="ISyndicationItemFactory"/>
+    <string id="map_RuntimeClassNameTypeSyndicationFeed" value="SyndicationFeed"/>
+    <string id="map_RuntimeClassNameTypeISyndicationFeedFactory" value="ISyndicationFeedFactory"/>
+    <string id="map_RuntimeClassNameTypeRetrieveFeedOperation" value="RetrieveFeedOperation"/>
+    <string id="map_RuntimeClassNameTypeSyndicationClient" value="SyndicationClient"/>
+    <string id="map_RuntimeClassNameTypeISyndicationClientFactory" value="ISyndicationClientFactory"/>
+    <string id="map_RuntimeClassNameTypeJsonValue" value="JsonValue"/>
+    <string id="map_RuntimeClassNameTypeJsonObject" value="JsonObject"/>
+    <string id="map_RuntimeClassNameTypeIJsonObjectFactory" value="IJsonObjectFactory"/>
+    <string id="map_RuntimeClassNameTypeJsonArray" value="JsonArray"/>
+    <string id="map_RuntimeClassNameTypeIJsonArrayFactory" value="IJsonArrayFactory"/>
+    <string id="map_RuntimeClassNameTypeResourceCollection" value="ResourceCollection"/>
+    <string id="map_RuntimeClassNameTypeWorkspace" value="Workspace"/>
+    <string id="map_RuntimeClassNameTypeServiceDocument" value="ServiceDocument"/>
+    <string id="map_RuntimeClassNameTypeRetrieveServiceDocumentOperation" value="RetrieveServiceDocumentOperation"/>
+    <string id="map_RuntimeClassNameTypeCreateResourceOperation" value="CreateResourceOperation"/>
+    <string id="map_RuntimeClassNameTypeRetrieveResourceOperation" value="RetrieveResourceOperation"/>
+    <string id="map_RuntimeClassNameTypeUpdateResourceOperation" value="UpdateResourceOperation"/>
+    <string id="map_RuntimeClassNameTypeDeleteResourceOperation" value="DeleteResourceOperation"/>
+    <string id="map_RuntimeClassNameTypeRetrieveMediaResourceOperation" value="RetrieveMediaResourceOperation"/>
+    <string id="map_RuntimeClassNameTypeAtomPubClient" value="AtomPubClient"/>
+    <string id="map_RuntimeClassNameTypeIAtomPubClientFactory" value="IAtomPubClientFactory"/>
+    <string id="map_ApiNameTypeget_Name" value="get_Name"/>
+    <string id="map_ApiNameTypeput_Name" value="put_Name"/>
+    <string id="map_ApiNameTypeget_Namespace" value="get_Namespace"/>
+    <string id="map_ApiNameTypeput_Namespace" value="put_Namespace"/>
+    <string id="map_ApiNameTypeget_Value" value="get_Value"/>
+    <string id="map_ApiNameTypeput_Value" value="put_Value"/>
+    <string id="map_ApiNameTypeCreateSyndicationAttribute" value="CreateSyndicationAttribute"/>
+    <string id="map_ApiNameTypeget_NodeName" value="get_NodeName"/>
+    <string id="map_ApiNameTypeput_NodeName" value="put_NodeName"/>
+    <string id="map_ApiNameTypeget_NodeNamespace" value="get_NodeNamespace"/>
+    <string id="map_ApiNameTypeput_NodeNamespace" value="put_NodeNamespace"/>
+    <string id="map_ApiNameTypeget_NodeValue" value="get_NodeValue"/>
+    <string id="map_ApiNameTypeput_NodeValue" value="put_NodeValue"/>
+    <string id="map_ApiNameTypeget_Language" value="get_Language"/>
+    <string id="map_ApiNameTypeput_Language" value="put_Language"/>
+    <string id="map_ApiNameTypeget_BaseUri" value="get_BaseUri"/>
+    <string id="map_ApiNameTypeput_BaseUri" value="put_BaseUri"/>
+    <string id="map_ApiNameTypeget_AttributeExtensions" value="get_AttributeExtensions"/>
+    <string id="map_ApiNameTypeget_ElementExtensions" value="get_ElementExtensions"/>
+    <string id="map_ApiNameTypeGetXmlDocument" value="GetXmlDocument"/>
+    <string id="map_ApiNameTypeCreateSyndicationNode" value="CreateSyndicationNode"/>
+    <string id="map_ApiNameTypeget_Text" value="get_Text"/>
+    <string id="map_ApiNameTypeput_Text" value="put_Text"/>
+    <string id="map_ApiNameTypeget_Uri" value="get_Uri"/>
+    <string id="map_ApiNameTypeput_Uri" value="put_Uri"/>
+    <string id="map_ApiNameTypeget_Version" value="get_Version"/>
+    <string id="map_ApiNameTypeput_Version" value="put_Version"/>
+    <string id="map_ApiNameTypeCreateSyndicationGenerator" value="CreateSyndicationGenerator"/>
+    <string id="map_ApiNameTypeget_Type" value="get_Type"/>
+    <string id="map_ApiNameTypeput_Type" value="put_Type"/>
+    <string id="map_ApiNameTypeget_Xml" value="get_Xml"/>
+    <string id="map_ApiNameTypeput_Xml" value="put_Xml"/>
+    <string id="map_ApiNameTypeToString" value="ToString"/>
+    <string id="map_ApiNameTypeCreateSyndicationText" value="CreateSyndicationText"/>
+    <string id="map_ApiNameTypeCreateSyndicationTextEx" value="CreateSyndicationTextEx"/>
+    <string id="map_ApiNameTypeget_SourceUri" value="get_SourceUri"/>
+    <string id="map_ApiNameTypeput_SourceUri" value="put_SourceUri"/>
+    <string id="map_ApiNameTypeCreateSyndicationContent" value="CreateSyndicationContent"/>
+    <string id="map_ApiNameTypeCreateSyndicationContentWithSourceUri" value="CreateSyndicationContentWithSourceUri"/>
+    <string id="map_ApiNameTypeget_Length" value="get_Length"/>
+    <string id="map_ApiNameTypeput_Length" value="put_Length"/>
+    <string id="map_ApiNameTypeget_MediaType" value="get_MediaType"/>
+    <string id="map_ApiNameTypeput_MediaType" value="put_MediaType"/>
+    <string id="map_ApiNameTypeget_Relationship" value="get_Relationship"/>
+    <string id="map_ApiNameTypeput_Relationship" value="put_Relationship"/>
+    <string id="map_ApiNameTypeget_Title" value="get_Title"/>
+    <string id="map_ApiNameTypeput_Title" value="put_Title"/>
+    <string id="map_ApiNameTypeget_ResourceLanguage" value="get_ResourceLanguage"/>
+    <string id="map_ApiNameTypeput_ResourceLanguage" value="put_ResourceLanguage"/>
+    <string id="map_ApiNameTypeCreateSyndicationLink" value="CreateSyndicationLink"/>
+    <string id="map_ApiNameTypeCreateSyndicationLinkEx" value="CreateSyndicationLinkEx"/>
+    <string id="map_ApiNameTypeget_Email" value="get_Email"/>
+    <string id="map_ApiNameTypeput_Email" value="put_Email"/>
+    <string id="map_ApiNameTypeCreateSyndicationPerson" value="CreateSyndicationPerson"/>
+    <string id="map_ApiNameTypeCreateSyndicationPersonEx" value="CreateSyndicationPersonEx"/>
+    <string id="map_ApiNameTypeget_Label" value="get_Label"/>
+    <string id="map_ApiNameTypeput_Label" value="put_Label"/>
+    <string id="map_ApiNameTypeget_Scheme" value="get_Scheme"/>
+    <string id="map_ApiNameTypeput_Scheme" value="put_Scheme"/>
+    <string id="map_ApiNameTypeget_Term" value="get_Term"/>
+    <string id="map_ApiNameTypeput_Term" value="put_Term"/>
+    <string id="map_ApiNameTypeCreateSyndicationCategory" value="CreateSyndicationCategory"/>
+    <string id="map_ApiNameTypeCreateSyndicationCategoryEx" value="CreateSyndicationCategoryEx"/>
+    <string id="map_ApiNameTypeget_Authors" value="get_Authors"/>
+    <string id="map_ApiNameTypeget_Categories" value="get_Categories"/>
+    <string id="map_ApiNameTypeget_Contributors" value="get_Contributors"/>
+    <string id="map_ApiNameTypeget_Content" value="get_Content"/>
+    <string id="map_ApiNameTypeput_Content" value="put_Content"/>
+    <string id="map_ApiNameTypeget_Id" value="get_Id"/>
+    <string id="map_ApiNameTypeput_Id" value="put_Id"/>
+    <string id="map_ApiNameTypeget_LastUpdatedTime" value="get_LastUpdatedTime"/>
+    <string id="map_ApiNameTypeput_LastUpdatedTime" value="put_LastUpdatedTime"/>
+    <string id="map_ApiNameTypeget_Links" value="get_Links"/>
+    <string id="map_ApiNameTypeget_PublishedDate" value="get_PublishedDate"/>
+    <string id="map_ApiNameTypeput_PublishedDate" value="put_PublishedDate"/>
+    <string id="map_ApiNameTypeget_Rights" value="get_Rights"/>
+    <string id="map_ApiNameTypeput_Rights" value="put_Rights"/>
+    <string id="map_ApiNameTypeget_Source" value="get_Source"/>
+    <string id="map_ApiNameTypeput_Source" value="put_Source"/>
+    <string id="map_ApiNameTypeget_Summary" value="get_Summary"/>
+    <string id="map_ApiNameTypeput_Summary" value="put_Summary"/>
+    <string id="map_ApiNameTypeget_CommentsUri" value="get_CommentsUri"/>
+    <string id="map_ApiNameTypeput_CommentsUri" value="put_CommentsUri"/>
+    <string id="map_ApiNameTypeget_EditUri" value="get_EditUri"/>
+    <string id="map_ApiNameTypeget_EditMediaUri" value="get_EditMediaUri"/>
+    <string id="map_ApiNameTypeget_ETag" value="get_ETag"/>
+    <string id="map_ApiNameTypeget_FeedUri" value="get_FeedUri"/>
+    <string id="map_ApiNameTypeget_ItemUri" value="get_ItemUri"/>
+    <string id="map_ApiNameTypeLoad" value="Load"/>
+    <string id="map_ApiNameTypeLoadFromXml" value="LoadFromXml"/>
+    <string id="map_ApiNameTypeCreateSyndicationItem" value="CreateSyndicationItem"/>
+    <string id="map_ApiNameTypeget_Generator" value="get_Generator"/>
+    <string id="map_ApiNameTypeput_Generator" value="put_Generator"/>
+    <string id="map_ApiNameTypeget_IconUri" value="get_IconUri"/>
+    <string id="map_ApiNameTypeput_IconUri" value="put_IconUri"/>
+    <string id="map_ApiNameTypeget_Items" value="get_Items"/>
+    <string id="map_ApiNameTypeget_ImageUri" value="get_ImageUri"/>
+    <string id="map_ApiNameTypeput_ImageUri" value="put_ImageUri"/>
+    <string id="map_ApiNameTypeget_Subtitle" value="get_Subtitle"/>
+    <string id="map_ApiNameTypeput_Subtitle" value="put_Subtitle"/>
+    <string id="map_ApiNameTypeget_FirstUri" value="get_FirstUri"/>
+    <string id="map_ApiNameTypeget_LastUri" value="get_LastUri"/>
+    <string id="map_ApiNameTypeget_NextUri" value="get_NextUri"/>
+    <string id="map_ApiNameTypeget_PreviousUri" value="get_PreviousUri"/>
+    <string id="map_ApiNameTypeget_SourceFormat" value="get_SourceFormat"/>
+    <string id="map_ApiNameTypeCreateSyndicationFeed" value="CreateSyndicationFeed"/>
+    <string id="map_ApiNameTypeput_Progress" value="put_Progress"/>
+    <string id="map_ApiNameTypeget_Progress" value="get_Progress"/>
+    <string id="map_ApiNameTypeput_Completed" value="put_Completed"/>
+    <string id="map_ApiNameTypeget_Completed" value="get_Completed"/>
+    <string id="map_ApiNameTypeGetResults" value="GetResults"/>
+    <string id="map_ApiNameTypeget_ServerCredential" value="get_ServerCredential"/>
+    <string id="map_ApiNameTypeput_ServerCredential" value="put_ServerCredential"/>
+    <string id="map_ApiNameTypeget_ProxyCredential" value="get_ProxyCredential"/>
+    <string id="map_ApiNameTypeput_ProxyCredential" value="put_ProxyCredential"/>
+    <string id="map_ApiNameTypeget_MaxResponseBufferSize" value="get_MaxResponseBufferSize"/>
+    <string id="map_ApiNameTypeput_MaxResponseBufferSize" value="put_MaxResponseBufferSize"/>
+    <string id="map_ApiNameTypeget_Timeout" value="get_Timeout"/>
+    <string id="map_ApiNameTypeput_Timeout" value="put_Timeout"/>
+    <string id="map_ApiNameTypeget_BypassCacheOnRetrieve" value="get_BypassCacheOnRetrieve"/>
+    <string id="map_ApiNameTypeput_BypassCacheOnRetrieve" value="put_BypassCacheOnRetrieve"/>
+    <string id="map_ApiNameTypeSetRequestHeader" value="SetRequestHeader"/>
+    <string id="map_ApiNameTypeRetrieveFeedAsync" value="RetrieveFeedAsync"/>
+    <string id="map_ApiNameTypeCreateSyndicationClient" value="CreateSyndicationClient"/>
+    <string id="map_ApiNameTypeget_ValueType" value="get_ValueType"/>
+    <string id="map_ApiNameTypeParse" value="Parse"/>
+    <string id="map_ApiNameTypeStringify" value="Stringify"/>
+    <string id="map_ApiNameTypeGetString" value="GetString"/>
+    <string id="map_ApiNameTypeGetNumber" value="GetNumber"/>
+    <string id="map_ApiNameTypeGetBoolean" value="GetBoolean"/>
+    <string id="map_ApiNameTypeGetArray" value="GetArray"/>
+    <string id="map_ApiNameTypeGetObject" value="GetObject"/>
+    <string id="map_ApiNameTypeCreateBooleanValue" value="CreateBooleanValue"/>
+    <string id="map_ApiNameTypeCreateNumberValue" value="CreateNumberValue"/>
+    <string id="map_ApiNameTypeCreateStringValue" value="CreateStringValue"/>
+    <string id="map_ApiNameTypeGetNamedValue" value="GetNamedValue"/>
+    <string id="map_ApiNameTypeSetNamedValue" value="SetNamedValue"/>
+    <string id="map_ApiNameTypeGetNamedObject" value="GetNamedObject"/>
+    <string id="map_ApiNameTypeGetNamedArray" value="GetNamedArray"/>
+    <string id="map_ApiNameTypeGetNamedString" value="GetNamedString"/>
+    <string id="map_ApiNameTypeGetNamedNumber" value="GetNamedNumber"/>
+    <string id="map_ApiNameTypeGetNamedBoolean" value="GetNamedBoolean"/>
+    <string id="map_ApiNameTypeCreateJsonObject" value="CreateJsonObject"/>
+    <string id="map_ApiNameTypeGetObjectAt" value="GetObjectAt"/>
+    <string id="map_ApiNameTypeGetArrayAt" value="GetArrayAt"/>
+    <string id="map_ApiNameTypeGetStringAt" value="GetStringAt"/>
+    <string id="map_ApiNameTypeGetNumberAt" value="GetNumberAt"/>
+    <string id="map_ApiNameTypeGetBooleanAt" value="GetBooleanAt"/>
+    <string id="map_ApiNameTypeCreateJsonArray" value="CreateJsonArray"/>
+    <string id="map_ApiNameTypeget_Accepts" value="get_Accepts"/>
+    <string id="map_ApiNameTypeget_Collections" value="get_Collections"/>
+    <string id="map_ApiNameTypeget_Workspaces" value="get_Workspaces"/>
+    <string id="map_ApiNameTypeRetrieveServiceDocumentAsync" value="RetrieveServiceDocumentAsync"/>
+    <string id="map_ApiNameTypeRetrieveMediaResourceAsync" value="RetrieveMediaResourceAsync"/>
+    <string id="map_ApiNameTypeRetrieveResourceAsync" value="RetrieveResourceAsync"/>
+    <string id="map_ApiNameTypeCreateResourceAsync" value="CreateResourceAsync"/>
+    <string id="map_ApiNameTypeCreateMediaResourceAsync" value="CreateMediaResourceAsync"/>
+    <string id="map_ApiNameTypeUpdateMediaResourceAsync" value="UpdateMediaResourceAsync"/>
+    <string id="map_ApiNameTypeUpdateResourceAsync" value="UpdateResourceAsync"/>
+    <string id="map_ApiNameTypeUpdateResourceItemAsync" value="UpdateResourceItemAsync"/>
+    <string id="map_ApiNameTypeDeleteResourceAsync" value="DeleteResourceAsync"/>
+    <string id="map_ApiNameTypeDeleteResourceItemAsync" value="DeleteResourceItemAsync"/>
+    <string id="map_ApiNameTypeCancelAsyncOperations" value="CancelAsyncOperations"/>
+    <string id="map_ApiNameTypeCreateAtomPubClientWithCredentials" value="CreateAtomPubClientWithCredentials"/>
+    <string id="map_ApiNameTypeFirst" value="First"/>
+    <string id="map_ApiNameTypeGetAt" value="GetAt"/>
+    <string id="map_ApiNameTypeget_Size" value="get_Size"/>
+    <string id="map_ApiNameTypeGetView" value="GetView"/>
+    <string id="map_ApiNameTypeIndexOf" value="IndexOf"/>
+    <string id="map_ApiNameTypeSetAt" value="SetAt"/>
+    <string id="map_ApiNameTypeInsertAt" value="InsertAt"/>
+    <string id="map_ApiNameTypeInsert" value="Insert"/>
+    <string id="map_ApiNameTypeRemoveAt" value="RemoveAt"/>
+    <string id="map_ApiNameTypeRemove" value="Remove"/>
+    <string id="map_ApiNameTypeAppend" value="Append"/>
+    <string id="map_ApiNameTypeRemoveAtEnd" value="RemoveAtEnd"/>
+    <string id="map_ApiNameTypeClear" value="Clear"/>
+    <string id="map_ApiNameTypeLookup" value="Lookup"/>
+    <string id="map_ApiNameTypeHasKey" value="HasKey"/>
+    <string id="map_ApiNameTypeTryParse" value="TryParse"/>
+    <string id="map_ApiNameTypeGetNamedValueOrDefault" value="GetNamedValueOrDefault"/>
+    <string id="map_ApiNameTypeGetNamedObjectOrDefault" value="GetNamedObjectOrDefault"/>
+    <string id="map_ApiNameTypeGetNamedArrayOrDefault" value="GetNamedArrayOrDefault"/>
+    <string id="map_ApiNameTypeGetNamedStringOrDefault" value="GetNamedStringOrDefault"/>
+    <string id="map_ApiNameTypeGetNamedNumberOrDefault" value="GetNamedNumberOrDefault"/>
+    <string id="map_ApiNameTypeGetNamedBooleanOrDefault" value="GetNamedBooleanOrDefault"/>
+    <string id="map_ApiNameTypeCreateNullValue" value="CreateNullValue"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

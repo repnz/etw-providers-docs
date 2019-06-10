@@ -1,0 +1,102 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Store" guid="{9c2a37f3-e5fd-5cae-bcd1-43dafeee1ff0}" resourceFileName="Microsoft-Windows-Store" messageFileName="Microsoft-Windows-Store" symbol="MicrosoftWindowsStore" source="Xml" >
+    <keywords>
+     <keyword name="keyword_100000000000" message="$(string.keyword_keyword_100000000000)" mask="0x100000000000"/>
+     <keyword name="keyword_200000000000" message="$(string.keyword_keyword_200000000000)" mask="0x200000000000"/>
+    </keywords>
+    <tasks>
+     <task name="LMModuleLoaded" message="$(string.task_LMModuleLoaded)" value="8000"/>
+     <task name="LM" message="$(string.task_LM)" value="8001">
+>
+      <opcodes>
+       <opcode name="Error" message="$(string.opcode_LMError)" value="12"/>
+       <opcode name="Warning" message="$(string.opcode_LMWarning)" value="13"/>
+       <opcode name="Info" message="$(string.opcode_LMInfo)" value="14"/>
+      </opcodes>
+     </task>
+     <task name="LMStateMachine" message="$(string.task_LMStateMachine)" value="8002">
+>
+      <opcodes>
+       <opcode name="EnqueueEvent" message="$(string.opcode_LMStateMachineEnqueueEvent)" value="15"/>
+       <opcode name="DispatchEvent" message="$(string.opcode_LMStateMachineDispatchEvent)" value="16"/>
+       <opcode name="ChangeState" message="$(string.opcode_LMStateMachineChangeState)" value="17"/>
+       <opcode name="Startpumpingevents" message="$(string.opcode_LMStateMachineStartpumpingevents)" value="18"/>
+       <opcode name="Stoppumpingevents" message="$(string.opcode_LMStateMachineStoppumpingevents)" value="19"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="8000" symbol="LMModuleLoaded" version="0" task="LMModuleLoaded" level="win:Informational" keywords="keyword_100000000000" template="LMModuleLoadedArgs"/>
+     <event value="8001" symbol="LMInfo" version="0" task="LM" opcode="Info" level="win:Informational" keywords="keyword_100000000000" template="LMInfoArgs"/>
+     <event value="8002" symbol="LMWarning" version="0" task="LM" opcode="Warning" level="win:Warning" keywords="keyword_100000000000" template="LMInfoArgs"/>
+     <event value="8003" symbol="LMError" version="0" task="LM" opcode="Error" level="win:Error" keywords="keyword_100000000000" template="LMInfoArgs"/>
+     <event value="8010" symbol="LMStateMachineEnqueueEvent" version="0" task="LMStateMachine" opcode="EnqueueEvent" level="win:Verbose" keywords="keyword_200000000000" template="LMStateMachineEnqueueEventArgs"/>
+     <event value="8011" symbol="LMStateMachineDispatchEvent" version="0" task="LMStateMachine" opcode="DispatchEvent" level="win:Verbose" keywords="keyword_200000000000" template="LMStateMachineDispatchEventArgs"/>
+     <event value="8012" symbol="LMStateMachineChangeState" version="0" task="LMStateMachine" opcode="ChangeState" level="win:Verbose" keywords="keyword_200000000000" template="LMStateMachineChangeStateArgs"/>
+     <event value="8013" symbol="LMStateMachineStartpumpingevents" version="0" task="LMStateMachine" opcode="Startpumpingevents" level="win:Verbose" keywords="keyword_200000000000" template="LMStateMachineStartpumpingeventsArgs"/>
+     <event value="8014" symbol="LMStateMachineStoppumpingevents" version="0" task="LMStateMachine" opcode="Stoppumpingevents" level="win:Verbose" keywords="keyword_200000000000" template="LMStateMachineStartpumpingeventsArgs"/>
+    </events>
+    <templates>
+     <template tid="LMModuleLoadedArgs">
+      <data name="ProcessName" inType="win:UnicodeString"/>
+      <data name="ModuleName" inType="win:UnicodeString"/>
+      <data name="BuildName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="LMInfoArgs">
+      <data name="Message" inType="win:UnicodeString"/>
+      <data name="Function" inType="win:AnsiString"/>
+      <data name="Source" inType="win:AnsiString"/>
+      <data name="LineNumber" inType="win:UInt32"/>
+     </template>
+     <template tid="LMStateMachineEnqueueEventArgs">
+      <data name="StateMachine" inType="win:Pointer"/>
+      <data name="ThreadID" inType="win:UInt32"/>
+      <data name="StateMachineName" inType="win:UnicodeString"/>
+      <data name="EventName" inType="win:AnsiString"/>
+     </template>
+     <template tid="LMStateMachineDispatchEventArgs">
+      <data name="StateMachine" inType="win:Pointer"/>
+      <data name="ThreadID" inType="win:UInt32"/>
+      <data name="StateMachineName" inType="win:UnicodeString"/>
+      <data name="EventName" inType="win:AnsiString"/>
+      <data name="CurrentState" inType="win:UnicodeString"/>
+     </template>
+     <template tid="LMStateMachineChangeStateArgs">
+      <data name="StateMachine" inType="win:Pointer"/>
+      <data name="ThreadID" inType="win:UInt32"/>
+      <data name="StateMachineName" inType="win:UnicodeString"/>
+      <data name="CurrentState" inType="win:UnicodeString"/>
+      <data name="NewState" inType="win:UnicodeString"/>
+     </template>
+     <template tid="LMStateMachineStartpumpingeventsArgs">
+      <data name="StateMachine" inType="win:Pointer"/>
+      <data name="ThreadID" inType="win:UInt32"/>
+      <data name="StateMachineName" inType="win:UnicodeString"/>
+      <data name="CurrentState" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_keyword_100000000000" value="keyword_100000000000"/>
+    <string id="keyword_keyword_200000000000" value="keyword_200000000000"/>
+    <string id="task_LMModuleLoaded" value="LMModuleLoaded"/>
+    <string id="task_LM" value="LM"/>
+    <string id="opcode_LMError" value="Error"/>
+    <string id="opcode_LMWarning" value="Warning"/>
+    <string id="opcode_LMInfo" value="Info"/>
+    <string id="task_LMStateMachine" value="LMStateMachine"/>
+    <string id="opcode_LMStateMachineEnqueueEvent" value="EnqueueEvent"/>
+    <string id="opcode_LMStateMachineDispatchEvent" value="DispatchEvent"/>
+    <string id="opcode_LMStateMachineChangeState" value="ChangeState"/>
+    <string id="opcode_LMStateMachineStartpumpingevents" value="Startpumpingevents"/>
+    <string id="opcode_LMStateMachineStoppumpingevents" value="Stoppumpingevents"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,53 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-FileHistory-ConfigManager" guid="{b447b4dd-7780-11e0-ada3-18a90531a85a}" resourceFileName="Microsoft-Windows-FileHistory-ConfigManager" messageFileName="Microsoft-Windows-FileHistory-ConfigManager" symbol="MicrosoftWindowsFileHistoryConfigManager" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="ValidateTarget" message="$(string.task_ValidateTarget)" value="1"/>
+     <task name="ProvisionAndSetTarget" message="$(string.task_ProvisionAndSetTarget)" value="2"/>
+     <task name="Reassociation" message="$(string.task_Reassociation)" value="3"/>
+     <task name="Migration" message="$(string.task_Migration)" value="4"/>
+     <task name="SettingChangeNotification" message="$(string.task_SettingChangeNotification)" value="5"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="ValidateTargetStart" version="0" task="ValidateTarget" opcode="win:Start" level="win:Always" template="ValidateTargetStartArgs"/>
+     <event value="2" symbol="ValidateTargetStop" version="0" task="ValidateTarget" opcode="win:Stop" level="win:Always" template="ValidateTargetStartArgs"/>
+     <event value="3" symbol="ProvisionAndSetTargetStart" version="0" task="ProvisionAndSetTarget" opcode="win:Start" level="win:Always" template="ValidateTargetStartArgs"/>
+     <event value="4" symbol="ProvisionAndSetTargetStop" version="0" task="ProvisionAndSetTarget" opcode="win:Stop" level="win:Always" template="ValidateTargetStartArgs"/>
+     <event value="5" symbol="ReassociationStart" version="0" task="Reassociation" opcode="win:Start" level="win:Always" template="ValidateTargetStartArgs"/>
+     <event value="6" symbol="ReassociationStop" version="0" task="Reassociation" opcode="win:Stop" level="win:Always" template="ValidateTargetStartArgs"/>
+     <event value="7" symbol="ReassociationStart7" version="0" task="Reassociation" opcode="win:Start" level="win:Always" template="ReassociationStart7Args"/>
+     <event value="8" symbol="ReassociationStop8" version="0" task="Reassociation" opcode="win:Stop" level="win:Always"/>
+     <event value="9" symbol="MigrationStart" version="0" task="Migration" opcode="win:Start" level="win:Always" template="ValidateTargetStartArgs"/>
+     <event value="10" symbol="MigrationStop" version="0" task="Migration" opcode="win:Stop" level="win:Always"/>
+     <event value="11" symbol="MigrationStart11" version="0" task="Migration" opcode="win:Start" level="win:Always" template="ValidateTargetStartArgs"/>
+     <event value="12" symbol="MigrationStop12" version="0" task="Migration" opcode="win:Stop" level="win:Always"/>
+     <event value="13" symbol="MigrationStart13" version="0" task="Migration" opcode="win:Start" level="win:Always" template="ValidateTargetStartArgs"/>
+     <event value="14" symbol="MigrationStop14" version="0" task="Migration" opcode="win:Stop" level="win:Always"/>
+     <event value="15" symbol="SettingChangeNotification" version="0" task="SettingChangeNotification" level="win:Always"/>
+    </events>
+    <templates>
+     <template tid="ValidateTargetStartArgs">
+      <data name="TargetUrl" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ReassociationStart7Args">
+      <data name="OverwriteIfExists" inType="win:Boolean"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_ValidateTarget" value="ValidateTarget"/>
+    <string id="task_ProvisionAndSetTarget" value="ProvisionAndSetTarget"/>
+    <string id="task_Reassociation" value="Reassociation"/>
+    <string id="task_Migration" value="Migration"/>
+    <string id="task_SettingChangeNotification" value="SettingChangeNotification"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

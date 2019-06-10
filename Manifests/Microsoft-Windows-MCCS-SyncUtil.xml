@@ -1,0 +1,88 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-MCCS-SyncUtil" guid="{dca074ce-547c-4595-ae90-56229b8e3bd9}" resourceFileName="Microsoft-Windows-MCCS-SyncUtil" messageFileName="Microsoft-Windows-MCCS-SyncUtil" symbol="MicrosoftWindowsMCCSSyncUtil" source="Xml" >
+    <keywords>
+     <keyword name="Error" message="$(string.keyword_Error)" mask="0x1"/>
+     <keyword name="Performance" message="$(string.keyword_Performance)" mask="0x2"/>
+     <keyword name="CommsService" message="$(string.keyword_CommsService)" mask="0x1000000000"/>
+     <keyword name="Warning" message="$(string.keyword_Warning)" mask="0x4000000000"/>
+     <keyword name="StateTransition" message="$(string.keyword_StateTransition)" mask="0x8000000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="SPERF_TAG_LOAD_XMLDOM" message="$(string.task_SPERF_TAG_LOAD_XMLDOM)" value="2"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="task_0" version="0" task="task_0" level="win:Error" keywords="Error" template="task_0Args"/>
+     <event value="2" symbol="task_02" version="0" task="task_0" level="win:Warning" keywords="Warning" template="task_0Args"/>
+     <event value="101" symbol="task_0101" version="0" task="task_0" level="win:Informational" keywords="CommsService" template="task_0101Args"/>
+     <event value="104" symbol="task_0104" version="0" task="task_0" level="win:Verbose" template="task_0104Args"/>
+     <event value="121" symbol="SPERF_TAG_LOAD_XMLDOMStart" version="0" task="SPERF_TAG_LOAD_XMLDOM" opcode="win:Start" level="win:Informational" keywords="Performance" template="SPERF_TAG_LOAD_XMLDOMStartArgs"/>
+     <event value="122" symbol="SPERF_TAG_LOAD_XMLDOMStop" version="0" task="SPERF_TAG_LOAD_XMLDOM" opcode="win:Stop" level="win:Informational" keywords="Performance" template="SPERF_TAG_LOAD_XMLDOMStartArgs"/>
+     <event value="202" symbol="task_0202" version="0" task="task_0" level="win:Warning" keywords="Warning" template="task_0202Args"/>
+     <event value="203" symbol="task_0203" version="0" task="task_0" level="win:Warning" keywords="Warning" template="SPERF_TAG_LOAD_XMLDOMStartArgs"/>
+     <event value="204" symbol="task_0204" version="0" task="task_0" level="win:Warning" keywords="Warning" template="SPERF_TAG_LOAD_XMLDOMStartArgs"/>
+     <event value="205" symbol="task_0205" version="0" task="task_0" level="win:Warning" keywords="Warning" template="SPERF_TAG_LOAD_XMLDOMStartArgs"/>
+     <event value="206" symbol="task_0206" version="0" task="task_0" level="win:Warning" keywords="Warning" template="task_0206Args"/>
+     <event value="301" symbol="task_0301" version="0" task="task_0" level="win:Error" keywords="Error"/>
+     <event value="600" symbol="task_0600" version="0" task="task_0" level="win:Informational"/>
+     <event value="601" symbol="task_0601" version="0" task="task_0" level="win:Informational"/>
+     <event value="800" symbol="task_0800" version="0" task="task_0" level="win:Informational" keywords="Warning" template="task_0800Args"/>
+     <event value="802" symbol="task_0802" version="0" task="task_0" level="win:Informational" keywords="Warning" template="task_0800Args"/>
+     <event value="803" symbol="task_0803" version="0" task="task_0" level="win:Error" keywords="Error" template="task_0206Args"/>
+     <event value="804" symbol="task_0804" version="0" task="task_0" level="win:Error" keywords="Error" template="task_0804Args"/>
+     <event value="810" symbol="task_0810" version="0" task="task_0" level="win:Informational" keywords="StateTransition" template="task_0202Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="P1_HResult" inType="win:Int32"/>
+      <data name="P2_String" inType="win:AnsiString"/>
+      <data name="P3_UInt32" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0101Args">
+      <data name="Prop_Dword" inType="win:HexInt32"/>
+      <data name="Prop_StringA_1" inType="win:AnsiString"/>
+      <data name="Prop_StringA_2" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_0104Args">
+      <data name="Prop_String1" inType="win:UnicodeString"/>
+      <data name="Prop_String2" inType="win:UnicodeString"/>
+      <data name="Prop_String3" inType="win:UnicodeString"/>
+      <data name="Prop_AnsiString" inType="win:AnsiString"/>
+     </template>
+     <template tid="SPERF_TAG_LOAD_XMLDOMStartArgs">
+      <data name="P1_UnicodeString" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0202Args">
+      <data name="P1_HexInt32" inType="win:HexInt32"/>
+     </template>
+     <template tid="task_0206Args">
+      <data name="P1_Int32" inType="win:Int32"/>
+     </template>
+     <template tid="task_0800Args">
+      <data name="Prop_String1" inType="win:UnicodeString"/>
+      <data name="Prop_FileTime1" inType="win:FILETIME"/>
+     </template>
+     <template tid="task_0804Args">
+      <data name="Prop_HexInt32" inType="win:HexInt32"/>
+      <data name="Prop_String" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Error" value="Error"/>
+    <string id="keyword_Performance" value="Performance"/>
+    <string id="keyword_CommsService" value="CommsService"/>
+    <string id="keyword_Warning" value="Warning"/>
+    <string id="keyword_StateTransition" value="StateTransition"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_SPERF_TAG_LOAD_XMLDOM" value="SPERF_TAG_LOAD_XMLDOM"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

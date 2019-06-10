@@ -1,0 +1,42 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-CoreSystem-InitMachineConfig" guid="{0b886108-1899-4d3a-9c0d-42d8fc4b9108}" resourceFileName="Microsoft-Windows-CoreSystem-InitMachineConfig" messageFileName="Microsoft-Windows-CoreSystem-InitMachineConfig" symbol="MicrosoftWindowsCoreSystemInitMachineConfig" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="task_0" version="0" task="task_0" level="win:Error" template="task_0Args"/>
+     <event value="2" symbol="task_02" version="0" task="task_0" level="win:Informational" template="task_02Args"/>
+     <event value="3" symbol="task_03" version="0" task="task_0" level="win:Warning" template="task_03Args"/>
+     <event value="4" symbol="task_04" version="0" task="task_0" level="win:Warning" template="task_03Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="evtErrorId" inType="win:UInt64"/>
+      <data name="evtHiveNameLength" inType="win:UInt16"/>
+      <data name="evtHiveName" inType="win:UnicodeString" length="evtHiveNameLength"/>
+      <data name="evtStatus" inType="win:HexInt32"/>
+      <data name="evtAdditionalInfo" inType="win:HexInt64"/>
+     </template>
+     <template tid="task_02Args">
+      <data name="evtHiveNameLength" inType="win:UInt16"/>
+      <data name="evtHiveName" inType="win:UnicodeString" length="evtHiveNameLength"/>
+     </template>
+     <template tid="task_03Args">
+      <data name="evtStatus" inType="win:HexInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_task_0" value="task_0"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

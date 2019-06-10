@@ -1,0 +1,395 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-NlaSvc" guid="{63b530f8-29c9-4880-a5b4-b8179096e7b8}" resourceFileName="Microsoft-Windows-NlaSvc" messageFileName="Microsoft-Windows-NlaSvc" symbol="MicrosoftWindowsNlaSvc" source="Xml" >
+    <keywords>
+     <keyword name="Identification" message="$(string.keyword_Identification)" mask="0x1"/>
+     <keyword name="Resolver" message="$(string.keyword_Resolver)" mask="0x2"/>
+     <keyword name="Intranet" message="$(string.keyword_Intranet)" mask="0x4"/>
+     <keyword name="Trigger" message="$(string.keyword_Trigger)" mask="0x8"/>
+     <keyword name="Plugin" message="$(string.keyword_Plugin)" mask="0x10"/>
+     <keyword name="LwtDiagnostic" message="$(string.keyword_LwtDiagnostic)" mask="0x20"/>
+     <keyword name="ut:SendPath" message="$(string.keyword_ut:SendPath)" mask="0x100000000"/>
+     <keyword name="ut:ReceivePath" message="$(string.keyword_ut:ReceivePath)" mask="0x200000000"/>
+     <keyword name="ut:L3ConnectPath" message="$(string.keyword_ut:L3ConnectPath)" mask="0x400000000"/>
+     <keyword name="ut:L2ConnectPath" message="$(string.keyword_ut:L2ConnectPath)" mask="0x800000000"/>
+     <keyword name="ut:ClosePath" message="$(string.keyword_ut:ClosePath)" mask="0x1000000000"/>
+     <keyword name="ut:Authentication" message="$(string.keyword_ut:Authentication)" mask="0x2000000000"/>
+     <keyword name="ut:Configuration" message="$(string.keyword_ut:Configuration)" mask="0x4000000000"/>
+     <keyword name="ut:Global" message="$(string.keyword_ut:Global)" mask="0x8000000000"/>
+     <keyword name="keyword_200000000000" message="$(string.keyword_keyword_200000000000)" mask="0x200000000000"/>
+    </keywords>
+    <tasks>
+     <task name="WaitforIdentification" message="$(string.task_WaitforIdentification)" value="1"/>
+     <task name="Trigger" message="$(string.task_Trigger)" value="2">
+>
+      <opcodes>
+       <opcode name="MediaConnect" message="$(string.opcode_TriggerMediaConnect)" value="31"/>
+       <opcode name="MediaDisconnect" message="$(string.opcode_TriggerMediaDisconnect)" value="32"/>
+       <opcode name="RouteChange" message="$(string.opcode_TriggerRouteChange)" value="33"/>
+       <opcode name="AddressChange" message="$(string.opcode_TriggerAddressChange)" value="34"/>
+       <opcode name="QuarantineStateChange" message="$(string.opcode_TriggerQuarantineStateChange)" value="35"/>
+       <opcode name="DhcpNotification" message="$(string.opcode_TriggerDhcpNotification)" value="36"/>
+      </opcodes>
+     </task>
+     <task name="GatewayResolution" message="$(string.task_GatewayResolution)" value="3">
+>
+      <opcodes>
+       <opcode name="Failed" message="$(string.opcode_GatewayResolutionFailed)" value="21"/>
+      </opcodes>
+     </task>
+     <task name="Plugin" message="$(string.task_Plugin)" value="4">
+>
+      <opcodes>
+       <opcode name="DataIndication" message="$(string.opcode_PluginDataIndication)" value="51"/>
+      </opcodes>
+     </task>
+     <task name="Dhcp" message="$(string.task_Dhcp)" value="5">
+>
+      <opcodes>
+       <opcode name="Stabilized" message="$(string.opcode_DhcpStabilized)" value="61"/>
+      </opcodes>
+     </task>
+     <task name="IntranetResolution" message="$(string.task_IntranetResolution)" value="6"/>
+     <task name="DsGetDcName(DnsSuffix)" message="$(string.task_DsGetDcName(DnsSuffix))" value="7">
+>
+      <opcodes>
+       <opcode name="Failed" message="$(string.opcode_DsGetDcName(DnsSuffix)Failed)" value="21"/>
+      </opcodes>
+     </task>
+     <task name="DsGetDcName(Ds)" message="$(string.task_DsGetDcName(Ds))" value="8">
+>
+      <opcodes>
+       <opcode name="Failed" message="$(string.opcode_DsGetDcName(Ds)Failed)" value="21"/>
+      </opcodes>
+     </task>
+     <task name="DsGetDcName(RootDomainGuid)" message="$(string.task_DsGetDcName(RootDomainGuid))" value="9">
+>
+      <opcodes>
+       <opcode name="Failed" message="$(string.opcode_DsGetDcName(RootDomainGuid)Failed)" value="21"/>
+      </opcodes>
+     </task>
+     <task name="LdapAuthentication" message="$(string.task_LdapAuthentication)" value="10">
+>
+      <opcodes>
+       <opcode name="Failed" message="$(string.opcode_LdapAuthenticationFailed)" value="21"/>
+      </opcodes>
+     </task>
+     <task name="ldap_connect" message="$(string.task_ldap_connect)" value="11">
+>
+      <opcodes>
+       <opcode name="Failed" message="$(string.opcode_ldap_connectFailed)" value="21"/>
+      </opcodes>
+     </task>
+     <task name="ldap_bind" message="$(string.task_ldap_bind)" value="12">
+>
+      <opcodes>
+       <opcode name="Failed" message="$(string.opcode_ldap_bindFailed)" value="21"/>
+      </opcodes>
+     </task>
+     <task name="Identifying" message="$(string.task_Identifying)" value="13"/>
+     <task name="Identified" message="$(string.task_Identified)" value="14"/>
+     <task name="Disconnect" message="$(string.task_Disconnect)" value="15"/>
+     <task name="Interface" message="$(string.task_Interface)" value="16">
+>
+      <opcodes>
+       <opcode name="MediaConnect" message="$(string.opcode_InterfaceMediaConnect)" value="31"/>
+       <opcode name="MediaDisconnect" message="$(string.opcode_InterfaceMediaDisconnect)" value="32"/>
+      </opcodes>
+     </task>
+     <task name="PerftrackCancel" message="$(string.task_PerftrackCancel)" value="17"/>
+    </tasks>
+    <maps>
+     <valueMap name="IdentificationStateMap">
+      <map value="0x0" message="$(string.map_IdentificationStateMapIdentifying Network)"/>
+      <map value="0x1" message="$(string.map_IdentificationStateMapIdentified Network)"/>
+     </valueMap>
+     <valueMap name="MibNotificationTypeMap">
+      <map value="0x1" message="$(string.map_MibNotificationTypeMapMibAddInstance)"/>
+      <map value="0x2" message="$(string.map_MibNotificationTypeMapMibDeleteInstance)"/>
+     </valueMap>
+     <valueMap name="NlaStableStateMap">
+      <map value="0x0" message="$(string.map_NlaStableStateMapNLA_STABLE_UNKNOWN)"/>
+      <map value="0x1" message="$(string.map_NlaStableStateMapNLA_STABLE_STABLE)"/>
+      <map value="0x2" message="$(string.map_NlaStableStateMapNLA_STABLE_GAVE_UP)"/>
+      <map value="0x3" message="$(string.map_NlaStableStateMapNLA_STABLE_TRYING)"/>
+     </valueMap>
+     <bitMap name="DsGetDcNameFlagsMap">
+      <map value="0x1" message="$(string.map_DsGetDcNameFlagsMapDS_FORCE_REDISCOVERY)"/>
+      <map value="0x10000" message="$(string.map_DsGetDcNameFlagsMapDS_IS_FLAT_NAME)"/>
+      <map value="0x20000" message="$(string.map_DsGetDcNameFlagsMapDS_IS_DNS_NAME)"/>
+      <map value="0x40000000" message="$(string.map_DsGetDcNameFlagsMapDS_RETURN_DNS_NAME)"/>
+      <map value="0x80000000" message="$(string.map_DsGetDcNameFlagsMapDS_RETURN_FLAT_NAME)"/>
+     </bitMap>
+     <bitMap name="SignatureSourceMap">
+      <map value="0x1" message="$(string.map_SignatureSourceMapNLA_SIGNATURE_SOURCE_UNIDENTIFIED)"/>
+      <map value="0x2" message="$(string.map_SignatureSourceMapNLA_SIGNATURE_SOURCE_IDENTIFYING)"/>
+      <map value="0x4" message="$(string.map_SignatureSourceMapNLA_SIGNATURE_SOURCE_RANDOM)"/>
+      <map value="0x8" message="$(string.map_SignatureSourceMapNLA_SIGNATURE_SOURCE_GATEWAY_MAC)"/>
+      <map value="0x10" message="$(string.map_SignatureSourceMapNLA_SIGNATURE_SOURCE_DOMAIN_GUID)"/>
+      <map value="0x20" message="$(string.map_SignatureSourceMapNLA_SIGNATURE_SOURCE_ROOT_DOMAIN_GUID)"/>
+      <map value="0x40" message="$(string.map_SignatureSourceMapNLA_SIGNATURE_SOURCE_DOMAIN_NAME)"/>
+      <map value="0x80" message="$(string.map_SignatureSourceMapNLA_SIGNATURE_SOURCE_FOREST_NAME)"/>
+      <map value="0x100" message="$(string.map_SignatureSourceMapNLA_SIGNATURE_SOURCE_DNS_SUFFIX)"/>
+      <map value="0x200" message="$(string.map_SignatureSourceMapNLA_SIGNATURE_SOURCE_LOCAL_INTERFACE_ID)"/>
+      <map value="0x400" message="$(string.map_SignatureSourceMapNLA_SIGNATURE_SOURCE_WLAN_SSID)"/>
+      <map value="0x800" message="$(string.map_SignatureSourceMapNLA_SIGNATURE_SOURCE_WLAN_PROFILE)"/>
+      <map value="0x1000" message="$(string.map_SignatureSourceMapNLA_SIGNATURE_SOURCE_WWAN)"/>
+      <map value="0x10000" message="$(string.map_SignatureSourceMapNLA_SIGNATURE_SOURCE_SECURITY_DOWNGRADE)"/>
+      <map value="0x10000000" message="$(string.map_SignatureSourceMapNLA_SIGNATURE_SOURCE_PRIVATE)"/>
+      <map value="0x20000000" message="$(string.map_SignatureSourceMapNLA_SIGNATURE_SOURCE_SECONDARY)"/>
+     </bitMap>
+     <valueMap name="AuthCapUnlikelyReasonMap">
+      <map value="0x0" message="$(string.map_AuthCapUnlikelyReasonMapLDAP has had no previous successes with the current combination of adapter addresses)"/>
+      <map value="0x1" message="$(string.map_AuthCapUnlikelyReasonMapThis is the first LDAP attempt ever and a speculative timeout occurred)"/>
+      <map value="0x2" message="$(string.map_AuthCapUnlikelyReasonMapDS validation failed; there may not be a DC available on this network)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="4001" symbol="WaitforIdentificationStart" version="0" task="WaitforIdentification" opcode="win:Start" level="win:Informational" keywords="Identification keyword_200000000000" template="WaitforIdentificationStartArgs"/>
+     <event value="4002" symbol="WaitforIdentificationStop" version="0" task="WaitforIdentification" opcode="win:Stop" level="win:Informational" keywords="Identification keyword_200000000000" template="WaitforIdentificationStopArgs"/>
+     <event value="4101" symbol="TriggerMediaConnect" version="0" task="Trigger" opcode="MediaConnect" level="win:Informational" keywords="Trigger LwtDiagnostic" template="TriggerMediaConnectArgs"/>
+     <event value="4102" symbol="TriggerMediaDisconnect" version="0" task="Trigger" opcode="MediaDisconnect" level="win:Informational" keywords="Trigger LwtDiagnostic" template="TriggerMediaConnectArgs"/>
+     <event value="4103" symbol="TriggerRouteChange" version="0" task="Trigger" opcode="RouteChange" level="win:Informational" keywords="Trigger" template="TriggerRouteChangeArgs"/>
+     <event value="4104" symbol="TriggerAddressChange" version="0" task="Trigger" opcode="AddressChange" level="win:Informational" keywords="Trigger" template="TriggerAddressChangeArgs"/>
+     <event value="4105" symbol="TriggerQuarantineStateChange" version="0" task="Trigger" opcode="QuarantineStateChange" level="win:Informational" keywords="Trigger"/>
+     <event value="4106" symbol="TriggerDhcpNotification" version="0" task="Trigger" opcode="DhcpNotification" level="win:Informational" keywords="Trigger"/>
+     <event value="4201" symbol="GatewayResolutionStart" version="0" task="GatewayResolution" opcode="win:Start" level="win:Informational" keywords="Resolver"/>
+     <event value="4202" symbol="GatewayResolutionStop" version="0" task="GatewayResolution" opcode="win:Stop" level="win:Informational" keywords="Resolver"/>
+     <event value="4203" symbol="GatewayResolutionStart4203" version="0" task="GatewayResolution" opcode="win:Start" level="win:Informational" keywords="Resolver" template="GatewayResolutionStart4203Args"/>
+     <event value="4204" symbol="GatewayResolutionStop4204" version="0" task="GatewayResolution" opcode="win:Stop" level="win:Informational" keywords="Resolver" template="GatewayResolutionStop4204Args"/>
+     <event value="4205" symbol="GatewayResolutionFailed" version="0" task="GatewayResolution" opcode="Failed" level="win:Error" keywords="Resolver LwtDiagnostic" template="GatewayResolutionFailedArgs"/>
+     <event value="4251" symbol="PluginDataIndication" version="0" task="Plugin" opcode="DataIndication" level="win:Informational" keywords="Plugin" template="PluginDataIndicationArgs"/>
+     <event value="4261" symbol="DhcpStabilized" version="0" task="Dhcp" opcode="Stabilized" level="win:Informational" keywords="Trigger LwtDiagnostic" template="DhcpStabilizedArgs"/>
+     <event value="4301" symbol="IntranetResolutionStart" version="0" task="IntranetResolution" opcode="win:Start" level="win:Informational" keywords="Resolver Intranet"/>
+     <event value="4302" symbol="IntranetResolutionStop" version="0" task="IntranetResolution" opcode="win:Stop" level="win:Informational" keywords="Resolver Intranet"/>
+     <event value="4311" symbol="DsGetDcName(DnsSuffix)Start" version="0" task="DsGetDcName(DnsSuffix)" opcode="win:Start" level="win:Informational" keywords="Resolver Intranet" template="DsGetDcName(DnsSuffix)StartArgs"/>
+     <event value="4312" symbol="DsGetDcName(DnsSuffix)Stop" version="0" task="DsGetDcName(DnsSuffix)" opcode="win:Stop" level="win:Informational" keywords="Resolver Intranet" template="DsGetDcName(DnsSuffix)StopArgs"/>
+     <event value="4313" symbol="DsGetDcName(DnsSuffix)Failed" version="0" task="DsGetDcName(DnsSuffix)" opcode="Failed" level="win:Warning" keywords="Resolver Intranet LwtDiagnostic" template="DsGetDcName(DnsSuffix)StartArgs"/>
+     <event value="4321" symbol="DsGetDcName(Ds)Start" version="0" task="DsGetDcName(Ds)" opcode="win:Start" level="win:Informational" keywords="Resolver Intranet" template="DsGetDcName(DnsSuffix)StartArgs"/>
+     <event value="4322" symbol="DsGetDcName(Ds)Stop" version="0" task="DsGetDcName(Ds)" opcode="win:Stop" level="win:Informational" keywords="Resolver Intranet" template="DsGetDcName(DnsSuffix)StartArgs"/>
+     <event value="4323" symbol="DsGetDcName(Ds)Failed" version="0" task="DsGetDcName(Ds)" opcode="Failed" level="win:Warning" keywords="Resolver Intranet LwtDiagnostic" template="DsGetDcName(DnsSuffix)StartArgs"/>
+     <event value="4331" symbol="DsGetDcName(RootDomainGuid)Start" version="0" task="DsGetDcName(RootDomainGuid)" opcode="win:Start" level="win:Informational" keywords="Resolver Intranet" template="DsGetDcName(DnsSuffix)StartArgs"/>
+     <event value="4332" symbol="DsGetDcName(RootDomainGuid)Stop" version="0" task="DsGetDcName(RootDomainGuid)" opcode="win:Stop" level="win:Informational" keywords="Resolver Intranet" template="DsGetDcName(DnsSuffix)StartArgs"/>
+     <event value="4333" symbol="DsGetDcName(RootDomainGuid)Failed" version="0" task="DsGetDcName(RootDomainGuid)" opcode="Failed" level="win:Error" keywords="Resolver Intranet LwtDiagnostic" template="DsGetDcName(DnsSuffix)StartArgs"/>
+     <event value="4341" symbol="LdapAuthenticationStart" version="0" task="LdapAuthentication" opcode="win:Start" level="win:Informational" keywords="Resolver Intranet" template="LdapAuthenticationStartArgs"/>
+     <event value="4342" symbol="LdapAuthenticationStop" version="0" task="LdapAuthentication" opcode="win:Stop" level="win:Informational" keywords="Resolver Intranet" template="LdapAuthenticationStartArgs"/>
+     <event value="4343" symbol="LdapAuthenticationFailed" version="0" task="LdapAuthentication" opcode="Failed" level="win:Error" keywords="Resolver Intranet LwtDiagnostic" template="LdapAuthenticationStartArgs"/>
+     <event value="4351" symbol="ldap_connectStart" version="0" task="ldap_connect" opcode="win:Start" level="win:Informational" keywords="Resolver Intranet" template="ldap_connectStartArgs"/>
+     <event value="4352" symbol="ldap_connectStop" version="0" task="ldap_connect" opcode="win:Stop" level="win:Informational" keywords="Resolver Intranet" template="ldap_connectStartArgs"/>
+     <event value="4353" symbol="ldap_connectFailed" version="0" task="ldap_connect" opcode="Failed" level="win:Error" keywords="Resolver Intranet LwtDiagnostic" template="ldap_connectStartArgs"/>
+     <event value="4354" symbol="ldap_bindStart" version="0" task="ldap_bind" opcode="win:Start" level="win:Informational" keywords="Resolver Intranet" template="ldap_connectStartArgs"/>
+     <event value="4355" symbol="ldap_bindStop" version="0" task="ldap_bind" opcode="win:Stop" level="win:Informational" keywords="Resolver Intranet" template="ldap_connectStartArgs"/>
+     <event value="4356" symbol="ldap_bindFailed" version="0" task="ldap_bind" opcode="Failed" level="win:Error" keywords="Resolver Intranet LwtDiagnostic" template="ldap_connectStartArgs"/>
+     <event value="4401" symbol="Identifying" version="0" task="Identifying" level="win:Informational" keywords="Identification LwtDiagnostic" template="IdentifyingArgs"/>
+     <event value="4402" symbol="Identified" version="0" task="Identified" level="win:Informational" keywords="Identification LwtDiagnostic" template="IdentifiedArgs"/>
+     <event value="4403" symbol="Disconnect" version="0" task="Disconnect" level="win:Informational" keywords="Identification LwtDiagnostic" template="IdentifyingArgs"/>
+     <event value="4404" symbol="Identified4404" version="0" task="Identified" level="win:Informational" keywords="Identification" template="IdentifyingArgs"/>
+     <event value="4405" symbol="Identified4405" version="0" task="Identified" level="win:Informational" keywords="Identification LwtDiagnostic" template="IdentifyingArgs"/>
+     <event value="4407" symbol="InterfaceMediaConnect" version="0" task="Interface" opcode="MediaConnect" level="win:Informational" keywords="Identification LwtDiagnostic" template="TriggerMediaConnectArgs"/>
+     <event value="4408" symbol="InterfaceMediaDisconnect" version="0" task="Interface" opcode="MediaDisconnect" level="win:Informational" keywords="Identification LwtDiagnostic" template="TriggerMediaConnectArgs"/>
+     <event value="4409" symbol="Interface" version="0" task="Interface" level="win:Informational" keywords="Identification" template="TriggerMediaConnectArgs"/>
+     <event value="4410" symbol="Identified4410" version="0" task="Identified" level="win:Informational" keywords="Identification LwtDiagnostic" template="IdentifyingArgs"/>
+     <event value="4411" symbol="Identified4411" version="0" task="Identified" level="win:Informational" keywords="Identification" template="IdentifyingArgs"/>
+     <event value="4451" symbol="LdapAuthentication" version="0" task="LdapAuthentication" level="win:Informational" template="LdapAuthenticationArgs"/>
+     <event value="5001" symbol="DhcpStabilized5001" version="0" task="Dhcp" opcode="Stabilized" level="win:Informational" template="DhcpStabilized5001Args"/>
+     <event value="5002" symbol="Identified5002" version="0" task="Identified" level="win:Informational" template="Identified5002Args"/>
+     <event value="6101" symbol="PerftrackCancel" version="0" task="PerftrackCancel" level="win:Informational" keywords="Identification" template="TriggerMediaConnectArgs"/>
+     <event value="6102" symbol="PerftrackCancel6102" version="0" task="PerftrackCancel" level="win:Informational" keywords="Identification" template="TriggerMediaConnectArgs"/>
+     <event value="6103" symbol="PerftrackCancel6103" version="0" task="PerftrackCancel" level="win:Informational" keywords="Identification" template="TriggerMediaConnectArgs"/>
+     <event value="6104" symbol="PerftrackCancel6104" version="0" task="PerftrackCancel" level="win:Informational" keywords="Identification" template="TriggerMediaConnectArgs"/>
+    </events>
+    <templates>
+     <template tid="WaitforIdentificationStartArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="CurrentOrNextState" inType="win:UInt8" map="IdentificationStateMap"/>
+     </template>
+     <template tid="WaitforIdentificationStopArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="CurrentOrNextState" inType="win:UInt8"/>
+     </template>
+     <template tid="TriggerMediaConnectArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="AdapterName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="TriggerRouteChangeArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="MibNotificationType" inType="win:UInt32" map="MibNotificationTypeMap"/>
+     </template>
+     <template tid="TriggerAddressChangeArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="MibNotificationType" inType="win:UInt32"/>
+     </template>
+     <template tid="GatewayResolutionStart4203Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="GatewayIpAddress" inType="win:UnicodeString"/>
+     </template>
+     <template tid="GatewayResolutionStop4204Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="GatewayIpAddress" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="NlnsState" inType="win:UInt32"/>
+      <data name="MacAddrLen" inType="win:UInt16"/>
+      <data name="MacAddr" inType="win:Binary" length="MacAddrLen"/>
+     </template>
+     <template tid="GatewayResolutionFailedArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="GatewayIpAddress" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="PluginDataIndicationArgs">
+      <data name="PluginName" inType="win:UnicodeString"/>
+      <data name="EntityName" inType="win:UnicodeString"/>
+      <data name="IndicatedRowCount" inType="win:UInt16"/>
+      <data name="RowsWithInterfacesIndicatedCount" inType="win:UInt16"/>
+      <data name="RowInterfaceGuid" inType="win:GUID" count="RowsWithInterfacesIndicatedCount"/>
+     </template>
+     <template tid="DhcpStabilizedArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="NlaState" inType="win:UInt32" map="NlaStableStateMap"/>
+     </template>
+     <template tid="DsGetDcName(DnsSuffix)StartArgs">
+      <data name="DnsSuffix" inType="win:UnicodeString"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="RetrievedDomain" inType="win:UnicodeString"/>
+      <data name="RetrievedForest" inType="win:UnicodeString"/>
+     </template>
+     <template tid="DsGetDcName(DnsSuffix)StopArgs">
+      <data name="DnsSuffix" inType="win:UnicodeString"/>
+      <data name="Flags" inType="win:UInt32" map="DsGetDcNameFlagsMap"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="RetrievedDomain" inType="win:UnicodeString"/>
+      <data name="RetrievedForest" inType="win:UnicodeString"/>
+     </template>
+     <template tid="LdapAuthenticationStartArgs">
+      <data name="InterfaceName" inType="win:UnicodeString"/>
+      <data name="Addresses" inType="win:UnicodeString"/>
+      <data name="TryCount" inType="win:UInt32"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="ldap_connectStartArgs">
+      <data name="Addresses" inType="win:UnicodeString"/>
+      <data name="DcName" inType="win:UnicodeString"/>
+      <data name="TryNumber" inType="win:UInt32"/>
+      <data name="TryCount" inType="win:UInt32"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="IdentifyingArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="SignatureLength" inType="win:UInt16"/>
+      <data name="Signature" inType="win:Binary" length="SignatureLength"/>
+      <data name="SignatureSource" inType="win:UInt32"/>
+     </template>
+     <template tid="IdentifiedArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="SignatureLength" inType="win:UInt16"/>
+      <data name="Signature" inType="win:Binary" length="SignatureLength"/>
+      <data name="SignatureSource" inType="win:UInt32" map="SignatureSourceMap"/>
+     </template>
+     <template tid="LdapAuthenticationArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="AuthCapUnlikelyReason" inType="win:UInt32" map="AuthCapUnlikelyReasonMap"/>
+      <data name="SpeculativeTimeout" inType="win:UInt32"/>
+     </template>
+     <template tid="DhcpStabilized5001Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="NlaState" inType="win:UInt32"/>
+     </template>
+     <template tid="Identified5002Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="SignatureSource" inType="win:UInt32"/>
+      <data name="SignatureCharacteristics" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Identification" value="Identification"/>
+    <string id="keyword_Resolver" value="Resolver"/>
+    <string id="keyword_Intranet" value="Intranet"/>
+    <string id="keyword_Trigger" value="Trigger"/>
+    <string id="keyword_Plugin" value="Plugin"/>
+    <string id="keyword_LwtDiagnostic" value="LwtDiagnostic"/>
+    <string id="keyword_ut:SendPath" value="ut:SendPath"/>
+    <string id="keyword_ut:ReceivePath" value="ut:ReceivePath"/>
+    <string id="keyword_ut:L3ConnectPath" value="ut:L3ConnectPath"/>
+    <string id="keyword_ut:L2ConnectPath" value="ut:L2ConnectPath"/>
+    <string id="keyword_ut:ClosePath" value="ut:ClosePath"/>
+    <string id="keyword_ut:Authentication" value="ut:Authentication"/>
+    <string id="keyword_ut:Configuration" value="ut:Configuration"/>
+    <string id="keyword_ut:Global" value="ut:Global"/>
+    <string id="keyword_keyword_200000000000" value="keyword_200000000000"/>
+    <string id="task_WaitforIdentification" value="WaitforIdentification"/>
+    <string id="task_Trigger" value="Trigger"/>
+    <string id="opcode_TriggerMediaConnect" value="MediaConnect"/>
+    <string id="opcode_TriggerMediaDisconnect" value="MediaDisconnect"/>
+    <string id="opcode_TriggerRouteChange" value="RouteChange"/>
+    <string id="opcode_TriggerAddressChange" value="AddressChange"/>
+    <string id="opcode_TriggerQuarantineStateChange" value="QuarantineStateChange"/>
+    <string id="opcode_TriggerDhcpNotification" value="DhcpNotification"/>
+    <string id="task_GatewayResolution" value="GatewayResolution"/>
+    <string id="opcode_GatewayResolutionFailed" value="Failed"/>
+    <string id="task_Plugin" value="Plugin"/>
+    <string id="opcode_PluginDataIndication" value="DataIndication"/>
+    <string id="task_Dhcp" value="Dhcp"/>
+    <string id="opcode_DhcpStabilized" value="Stabilized"/>
+    <string id="task_IntranetResolution" value="IntranetResolution"/>
+    <string id="task_DsGetDcName(DnsSuffix)" value="DsGetDcName(DnsSuffix)"/>
+    <string id="opcode_DsGetDcName(DnsSuffix)Failed" value="Failed"/>
+    <string id="task_DsGetDcName(Ds)" value="DsGetDcName(Ds)"/>
+    <string id="opcode_DsGetDcName(Ds)Failed" value="Failed"/>
+    <string id="task_DsGetDcName(RootDomainGuid)" value="DsGetDcName(RootDomainGuid)"/>
+    <string id="opcode_DsGetDcName(RootDomainGuid)Failed" value="Failed"/>
+    <string id="task_LdapAuthentication" value="LdapAuthentication"/>
+    <string id="opcode_LdapAuthenticationFailed" value="Failed"/>
+    <string id="task_ldap_connect" value="ldap_connect"/>
+    <string id="opcode_ldap_connectFailed" value="Failed"/>
+    <string id="task_ldap_bind" value="ldap_bind"/>
+    <string id="opcode_ldap_bindFailed" value="Failed"/>
+    <string id="task_Identifying" value="Identifying"/>
+    <string id="task_Identified" value="Identified"/>
+    <string id="task_Disconnect" value="Disconnect"/>
+    <string id="task_Interface" value="Interface"/>
+    <string id="opcode_InterfaceMediaConnect" value="MediaConnect"/>
+    <string id="opcode_InterfaceMediaDisconnect" value="MediaDisconnect"/>
+    <string id="task_PerftrackCancel" value="PerftrackCancel"/>
+    <string id="map_IdentificationStateMapIdentifying Network" value="Identifying Network"/>
+    <string id="map_IdentificationStateMapIdentified Network" value="Identified Network"/>
+    <string id="map_MibNotificationTypeMapMibAddInstance" value="MibAddInstance"/>
+    <string id="map_MibNotificationTypeMapMibDeleteInstance" value="MibDeleteInstance"/>
+    <string id="map_NlaStableStateMapNLA_STABLE_UNKNOWN" value="NLA_STABLE_UNKNOWN"/>
+    <string id="map_NlaStableStateMapNLA_STABLE_STABLE" value="NLA_STABLE_STABLE"/>
+    <string id="map_NlaStableStateMapNLA_STABLE_GAVE_UP" value="NLA_STABLE_GAVE_UP"/>
+    <string id="map_NlaStableStateMapNLA_STABLE_TRYING" value="NLA_STABLE_TRYING"/>
+    <string id="map_DsGetDcNameFlagsMapDS_FORCE_REDISCOVERY" value="DS_FORCE_REDISCOVERY"/>
+    <string id="map_DsGetDcNameFlagsMapDS_IS_FLAT_NAME" value="DS_IS_FLAT_NAME"/>
+    <string id="map_DsGetDcNameFlagsMapDS_IS_DNS_NAME" value="DS_IS_DNS_NAME"/>
+    <string id="map_DsGetDcNameFlagsMapDS_RETURN_DNS_NAME" value="DS_RETURN_DNS_NAME"/>
+    <string id="map_DsGetDcNameFlagsMapDS_RETURN_FLAT_NAME" value="DS_RETURN_FLAT_NAME"/>
+    <string id="map_SignatureSourceMapNLA_SIGNATURE_SOURCE_UNIDENTIFIED" value="NLA_SIGNATURE_SOURCE_UNIDENTIFIED"/>
+    <string id="map_SignatureSourceMapNLA_SIGNATURE_SOURCE_IDENTIFYING" value="NLA_SIGNATURE_SOURCE_IDENTIFYING"/>
+    <string id="map_SignatureSourceMapNLA_SIGNATURE_SOURCE_RANDOM" value="NLA_SIGNATURE_SOURCE_RANDOM"/>
+    <string id="map_SignatureSourceMapNLA_SIGNATURE_SOURCE_GATEWAY_MAC" value="NLA_SIGNATURE_SOURCE_GATEWAY_MAC"/>
+    <string id="map_SignatureSourceMapNLA_SIGNATURE_SOURCE_DOMAIN_GUID" value="NLA_SIGNATURE_SOURCE_DOMAIN_GUID"/>
+    <string id="map_SignatureSourceMapNLA_SIGNATURE_SOURCE_ROOT_DOMAIN_GUID" value="NLA_SIGNATURE_SOURCE_ROOT_DOMAIN_GUID"/>
+    <string id="map_SignatureSourceMapNLA_SIGNATURE_SOURCE_DOMAIN_NAME" value="NLA_SIGNATURE_SOURCE_DOMAIN_NAME"/>
+    <string id="map_SignatureSourceMapNLA_SIGNATURE_SOURCE_FOREST_NAME" value="NLA_SIGNATURE_SOURCE_FOREST_NAME"/>
+    <string id="map_SignatureSourceMapNLA_SIGNATURE_SOURCE_DNS_SUFFIX" value="NLA_SIGNATURE_SOURCE_DNS_SUFFIX"/>
+    <string id="map_SignatureSourceMapNLA_SIGNATURE_SOURCE_LOCAL_INTERFACE_ID" value="NLA_SIGNATURE_SOURCE_LOCAL_INTERFACE_ID"/>
+    <string id="map_SignatureSourceMapNLA_SIGNATURE_SOURCE_WLAN_SSID" value="NLA_SIGNATURE_SOURCE_WLAN_SSID"/>
+    <string id="map_SignatureSourceMapNLA_SIGNATURE_SOURCE_WLAN_PROFILE" value="NLA_SIGNATURE_SOURCE_WLAN_PROFILE"/>
+    <string id="map_SignatureSourceMapNLA_SIGNATURE_SOURCE_WWAN" value="NLA_SIGNATURE_SOURCE_WWAN"/>
+    <string id="map_SignatureSourceMapNLA_SIGNATURE_SOURCE_SECURITY_DOWNGRADE" value="NLA_SIGNATURE_SOURCE_SECURITY_DOWNGRADE"/>
+    <string id="map_SignatureSourceMapNLA_SIGNATURE_SOURCE_PRIVATE" value="NLA_SIGNATURE_SOURCE_PRIVATE"/>
+    <string id="map_SignatureSourceMapNLA_SIGNATURE_SOURCE_SECONDARY" value="NLA_SIGNATURE_SOURCE_SECONDARY"/>
+    <string id="map_AuthCapUnlikelyReasonMapLDAP has had no previous successes with the current combination of adapter addresses" value="LDAP has had no previous successes with the current combination of adapter addresses"/>
+    <string id="map_AuthCapUnlikelyReasonMapThis is the first LDAP attempt ever and a speculative timeout occurred" value="This is the first LDAP attempt ever and a speculative timeout occurred"/>
+    <string id="map_AuthCapUnlikelyReasonMapDS validation failed; there may not be a DC available on this network" value="DS validation failed; there may not be a DC available on this network"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

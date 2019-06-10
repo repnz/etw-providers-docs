@@ -1,0 +1,51 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-BootUX" guid="{67d781bd-cbd2-4bd2-ad1f-6152fb891246}" resourceFileName="Microsoft-Windows-BootUX" messageFileName="Microsoft-Windows-BootUX" symbol="MicrosoftWindowsBootUX" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="LaunchUX" message="$(string.task_LaunchUX)" value="1000"/>
+     <task name="SwapPage" message="$(string.task_SwapPage)" value="1002"/>
+     <task name="UserInteraction" message="$(string.task_UserInteraction)" value="1006"/>
+     <task name="PageConstruction" message="$(string.task_PageConstruction)" value="1008"/>
+    </tasks>
+    <events>
+     <event value="1000" symbol="LaunchUXStart" version="0" task="LaunchUX" opcode="win:Start" level="win:Informational"/>
+     <event value="1001" symbol="LaunchUXStop" version="0" task="LaunchUX" opcode="win:Stop" level="win:Informational"/>
+     <event value="1002" symbol="SwapPageStart" version="0" task="SwapPage" opcode="win:Start" level="win:Informational"/>
+     <event value="1003" symbol="SwapPageStop" version="0" task="SwapPage" opcode="win:Stop" level="win:Informational"/>
+     <event value="1004" symbol="task_0" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+     <event value="1005" symbol="task_01005" version="0" task="task_0" level="win:Informational" template="task_01005Args"/>
+     <event value="1006" symbol="UserInteractionStart" version="0" task="UserInteraction" opcode="win:Start" level="win:Informational"/>
+     <event value="1007" symbol="UserInteractionStop" version="0" task="UserInteraction" opcode="win:Stop" level="win:Informational"/>
+     <event value="1008" symbol="PageConstructionStart" version="0" task="PageConstruction" opcode="win:Start" level="win:Informational"/>
+     <event value="1009" symbol="PageConstructionStop" version="0" task="PageConstruction" opcode="win:Stop" level="win:Informational"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="UsingUSB" inType="win:Boolean"/>
+      <data name="success" inType="win:Boolean"/>
+      <data name="resultCode" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01005Args">
+      <data name="programCounter" inType="win:UInt64"/>
+      <data name="exceptionType" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_LaunchUX" value="LaunchUX"/>
+    <string id="task_SwapPage" value="SwapPage"/>
+    <string id="task_UserInteraction" value="UserInteraction"/>
+    <string id="task_PageConstruction" value="PageConstruction"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

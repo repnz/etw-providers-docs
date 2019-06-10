@@ -1,0 +1,475 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Runtime-Networking" guid="{6eb875eb-8f4a-4800-a00b-e484c97d7561}" resourceFileName="Microsoft-Windows-Runtime-Networking" messageFileName="Microsoft-Windows-Runtime-Networking" symbol="MicrosoftWindowsRuntimeNetworking" source="Xml" >
+    <keywords>
+     <keyword name="keywords.API" message="$(string.keyword_keywords.API)" mask="0x1"/>
+     <keyword name="keywords.AsyncOperation" message="$(string.keyword_keywords.AsyncOperation)" mask="0x2"/>
+     <keyword name="keywords.Socket" message="$(string.keyword_keywords.Socket)" mask="0x4"/>
+     <keyword name="keywords.WebSocket" message="$(string.keyword_keywords.WebSocket)" mask="0x8"/>
+     <keyword name="keywords.Http" message="$(string.keyword_keywords.Http)" mask="0x10"/>
+     <keyword name="keywords.Rtc" message="$(string.keyword_keywords.Rtc)" mask="0x20"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="APIs" message="$(string.task_APIs)" value="1">
+>
+      <opcodes>
+       <opcode name="APIEnter" message="$(string.opcode_APIsAPIEnter)" value="10"/>
+       <opcode name="APIExit" message="$(string.opcode_APIsAPIExit)" value="11"/>
+       <opcode name="RtcCompleteDelivery" message="$(string.opcode_APIsRtcCompleteDelivery)" value="29"/>
+       <opcode name="RtcFlush" message="$(string.opcode_APIsRtcFlush)" value="30"/>
+      </opcodes>
+     </task>
+     <task name="AsyncOperation" message="$(string.task_AsyncOperation)" value="2">
+>
+      <opcodes>
+       <opcode name="Asyncoperationstart" message="$(string.opcode_AsyncOperationAsyncoperationstart)" value="12"/>
+       <opcode name="Asyncoperationcomplete" message="$(string.opcode_AsyncOperationAsyncoperationcomplete)" value="13"/>
+       <opcode name="Asyncoperationfailure" message="$(string.opcode_AsyncOperationAsyncoperationfailure)" value="14"/>
+       <opcode name="Asyncoperationabort" message="$(string.opcode_AsyncOperationAsyncoperationabort)" value="15"/>
+       <opcode name="Asyncoperationclose" message="$(string.opcode_AsyncOperationAsyncoperationclose)" value="16"/>
+      </opcodes>
+     </task>
+     <task name="SocketConnect" message="$(string.task_SocketConnect)" value="4">
+>
+      <opcodes>
+       <opcode name="TCPconnected" message="$(string.opcode_SocketConnectTCPconnected)" value="28"/>
+      </opcodes>
+     </task>
+     <task name="SocketSend" message="$(string.task_SocketSend)" value="6">
+>
+      <opcodes>
+       <opcode name="Startwrite" message="$(string.opcode_SocketSendStartwrite)" value="24"/>
+       <opcode name="Writecomplete" message="$(string.opcode_SocketSendWritecomplete)" value="25"/>
+      </opcodes>
+     </task>
+     <task name="SocketReceive" message="$(string.task_SocketReceive)" value="7">
+>
+      <opcodes>
+       <opcode name="Processingafterread" message="$(string.opcode_SocketReceiveProcessingafterread)" value="20"/>
+       <opcode name="Startread" message="$(string.opcode_SocketReceiveStartread)" value="21"/>
+       <opcode name="Readcomplete" message="$(string.opcode_SocketReceiveReadcomplete)" value="22"/>
+       <opcode name="Readerror" message="$(string.opcode_SocketReceiveReaderror)" value="23"/>
+      </opcodes>
+     </task>
+     <task name="WebSocketConnect" message="$(string.task_WebSocketConnect)" value="9">
+>
+      <opcodes>
+       <opcode name="HTTPoperation" message="$(string.opcode_WebSocketConnectHTTPoperation)" value="19"/>
+      </opcodes>
+     </task>
+     <task name="WebSocketSend" message="$(string.task_WebSocketSend)" value="10">
+>
+      <opcodes>
+       <opcode name="Startwrite" message="$(string.opcode_WebSocketSendStartwrite)" value="24"/>
+      </opcodes>
+     </task>
+     <task name="WebSocketReceive" message="$(string.task_WebSocketReceive)" value="11">
+>
+      <opcodes>
+       <opcode name="Processingafterread" message="$(string.opcode_WebSocketReceiveProcessingafterread)" value="20"/>
+       <opcode name="Startread" message="$(string.opcode_WebSocketReceiveStartread)" value="21"/>
+       <opcode name="Readerror" message="$(string.opcode_WebSocketReceiveReaderror)" value="23"/>
+      </opcodes>
+     </task>
+     <task name="SocketIO" message="$(string.task_SocketIO)" value="14">
+>
+      <opcodes>
+       <opcode name="I/Oerror" message="$(string.opcode_SocketIOI/Oerror)" value="27"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <maps>
+     <valueMap name="AsyncOperationNameType">
+      <map value="0x1" message="$(string.map_AsyncOperationNameTypeConnectOperation)"/>
+      <map value="0x2" message="$(string.map_AsyncOperationNameTypeReadOperation)"/>
+      <map value="0x3" message="$(string.map_AsyncOperationNameTypeWriteOperation)"/>
+      <map value="0x4" message="$(string.map_AsyncOperationNameTypeListenOperation)"/>
+      <map value="0x5" message="$(string.map_AsyncOperationNameTypeAcceptOperation)"/>
+      <map value="0x6" message="$(string.map_AsyncOperationNameTypeUpgradeOperation)"/>
+      <map value="0x7" message="$(string.map_AsyncOperationNameTypeGetEndpointPairsOperation)"/>
+      <map value="0x8" message="$(string.map_AsyncOperationNameTypeGetOutputStreamOperation)"/>
+     </valueMap>
+     <valueMap name="ApiNameType">
+      <map value="0x1" message="$(string.map_ApiNameTypeAcceptAsync)"/>
+      <map value="0x2" message="$(string.map_ApiNameTypeBindServiceNameAsync)"/>
+      <map value="0x3" message="$(string.map_ApiNameTypeConnectAsync)"/>
+      <map value="0x4" message="$(string.map_ApiNameTypeReadAsync)"/>
+      <map value="0x5" message="$(string.map_ApiNameTypeWriteAsync)"/>
+      <map value="0x6" message="$(string.map_ApiNameTypeJoinMulticastGroup)"/>
+      <map value="0x7" message="$(string.map_ApiNameTypeUpgradeToSslAsync)"/>
+      <map value="0x8" message="$(string.map_ApiNameTypeGetEndpointPairsAsync)"/>
+      <map value="0x9" message="$(string.map_ApiNameTypeGetOutputStreamAsync)"/>
+      <map value="0xa" message="$(string.map_ApiNameTypeCompleteDelivery)"/>
+      <map value="0xb" message="$(string.map_ApiNameTypeFlush)"/>
+      <map value="0xc" message="$(string.map_ApiNameTypeFlushAsync)"/>
+      <map value="0xd" message="$(string.map_ApiNameTypeSendFinalFrameAsync)"/>
+      <map value="0xe" message="$(string.map_ApiNameTypeSendNonfinalFrameAsync)"/>
+     </valueMap>
+     <valueMap name="RuntimeClassNameType">
+      <map value="0x1" message="$(string.map_RuntimeClassNameTypeStreamSocket)"/>
+      <map value="0x2" message="$(string.map_RuntimeClassNameTypeStreamSocketInputStream)"/>
+      <map value="0x3" message="$(string.map_RuntimeClassNameTypeStreamSocketOutputStream)"/>
+      <map value="0x4" message="$(string.map_RuntimeClassNameTypeDatagramSocket)"/>
+      <map value="0x5" message="$(string.map_RuntimeClassNameTypeDatagramSocketOutputStream)"/>
+      <map value="0x6" message="$(string.map_RuntimeClassNameTypeDatagramSocketWriteToOutputStream)"/>
+      <map value="0x7" message="$(string.map_RuntimeClassNameTypeMessageWebSocket)"/>
+      <map value="0x8" message="$(string.map_RuntimeClassNameTypeStreamWebSocket)"/>
+      <map value="0x9" message="$(string.map_RuntimeClassNameTypeStreamWebSocketInputStream)"/>
+      <map value="0xa" message="$(string.map_RuntimeClassNameTypeWebSocketOutputStream)"/>
+      <map value="0xb" message="$(string.map_RuntimeClassNameTypeStreamSocketListener)"/>
+      <map value="0xc" message="$(string.map_RuntimeClassNameTypeDatagramSocketInputStream)"/>
+     </valueMap>
+     <valueMap name="TcpConnectorType">
+      <map value="0x1" message="$(string.map_TcpConnectorTypeDirect)"/>
+      <map value="0x2" message="$(string.map_TcpConnectorTypeProxy)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="AsyncOperationAsyncoperationstart" version="0" task="AsyncOperation" opcode="Asyncoperationstart" level="win:Informational" keywords="keywords.AsyncOperation" template="AsyncOperationAsyncoperationstartArgs"/>
+     <event value="2" symbol="AsyncOperationAsyncoperationfailure" version="0" task="AsyncOperation" opcode="Asyncoperationfailure" level="win:Error" keywords="keywords.AsyncOperation" template="AsyncOperationAsyncoperationfailureArgs"/>
+     <event value="3" symbol="AsyncOperationAsyncoperationcomplete" version="0" task="AsyncOperation" opcode="Asyncoperationcomplete" level="win:Informational" keywords="keywords.AsyncOperation" template="AsyncOperationAsyncoperationcompleteArgs"/>
+     <event value="4" symbol="AsyncOperationAsyncoperationfailure4" version="0" task="AsyncOperation" opcode="Asyncoperationfailure" level="win:Error" keywords="keywords.AsyncOperation" template="AsyncOperationAsyncoperationfailureArgs"/>
+     <event value="5" symbol="AsyncOperationAsyncoperationabort" version="0" task="AsyncOperation" opcode="Asyncoperationabort" level="win:Informational" keywords="keywords.AsyncOperation" template="AsyncOperationAsyncoperationcompleteArgs"/>
+     <event value="6" symbol="AsyncOperationAsyncoperationclose" version="0" task="AsyncOperation" opcode="Asyncoperationclose" level="win:Informational" keywords="keywords.AsyncOperation" template="AsyncOperationAsyncoperationcompleteArgs"/>
+     <event value="7" symbol="WebSocketConnectHTTPoperation" version="0" task="WebSocketConnect" opcode="HTTPoperation" level="win:Warning" keywords="keywords.Http" template="WebSocketConnectHTTPoperationArgs"/>
+     <event value="8" symbol="WebSocketConnectHTTPoperation8" version="0" task="WebSocketConnect" opcode="HTTPoperation" level="win:Warning" keywords="keywords.Http" template="WebSocketConnectHTTPoperation8Args"/>
+     <event value="9" symbol="WebSocketConnectHTTPoperation9" version="0" task="WebSocketConnect" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="WebSocketConnectHTTPoperation8Args"/>
+     <event value="10" symbol="WebSocketConnectHTTPoperation10" version="0" task="WebSocketConnect" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="WebSocketConnectHTTPoperation8Args"/>
+     <event value="11" symbol="WebSocketConnectHTTPoperation11" version="0" task="WebSocketConnect" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="WebSocketConnectHTTPoperationArgs"/>
+     <event value="12" symbol="WebSocketConnectHTTPoperation12" version="0" task="WebSocketConnect" opcode="HTTPoperation" level="win:Error" keywords="keywords.Http" template="WebSocketConnectHTTPoperation12Args"/>
+     <event value="13" symbol="WebSocketConnectHTTPoperation13" version="0" task="WebSocketConnect" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="WebSocketConnectHTTPoperation13Args"/>
+     <event value="14" symbol="WebSocketConnectHTTPoperation14" version="0" task="WebSocketConnect" opcode="HTTPoperation" level="win:Error" keywords="keywords.Http" template="WebSocketConnectHTTPoperation12Args"/>
+     <event value="15" symbol="WebSocketConnectHTTPoperation15" version="0" task="WebSocketConnect" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="WebSocketConnectHTTPoperation15Args"/>
+     <event value="16" symbol="WebSocketConnectHTTPoperation16" version="0" task="WebSocketConnect" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="WebSocketConnectHTTPoperation16Args"/>
+     <event value="17" symbol="WebSocketConnectHTTPoperation17" version="0" task="WebSocketConnect" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="WebSocketConnectHTTPoperation16Args"/>
+     <event value="18" symbol="WebSocketConnectHTTPoperation18" version="0" task="WebSocketConnect" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="WebSocketConnectHTTPoperation18Args"/>
+     <event value="19" symbol="WebSocketConnectHTTPoperation19" version="0" task="WebSocketConnect" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="WebSocketConnectHTTPoperation18Args"/>
+     <event value="20" symbol="WebSocketConnectHTTPoperation20" version="0" task="WebSocketConnect" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="WebSocketConnectHTTPoperation16Args"/>
+     <event value="21" symbol="WebSocketConnectHTTPoperation21" version="0" task="WebSocketConnect" opcode="HTTPoperation" level="win:Error" keywords="keywords.Http" template="WebSocketConnectHTTPoperation21Args"/>
+     <event value="22" symbol="WebSocketConnectHTTPoperation22" version="0" task="WebSocketConnect" opcode="HTTPoperation" level="win:Verbose" keywords="keywords.Http" template="WebSocketConnectHTTPoperation22Args"/>
+     <event value="23" symbol="WebSocketConnectHTTPoperation23" version="0" task="WebSocketConnect" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="WebSocketConnectHTTPoperation18Args"/>
+     <event value="24" symbol="WebSocketConnectHTTPoperation24" version="0" task="WebSocketConnect" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="WebSocketConnectHTTPoperation24Args"/>
+     <event value="25" symbol="WebSocketConnectHTTPoperation25" version="0" task="WebSocketConnect" opcode="HTTPoperation" level="win:Verbose" keywords="keywords.Http" template="WebSocketConnectHTTPoperation22Args"/>
+     <event value="26" symbol="WebSocketConnectHTTPoperation26" version="0" task="WebSocketConnect" opcode="HTTPoperation" level="win:Error" keywords="keywords.Http" template="WebSocketConnectHTTPoperation21Args"/>
+     <event value="27" symbol="WebSocketConnectHTTPoperation27" version="0" task="WebSocketConnect" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="WebSocketConnectHTTPoperation27Args"/>
+     <event value="28" symbol="WebSocketConnectHTTPoperation28" version="0" task="WebSocketConnect" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="WebSocketConnectHTTPoperation18Args"/>
+     <event value="29" symbol="WebSocketConnectHTTPoperation29" version="0" task="WebSocketConnect" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="WebSocketConnectHTTPoperation22Args"/>
+     <event value="30" symbol="WebSocketConnectHTTPoperation30" version="0" task="WebSocketConnect" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="WebSocketConnectHTTPoperation18Args"/>
+     <event value="31" symbol="WebSocketConnectHTTPoperation31" version="0" task="WebSocketConnect" opcode="HTTPoperation" level="win:Informational" keywords="keywords.Http" template="WebSocketConnectHTTPoperation31Args"/>
+     <event value="32" symbol="WebSocketConnectHTTPoperation32" version="0" task="WebSocketConnect" opcode="HTTPoperation" level="win:Error" keywords="keywords.Http" template="WebSocketConnectHTTPoperation32Args"/>
+     <event value="33" symbol="WebSocketConnectHTTPoperation33" version="0" task="WebSocketConnect" opcode="HTTPoperation" level="win:Error" keywords="keywords.Http" template="WebSocketConnectHTTPoperation33Args"/>
+     <event value="34" symbol="APIsAPIEnter" version="0" task="APIs" opcode="APIEnter" level="win:Verbose" keywords="keywords.API" template="APIsAPIEnterArgs"/>
+     <event value="35" symbol="APIsAPIExit" version="0" task="APIs" opcode="APIExit" level="win:Verbose" keywords="keywords.API" template="APIsAPIExitArgs"/>
+     <event value="36" symbol="APIsAPIExit36" version="0" task="APIs" opcode="APIExit" level="win:Error" keywords="keywords.API" template="APIsAPIExit36Args"/>
+     <event value="37" symbol="APIsAPIExit37" version="0" task="APIs" opcode="APIExit" level="win:Error" keywords="keywords.API" template="APIsAPIExit37Args"/>
+     <event value="38" symbol="APIsAPIExit38" version="0" task="APIs" opcode="APIExit" level="win:Informational" keywords="keywords.API" template="WebSocketConnectHTTPoperation21Args"/>
+     <event value="39" symbol="APIsAPIExit39" version="0" task="APIs" opcode="APIExit" level="win:Informational" keywords="keywords.API" template="WebSocketConnectHTTPoperation21Args"/>
+     <event value="40" symbol="SocketReceiveProcessingafterread" version="0" task="SocketReceive" opcode="Processingafterread" level="win:Error" keywords="keywords.Socket" template="SocketReceiveProcessingafterreadArgs"/>
+     <event value="41" symbol="SocketReceiveProcessingafterread41" version="0" task="SocketReceive" opcode="Processingafterread" level="win:Informational" keywords="keywords.Socket" template="SocketReceiveProcessingafterread41Args"/>
+     <event value="42" symbol="SocketReceiveStartread" version="0" task="SocketReceive" opcode="Startread" level="win:Informational" keywords="keywords.Socket" template="SocketReceiveStartreadArgs"/>
+     <event value="43" symbol="SocketReceiveReaderror" version="0" task="SocketReceive" opcode="Readerror" level="win:Error" keywords="keywords.Socket" template="SocketReceiveProcessingafterreadArgs"/>
+     <event value="44" symbol="SocketReceiveStartread44" version="0" task="SocketReceive" opcode="Startread" level="win:Informational" keywords="keywords.Socket" template="SocketReceiveStartread44Args"/>
+     <event value="45" symbol="SocketReceiveStartread45" version="0" task="SocketReceive" opcode="Startread" level="win:Informational" keywords="keywords.Socket" template="SocketReceiveStartread45Args"/>
+     <event value="46" symbol="SocketReceiveReadcomplete" version="0" task="SocketReceive" opcode="Readcomplete" level="win:Informational" keywords="keywords.Socket" template="SocketReceiveReadcompleteArgs"/>
+     <event value="47" symbol="SocketConnectTCPconnected" version="0" task="SocketConnect" opcode="TCPconnected" level="win:Informational" keywords="keywords.Socket" template="SocketConnectTCPconnectedArgs"/>
+     <event value="48" symbol="SocketConnectTCPconnected48" version="0" task="SocketConnect" opcode="TCPconnected" level="win:Informational" keywords="keywords.Socket" template="SocketConnectTCPconnected48Args"/>
+     <event value="49" symbol="SocketReceiveProcessingafterread49" version="0" task="SocketReceive" opcode="Processingafterread" level="win:Warning" keywords="keywords.Socket" template="SocketConnectTCPconnected48Args"/>
+     <event value="50" symbol="SocketSendWritecomplete" version="0" task="SocketSend" opcode="Writecomplete" level="win:Informational" keywords="keywords.Socket" template="SocketReceiveReadcompleteArgs"/>
+     <event value="51" symbol="SocketSendStartwrite" version="0" task="SocketSend" opcode="Startwrite" level="win:Informational" keywords="keywords.Socket" template="SocketReceiveStartread44Args"/>
+     <event value="52" symbol="WebSocketReceiveProcessingafterread" version="0" task="WebSocketReceive" opcode="Processingafterread" level="win:Informational" keywords="keywords.WebSocket" template="WebSocketConnectHTTPoperation18Args"/>
+     <event value="53" symbol="WebSocketReceiveProcessingafterread53" version="0" task="WebSocketReceive" opcode="Processingafterread" level="win:Informational" keywords="keywords.WebSocket" template="WebSocketConnectHTTPoperation16Args"/>
+     <event value="54" symbol="WebSocketReceiveReaderror" version="0" task="WebSocketReceive" opcode="Readerror" level="win:Error" keywords="keywords.WebSocket" template="SocketReceiveProcessingafterreadArgs"/>
+     <event value="55" symbol="WebSocketReceiveProcessingafterread55" version="0" task="WebSocketReceive" opcode="Processingafterread" level="win:Error" keywords="keywords.WebSocket" template="SocketReceiveProcessingafterreadArgs"/>
+     <event value="57" symbol="WebSocketSendStartwrite" version="0" task="WebSocketSend" opcode="Startwrite" level="win:Informational" keywords="keywords.WebSocket" template="WebSocketConnectHTTPoperation18Args"/>
+     <event value="58" symbol="WebSocketReceiveStartread" version="0" task="WebSocketReceive" opcode="Startread" level="win:Informational" keywords="keywords.WebSocket" template="WebSocketConnectHTTPoperation24Args"/>
+     <event value="59" symbol="SocketIOI/Oerror" version="0" task="SocketIO" opcode="I/Oerror" level="win:Warning" keywords="keywords.Socket" template="SocketReceiveProcessingafterreadArgs"/>
+     <event value="60" symbol="SocketSendWritecomplete60" version="0" task="SocketSend" opcode="Writecomplete" level="win:Informational" keywords="keywords.Socket" template="SocketReceiveReadcompleteArgs"/>
+     <event value="61" symbol="SocketSendStartwrite61" version="0" task="SocketSend" opcode="Startwrite" level="win:Informational" keywords="keywords.Socket" template="SocketReceiveStartread44Args"/>
+     <event value="62" symbol="APIsRtcCompleteDelivery" version="0" task="APIs" opcode="RtcCompleteDelivery" level="win:Informational" keywords="keywords.Rtc" template="APIsRtcCompleteDeliveryArgs"/>
+     <event value="63" symbol="APIsRtcCompleteDelivery63" version="0" task="APIs" opcode="RtcCompleteDelivery" level="win:Informational" keywords="keywords.Rtc" template="APIsRtcCompleteDelivery63Args"/>
+     <event value="64" symbol="APIsRtcFlush" version="0" task="APIs" opcode="RtcFlush" level="win:Informational" keywords="keywords.Rtc" template="APIsRtcCompleteDeliveryArgs"/>
+     <event value="65" symbol="APIsRtcFlush65" version="0" task="APIs" opcode="RtcFlush" level="win:Informational" keywords="keywords.Rtc" template="APIsRtcCompleteDeliveryArgs"/>
+     <event value="66" symbol="SocketConnect" version="0" task="SocketConnect" level="win:Informational" keywords="keywords.Socket" template="SocketConnectArgs"/>
+     <event value="67" symbol="SocketConnect67" version="0" task="SocketConnect" level="win:Informational" keywords="keywords.Socket" template="SocketConnect67Args"/>
+     <event value="68" symbol="SocketConnect68" version="0" task="SocketConnect" level="win:Informational" keywords="keywords.Socket" template="SocketConnect68Args"/>
+     <event value="69" symbol="SocketConnect69" version="0" task="SocketConnect" level="win:Informational" keywords="keywords.Socket" template="SocketConnect69Args"/>
+     <event value="70" symbol="SocketConnect70" version="0" task="SocketConnect" level="win:Informational" keywords="keywords.Socket" template="SocketConnect70Args"/>
+     <event value="71" symbol="SocketIOI/Oerror71" version="0" task="SocketIO" opcode="I/Oerror" level="win:Error" keywords="keywords.Socket" template="SocketReceiveProcessingafterreadArgs"/>
+     <event value="72" symbol="WebSocketConnect" version="0" task="WebSocketConnect" level="win:Informational" template="WebSocketConnectHTTPoperation18Args"/>
+     <event value="73" symbol="task_0" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+     <event value="74" symbol="WebSocketConnect74" version="0" task="WebSocketConnect" level="win:Informational" template="AsyncOperationAsyncoperationcompleteArgs"/>
+     <event value="75" symbol="WebSocketConnect75" version="0" task="WebSocketConnect" level="win:Informational" template="AsyncOperationAsyncoperationcompleteArgs"/>
+     <event value="76" symbol="WebSocketConnect76" version="0" task="WebSocketConnect" level="win:Error" template="AsyncOperationAsyncoperationcompleteArgs"/>
+     <event value="77" symbol="WebSocketConnect77" version="0" task="WebSocketConnect" level="win:Informational" template="AsyncOperationAsyncoperationcompleteArgs"/>
+    </events>
+    <templates>
+     <template tid="AsyncOperationAsyncoperationstartArgs">
+      <data name="asyncOperation" inType="win:UInt32" map="AsyncOperationNameType"/>
+      <data name="asyncObject" inType="win:Pointer"/>
+     </template>
+     <template tid="AsyncOperationAsyncoperationfailureArgs">
+      <data name="asyncOperation" inType="win:UInt32"/>
+      <data name="asyncObject" inType="win:Pointer"/>
+      <data name="errorCode" inType="win:UInt32"/>
+      <data name="hresult" inType="win:Int32"/>
+     </template>
+     <template tid="AsyncOperationAsyncoperationcompleteArgs">
+      <data name="asyncOperation" inType="win:UInt32"/>
+      <data name="asyncObject" inType="win:Pointer"/>
+     </template>
+     <template tid="WebSocketConnectHTTPoperationArgs">
+      <data name="uri" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WebSocketConnectHTTPoperation8Args">
+      <data name="str1" inType="win:UnicodeString"/>
+      <data name="str2" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WebSocketConnectHTTPoperation12Args">
+      <data name="uri" inType="win:UnicodeString"/>
+      <data name="port" inType="win:UInt32"/>
+      <data name="errorCode" inType="win:UInt32"/>
+      <data name="errorMessage" inType="win:UInt32"/>
+     </template>
+     <template tid="WebSocketConnectHTTPoperation13Args">
+      <data name="str1" inType="win:UnicodeString"/>
+      <data name="str2" inType="win:UnicodeString"/>
+      <data name="flags" inType="win:HexInt32"/>
+     </template>
+     <template tid="WebSocketConnectHTTPoperation15Args">
+      <data name="obj1" inType="win:Pointer"/>
+      <data name="obj2" inType="win:Pointer"/>
+      <data name="uri" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WebSocketConnectHTTPoperation16Args">
+      <data name="obj" inType="win:Pointer"/>
+      <data name="length" inType="win:UInt32"/>
+     </template>
+     <template tid="WebSocketConnectHTTPoperation18Args">
+      <data name="obj" inType="win:Pointer"/>
+     </template>
+     <template tid="WebSocketConnectHTTPoperation21Args">
+      <data name="obj" inType="win:Pointer"/>
+      <data name="errorCode" inType="win:UInt32"/>
+      <data name="errorMessage" inType="win:UInt32"/>
+     </template>
+     <template tid="WebSocketConnectHTTPoperation22Args">
+      <data name="obj" inType="win:Pointer"/>
+      <data name="statusDescription" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WebSocketConnectHTTPoperation24Args">
+      <data name="obj" inType="win:Pointer"/>
+      <data name="statusCode" inType="win:UInt32"/>
+      <data name="statusDescription" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WebSocketConnectHTTPoperation27Args">
+      <data name="obj" inType="win:Pointer"/>
+      <data name="length" inType="win:UInt32"/>
+      <data name="limit" inType="win:UInt32"/>
+     </template>
+     <template tid="WebSocketConnectHTTPoperation31Args">
+      <data name="statusDescription" inType="win:UnicodeString"/>
+      <data name="int1" inType="win:UInt32"/>
+      <data name="int2" inType="win:UInt32"/>
+      <data name="int3" inType="win:UInt32"/>
+      <data name="int4" inType="win:UInt32"/>
+     </template>
+     <template tid="WebSocketConnectHTTPoperation32Args">
+      <data name="uri" inType="win:UnicodeString"/>
+      <data name="hresult" inType="win:UInt32"/>
+      <data name="errorMessage" inType="win:Int32"/>
+     </template>
+     <template tid="WebSocketConnectHTTPoperation33Args">
+      <data name="asyncOperation" inType="win:UInt32"/>
+      <data name="asyncObject" inType="win:Pointer"/>
+      <data name="response" inType="win:UnicodeString"/>
+      <data name="errorCode" inType="win:UInt32"/>
+      <data name="hresult" inType="win:Int32"/>
+     </template>
+     <template tid="APIsAPIEnterArgs">
+      <data name="runtimeClass" inType="win:UInt32"/>
+      <data name="api" inType="win:UInt32" map="ApiNameType"/>
+     </template>
+     <template tid="APIsAPIExitArgs">
+      <data name="runtimeClass" inType="win:UInt32"/>
+      <data name="api" inType="win:UInt32"/>
+     </template>
+     <template tid="APIsAPIExit36Args">
+      <data name="runtimeClass" inType="win:UInt32" map="RuntimeClassNameType"/>
+      <data name="api" inType="win:UInt32"/>
+      <data name="hresult" inType="win:UInt32"/>
+      <data name="errorMessage" inType="win:Int32"/>
+     </template>
+     <template tid="APIsAPIExit37Args">
+      <data name="win32Api" inType="win:UInt32"/>
+      <data name="error" inType="win:UInt32"/>
+      <data name="errorMessage" inType="win:UInt32"/>
+     </template>
+     <template tid="SocketReceiveProcessingafterreadArgs">
+      <data name="obj" inType="win:Pointer"/>
+      <data name="hresult" inType="win:UInt32"/>
+      <data name="errorMessage" inType="win:Int32"/>
+     </template>
+     <template tid="SocketReceiveProcessingafterread41Args">
+      <data name="obj" inType="win:Pointer"/>
+      <data name="bytesRead" inType="win:UInt32"/>
+      <data name="size" inType="win:UInt32"/>
+      <data name="address" inType="win:Binary" length="size"/>
+     </template>
+     <template tid="SocketReceiveStartreadArgs">
+      <data name="obj" inType="win:Pointer"/>
+      <data name="handle" inType="win:Pointer"/>
+     </template>
+     <template tid="SocketReceiveStartread44Args">
+      <data name="asyncOperation" inType="win:UInt32"/>
+      <data name="obj" inType="win:Pointer"/>
+      <data name="length" inType="win:UInt32"/>
+      <data name="handle" inType="win:Pointer"/>
+     </template>
+     <template tid="SocketReceiveStartread45Args">
+      <data name="asyncOperation" inType="win:UInt32"/>
+      <data name="obj" inType="win:Pointer"/>
+      <data name="read" inType="win:UInt32"/>
+      <data name="length" inType="win:UInt32"/>
+     </template>
+     <template tid="SocketReceiveReadcompleteArgs">
+      <data name="asyncOperation" inType="win:UInt32"/>
+      <data name="obj" inType="win:Pointer"/>
+      <data name="length" inType="win:UInt32"/>
+     </template>
+     <template tid="SocketConnectTCPconnectedArgs">
+      <data name="obj" inType="win:Pointer"/>
+      <data name="port1" inType="win:UnicodeString"/>
+      <data name="ip" inType="win:UnicodeString"/>
+      <data name="port2" inType="win:UnicodeString"/>
+     </template>
+     <template tid="SocketConnectTCPconnected48Args">
+      <data name="obj" inType="win:Pointer"/>
+      <data name="size" inType="win:UInt32"/>
+      <data name="address" inType="win:Binary" length="size"/>
+     </template>
+     <template tid="APIsRtcCompleteDeliveryArgs">
+      <data name="runtimeClass" inType="win:UInt32"/>
+      <data name="pendingOperations" inType="win:UInt32"/>
+     </template>
+     <template tid="APIsRtcCompleteDelivery63Args">
+      <data name="runtimeClass" inType="win:UInt32"/>
+      <data name="pendingOperations" inType="win:UInt32"/>
+      <data name="winsockPendingOperations" inType="win:UInt32"/>
+      <data name="winsockDataAvailable" inType="win:Boolean"/>
+     </template>
+     <template tid="SocketConnectArgs">
+      <data name="connectorType" inType="win:UInt32" map="TcpConnectorType"/>
+     </template>
+     <template tid="SocketConnect67Args">
+      <data name="value" inType="win:UnicodeString"/>
+      <data name="resolutionResult" inType="win:UInt32"/>
+     </template>
+     <template tid="SocketConnect68Args">
+      <data name="value" inType="win:UnicodeString"/>
+      <data name="errorCode" inType="win:UInt32"/>
+      <data name="errorMessage" inType="win:UInt32"/>
+     </template>
+     <template tid="SocketConnect69Args">
+      <data name="errorCount" inType="win:UInt32"/>
+      <data name="errorList" inType="win:UInt32" count="errorCount"/>
+     </template>
+     <template tid="SocketConnect70Args">
+      <data name="certificateThumbprint" inType="win:UnicodeString"/>
+      <data name="hasFatalError" inType="win:Boolean"/>
+      <data name="errorCount" inType="win:UInt32"/>
+      <data name="errorList" inType="win:UInt32" count="errorCount"/>
+      <data name="intermediateCertificatesCount" inType="win:UInt32"/>
+      <data name="intermediateCertificatesList" inType="win:UnicodeString" count="intermediateCertificatesCount"/>
+     </template>
+     <template tid="task_0Args">
+      <data name="functionName" inType="win:AnsiString"/>
+      <data name="lineNumber" inType="win:Int32"/>
+      <data name="status" inType="win:Int32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_keywords.API" value="keywords.API"/>
+    <string id="keyword_keywords.AsyncOperation" value="keywords.AsyncOperation"/>
+    <string id="keyword_keywords.Socket" value="keywords.Socket"/>
+    <string id="keyword_keywords.WebSocket" value="keywords.WebSocket"/>
+    <string id="keyword_keywords.Http" value="keywords.Http"/>
+    <string id="keyword_keywords.Rtc" value="keywords.Rtc"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_APIs" value="APIs"/>
+    <string id="opcode_APIsAPIEnter" value="APIEnter"/>
+    <string id="opcode_APIsAPIExit" value="APIExit"/>
+    <string id="opcode_APIsRtcCompleteDelivery" value="RtcCompleteDelivery"/>
+    <string id="opcode_APIsRtcFlush" value="RtcFlush"/>
+    <string id="task_AsyncOperation" value="AsyncOperation"/>
+    <string id="opcode_AsyncOperationAsyncoperationstart" value="Asyncoperationstart"/>
+    <string id="opcode_AsyncOperationAsyncoperationcomplete" value="Asyncoperationcomplete"/>
+    <string id="opcode_AsyncOperationAsyncoperationfailure" value="Asyncoperationfailure"/>
+    <string id="opcode_AsyncOperationAsyncoperationabort" value="Asyncoperationabort"/>
+    <string id="opcode_AsyncOperationAsyncoperationclose" value="Asyncoperationclose"/>
+    <string id="task_SocketConnect" value="SocketConnect"/>
+    <string id="opcode_SocketConnectTCPconnected" value="TCPconnected"/>
+    <string id="task_SocketSend" value="SocketSend"/>
+    <string id="opcode_SocketSendStartwrite" value="Startwrite"/>
+    <string id="opcode_SocketSendWritecomplete" value="Writecomplete"/>
+    <string id="task_SocketReceive" value="SocketReceive"/>
+    <string id="opcode_SocketReceiveProcessingafterread" value="Processingafterread"/>
+    <string id="opcode_SocketReceiveStartread" value="Startread"/>
+    <string id="opcode_SocketReceiveReadcomplete" value="Readcomplete"/>
+    <string id="opcode_SocketReceiveReaderror" value="Readerror"/>
+    <string id="task_WebSocketConnect" value="WebSocketConnect"/>
+    <string id="opcode_WebSocketConnectHTTPoperation" value="HTTPoperation"/>
+    <string id="task_WebSocketSend" value="WebSocketSend"/>
+    <string id="opcode_WebSocketSendStartwrite" value="Startwrite"/>
+    <string id="task_WebSocketReceive" value="WebSocketReceive"/>
+    <string id="opcode_WebSocketReceiveProcessingafterread" value="Processingafterread"/>
+    <string id="opcode_WebSocketReceiveStartread" value="Startread"/>
+    <string id="opcode_WebSocketReceiveReaderror" value="Readerror"/>
+    <string id="task_SocketIO" value="SocketIO"/>
+    <string id="opcode_SocketIOI/Oerror" value="I/Oerror"/>
+    <string id="map_AsyncOperationNameTypeConnectOperation" value="ConnectOperation"/>
+    <string id="map_AsyncOperationNameTypeReadOperation" value="ReadOperation"/>
+    <string id="map_AsyncOperationNameTypeWriteOperation" value="WriteOperation"/>
+    <string id="map_AsyncOperationNameTypeListenOperation" value="ListenOperation"/>
+    <string id="map_AsyncOperationNameTypeAcceptOperation" value="AcceptOperation"/>
+    <string id="map_AsyncOperationNameTypeUpgradeOperation" value="UpgradeOperation"/>
+    <string id="map_AsyncOperationNameTypeGetEndpointPairsOperation" value="GetEndpointPairsOperation"/>
+    <string id="map_AsyncOperationNameTypeGetOutputStreamOperation" value="GetOutputStreamOperation"/>
+    <string id="map_ApiNameTypeAcceptAsync" value="AcceptAsync"/>
+    <string id="map_ApiNameTypeBindServiceNameAsync" value="BindServiceNameAsync"/>
+    <string id="map_ApiNameTypeConnectAsync" value="ConnectAsync"/>
+    <string id="map_ApiNameTypeReadAsync" value="ReadAsync"/>
+    <string id="map_ApiNameTypeWriteAsync" value="WriteAsync"/>
+    <string id="map_ApiNameTypeJoinMulticastGroup" value="JoinMulticastGroup"/>
+    <string id="map_ApiNameTypeUpgradeToSslAsync" value="UpgradeToSslAsync"/>
+    <string id="map_ApiNameTypeGetEndpointPairsAsync" value="GetEndpointPairsAsync"/>
+    <string id="map_ApiNameTypeGetOutputStreamAsync" value="GetOutputStreamAsync"/>
+    <string id="map_ApiNameTypeCompleteDelivery" value="CompleteDelivery"/>
+    <string id="map_ApiNameTypeFlush" value="Flush"/>
+    <string id="map_ApiNameTypeFlushAsync" value="FlushAsync"/>
+    <string id="map_ApiNameTypeSendFinalFrameAsync" value="SendFinalFrameAsync"/>
+    <string id="map_ApiNameTypeSendNonfinalFrameAsync" value="SendNonfinalFrameAsync"/>
+    <string id="map_RuntimeClassNameTypeStreamSocket" value="StreamSocket"/>
+    <string id="map_RuntimeClassNameTypeStreamSocketInputStream" value="StreamSocketInputStream"/>
+    <string id="map_RuntimeClassNameTypeStreamSocketOutputStream" value="StreamSocketOutputStream"/>
+    <string id="map_RuntimeClassNameTypeDatagramSocket" value="DatagramSocket"/>
+    <string id="map_RuntimeClassNameTypeDatagramSocketOutputStream" value="DatagramSocketOutputStream"/>
+    <string id="map_RuntimeClassNameTypeDatagramSocketWriteToOutputStream" value="DatagramSocketWriteToOutputStream"/>
+    <string id="map_RuntimeClassNameTypeMessageWebSocket" value="MessageWebSocket"/>
+    <string id="map_RuntimeClassNameTypeStreamWebSocket" value="StreamWebSocket"/>
+    <string id="map_RuntimeClassNameTypeStreamWebSocketInputStream" value="StreamWebSocketInputStream"/>
+    <string id="map_RuntimeClassNameTypeWebSocketOutputStream" value="WebSocketOutputStream"/>
+    <string id="map_RuntimeClassNameTypeStreamSocketListener" value="StreamSocketListener"/>
+    <string id="map_RuntimeClassNameTypeDatagramSocketInputStream" value="DatagramSocketInputStream"/>
+    <string id="map_TcpConnectorTypeDirect" value="Direct"/>
+    <string id="map_TcpConnectorTypeProxy" value="Proxy"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

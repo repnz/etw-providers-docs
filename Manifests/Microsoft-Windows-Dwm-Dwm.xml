@@ -1,0 +1,123 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Dwm-Dwm" guid="{d29d56ea-4867-4221-b02e-cfd998834075}" resourceFileName="Microsoft-Windows-Dwm-Dwm" messageFileName="Microsoft-Windows-Dwm-Dwm" symbol="MicrosoftWindowsDwmDwm" source="Xml" >
+    <keywords>
+     <keyword name="DwmExe" message="$(string.keyword_DwmExe)" mask="0x1"/>
+     <keyword name="DwmExeGhosting" message="$(string.keyword_DwmExeGhosting)" mask="0x2"/>
+    </keywords>
+    <tasks>
+     <task name="CompositionStateAndInput" message="$(string.task_CompositionStateAndInput)" value="1"/>
+     <task name="CompositionStateOutput" message="$(string.task_CompositionStateOutput)" value="2"/>
+     <task name="TraceGraphicsCapabilities" message="$(string.task_TraceGraphicsCapabilities)" value="3"/>
+     <task name="CompositionOverriden" message="$(string.task_CompositionOverriden)" value="4"/>
+     <task name="CompositionEnabledByPolicy" message="$(string.task_CompositionEnabledByPolicy)" value="5"/>
+     <task name="RemotingCaps" message="$(string.task_RemotingCaps)" value="6"/>
+     <task name="SystemMemoryLockingThreshold" message="$(string.task_SystemMemoryLockingThreshold)" value="7"/>
+     <task name="SlowCompositionTime" message="$(string.task_SlowCompositionTime)" value="8"/>
+     <task name="StartDWMTransport" message="$(string.task_StartDWMTransport)" value="9"/>
+     <task name="StopDWMTransport" message="$(string.task_StopDWMTransport)" value="10"/>
+     <task name="AddGhost" message="$(string.task_AddGhost)" value="11"/>
+     <task name="DuplicateGhost" message="$(string.task_DuplicateGhost)" value="12"/>
+     <task name="VetoCreateGhostWindow" message="$(string.task_VetoCreateGhostWindow)" value="13"/>
+     <task name="PolicyOrModeChange" message="$(string.task_PolicyOrModeChange)" value="14"/>
+    </tasks>
+    <maps>
+     <valueMap name="Redirection_State">
+      <map value="0x0" message="$(string.map_Redirection_StateRedirection_State_Idle)"/>
+      <map value="0x1" message="$(string.map_Redirection_StateRedirection_State_Restarting)"/>
+      <map value="0x2" message="$(string.map_Redirection_StateRedirection_State_Ready)"/>
+      <map value="0x3" message="$(string.map_Redirection_StateRedirection_State_HasDesktopComposition)"/>
+     </valueMap>
+     <valueMap name="Verify_Capabilities">
+      <map value="0x0" message="$(string.map_Verify_CapabilitiesCapabilities_None)"/>
+      <map value="0x1" message="$(string.map_Verify_CapabilitiesCapabilities_DisplayModeViaGdi)"/>
+      <map value="0x3" message="$(string.map_Verify_CapabilitiesCapabilities_DisplayModeViaMil)"/>
+      <map value="0x4" message="$(string.map_Verify_CapabilitiesCapabilities_GraphicsAssesment)"/>
+      <map value="0x5" message="$(string.map_Verify_CapabilitiesCapabilities_AllVerified)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="CompositionStateAndInput" version="0" task="CompositionStateAndInput" level="win:Informational" keywords="DwmExe" template="CompositionStateAndInputArgs"/>
+     <event value="2" symbol="CompositionStateOutput" version="0" task="CompositionStateOutput" level="win:Informational" keywords="DwmExe" template="CompositionStateOutputArgs"/>
+     <event value="3" symbol="TraceGraphicsCapabilities" version="0" task="TraceGraphicsCapabilities" level="win:Informational" keywords="DwmExe" template="TraceGraphicsCapabilitiesArgs"/>
+     <event value="4" symbol="CompositionOverriden" version="0" task="CompositionOverriden" level="win:Informational" keywords="DwmExe" template="CompositionOverridenArgs"/>
+     <event value="5" symbol="CompositionEnabledByPolicy" version="0" task="CompositionEnabledByPolicy" level="win:Informational" keywords="DwmExe" template="CompositionOverridenArgs"/>
+     <event value="6" symbol="RemotingCaps" version="0" task="RemotingCaps" level="win:Informational" keywords="DwmExe" template="RemotingCapsArgs"/>
+     <event value="7" symbol="SystemMemoryLockingThreshold" version="0" task="SystemMemoryLockingThreshold" level="win:Informational" keywords="DwmExe"/>
+     <event value="8" symbol="SlowCompositionTime" version="0" task="SlowCompositionTime" level="win:Informational" keywords="DwmExe"/>
+     <event value="9" symbol="StartDWMTransport" version="0" task="StartDWMTransport" level="win:Informational" keywords="DwmExe" template="StartDWMTransportArgs"/>
+     <event value="10" symbol="StopDWMTransport" version="0" task="StopDWMTransport" level="win:Informational" keywords="DwmExe"/>
+     <event value="11" symbol="AddGhost" version="0" task="AddGhost" level="win:Informational" keywords="DwmExeGhosting" template="AddGhostArgs"/>
+     <event value="12" symbol="DuplicateGhost" version="0" task="DuplicateGhost" level="win:Informational" keywords="DwmExeGhosting" template="AddGhostArgs"/>
+     <event value="13" symbol="VetoCreateGhostWindow" version="0" task="VetoCreateGhostWindow" level="win:Informational" keywords="DwmExeGhosting" template="AddGhostArgs"/>
+     <event value="14" symbol="PolicyOrModeChange" version="0" task="PolicyOrModeChange" level="win:Informational" keywords="DwmExe" template="PolicyOrModeChangeArgs"/>
+    </events>
+    <templates>
+     <template tid="CompositionStateAndInputArgs">
+      <data name="State" inType="win:UInt32" map="Redirection_State"/>
+      <data name="Input" inType="win:UInt32"/>
+     </template>
+     <template tid="CompositionStateOutputArgs">
+      <data name="State" inType="win:UInt32"/>
+     </template>
+     <template tid="TraceGraphicsCapabilitiesArgs">
+      <data name="Capability" inType="win:UInt32" map="Verify_Capabilities"/>
+      <data name="Verified" inType="win:UInt32"/>
+     </template>
+     <template tid="CompositionOverridenArgs">
+      <data name="Flag" inType="win:UInt32"/>
+     </template>
+     <template tid="RemotingCapsArgs">
+      <data name="IsCapable" inType="win:UInt32"/>
+      <data name="AllowDwmcoreInSession" inType="win:UInt32"/>
+      <data name="RemoteAppEnabled" inType="win:UInt32"/>
+      <data name="AllowDwmcoreInClient" inType="win:UInt32"/>
+      <data name="AllowThemesInCLient" inType="win:UInt32"/>
+     </template>
+     <template tid="StartDWMTransportArgs">
+      <data name="MilRemote" inType="win:UInt32"/>
+     </template>
+     <template tid="AddGhostArgs">
+      <data name="CGhostOrHwndToGhost" inType="win:Pointer"/>
+     </template>
+     <template tid="PolicyOrModeChangeArgs">
+      <data name="StateBegin" inType="win:UInt32"/>
+      <data name="StateEnd" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_DwmExe" value="DwmExe"/>
+    <string id="keyword_DwmExeGhosting" value="DwmExeGhosting"/>
+    <string id="task_CompositionStateAndInput" value="CompositionStateAndInput"/>
+    <string id="task_CompositionStateOutput" value="CompositionStateOutput"/>
+    <string id="task_TraceGraphicsCapabilities" value="TraceGraphicsCapabilities"/>
+    <string id="task_CompositionOverriden" value="CompositionOverriden"/>
+    <string id="task_CompositionEnabledByPolicy" value="CompositionEnabledByPolicy"/>
+    <string id="task_RemotingCaps" value="RemotingCaps"/>
+    <string id="task_SystemMemoryLockingThreshold" value="SystemMemoryLockingThreshold"/>
+    <string id="task_SlowCompositionTime" value="SlowCompositionTime"/>
+    <string id="task_StartDWMTransport" value="StartDWMTransport"/>
+    <string id="task_StopDWMTransport" value="StopDWMTransport"/>
+    <string id="task_AddGhost" value="AddGhost"/>
+    <string id="task_DuplicateGhost" value="DuplicateGhost"/>
+    <string id="task_VetoCreateGhostWindow" value="VetoCreateGhostWindow"/>
+    <string id="task_PolicyOrModeChange" value="PolicyOrModeChange"/>
+    <string id="map_Redirection_StateRedirection_State_Idle" value="Redirection_State_Idle"/>
+    <string id="map_Redirection_StateRedirection_State_Restarting" value="Redirection_State_Restarting"/>
+    <string id="map_Redirection_StateRedirection_State_Ready" value="Redirection_State_Ready"/>
+    <string id="map_Redirection_StateRedirection_State_HasDesktopComposition" value="Redirection_State_HasDesktopComposition"/>
+    <string id="map_Verify_CapabilitiesCapabilities_None" value="Capabilities_None"/>
+    <string id="map_Verify_CapabilitiesCapabilities_DisplayModeViaGdi" value="Capabilities_DisplayModeViaGdi"/>
+    <string id="map_Verify_CapabilitiesCapabilities_DisplayModeViaMil" value="Capabilities_DisplayModeViaMil"/>
+    <string id="map_Verify_CapabilitiesCapabilities_GraphicsAssesment" value="Capabilities_GraphicsAssesment"/>
+    <string id="map_Verify_CapabilitiesCapabilities_AllVerified" value="Capabilities_AllVerified"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

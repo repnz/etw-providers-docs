@@ -1,0 +1,99 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-UserDataAccess-UserDataUtils" guid="{d1f688bf-012f-4aec-a38c-e7d4649f8cd2}" resourceFileName="Microsoft-Windows-UserDataAccess-UserDataUtils" messageFileName="Microsoft-Windows-UserDataAccess-UserDataUtils" symbol="MicrosoftWindowsUserDataAccessUserDataUtils" source="Xml" >
+    <keywords>
+     <keyword name="Error" message="$(string.keyword_Error)" mask="0x1"/>
+     <keyword name="Performance" message="$(string.keyword_Performance)" mask="0x2"/>
+     <keyword name="UserDataAccessUtils" message="$(string.keyword_UserDataAccessUtils)" mask="0x4"/>
+     <keyword name="ServiceBase" message="$(string.keyword_ServiceBase)" mask="0x8"/>
+     <keyword name="debug" message="$(string.keyword_debug)" mask="0x100"/>
+     <keyword name="Warning" message="$(string.keyword_Warning)" mask="0x4000000000"/>
+     <keyword name="StateTransition" message="$(string.keyword_StateTransition)" mask="0x8000000000"/>
+     <keyword name="keyword_400000000000" message="$(string.keyword_keyword_400000000000)" mask="0x400000000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="Trace" message="$(string.task_Trace)" value="1"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="task_0" version="0" task="task_0" level="win:Error" keywords="Error" template="task_0Args"/>
+     <event value="2" symbol="task_02" version="0" task="task_0" level="win:Warning" keywords="Warning" template="task_0Args"/>
+     <event value="3" symbol="Trace" version="0" task="Trace" level="win:Verbose" keywords="debug" template="TraceArgs"/>
+     <event value="101" symbol="task_0101" version="0" task="task_0" level="win:Error" keywords="Error" template="task_0101Args"/>
+     <event value="102" symbol="task_0102" version="0" task="task_0" level="win:Informational" keywords="ServiceBase keyword_400000000000" template="task_0102Args"/>
+     <event value="103" symbol="task_0103" version="0" task="task_0" level="win:Informational" keywords="ServiceBase" template="task_0102Args"/>
+     <event value="104" symbol="task_0104" version="0" task="task_0" level="win:Informational" keywords="ServiceBase keyword_400000000000" template="task_0102Args"/>
+     <event value="105" symbol="task_0105" version="0" task="task_0" level="win:Informational" keywords="ServiceBase" template="task_0105Args"/>
+     <event value="106" symbol="task_0106" version="0" task="task_0" level="win:Error" keywords="Error ServiceBase keyword_400000000000" template="task_0105Args"/>
+     <event value="107" symbol="task_0107" version="0" task="task_0" level="win:Error" keywords="Error ServiceBase keyword_400000000000" template="task_0105Args"/>
+     <event value="301" symbol="task_0301" version="0" task="task_0" level="win:Error" keywords="Error" template="task_0301Args"/>
+     <event value="401" symbol="task_0401" version="0" task="task_0" level="win:Warning" keywords="Warning" template="task_0401Args"/>
+     <event value="402" symbol="task_0402" version="0" task="task_0" level="win:Warning" keywords="Warning" template="task_0401Args"/>
+     <event value="403" symbol="task_0403" version="0" task="task_0" level="win:Warning" keywords="Warning"/>
+     <event value="501" symbol="task_0501" version="0" task="task_0" level="win:Error" keywords="Error keyword_400000000000" template="task_0501Args"/>
+     <event value="502" symbol="task_0502" version="0" task="task_0" level="win:Error" keywords="Error keyword_400000000000" template="task_0501Args"/>
+     <event value="600" symbol="task_0600" version="0" task="task_0" level="win:Informational" keywords="UserDataAccessUtils" template="task_0501Args"/>
+     <event value="601" symbol="task_0601" version="0" task="task_0" level="win:Informational" keywords="UserDataAccessUtils" template="task_0601Args"/>
+     <event value="602" symbol="task_0602" version="0" task="task_0" level="win:Informational" keywords="UserDataAccessUtils" template="task_0602Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="P1_HResult" inType="win:Int32"/>
+      <data name="P2_String" inType="win:AnsiString"/>
+      <data name="P3_UInt32" inType="win:UInt32"/>
+     </template>
+     <template tid="TraceArgs">
+      <data name="Message" inType="win:Pointer"/>
+     </template>
+     <template tid="task_0101Args">
+      <data name="Prop_LINE_UInt32" inType="win:UInt32"/>
+      <data name="Prop_Trace_UnicodeString" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0102Args">
+      <data name="Prop_Trace_UnicodeString" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0105Args">
+      <data name="P1_UnicodeString" inType="win:UnicodeString"/>
+      <data name="P1_UInt32" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0301Args">
+      <data name="P1_HexInt32" inType="win:Int32"/>
+      <data name="Prop_Handle" inType="win:UInt32"/>
+      <data name="Prop_Handle2" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0401Args">
+      <data name="P1_UnicodeString" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0501Args">
+      <data name="P1_Int32" inType="win:Int32"/>
+     </template>
+     <template tid="task_0601Args">
+      <data name="P1_UnicodeString" inType="win:UnicodeString"/>
+      <data name="P2_UnicodeString" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0602Args">
+      <data name="P1_HexInt32" inType="win:Int32"/>
+      <data name="P2_HexInt32" inType="win:Int32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Error" value="Error"/>
+    <string id="keyword_Performance" value="Performance"/>
+    <string id="keyword_UserDataAccessUtils" value="UserDataAccessUtils"/>
+    <string id="keyword_ServiceBase" value="ServiceBase"/>
+    <string id="keyword_debug" value="debug"/>
+    <string id="keyword_Warning" value="Warning"/>
+    <string id="keyword_StateTransition" value="StateTransition"/>
+    <string id="keyword_keyword_400000000000" value="keyword_400000000000"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_Trace" value="Trace"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,63 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Diagnostics-LoggingChannel" guid="{4bd2826e-54a1-4ba9-bf63-92b73ea1ac4a}" resourceFileName="Microsoft-Windows-Diagnostics-LoggingChannel" messageFileName="Microsoft-Windows-Diagnostics-LoggingChannel" symbol="MicrosoftWindowsDiagnosticsLoggingChannel" source="Xml" >
+    <keywords>
+     <keyword name="K_LogMsg" message="$(string.keyword_K_LogMsg)" mask="0x1"/>
+     <keyword name="K_LogPair" message="$(string.keyword_K_LogPair)" mask="0x2"/>
+     <keyword name="K_ActivityLogging" message="$(string.keyword_K_ActivityLogging)" mask="0x4"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="task_0" version="0" task="task_0" level="win:Critical" keywords="K_LogMsg" template="task_0Args"/>
+     <event value="2" symbol="task_02" version="0" task="task_0" level="win:Error" keywords="K_LogMsg" template="task_0Args"/>
+     <event value="3" symbol="task_03" version="0" task="task_0" level="win:Warning" keywords="K_LogMsg" template="task_0Args"/>
+     <event value="4" symbol="task_04" version="0" task="task_0" level="win:Informational" keywords="K_LogMsg" template="task_0Args"/>
+     <event value="5" symbol="task_05" version="0" task="task_0" level="win:Verbose" keywords="K_LogMsg" template="task_0Args"/>
+     <event value="6" symbol="task_06" version="0" task="task_0" level="win:Critical" keywords="K_LogPair" template="task_06Args"/>
+     <event value="7" symbol="task_07" version="0" task="task_0" level="win:Error" keywords="K_LogPair" template="task_06Args"/>
+     <event value="8" symbol="task_08" version="0" task="task_0" level="win:Warning" keywords="K_LogPair" template="task_06Args"/>
+     <event value="9" symbol="task_09" version="0" task="task_0" level="win:Informational" keywords="K_LogPair" template="task_06Args"/>
+     <event value="10" symbol="task_010" version="0" task="task_0" level="win:Verbose" keywords="K_LogPair" template="task_06Args"/>
+     <event value="11" symbol="task_0Start" version="0" task="task_0" opcode="win:Start" level="win:Critical" keywords="K_ActivityLogging" template="task_0StartArgs"/>
+     <event value="12" symbol="task_0Start12" version="0" task="task_0" opcode="win:Start" level="win:Error" keywords="K_ActivityLogging" template="task_0StartArgs"/>
+     <event value="13" symbol="task_0Start13" version="0" task="task_0" opcode="win:Start" level="win:Warning" keywords="K_ActivityLogging" template="task_0StartArgs"/>
+     <event value="14" symbol="task_0Start14" version="0" task="task_0" opcode="win:Start" level="win:Informational" keywords="K_ActivityLogging" template="task_0StartArgs"/>
+     <event value="15" symbol="task_0Start15" version="0" task="task_0" opcode="win:Start" level="win:Verbose" keywords="K_ActivityLogging" template="task_0StartArgs"/>
+     <event value="16" symbol="task_0Stop" version="0" task="task_0" opcode="win:Stop" level="win:Critical" keywords="K_ActivityLogging" template="task_0StartArgs"/>
+     <event value="17" symbol="task_0Stop17" version="0" task="task_0" opcode="win:Stop" level="win:Error" keywords="K_ActivityLogging" template="task_0StartArgs"/>
+     <event value="18" symbol="task_0Stop18" version="0" task="task_0" opcode="win:Stop" level="win:Warning" keywords="K_ActivityLogging" template="task_0StartArgs"/>
+     <event value="19" symbol="task_0Stop19" version="0" task="task_0" opcode="win:Stop" level="win:Informational" keywords="K_ActivityLogging" template="task_0StartArgs"/>
+     <event value="20" symbol="task_0Stop20" version="0" task="task_0" opcode="win:Stop" level="win:Verbose" keywords="K_ActivityLogging" template="task_0StartArgs"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="LoggingChannelName" inType="win:UnicodeString"/>
+      <data name="StringMessage" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_06Args">
+      <data name="LoggingChannelName" inType="win:UnicodeString"/>
+      <data name="StringValue" inType="win:UnicodeString"/>
+      <data name="IntegerValue" inType="win:Int32"/>
+     </template>
+     <template tid="task_0StartArgs">
+      <data name="LoggingChannelName" inType="win:UnicodeString"/>
+      <data name="ActivityName" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_K_LogMsg" value="K_LogMsg"/>
+    <string id="keyword_K_LogPair" value="K_LogPair"/>
+    <string id="keyword_K_ActivityLogging" value="K_ActivityLogging"/>
+    <string id="task_task_0" value="task_0"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,65 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-TerminalServices-RdpSoundDriver" guid="{127e0dc5-e13b-4935-985e-78fd508b1d80}" resourceFileName="Microsoft-Windows-TerminalServices-RdpSoundDriver" messageFileName="Microsoft-Windows-TerminalServices-RdpSoundDriver" symbol="MicrosoftWindowsTerminalServicesRdpSoundDriver" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="SettingsCheck" message="$(string.task_SettingsCheck)" value="100"/>
+     <task name="SettingsChange" message="$(string.task_SettingsChange)" value="101"/>
+     <task name="StreamSetup" message="$(string.task_StreamSetup)" value="102"/>
+    </tasks>
+    <events>
+     <event value="1000" symbol="SettingsCheck" version="0" task="SettingsCheck" level="win:Informational" template="SettingsCheckArgs"/>
+     <event value="1001" symbol="StreamSetup" version="0" task="StreamSetup" level="win:Informational" template="StreamSetupArgs"/>
+     <event value="1002" symbol="SettingsChange" version="0" task="SettingsChange" level="win:Informational" template="StreamSetupArgs"/>
+     <event value="1003" symbol="SettingsCheck1003" version="0" task="SettingsCheck" level="win:Informational" template="SettingsCheck1003Args"/>
+     <event value="1004" symbol="SettingsCheck1004" version="0" task="SettingsCheck" level="win:Error" template="SettingsCheck1003Args"/>
+     <event value="1005" symbol="SettingsCheck1005" version="0" task="SettingsCheck" level="win:Error" template="SettingsCheck1003Args"/>
+     <event value="1006" symbol="SettingsCheck1006" version="0" task="SettingsCheck" level="win:Error" template="SettingsCheck1003Args"/>
+     <event value="1007" symbol="SettingsCheck1007" version="0" task="SettingsCheck" level="win:Error" template="SettingsCheck1003Args"/>
+     <event value="1008" symbol="SettingsCheck1008" version="0" task="SettingsCheck" level="win:Error" template="SettingsCheck1003Args"/>
+     <event value="1009" symbol="SettingsCheck1009" version="0" task="SettingsCheck" level="win:Informational" template="SettingsCheck1003Args"/>
+     <event value="2003" symbol="SettingsCheck2003" version="0" task="SettingsCheck" level="win:Informational" template="SettingsCheck1003Args"/>
+     <event value="2004" symbol="SettingsCheck2004" version="0" task="SettingsCheck" level="win:Error" template="SettingsCheck1003Args"/>
+     <event value="2005" symbol="SettingsCheck2005" version="0" task="SettingsCheck" level="win:Error" template="SettingsCheck1003Args"/>
+     <event value="2006" symbol="SettingsCheck2006" version="0" task="SettingsCheck" level="win:Error" template="SettingsCheck1003Args"/>
+     <event value="2007" symbol="SettingsCheck2007" version="0" task="SettingsCheck" level="win:Error" template="SettingsCheck1003Args"/>
+     <event value="2008" symbol="SettingsCheck2008" version="0" task="SettingsCheck" level="win:Error" template="SettingsCheck1003Args"/>
+     <event value="2009" symbol="SettingsCheck2009" version="0" task="SettingsCheck" level="win:Error" template="SettingsCheck1003Args"/>
+    </events>
+    <templates>
+     <template tid="SettingsCheckArgs">
+      <data name="UInt32_1" inType="win:UInt32"/>
+      <data name="UInt32_2" inType="win:UInt32"/>
+      <data name="SessionID" inType="win:UInt32"/>
+     </template>
+     <template tid="StreamSetupArgs">
+      <data name="UINT16_FORMAT_TAG" inType="win:UInt16"/>
+      <data name="UINT16_NUM_CHANNELS" inType="win:UInt16"/>
+      <data name="UINT32_SAMPLES_PER_SECOND" inType="win:UInt32"/>
+      <data name="UINT32_AVERAGE_BYTES_PER_SECOND" inType="win:UInt32"/>
+      <data name="UINT16_BLOCK_ALIGN" inType="win:UInt16"/>
+      <data name="UINT16_BITS_PER_SAMPLE" inType="win:UInt16"/>
+      <data name="UINT16_STRUCTURE_SIZE" inType="win:UInt16"/>
+      <data name="SessionID" inType="win:UInt32"/>
+     </template>
+     <template tid="SettingsCheck1003Args">
+      <data name="StringParameter" inType="win:UnicodeString"/>
+      <data name="UInt32Parameter" inType="win:UInt32"/>
+      <data name="SessionID" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_SettingsCheck" value="SettingsCheck"/>
+    <string id="task_SettingsChange" value="SettingsChange"/>
+    <string id="task_StreamSetup" value="StreamSetup"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

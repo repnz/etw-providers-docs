@@ -1,0 +1,36 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Security-ExchangeActiveSyncProvisioning" guid="{9249d0d0-f034-402f-a29b-92fa8853d9f3}" resourceFileName="Microsoft-Windows-Security-ExchangeActiveSyncProvisioning" messageFileName="Microsoft-Windows-Security-ExchangeActiveSyncProvisioning" symbol="MicrosoftWindowsSecurityExchangeActiveSyncProvisioning" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="ExchangeActiveSyncProvisioningPerformance" message="$(string.task_ExchangeActiveSyncProvisioningPerformance)" value="1"/>
+     <task name="EAS_REGPROV" message="$(string.task_EAS_REGPROV)" value="2"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="EAS_REGPROV" version="0" task="EAS_REGPROV" level="win:Critical" template="EAS_REGPROVArgs"/>
+     <event value="2" symbol="EAS_REGPROV2" version="0" task="EAS_REGPROV" level="win:Critical" template="EAS_REGPROVArgs"/>
+     <event value="100" symbol="ExchangeActiveSyncProvisioningPerformanceStart" version="0" task="ExchangeActiveSyncProvisioningPerformance" opcode="win:Start" level="win:Informational"/>
+     <event value="101" symbol="ExchangeActiveSyncProvisioningPerformanceStop" version="0" task="ExchangeActiveSyncProvisioningPerformance" opcode="win:Stop" level="win:Informational" template="ExchangeActiveSyncProvisioningPerformanceStopArgs"/>
+    </events>
+    <templates>
+     <template tid="EAS_REGPROVArgs">
+      <data name="DllPath" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ExchangeActiveSyncProvisioningPerformanceStopArgs">
+      <data name="TimeSpent" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_ExchangeActiveSyncProvisioningPerformance" value="ExchangeActiveSyncProvisioningPerformance"/>
+    <string id="task_EAS_REGPROV" value="EAS_REGPROV"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

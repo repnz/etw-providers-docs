@@ -1,0 +1,57 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-HttpLog" guid="{c42a2738-2333-40a5-a32f-6acc36449dcc}" resourceFileName="Microsoft-Windows-HttpLog" messageFileName="Microsoft-Windows-HttpLog" symbol="MicrosoftWindowsHttpLog" source="Xml" >
+    <keywords>
+     <keyword name="HTTP_KEYWORD_LOG_RESPONSE" message="$(string.keyword_HTTP_KEYWORD_LOG_RESPONSE)" mask="0x1"/>
+     <keyword name="keyword_20000000000" message="$(string.keyword_keyword_20000000000)" mask="0x20000000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="task_0" version="0" task="task_0" level="win:Informational" keywords="HTTP_KEYWORD_LOG_RESPONSE keyword_20000000000" template="task_0Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="ServerSessionId" inType="win:UInt64"/>
+      <data name="UrlGroupId" inType="win:UInt64"/>
+      <data name="UrlContext" inType="win:UInt64"/>
+      <data name="DateTime" inType="win:FILETIME"/>
+      <data name="RemoteAddrLength" inType="win:UInt32"/>
+      <data name="RemoteAddr" inType="win:Binary" length="RemoteAddrLength"/>
+      <data name="LocalAddrLength" inType="win:UInt32"/>
+      <data name="LocalAddr" inType="win:Binary" length="LocalAddrLength"/>
+      <data name="KernelCached" inType="win:UInt32"/>
+      <data name="HttpMajorVer" inType="win:UInt16"/>
+      <data name="HttpMinorVer" inType="win:UInt16"/>
+      <data name="BytesSent" inType="win:UInt64"/>
+      <data name="BytesReceived" inType="win:UInt64"/>
+      <data name="TimeTaken" inType="win:UInt64"/>
+      <data name="UserName" inType="win:UnicodeString"/>
+      <data name="Method" inType="win:AnsiString"/>
+      <data name="UriStem" inType="win:UnicodeString"/>
+      <data name="UriQuery" inType="win:AnsiString"/>
+      <data name="ProtocolStatus" inType="win:UInt16"/>
+      <data name="ProtocolSubStatus" inType="win:UInt16"/>
+      <data name="Win32Status" inType="win:UInt32"/>
+      <data name="Host" inType="win:AnsiString"/>
+      <data name="UserAgent" inType="win:AnsiString"/>
+      <data name="Cookie" inType="win:AnsiString"/>
+      <data name="Referer" inType="win:AnsiString"/>
+      <data name="AppContext" inType="win:AnsiString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_HTTP_KEYWORD_LOG_RESPONSE" value="HTTP_KEYWORD_LOG_RESPONSE"/>
+    <string id="keyword_keyword_20000000000" value="keyword_20000000000"/>
+    <string id="task_task_0" value="task_0"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

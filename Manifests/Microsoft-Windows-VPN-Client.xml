@@ -1,0 +1,81 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-VPN-Client" guid="{3c088e51-65be-40d1-9b90-62bfec076737}" resourceFileName="Microsoft-Windows-VPN-Client" messageFileName="Microsoft-Windows-VPN-Client" symbol="MicrosoftWindowsVPNClient" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="VPNWmiCreate" message="$(string.task_VPNWmiCreate)" value="1">
+>
+      <opcodes>
+       <opcode name="Success" message="$(string.opcode_VPNWmiCreateSuccess)" value="11"/>
+       <opcode name="Failure" message="$(string.opcode_VPNWmiCreateFailure)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="VPNWmiDelete" message="$(string.task_VPNWmiDelete)" value="2">
+>
+      <opcodes>
+       <opcode name="Success" message="$(string.opcode_VPNWmiDeleteSuccess)" value="11"/>
+       <opcode name="Failure" message="$(string.opcode_VPNWmiDeleteFailure)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="VPNWmiModify" message="$(string.task_VPNWmiModify)" value="3">
+>
+      <opcodes>
+       <opcode name="Success" message="$(string.opcode_VPNWmiModifySuccess)" value="11"/>
+       <opcode name="Failure" message="$(string.opcode_VPNWmiModifyFailure)" value="12"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="10001" symbol="VPNWmiCreateSuccess" version="0" task="VPNWmiCreate" opcode="Success" level="win:Informational" template="VPNWmiCreateSuccessArgs"/>
+     <event value="10002" symbol="VPNWmiCreateFailure" version="0" task="VPNWmiCreate" opcode="Failure" level="win:Error" template="VPNWmiCreateFailureArgs"/>
+     <event value="10003" symbol="VPNWmiDeleteSuccess" version="0" task="VPNWmiDelete" opcode="Success" level="win:Informational" template="VPNWmiDeleteSuccessArgs"/>
+     <event value="10004" symbol="VPNWmiDeleteFailure" version="0" task="VPNWmiDelete" opcode="Failure" level="win:Error" template="VPNWmiDeleteFailureArgs"/>
+     <event value="10005" symbol="VPNWmiModifySuccess" version="0" task="VPNWmiModify" opcode="Success" level="win:Informational" template="VPNWmiCreateSuccessArgs"/>
+     <event value="10006" symbol="VPNWmiModifyFailure" version="0" task="VPNWmiModify" opcode="Failure" level="win:Error" template="VPNWmiCreateFailureArgs"/>
+     <event value="10007" symbol="VPNWmiCreateSuccess10007" version="0" task="VPNWmiCreate" opcode="Success" level="win:Informational" template="VPNWmiCreateSuccess10007Args"/>
+     <event value="10008" symbol="VPNWmiModifySuccess10008" version="0" task="VPNWmiModify" opcode="Success" level="win:Informational" template="VPNWmiCreateSuccess10007Args"/>
+    </events>
+    <templates>
+     <template tid="VPNWmiCreateSuccessArgs">
+      <data name="VpnConnectionName" inType="win:UnicodeString"/>
+      <data name="PropertiesString" inType="win:UnicodeString"/>
+     </template>
+     <template tid="VPNWmiCreateFailureArgs">
+      <data name="VpnConnectionName" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="PropertiesString" inType="win:UnicodeString"/>
+     </template>
+     <template tid="VPNWmiDeleteSuccessArgs">
+      <data name="VpnConnectionName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="VPNWmiDeleteFailureArgs">
+      <data name="VpnConnectionName" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="VPNWmiCreateSuccess10007Args">
+      <data name="VpnConnectionName" inType="win:UnicodeString"/>
+      <data name="PropertiesString" inType="win:UnicodeString"/>
+      <data name="PropertiesNotUpdatedString" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_VPNWmiCreate" value="VPNWmiCreate"/>
+    <string id="opcode_VPNWmiCreateSuccess" value="Success"/>
+    <string id="opcode_VPNWmiCreateFailure" value="Failure"/>
+    <string id="task_VPNWmiDelete" value="VPNWmiDelete"/>
+    <string id="opcode_VPNWmiDeleteSuccess" value="Success"/>
+    <string id="opcode_VPNWmiDeleteFailure" value="Failure"/>
+    <string id="task_VPNWmiModify" value="VPNWmiModify"/>
+    <string id="opcode_VPNWmiModifySuccess" value="Success"/>
+    <string id="opcode_VPNWmiModifyFailure" value="Failure"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,91 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Proximity-Common" guid="{28058203-d394-4afc-b2a6-2f9155a3bb95}" resourceFileName="Microsoft-Windows-Proximity-Common" messageFileName="Microsoft-Windows-Proximity-Common" symbol="MicrosoftWindowsProximityCommon" source="Xml" >
+    <keywords>
+     <keyword name="ProximityAssociation" message="$(string.keyword_ProximityAssociation)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="Proximity_DeviceArrivalTrigger" message="$(string.task_Proximity_DeviceArrivalTrigger)" value="10"/>
+     <task name="Proximity_OOBMessageProcessing" message="$(string.task_Proximity_OOBMessageProcessing)" value="11"/>
+     <task name="Proximity_OOBMessagePublishing" message="$(string.task_Proximity_OOBMessagePublishing)" value="12"/>
+     <task name="Proximity_DeviceAssociation" message="$(string.task_Proximity_DeviceAssociation)" value="13"/>
+     <task name="Proximity_SessionAppLaunch" message="$(string.task_Proximity_SessionAppLaunch)" value="14"/>
+     <task name="Proximity_ReceiveSharedContent" message="$(string.task_Proximity_ReceiveSharedContent)" value="15"/>
+     <task name="Proximity_SessionProtocol" message="$(string.task_Proximity_SessionProtocol)" value="16"/>
+     <task name="Proximity_SessionConnect" message="$(string.task_Proximity_SessionConnect)" value="17"/>
+     <task name="Proximity_SocketConnect" message="$(string.task_Proximity_SocketConnect)" value="18"/>
+    </tasks>
+    <events>
+     <event value="5" symbol="Proximity_DeviceArrivalTriggerStart" version="0" task="Proximity_DeviceArrivalTrigger" opcode="win:Start" level="win:Informational" template="Proximity_DeviceArrivalTriggerStartArgs"/>
+     <event value="10" symbol="Proximity_OOBMessageProcessingStart" version="0" task="Proximity_OOBMessageProcessing" opcode="win:Start" level="win:Informational" keywords="ProximityAssociation" template="Proximity_DeviceArrivalTriggerStartArgs"/>
+     <event value="11" symbol="Proximity_OOBMessagePublishingStart" version="0" task="Proximity_OOBMessagePublishing" opcode="win:Start" level="win:Informational" keywords="ProximityAssociation" template="Proximity_OOBMessagePublishingStartArgs"/>
+     <event value="12" symbol="Proximity_OOBMessagePublishingStop" version="0" task="Proximity_OOBMessagePublishing" opcode="win:Stop" level="win:Informational" template="Proximity_OOBMessagePublishingStartArgs"/>
+     <event value="13" symbol="Proximity_OOBMessageProcessingStop" version="0" task="Proximity_OOBMessageProcessing" opcode="win:Stop" level="win:Informational" template="Proximity_OOBMessagePublishingStartArgs"/>
+     <event value="14" symbol="Proximity_DeviceAssociationStart" version="0" task="Proximity_DeviceAssociation" opcode="win:Start" level="win:Informational" template="Proximity_DeviceAssociationStartArgs"/>
+     <event value="15" symbol="Proximity_DeviceAssociationStop" version="0" task="Proximity_DeviceAssociation" opcode="win:Stop" level="win:Informational" template="Proximity_DeviceAssociationStartArgs"/>
+     <event value="16" symbol="Proximity_SessionAppLaunchStart" version="0" task="Proximity_SessionAppLaunch" opcode="win:Start" level="win:Informational" template="Proximity_SessionAppLaunchStartArgs"/>
+     <event value="17" symbol="Proximity_SessionAppLaunchStop" version="0" task="Proximity_SessionAppLaunch" opcode="win:Stop" level="win:Informational" template="Proximity_SessionAppLaunchStartArgs"/>
+     <event value="18" symbol="Proximity_ReceiveSharedContentStart" version="0" task="Proximity_ReceiveSharedContent" opcode="win:Start" level="win:Informational" template="Proximity_DeviceArrivalTriggerStartArgs"/>
+     <event value="19" symbol="Proximity_ReceiveSharedContentStop" version="0" task="Proximity_ReceiveSharedContent" opcode="win:Stop" level="win:Informational" template="Proximity_DeviceArrivalTriggerStartArgs"/>
+     <event value="20" symbol="Proximity_SessionProtocolStart" version="0" task="Proximity_SessionProtocol" opcode="win:Start" level="win:Informational" template="Proximity_SessionAppLaunchStartArgs"/>
+     <event value="21" symbol="Proximity_SessionProtocolStop" version="0" task="Proximity_SessionProtocol" opcode="win:Stop" level="win:Informational" template="Proximity_SessionAppLaunchStartArgs"/>
+     <event value="22" symbol="Proximity_SessionConnectStart" version="0" task="Proximity_SessionConnect" opcode="win:Start" level="win:Informational" template="Proximity_SessionAppLaunchStartArgs"/>
+     <event value="23" symbol="Proximity_SessionConnectStop" version="0" task="Proximity_SessionConnect" opcode="win:Stop" level="win:Informational" template="Proximity_SessionConnectStopArgs"/>
+     <event value="24" symbol="task_0" version="0" task="task_0" level="win:Error" template="task_0Args"/>
+     <event value="30" symbol="Proximity_ReceiveSharedContentStart30" version="0" task="Proximity_ReceiveSharedContent" opcode="win:Start" level="win:Informational" template="Proximity_DeviceArrivalTriggerStartArgs"/>
+     <event value="31" symbol="Proximity_ReceiveSharedContentStop31" version="0" task="Proximity_ReceiveSharedContent" opcode="win:Stop" level="win:Informational" template="Proximity_DeviceArrivalTriggerStartArgs"/>
+     <event value="40" symbol="Proximity_SocketConnectStart" version="0" task="Proximity_SocketConnect" opcode="win:Start" level="win:Informational"/>
+     <event value="41" symbol="Proximity_SocketConnectStop" version="0" task="Proximity_SocketConnect" opcode="win:Stop" level="win:Informational" template="Proximity_SocketConnectStopArgs"/>
+    </events>
+    <templates>
+     <template tid="Proximity_DeviceArrivalTriggerStartArgs">
+      <data name="Pointer1" inType="win:Pointer"/>
+     </template>
+     <template tid="Proximity_OOBMessagePublishingStartArgs">
+      <data name="Pointer1" inType="win:Pointer"/>
+      <data name="String2" inType="win:UnicodeString"/>
+      <data name="String3" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Proximity_DeviceAssociationStartArgs">
+      <data name="HrResult" inType="win:UInt32"/>
+      <data name="DeviceCategory" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Proximity_SessionAppLaunchStartArgs">
+      <data name="String" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Proximity_SessionConnectStopArgs">
+      <data name="Integer4" inType="win:UInt32"/>
+      <data name="String" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0Args">
+      <data name="String1" inType="win:UnicodeString"/>
+      <data name="String2" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Proximity_SocketConnectStopArgs">
+      <data name="TransportType" inType="win:UInt32"/>
+      <data name="HrConnectResult" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_ProximityAssociation" value="ProximityAssociation"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_Proximity_DeviceArrivalTrigger" value="Proximity_DeviceArrivalTrigger"/>
+    <string id="task_Proximity_OOBMessageProcessing" value="Proximity_OOBMessageProcessing"/>
+    <string id="task_Proximity_OOBMessagePublishing" value="Proximity_OOBMessagePublishing"/>
+    <string id="task_Proximity_DeviceAssociation" value="Proximity_DeviceAssociation"/>
+    <string id="task_Proximity_SessionAppLaunch" value="Proximity_SessionAppLaunch"/>
+    <string id="task_Proximity_ReceiveSharedContent" value="Proximity_ReceiveSharedContent"/>
+    <string id="task_Proximity_SessionProtocol" value="Proximity_SessionProtocol"/>
+    <string id="task_Proximity_SessionConnect" value="Proximity_SessionConnect"/>
+    <string id="task_Proximity_SocketConnect" value="Proximity_SocketConnect"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

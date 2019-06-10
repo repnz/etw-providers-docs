@@ -1,0 +1,272 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Kernel-EventTracing" guid="{b675ec37-bdb6-4648-bc92-f3fdc74d3ca2}" resourceFileName="Microsoft-Windows-Kernel-EventTracing" messageFileName="Microsoft-Windows-Kernel-EventTracing" symbol="MicrosoftWindowsKernelEventTracing" source="Xml" >
+    <keywords>
+     <keyword name="ETW_KEYWORD_SESSION" message="$(string.keyword_ETW_KEYWORD_SESSION)" mask="0x10"/>
+     <keyword name="ETW_KEYWORD_PROVIDER" message="$(string.keyword_ETW_KEYWORD_PROVIDER)" mask="0x20"/>
+     <keyword name="ETW_KEYWORD_LOST_EVENT" message="$(string.keyword_ETW_KEYWORD_LOST_EVENT)" mask="0x40"/>
+     <keyword name="ETW_KEYWORD_SOFT_RESTART" message="$(string.keyword_ETW_KEYWORD_SOFT_RESTART)" mask="0x80"/>
+     <keyword name="ETW_KEYWORD_CAPTURE_STATE" message="$(string.keyword_ETW_KEYWORD_CAPTURE_STATE)" mask="0x100"/>
+     <keyword name="ETW_KEYWORD_REGISTRATION" message="$(string.keyword_ETW_KEYWORD_REGISTRATION)" mask="0x200"/>
+     <keyword name="ETW_KEYWORD_ENABLEMENT" message="$(string.keyword_ETW_KEYWORD_ENABLEMENT)" mask="0x400"/>
+     <keyword name="ETW_KEYWORD_GROUP" message="$(string.keyword_ETW_KEYWORD_GROUP)" mask="0x800"/>
+    </keywords>
+    <tasks>
+     <task name="Logging" message="$(string.task_Logging)" value="1">
+>
+      <opcodes>
+       <opcode name="WriteBuffer" message="$(string.opcode_LoggingWriteBuffer)" value="10"/>
+       <opcode name="FileSwitch" message="$(string.opcode_LoggingFileSwitch)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="Session" message="$(string.task_Session)" value="2">
+>
+      <opcodes>
+       <opcode name="Start" message="$(string.opcode_SessionStart)" value="12"/>
+       <opcode name="Stop" message="$(string.opcode_SessionStop)" value="14"/>
+       <opcode name="Flush" message="$(string.opcode_SessionFlush)" value="15"/>
+       <opcode name="Configure" message="$(string.opcode_SessionConfigure)" value="20"/>
+      </opcodes>
+     </task>
+     <task name="Provider" message="$(string.task_Provider)" value="3">
+>
+      <opcodes>
+       <opcode name="Register" message="$(string.opcode_ProviderRegister)" value="16"/>
+       <opcode name="Unregister" message="$(string.opcode_ProviderUnregister)" value="17"/>
+       <opcode name="Enable" message="$(string.opcode_ProviderEnable)" value="18"/>
+       <opcode name="Disable" message="$(string.opcode_ProviderDisable)" value="19"/>
+       <opcode name="SetProviderTraits" message="$(string.opcode_ProviderSetProviderTraits)" value="25"/>
+       <opcode name="JoinProviderGroup" message="$(string.opcode_ProviderJoinProviderGroup)" value="26"/>
+      </opcodes>
+     </task>
+     <task name="GUIDEntry" message="$(string.task_GUIDEntry)" value="4"/>
+     <task name="ProviderGroupEntry" message="$(string.task_ProviderGroupEntry)" value="5"/>
+     <task name="StackTrace" message="$(string.task_StackTrace)" value="6">
+>
+      <opcodes>
+       <opcode name="UserModeStackTrace" message="$(string.opcode_StackTraceUserModeStackTrace)" value="24"/>
+      </opcodes>
+     </task>
+     <task name="LostEvent" message="$(string.task_LostEvent)" value="7"/>
+     <task name="SavePersistedLogger" message="$(string.task_SavePersistedLogger)" value="8"/>
+     <task name="EnableInfo" message="$(string.task_EnableInfo)" value="9"/>
+    </tasks>
+    <maps>
+     <valueMap name="StopReasonMap">
+      <map value="0x1" message="$(string.map_StopReasonMapLogger mode incompatible with Append mode)"/>
+      <map value="0x2" message="$(string.map_StopReasonMapOS version mismatch)"/>
+      <map value="0x3" message="$(string.map_StopReasonMapPointer size mismatch)"/>
+      <map value="0x4" message="$(string.map_StopReasonMapUnsupported BufferSize)"/>
+      <map value="0x5" message="$(string.map_StopReasonMapBufferSize mismatch)"/>
+      <map value="0x6" message="$(string.map_StopReasonMapPreallocate mode is incompatible with Append mode)"/>
+      <map value="0x7" message="$(string.map_StopReasonMapFile size query failed)"/>
+      <map value="0x8" message="$(string.map_StopReasonMapMaximum file size reached)"/>
+      <map value="0x9" message="$(string.map_StopReasonMapNumber of buffers written is zero)"/>
+      <map value="0xa" message="$(string.map_StopReasonMapNumberf of processors mismatch)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="0" symbol="LoggingWriteBuffer" version="0" task="Logging" opcode="WriteBuffer" level="win:Error" keywords="ETW_KEYWORD_SESSION" template="LoggingWriteBufferArgs"/>
+     <event value="1" symbol="LoggingWriteBuffer1" version="0" task="Logging" opcode="WriteBuffer" level="win:Warning" keywords="ETW_KEYWORD_SESSION" template="LoggingWriteBuffer1Args"/>
+     <event value="2" symbol="SessionStart" version="0" task="Session" opcode="Start" level="win:Error" keywords="ETW_KEYWORD_SESSION" template="LoggingWriteBufferArgs"/>
+     <event value="3" symbol="SessionStop" version="0" task="Session" opcode="Stop" level="win:Error" keywords="ETW_KEYWORD_SESSION" template="LoggingWriteBufferArgs"/>
+     <event value="3" symbol="SessionStop_V1" version="1" task="Session" opcode="Stop" level="win:Error" keywords="ETW_KEYWORD_SESSION" template="SessionStopArgs_V1"/>
+     <event value="4" symbol="LoggingWriteBuffer4" version="0" task="Logging" opcode="WriteBuffer" level="win:Warning" keywords="ETW_KEYWORD_SESSION" template="LoggingWriteBuffer4Args"/>
+     <event value="5" symbol="LoggingFileSwitch" version="0" task="Logging" opcode="FileSwitch" level="win:Error" keywords="ETW_KEYWORD_SESSION" template="LoggingWriteBufferArgs"/>
+     <event value="8" symbol="ProviderRegister" version="0" task="Provider" opcode="Register" level="win:Verbose" keywords="ETW_KEYWORD_PROVIDER ETW_KEYWORD_REGISTRATION" template="ProviderRegisterArgs"/>
+     <event value="9" symbol="ProviderUnregister" version="0" task="Provider" opcode="Unregister" level="win:Verbose" keywords="ETW_KEYWORD_PROVIDER ETW_KEYWORD_REGISTRATION" template="ProviderRegisterArgs"/>
+     <event value="10" symbol="SessionStart10" version="0" task="Session" opcode="Start" level="win:Verbose" keywords="ETW_KEYWORD_SESSION" template="SessionStart10Args"/>
+     <event value="10" symbol="SessionStart10_V1" version="1" task="Session" opcode="Start" level="win:Verbose" keywords="ETW_KEYWORD_SESSION" template="SessionArgs"/>
+     <event value="11" symbol="SessionStop11" version="0" task="Session" opcode="Stop" level="win:Verbose" keywords="ETW_KEYWORD_SESSION" template="SessionStart10Args"/>
+     <event value="11" symbol="SessionStop11_V1" version="1" task="Session" opcode="Stop" level="win:Verbose" keywords="ETW_KEYWORD_SESSION" template="SessionArgs"/>
+     <event value="11" symbol="SessionStop11_V2" version="2" task="Session" opcode="Stop" level="win:Verbose" keywords="ETW_KEYWORD_SESSION" template="SessionArgs_V1"/>
+     <event value="12" symbol="SessionConfigure" version="0" task="Session" opcode="Configure" level="win:Verbose" keywords="ETW_KEYWORD_SESSION" template="SessionStart10Args"/>
+     <event value="13" symbol="SessionFlush" version="0" task="Session" opcode="Flush" level="win:Verbose" keywords="ETW_KEYWORD_SESSION" template="SessionStart10Args"/>
+     <event value="14" symbol="ProviderEnable" version="0" task="Provider" opcode="Enable" level="win:Verbose" keywords="ETW_KEYWORD_PROVIDER ETW_KEYWORD_ENABLEMENT" template="ProviderEnableArgs"/>
+     <event value="14" symbol="ProviderEnable_V1" version="1" task="Provider" opcode="Enable" level="win:Verbose" keywords="ETW_KEYWORD_PROVIDER ETW_KEYWORD_ENABLEMENT" template="ProviderEnableArgs_V1"/>
+     <event value="15" symbol="ProviderDisable" version="0" task="Provider" opcode="Disable" level="win:Verbose" keywords="ETW_KEYWORD_PROVIDER ETW_KEYWORD_ENABLEMENT" template="ProviderEnableArgs"/>
+     <event value="17" symbol="SessionConfigure17" version="0" task="Session" opcode="Configure" level="win:Verbose" keywords="ETW_KEYWORD_SESSION" template="SessionStart10Args"/>
+     <event value="18" symbol="StackTraceUserModeStackTrace" version="0" task="StackTrace" opcode="UserModeStackTrace" level="win:Informational"/>
+     <event value="19" symbol="LostEvent" version="0" task="LostEvent" level="win:Error" keywords="ETW_KEYWORD_LOST_EVENT" template="LostEventArgs"/>
+     <event value="20" symbol="Session" version="0" task="Session" level="win:Verbose" keywords="ETW_KEYWORD_SESSION" template="SessionArgs"/>
+     <event value="20" symbol="Session_V1" version="1" task="Session" level="win:Verbose" keywords="ETW_KEYWORD_SESSION ETW_KEYWORD_CAPTURE_STATE" template="SessionArgs_V1"/>
+     <event value="21" symbol="SavePersistedLoggerStart_8_1" version="0" task="SavePersistedLogger" opcode="win:Start_8_1" level="win:Informational" keywords="ETW_KEYWORD_SOFT_RESTART"/>
+     <event value="22" symbol="SavePersistedLoggerStop_8_2" version="0" task="SavePersistedLogger" opcode="win:Stop_8_2" level="win:Informational" keywords="ETW_KEYWORD_SOFT_RESTART" template="SavePersistedLoggerStop_8_2Args"/>
+     <event value="23" symbol="SavePersistedLogger" version="0" task="SavePersistedLogger" level="win:Error" keywords="ETW_KEYWORD_SOFT_RESTART" template="SavePersistedLoggerStop_8_2Args"/>
+     <event value="24" symbol="GUIDEntry" version="0" task="GUIDEntry" level="win:Verbose" keywords="ETW_KEYWORD_PROVIDER ETW_KEYWORD_CAPTURE_STATE" template="GUIDEntryArgs"/>
+     <event value="25" symbol="ProviderGroupEntry" version="0" task="ProviderGroupEntry" level="win:Verbose" keywords="ETW_KEYWORD_CAPTURE_STATE ETW_KEYWORD_GROUP" template="GUIDEntryArgs"/>
+     <event value="26" symbol="EnableInfo" version="0" task="EnableInfo" level="win:Verbose" keywords="ETW_KEYWORD_PROVIDER ETW_KEYWORD_CAPTURE_STATE" template="EnableInfoArgs"/>
+     <event value="27" symbol="Provider" version="0" task="Provider" level="win:Verbose" keywords="ETW_KEYWORD_PROVIDER ETW_KEYWORD_CAPTURE_STATE" template="ProviderArgs"/>
+     <event value="28" symbol="ProviderSetProviderTraits" version="0" task="Provider" opcode="SetProviderTraits" level="win:Error" keywords="ETW_KEYWORD_PROVIDER ETW_KEYWORD_REGISTRATION ETW_KEYWORD_GROUP" template="ProviderSetProviderTraitsArgs"/>
+     <event value="29" symbol="ProviderJoinProviderGroup" version="0" task="Provider" opcode="JoinProviderGroup" level="win:Verbose" keywords="ETW_KEYWORD_PROVIDER ETW_KEYWORD_REGISTRATION ETW_KEYWORD_GROUP" template="ProviderJoinProviderGroupArgs"/>
+    </events>
+    <templates>
+     <template tid="LoggingWriteBufferArgs">
+      <data name="SessionName" inType="win:UnicodeString"/>
+      <data name="FileName" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="LoggingMode" inType="win:UInt32"/>
+     </template>
+     <template tid="LoggingWriteBuffer1Args">
+      <data name="SessionName" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="LoggingMode" inType="win:UInt32"/>
+     </template>
+     <template tid="LoggingWriteBuffer4Args">
+      <data name="SessionName" inType="win:UnicodeString"/>
+      <data name="FileName" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="LoggingMode" inType="win:UInt32"/>
+      <data name="MaxFileSize" inType="win:UInt64"/>
+     </template>
+     <template tid="ProviderRegisterArgs">
+      <data name="ProviderName" inType="win:GUID"/>
+     </template>
+     <template tid="SessionStart10Args">
+      <data name="SessionGuid" inType="win:GUID"/>
+      <data name="LoggerMode" inType="win:UInt32"/>
+      <data name="SessionName" inType="win:UnicodeString"/>
+      <data name="LogFileName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ProviderEnableArgs">
+      <data name="ProviderName" inType="win:GUID"/>
+      <data name="SessionName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="LostEventArgs">
+      <data name="ProviderId" inType="win:GUID"/>
+      <data name="StatusCode" inType="win:UInt32"/>
+      <data name="EventId" inType="win:UInt16"/>
+      <data name="SessionName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="SessionArgs">
+      <data name="SessionGuid" inType="win:GUID"/>
+      <data name="LoggerMode" inType="win:UInt32"/>
+      <data name="SessionName" inType="win:UnicodeString"/>
+      <data name="LogFileName" inType="win:UnicodeString"/>
+      <data name="MinimumBuffers" inType="win:UInt32"/>
+      <data name="MaximumBuffers" inType="win:UInt32"/>
+      <data name="BufferSize" inType="win:UInt32"/>
+      <data name="PeakBuffersCount" inType="win:UInt32"/>
+      <data name="CurrentBuffersCount" inType="win:UInt32"/>
+      <data name="FlushThreshold" inType="win:UInt32"/>
+     </template>
+     <template tid="SavePersistedLoggerStop_8_2Args">
+      <data name="FileName" inType="win:UnicodeString"/>
+      <data name="BufferSize" inType="win:UInt32"/>
+      <data name="BuffersPersisted" inType="win:UInt32"/>
+      <data name="BuffersWritten" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="GUIDEntryArgs">
+      <data name="GUID" inType="win:GUID"/>
+      <data name="FilterFlags" inType="win:UInt32"/>
+      <data name="LastEnableLoggerId" inType="win:UInt16"/>
+     </template>
+     <template tid="EnableInfoArgs">
+      <data name="GUID" inType="win:GUID"/>
+      <data name="Index" inType="win:UInt8"/>
+      <data name="LoggerId" inType="win:UInt16"/>
+      <data name="MatchAnyKeyword" inType="win:UInt64"/>
+      <data name="MatchAllKeyword" inType="win:UInt64"/>
+      <data name="Level" inType="win:UInt8"/>
+      <data name="EnableProperty" inType="win:UInt32"/>
+     </template>
+     <template tid="ProviderArgs">
+      <data name="ProviderGUID" inType="win:GUID"/>
+      <data name="GroupGUID" inType="win:GUID"/>
+      <data name="Flags" inType="win:UInt16"/>
+      <data name="EnableMask" inType="win:UInt8"/>
+      <data name="GroupEnableMask" inType="win:UInt8"/>
+      <data name="ProcessId" inType="win:UInt32"/>
+     </template>
+     <template tid="ProviderSetProviderTraitsArgs">
+      <data name="ProviderGuid" inType="win:GUID"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="ProviderJoinProviderGroupArgs">
+      <data name="ProviderGuid" inType="win:GUID"/>
+      <data name="ProviderGroupGuid" inType="win:GUID"/>
+     </template>
+     <template tid="SessionStopArgs_V1">
+      <data name="SessionName" inType="win:UnicodeString"/>
+      <data name="FileName" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="LoggingMode" inType="win:UInt32"/>
+      <data name="FailureReason" inType="win:UInt32" map="StopReasonMap"/>
+     </template>
+     <template tid="ProviderEnableArgs_V1">
+      <data name="ProviderName" inType="win:GUID"/>
+      <data name="SessionName" inType="win:UnicodeString"/>
+      <data name="MatchAnyKeyword" inType="win:UInt64"/>
+      <data name="MatchAllKeyword" inType="win:UInt64"/>
+      <data name="EnableProperty" inType="win:UInt32"/>
+      <data name="Level" inType="win:UInt8"/>
+     </template>
+     <template tid="SessionArgs_V1">
+      <data name="SessionGuid" inType="win:GUID"/>
+      <data name="LoggerMode" inType="win:UInt32"/>
+      <data name="SessionName" inType="win:UnicodeString"/>
+      <data name="LogFileName" inType="win:UnicodeString"/>
+      <data name="MinimumBuffers" inType="win:UInt32"/>
+      <data name="MaximumBuffers" inType="win:UInt32"/>
+      <data name="BufferSize" inType="win:UInt32"/>
+      <data name="PeakBuffersCount" inType="win:UInt32"/>
+      <data name="CurrentBuffersCount" inType="win:UInt32"/>
+      <data name="FlushThreshold" inType="win:UInt32"/>
+      <data name="EventsLost" inType="win:UInt32"/>
+      <data name="BuffersLost" inType="win:UInt32"/>
+      <data name="RealTimeBuffersLost" inType="win:UInt32"/>
+      <data name="LoggerId" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_ETW_KEYWORD_SESSION" value="ETW_KEYWORD_SESSION"/>
+    <string id="keyword_ETW_KEYWORD_PROVIDER" value="ETW_KEYWORD_PROVIDER"/>
+    <string id="keyword_ETW_KEYWORD_LOST_EVENT" value="ETW_KEYWORD_LOST_EVENT"/>
+    <string id="keyword_ETW_KEYWORD_SOFT_RESTART" value="ETW_KEYWORD_SOFT_RESTART"/>
+    <string id="keyword_ETW_KEYWORD_CAPTURE_STATE" value="ETW_KEYWORD_CAPTURE_STATE"/>
+    <string id="keyword_ETW_KEYWORD_REGISTRATION" value="ETW_KEYWORD_REGISTRATION"/>
+    <string id="keyword_ETW_KEYWORD_ENABLEMENT" value="ETW_KEYWORD_ENABLEMENT"/>
+    <string id="keyword_ETW_KEYWORD_GROUP" value="ETW_KEYWORD_GROUP"/>
+    <string id="task_Logging" value="Logging"/>
+    <string id="opcode_LoggingWriteBuffer" value="WriteBuffer"/>
+    <string id="opcode_LoggingFileSwitch" value="FileSwitch"/>
+    <string id="task_Session" value="Session"/>
+    <string id="opcode_SessionStart" value="Start"/>
+    <string id="opcode_SessionStop" value="Stop"/>
+    <string id="opcode_SessionFlush" value="Flush"/>
+    <string id="opcode_SessionConfigure" value="Configure"/>
+    <string id="task_Provider" value="Provider"/>
+    <string id="opcode_ProviderRegister" value="Register"/>
+    <string id="opcode_ProviderUnregister" value="Unregister"/>
+    <string id="opcode_ProviderEnable" value="Enable"/>
+    <string id="opcode_ProviderDisable" value="Disable"/>
+    <string id="opcode_ProviderSetProviderTraits" value="SetProviderTraits"/>
+    <string id="opcode_ProviderJoinProviderGroup" value="JoinProviderGroup"/>
+    <string id="task_GUIDEntry" value="GUIDEntry"/>
+    <string id="task_ProviderGroupEntry" value="ProviderGroupEntry"/>
+    <string id="task_StackTrace" value="StackTrace"/>
+    <string id="opcode_StackTraceUserModeStackTrace" value="UserModeStackTrace"/>
+    <string id="task_LostEvent" value="LostEvent"/>
+    <string id="task_SavePersistedLogger" value="SavePersistedLogger"/>
+    <string id="task_EnableInfo" value="EnableInfo"/>
+    <string id="map_StopReasonMapLogger mode incompatible with Append mode" value="Logger mode incompatible with Append mode"/>
+    <string id="map_StopReasonMapOS version mismatch" value="OS version mismatch"/>
+    <string id="map_StopReasonMapPointer size mismatch" value="Pointer size mismatch"/>
+    <string id="map_StopReasonMapUnsupported BufferSize" value="Unsupported BufferSize"/>
+    <string id="map_StopReasonMapBufferSize mismatch" value="BufferSize mismatch"/>
+    <string id="map_StopReasonMapPreallocate mode is incompatible with Append mode" value="Preallocate mode is incompatible with Append mode"/>
+    <string id="map_StopReasonMapFile size query failed" value="File size query failed"/>
+    <string id="map_StopReasonMapMaximum file size reached" value="Maximum file size reached"/>
+    <string id="map_StopReasonMapNumber of buffers written is zero" value="Number of buffers written is zero"/>
+    <string id="map_StopReasonMapNumberf of processors mismatch" value="Numberf of processors mismatch"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

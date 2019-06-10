@@ -1,0 +1,43 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-WinINet-Capture" guid="{a70ff94f-570b-4979-ba5c-e59c9feab61b}" resourceFileName="Microsoft-Windows-WinINet-Capture" messageFileName="Microsoft-Windows-WinINet-Capture" symbol="MicrosoftWindowsWinINetCapture" source="Xml" >
+    <keywords>
+     <keyword name="WININET_KEYWORD_SEND" message="$(string.keyword_WININET_KEYWORD_SEND)" mask="0x100000000"/>
+     <keyword name="WININET_KEYWORD_RECEIVE" message="$(string.keyword_WININET_KEYWORD_RECEIVE)" mask="0x200000000"/>
+     <keyword name="keyword_20000000000" message="$(string.keyword_keyword_20000000000)" mask="0x20000000000"/>
+     <keyword name="keyword_40000000000" message="$(string.keyword_keyword_40000000000)" mask="0x40000000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <events>
+     <event value="2001" symbol="task_0" version="0" task="task_0" level="win:Informational" keywords="WININET_KEYWORD_SEND keyword_20000000000 keyword_40000000000" template="task_0Args"/>
+     <event value="2002" symbol="task_02002" version="0" task="task_0" level="win:Informational" keywords="WININET_KEYWORD_SEND keyword_20000000000 keyword_40000000000" template="task_0Args"/>
+     <event value="2003" symbol="task_02003" version="0" task="task_0" level="win:Informational" keywords="WININET_KEYWORD_RECEIVE keyword_20000000000 keyword_40000000000" template="task_0Args"/>
+     <event value="2004" symbol="task_02004" version="0" task="task_0" level="win:Informational" keywords="WININET_KEYWORD_RECEIVE keyword_20000000000 keyword_40000000000" template="task_0Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="SequenceNumber" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="PayloadByteLength" inType="win:UInt32"/>
+      <data name="Payload" inType="win:Binary" length="PayloadByteLength"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_WININET_KEYWORD_SEND" value="WININET_KEYWORD_SEND"/>
+    <string id="keyword_WININET_KEYWORD_RECEIVE" value="WININET_KEYWORD_RECEIVE"/>
+    <string id="keyword_keyword_20000000000" value="keyword_20000000000"/>
+    <string id="keyword_keyword_40000000000" value="keyword_40000000000"/>
+    <string id="task_task_0" value="task_0"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

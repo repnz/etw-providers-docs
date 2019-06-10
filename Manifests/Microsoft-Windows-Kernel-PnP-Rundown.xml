@@ -1,0 +1,54 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Kernel-PnP-Rundown" guid="{b3a0c2c8-83bb-4ddf-9f8d-4b22d3c38ad7}" resourceFileName="Microsoft-Windows-Kernel-PnP-Rundown" messageFileName="Microsoft-Windows-Kernel-PnP-Rundown" symbol="MicrosoftWindowsKernelPnPRundown" source="Xml" >
+    <keywords>
+     <keyword name="SleepStudy" message="$(string.keyword_SleepStudy)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="ConnectionResourceConsumer" message="$(string.task_ConnectionResourceConsumer)" value="1"/>
+     <task name="ParentPdo" message="$(string.task_ParentPdo)" value="2"/>
+     <task name="ParentDevNode" message="$(string.task_ParentDevNode)" value="3"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="ConnectionResourceConsumer" version="0" task="ConnectionResourceConsumer" level="win:Informational" keywords="SleepStudy" template="ConnectionResourceConsumerArgs"/>
+     <event value="2" symbol="ParentPdo" version="0" task="ParentPdo" level="win:Informational" keywords="SleepStudy" template="ParentPdoArgs"/>
+     <event value="3" symbol="ParentDevNode" version="0" task="ParentDevNode" level="win:Informational" keywords="SleepStudy" template="ParentDevNodeArgs"/>
+     <event value="3" symbol="ParentDevNode_V1" version="1" task="ParentDevNode" level="win:Informational" keywords="SleepStudy" template="ParentDevNodeArgs_V1"/>
+    </events>
+    <templates>
+     <template tid="ConnectionResourceConsumerArgs">
+      <data name="ResourceConsumerPdo" inType="win:Pointer"/>
+      <data name="ConnectionId" inType="win:HexInt64"/>
+      <data name="ResourceConsumerInstancePathLength" inType="win:UInt32"/>
+      <data name="ResourceConsumerInstancePath" inType="win:UnicodeString" length="ResourceConsumerInstancePathLength"/>
+     </template>
+     <template tid="ParentPdoArgs">
+      <data name="Pdo" inType="win:Pointer"/>
+      <data name="ParentPdo" inType="win:Pointer"/>
+     </template>
+     <template tid="ParentDevNodeArgs">
+      <data name="DevNode" inType="win:Pointer"/>
+      <data name="ParentDevNode" inType="win:Pointer"/>
+     </template>
+     <template tid="ParentDevNodeArgs_V1">
+      <data name="DevNode" inType="win:Pointer"/>
+      <data name="ParentDevNode" inType="win:Pointer"/>
+      <data name="InstancePathLength" inType="win:UInt32"/>
+      <data name="InstancePath" inType="win:UnicodeString" length="InstancePathLength"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_SleepStudy" value="SleepStudy"/>
+    <string id="task_ConnectionResourceConsumer" value="ConnectionResourceConsumer"/>
+    <string id="task_ParentPdo" value="ParentPdo"/>
+    <string id="task_ParentDevNode" value="ParentDevNode"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

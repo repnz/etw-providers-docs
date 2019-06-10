@@ -1,0 +1,119 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-RTWorkQueue-Extended" guid="{83faaa86-63c8-4dd8-a2da-fbadddfc0655}" resourceFileName="Microsoft-Windows-RTWorkQueue-Extended" messageFileName="Microsoft-Windows-RTWorkQueue-Extended" symbol="MicrosoftWindowsRTWorkQueueExtended" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="WorkQueue:QueueExtended" message="$(string.task_WorkQueue:QueueExtended)" value="100"/>
+     <task name="WorkQueue:ExtendedLongRunning" message="$(string.task_WorkQueue:ExtendedLongRunning)" value="101"/>
+     <task name="WorkQueue:ExtendedInvalidUsageAttempt" message="$(string.task_WorkQueue:ExtendedInvalidUsageAttempt)" value="102"/>
+     <task name="WorkQueue:ExtendedInvalidCallbackAttempt" message="$(string.task_WorkQueue:ExtendedInvalidCallbackAttempt)" value="103"/>
+     <task name="WorkQueue:PlatformRef" message="$(string.task_WorkQueue:PlatformRef)" value="104"/>
+     <task name="WorkQueue:RTLock" message="$(string.task_WorkQueue:RTLock)" value="105"/>
+     <task name="WorkQueue:SetAVMode" message="$(string.task_WorkQueue:SetAVMode)" value="106"/>
+     <task name="WorkQueue:RTLockAcquire" message="$(string.task_WorkQueue:RTLockAcquire)" value="107"/>
+     <task name="WorkQueue:TimerCallback" message="$(string.task_WorkQueue:TimerCallback)" value="108"/>
+     <task name="WorkQueue:TimerMode" message="$(string.task_WorkQueue:TimerMode)" value="109"/>
+     <task name="WorkQueue:TimerSet" message="$(string.task_WorkQueue:TimerSet)" value="110"/>
+     <task name="WorkQueue:TimerResChange" message="$(string.task_WorkQueue:TimerResChange)" value="111"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="WorkQueue:QueueExtended" version="0" task="WorkQueue:QueueExtended" level="win:Informational" template="WorkQueue:QueueExtendedArgs"/>
+     <event value="2" symbol="WorkQueue:ExtendedLongRunning" version="0" task="WorkQueue:ExtendedLongRunning" level="win:Verbose" template="WorkQueue:ExtendedLongRunningArgs"/>
+     <event value="3" symbol="WorkQueue:ExtendedInvalidUsageAttempt" version="0" task="WorkQueue:ExtendedInvalidUsageAttempt" level="win:Verbose" template="WorkQueue:ExtendedInvalidUsageAttemptArgs"/>
+     <event value="4" symbol="WorkQueue:ExtendedInvalidCallbackAttempt" version="0" task="WorkQueue:ExtendedInvalidCallbackAttempt" level="win:Verbose" template="WorkQueue:ExtendedInvalidCallbackAttemptArgs"/>
+     <event value="5" symbol="WorkQueue:PlatformRefStart" version="0" task="WorkQueue:PlatformRef" opcode="win:Start" level="win:Verbose" template="WorkQueue:PlatformRefStartArgs"/>
+     <event value="6" symbol="WorkQueue:PlatformRefStop" version="0" task="WorkQueue:PlatformRef" opcode="win:Stop" level="win:Verbose" template="WorkQueue:PlatformRefStartArgs"/>
+     <event value="7" symbol="WorkQueue:PlatformRefStop7" version="0" task="WorkQueue:PlatformRef" opcode="win:Stop" level="win:Verbose" template="WorkQueue:PlatformRefStop7Args"/>
+     <event value="8" symbol="WorkQueue:RTLockStart" version="0" task="WorkQueue:RTLock" opcode="win:Start" level="win:Verbose" template="WorkQueue:RTLockStartArgs"/>
+     <event value="9" symbol="WorkQueue:RTLockStop" version="0" task="WorkQueue:RTLock" opcode="win:Stop" level="win:Verbose" template="WorkQueue:RTLockStartArgs"/>
+     <event value="10" symbol="WorkQueue:SetAVModeStart" version="0" task="WorkQueue:SetAVMode" opcode="win:Start" level="win:Verbose" template="WorkQueue:SetAVModeStartArgs"/>
+     <event value="11" symbol="WorkQueue:SetAVModeStop" version="0" task="WorkQueue:SetAVMode" opcode="win:Stop" level="win:Verbose" template="WorkQueue:SetAVModeStartArgs"/>
+     <event value="12" symbol="WorkQueue:RTLockAcquireStart" version="0" task="WorkQueue:RTLockAcquire" opcode="win:Start" level="win:Verbose" template="WorkQueue:RTLockStartArgs"/>
+     <event value="13" symbol="WorkQueue:RTLockAcquireStop" version="0" task="WorkQueue:RTLockAcquire" opcode="win:Stop" level="win:Verbose" template="WorkQueue:RTLockStartArgs"/>
+     <event value="14" symbol="WorkQueue:TimerCallbackStart" version="0" task="WorkQueue:TimerCallback" opcode="win:Start" level="win:Verbose" template="WorkQueue:TimerCallbackStartArgs"/>
+     <event value="15" symbol="WorkQueue:TimerCallbackStop" version="0" task="WorkQueue:TimerCallback" opcode="win:Stop" level="win:Verbose" template="WorkQueue:TimerCallbackStartArgs"/>
+     <event value="16" symbol="WorkQueue:TimerMode" version="0" task="WorkQueue:TimerMode" level="win:Verbose" template="WorkQueue:TimerModeArgs"/>
+     <event value="17" symbol="WorkQueue:TimerSet" version="0" task="WorkQueue:TimerSet" level="win:Verbose" template="WorkQueue:TimerSetArgs"/>
+     <event value="18" symbol="WorkQueue:TimerResChangeStart" version="0" task="WorkQueue:TimerResChange" opcode="win:Start" level="win:Verbose" template="WorkQueue:TimerResChangeStartArgs"/>
+     <event value="19" symbol="WorkQueue:TimerResChangeStop" version="0" task="WorkQueue:TimerResChange" opcode="win:Stop" level="win:Verbose" template="WorkQueue:TimerResChangeStartArgs"/>
+    </events>
+    <templates>
+     <template tid="WorkQueue:QueueExtendedArgs">
+      <data name="AsyncResult" inType="win:Pointer"/>
+      <data name="AsyncResultVTable" inType="win:Pointer"/>
+     </template>
+     <template tid="WorkQueue:ExtendedLongRunningArgs">
+      <data name="WorkQueueID" inType="win:UInt32"/>
+      <data name="RefCount" inType="win:UInt32"/>
+     </template>
+     <template tid="WorkQueue:ExtendedInvalidUsageAttemptArgs">
+      <data name="Platform" inType="win:Pointer"/>
+      <data name="WorkQueueID" inType="win:UInt32"/>
+      <data name="WorkPrivateIndex" inType="win:UInt32"/>
+     </template>
+     <template tid="WorkQueue:ExtendedInvalidCallbackAttemptArgs">
+      <data name="Platform" inType="win:Pointer"/>
+      <data name="Callback" inType="win:Pointer"/>
+      <data name="WorkQueueID" inType="win:UInt32"/>
+     </template>
+     <template tid="WorkQueue:PlatformRefStartArgs">
+      <data name="object" inType="win:Pointer"/>
+     </template>
+     <template tid="WorkQueue:PlatformRefStop7Args">
+      <data name="object" inType="win:Pointer"/>
+      <data name="Count" inType="win:Int32"/>
+     </template>
+     <template tid="WorkQueue:RTLockStartArgs">
+      <data name="WorkQueueID" inType="win:UInt32"/>
+     </template>
+     <template tid="WorkQueue:SetAVModeStartArgs">
+      <data name="handle" inType="win:Pointer"/>
+      <data name="Mode" inType="win:UInt32"/>
+     </template>
+     <template tid="WorkQueue:TimerCallbackStartArgs">
+      <data name="workqueue" inType="win:Pointer"/>
+      <data name="WorkQueueID" inType="win:UInt32"/>
+      <data name="Mode" inType="win:UInt32"/>
+     </template>
+     <template tid="WorkQueue:TimerModeArgs">
+      <data name="WorkQueuePointer" inType="win:Pointer"/>
+      <data name="WorkQueueID" inType="win:UInt32"/>
+      <data name="OldMode" inType="win:UInt32"/>
+      <data name="NewMode" inType="win:UInt32"/>
+     </template>
+     <template tid="WorkQueue:TimerSetArgs">
+      <data name="WorkQueuePointer" inType="win:Pointer"/>
+      <data name="WorkQueueID" inType="win:UInt32"/>
+      <data name="Mode" inType="win:UInt32"/>
+      <data name="Delta" inType="win:UInt32"/>
+     </template>
+     <template tid="WorkQueue:TimerResChangeStartArgs">
+      <data name="workqueue" inType="win:Pointer"/>
+      <data name="WorkQueueID" inType="win:UInt32"/>
+      <data name="Resolution" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_WorkQueue:QueueExtended" value="WorkQueue:QueueExtended"/>
+    <string id="task_WorkQueue:ExtendedLongRunning" value="WorkQueue:ExtendedLongRunning"/>
+    <string id="task_WorkQueue:ExtendedInvalidUsageAttempt" value="WorkQueue:ExtendedInvalidUsageAttempt"/>
+    <string id="task_WorkQueue:ExtendedInvalidCallbackAttempt" value="WorkQueue:ExtendedInvalidCallbackAttempt"/>
+    <string id="task_WorkQueue:PlatformRef" value="WorkQueue:PlatformRef"/>
+    <string id="task_WorkQueue:RTLock" value="WorkQueue:RTLock"/>
+    <string id="task_WorkQueue:SetAVMode" value="WorkQueue:SetAVMode"/>
+    <string id="task_WorkQueue:RTLockAcquire" value="WorkQueue:RTLockAcquire"/>
+    <string id="task_WorkQueue:TimerCallback" value="WorkQueue:TimerCallback"/>
+    <string id="task_WorkQueue:TimerMode" value="WorkQueue:TimerMode"/>
+    <string id="task_WorkQueue:TimerSet" value="WorkQueue:TimerSet"/>
+    <string id="task_WorkQueue:TimerResChange" value="WorkQueue:TimerResChange"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

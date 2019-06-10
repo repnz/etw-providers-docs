@@ -1,0 +1,65 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-UxInit" guid="{4154a29c-40d9-445f-8d65-24da473e8f65}" resourceFileName="Microsoft-Windows-UxInit" messageFileName="Microsoft-Windows-UxInit" symbol="MicrosoftWindowsUxInit" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="CVSCache_Initializing" message="$(string.task_CVSCache_Initializing)" value="1"/>
+     <task name="LoadFromCache" message="$(string.task_LoadFromCache)" value="2"/>
+     <task name="WriteToCache" message="$(string.task_WriteToCache)" value="3"/>
+     <task name="InitializeUserTheme" message="$(string.task_InitializeUserTheme)" value="4"/>
+     <task name="ReuseExistingThemeData" message="$(string.task_ReuseExistingThemeData)" value="5"/>
+     <task name="ApplyNewThemeData" message="$(string.task_ApplyNewThemeData)" value="6"/>
+     <task name="LoadThemeAsSystem" message="$(string.task_LoadThemeAsSystem)" value="7"/>
+     <task name="ThemeServiceStart" message="$(string.task_ThemeServiceStart)" value="8"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="CVSCache_Initializing" version="0" task="CVSCache_Initializing" level="win:Informational" template="CVSCache_InitializingArgs"/>
+     <event value="2" symbol="LoadFromCacheStart" version="0" task="LoadFromCache" opcode="win:Start" level="win:Informational"/>
+     <event value="3" symbol="LoadFromCacheStop" version="0" task="LoadFromCache" opcode="win:Stop" level="win:Informational" template="LoadFromCacheStopArgs"/>
+     <event value="4" symbol="WriteToCacheStart" version="0" task="WriteToCache" opcode="win:Start" level="win:Informational"/>
+     <event value="5" symbol="WriteToCacheStop" version="0" task="WriteToCache" opcode="win:Stop" level="win:Informational" template="LoadFromCacheStopArgs"/>
+     <event value="6" symbol="InitializeUserThemeStart" version="0" task="InitializeUserTheme" opcode="win:Start" level="win:Informational" template="InitializeUserThemeStartArgs"/>
+     <event value="7" symbol="InitializeUserThemeStart7" version="0" task="InitializeUserTheme" opcode="win:Start" level="win:Informational" template="InitializeUserThemeStartArgs"/>
+     <event value="8" symbol="ReuseExistingThemeData" version="0" task="ReuseExistingThemeData" level="win:Informational" template="ReuseExistingThemeDataArgs"/>
+     <event value="9" symbol="ApplyNewThemeData" version="0" task="ApplyNewThemeData" level="win:Informational" template="ReuseExistingThemeDataArgs"/>
+     <event value="10" symbol="LoadThemeAsSystem" version="0" task="LoadThemeAsSystem" level="win:Informational" template="ReuseExistingThemeDataArgs"/>
+     <event value="11" symbol="ThemeServiceStart" version="0" task="ThemeServiceStart" level="win:Informational"/>
+    </events>
+    <templates>
+     <template tid="CVSCache_InitializingArgs">
+      <data name="CacheFileName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="LoadFromCacheStopArgs">
+      <data name="hr" inType="win:Int32"/>
+     </template>
+     <template tid="InitializeUserThemeStartArgs">
+      <data name="monitorConfig" inType="win:Int32"/>
+      <data name="fPolicyCheckOnly" inType="win:Boolean"/>
+     </template>
+     <template tid="ReuseExistingThemeDataArgs">
+      <data name="monitorConfig" inType="win:Int32"/>
+      <data name="systemDpi" inType="win:Int32"/>
+      <data name="IsHighContrastMode" inType="win:Boolean"/>
+      <data name="hr" inType="win:Int32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_CVSCache_Initializing" value="CVSCache_Initializing"/>
+    <string id="task_LoadFromCache" value="LoadFromCache"/>
+    <string id="task_WriteToCache" value="WriteToCache"/>
+    <string id="task_InitializeUserTheme" value="InitializeUserTheme"/>
+    <string id="task_ReuseExistingThemeData" value="ReuseExistingThemeData"/>
+    <string id="task_ApplyNewThemeData" value="ApplyNewThemeData"/>
+    <string id="task_LoadThemeAsSystem" value="LoadThemeAsSystem"/>
+    <string id="task_ThemeServiceStart" value="ThemeServiceStart"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

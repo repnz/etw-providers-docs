@@ -1,0 +1,198 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-PersistentMemory-PmemDisk" guid="{0fa2ee03-1feb-5057-3bb3-eb25521b8482}" resourceFileName="Microsoft-Windows-PersistentMemory-PmemDisk" messageFileName="Microsoft-Windows-PersistentMemory-PmemDisk" symbol="MicrosoftWindowsPersistentMemoryPmemDisk" source="Xml" >
+    <keywords>
+     <keyword name="Hardware_Events" message="$(string.keyword_Hardware_Events)" mask="0x2"/>
+     <keyword name="Read" message="$(string.keyword_Read)" mask="0x100000000"/>
+     <keyword name="Write" message="$(string.keyword_Write)" mask="0x200000000"/>
+     <keyword name="PagingRead" message="$(string.keyword_PagingRead)" mask="0x400000000"/>
+     <keyword name="PagingWrite" message="$(string.keyword_PagingWrite)" mask="0x800000000"/>
+     <keyword name="NonReadWrite" message="$(string.keyword_NonReadWrite)" mask="0x1000000000"/>
+     <keyword name="IOCTL" message="$(string.keyword_IOCTL)" mask="0x2000000000"/>
+     <keyword name="PnP" message="$(string.keyword_PnP)" mask="0x4000000000"/>
+     <keyword name="IO_Performance" message="$(string.keyword_IO_Performance)" mask="0x8000000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <maps>
+     <valueMap name="StartDeviceFailure">
+      <map value="0x0" message="$(string.map_StartDeviceFailureThe driver encountered an internal error.)"/>
+      <map value="0x1" message="$(string.map_StartDeviceFailureThe driver could not interpret the device's memory resources.)"/>
+      <map value="0x2" message="$(string.map_StartDeviceFailureThe driver encountered an internal error.)"/>
+      <map value="0x3" message="$(string.map_StartDeviceFailureThe driver could not discover the device's interleaving settings.)"/>
+      <map value="0x4" message="$(string.map_StartDeviceFailureThe driver could not read the device's serial number.)"/>
+      <map value="0x5" message="$(string.map_StartDeviceFailureThe driver encountered an internal error.)"/>
+      <map value="0x6" message="$(string.map_StartDeviceFailureThe driver encountered an internal error.)"/>
+      <map value="0x7" message="$(string.map_StartDeviceFailureThe driver encountered an internal error.)"/>
+      <map value="0x8" message="$(string.map_StartDeviceFailureThe driver encountered an internal error.)"/>
+      <map value="0x9" message="$(string.map_StartDeviceFailureThe driver encountered an internal error.)"/>
+      <map value="0xa" message="$(string.map_StartDeviceFailureThe driver encountered an internal error.)"/>
+      <map value="0xb" message="$(string.map_StartDeviceFailureThe driver could not discover whether boot-time operations, like save and restore, succeeded.)"/>
+      <map value="0xc" message="$(string.map_StartDeviceFailureThe driver encountered an internal error.)"/>
+      <map value="0xd" message="$(string.map_StartDeviceFailureThe driver could not register to be notified of health-related events on the NVDIMM.)"/>
+      <map value="0xe" message="$(string.map_StartDeviceFailureThe driver could not determine the health status of the persistent memory disk.)"/>
+      <map value="0xf" message="$(string.map_StartDeviceFailureThe driver encountered an internal error.)"/>
+      <map value="0x10" message="$(string.map_StartDeviceFailureThe driver encountered an internal error.)"/>
+      <map value="0x11" message="$(string.map_StartDeviceFailureThe driver encountered an internal error.)"/>
+      <map value="0x12" message="$(string.map_StartDeviceFailureThere is an uncorrectable memory error in a critical region of the persistent memory disk.)"/>
+     </valueMap>
+     <valueMap name="HealthStatusMap">
+      <map value="0x0" message="$(string.map_HealthStatusMapunknown)"/>
+      <map value="0x1" message="$(string.map_HealthStatusMapunhealthy)"/>
+      <map value="0x2" message="$(string.map_HealthStatusMapwarning)"/>
+      <map value="0x3" message="$(string.map_HealthStatusMaphealthy)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="task_0" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+     <event value="2" symbol="task_02" version="0" task="task_0" level="win:Informational" template="task_02Args"/>
+     <event value="3" symbol="task_03" version="0" task="task_0" level="win:Informational" keywords="IO_Performance" template="task_02Args"/>
+     <event value="101" symbol="task_0101" version="0" task="task_0" level="win:Informational" keywords="Read" template="task_0101Args"/>
+     <event value="102" symbol="task_0102" version="0" task="task_0" level="win:Informational" keywords="Write" template="task_0101Args"/>
+     <event value="103" symbol="task_0103" version="0" task="task_0" level="win:Informational" keywords="Read PagingRead" template="task_0101Args"/>
+     <event value="104" symbol="task_0104" version="0" task="task_0" level="win:Informational" keywords="Write PagingWrite" template="task_0101Args"/>
+     <event value="105" symbol="task_0105" version="0" task="task_0" level="win:Informational" keywords="Read Write PagingRead PagingWrite" template="task_0105Args"/>
+     <event value="106" symbol="task_0106" version="0" task="task_0" level="win:Informational" keywords="IOCTL" template="task_0106Args"/>
+     <event value="107" symbol="task_0107" version="0" task="task_0" level="win:Informational" keywords="IOCTL" template="task_0107Args"/>
+     <event value="108" symbol="task_0108" version="0" task="task_0" level="win:Informational" keywords="PnP" template="task_0108Args"/>
+     <event value="109" symbol="task_0109" version="0" task="task_0" level="win:Informational" keywords="PnP" template="task_0107Args"/>
+     <event value="202" symbol="task_0202" version="0" task="task_0" level="win:Critical" template="task_0202Args"/>
+     <event value="203" symbol="task_0203" version="0" task="task_0" level="win:Informational" template="task_0203Args"/>
+     <event value="204" symbol="task_0204" version="0" task="task_0" level="win:Error" template="task_0203Args"/>
+     <event value="205" symbol="task_0205" version="0" task="task_0" level="win:Error" template="task_0203Args"/>
+     <event value="206" symbol="task_0206" version="0" task="task_0" level="win:Informational" template="task_0206Args"/>
+     <event value="207" symbol="task_0207" version="0" task="task_0" level="win:Critical" template="task_0203Args"/>
+     <event value="209" symbol="task_0209" version="0" task="task_0" level="win:Critical" template="task_0203Args"/>
+     <event value="211" symbol="task_0211" version="0" task="task_0" level="win:Informational" template="task_0203Args"/>
+     <event value="212" symbol="task_0212" version="0" task="task_0" level="win:Warning" template="task_0203Args"/>
+     <event value="213" symbol="task_0213" version="0" task="task_0" level="win:Critical" template="task_0203Args"/>
+     <event value="300" symbol="task_0300" version="0" task="task_0" level="win:Error" template="task_0300Args"/>
+     <event value="301" symbol="task_0301" version="0" task="task_0" level="win:Informational" template="task_0300Args"/>
+     <event value="302" symbol="task_0302" version="0" task="task_0" level="win:Error" template="task_0300Args"/>
+     <event value="900" symbol="task_0900" version="0" task="task_0" level="win:Always" template="task_0900Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="StartAddress" inType="win:UInt64"/>
+      <data name="Size" inType="win:UInt64"/>
+     </template>
+     <template tid="task_02Args">
+      <data name="PersistentMemoryDiskGuid" inType="win:GUID"/>
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="RequestDuration" inType="win:UInt64"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="IsWrite" inType="win:Boolean"/>
+      <data name="NtStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0101Args">
+      <data name="PersistentMemoryDiskGuid" inType="win:GUID"/>
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="IRPMJ" inType="win:UInt8"/>
+      <data name="LengthOfTransfer" inType="win:UInt64"/>
+      <data name="LBA" inType="win:HexInt64"/>
+     </template>
+     <template tid="task_0105Args">
+      <data name="PersistentMemoryDiskGuid" inType="win:GUID"/>
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="NTStatus" inType="win:HexInt32"/>
+     </template>
+     <template tid="task_0106Args">
+      <data name="PersistentMemoryDiskGuid" inType="win:GUID"/>
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="MajorFunction" inType="win:HexInt32"/>
+      <data name="MinorFunction" inType="win:HexInt32"/>
+      <data name="Parameter" inType="win:HexInt32"/>
+     </template>
+     <template tid="task_0107Args">
+      <data name="PersistentMemoryDiskGuid" inType="win:GUID"/>
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="Status" inType="win:HexInt32"/>
+     </template>
+     <template tid="task_0108Args">
+      <data name="PersistentMemoryDiskGuid" inType="win:GUID"/>
+      <data name="DeviceNumber" inType="win:UInt32"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="MinorFunction" inType="win:HexInt32"/>
+      <data name="Type" inType="win:HexInt32"/>
+      <data name="DeviceObject" inType="win:Pointer"/>
+     </template>
+     <template tid="task_0202Args">
+      <data name="PersistentMemoryDiskGuid" inType="win:GUID"/>
+      <data name="VendorId" inType="win:AnsiString"/>
+      <data name="ProductId" inType="win:AnsiString"/>
+      <data name="SerialNumber" inType="win:AnsiString"/>
+      <data name="Reason" inType="win:UInt32" map="StartDeviceFailure"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0203Args">
+      <data name="PersistentMemoryDiskGuid" inType="win:GUID"/>
+      <data name="VendorId" inType="win:AnsiString"/>
+      <data name="ProductId" inType="win:AnsiString"/>
+      <data name="SerialNumber" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_0206Args">
+      <data name="LogicalPersistentMemoryDiskGuid" inType="win:GUID"/>
+      <data name="VendorId" inType="win:AnsiString"/>
+      <data name="ProductId" inType="win:AnsiString"/>
+      <data name="SerialNumber" inType="win:AnsiString"/>
+      <data name="PhysicalNvdimmGuid" inType="win:GUID"/>
+      <data name="NfitHandle" inType="win:UInt32"/>
+      <data name="NvdimmHealthStatus" inType="win:UInt32" map="HealthStatusMap"/>
+     </template>
+     <template tid="task_0300Args">
+      <data name="PersistentMemoryDiskGuid" inType="win:GUID"/>
+     </template>
+     <template tid="task_0900Args">
+      <data name="PersistentMemoryDiskGuid" inType="win:GUID"/>
+      <data name="Message" inType="win:AnsiString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Hardware_Events" value="Hardware_Events"/>
+    <string id="keyword_Read" value="Read"/>
+    <string id="keyword_Write" value="Write"/>
+    <string id="keyword_PagingRead" value="PagingRead"/>
+    <string id="keyword_PagingWrite" value="PagingWrite"/>
+    <string id="keyword_NonReadWrite" value="NonReadWrite"/>
+    <string id="keyword_IOCTL" value="IOCTL"/>
+    <string id="keyword_PnP" value="PnP"/>
+    <string id="keyword_IO_Performance" value="IO_Performance"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="map_StartDeviceFailureThe driver encountered an internal error." value="The driver encountered an internal error."/>
+    <string id="map_StartDeviceFailureThe driver could not interpret the device's memory resources." value="The driver could not interpret the device's memory resources."/>
+    <string id="map_StartDeviceFailureThe driver encountered an internal error." value="The driver encountered an internal error."/>
+    <string id="map_StartDeviceFailureThe driver could not discover the device's interleaving settings." value="The driver could not discover the device's interleaving settings."/>
+    <string id="map_StartDeviceFailureThe driver could not read the device's serial number." value="The driver could not read the device's serial number."/>
+    <string id="map_StartDeviceFailureThe driver encountered an internal error." value="The driver encountered an internal error."/>
+    <string id="map_StartDeviceFailureThe driver encountered an internal error." value="The driver encountered an internal error."/>
+    <string id="map_StartDeviceFailureThe driver encountered an internal error." value="The driver encountered an internal error."/>
+    <string id="map_StartDeviceFailureThe driver encountered an internal error." value="The driver encountered an internal error."/>
+    <string id="map_StartDeviceFailureThe driver encountered an internal error." value="The driver encountered an internal error."/>
+    <string id="map_StartDeviceFailureThe driver encountered an internal error." value="The driver encountered an internal error."/>
+    <string id="map_StartDeviceFailureThe driver could not discover whether boot-time operations, like save and restore, succeeded." value="The driver could not discover whether boot-time operations, like save and restore, succeeded."/>
+    <string id="map_StartDeviceFailureThe driver encountered an internal error." value="The driver encountered an internal error."/>
+    <string id="map_StartDeviceFailureThe driver could not register to be notified of health-related events on the NVDIMM." value="The driver could not register to be notified of health-related events on the NVDIMM."/>
+    <string id="map_StartDeviceFailureThe driver could not determine the health status of the persistent memory disk." value="The driver could not determine the health status of the persistent memory disk."/>
+    <string id="map_StartDeviceFailureThe driver encountered an internal error." value="The driver encountered an internal error."/>
+    <string id="map_StartDeviceFailureThe driver encountered an internal error." value="The driver encountered an internal error."/>
+    <string id="map_StartDeviceFailureThe driver encountered an internal error." value="The driver encountered an internal error."/>
+    <string id="map_StartDeviceFailureThere is an uncorrectable memory error in a critical region of the persistent memory disk." value="There is an uncorrectable memory error in a critical region of the persistent memory disk."/>
+    <string id="map_HealthStatusMapunknown" value="unknown"/>
+    <string id="map_HealthStatusMapunhealthy" value="unhealthy"/>
+    <string id="map_HealthStatusMapwarning" value="warning"/>
+    <string id="map_HealthStatusMaphealthy" value="healthy"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

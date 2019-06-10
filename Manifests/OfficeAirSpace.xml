@@ -1,0 +1,2300 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="OfficeAirSpace" guid="{f562bb8e-422d-4b5c-b20e-90d710f7d11c}" resourceFileName="OfficeAirSpace" messageFileName="OfficeAirSpace" symbol="OfficeAirSpace" source="Xml" >
+    <keywords>
+     <keyword name="Memory" message="$(string.keyword_Memory)" mask="0x1"/>
+     <keyword name="Timing" message="$(string.keyword_Timing)" mask="0x2"/>
+     <keyword name="FPS" message="$(string.keyword_FPS)" mask="0x4"/>
+     <keyword name="Layer" message="$(string.keyword_Layer)" mask="0x8"/>
+     <keyword name="Texture" message="$(string.keyword_Texture)" mask="0x10"/>
+     <keyword name="DirectX" message="$(string.keyword_DirectX)" mask="0x20"/>
+     <keyword name="CPU" message="$(string.keyword_CPU)" mask="0x40"/>
+     <keyword name="GPU" message="$(string.keyword_GPU)" mask="0x80"/>
+     <keyword name="Window" message="$(string.keyword_Window)" mask="0x100"/>
+     <keyword name="Initialization" message="$(string.keyword_Initialization)" mask="0x200"/>
+     <keyword name="Exception" message="$(string.keyword_Exception)" mask="0x400"/>
+     <keyword name="Animation" message="$(string.keyword_Animation)" mask="0x800"/>
+     <keyword name="Shutdown" message="$(string.keyword_Shutdown)" mask="0x1000"/>
+     <keyword name="AirSpy" message="$(string.keyword_AirSpy)" mask="0x2000"/>
+     <keyword name="Atlas" message="$(string.keyword_Atlas)" mask="0x4000"/>
+     <keyword name="LowResourceMode" message="$(string.keyword_LowResourceMode)" mask="0x8000"/>
+     <keyword name="GDIRendering" message="$(string.keyword_GDIRendering)" mask="0x10000"/>
+     <keyword name="Channel" message="$(string.keyword_Channel)" mask="0x20000"/>
+     <keyword name="Automation" message="$(string.keyword_Automation)" mask="0x40000"/>
+     <keyword name="DebugLog" message="$(string.keyword_DebugLog)" mask="0x80000"/>
+     <keyword name="Scrolling" message="$(string.keyword_Scrolling)" mask="0x100000"/>
+     <keyword name="FrontEnd" message="$(string.keyword_FrontEnd)" mask="0x200000"/>
+     <keyword name="BackEnd" message="$(string.keyword_BackEnd)" mask="0x400000"/>
+     <keyword name="CommandList" message="$(string.keyword_CommandList)" mask="0x800000"/>
+     <keyword name="Desktop" message="$(string.keyword_Desktop)" mask="0x1000000"/>
+     <keyword name="MaxTextureDimension" message="$(string.keyword_MaxTextureDimension)" mask="0x2000000"/>
+     <keyword name="Immersive" message="$(string.keyword_Immersive)" mask="0x4000000"/>
+     <keyword name="NullRenderTarget" message="$(string.keyword_NullRenderTarget)" mask="0x8000000"/>
+     <keyword name="WetInk" message="$(string.keyword_WetInk)" mask="0x10000000"/>
+     <keyword name="Scene" message="$(string.keyword_Scene)" mask="0x20000000"/>
+     <keyword name="Interaction" message="$(string.keyword_Interaction)" mask="0x40000000"/>
+     <keyword name="Pointer" message="$(string.keyword_Pointer)" mask="0x80000000"/>
+     <keyword name="LayerTileManager" message="$(string.keyword_LayerTileManager)" mask="0x100000000"/>
+     <keyword name="LayerTexture" message="$(string.keyword_LayerTexture)" mask="0x200000000"/>
+     <keyword name="Tile" message="$(string.keyword_Tile)" mask="0x400000000"/>
+     <keyword name="NullHDC" message="$(string.keyword_NullHDC)" mask="0x800000000"/>
+     <keyword name="DirectManipulation" message="$(string.keyword_DirectManipulation)" mask="0x1000000000"/>
+    </keywords>
+    <tasks>
+     <task name="Compositor" message="$(string.task_Compositor)" value="1"/>
+     <task name="DirectX" message="$(string.task_DirectX)" value="2">
+>
+      <opcodes>
+       <opcode name="LayerHostEnterLowResourceMode" message="$(string.opcode_DirectXLayerHostEnterLowResourceMode)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="Channel" message="$(string.task_Channel)" value="3">
+>
+      <opcodes>
+       <opcode name="LayerHostStartingRecoveryFromLowResourceMode" message="$(string.opcode_ChannelLayerHostStartingRecoveryFromLowResourceMode)" value="12"/>
+       <opcode name="LayerHostFinishedRecoveryFromLowResourceMode" message="$(string.opcode_ChannelLayerHostFinishedRecoveryFromLowResourceMode)" value="13"/>
+       <opcode name="LayerHostPartiallyRecoveredFromLowResourceMode" message="$(string.opcode_ChannelLayerHostPartiallyRecoveredFromLowResourceMode)" value="14"/>
+       <opcode name="CommandQueued" message="$(string.opcode_ChannelCommandQueued)" value="60"/>
+       <opcode name="SceneBatch" message="$(string.opcode_ChannelSceneBatch)" value="61"/>
+      </opcodes>
+     </task>
+     <task name="AirSpy" message="$(string.task_AirSpy)" value="4"/>
+     <task name="RenderThread" message="$(string.task_RenderThread)" value="5">
+>
+      <opcodes>
+       <opcode name="RenderFrame" message="$(string.opcode_RenderThreadRenderFrame)" value="49"/>
+       <opcode name="BatchPresented" message="$(string.opcode_RenderThreadBatchPresented)" value="65"/>
+      </opcodes>
+     </task>
+     <task name="UpdateTextures" message="$(string.task_UpdateTextures)" value="6">
+>
+      <opcodes>
+       <opcode name="UpdateTextures" message="$(string.opcode_UpdateTexturesUpdateTextures)" value="64"/>
+      </opcodes>
+     </task>
+     <task name="VirtualTexture" message="$(string.task_VirtualTexture)" value="7"/>
+     <task name="CommandList" message="$(string.task_CommandList)" value="8"/>
+     <task name="CommandListComposite" message="$(string.task_CommandListComposite)" value="9"/>
+     <task name="XamlDrawableSurface" message="$(string.task_XamlDrawableSurface)" value="10"/>
+     <task name="XamlVirtualizedSurface" message="$(string.task_XamlVirtualizedSurface)" value="11"/>
+     <task name="Layer" message="$(string.task_Layer)" value="12"/>
+     <task name="ScrollingLayer" message="$(string.task_ScrollingLayer)" value="13"/>
+     <task name="PrefetchScope" message="$(string.task_PrefetchScope)" value="14"/>
+     <task name="Direct2DTexture" message="$(string.task_Direct2DTexture)" value="15"/>
+     <task name="CommandListVirtualTexture" message="$(string.task_CommandListVirtualTexture)" value="16"/>
+     <task name="VSISTile" message="$(string.task_VSISTile)" value="17"/>
+     <task name="SceneD" message="$(string.task_SceneD)" value="18"/>
+     <task name="LayerHostD" message="$(string.task_LayerHostD)" value="19"/>
+     <task name="SurfaceManager" message="$(string.task_SurfaceManager)" value="20"/>
+     <task name="WetInkTexture" message="$(string.task_WetInkTexture)" value="21"/>
+     <task name="Scene" message="$(string.task_Scene)" value="22"/>
+     <task name="LayerHostI" message="$(string.task_LayerHostI)" value="23"/>
+     <task name="SceneI" message="$(string.task_SceneI)" value="24"/>
+     <task name="XamlHostingLayer" message="$(string.task_XamlHostingLayer)" value="25"/>
+     <task name="WetInkSwapChainPanel" message="$(string.task_WetInkSwapChainPanel)" value="26"/>
+     <task name="BasicSwapChainPanel" message="$(string.task_BasicSwapChainPanel)" value="27"/>
+     <task name="XamlMultithreadNativeSurfaceOffThread" message="$(string.task_XamlMultithreadNativeSurfaceOffThread)" value="28"/>
+     <task name="XamlMultithreadNativeSurface" message="$(string.task_XamlMultithreadNativeSurface)" value="29"/>
+     <task name="XamlMultithreadNativeSurfaceUI" message="$(string.task_XamlMultithreadNativeSurfaceUI)" value="30"/>
+     <task name="InteractionInstance" message="$(string.task_InteractionInstance)" value="31"/>
+     <task name="InputProcessor" message="$(string.task_InputProcessor)" value="32"/>
+     <task name="CommandListRasterizeWork" message="$(string.task_CommandListRasterizeWork)" value="33"/>
+     <task name="CommandListRasterizer" message="$(string.task_CommandListRasterizer)" value="34"/>
+     <task name="VSISTiler" message="$(string.task_VSISTiler)" value="35"/>
+     <task name="XamlMultithreadDrawableSurfaceOffThread" message="$(string.task_XamlMultithreadDrawableSurfaceOffThread)" value="36"/>
+     <task name="XamlVirtualSurface" message="$(string.task_XamlVirtualSurface)" value="37"/>
+     <task name="XamlMultithreadDrawableSurface" message="$(string.task_XamlMultithreadDrawableSurface)" value="38"/>
+     <task name="XamlSurface" message="$(string.task_XamlSurface)" value="39"/>
+     <task name="XamlMultithreadVirtualSurface" message="$(string.task_XamlMultithreadVirtualSurface)" value="40"/>
+     <task name="BitmapAllocator" message="$(string.task_BitmapAllocator)" value="41"/>
+     <task name="MemoryHelper" message="$(string.task_MemoryHelper)" value="42"/>
+     <task name="BackEndLayer" message="$(string.task_BackEndLayer)" value="43"/>
+     <task name="ScrollingLayerCanvas" message="$(string.task_ScrollingLayerCanvas)" value="44"/>
+     <task name="AirSpace" message="$(string.task_AirSpace)" value="45"/>
+     <task name="DirectXDeviceResources" message="$(string.task_DirectXDeviceResources)" value="46"/>
+     <task name="Direct2dDeviceResources" message="$(string.task_Direct2dDeviceResources)" value="47"/>
+     <task name="VirtualTextureWinComp" message="$(string.task_VirtualTextureWinComp)" value="48"/>
+     <task name="CommandListVirtualTextureWinComp" message="$(string.task_CommandListVirtualTextureWinComp)" value="49"/>
+     <task name="LayerTileManager" message="$(string.task_LayerTileManager)" value="50"/>
+     <task name="LayerCommandListVirtualTextureWinComp" message="$(string.task_LayerCommandListVirtualTextureWinComp)" value="51"/>
+     <task name="ScrollingLayerWinComp" message="$(string.task_ScrollingLayerWinComp)" value="52"/>
+     <task name="TileWinComp" message="$(string.task_TileWinComp)" value="53"/>
+     <task name="SurfaceLayerBitmapTextureWinComp" message="$(string.task_SurfaceLayerBitmapTextureWinComp)" value="55"/>
+     <task name="BitmapTextureWinComp" message="$(string.task_BitmapTextureWinComp)" value="57"/>
+     <task name="LayerVirtualTextureWinComp" message="$(string.task_LayerVirtualTextureWinComp)" value="59"/>
+     <task name="Direct2DTextureWinComp" message="$(string.task_Direct2DTextureWinComp)" value="60"/>
+     <task name="SurfaceLayerSwapChainTextureWinComp" message="$(string.task_SurfaceLayerSwapChainTextureWinComp)" value="61"/>
+     <task name="SwapChainTextureWinComp" message="$(string.task_SwapChainTextureWinComp)" value="62"/>
+     <task name="WindowCompositor" message="$(string.task_WindowCompositor)" value="63"/>
+     <task name="WindowCompositionGraphicsDevice" message="$(string.task_WindowCompositionGraphicsDevice)" value="65"/>
+     <task name="LayerWinComp" message="$(string.task_LayerWinComp)" value="67"/>
+     <task name="VirtualTextureBaseWinComp" message="$(string.task_VirtualTextureBaseWinComp)" value="68"/>
+     <task name="GdiTexture" message="$(string.task_GdiTexture)" value="69"/>
+     <task name="ArcTextureApple" message="$(string.task_ArcTextureApple)" value="70"/>
+     <task name="LayerHostWin32" message="$(string.task_LayerHostWin32)" value="71"/>
+    </tasks>
+    <events>
+     <event value="3" symbol="Channel_V2" version="2" task="Channel" level="win:Verbose" keywords="Automation" template="ChannelArgs_V2"/>
+     <event value="4" symbol="DirectX_V2" version="2" task="DirectX" level="win:Informational" keywords="DirectX" template="DirectXArgs_V2"/>
+     <event value="5" symbol="ChannelStart_V2" version="2" task="Channel" opcode="win:Start" level="win:Informational" keywords="Initialization"/>
+     <event value="6" symbol="ChannelStop_V2" version="2" task="Channel" opcode="win:Stop" level="win:Informational" keywords="Initialization"/>
+     <event value="7" symbol="Channel7_V2" version="2" task="Channel" level="win:Critical" keywords="Initialization"/>
+     <event value="8" symbol="CompositorStart_V2" version="2" task="Compositor" opcode="win:Start" level="win:Informational" keywords="Initialization"/>
+     <event value="9" symbol="CompositorStop_V2" version="2" task="Compositor" opcode="win:Stop" level="win:Informational" keywords="Initialization"/>
+     <event value="10" symbol="Compositor_V2" version="2" task="Compositor" level="win:Critical" keywords="Initialization"/>
+     <event value="11" symbol="DirectX11_V2" version="2" task="DirectX" level="win:Informational" keywords="Texture DirectX" template="DirectX11Args_V2"/>
+     <event value="16" symbol="DirectX16_V2" version="2" task="DirectX" level="win:Error" keywords="DirectX" template="DirectX16Args_V2"/>
+     <event value="22" symbol="Compositor22_V2" version="2" task="Compositor" level="win:Error" keywords="Exception"/>
+     <event value="23" symbol="Compositor23_V2" version="2" task="Compositor" level="win:Critical" keywords="Exception"/>
+     <event value="26" symbol="ChannelStart26_V2" version="2" task="Channel" opcode="win:Start" level="win:Informational" keywords="Shutdown"/>
+     <event value="27" symbol="ChannelStop27_V2" version="2" task="Channel" opcode="win:Stop" level="win:Informational" keywords="Shutdown"/>
+     <event value="28" symbol="CompositorStart28_V2" version="2" task="Compositor" opcode="win:Start" level="win:Informational" keywords="Shutdown"/>
+     <event value="29" symbol="CompositorStop29_V2" version="2" task="Compositor" opcode="win:Stop" level="win:Informational" keywords="Shutdown"/>
+     <event value="30" symbol="Compositor30_V2" version="2" task="Compositor" level="win:Informational" keywords="Layer" template="Compositor30Args_V2"/>
+     <event value="31" symbol="Compositor31_V2" version="2" task="Compositor" level="win:Informational" keywords="Timing Animation" template="Compositor31Args_V2"/>
+     <event value="32" symbol="Compositor32_V2" version="2" task="Compositor" level="win:Informational" keywords="Timing Animation" template="Compositor32Args_V2"/>
+     <event value="33" symbol="Compositor33_V2" version="2" task="Compositor" level="win:Informational" keywords="Timing Animation" template="Compositor33Args_V2"/>
+     <event value="34" symbol="Compositor34_V2" version="2" task="Compositor" level="win:Informational" keywords="Timing Animation" template="Compositor34Args_V2"/>
+     <event value="35" symbol="AirSpy_V2" version="2" task="AirSpy" level="win:Informational" keywords="AirSpy" template="AirSpyArgs_V2"/>
+     <event value="36" symbol="Compositor36_V2" version="2" task="Compositor" level="win:Informational" keywords="Atlas"/>
+     <event value="37" symbol="DirectX37_V2" version="2" task="DirectX" level="win:Informational" keywords="Texture DirectX" template="DirectX11Args_V2"/>
+     <event value="38" symbol="Compositor38_V2" version="2" task="Compositor" level="win:Informational" keywords="Timing Animation" template="Compositor38Args_V2"/>
+     <event value="39" symbol="Compositor39_V2" version="2" task="Compositor" level="win:Informational" keywords="Timing" template="Compositor39Args_V2"/>
+     <event value="40" symbol="RenderThreadRenderFrame_V1" version="1" task="RenderThread" opcode="RenderFrame" level="win:Informational" keywords="Timing" template="RenderThreadRenderFrameArgs_V1"/>
+     <event value="41" symbol="RenderThread_V2" version="2" task="RenderThread" level="win:Informational" keywords="Timing" template="RenderThreadArgs_V2"/>
+     <event value="42" symbol="Compositor42_V2" version="2" task="Compositor" level="win:Informational" keywords="CPU GPU" template="Compositor42Args_V2"/>
+     <event value="43" symbol="Compositor43_V2" version="2" task="Compositor" level="win:Informational" keywords="Animation" template="Compositor43Args_V2"/>
+     <event value="44" symbol="Channel44_V2" version="2" task="Channel" level="win:Informational" keywords="LowResourceMode"/>
+     <event value="46" symbol="ChannelStart46_V2" version="2" task="Channel" opcode="win:Start" level="win:Informational" keywords="LowResourceMode" template="ChannelStart46Args_V2"/>
+     <event value="47" symbol="ChannelStop47_V2" version="2" task="Channel" opcode="win:Stop" level="win:Informational" keywords="LowResourceMode" template="ChannelStart46Args_V2"/>
+     <event value="48" symbol="ChannelLayerHostStartingRecoveryFromLowResourceMode_V2" version="2" task="Channel" opcode="LayerHostStartingRecoveryFromLowResourceMode" level="win:Informational" keywords="LowResourceMode" template="ChannelLayerHostStartingRecoveryFromLowResourceModeArgs_V2"/>
+     <event value="49" symbol="ChannelLayerHostFinishedRecoveryFromLowResourceMode_V2" version="2" task="Channel" opcode="LayerHostFinishedRecoveryFromLowResourceMode" level="win:Informational" keywords="LowResourceMode" template="ChannelLayerHostStartingRecoveryFromLowResourceModeArgs_V2"/>
+     <event value="50" symbol="RenderThread50_V2" version="2" task="RenderThread" level="win:Informational" keywords="CPU GDIRendering" template="RenderThread50Args_V2"/>
+     <event value="51" symbol="ChannelCommandQueued_V1" version="1" task="Channel" opcode="CommandQueued" level="win:Verbose" keywords="Channel" template="ChannelCommandQueuedArgs_V1"/>
+     <event value="52" symbol="ChannelSceneBatch_V1" version="1" task="Channel" opcode="SceneBatch" level="win:Informational" keywords="Channel" template="ChannelSceneBatchArgs_V1"/>
+     <event value="53" symbol="RenderThread53_V2" version="2" task="RenderThread" level="win:Informational" keywords="Timing" template="RenderThread53Args_V2"/>
+     <event value="54" symbol="Compositor54_V2" version="2" task="Compositor" level="win:Informational" keywords="Memory"/>
+     <event value="55" symbol="UpdateTextures_V1" version="1" task="UpdateTextures" opcode="UpdateTextures" level="win:Informational" keywords="Texture" template="UpdateTexturesArgs_V1"/>
+     <event value="56" symbol="RenderThreadBatchPresented_V1" version="1" task="RenderThread" opcode="BatchPresented" level="win:Informational" keywords="Timing Channel" template="RenderThreadBatchPresentedArgs_V1"/>
+     <event value="57" symbol="CompositorStart57_V2" version="2" task="Compositor" opcode="win:Start" level="win:Informational" keywords="DirectX"/>
+     <event value="58" symbol="CompositorStop58_V2" version="2" task="Compositor" opcode="win:Stop" level="win:Informational" keywords="DirectX"/>
+     <event value="59" symbol="DirectX59_V2" version="2" task="DirectX" level="win:Warning" keywords="DirectX" template="DirectX59Args_V2"/>
+     <event value="60" symbol="DirectXLayerHostEnterLowResourceMode_V2" version="2" task="DirectX" opcode="LayerHostEnterLowResourceMode" level="win:Informational" keywords="LowResourceMode" template="ChannelLayerHostStartingRecoveryFromLowResourceModeArgs_V2"/>
+     <event value="61" symbol="DirectX61_V2" version="2" task="DirectX" level="win:Informational" keywords="LowResourceMode" template="DirectX61Args_V2"/>
+     <event value="62" symbol="ChannelLayerHostPartiallyRecoveredFromLowResourceMode_V2" version="2" task="Channel" opcode="LayerHostPartiallyRecoveredFromLowResourceMode" level="win:Informational" keywords="LowResourceMode" template="ChannelLayerHostStartingRecoveryFromLowResourceModeArgs_V2"/>
+     <event value="63" symbol="Compositor63_V2" version="2" task="Compositor" level="win:Informational" keywords="DirectX" template="Compositor63Args_V2"/>
+     <event value="64" symbol="RenderThread64_V2" version="2" task="RenderThread" level="win:Informational" keywords="Timing"/>
+     <event value="65" symbol="RenderThreadStart_V2" version="2" task="RenderThread" opcode="win:Start" level="win:Informational" keywords="Timing"/>
+     <event value="66" symbol="RenderThreadStop_V2" version="2" task="RenderThread" opcode="win:Stop" level="win:Informational" keywords="Timing"/>
+     <event value="67" symbol="Compositor67_V2" version="2" task="Compositor" level="win:Informational" keywords="Initialization" template="Compositor30Args_V2"/>
+     <event value="68" symbol="Channel68_V2" version="2" task="Channel" level="win:Informational" keywords="Initialization" template="Compositor30Args_V2"/>
+     <event value="69" symbol="Compositor69_V2" version="2" task="Compositor" level="win:Informational" keywords="Initialization" template="Compositor69Args_V2"/>
+     <event value="70" symbol="Compositor70_V2" version="2" task="Compositor" level="win:Informational" keywords="Initialization" template="Compositor30Args_V2"/>
+     <event value="71" symbol="Channel71_V2" version="2" task="Channel" level="win:Informational" keywords="Initialization" template="Compositor30Args_V2"/>
+     <event value="72" symbol="Compositor72_V2" version="2" task="Compositor" level="win:Informational" keywords="Initialization" template="Compositor69Args_V2"/>
+     <event value="73" symbol="CompositorStart73_V2" version="2" task="Compositor" opcode="win:Start" level="win:Informational" keywords="Initialization" template="Compositor30Args_V2"/>
+     <event value="74" symbol="CompositorStop74_V2" version="2" task="Compositor" opcode="win:Stop" level="win:Informational" keywords="Initialization" template="Compositor30Args_V2"/>
+     <event value="75" symbol="Compositor75_V2" version="2" task="Compositor" level="win:Verbose" keywords="DebugLog" template="Compositor75Args_V2"/>
+     <event value="78" symbol="XamlDrawableSurfaceStop_V2" version="2" task="XamlDrawableSurface" opcode="win:Stop" level="win:Informational" keywords="Texture BackEnd" template="XamlDrawableSurfaceStopArgs_V2"/>
+     <event value="79" symbol="XamlVirtualSurface_V2" version="2" task="XamlVirtualSurface" level="win:Informational" keywords="Texture" template="XamlVirtualSurfaceArgs_V2"/>
+     <event value="80" symbol="ScrollingLayer_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayerArgs_V2"/>
+     <event value="81" symbol="CommandListComposite_V2" version="2" task="CommandListComposite" level="win:Informational" keywords="Texture BackEnd CommandList" template="CommandListCompositeArgs_V2"/>
+     <event value="82" symbol="XamlVirtualizedSurfaceStop_V2" version="2" task="XamlVirtualizedSurface" opcode="win:Stop" level="win:Informational" keywords="Texture BackEnd" template="XamlVirtualizedSurfaceStopArgs_V2"/>
+     <event value="83" symbol="VirtualTextureStart_V2" version="2" task="VirtualTexture" opcode="win:Start" level="win:Informational" keywords="Texture FrontEnd" template="VirtualTextureStartArgs_V2"/>
+     <event value="84" symbol="VirtualTexture_V2" version="2" task="VirtualTexture" level="win:Informational" keywords="Texture FrontEnd" template="VirtualTextureArgs_V2"/>
+     <event value="85" symbol="VirtualTextureStop_V2" version="2" task="VirtualTexture" opcode="win:Stop" level="win:Informational" keywords="Texture FrontEnd" template="VirtualTextureStopArgs_V2"/>
+     <event value="86" symbol="VirtualTexture86_V2" version="2" task="VirtualTexture" level="win:Informational" keywords="Texture FrontEnd CommandList" template="VirtualTextureArgs_V2"/>
+     <event value="87" symbol="CommandListComposite87_V2" version="2" task="CommandListComposite" level="win:Informational" keywords="Texture BackEnd CommandList" template="CommandListComposite87Args_V2"/>
+     <event value="88" symbol="ScrollingLayer88_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayer88Args_V2"/>
+     <event value="89" symbol="XamlVirtualizedSurfaceStart_V2" version="2" task="XamlVirtualizedSurface" opcode="win:Start" level="win:Informational" keywords="Texture BackEnd" template="XamlVirtualizedSurfaceStartArgs_V2"/>
+     <event value="90" symbol="CommandListComposite90_V2" version="2" task="CommandListComposite" level="win:Informational" keywords="Texture BackEnd CommandList" template="CommandListComposite90Args_V2"/>
+     <event value="91" symbol="XamlDrawableSurfaceStop91_V2" version="2" task="XamlDrawableSurface" opcode="win:Stop" level="win:Informational" keywords="Texture BackEnd" template="XamlDrawableSurfaceStop91Args_V2"/>
+     <event value="92" symbol="CommandListCompositeStop_V2" version="2" task="CommandListComposite" opcode="win:Stop" level="win:Informational" keywords="Texture BackEnd CommandList" template="CommandListCompositeArgs_V2"/>
+     <event value="93" symbol="PrefetchScopeStop_V2" version="2" task="PrefetchScope" opcode="win:Stop" level="win:Informational" keywords="BackEnd" template="PrefetchScopeStopArgs_V2"/>
+     <event value="94" symbol="VirtualTexture94_V2" version="2" task="VirtualTexture" level="win:Informational" keywords="Texture FrontEnd" template="VirtualTextureStopArgs_V2"/>
+     <event value="95" symbol="XamlVirtualizedSurface_V2" version="2" task="XamlVirtualizedSurface" level="win:Informational" keywords="Texture BackEnd" template="XamlVirtualizedSurfaceArgs_V2"/>
+     <event value="96" symbol="VirtualTextureStop96_V2" version="2" task="VirtualTexture" opcode="win:Stop" level="win:Informational" keywords="Texture FrontEnd" template="VirtualTextureArgs_V2"/>
+     <event value="97" symbol="VirtualTexture97_V2" version="2" task="VirtualTexture" level="win:Informational" keywords="Texture FrontEnd" template="VirtualTexture97Args_V2"/>
+     <event value="98" symbol="CommandListComposite98_V2" version="2" task="CommandListComposite" level="win:Informational" keywords="Texture BackEnd CommandList" template="CommandListComposite98Args_V2"/>
+     <event value="99" symbol="VirtualTextureStart99_V2" version="2" task="VirtualTexture" opcode="win:Start" level="win:Informational" keywords="Texture FrontEnd" template="VirtualTextureArgs_V2"/>
+     <event value="100" symbol="XamlDrawableSurfaceStart_V2" version="2" task="XamlDrawableSurface" opcode="win:Start" level="win:Informational" keywords="Texture BackEnd" template="XamlDrawableSurfaceStartArgs_V2"/>
+     <event value="101" symbol="CommandListCompositeStart_V2" version="2" task="CommandListComposite" opcode="win:Start" level="win:Informational" keywords="Texture BackEnd CommandList" template="CommandListComposite90Args_V2"/>
+     <event value="102" symbol="XamlVirtualizedSurface102_V2" version="2" task="XamlVirtualizedSurface" level="win:Informational" keywords="Texture BackEnd" template="XamlVirtualizedSurface102Args_V2"/>
+     <event value="103" symbol="PrefetchScopeStart_V2" version="2" task="PrefetchScope" opcode="win:Start" level="win:Informational" keywords="BackEnd" template="PrefetchScopeStartArgs_V2"/>
+     <event value="104" symbol="XamlDrawableSurfaceStart104_V2" version="2" task="XamlDrawableSurface" opcode="win:Start" level="win:Informational" keywords="Texture BackEnd" template="XamlDrawableSurfaceStart104Args_V2"/>
+     <event value="105" symbol="XamlVirtualSurface105_V2" version="2" task="XamlVirtualSurface" level="win:Informational" keywords="Texture" template="XamlVirtualSurface105Args_V2"/>
+     <event value="106" symbol="CommandList_V2" version="2" task="CommandList" level="win:Informational" keywords="Texture BackEnd CommandList" template="CommandListArgs_V2"/>
+     <event value="107" symbol="VirtualTexture107_V2" version="2" task="VirtualTexture" level="win:Informational" keywords="Texture FrontEnd" template="VirtualTexture107Args_V2"/>
+     <event value="108" symbol="CommandListComposite108_V2" version="2" task="CommandListComposite" level="win:Informational" keywords="Texture BackEnd CommandList" template="CommandListComposite108Args_V2"/>
+     <event value="109" symbol="ScrollingLayer109_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayer109Args_V2"/>
+     <event value="110" symbol="CommandListCompositeStop110_V2" version="2" task="CommandListComposite" opcode="win:Stop" level="win:Informational" keywords="Texture BackEnd CommandList" template="CommandListCompositeStop110Args_V2"/>
+     <event value="111" symbol="ScrollingLayer111_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayer111Args_V2"/>
+     <event value="112" symbol="VirtualTexture112_V2" version="2" task="VirtualTexture" level="win:Informational" keywords="Texture FrontEnd" template="VirtualTexture112Args_V2"/>
+     <event value="113" symbol="CommandListCompositeStart113_V2" version="2" task="CommandListComposite" opcode="win:Start" level="win:Informational" keywords="Texture BackEnd CommandList" template="CommandListCompositeStart113Args_V2"/>
+     <event value="114" symbol="Direct2DTexture_V2" version="2" task="Direct2DTexture" level="win:Informational" keywords="Texture FrontEnd" template="Direct2DTextureArgs_V2"/>
+     <event value="115" symbol="Direct2DTextureStart_V2" version="2" task="Direct2DTexture" opcode="win:Start" level="win:Informational" keywords="Texture FrontEnd" template="VirtualTextureArgs_V2"/>
+     <event value="116" symbol="CommandListVirtualTexture_V2" version="2" task="CommandListVirtualTexture" level="win:Informational" keywords="Texture BackEnd CommandList" template="CommandListVirtualTextureArgs_V2"/>
+     <event value="117" symbol="Direct2DTexture117_V2" version="2" task="Direct2DTexture" level="win:Informational" keywords="Texture FrontEnd" template="VirtualTexture112Args_V2"/>
+     <event value="118" symbol="CommandListVirtualTexture118_V2" version="2" task="CommandListVirtualTexture" level="win:Informational" keywords="Texture BackEnd CommandList" template="CommandListVirtualTexture118Args_V2"/>
+     <event value="119" symbol="Direct2DTexture119_V2" version="2" task="Direct2DTexture" level="win:Informational" keywords="Texture BackEnd" template="Direct2DTexture119Args_V2"/>
+     <event value="120" symbol="VSISTile_V2" version="2" task="VSISTile" level="win:Informational" keywords="Texture BackEnd" template="CommandListVirtualTextureArgs_V2"/>
+     <event value="121" symbol="Direct2DTextureStop_V2" version="2" task="Direct2DTexture" opcode="win:Stop" level="win:Informational" keywords="Texture FrontEnd" template="VirtualTextureStopArgs_V2"/>
+     <event value="122" symbol="Direct2DTextureStart122_V2" version="2" task="Direct2DTexture" opcode="win:Start" level="win:Informational" keywords="Texture FrontEnd" template="VirtualTexture97Args_V2"/>
+     <event value="123" symbol="Direct2DTexture123_V2" version="2" task="Direct2DTexture" level="win:Informational" keywords="Texture BackEnd" template="Direct2DTexture123Args_V2"/>
+     <event value="124" symbol="Direct2DTextureStop124_V2" version="2" task="Direct2DTexture" opcode="win:Stop" level="win:Informational" keywords="Texture FrontEnd" template="VirtualTextureArgs_V2"/>
+     <event value="125" symbol="VSISTile125_V2" version="2" task="VSISTile" level="win:Informational" keywords="Texture BackEnd" template="VSISTile125Args_V2"/>
+     <event value="126" symbol="CommandListVirtualTexture126_V2" version="2" task="CommandListVirtualTexture" level="win:Informational" keywords="Texture BackEnd CommandList" template="VirtualTexture97Args_V2"/>
+     <event value="127" symbol="VirtualTexture127_V2" version="2" task="VirtualTexture" level="win:Informational" keywords="Texture BackEnd" template="VirtualTexture97Args_V2"/>
+     <event value="128" symbol="SceneD_V2" version="2" task="SceneD" level="win:Error" keywords="Texture Desktop MaxTextureDimension" template="SceneDArgs_V2"/>
+     <event value="129" symbol="LayerHostD_V2" version="2" task="LayerHostD" level="win:Error" keywords="Desktop MaxTextureDimension" template="SceneDArgs_V2"/>
+     <event value="130" symbol="SurfaceManager_V2" version="2" task="SurfaceManager" level="win:Error" keywords="Desktop MaxTextureDimension" template="SceneDArgs_V2"/>
+     <event value="131" symbol="WetInkTexture_V2" version="2" task="WetInkTexture" level="win:Error" keywords="Texture MaxTextureDimension" template="SceneDArgs_V2"/>
+     <event value="132" symbol="Scene_V2" version="2" task="Scene" level="win:Error" keywords="Texture MaxTextureDimension" template="SceneDArgs_V2"/>
+     <event value="133" symbol="LayerHostI_V2" version="2" task="LayerHostI" level="win:Error" keywords="MaxTextureDimension Immersive" template="SceneDArgs_V2"/>
+     <event value="134" symbol="SceneI_V2" version="2" task="SceneI" level="win:Error" keywords="Texture MaxTextureDimension Immersive" template="SceneDArgs_V2"/>
+     <event value="135" symbol="SceneD135_V2" version="2" task="SceneD" level="win:Error" keywords="Texture MaxTextureDimension" template="SceneDArgs_V2"/>
+     <event value="136" symbol="Direct2DTexture136_V2" version="2" task="Direct2DTexture" level="win:Informational" keywords="Texture FrontEnd NullRenderTarget" template="Direct2DTexture136Args_V2"/>
+     <event value="137" symbol="VirtualTexture137_V2" version="2" task="VirtualTexture" level="win:Informational" keywords="Texture FrontEnd NullRenderTarget" template="Direct2DTexture136Args_V2"/>
+     <event value="138" symbol="ScrollingLayer138_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayer138Args_V2"/>
+     <event value="139" symbol="ScrollingLayer139_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayer139Args_V2"/>
+     <event value="140" symbol="WetInkTexture140_V2" version="2" task="WetInkTexture" level="win:Informational" keywords="Texture BackEnd WetInk" template="WetInkTexture140Args_V2"/>
+     <event value="141" symbol="WetInkTexture141_V2" version="2" task="WetInkTexture" level="win:Informational" keywords="BackEnd WetInk" template="WetInkTexture141Args_V2"/>
+     <event value="142" symbol="XamlHostingLayer_V2" version="2" task="XamlHostingLayer" level="win:Informational" keywords="Layer BackEnd" template="XamlHostingLayerArgs_V2"/>
+     <event value="143" symbol="ScrollingLayer143_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="XamlHostingLayerArgs_V2"/>
+     <event value="144" symbol="WetInkSwapChainPanel_V2" version="2" task="WetInkSwapChainPanel" level="win:Informational" keywords="BackEnd WetInk" template="WetInkSwapChainPanelArgs_V2"/>
+     <event value="145" symbol="BasicSwapChainPanelStop_V2" version="2" task="BasicSwapChainPanel" opcode="win:Stop" level="win:Informational" keywords="BackEnd WetInk" template="BasicSwapChainPanelStopArgs_V2"/>
+     <event value="146" symbol="BasicSwapChainPanelStart_V2" version="2" task="BasicSwapChainPanel" opcode="win:Start" level="win:Informational" keywords="BackEnd WetInk" template="BasicSwapChainPanelStartArgs_V2"/>
+     <event value="147" symbol="BasicSwapChainPanelStart147_V2" version="2" task="BasicSwapChainPanel" opcode="win:Start" level="win:Informational" keywords="BackEnd WetInk" template="BasicSwapChainPanelStart147Args_V2"/>
+     <event value="148" symbol="BasicSwapChainPanelStop148_V2" version="2" task="BasicSwapChainPanel" opcode="win:Stop" level="win:Informational" keywords="BackEnd WetInk" template="BasicSwapChainPanelStop148Args_V2"/>
+     <event value="149" symbol="BasicSwapChainPanelStart149_V2" version="2" task="BasicSwapChainPanel" opcode="win:Start" level="win:Informational" keywords="BackEnd WetInk" template="BasicSwapChainPanelStart147Args_V2"/>
+     <event value="150" symbol="BasicSwapChainPanel_V2" version="2" task="BasicSwapChainPanel" level="win:Informational" keywords="BackEnd WetInk" template="BasicSwapChainPanelArgs_V2"/>
+     <event value="151" symbol="BasicSwapChainPanel151_V2" version="2" task="BasicSwapChainPanel" level="win:Informational" keywords="BackEnd WetInk" template="BasicSwapChainPanel151Args_V2"/>
+     <event value="152" symbol="BasicSwapChainPanelStop152_V2" version="2" task="BasicSwapChainPanel" opcode="win:Stop" level="win:Informational" keywords="BackEnd WetInk" template="BasicSwapChainPanelStop152Args_V2"/>
+     <event value="153" symbol="Direct2DTexture153_V2" version="2" task="Direct2DTexture" level="win:Informational" keywords="Texture FrontEnd" template="Direct2DTexture153Args_V2"/>
+     <event value="154" symbol="VirtualTexture154_V2" version="2" task="VirtualTexture" level="win:Informational" keywords="Texture FrontEnd" template="Direct2DTexture153Args_V2"/>
+     <event value="155" symbol="WetInkTexture155_V2" version="2" task="WetInkTexture" level="win:Informational" keywords="Texture FrontEnd" template="WetInkTexture155Args_V2"/>
+     <event value="156" symbol="Compositor156_V2" version="2" task="Compositor" level="win:Informational" keywords="Timing Animation" template="Compositor31Args_V2"/>
+     <event value="157" symbol="CompositorStart157_V2" version="2" task="Compositor" opcode="win:Start" level="win:Informational" keywords="Timing Animation"/>
+     <event value="158" symbol="CompositorStop158_V2" version="2" task="Compositor" opcode="win:Stop" level="win:Informational" keywords="Timing Animation"/>
+     <event value="159" symbol="LayerStart_V2" version="2" task="Layer" opcode="win:Start" level="win:Informational" keywords="Layer FrontEnd" template="LayerStartArgs_V2"/>
+     <event value="160" symbol="SceneStop_V2" version="2" task="Scene" opcode="win:Stop" level="win:Informational" keywords="FrontEnd Scene" template="SceneStopArgs_V2"/>
+     <event value="161" symbol="SceneStart_V2" version="2" task="Scene" opcode="win:Start" level="win:Informational" keywords="FrontEnd Scene" template="LayerStartArgs_V2"/>
+     <event value="162" symbol="LayerStop_V2" version="2" task="Layer" opcode="win:Stop" level="win:Informational" keywords="Layer FrontEnd" template="LayerStopArgs_V2"/>
+     <event value="163" symbol="XamlVirtualizedSurfaceStart163_V2" version="2" task="XamlVirtualizedSurface" opcode="win:Start" level="win:Informational" keywords="Texture BackEnd" template="XamlVirtualizedSurfaceStart163Args_V2"/>
+     <event value="164" symbol="XamlVirtualizedSurfaceStop164_V2" version="2" task="XamlVirtualizedSurface" opcode="win:Stop" level="win:Informational" keywords="Texture BackEnd" template="XamlVirtualizedSurfaceStart163Args_V2"/>
+     <event value="165" symbol="BasicSwapChainPanel165_V2" version="2" task="BasicSwapChainPanel" level="win:Informational" keywords="BackEnd WetInk" template="BasicSwapChainPanel165Args_V2"/>
+     <event value="166" symbol="WetInkSwapChainPanel166_V2" version="2" task="WetInkSwapChainPanel" level="win:Informational" keywords="BackEnd WetInk" template="WetInkSwapChainPanel166Args_V2"/>
+     <event value="167" symbol="WetInkSwapChainPanel167_V2" version="2" task="WetInkSwapChainPanel" level="win:Informational" keywords="BackEnd WetInk" template="WetInkSwapChainPanel167Args_V2"/>
+     <event value="168" symbol="WetInkSwapChainPanel168_V2" version="2" task="WetInkSwapChainPanel" level="win:Informational" keywords="BackEnd WetInk" template="WetInkSwapChainPanel168Args_V2"/>
+     <event value="169" symbol="WetInkSwapChainPanelStart_V2" version="2" task="WetInkSwapChainPanel" opcode="win:Start" level="win:Informational" keywords="BackEnd WetInk" template="WetInkSwapChainPanelStartArgs_V2"/>
+     <event value="170" symbol="WetInkSwapChainPanel170_V2" version="2" task="WetInkSwapChainPanel" level="win:Informational" keywords="BackEnd WetInk" template="WetInkSwapChainPanel170Args_V2"/>
+     <event value="171" symbol="WetInkSwapChainPanel171_V2" version="2" task="WetInkSwapChainPanel" level="win:Informational" keywords="BackEnd WetInk" template="WetInkSwapChainPanel171Args_V2"/>
+     <event value="172" symbol="WetInkSwapChainPanel172_V2" version="2" task="WetInkSwapChainPanel" level="win:Informational" keywords="BackEnd WetInk" template="WetInkSwapChainPanel170Args_V2"/>
+     <event value="173" symbol="BasicSwapChainPanel173_V2" version="2" task="BasicSwapChainPanel" level="win:Informational" keywords="BackEnd WetInk" template="BasicSwapChainPanel173Args_V2"/>
+     <event value="174" symbol="WetInkSwapChainPanel174_V2" version="2" task="WetInkSwapChainPanel" level="win:Informational" keywords="BackEnd WetInk" template="WetInkSwapChainPanel174Args_V2"/>
+     <event value="175" symbol="WetInkSwapChainPanel175_V2" version="2" task="WetInkSwapChainPanel" level="win:Informational" keywords="BackEnd WetInk" template="WetInkSwapChainPanel175Args_V2"/>
+     <event value="176" symbol="BasicSwapChainPanel176_V2" version="2" task="BasicSwapChainPanel" level="win:Informational" keywords="BackEnd WetInk" template="BasicSwapChainPanel176Args_V2"/>
+     <event value="177" symbol="WetInkSwapChainPanelStop_V2" version="2" task="WetInkSwapChainPanel" opcode="win:Stop" level="win:Informational" keywords="BackEnd WetInk" template="WetInkSwapChainPanelStopArgs_V2"/>
+     <event value="178" symbol="WetInkSwapChainPanel178_V2" version="2" task="WetInkSwapChainPanel" level="win:Informational" keywords="BackEnd WetInk" template="WetInkSwapChainPanel175Args_V2"/>
+     <event value="179" symbol="WetInkSwapChainPanel179_V2" version="2" task="WetInkSwapChainPanel" level="win:Informational" keywords="BackEnd WetInk" template="WetInkSwapChainPanel179Args_V2"/>
+     <event value="180" symbol="BasicSwapChainPanel180_V2" version="2" task="BasicSwapChainPanel" level="win:Informational" keywords="BackEnd WetInk" template="BasicSwapChainPanel180Args_V2"/>
+     <event value="181" symbol="WetInkSwapChainPanel181_V2" version="2" task="WetInkSwapChainPanel" level="win:Informational" keywords="BackEnd WetInk" template="WetInkSwapChainPanel181Args_V2"/>
+     <event value="182" symbol="WetInkSwapChainPanelStop182_V2" version="2" task="WetInkSwapChainPanel" opcode="win:Stop" level="win:Informational" keywords="BackEnd WetInk" template="WetInkSwapChainPanelStop182Args_V2"/>
+     <event value="183" symbol="WetInkSwapChainPanelStart183_V2" version="2" task="WetInkSwapChainPanel" opcode="win:Start" level="win:Informational" keywords="BackEnd WetInk" template="WetInkSwapChainPanelStart183Args_V2"/>
+     <event value="184" symbol="XamlDrawableSurfaceStart184_V2" version="2" task="XamlDrawableSurface" opcode="win:Start" level="win:Informational" keywords="Texture BackEnd" template="XamlDrawableSurfaceStartArgs_V2"/>
+     <event value="185" symbol="XamlMultithreadDrawableSurfaceOffThread_V2" version="2" task="XamlMultithreadDrawableSurfaceOffThread" level="win:Informational" keywords="Texture BackEnd" template="XamlMultithreadDrawableSurfaceOffThreadArgs_V2"/>
+     <event value="186" symbol="XamlDrawableSurfaceStart186_V2" version="2" task="XamlDrawableSurface" opcode="win:Start" level="win:Informational" keywords="Texture" template="XamlDrawableSurfaceStart186Args_V2"/>
+     <event value="187" symbol="XamlMultithreadDrawableSurfaceOffThreadStop_V2" version="2" task="XamlMultithreadDrawableSurfaceOffThread" opcode="win:Stop" level="win:Informational" keywords="Texture BackEnd" template="XamlMultithreadDrawableSurfaceOffThreadStopArgs_V2"/>
+     <event value="188" symbol="XamlDrawableSurfaceStop188_V2" version="2" task="XamlDrawableSurface" opcode="win:Stop" level="win:Informational" keywords="Texture BackEnd" template="XamlDrawableSurfaceStop188Args_V2"/>
+     <event value="189" symbol="Direct2DTexture189_V2" version="2" task="Direct2DTexture" level="win:Informational" keywords="Texture FrontEnd" template="Direct2DTexture189Args_V2"/>
+     <event value="190" symbol="XamlDrawableSurfaceStop190_V2" version="2" task="XamlDrawableSurface" opcode="win:Stop" level="win:Informational" keywords="Texture BackEnd" template="XamlDrawableSurfaceStop190Args_V2"/>
+     <event value="191" symbol="XamlMultithreadDrawableSurfaceOffThreadStart_V2" version="2" task="XamlMultithreadDrawableSurfaceOffThread" opcode="win:Start" level="win:Informational" keywords="Texture" template="XamlMultithreadDrawableSurfaceOffThreadStartArgs_V2"/>
+     <event value="192" symbol="XamlDrawableSurfaceStop192_V2" version="2" task="XamlDrawableSurface" opcode="win:Stop" level="win:Informational" keywords="Texture BackEnd" template="XamlDrawableSurfaceStopArgs_V2"/>
+     <event value="193" symbol="XamlDrawableSurfaceStart193_V2" version="2" task="XamlDrawableSurface" opcode="win:Start" level="win:Informational" keywords="Texture BackEnd" template="XamlDrawableSurfaceStart186Args_V2"/>
+     <event value="194" symbol="XamlMultithreadDrawableSurface_V2" version="2" task="XamlMultithreadDrawableSurface" level="win:Informational" keywords="Texture BackEnd" template="XamlMultithreadDrawableSurfaceArgs_V2"/>
+     <event value="195" symbol="XamlDrawableSurface_V2" version="2" task="XamlDrawableSurface" level="win:Informational" keywords="Texture" template="XamlDrawableSurfaceArgs_V2"/>
+     <event value="196" symbol="XamlDrawableSurfaceStop196_V2" version="2" task="XamlDrawableSurface" opcode="win:Stop" level="win:Informational" keywords="Texture BackEnd" template="XamlDrawableSurfaceStop196Args_V2"/>
+     <event value="197" symbol="XamlDrawableSurface197_V2" version="2" task="XamlDrawableSurface" level="win:Informational" keywords="Texture" template="XamlDrawableSurface197Args_V2"/>
+     <event value="198" symbol="XamlMultithreadNativeSurfaceOffThread_V2" version="2" task="XamlMultithreadNativeSurfaceOffThread" level="win:Informational" keywords="Texture" template="XamlMultithreadNativeSurfaceOffThreadArgs_V2"/>
+     <event value="199" symbol="XamlDrawableSurfaceStop199_V2" version="2" task="XamlDrawableSurface" opcode="win:Stop" level="win:Informational" keywords="Texture BackEnd" template="XamlDrawableSurfaceStart186Args_V2"/>
+     <event value="200" symbol="XamlDrawableSurfaceStart200_V2" version="2" task="XamlDrawableSurface" opcode="win:Start" level="win:Informational" keywords="Texture BackEnd" template="XamlDrawableSurfaceStart186Args_V2"/>
+     <event value="201" symbol="XamlMultithreadDrawableSurfaceOffThreadStop201_V2" version="2" task="XamlMultithreadDrawableSurfaceOffThread" opcode="win:Stop" level="win:Informational" keywords="Texture" template="XamlMultithreadDrawableSurfaceOffThreadStop201Args_V2"/>
+     <event value="202" symbol="XamlDrawableSurfaceStart202_V2" version="2" task="XamlDrawableSurface" opcode="win:Start" level="win:Informational" keywords="Texture BackEnd" template="XamlDrawableSurfaceStart202Args_V2"/>
+     <event value="203" symbol="XamlMultithreadNativeSurfaceUI_V2" version="2" task="XamlMultithreadNativeSurfaceUI" level="win:Informational" keywords="Texture" template="XamlMultithreadNativeSurfaceOffThreadArgs_V2"/>
+     <event value="204" symbol="XamlDrawableSurfaceStart204_V2" version="2" task="XamlDrawableSurface" opcode="win:Start" level="win:Informational" keywords="Texture BackEnd" template="XamlDrawableSurfaceStartArgs_V2"/>
+     <event value="205" symbol="XamlDrawableSurfaceStop205_V2" version="2" task="XamlDrawableSurface" opcode="win:Stop" level="win:Informational" keywords="Texture" template="XamlDrawableSurfaceStart186Args_V2"/>
+     <event value="206" symbol="XamlMultithreadDrawableSurfaceOffThreadStart206_V2" version="2" task="XamlMultithreadDrawableSurfaceOffThread" opcode="win:Start" level="win:Informational" keywords="Texture BackEnd" template="XamlMultithreadDrawableSurfaceOffThreadStart206Args_V2"/>
+     <event value="207" symbol="XamlDrawableSurfaceStart207_V2" version="2" task="XamlDrawableSurface" opcode="win:Start" level="win:Informational" keywords="Texture BackEnd"/>
+     <event value="208" symbol="XamlDrawableSurfaceStop208_V2" version="2" task="XamlDrawableSurface" opcode="win:Stop" level="win:Informational" keywords="Texture BackEnd" template="XamlDrawableSurfaceStop208Args_V2"/>
+     <event value="209" symbol="InteractionInstanceStop_V2" version="2" task="InteractionInstance" opcode="win:Stop" level="win:Informational" keywords="Interaction" template="InteractionInstanceStopArgs_V2"/>
+     <event value="210" symbol="InputProcessorStart_V2" version="2" task="InputProcessor" opcode="win:Start" level="win:Informational" keywords="Interaction Pointer" template="InputProcessorStartArgs_V2"/>
+     <event value="211" symbol="InputProcessorStop_V2" version="2" task="InputProcessor" opcode="win:Stop" level="win:Informational" keywords="Interaction Pointer" template="InputProcessorStartArgs_V2"/>
+     <event value="212" symbol="InteractionInstance_V2" version="2" task="InteractionInstance" level="win:Informational" keywords="Interaction" template="InteractionInstanceArgs_V2"/>
+     <event value="213" symbol="ScrollingLayer213_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd Immersive Interaction" template="ScrollingLayer213Args_V2"/>
+     <event value="214" symbol="InputProcessor_V2" version="2" task="InputProcessor" level="win:Informational" keywords="Interaction Pointer" template="InputProcessorArgs_V2"/>
+     <event value="215" symbol="InteractionInstanceStart_V2" version="2" task="InteractionInstance" opcode="win:Start" level="win:Informational" keywords="Interaction" template="InteractionInstanceStartArgs_V2"/>
+     <event value="216" symbol="CommandListRasterizeWorkStart_V2" version="2" task="CommandListRasterizeWork" opcode="win:Start" level="win:Informational" keywords="Texture BackEnd CommandList" template="CommandListRasterizeWorkStartArgs_V2"/>
+     <event value="217" symbol="CommandListRasterizeWorkStop_V2" version="2" task="CommandListRasterizeWork" opcode="win:Stop" level="win:Informational" keywords="Texture BackEnd CommandList" template="CommandListRasterizeWorkStopArgs_V2"/>
+     <event value="218" symbol="CommandListRasterizeWork_V2" version="2" task="CommandListRasterizeWork" level="win:Informational" keywords="Texture BackEnd CommandList" template="CommandListRasterizeWorkStopArgs_V2"/>
+     <event value="219" symbol="CommandListRasterizer_V2" version="2" task="CommandListRasterizer" level="win:Informational" keywords="Texture BackEnd CommandList" template="CommandListRasterizerArgs_V2"/>
+     <event value="220" symbol="UpdateTextures220_V2" version="2" task="UpdateTextures" level="win:Error" keywords="Texture BackEnd"/>
+     <event value="221" symbol="VirtualTexture221_V2" version="2" task="VirtualTexture" level="win:Error" keywords="Texture MaxTextureDimension" template="SceneDArgs_V2"/>
+     <event value="222" symbol="Compositor222_V2" version="2" task="Compositor" level="win:Informational" keywords="Animation" template="Compositor222Args_V2"/>
+     <event value="223" symbol="VSISTiler_V2" version="2" task="VSISTiler" level="win:Informational" keywords="Texture BackEnd" template="VSISTilerArgs_V2"/>
+     <event value="224" symbol="VSISTiler224_V2" version="2" task="VSISTiler" level="win:Informational" keywords="Texture BackEnd" template="VSISTiler224Args_V2"/>
+     <event value="225" symbol="VSISTiler225_V2" version="2" task="VSISTiler" level="win:Informational" keywords="Texture BackEnd" template="VSISTiler224Args_V2"/>
+     <event value="226" symbol="CommandListVirtualTexture226_V2" version="2" task="CommandListVirtualTexture" level="win:Informational" keywords="Texture BackEnd CommandList" template="CommandListVirtualTexture226Args_V2"/>
+     <event value="227" symbol="CommandListVirtualTexture227_V2" version="2" task="CommandListVirtualTexture" level="win:Informational" keywords="Texture BackEnd CommandList" template="CommandListVirtualTexture227Args_V2"/>
+     <event value="228" symbol="VSISTiler228_V2" version="2" task="VSISTiler" level="win:Informational" keywords="Texture BackEnd" template="VSISTiler228Args_V2"/>
+     <event value="229" symbol="XamlMultithreadDrawableSurfaceOffThread229_V2" version="2" task="XamlMultithreadDrawableSurfaceOffThread" level="win:Informational" keywords="Texture" template="XamlMultithreadNativeSurfaceOffThreadArgs_V2"/>
+     <event value="230" symbol="XamlVirtualizedSurface230_V2" version="2" task="XamlVirtualizedSurface" level="win:Informational" keywords="Texture BackEnd" template="XamlVirtualizedSurface102Args_V2"/>
+     <event value="231" symbol="XamlVirtualizedSurfaceStop231_V2" version="2" task="XamlVirtualizedSurface" opcode="win:Stop" level="win:Informational" keywords="Texture BackEnd" template="XamlVirtualizedSurfaceStart163Args_V2"/>
+     <event value="232" symbol="XamlVirtualizedSurfaceStart232_V2" version="2" task="XamlVirtualizedSurface" opcode="win:Start" level="win:Informational" keywords="Texture BackEnd" template="XamlVirtualizedSurfaceStartArgs_V2"/>
+     <event value="233" symbol="XamlVirtualizedSurface233_V2" version="2" task="XamlVirtualizedSurface" level="win:Informational" keywords="Texture BackEnd" template="XamlVirtualizedSurface233Args_V2"/>
+     <event value="234" symbol="XamlVirtualizedSurface234_V2" version="2" task="XamlVirtualizedSurface" level="win:Informational" keywords="Texture BackEnd" template="XamlVirtualizedSurfaceArgs_V2"/>
+     <event value="235" symbol="XamlVirtualizedSurface235_V2" version="2" task="XamlVirtualizedSurface" level="win:Informational" keywords="Texture BackEnd" template="XamlVirtualizedSurface235Args_V2"/>
+     <event value="236" symbol="XamlVirtualizedSurfaceStart236_V2" version="2" task="XamlVirtualizedSurface" opcode="win:Start" level="win:Informational" keywords="Texture BackEnd" template="XamlVirtualizedSurfaceStart163Args_V2"/>
+     <event value="237" symbol="XamlVirtualizedSurfaceStop237_V2" version="2" task="XamlVirtualizedSurface" opcode="win:Stop" level="win:Informational" keywords="Texture BackEnd" template="XamlVirtualizedSurfaceStopArgs_V2"/>
+     <event value="238" symbol="XamlVirtualSurface238_V2" version="2" task="XamlVirtualSurface" level="win:Informational" keywords="Texture" template="XamlVirtualSurface238Args_V2"/>
+     <event value="239" symbol="XamlMultithreadNativeSurface_V2" version="2" task="XamlMultithreadNativeSurface" level="win:Informational" keywords="Texture BackEnd" template="XamlMultithreadNativeSurfaceArgs_V2"/>
+     <event value="240" symbol="XamlSurface_V2" version="2" task="XamlSurface" level="win:Informational" keywords="Texture" template="XamlSurfaceArgs_V2"/>
+     <event value="241" symbol="VirtualTextureStart241_V2" version="2" task="VirtualTexture" opcode="win:Start" level="win:Informational" keywords="Texture BackEnd" template="VirtualTextureStart241Args_V2"/>
+     <event value="242" symbol="VirtualTextureStop242_V2" version="2" task="VirtualTexture" opcode="win:Stop" level="win:Informational" keywords="Texture BackEnd" template="VirtualTextureStop242Args_V2"/>
+     <event value="243" symbol="XamlMultithreadVirtualSurface_V2" version="2" task="XamlMultithreadVirtualSurface" level="win:Informational" keywords="Texture BackEnd" template="XamlMultithreadNativeSurfaceArgs_V2"/>
+     <event value="244" symbol="XamlVirtualizedSurface244_V2" version="2" task="XamlVirtualizedSurface" level="win:Informational" keywords="Texture" template="XamlVirtualizedSurface244Args_V2"/>
+     <event value="245" symbol="XamlVirtualSurfaceStart_V2" version="2" task="XamlVirtualSurface" opcode="win:Start" level="win:Informational" keywords="Texture" template="XamlVirtualSurfaceStartArgs_V2"/>
+     <event value="246" symbol="XamlVirtualSurfaceStop_V2" version="2" task="XamlVirtualSurface" opcode="win:Stop" level="win:Informational" keywords="Texture" template="XamlVirtualSurfaceStartArgs_V2"/>
+     <event value="247" symbol="XamlVirtualSurface247_V2" version="2" task="XamlVirtualSurface" level="win:Informational" keywords="Texture" template="XamlVirtualSurface247Args_V2"/>
+     <event value="248" symbol="Compositor248_V2" version="2" task="Compositor" level="win:Informational" keywords="GPU" template="Compositor248Args_V2"/>
+     <event value="249" symbol="VirtualTexture249_V2" version="2" task="VirtualTexture" level="win:Informational" keywords="Texture BackEnd" template="VirtualTexture249Args_V2"/>
+     <event value="250" symbol="ScrollingLayer250_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayer109Args_V2"/>
+     <event value="251" symbol="ScrollingLayer251_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayer109Args_V2"/>
+     <event value="252" symbol="BitmapAllocator_V2" version="2" task="BitmapAllocator" level="win:Informational" keywords="Texture BackEnd" template="BitmapAllocatorArgs_V2"/>
+     <event value="253" symbol="MemoryHelper_V2" version="2" task="MemoryHelper" level="win:Informational" keywords="Memory" template="MemoryHelperArgs_V2"/>
+     <event value="254" symbol="SceneI254_V2" version="2" task="SceneI" level="win:Informational" keywords="Channel FrontEnd" template="SceneI254Args_V2"/>
+     <event value="257" symbol="ScrollingLayer257_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayer257Args_V2"/>
+     <event value="258" symbol="ScrollingLayer258_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayer258Args_V2"/>
+     <event value="259" symbol="ScrollingLayer259_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayer259Args_V2"/>
+     <event value="260" symbol="BackEndLayer_V2" version="2" task="BackEndLayer" level="win:Informational" keywords="Layer BackEnd" template="BackEndLayerArgs_V2"/>
+     <event value="261" symbol="BackEndLayer261_V2" version="2" task="BackEndLayer" level="win:Informational" keywords="Layer BackEnd" template="BackEndLayer261Args_V2"/>
+     <event value="262" symbol="BackEndLayer262_V2" version="2" task="BackEndLayer" level="win:Informational" keywords="Layer BackEnd" template="BackEndLayer261Args_V2"/>
+     <event value="263" symbol="ScrollingLayer263_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayer263Args_V2"/>
+     <event value="264" symbol="BackEndLayer264_V2" version="2" task="BackEndLayer" level="win:Informational" keywords="Layer BackEnd" template="BackEndLayer264Args_V2"/>
+     <event value="265" symbol="BackEndLayer265_V2" version="2" task="BackEndLayer" level="win:Informational" keywords="Layer BackEnd" template="BackEndLayer265Args_V2"/>
+     <event value="266" symbol="BackEndLayer266_V2" version="2" task="BackEndLayer" level="win:Informational" keywords="Layer BackEnd" template="BackEndLayer261Args_V2"/>
+     <event value="268" symbol="ScrollingLayer268_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayer268Args_V2"/>
+     <event value="269" symbol="BackEndLayer269_V2" version="2" task="BackEndLayer" level="win:Informational" keywords="Layer BackEnd" template="BackEndLayer269Args_V2"/>
+     <event value="270" symbol="BackEndLayer270_V2" version="2" task="BackEndLayer" level="win:Informational" keywords="Layer BackEnd" template="BackEndLayer270Args_V2"/>
+     <event value="271" symbol="BackEndLayer271_V2" version="2" task="BackEndLayer" level="win:Informational" keywords="Layer BackEnd" template="BackEndLayer271Args_V2"/>
+     <event value="272" symbol="ScrollingLayer272_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayer272Args_V2"/>
+     <event value="273" symbol="ScrollingLayer273_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayer273Args_V2"/>
+     <event value="274" symbol="BackEndLayer274_V2" version="2" task="BackEndLayer" level="win:Informational" keywords="Layer BackEnd" template="BackEndLayer274Args_V2"/>
+     <event value="275" symbol="ScrollingLayer275_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayer275Args_V2"/>
+     <event value="277" symbol="BackEndLayer277_V2" version="2" task="BackEndLayer" level="win:Informational" keywords="Layer BackEnd" template="BackEndLayer261Args_V2"/>
+     <event value="278" symbol="BackEndLayer278_V2" version="2" task="BackEndLayer" level="win:Informational" keywords="Layer BackEnd" template="BackEndLayer278Args_V2"/>
+     <event value="280" symbol="BackEndLayer280_V2" version="2" task="BackEndLayer" level="win:Error" keywords="Layer BackEnd" template="BackEndLayer280Args_V2"/>
+     <event value="281" symbol="BackEndLayer281_V2" version="2" task="BackEndLayer" level="win:Informational" keywords="Layer BackEnd" template="BackEndLayer281Args_V2"/>
+     <event value="282" symbol="BackEndLayer282_V2" version="2" task="BackEndLayer" level="win:Informational" keywords="Layer BackEnd" template="BackEndLayer282Args_V2"/>
+     <event value="283" symbol="ScrollingLayer283_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayer283Args_V2"/>
+     <event value="284" symbol="BackEndLayer284_V2" version="2" task="BackEndLayer" level="win:Informational" keywords="Layer BackEnd" template="BackEndLayer284Args_V2"/>
+     <event value="285" symbol="BackEndLayer285_V2" version="2" task="BackEndLayer" level="win:Informational" keywords="Layer BackEnd" template="BackEndLayer285Args_V2"/>
+     <event value="286" symbol="BackEndLayer286_V2" version="2" task="BackEndLayer" level="win:Informational" keywords="Layer BackEnd" template="BackEndLayer286Args_V2"/>
+     <event value="287" symbol="BackEndLayer287_V2" version="2" task="BackEndLayer" level="win:Informational" keywords="Layer BackEnd" template="BackEndLayer286Args_V2"/>
+     <event value="288" symbol="BackEndLayer288_V2" version="2" task="BackEndLayer" level="win:Informational" keywords="Layer BackEnd" template="BackEndLayer286Args_V2"/>
+     <event value="289" symbol="BackEndLayer289_V2" version="2" task="BackEndLayer" level="win:Informational" keywords="Layer BackEnd" template="BackEndLayer289Args_V2"/>
+     <event value="290" symbol="BackEndLayer290_V2" version="2" task="BackEndLayer" level="win:Informational" keywords="Layer BackEnd" template="BackEndLayer290Args_V2"/>
+     <event value="291" symbol="BackEndLayer291_V2" version="2" task="BackEndLayer" level="win:Informational" keywords="Layer BackEnd" template="BackEndLayer291Args_V2"/>
+     <event value="292" symbol="BackEndLayer292_V2" version="2" task="BackEndLayer" level="win:Informational" keywords="Layer BackEnd" template="BackEndLayer292Args_V2"/>
+     <event value="293" symbol="ScrollingLayerCanvas_V2" version="2" task="ScrollingLayerCanvas" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayerCanvasArgs_V2"/>
+     <event value="294" symbol="ScrollingLayerCanvas294_V2" version="2" task="ScrollingLayerCanvas" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayerCanvas294Args_V2"/>
+     <event value="295" symbol="ScrollingLayerCanvas295_V2" version="2" task="ScrollingLayerCanvas" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayerCanvas295Args_V2"/>
+     <event value="296" symbol="ScrollingLayerCanvas296_V2" version="2" task="ScrollingLayerCanvas" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayerCanvas296Args_V2"/>
+     <event value="297" symbol="ScrollingLayerCanvas297_V2" version="2" task="ScrollingLayerCanvas" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayerCanvas297Args_V2"/>
+     <event value="298" symbol="ScrollingLayerCanvas298_V2" version="2" task="ScrollingLayerCanvas" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayerCanvas298Args_V2"/>
+     <event value="299" symbol="ScrollingLayerCanvas299_V2" version="2" task="ScrollingLayerCanvas" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayerCanvas294Args_V2"/>
+     <event value="300" symbol="DirectX300_V2" version="2" task="DirectX" level="win:Informational" keywords="DirectX" template="DirectX16Args_V2"/>
+     <event value="301" symbol="AirSpace_V2" version="2" task="AirSpace" level="win:Informational" keywords="DirectX" template="AirSpaceArgs_V2"/>
+     <event value="302" symbol="Scene302_V2" version="2" task="Scene" level="win:Informational" keywords="DirectX FrontEnd" template="Scene302Args_V2"/>
+     <event value="303" symbol="AirSpace303_V2" version="2" task="AirSpace" level="win:Informational" keywords="DirectX" template="AirSpace303Args_V2"/>
+     <event value="304" symbol="Compositor304_V2" version="2" task="Compositor" level="win:Informational" keywords="DirectX BackEnd" template="Compositor304Args_V2"/>
+     <event value="305" symbol="DirectXDeviceResources_V2" version="2" task="DirectXDeviceResources" level="win:Informational" keywords="DirectX" template="DirectXDeviceResourcesArgs_V2"/>
+     <event value="306" symbol="Direct2dDeviceResources_V2" version="2" task="Direct2dDeviceResources" level="win:Informational" keywords="DirectX" template="Direct2dDeviceResourcesArgs_V2"/>
+     <event value="307" symbol="Scene307_V2" version="2" task="Scene" level="win:Informational" keywords="DirectX" template="Scene307Args_V2"/>
+     <event value="308" symbol="DirectXDeviceResources308_V2" version="2" task="DirectXDeviceResources" level="win:Informational" keywords="DirectX" template="DirectXDeviceResources308Args_V2"/>
+     <event value="309" symbol="Scene309_V2" version="2" task="Scene" level="win:Informational" keywords="DirectX FrontEnd" template="Scene309Args_V2"/>
+     <event value="310" symbol="DirectXDeviceResources310_V2" version="2" task="DirectXDeviceResources" level="win:Informational" keywords="DirectX" template="DirectXDeviceResourcesArgs_V2"/>
+     <event value="311" symbol="Scene311_V2" version="2" task="Scene" level="win:Informational" keywords="DirectX FrontEnd" template="Scene302Args_V2"/>
+     <event value="312" symbol="Direct2dDeviceResources312_V2" version="2" task="Direct2dDeviceResources" level="win:Informational" keywords="DirectX" template="Direct2dDeviceResourcesArgs_V2"/>
+     <event value="313" symbol="ScrollingLayer313_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayer313Args_V2"/>
+     <event value="314" symbol="ScrollingLayerStart_V2" version="2" task="ScrollingLayer" opcode="win:Start" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayerStartArgs_V2"/>
+     <event value="315" symbol="ScrollingLayerStop_V2" version="2" task="ScrollingLayer" opcode="win:Stop" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayerStopArgs_V2"/>
+     <event value="316" symbol="ScrollingLayer316_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayer316Args_V2"/>
+     <event value="317" symbol="ScrollingLayer317_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayer317Args_V2"/>
+     <event value="318" symbol="ScrollingLayerStop318_V2" version="2" task="ScrollingLayer" opcode="win:Stop" level="win:Informational" keywords="Layer BackEnd" template="VirtualTextureArgs_V2"/>
+     <event value="319" symbol="ScrollingLayer319_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayer283Args_V2"/>
+     <event value="320" symbol="ScrollingLayer320_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayer320Args_V2"/>
+     <event value="321" symbol="ScrollingLayerStart321_V2" version="2" task="ScrollingLayer" opcode="win:Start" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayerStart321Args_V2"/>
+     <event value="322" symbol="ScrollingLayerCanvas322_V2" version="2" task="ScrollingLayerCanvas" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayerCanvas322Args_V2"/>
+     <event value="323" symbol="ScrollingLayer323_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayer323Args_V2"/>
+     <event value="324" symbol="Compositor324_V2" version="2" task="Compositor" level="win:Informational" keywords="DirectX GPU" template="Compositor324Args_V2"/>
+     <event value="325" symbol="Compositor325_V2" version="2" task="Compositor" level="win:Informational" keywords="DirectX GPU" template="Compositor325Args_V2"/>
+     <event value="326" symbol="Compositor326_V2" version="2" task="Compositor" level="win:Informational" keywords="Animation" template="Compositor326Args_V2"/>
+     <event value="327" symbol="Compositor327_V2" version="2" task="Compositor" level="win:Informational" keywords="Timing Animation" template="Compositor327Args_V2"/>
+     <event value="328" symbol="Compositor328_V2" version="2" task="Compositor" level="win:Informational" keywords="Animation" template="Compositor328Args_V2"/>
+     <event value="329" symbol="Compositor329_V2" version="2" task="Compositor" level="win:Informational" keywords="Animation" template="Compositor328Args_V2"/>
+     <event value="330" symbol="Compositor330_V2" version="2" task="Compositor" level="win:Informational" keywords="Animation" template="Compositor328Args_V2"/>
+     <event value="331" symbol="Compositor331_V2" version="2" task="Compositor" level="win:Informational" keywords="Animation" template="Compositor331Args_V2"/>
+     <event value="332" symbol="Compositor332_V2" version="2" task="Compositor" level="win:Informational" keywords="Animation" template="Compositor332Args_V2"/>
+     <event value="333" symbol="Compositor333_V2" version="2" task="Compositor" level="win:Informational" keywords="Animation" template="Compositor332Args_V2"/>
+     <event value="334" symbol="Compositor334_V2" version="2" task="Compositor" level="win:Informational" keywords="Animation" template="Compositor334Args_V2"/>
+     <event value="335" symbol="Compositor335_V2" version="2" task="Compositor" level="win:Informational" keywords="Animation" template="Compositor335Args_V2"/>
+     <event value="336" symbol="Compositor336_V2" version="2" task="Compositor" level="win:Informational" keywords="DirectX GPU" template="Compositor336Args_V2"/>
+     <event value="337" symbol="Compositor337_V2" version="2" task="Compositor" level="win:Informational" keywords="Animation" template="Compositor337Args_V2"/>
+     <event value="338" symbol="ScrollingLayer338_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayer338Args_V2"/>
+     <event value="339" symbol="ScrollingLayer339_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayer338Args_V2"/>
+     <event value="340" symbol="ScrollingLayer340_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayer340Args_V2"/>
+     <event value="341" symbol="ScrollingLayer341_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayer341Args_V2"/>
+     <event value="342" symbol="ScrollingLayer342_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="VirtualTextureArgs_V2"/>
+     <event value="343" symbol="Scene343_V2" version="2" task="Scene" level="win:Error" keywords="FrontEnd Scene" template="SceneI254Args_V2"/>
+     <event value="345" symbol="CommandListVirtualTextureWinComp_V2" version="2" task="CommandListVirtualTextureWinComp" level="win:Informational" keywords="Texture BackEnd CommandList" template="VirtualTextureArgs_V2"/>
+     <event value="346" symbol="LayerTileManager_V2" version="2" task="LayerTileManager" level="win:Informational" keywords="Texture BackEnd LayerTileManager" template="LayerTileManagerArgs_V2"/>
+     <event value="348" symbol="ScrollingLayerWinComp_V2" version="2" task="ScrollingLayerWinComp" level="win:Informational" keywords="Layer BackEnd" template="VirtualTextureArgs_V2"/>
+     <event value="350" symbol="LayerCommandListVirtualTextureWinComp_V2" version="2" task="LayerCommandListVirtualTextureWinComp" level="win:Informational" keywords="Texture BackEnd LayerTexture" template="LayerCommandListVirtualTextureWinCompArgs_V2"/>
+     <event value="352" symbol="SurfaceLayerBitmapTextureWinComp_V2" version="2" task="SurfaceLayerBitmapTextureWinComp" level="win:Informational" keywords="Texture BackEnd" template="SurfaceLayerBitmapTextureWinCompArgs_V2"/>
+     <event value="355" symbol="LayerCommandListVirtualTextureWinComp355_V2" version="2" task="LayerCommandListVirtualTextureWinComp" level="win:Informational" keywords="Texture BackEnd LayerTexture" template="LayerCommandListVirtualTextureWinComp355Args_V2"/>
+     <event value="356" symbol="LayerCommandListVirtualTextureWinComp356_V2" version="2" task="LayerCommandListVirtualTextureWinComp" level="win:Informational" keywords="Texture BackEnd LayerTexture" template="LayerCommandListVirtualTextureWinComp356Args_V2"/>
+     <event value="359" symbol="CommandListVirtualTextureWinComp359_V2" version="2" task="CommandListVirtualTextureWinComp" level="win:Informational" keywords="Texture BackEnd CommandList" template="VirtualTextureArgs_V2"/>
+     <event value="362" symbol="LayerCommandListVirtualTextureWinComp362_V2" version="2" task="LayerCommandListVirtualTextureWinComp" level="win:Informational" keywords="Texture BackEnd LayerTexture" template="LayerCommandListVirtualTextureWinCompArgs_V2"/>
+     <event value="365" symbol="SurfaceLayerBitmapTextureWinComp365_V2" version="2" task="SurfaceLayerBitmapTextureWinComp" level="win:Informational" keywords="Texture BackEnd" template="SurfaceLayerBitmapTextureWinComp365Args_V2"/>
+     <event value="366" symbol="CommandListVirtualTextureWinComp366_V2" version="2" task="CommandListVirtualTextureWinComp" level="win:Informational" keywords="Texture BackEnd CommandList" template="CommandListVirtualTextureWinComp366Args_V2"/>
+     <event value="371" symbol="BitmapTextureWinComp_V2" version="2" task="BitmapTextureWinComp" level="win:Informational" keywords="Texture BackEnd" template="BitmapTextureWinCompArgs_V2"/>
+     <event value="375" symbol="VirtualTextureWinComp_V2" version="2" task="VirtualTextureWinComp" level="win:Informational" keywords="Texture BackEnd" template="VirtualTexture112Args_V2"/>
+     <event value="377" symbol="VirtualTextureWinComp377_V2" version="2" task="VirtualTextureWinComp" level="win:Informational" keywords="Texture BackEnd" template="VirtualTextureWinComp377Args_V2"/>
+     <event value="379" symbol="BitmapTextureWinComp379_V2" version="2" task="BitmapTextureWinComp" level="win:Informational" keywords="Texture BackEnd" template="BitmapTextureWinComp379Args_V2"/>
+     <event value="381" symbol="VirtualTextureWinComp381_V2" version="2" task="VirtualTextureWinComp" level="win:Informational" keywords="Texture BackEnd" template="VirtualTextureArgs_V2"/>
+     <event value="382" symbol="ScrollingLayerWinComp382_V2" version="2" task="ScrollingLayerWinComp" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayerWinComp382Args_V2"/>
+     <event value="384" symbol="VirtualTextureWinComp384_V2" version="2" task="VirtualTextureWinComp" level="win:Informational" keywords="Texture BackEnd" template="VirtualTextureWinComp384Args_V2"/>
+     <event value="385" symbol="BitmapTextureWinComp385_V2" version="2" task="BitmapTextureWinComp" level="win:Informational" keywords="Texture BackEnd" template="VirtualTextureArgs_V2"/>
+     <event value="386" symbol="LayerVirtualTextureWinComp_V2" version="2" task="LayerVirtualTextureWinComp" level="win:Informational" keywords="Texture BackEnd LayerTexture" template="LayerVirtualTextureWinCompArgs_V2"/>
+     <event value="390" symbol="SurfaceLayerBitmapTextureWinComp390_V2" version="2" task="SurfaceLayerBitmapTextureWinComp" level="win:Informational" keywords="Texture BackEnd" template="SurfaceLayerBitmapTextureWinCompArgs_V2"/>
+     <event value="394" symbol="SurfaceLayerBitmapTextureWinComp394_V2" version="2" task="SurfaceLayerBitmapTextureWinComp" level="win:Informational" keywords="Texture BackEnd" template="SurfaceLayerBitmapTextureWinComp394Args_V2"/>
+     <event value="397" symbol="BitmapTextureWinComp397_V2" version="2" task="BitmapTextureWinComp" level="win:Informational" keywords="Texture BackEnd" template="VirtualTextureArgs_V2"/>
+     <event value="398" symbol="LayerVirtualTextureWinComp398_V2" version="2" task="LayerVirtualTextureWinComp" level="win:Informational" keywords="Texture BackEnd LayerTexture" template="LayerVirtualTextureWinComp398Args_V2"/>
+     <event value="399" symbol="LayerCommandListVirtualTextureWinComp399_V2" version="2" task="LayerCommandListVirtualTextureWinComp" level="win:Informational" keywords="Texture BackEnd LayerTexture" template="LayerCommandListVirtualTextureWinComp356Args_V2"/>
+     <event value="400" symbol="VirtualTextureWinComp400_V2" version="2" task="VirtualTextureWinComp" level="win:Informational" keywords="Texture BackEnd" template="VirtualTextureArgs_V2"/>
+     <event value="401" symbol="BitmapTextureWinComp401_V2" version="2" task="BitmapTextureWinComp" level="win:Informational" keywords="Texture BackEnd" template="VirtualTextureArgs_V2"/>
+     <event value="402" symbol="VirtualTextureWinComp402_V2" version="2" task="VirtualTextureWinComp" level="win:Informational" keywords="Texture BackEnd" template="VirtualTextureArgs_V2"/>
+     <event value="404" symbol="BitmapTextureWinComp404_V2" version="2" task="BitmapTextureWinComp" level="win:Informational" keywords="Texture BackEnd" template="VirtualTextureArgs_V2"/>
+     <event value="405" symbol="SurfaceLayerBitmapTextureWinComp405_V2" version="2" task="SurfaceLayerBitmapTextureWinComp" level="win:Informational" keywords="Texture BackEnd" template="SurfaceLayerBitmapTextureWinComp405Args_V2"/>
+     <event value="407" symbol="SurfaceLayerBitmapTextureWinComp407_V2" version="2" task="SurfaceLayerBitmapTextureWinComp" level="win:Informational" keywords="Texture BackEnd" template="SurfaceLayerBitmapTextureWinCompArgs_V2"/>
+     <event value="409" symbol="SurfaceLayerBitmapTextureWinComp409_V2" version="2" task="SurfaceLayerBitmapTextureWinComp" level="win:Informational" keywords="Texture BackEnd" template="SurfaceLayerBitmapTextureWinComp409Args_V2"/>
+     <event value="410" symbol="CommandListVirtualTextureWinComp410_V2" version="2" task="CommandListVirtualTextureWinComp" level="win:Informational" keywords="Texture BackEnd CommandList" template="VirtualTextureArgs_V2"/>
+     <event value="411" symbol="LayerTileManager411_V2" version="2" task="LayerTileManager" level="win:Informational" keywords="Texture BackEnd LayerTileManager" template="LayerTileManager411Args_V2"/>
+     <event value="412" symbol="VirtualTextureWinComp412_V2" version="2" task="VirtualTextureWinComp" level="win:Informational" keywords="Texture BackEnd" template="VirtualTextureWinComp412Args_V2"/>
+     <event value="413" symbol="Direct2DTextureWinCompStop_V2" version="2" task="Direct2DTextureWinComp" opcode="win:Stop" level="win:Informational" keywords="Texture FrontEnd" template="VirtualTexture97Args_V2"/>
+     <event value="414" symbol="SurfaceLayerSwapChainTextureWinComp_V2" version="2" task="SurfaceLayerSwapChainTextureWinComp" level="win:Informational" keywords="Texture BackEnd LayerTexture" template="SurfaceLayerSwapChainTextureWinCompArgs_V2"/>
+     <event value="415" symbol="SwapChainTextureWinComp_V2" version="2" task="SwapChainTextureWinComp" level="win:Error" keywords="Texture FrontEnd" template="VirtualTextureArgs_V2"/>
+     <event value="416" symbol="WindowCompositor_V2" version="2" task="WindowCompositor" level="win:Error" keywords="BackEnd" template="WindowCompositorArgs_V2"/>
+     <event value="418" symbol="Direct2DTextureWinComp_V2" version="2" task="Direct2DTextureWinComp" level="win:Warning" keywords="Texture FrontEnd" template="Direct2DTextureWinCompArgs_V2"/>
+     <event value="419" symbol="WindowCompositor419_V2" version="2" task="WindowCompositor" level="win:Informational" keywords="BackEnd" template="WindowCompositor419Args_V2"/>
+     <event value="420" symbol="Direct2DTextureWinComp420_V2" version="2" task="Direct2DTextureWinComp" level="win:Informational" keywords="Texture FrontEnd" template="VirtualTextureArgs_V2"/>
+     <event value="422" symbol="Direct2DTextureWinCompStart_V2" version="2" task="Direct2DTextureWinComp" opcode="win:Start" level="win:Informational" keywords="Texture FrontEnd" template="VirtualTextureArgs_V2"/>
+     <event value="425" symbol="WindowCompositor425_V2" version="2" task="WindowCompositor" level="win:Informational" keywords="BackEnd" template="WindowCompositor425Args_V2"/>
+     <event value="426" symbol="VirtualTextureWinComp426_V2" version="2" task="VirtualTextureWinComp" level="win:Warning" keywords="Texture FrontEnd" template="Direct2DTextureWinCompArgs_V2"/>
+     <event value="427" symbol="Direct2DTextureWinComp427_V2" version="2" task="Direct2DTextureWinComp" level="win:Informational" keywords="Texture FrontEnd" template="Direct2DTextureWinComp427Args_V2"/>
+     <event value="432" symbol="Direct2DTextureWinComp432_V2" version="2" task="Direct2DTextureWinComp" level="win:Informational" keywords="Texture FrontEnd" template="VirtualTexture112Args_V2"/>
+     <event value="433" symbol="VirtualTextureWinComp433_V2" version="2" task="VirtualTextureWinComp" level="win:Informational" keywords="Texture FrontEnd" template="VirtualTextureArgs_V2"/>
+     <event value="434" symbol="SwapChainTextureWinComp434_V2" version="2" task="SwapChainTextureWinComp" level="win:Informational" keywords="Texture FrontEnd" template="VirtualTextureArgs_V2"/>
+     <event value="436" symbol="SurfaceLayerSwapChainTextureWinComp436_V2" version="2" task="SurfaceLayerSwapChainTextureWinComp" level="win:Informational" keywords="Texture BackEnd LayerTexture" template="SurfaceLayerBitmapTextureWinCompArgs_V2"/>
+     <event value="437" symbol="Direct2DTextureWinComp437_V2" version="2" task="Direct2DTextureWinComp" level="win:Error" keywords="Texture FrontEnd" template="VirtualTextureArgs_V2"/>
+     <event value="440" symbol="VirtualTextureWinComp440_V2" version="2" task="VirtualTextureWinComp" level="win:Informational" keywords="Texture FrontEnd" template="VirtualTextureWinComp440Args_V2"/>
+     <event value="441" symbol="SwapChainTextureWinComp441_V2" version="2" task="SwapChainTextureWinComp" level="win:Informational" keywords="Texture BackEnd" template="SwapChainTextureWinComp441Args_V2"/>
+     <event value="443" symbol="WindowCompositor443_V2" version="2" task="WindowCompositor" level="win:Informational" keywords="BackEnd" template="WindowCompositor443Args_V2"/>
+     <event value="444" symbol="VirtualTextureWinComp444_V2" version="2" task="VirtualTextureWinComp" level="win:Informational" keywords="Texture FrontEnd" template="VirtualTextureArgs_V2"/>
+     <event value="445" symbol="WindowCompositionGraphicsDevice_V2" version="2" task="WindowCompositionGraphicsDevice" level="win:Informational" keywords="BackEnd" template="WindowCompositionGraphicsDeviceArgs_V2"/>
+     <event value="448" symbol="Direct2DTextureWinCompStop448_V2" version="2" task="Direct2DTextureWinComp" opcode="win:Stop" level="win:Informational" keywords="Texture FrontEnd" template="VirtualTextureArgs_V2"/>
+     <event value="456" symbol="SwapChainTextureWinComp456_V2" version="2" task="SwapChainTextureWinComp" level="win:Informational" keywords="Texture BackEnd" template="VirtualTextureArgs_V2"/>
+     <event value="457" symbol="Direct2DTextureWinCompStart457_V2" version="2" task="Direct2DTextureWinComp" opcode="win:Start" level="win:Informational" keywords="Texture FrontEnd" template="VirtualTextureArgs_V2"/>
+     <event value="458" symbol="SurfaceLayerSwapChainTextureWinComp458_V2" version="2" task="SurfaceLayerSwapChainTextureWinComp" level="win:Informational" keywords="Texture BackEnd LayerTexture" template="SurfaceLayerBitmapTextureWinComp365Args_V2"/>
+     <event value="459" symbol="Direct2DTextureWinComp459_V2" version="2" task="Direct2DTextureWinComp" level="win:Informational" keywords="Texture FrontEnd" template="VirtualTextureWinComp377Args_V2"/>
+     <event value="460" symbol="VirtualTextureWinComp460_V2" version="2" task="VirtualTextureWinComp" level="win:Error" keywords="Texture FrontEnd" template="VirtualTextureArgs_V2"/>
+     <event value="461" symbol="SwapChainTextureWinComp461_V2" version="2" task="SwapChainTextureWinComp" level="win:Informational" keywords="Texture BackEnd" template="VirtualTextureArgs_V2"/>
+     <event value="464" symbol="VirtualTextureWinComp464_V2" version="2" task="VirtualTextureWinComp" level="win:Informational" keywords="Texture FrontEnd" template="VirtualTextureArgs_V2"/>
+     <event value="466" symbol="SwapChainTextureWinComp466_V2" version="2" task="SwapChainTextureWinComp" level="win:Warning" keywords="Texture FrontEnd" template="Direct2DTextureWinCompArgs_V2"/>
+     <event value="469" symbol="Direct2DTextureWinComp469_V2" version="2" task="Direct2DTextureWinComp" level="win:Informational" keywords="Texture FrontEnd" template="VirtualTextureArgs_V2"/>
+     <event value="470" symbol="SwapChainTextureWinComp470_V2" version="2" task="SwapChainTextureWinComp" level="win:Informational" keywords="Texture FrontEnd" template="VirtualTextureArgs_V2"/>
+     <event value="472" symbol="SwapChainTextureWinComp472_V2" version="2" task="SwapChainTextureWinComp" level="win:Informational" keywords="Texture FrontEnd" template="VirtualTextureArgs_V2"/>
+     <event value="473" symbol="Direct2DTextureWinComp473_V2" version="2" task="Direct2DTextureWinComp" level="win:Error" keywords="Texture FrontEnd NullRenderTarget" template="Direct2DTexture136Args_V2"/>
+     <event value="474" symbol="SwapChainTextureWinComp474_V2" version="2" task="SwapChainTextureWinComp" level="win:Informational" keywords="Texture FrontEnd" template="SwapChainTextureWinComp474Args_V2"/>
+     <event value="475" symbol="ScrollingLayerWinComp475_V2" version="2" task="ScrollingLayerWinComp" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayerWinComp475Args_V2"/>
+     <event value="476" symbol="ScrollingLayerWinComp476_V2" version="2" task="ScrollingLayerWinComp" level="win:Informational" keywords="Layer BackEnd" template="VirtualTextureArgs_V2"/>
+     <event value="477" symbol="LayerWinComp_V2" version="2" task="LayerWinComp" level="win:Informational" keywords="Layer BackEnd" template="LayerWinCompArgs_V2"/>
+     <event value="478" symbol="ScrollingLayerWinComp478_V2" version="2" task="ScrollingLayerWinComp" level="win:Informational" keywords="Layer BackEnd" template="VirtualTextureArgs_V2"/>
+     <event value="479" symbol="ScrollingLayer479_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="VirtualTextureArgs_V2"/>
+     <event value="480" symbol="ScrollingLayer480_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayer480Args_V2"/>
+     <event value="481" symbol="ScrollingLayer481_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayer481Args_V2"/>
+     <event value="482" symbol="ScrollingLayer482_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayer482Args_V2"/>
+     <event value="483" symbol="ScrollingLayer483_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayer483Args_V2"/>
+     <event value="484" symbol="TileWinComp_V2" version="2" task="TileWinComp" level="win:Error" keywords="FrontEnd Tile" template="Direct2DTextureWinCompArgs_V2"/>
+     <event value="485" symbol="TileWinComp485_V2" version="2" task="TileWinComp" level="win:Error" keywords="FrontEnd Tile" template="TileWinComp485Args_V2"/>
+     <event value="486" symbol="Compositor486_V2" version="2" task="Compositor" level="win:Informational" keywords="Initialization BackEnd" template="Compositor486Args_V2"/>
+     <event value="487" symbol="SwapChainTextureWinComp487_V2" version="2" task="SwapChainTextureWinComp" level="win:Error" keywords="Texture FrontEnd" template="SwapChainTextureWinComp487Args_V2"/>
+     <event value="488" symbol="SwapChainTextureWinComp488_V2" version="2" task="SwapChainTextureWinComp" level="win:Error" keywords="Texture FrontEnd" template="SwapChainTextureWinComp488Args_V2"/>
+     <event value="489" symbol="SwapChainTextureWinComp489_V2" version="2" task="SwapChainTextureWinComp" level="win:Error" keywords="Texture FrontEnd" template="SwapChainTextureWinComp487Args_V2"/>
+     <event value="490" symbol="SwapChainTextureWinComp490_V2" version="2" task="SwapChainTextureWinComp" level="win:Error" keywords="Texture FrontEnd" template="SwapChainTextureWinComp487Args_V2"/>
+     <event value="491" symbol="SwapChainTextureWinComp491_V2" version="2" task="SwapChainTextureWinComp" level="win:Error" keywords="Texture FrontEnd" template="SwapChainTextureWinComp487Args_V2"/>
+     <event value="492" symbol="VirtualTextureBaseWinComp_V2" version="2" task="VirtualTextureBaseWinComp" level="win:Informational" keywords="Texture BackEnd" template="VirtualTextureArgs_V2"/>
+     <event value="493" symbol="VirtualTextureBaseWinComp493_V2" version="2" task="VirtualTextureBaseWinComp" level="win:Informational" keywords="Texture BackEnd" template="VirtualTextureArgs_V2"/>
+     <event value="494" symbol="VirtualTextureBaseWinComp494_V2" version="2" task="VirtualTextureBaseWinComp" level="win:Informational" keywords="Texture BackEnd" template="VirtualTextureWinComp412Args_V2"/>
+     <event value="495" symbol="VirtualTextureBaseWinComp495_V2" version="2" task="VirtualTextureBaseWinComp" level="win:Informational" keywords="Texture BackEnd" template="VirtualTextureWinComp377Args_V2"/>
+     <event value="496" symbol="VirtualTextureBaseWinComp496_V2" version="2" task="VirtualTextureBaseWinComp" level="win:Informational" keywords="Texture BackEnd" template="VirtualTextureWinComp384Args_V2"/>
+     <event value="497" symbol="ScrollingLayerWinComp497_V2" version="2" task="ScrollingLayerWinComp" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayerWinComp497Args_V2"/>
+     <event value="498" symbol="ScrollingLayerWinCompStart_V2" version="2" task="ScrollingLayerWinComp" opcode="win:Start" level="win:Informational" keywords="Layer BackEnd" template="VirtualTextureArgs_V2"/>
+     <event value="499" symbol="ScrollingLayerWinComp499_V2" version="2" task="ScrollingLayerWinComp" level="win:Informational" keywords="Layer BackEnd" template="VirtualTextureArgs_V2"/>
+     <event value="500" symbol="ScrollingLayerWinComp500_V2" version="2" task="ScrollingLayerWinComp" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayerWinComp500Args_V2"/>
+     <event value="501" symbol="ScrollingLayerWinComp501_V2" version="2" task="ScrollingLayerWinComp" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayerWinComp501Args_V2"/>
+     <event value="502" symbol="ScrollingLayerWinComp502_V2" version="2" task="ScrollingLayerWinComp" level="win:Informational" keywords="Layer BackEnd" template="VirtualTextureArgs_V2"/>
+     <event value="503" symbol="ScrollingLayerWinCompStop_V2" version="2" task="ScrollingLayerWinComp" opcode="win:Stop" level="win:Informational" keywords="Layer BackEnd" template="VirtualTextureArgs_V2"/>
+     <event value="504" symbol="ScrollingLayerWinCompStop504_V2" version="2" task="ScrollingLayerWinComp" opcode="win:Stop" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayerStopArgs_V2"/>
+     <event value="505" symbol="ScrollingLayerWinComp505_V2" version="2" task="ScrollingLayerWinComp" level="win:Informational" keywords="Layer BackEnd" template="VirtualTextureArgs_V2"/>
+     <event value="506" symbol="ScrollingLayerWinCompStart506_V2" version="2" task="ScrollingLayerWinComp" opcode="win:Start" level="win:Informational" keywords="Layer BackEnd" template="VirtualTextureArgs_V2"/>
+     <event value="507" symbol="ScrollingLayerWinComp507_V2" version="2" task="ScrollingLayerWinComp" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayerWinComp507Args_V2"/>
+     <event value="508" symbol="ScrollingLayerWinComp508_V2" version="2" task="ScrollingLayerWinComp" level="win:Informational" keywords="Layer BackEnd" template="VirtualTextureArgs_V2"/>
+     <event value="509" symbol="ScrollingLayerWinComp509_V2" version="2" task="ScrollingLayerWinComp" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayerWinComp500Args_V2"/>
+     <event value="510" symbol="ScrollingLayer510_V2" version="2" task="ScrollingLayer" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayer510Args_V2"/>
+     <event value="511" symbol="VirtualTexture511_V2" version="2" task="VirtualTexture" level="win:Informational" keywords="Texture FrontEnd" template="VirtualTexture511Args_V2"/>
+     <event value="512" symbol="GdiTexture_V2" version="2" task="GdiTexture" level="win:Informational" keywords="Texture FrontEnd NullHDC" template="GdiTextureArgs_V2"/>
+     <event value="513" symbol="VirtualTexture513_V2" version="2" task="VirtualTexture" level="win:Informational" keywords="Texture FrontEnd NullHDC" template="GdiTextureArgs_V2"/>
+     <event value="514" symbol="VirtualTexture514_V2" version="2" task="VirtualTexture" level="win:Informational" keywords="Texture FrontEnd NullRenderTarget" template="Direct2DTexture136Args_V2"/>
+     <event value="515" symbol="ArcTextureApple_V2" version="2" task="ArcTextureApple" level="win:Informational" keywords="Texture FrontEnd NullRenderTarget" template="Direct2DTexture136Args_V2"/>
+     <event value="516" symbol="Compositor516_V2" version="2" task="Compositor" level="win:Informational" keywords="Timing Animation" template="Compositor516Args_V2"/>
+     <event value="517" symbol="Compositor517_V2" version="2" task="Compositor" level="win:Informational" keywords="Timing Animation" template="Compositor517Args_V2"/>
+     <event value="518" symbol="Compositor518_V2" version="2" task="Compositor" level="win:Informational" keywords="Timing Animation" template="Compositor517Args_V2"/>
+     <event value="519" symbol="Compositor519_V2" version="2" task="Compositor" level="win:Informational" keywords="Timing Animation" template="Compositor519Args_V2"/>
+     <event value="520" symbol="TileWinComp520_V2" version="2" task="TileWinComp" level="win:Error" keywords="FrontEnd Tile" template="TileWinComp485Args_V2"/>
+     <event value="521" symbol="LayerHostWin32_V2" version="2" task="LayerHostWin32" level="win:Error" keywords="FrontEnd DirectManipulation" template="LayerHostWin32Args_V2"/>
+     <event value="522" symbol="ScrollingLayerWinComp522_V2" version="2" task="ScrollingLayerWinComp" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayerWinComp522Args_V2"/>
+     <event value="523" symbol="BackEndLayer523_V2" version="2" task="BackEndLayer" level="win:Error" keywords="Layer BackEnd" template="BackEndLayer280Args_V2"/>
+     <event value="524" symbol="BackEndLayer524_V2" version="2" task="BackEndLayer" level="win:Error" keywords="Layer BackEnd" template="BackEndLayer280Args_V2"/>
+     <event value="526" symbol="ScrollingLayerWinComp526_V2" version="2" task="ScrollingLayerWinComp" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayerWinComp522Args_V2"/>
+     <event value="528" symbol="ScrollingLayerWinComp528_V2" version="2" task="ScrollingLayerWinComp" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayerWinComp528Args_V2"/>
+     <event value="529" symbol="ScrollingLayerWinComp529_V2" version="2" task="ScrollingLayerWinComp" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayerWinComp522Args_V2"/>
+     <event value="531" symbol="ScrollingLayerWinComp531_V2" version="2" task="ScrollingLayerWinComp" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayerWinComp528Args_V2"/>
+     <event value="533" symbol="ScrollingLayerWinComp533_V2" version="2" task="ScrollingLayerWinComp" level="win:Informational" keywords="Layer BackEnd" template="ScrollingLayerWinComp533Args_V2"/>
+    </events>
+    <templates>
+     <template tid="RenderThreadRenderFrameArgs_V1">
+      <data name="frameId" inType="win:UInt32"/>
+      <data name="frameTimestamp" inType="win:Double"/>
+      <data name="totalTime" inType="win:Double"/>
+      <data name="channelTime" inType="win:Double"/>
+      <data name="updateTime" inType="win:Double"/>
+      <data name="drawingTime" inType="win:Double"/>
+      <data name="compositorBatches" inType="win:UInt32"/>
+      <data name="canvasesPresented" inType="win:UInt32"/>
+      <data name="totalCompNodeCount" inType="win:UInt32"/>
+      <data name="dirtyCompNodeCount" inType="win:UInt32"/>
+      <data name="canvasesPainted" inType="win:UInt32"/>
+      <data name="pixelsPainted" inType="win:UInt32"/>
+      <data name="paintTime" inType="win:Double"/>
+      <data name="pixelsPresented" inType="win:UInt32"/>
+      <data name="pixelsScrolled" inType="win:UInt32"/>
+      <data name="presentTime" inType="win:Double"/>
+     </template>
+     <template tid="ChannelCommandQueuedArgs_V1">
+      <data name="batched" inType="win:Boolean"/>
+      <data name="channelCommandId" inType="win:UInt32"/>
+     </template>
+     <template tid="ChannelSceneBatchArgs_V1">
+      <data name="start" inType="win:Boolean"/>
+      <data name="batchId" inType="win:UInt32"/>
+     </template>
+     <template tid="UpdateTexturesArgs_V1">
+      <data name="method" inType="win:UInt32"/>
+      <data name="numBytesUpdated" inType="win:UInt32"/>
+      <data name="textureHandle" inType="win:UInt32"/>
+      <data name="x" inType="win:UInt32"/>
+      <data name="y" inType="win:UInt32"/>
+      <data name="width" inType="win:UInt32"/>
+      <data name="height" inType="win:UInt32"/>
+     </template>
+     <template tid="RenderThreadBatchPresentedArgs_V1">
+      <data name="batchId" inType="win:UInt32"/>
+      <data name="frameId" inType="win:UInt32"/>
+     </template>
+     <template tid="ChannelArgs_V2">
+      <data name="automationId" inType="win:AnsiString"/>
+      <data name="handle" inType="win:Int32"/>
+     </template>
+     <template tid="DirectXArgs_V2">
+      <data name="isHardware" inType="win:Boolean"/>
+      <data name="isShared" inType="win:Boolean"/>
+      <data name="featureLevel" inType="win:UInt32"/>
+      <data name="adapterLuidLowPart" inType="win:UInt32"/>
+      <data name="adapterLuidHighPart" inType="win:UInt32"/>
+     </template>
+     <template tid="DirectX11Args_V2">
+      <data name="width" inType="win:UInt32"/>
+      <data name="height" inType="win:UInt32"/>
+     </template>
+     <template tid="DirectX16Args_V2">
+      <data name="command" inType="win:UInt32"/>
+      <data name="hresult" inType="win:UInt32"/>
+     </template>
+     <template tid="Compositor30Args_V2">
+      <data name="handle" inType="win:UInt32"/>
+     </template>
+     <template tid="Compositor31Args_V2">
+      <data name="layerHandle" inType="win:Int32"/>
+      <data name="animationClass" inType="win:AnsiString"/>
+      <data name="animation" inType="win:AnsiString"/>
+      <data name="storyboardHandle" inType="win:Int32"/>
+      <data name="triggerProperty" inType="win:UInt32"/>
+      <data name="triggerValue" inType="win:Double"/>
+      <data name="eventType" inType="win:UInt32"/>
+      <data name="customEvent" inType="win:UInt32"/>
+      <data name="looping" inType="win:Boolean"/>
+     </template>
+     <template tid="Compositor32Args_V2">
+      <data name="storyboardHandle" inType="win:Int32"/>
+      <data name="layerHandle" inType="win:Int32"/>
+      <data name="seconds" inType="win:Double"/>
+      <data name="animationProperty" inType="win:UInt32"/>
+      <data name="value" inType="win:Double"/>
+      <data name="instant" inType="win:Boolean"/>
+      <data name="implied" inType="win:Boolean"/>
+      <data name="inherited" inType="win:Boolean"/>
+     </template>
+     <template tid="Compositor33Args_V2">
+      <data name="layerHandle" inType="win:Int32"/>
+      <data name="storyboardHandle" inType="win:Int32"/>
+      <data name="animationProperty" inType="win:UInt32"/>
+      <data name="value" inType="win:Double"/>
+      <data name="animationTick" inType="win:Boolean"/>
+      <data name="animationSeconds" inType="win:Double"/>
+     </template>
+     <template tid="Compositor34Args_V2">
+      <data name="storyboardHandle" inType="win:Int32"/>
+      <data name="started" inType="win:Boolean"/>
+      <data name="finished" inType="win:Boolean"/>
+     </template>
+     <template tid="AirSpyArgs_V2">
+      <data name="layerHostCount" inType="win:UInt32"/>
+      <data name="layerCount" inType="win:UInt32"/>
+      <data name="textureCount" inType="win:UInt32"/>
+     </template>
+     <template tid="Compositor38Args_V2">
+      <data name="layerHandle" inType="win:Int32"/>
+      <data name="animationProperty" inType="win:UInt32"/>
+      <data name="finalValue" inType="win:Double"/>
+      <data name="deleted" inType="win:Boolean"/>
+     </template>
+     <template tid="Compositor39Args_V2">
+      <data name="frameId" inType="win:Int32"/>
+      <data name="frameTimestamp" inType="win:Double"/>
+      <data name="totalTime" inType="win:Double"/>
+      <data name="channelTime" inType="win:Double"/>
+      <data name="animationUpdateTime" inType="win:Double"/>
+      <data name="layoutTime" inType="win:Double"/>
+      <data name="repairDamageTime" inType="win:Double"/>
+      <data name="storyboardsScheduled" inType="win:UInt32"/>
+      <data name="storyboardScheduleTime" inType="win:Double"/>
+     </template>
+     <template tid="RenderThreadArgs_V2">
+      <data name="frameId" inType="win:UInt32"/>
+      <data name="frameTimestamp" inType="win:Double"/>
+      <data name="handle" inType="win:UInt32"/>
+      <data name="width" inType="win:UInt32"/>
+      <data name="height" inType="win:UInt32"/>
+      <data name="totalCompNodeCount" inType="win:UInt32"/>
+      <data name="dirtyCompNodeCount" inType="win:UInt32"/>
+      <data name="pixelsPainted" inType="win:UInt32"/>
+      <data name="paintTime" inType="win:Double"/>
+      <data name="pixelsPresented" inType="win:UInt32"/>
+      <data name="pixelsScrolled" inType="win:UInt32"/>
+      <data name="presentTime" inType="win:Double"/>
+     </template>
+     <template tid="Compositor42Args_V2">
+      <data name="hardwareMode" inType="win:Boolean"/>
+      <data name="sharedDevice" inType="win:Boolean"/>
+     </template>
+     <template tid="Compositor43Args_V2">
+      <data name="enabled" inType="win:Boolean"/>
+     </template>
+     <template tid="ChannelStart46Args_V2">
+      <data name="hwnd" inType="win:Pointer"/>
+     </template>
+     <template tid="ChannelLayerHostStartingRecoveryFromLowResourceModeArgs_V2">
+      <data name="handle" inType="win:UInt32"/>
+      <data name="hwnd" inType="win:Pointer"/>
+     </template>
+     <template tid="RenderThread50Args_V2">
+      <data name="pixelsScrolled" inType="win:UInt32"/>
+      <data name="pixelsPresented" inType="win:UInt32"/>
+     </template>
+     <template tid="RenderThread53Args_V2">
+      <data name="frameTimestamp" inType="win:Double"/>
+      <data name="FramesPerSecond" inType="win:Double"/>
+      <data name="PresentsPerSecond" inType="win:Double"/>
+     </template>
+     <template tid="DirectX59Args_V2">
+      <data name="droppedForLowResourceMode" inType="win:Boolean"/>
+      <data name="deviceLostNotificationPending" inType="win:Boolean"/>
+     </template>
+     <template tid="DirectX61Args_V2">
+      <data name="isFrontEndDevice" inType="win:Boolean"/>
+     </template>
+     <template tid="Compositor63Args_V2">
+      <data name="isHardware" inType="win:Boolean"/>
+      <data name="featureLevel" inType="win:UInt32"/>
+      <data name="adapterLuidLowPart" inType="win:UInt32"/>
+      <data name="adapterLuidHighPart" inType="win:UInt32"/>
+     </template>
+     <template tid="Compositor69Args_V2">
+      <data name="ControlCount" inType="win:UInt32"/>
+     </template>
+     <template tid="Compositor75Args_V2">
+      <data name="level" inType="win:Int32"/>
+      <data name="category" inType="win:Int32"/>
+      <data name="message" inType="win:UnicodeString"/>
+     </template>
+     <template tid="XamlDrawableSurfaceStopArgs_V2">
+      <data name="XamlDrawableSurface" inType="win:Pointer"/>
+      <data name="XamlDrawResult" inType="win:UInt32"/>
+     </template>
+     <template tid="XamlVirtualSurfaceArgs_V2">
+      <data name="XamlVirtualSurface" inType="win:Pointer"/>
+      <data name="X" inType="win:UInt32"/>
+      <data name="Y" inType="win:UInt32"/>
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+      <data name="IsDrawOutstanding" inType="win:Boolean"/>
+     </template>
+     <template tid="ScrollingLayerArgs_V2">
+      <data name="ObjectHandle" inType="win:UInt32"/>
+      <data name="Mode" inType="win:UInt32"/>
+     </template>
+     <template tid="CommandListCompositeArgs_V2">
+      <data name="CommandListComposite" inType="win:Pointer"/>
+     </template>
+     <template tid="XamlVirtualizedSurfaceStopArgs_V2">
+      <data name="XamlVirtualizedSurface" inType="win:Pointer"/>
+     </template>
+     <template tid="VirtualTextureStartArgs_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="RectX" inType="win:UInt32"/>
+      <data name="RectY" inType="win:UInt32"/>
+      <data name="RectWidth" inType="win:UInt32"/>
+      <data name="RectHeight" inType="win:UInt32"/>
+      <data name="Fidelity" inType="win:Float"/>
+     </template>
+     <template tid="VirtualTextureArgs_V2">
+      <data name="Handle" inType="win:UInt32"/>
+     </template>
+     <template tid="VirtualTextureStopArgs_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="ID2D1RenderTarget" inType="win:Pointer"/>
+     </template>
+     <template tid="CommandListComposite87Args_V2">
+      <data name="CommandListComposite" inType="win:Pointer"/>
+      <data name="RectX" inType="win:UInt32"/>
+      <data name="RectY" inType="win:UInt32"/>
+      <data name="RectWidth" inType="win:UInt32"/>
+      <data name="RectHeight" inType="win:UInt32"/>
+      <data name="OutstandingDraw" inType="win:Boolean"/>
+     </template>
+     <template tid="ScrollingLayer88Args_V2">
+      <data name="Width" inType="win:Double"/>
+      <data name="Height" inType="win:Double"/>
+     </template>
+     <template tid="XamlVirtualizedSurfaceStartArgs_V2">
+      <data name="XamlVirtualizedSurface" inType="win:Pointer"/>
+      <data name="IVirtualSurfaceImageSourceNative" inType="win:Pointer"/>
+      <data name="NumberOfRects" inType="win:UInt32"/>
+     </template>
+     <template tid="CommandListComposite90Args_V2">
+      <data name="CommandListComposite" inType="win:Pointer"/>
+      <data name="RectX" inType="win:UInt32"/>
+      <data name="RectY" inType="win:UInt32"/>
+      <data name="RectWidth" inType="win:UInt32"/>
+      <data name="RectHeight" inType="win:UInt32"/>
+     </template>
+     <template tid="XamlDrawableSurfaceStop91Args_V2">
+      <data name="XamlDrawableSurface" inType="win:Pointer"/>
+      <data name="ISurfaceImageSourceNativeWithD2D" inType="win:Pointer"/>
+      <data name="ID2D1DeviceContext" inType="win:Pointer"/>
+      <data name="IDXGISurface" inType="win:Pointer"/>
+      <data name="OffsetX" inType="win:Int32"/>
+      <data name="OffsetY" inType="win:Int32"/>
+     </template>
+     <template tid="PrefetchScopeStopArgs_V2">
+      <data name="PrefetchScope" inType="win:Pointer"/>
+      <data name="NumberOfRootEvents" inType="win:UInt32"/>
+     </template>
+     <template tid="XamlVirtualizedSurfaceArgs_V2">
+      <data name="XamlVirtualizedSurface" inType="win:Pointer"/>
+      <data name="IVirtualSurfaceImageSourceNative" inType="win:Pointer"/>
+     </template>
+     <template tid="VirtualTexture97Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="RectX" inType="win:UInt32"/>
+      <data name="RectY" inType="win:UInt32"/>
+      <data name="RectWidth" inType="win:UInt32"/>
+      <data name="RectHeight" inType="win:UInt32"/>
+     </template>
+     <template tid="CommandListComposite98Args_V2">
+      <data name="CommandListComposite" inType="win:Pointer"/>
+      <data name="OldWidth" inType="win:UInt32"/>
+      <data name="OldHeight" inType="win:UInt32"/>
+      <data name="NewWidth" inType="win:UInt32"/>
+      <data name="NewHeight" inType="win:UInt32"/>
+     </template>
+     <template tid="XamlDrawableSurfaceStartArgs_V2">
+      <data name="XamlDrawableSurface" inType="win:Pointer"/>
+     </template>
+     <template tid="XamlVirtualizedSurface102Args_V2">
+      <data name="XamlVirtualizedSurface" inType="win:Pointer"/>
+      <data name="RectX" inType="win:UInt32"/>
+      <data name="RectY" inType="win:UInt32"/>
+      <data name="RectWidth" inType="win:UInt32"/>
+      <data name="RectHeight" inType="win:UInt32"/>
+     </template>
+     <template tid="PrefetchScopeStartArgs_V2">
+      <data name="PrefetchScope" inType="win:Pointer"/>
+      <data name="PointX" inType="win:UInt32"/>
+      <data name="PointY" inType="win:UInt32"/>
+     </template>
+     <template tid="XamlDrawableSurfaceStart104Args_V2">
+      <data name="XamlDrawableSurface" inType="win:Pointer"/>
+      <data name="ISurfaceImageSourceNativeWithD2D" inType="win:Pointer"/>
+      <data name="RectX" inType="win:UInt32"/>
+      <data name="RectY" inType="win:UInt32"/>
+      <data name="RectWidth" inType="win:UInt32"/>
+      <data name="RectHeight" inType="win:UInt32"/>
+      <data name="DpiX" inType="win:Float"/>
+      <data name="DpiY" inType="win:Float"/>
+     </template>
+     <template tid="XamlVirtualSurface105Args_V2">
+      <data name="XamlVirtualSurface" inType="win:Pointer"/>
+      <data name="NewWidth" inType="win:UInt32"/>
+      <data name="NewHeight" inType="win:UInt32"/>
+      <data name="IsDrawOutstanding" inType="win:Boolean"/>
+     </template>
+     <template tid="CommandListArgs_V2">
+      <data name="CommandList" inType="win:Pointer"/>
+      <data name="ID2D1DeviceContext" inType="win:Pointer"/>
+      <data name="RectX" inType="win:UInt32"/>
+      <data name="RectY" inType="win:UInt32"/>
+      <data name="RectWidth" inType="win:UInt32"/>
+      <data name="RectHeight" inType="win:UInt32"/>
+     </template>
+     <template tid="VirtualTexture107Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="ID2D1DeviceContext" inType="win:Pointer"/>
+      <data name="ID2D1CommandList" inType="win:Pointer"/>
+     </template>
+     <template tid="CommandListComposite108Args_V2">
+      <data name="CommandListComposite" inType="win:Pointer"/>
+      <data name="NumberTrimmed" inType="win:UInt32"/>
+     </template>
+     <template tid="ScrollingLayer109Args_V2">
+      <data name="CanvasOffsetX" inType="win:Double"/>
+      <data name="CanvasOffsetY" inType="win:Double"/>
+      <data name="AdjustedOffsetX" inType="win:Double"/>
+      <data name="AdjustedOffsetY" inType="win:Double"/>
+     </template>
+     <template tid="CommandListCompositeStop110Args_V2">
+      <data name="CommandListComposite" inType="win:Pointer"/>
+      <data name="Success" inType="win:Boolean"/>
+     </template>
+     <template tid="ScrollingLayer111Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="Zoom" inType="win:Double"/>
+     </template>
+     <template tid="VirtualTexture112Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+     </template>
+     <template tid="CommandListCompositeStart113Args_V2">
+      <data name="CommandListComposite" inType="win:Pointer"/>
+      <data name="RectX" inType="win:UInt32"/>
+      <data name="RectY" inType="win:UInt32"/>
+      <data name="RectWidth" inType="win:UInt32"/>
+      <data name="RectHeight" inType="win:UInt32"/>
+      <data name="NumberOfCommandLists" inType="win:UInt32"/>
+     </template>
+     <template tid="Direct2DTextureArgs_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="ISurfaceImageSourceNativeWithD2D" inType="win:Pointer"/>
+      <data name="IDXGISurface" inType="win:Pointer"/>
+      <data name="OffsetX" inType="win:Int32"/>
+      <data name="OffsetY" inType="win:Int32"/>
+      <data name="ID2D1DeviceContext" inType="win:Pointer"/>
+     </template>
+     <template tid="CommandListVirtualTextureArgs_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="IVirtualSurfaceImageSource" inType="win:Pointer"/>
+     </template>
+     <template tid="CommandListVirtualTexture118Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="CommandListRasterizerSource" inType="win:Pointer"/>
+      <data name="CommandListComposite" inType="win:Pointer"/>
+      <data name="VSISTiler" inType="win:Pointer"/>
+     </template>
+     <template tid="Direct2DTexture119Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="ISurfaceImageSource" inType="win:Pointer"/>
+     </template>
+     <template tid="Direct2DTexture123Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="XamlMultithreadNativeSurfaceUI" inType="win:Pointer"/>
+     </template>
+     <template tid="VSISTile125Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="TextureType" inType="win:UInt32"/>
+      <data name="XamlVirtualizedSurface" inType="win:Pointer"/>
+      <data name="XamlDrawableSurface" inType="win:Pointer"/>
+     </template>
+     <template tid="SceneDArgs_V2">
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+      <data name="MaxTextureDimension" inType="win:UInt32"/>
+     </template>
+     <template tid="Direct2DTexture136Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="NullRenderTargetReason" inType="win:UInt32"/>
+     </template>
+     <template tid="ScrollingLayer138Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="OffsetX" inType="win:Double"/>
+      <data name="OffsetY" inType="win:Double"/>
+      <data name="VirtualOffsetX" inType="win:Double"/>
+      <data name="VirtualOffsetY" inType="win:Double"/>
+      <data name="ZoomFactor" inType="win:Float"/>
+      <data name="CanvasWidth" inType="win:Double"/>
+      <data name="CanvasHeight" inType="win:Double"/>
+      <data name="VirtualCanvasWidth" inType="win:Double"/>
+      <data name="VirtualCanvasHeight" inType="win:Double"/>
+      <data name="ViewportWidth" inType="win:Double"/>
+      <data name="ViewportHeight" inType="win:Double"/>
+      <data name="IsRTL" inType="win:Boolean"/>
+     </template>
+     <template tid="ScrollingLayer139Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="VirtualZoomedX" inType="win:Double"/>
+      <data name="VirtualZoomedY" inType="win:Double"/>
+      <data name="RealUnzoomedX" inType="win:Double"/>
+      <data name="RealUnzoomedY" inType="win:Double"/>
+      <data name="VirtualZoomedX_Rtl" inType="win:Double"/>
+      <data name="VirtualZoomedY_Rtl" inType="win:Double"/>
+      <data name="RealUnzoomedX_Rtl" inType="win:Double"/>
+      <data name="RealUnzoomedY_Rtl" inType="win:Double"/>
+      <data name="currentZoom" inType="win:Float"/>
+      <data name="IsIntermediate" inType="win:Boolean"/>
+      <data name="Width" inType="win:Double"/>
+      <data name="Height" inType="win:Double"/>
+     </template>
+     <template tid="WetInkTexture140Args_V2">
+      <data name="InkInputMode" inType="win:UInt32"/>
+     </template>
+     <template tid="WetInkTexture141Args_V2">
+      <data name="PenStroke" inType="win:Boolean"/>
+      <data name="PresentCount" inType="win:UInt32"/>
+      <data name="SyncQPCTime" inType="win:UInt64"/>
+     </template>
+     <template tid="XamlHostingLayerArgs_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="Directionality" inType="win:UInt32"/>
+     </template>
+     <template tid="WetInkSwapChainPanelArgs_V2">
+      <data name="Tag1" inType="win:UInt32"/>
+      <data name="QpcTime" inType="win:UInt64"/>
+      <data name="DeltaTime" inType="win:UInt64"/>
+     </template>
+     <template tid="BasicSwapChainPanelStopArgs_V2">
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="BasicSwapChainPanelStartArgs_V2">
+      <data name="Bitmap" inType="win:Boolean"/>
+      <data name="Thread" inType="win:UInt32"/>
+     </template>
+     <template tid="BasicSwapChainPanelStart147Args_V2">
+      <data name="Resize" inType="win:Boolean"/>
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+      <data name="Thread" inType="win:UInt32"/>
+     </template>
+     <template tid="BasicSwapChainPanelStop148Args_V2">
+      <data name="Bitmap" inType="win:Boolean"/>
+     </template>
+     <template tid="BasicSwapChainPanelArgs_V2">
+      <data name="Thread" inType="win:UInt32"/>
+     </template>
+     <template tid="BasicSwapChainPanel151Args_V2">
+      <data name="TAG" inType="win:UInt32"/>
+     </template>
+     <template tid="BasicSwapChainPanelStop152Args_V2">
+      <data name="Context" inType="win:Boolean"/>
+     </template>
+     <template tid="Direct2DTexture153Args_V2">
+      <data name="xDpi" inType="win:Float"/>
+      <data name="yDpi" inType="win:Float"/>
+     </template>
+     <template tid="WetInkTexture155Args_V2">
+      <data name="newDpi" inType="win:Float"/>
+     </template>
+     <template tid="LayerStartArgs_V2">
+      <data name="xPoint" inType="win:Int32"/>
+      <data name="yPoint" inType="win:Int32"/>
+     </template>
+     <template tid="SceneStopArgs_V2">
+      <data name="xPoint" inType="win:Int32"/>
+      <data name="yPoint" inType="win:Int32"/>
+      <data name="Succeeded" inType="win:Boolean"/>
+     </template>
+     <template tid="LayerStopArgs_V2">
+      <data name="xPoint" inType="win:Int32"/>
+      <data name="yPoint" inType="win:Int32"/>
+      <data name="HitLayerHandle" inType="win:UInt32"/>
+      <data name="xLayer" inType="win:Double"/>
+      <data name="yLayer" inType="win:Double"/>
+     </template>
+     <template tid="XamlVirtualizedSurfaceStart163Args_V2">
+      <data name="XamlNativeSurface" inType="win:Pointer"/>
+     </template>
+     <template tid="BasicSwapChainPanel165Args_V2">
+      <data name="ReadyToPresent" inType="win:Boolean"/>
+     </template>
+     <template tid="WetInkSwapChainPanel166Args_V2">
+      <data name="PointerId" inType="win:UInt32"/>
+      <data name="PointCount" inType="win:UInt32"/>
+      <data name="RectX" inType="win:UInt32"/>
+      <data name="RectY" inType="win:UInt32"/>
+      <data name="RectWidth" inType="win:UInt32"/>
+      <data name="RectHeight" inType="win:UInt32"/>
+      <data name="PresentCount" inType="win:UInt32"/>
+      <data name="SyncQPCTime" inType="win:UInt64"/>
+     </template>
+     <template tid="WetInkSwapChainPanel167Args_V2">
+      <data name="HRESULT" inType="win:UInt32"/>
+      <data name="Tag1" inType="win:UInt32"/>
+      <data name="Tag2" inType="win:UInt32"/>
+     </template>
+     <template tid="WetInkSwapChainPanel168Args_V2">
+      <data name="SyncQPCTime" inType="win:UInt64"/>
+     </template>
+     <template tid="WetInkSwapChainPanelStartArgs_V2">
+      <data name="StartTime" inType="win:UInt64"/>
+     </template>
+     <template tid="WetInkSwapChainPanel170Args_V2">
+      <data name="PointerId" inType="win:UInt32"/>
+      <data name="PointCount" inType="win:UInt32"/>
+      <data name="SyncQPCTime" inType="win:UInt64"/>
+     </template>
+     <template tid="WetInkSwapChainPanel171Args_V2">
+      <data name="PresentSyncRefreshCountDelta" inType="win:UInt32"/>
+      <data name="LastPresentSyncRefreshCountDelta" inType="win:UInt32"/>
+     </template>
+     <template tid="BasicSwapChainPanel173Args_V2">
+      <data name="TAG" inType="win:UInt32"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="WetInkSwapChainPanel174Args_V2">
+      <data name="SyncQPCTime" inType="win:UInt64"/>
+      <data name="PresentCount" inType="win:UInt32"/>
+     </template>
+     <template tid="WetInkSwapChainPanel175Args_V2">
+      <data name="PointerId" inType="win:UInt32"/>
+      <data name="NewPointCount" inType="win:UInt32"/>
+      <data name="PointCount" inType="win:UInt32"/>
+      <data name="SyncQPCTime" inType="win:UInt64"/>
+     </template>
+     <template tid="BasicSwapChainPanel176Args_V2">
+      <data name="PresentCount" inType="win:UInt32"/>
+      <data name="RefreshCount" inType="win:UInt32"/>
+     </template>
+     <template tid="WetInkSwapChainPanelStopArgs_V2">
+      <data name="StopTime" inType="win:UInt64"/>
+      <data name="DeltaTime" inType="win:UInt64"/>
+     </template>
+     <template tid="WetInkSwapChainPanel179Args_V2">
+      <data name="PresentCount" inType="win:UInt32"/>
+      <data name="PresentRefreshCount" inType="win:UInt32"/>
+      <data name="SyncRefreshCount" inType="win:UInt32"/>
+      <data name="TotalPointCount" inType="win:UInt32"/>
+      <data name="SyncQPCTime" inType="win:UInt64"/>
+     </template>
+     <template tid="BasicSwapChainPanel180Args_V2">
+      <data name="GetLastPresentCount" inType="win:UInt32"/>
+     </template>
+     <template tid="WetInkSwapChainPanel181Args_V2">
+      <data name="PointerId" inType="win:UInt32"/>
+      <data name="TotalPointCount" inType="win:UInt32"/>
+      <data name="PresentCount" inType="win:UInt32"/>
+      <data name="SyncQPCTime" inType="win:UInt64"/>
+     </template>
+     <template tid="WetInkSwapChainPanelStop182Args_V2">
+      <data name="Tag" inType="win:UInt32"/>
+     </template>
+     <template tid="WetInkSwapChainPanelStart183Args_V2">
+      <data name="ForceToPresent" inType="win:Boolean"/>
+     </template>
+     <template tid="XamlMultithreadDrawableSurfaceOffThreadArgs_V2">
+      <data name="XamlMultithreadDrawableSurfaceOffThread" inType="win:Pointer"/>
+      <data name="XamlMultithreadNativeSurface" inType="win:Pointer"/>
+     </template>
+     <template tid="XamlDrawableSurfaceStart186Args_V2">
+      <data name="XamlDrawableSurface" inType="win:Pointer"/>
+      <data name="State" inType="win:UInt32"/>
+     </template>
+     <template tid="XamlMultithreadDrawableSurfaceOffThreadStopArgs_V2">
+      <data name="XamlMultithreadDrawableSurfaceOffThread" inType="win:Pointer"/>
+      <data name="Result" inType="win:Boolean"/>
+      <data name="InBatch" inType="win:Boolean"/>
+     </template>
+     <template tid="XamlDrawableSurfaceStop188Args_V2">
+      <data name="XamlDrawableSurface" inType="win:Pointer"/>
+      <data name="ID2D1DeviceContext" inType="win:Pointer"/>
+      <data name="EndDrawDirect2dResult" inType="win:UInt32"/>
+     </template>
+     <template tid="Direct2DTexture189Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="XamlMultithreadNativeSurfaceOffThread" inType="win:Pointer"/>
+     </template>
+     <template tid="XamlDrawableSurfaceStop190Args_V2">
+      <data name="IDXGIDevice" inType="win:Pointer"/>
+      <data name="HResult" inType="win:Int32"/>
+     </template>
+     <template tid="XamlMultithreadDrawableSurfaceOffThreadStartArgs_V2">
+      <data name="XamlMultithreadNativeSurfaceUI" inType="win:Pointer"/>
+      <data name="X" inType="win:UInt32"/>
+      <data name="Y" inType="win:UInt32"/>
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+     </template>
+     <template tid="XamlMultithreadDrawableSurfaceArgs_V2">
+      <data name="XamlMultithreadDrawableSurface" inType="win:Pointer"/>
+      <data name="IXamlMultithreadDrawableSurfaceUser" inType="win:Pointer"/>
+     </template>
+     <template tid="XamlDrawableSurfaceArgs_V2">
+      <data name="XamlDrawableSurface" inType="win:Pointer"/>
+      <data name="IDXGIDevice" inType="win:Pointer"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="XamlDrawableSurfaceStop196Args_V2">
+      <data name="XamlDrawableSurface" inType="win:Pointer"/>
+      <data name="IDXGISurface" inType="win:Pointer"/>
+      <data name="ID2D1Bitmap1" inType="win:Pointer"/>
+      <data name="offsetX" inType="win:Int32"/>
+      <data name="offsetY" inType="win:Int32"/>
+      <data name="State" inType="win:UInt32"/>
+     </template>
+     <template tid="XamlDrawableSurface197Args_V2">
+      <data name="XamlDrawableSurface" inType="win:Pointer"/>
+      <data name="ISurfaceImageSourceNativeWithD2D" inType="win:Pointer"/>
+     </template>
+     <template tid="XamlMultithreadNativeSurfaceOffThreadArgs_V2">
+      <data name="XamlMultithreadNativeSurfaceUI" inType="win:Pointer"/>
+     </template>
+     <template tid="XamlMultithreadDrawableSurfaceOffThreadStop201Args_V2">
+      <data name="XamlMultithreadNativeSurfaceUI" inType="win:Pointer"/>
+      <data name="SetDeviceCount" inType="win:UInt32"/>
+     </template>
+     <template tid="XamlDrawableSurfaceStart202Args_V2">
+      <data name="XamlDrawableSurface" inType="win:Pointer"/>
+      <data name="RectX" inType="win:UInt32"/>
+      <data name="RectY" inType="win:UInt32"/>
+      <data name="RectWidth" inType="win:UInt32"/>
+      <data name="RectHeight" inType="win:UInt32"/>
+      <data name="DpiX" inType="win:Float"/>
+      <data name="DpiY" inType="win:Float"/>
+      <data name="IncludeInverseTransform" inType="win:Boolean"/>
+     </template>
+     <template tid="XamlMultithreadDrawableSurfaceOffThreadStart206Args_V2">
+      <data name="XamlMultithreadDrawableSurfaceOffThread" inType="win:Pointer"/>
+     </template>
+     <template tid="XamlDrawableSurfaceStop208Args_V2">
+      <data name="XamlDrawableSurface" inType="win:Pointer"/>
+      <data name="Drawable" inType="win:Boolean"/>
+      <data name="DeviceMismatch" inType="win:Boolean"/>
+      <data name="XamlDrawResult" inType="win:UInt32"/>
+      <data name="ID2D1DeviceContext" inType="win:Pointer"/>
+     </template>
+     <template tid="InteractionInstanceStopArgs_V2">
+      <data name="UpdateInstanceStopTime" inType="win:UInt64"/>
+      <data name="DeltaTime" inType="win:UInt64"/>
+     </template>
+     <template tid="InputProcessorStartArgs_V2">
+      <data name="X" inType="win:Double"/>
+      <data name="Y" inType="win:Double"/>
+      <data name="pointerId" inType="win:UInt32"/>
+     </template>
+     <template tid="InteractionInstanceArgs_V2">
+      <data name="UpdateInstanceCalcTime" inType="win:UInt64"/>
+      <data name="DeltaTime" inType="win:UInt64"/>
+     </template>
+     <template tid="ScrollingLayer213Args_V2">
+      <data name="horizontal" inType="win:Float"/>
+      <data name="vertical" inType="win:Float"/>
+      <data name="left" inType="win:Double"/>
+      <data name="top" inType="win:Double"/>
+      <data name="width" inType="win:Double"/>
+      <data name="height" inType="win:Double"/>
+     </template>
+     <template tid="InputProcessorArgs_V2">
+      <data name="layerCount" inType="win:UInt32"/>
+     </template>
+     <template tid="InteractionInstanceStartArgs_V2">
+      <data name="eventType" inType="win:UInt32"/>
+      <data name="UpdateInstanceStartTime" inType="win:UInt64"/>
+     </template>
+     <template tid="CommandListRasterizeWorkStartArgs_V2">
+      <data name="CommandListRasterizeWork" inType="win:Pointer"/>
+      <data name="NumberOfCommandLists" inType="win:UInt32"/>
+     </template>
+     <template tid="CommandListRasterizeWorkStopArgs_V2">
+      <data name="CommandListRasterizeWork" inType="win:Pointer"/>
+     </template>
+     <template tid="CommandListRasterizerArgs_V2">
+      <data name="CommandListRasterizer" inType="win:Pointer"/>
+      <data name="CommandListRasterizeWork" inType="win:Pointer"/>
+     </template>
+     <template tid="Compositor222Args_V2">
+      <data name="AreAnimationsDisabled" inType="win:Boolean"/>
+     </template>
+     <template tid="VSISTilerArgs_V2">
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+     </template>
+     <template tid="VSISTiler224Args_V2">
+      <data name="X" inType="win:UInt32"/>
+      <data name="Y" inType="win:UInt32"/>
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+      <data name="TileId" inType="win:UInt32"/>
+     </template>
+     <template tid="CommandListVirtualTexture226Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="tileId" inType="win:UInt32"/>
+      <data name="RectX" inType="win:UInt32"/>
+      <data name="RectY" inType="win:UInt32"/>
+      <data name="RectWidth" inType="win:UInt32"/>
+      <data name="RectHeight" inType="win:UInt32"/>
+      <data name="RasterizeOnUI" inType="win:Boolean"/>
+      <data name="XamlMultithreadVirtualSurfaceUI" inType="win:Pointer"/>
+     </template>
+     <template tid="CommandListVirtualTexture227Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="tileId" inType="win:Boolean"/>
+     </template>
+     <template tid="VSISTiler228Args_V2">
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+      <data name="Number" inType="win:UInt32"/>
+     </template>
+     <template tid="XamlVirtualizedSurface233Args_V2">
+      <data name="XamlVirtualizedSurface" inType="win:Pointer"/>
+      <data name="IVirtualSurfaceImageSourceNative" inType="win:Pointer"/>
+      <data name="RectX" inType="win:UInt32"/>
+      <data name="RectY" inType="win:UInt32"/>
+      <data name="RectWidth" inType="win:UInt32"/>
+      <data name="RectHeight" inType="win:UInt32"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="XamlVirtualizedSurface235Args_V2">
+      <data name="XamlVirtualizedSurface" inType="win:Pointer"/>
+      <data name="IVirtualSurfaceImageSourceNative" inType="win:Pointer"/>
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="XamlVirtualSurface238Args_V2">
+      <data name="XamlVirtualSurface" inType="win:Pointer"/>
+      <data name="IXamlDrawableSurface" inType="win:Pointer"/>
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+      <data name="Opaque" inType="win:Boolean"/>
+     </template>
+     <template tid="XamlMultithreadNativeSurfaceArgs_V2">
+      <data name="XamlMultithreadNativeSurface" inType="win:Pointer"/>
+      <data name="IXamlMultithreadDrawableSurfaceUser" inType="win:Pointer"/>
+      <data name="IXamlDrawableSurface" inType="win:Pointer"/>
+     </template>
+     <template tid="XamlSurfaceArgs_V2">
+      <data name="XamlSurface" inType="win:Pointer"/>
+      <data name="IXamlDrawableSurface" inType="win:Pointer"/>
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+      <data name="Opaque" inType="win:Boolean"/>
+     </template>
+     <template tid="VirtualTextureStart241Args_V2">
+      <data name="VirtualTexture" inType="win:Pointer"/>
+      <data name="VirtualTextureEvents" inType="win:Pointer"/>
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+      <data name="Opaque" inType="win:Boolean"/>
+     </template>
+     <template tid="VirtualTextureStop242Args_V2">
+      <data name="VirtualTextureEvents" inType="win:Pointer"/>
+     </template>
+     <template tid="XamlVirtualizedSurface244Args_V2">
+      <data name="XamlVirtualizedSurface" inType="win:Pointer"/>
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+     </template>
+     <template tid="XamlVirtualSurfaceStartArgs_V2">
+      <data name="XamlVirtualSurface" inType="win:Pointer"/>
+     </template>
+     <template tid="XamlVirtualSurface247Args_V2">
+      <data name="XamlVirtualSurface" inType="win:Pointer"/>
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+     </template>
+     <template tid="Compositor248Args_V2">
+      <data name="OfficeDeviceLost" inType="win:Boolean"/>
+     </template>
+     <template tid="VirtualTexture249Args_V2">
+      <data name="InputType" inType="win:Int32"/>
+      <data name="LayerWidth" inType="win:Double"/>
+      <data name="LayerHeight" inType="win:Double"/>
+      <data name="SlopAmount" inType="win:UInt32"/>
+      <data name="SlopUsedX" inType="win:Double"/>
+      <data name="SlopUsedY" inType="win:Double"/>
+      <data name="IsHighDPI" inType="win:Boolean"/>
+     </template>
+     <template tid="BitmapAllocatorArgs_V2">
+      <data name="MaxLimit" inType="win:UInt32"/>
+     </template>
+     <template tid="MemoryHelperArgs_V2">
+      <data name="MemoryUsage" inType="win:UInt32"/>
+      <data name="IsInLowResourceMode" inType="win:Boolean"/>
+     </template>
+     <template tid="SceneI254Args_V2">
+      <data name="value1" inType="win:UInt32"/>
+     </template>
+     <template tid="ScrollingLayer257Args_V2">
+      <data name="PendingScrollTo" inType="win:Boolean"/>
+      <data name="PendingZoomTo" inType="win:Boolean"/>
+      <data name="PendingSetCanvasSize" inType="win:Boolean"/>
+      <data name="IsFIrstScroll" inType="win:Boolean"/>
+      <data name="OffsetX" inType="win:Double"/>
+      <data name="OffsetY" inType="win:Double"/>
+      <data name="ZoomFactor" inType="win:Double"/>
+     </template>
+     <template tid="ScrollingLayer258Args_V2">
+      <data name="ResetPendingScrollTo" inType="win:Boolean"/>
+      <data name="PendingScrollTo" inType="win:Boolean"/>
+      <data name="OffsetX" inType="win:Double"/>
+      <data name="OffSetY" inType="win:Double"/>
+     </template>
+     <template tid="ScrollingLayer259Args_V2">
+      <data name="ResetPendingZoomTo" inType="win:Boolean"/>
+      <data name="PendingZoomTo" inType="win:Boolean"/>
+      <data name="ZoomFactor" inType="win:Double"/>
+     </template>
+     <template tid="BackEndLayerArgs_V2">
+      <data name="Layer" inType="win:Pointer"/>
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="Property" inType="win:UInt32"/>
+      <data name="Value" inType="win:Double"/>
+     </template>
+     <template tid="BackEndLayer261Args_V2">
+      <data name="Layer" inType="win:Pointer"/>
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="Offset" inType="win:Double"/>
+      <data name="ParentAnchor" inType="win:Float"/>
+     </template>
+     <template tid="ScrollingLayer263Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="ViewportOffsetRealX" inType="win:Double"/>
+      <data name="ViewportOffsetRealY" inType="win:Double"/>
+      <data name="OldVirtualOffsetX" inType="win:Double"/>
+      <data name="OldVirtualOffsetY" inType="win:Double"/>
+      <data name="NewVirtualOffsetX" inType="win:Double"/>
+      <data name="NewVirtualOffsetY" inType="win:Double"/>
+      <data name="OldCanvasSizeVirtualX" inType="win:Double"/>
+      <data name="OldCanvasSizeVirtualY" inType="win:Double"/>
+      <data name="NewCanvasSizeVirtualX" inType="win:Double"/>
+      <data name="NewCanvasSizeVirtualY" inType="win:Double"/>
+      <data name="OldPlatformViewportOffsetX" inType="win:Double"/>
+      <data name="OldPlatformViewportOffsetY" inType="win:Double"/>
+      <data name="NewPlatformViewportOffsetX" inType="win:Double"/>
+      <data name="NewPlatformViewportOffsetY" inType="win:Double"/>
+     </template>
+     <template tid="BackEndLayer264Args_V2">
+      <data name="Layer" inType="win:Pointer"/>
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="Width" inType="win:Double"/>
+      <data name="AdjustRightEdge" inType="win:Boolean"/>
+     </template>
+     <template tid="BackEndLayer265Args_V2">
+      <data name="Layer" inType="win:Pointer"/>
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="Height" inType="win:Double"/>
+     </template>
+     <template tid="ScrollingLayer268Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="VirtualZoomedX" inType="win:Double"/>
+      <data name="VirtualZoomedY" inType="win:Double"/>
+      <data name="RealUnzoomedX" inType="win:Double"/>
+      <data name="RealUnzoomedY" inType="win:Double"/>
+      <data name="VirtualZoomedX_Rtl" inType="win:Double"/>
+      <data name="VirtualZoomedY_Rtl" inType="win:Double"/>
+      <data name="RealUnzoomedX_Rtl" inType="win:Double"/>
+      <data name="RealUnzoomedY_Rtl" inType="win:Double"/>
+      <data name="finalZoom" inType="win:Float"/>
+      <data name="Width" inType="win:Double"/>
+      <data name="Height" inType="win:Double"/>
+      <data name="IsAnimated" inType="win:Boolean"/>
+      <data name="VirtualPerimeterChanged" inType="win:Boolean"/>
+     </template>
+     <template tid="BackEndLayer269Args_V2">
+      <data name="Layer" inType="win:Pointer"/>
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="TileId" inType="win:UInt32"/>
+      <data name="TileRectX" inType="win:UInt32"/>
+      <data name="TileRectY" inType="win:UInt32"/>
+      <data name="TileRectWidth" inType="win:UInt32"/>
+      <data name="TileRectHeight" inType="win:UInt32"/>
+      <data name="VirtualOffsetX" inType="win:Double"/>
+      <data name="VirtualOffsetY" inType="win:Double"/>
+     </template>
+     <template tid="BackEndLayer270Args_V2">
+      <data name="Layer" inType="win:Pointer"/>
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="Height" inType="win:Double"/>
+      <data name="AdjustRightEdge" inType="win:Boolean"/>
+     </template>
+     <template tid="BackEndLayer271Args_V2">
+      <data name="Layer" inType="win:Pointer"/>
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="TileId" inType="win:UInt32"/>
+      <data name="IsRecyclingTile" inType="win:Boolean"/>
+     </template>
+     <template tid="ScrollingLayer272Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="VirtualOffsetNextX" inType="win:Double"/>
+      <data name="VirtualOffsetNextY" inType="win:Double"/>
+      <data name="ZoomFactorNext" inType="win:Double"/>
+      <data name="VirtualOffsetFinalX" inType="win:Double"/>
+      <data name="VirtualOffsetFinalY" inType="win:Double"/>
+      <data name="ZoomFactorFinal" inType="win:Double"/>
+     </template>
+     <template tid="ScrollingLayer273Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="X" inType="win:Double"/>
+      <data name="Y" inType="win:Double"/>
+      <data name="IsRTL" inType="win:Boolean"/>
+     </template>
+     <template tid="BackEndLayer274Args_V2">
+      <data name="Layer" inType="win:Pointer"/>
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="TileId" inType="win:UInt32"/>
+      <data name="HiddenTileCount" inType="win:UInt32"/>
+     </template>
+     <template tid="ScrollingLayer275Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="ViewportX" inType="win:Double"/>
+      <data name="ViewportY" inType="win:Double"/>
+      <data name="ViewportWidth" inType="win:Double"/>
+      <data name="ViewportHeight" inType="win:Double"/>
+      <data name="Zoom" inType="win:Float"/>
+      <data name="IsMoving" inType="win:Boolean"/>
+     </template>
+     <template tid="BackEndLayer278Args_V2">
+      <data name="Layer" inType="win:Pointer"/>
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="OldNumberOfVsisTilesX" inType="win:UInt32"/>
+      <data name="OldNumberOfVsisTilesY" inType="win:UInt32"/>
+      <data name="NewNumberOfVsisTilesX" inType="win:UInt32"/>
+      <data name="NewNumberOfVsisTilesY" inType="win:UInt32"/>
+     </template>
+     <template tid="BackEndLayer280Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="virtualPerimeterX" inType="win:Double"/>
+      <data name="virtualPerimeterY" inType="win:Double"/>
+      <data name="virtualPerimeterWidth" inType="win:Double"/>
+      <data name="virtualPerimeterHeight" inType="win:Double"/>
+      <data name="CalculatedvirtualPerimeterX" inType="win:Double"/>
+      <data name="CalculatedvirtualPerimeterY" inType="win:Double"/>
+      <data name="CalculatedvirtualPerimeterWidth" inType="win:Double"/>
+      <data name="CalculatedvirtualPerimeterHeight" inType="win:Double"/>
+     </template>
+     <template tid="BackEndLayer281Args_V2">
+      <data name="Layer" inType="win:Pointer"/>
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="virtualPerimeterX" inType="win:Double"/>
+      <data name="virtualPerimeterY" inType="win:Double"/>
+      <data name="virtualPerimeterWidth" inType="win:Double"/>
+      <data name="virtualPerimeterHeight" inType="win:Double"/>
+     </template>
+     <template tid="BackEndLayer282Args_V2">
+      <data name="Layer" inType="win:Pointer"/>
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="Width" inType="win:Double"/>
+     </template>
+     <template tid="ScrollingLayer283Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="VirtualZoomedX" inType="win:Double"/>
+      <data name="VirtualZoomedY" inType="win:Double"/>
+      <data name="RealUnzoomedX" inType="win:Double"/>
+      <data name="RealUnzoomedY" inType="win:Double"/>
+      <data name="VirtualZoomedX_Rtl" inType="win:Double"/>
+      <data name="VirtualZoomedY_Rtl" inType="win:Double"/>
+      <data name="RealUnzoomedX_Rtl" inType="win:Double"/>
+      <data name="RealUnzoomedY_Rtl" inType="win:Double"/>
+      <data name="finalZoom" inType="win:Float"/>
+      <data name="Width" inType="win:Double"/>
+      <data name="Height" inType="win:Double"/>
+     </template>
+     <template tid="BackEndLayer284Args_V2">
+      <data name="Layer" inType="win:Pointer"/>
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="virtualPerimeterX" inType="win:Double"/>
+      <data name="virtualPerimeterY" inType="win:Double"/>
+      <data name="virtualPerimeterWidth" inType="win:Double"/>
+      <data name="virtualPerimeterHeight" inType="win:Double"/>
+      <data name="parentVirtualOffsetX" inType="win:Double"/>
+      <data name="parentVirtualOffsetY" inType="win:Double"/>
+     </template>
+     <template tid="BackEndLayer285Args_V2">
+      <data name="Layer" inType="win:Pointer"/>
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="VirtualizedRectX" inType="win:Double"/>
+      <data name="VirtualizedRectY" inType="win:Double"/>
+      <data name="VirtualizedRectWidth" inType="win:Double"/>
+      <data name="VirtualizedRectHeight" inType="win:Double"/>
+     </template>
+     <template tid="BackEndLayer286Args_V2">
+      <data name="Layer" inType="win:Pointer"/>
+      <data name="Handle" inType="win:UInt32"/>
+     </template>
+     <template tid="BackEndLayer289Args_V2">
+      <data name="Layer" inType="win:Pointer"/>
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="Width" inType="win:Double"/>
+      <data name="Height" inType="win:Double"/>
+     </template>
+     <template tid="BackEndLayer290Args_V2">
+      <data name="Layer" inType="win:Pointer"/>
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="LayerBoundingBoxX" inType="win:Float"/>
+      <data name="LayerBoundingBoxY" inType="win:Float"/>
+      <data name="LayerBoundingBoxWidth" inType="win:Float"/>
+      <data name="LayerBoundingBoxHeight" inType="win:Float"/>
+      <data name="LayerOffsetFromViewportX" inType="win:Float"/>
+      <data name="LayerOffsetFromViewportY" inType="win:Float"/>
+      <data name="Zoom" inType="win:Float"/>
+     </template>
+     <template tid="BackEndLayer291Args_V2">
+      <data name="Layer" inType="win:Pointer"/>
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="PointTestX" inType="win:Float"/>
+      <data name="PointTestY" inType="win:Float"/>
+      <data name="HitTestOptions" inType="win:UInt32"/>
+      <data name="Zoom" inType="win:Float"/>
+      <data name="ViewportOffsetX" inType="win:Float"/>
+      <data name="ViewportOffsetY" inType="win:Float"/>
+      <data name="HeaderType" inType="win:UInt32"/>
+      <data name="ParentScrollingLayer" inType="win:UInt32"/>
+      <data name="SearchForHitTestData" inType="win:Boolean"/>
+      <data name="InputSourceType" inType="win:UInt32"/>
+     </template>
+     <template tid="BackEndLayer292Args_V2">
+      <data name="Layer" inType="win:Pointer"/>
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="PointX" inType="win:Float"/>
+      <data name="PointY" inType="win:Float"/>
+      <data name="PointTestX" inType="win:Float"/>
+      <data name="PointTestY" inType="win:Float"/>
+      <data name="HitTestOptions" inType="win:UInt32"/>
+      <data name="Zoom" inType="win:Float"/>
+      <data name="ViewportOffsetX" inType="win:Float"/>
+      <data name="ViewportOffsetY" inType="win:Float"/>
+      <data name="HeaderType" inType="win:UInt32"/>
+      <data name="ParentScrollingLayer" inType="win:UInt32"/>
+      <data name="SearchForHitTestData" inType="win:Boolean"/>
+      <data name="InputSourceType" inType="win:UInt32"/>
+     </template>
+     <template tid="ScrollingLayerCanvasArgs_V2">
+      <data name="ScrollingLayerCanvas" inType="win:Pointer"/>
+      <data name="ZoomFactor" inType="win:Double"/>
+      <data name="IsAnimated" inType="win:Boolean"/>
+     </template>
+     <template tid="ScrollingLayerCanvas294Args_V2">
+      <data name="ScrollingLayerCanvas" inType="win:Pointer"/>
+      <data name="Width" inType="win:Double"/>
+      <data name="Height" inType="win:Double"/>
+     </template>
+     <template tid="ScrollingLayerCanvas295Args_V2">
+      <data name="ScrollingLayerCanvas" inType="win:Pointer"/>
+      <data name="PendingScrollTo" inType="win:Boolean"/>
+      <data name="PendingZoomTo" inType="win:Boolean"/>
+      <data name="PendingSetCanvasSize" inType="win:Boolean"/>
+      <data name="IsFirstScroll" inType="win:Boolean"/>
+      <data name="ScrollToX" inType="win:Double"/>
+      <data name="ScrollToY" inType="win:Double"/>
+      <data name="ScrollToAnimate" inType="win:Boolean"/>
+      <data name="Zoom" inType="win:Double"/>
+      <data name="ZoomAnimate" inType="win:Boolean"/>
+      <data name="Width" inType="win:Double"/>
+      <data name="Height" inType="win:Double"/>
+     </template>
+     <template tid="ScrollingLayerCanvas296Args_V2">
+      <data name="ScrollingLayerCanvas" inType="win:Pointer"/>
+      <data name="OffsetX" inType="win:Double"/>
+      <data name="OffsetY" inType="win:Double"/>
+      <data name="IsAnimated" inType="win:Boolean"/>
+     </template>
+     <template tid="ScrollingLayerCanvas297Args_V2">
+      <data name="ScrollingLayerCanvas" inType="win:Pointer"/>
+      <data name="CanvasOffsetX" inType="win:Double"/>
+      <data name="CanvasOffsetY" inType="win:Double"/>
+      <data name="AdjustedOffsetX" inType="win:Double"/>
+      <data name="AdjustedOffsetY" inType="win:Double"/>
+     </template>
+     <template tid="ScrollingLayerCanvas298Args_V2">
+      <data name="ScrollingLayerCanvas" inType="win:Pointer"/>
+      <data name="Zoom" inType="win:Double"/>
+     </template>
+     <template tid="AirSpaceArgs_V2">
+      <data name="DeviceMode" inType="win:UInt32"/>
+      <data name="ShareDevice" inType="win:Boolean"/>
+     </template>
+     <template tid="Scene302Args_V2">
+      <data name="Scene" inType="win:Pointer"/>
+     </template>
+     <template tid="AirSpace303Args_V2">
+      <data name="ReacquireDevice" inType="win:Boolean"/>
+     </template>
+     <template tid="Compositor304Args_V2">
+      <data name="DeviceMode" inType="win:UInt32"/>
+     </template>
+     <template tid="DirectXDeviceResourcesArgs_V2">
+      <data name="DirectXDeviceResources" inType="win:Pointer"/>
+     </template>
+     <template tid="Direct2dDeviceResourcesArgs_V2">
+      <data name="Direct2dDeviceResources" inType="win:Pointer"/>
+     </template>
+     <template tid="Scene307Args_V2">
+      <data name="DeviceLossType" inType="win:UInt32"/>
+     </template>
+     <template tid="DirectXDeviceResources308Args_V2">
+      <data name="DirectXDeviceResources" inType="win:Pointer"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="Scene309Args_V2">
+      <data name="Scene" inType="win:Pointer"/>
+      <data name="LockDevice" inType="win:Boolean"/>
+     </template>
+     <template tid="ScrollingLayer313Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="VirtualZoomedX" inType="win:Double"/>
+      <data name="VirtualZoomedY" inType="win:Double"/>
+      <data name="RealUnzoomedX" inType="win:Double"/>
+      <data name="RealUnzoomedY" inType="win:Double"/>
+      <data name="VirtualZoomedX_Rtl" inType="win:Double"/>
+      <data name="VirtualZoomedY_Rtl" inType="win:Double"/>
+      <data name="RealUnzoomedX_Rtl" inType="win:Double"/>
+      <data name="RealUnzoomedY_Rtl" inType="win:Double"/>
+      <data name="currentZoom" inType="win:Float"/>
+      <data name="Width" inType="win:Double"/>
+      <data name="Height" inType="win:Double"/>
+     </template>
+     <template tid="ScrollingLayerStartArgs_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="CanvasSizeWidth" inType="win:Double"/>
+      <data name="CanvasSizeHeight" inType="win:Double"/>
+     </template>
+     <template tid="ScrollingLayerStopArgs_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="VirtualZoomedX" inType="win:Double"/>
+      <data name="VirtualZoomedY" inType="win:Double"/>
+      <data name="RealUnzoomedX" inType="win:Double"/>
+      <data name="RealUnzoomedY" inType="win:Double"/>
+      <data name="VirtualZoomedX_Rtl" inType="win:Double"/>
+      <data name="VirtualZoomedY_Rtl" inType="win:Double"/>
+      <data name="RealUnzoomedX_Rtl" inType="win:Double"/>
+      <data name="RealUnzoomedY_Rtl" inType="win:Double"/>
+      <data name="finalZoom" inType="win:Float"/>
+      <data name="VirtualPerimeterX" inType="win:Double"/>
+      <data name="VirtualPerimeterY" inType="win:Double"/>
+      <data name="VirtualPerimeterWidth" inType="win:Double"/>
+      <data name="VirtualPerimeterHeight" inType="win:Double"/>
+     </template>
+     <template tid="ScrollingLayer316Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="MaxViewportDestinationX" inType="win:Double"/>
+      <data name="MaxViewportDestinationY" inType="win:Double"/>
+     </template>
+     <template tid="ScrollingLayer317Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="VirtualZoomedX" inType="win:Double"/>
+      <data name="VirtualZoomedY" inType="win:Double"/>
+      <data name="RealUnzoomedX" inType="win:Double"/>
+      <data name="RealUnzoomedY" inType="win:Double"/>
+      <data name="VirtualZoomedX_Rtl" inType="win:Double"/>
+      <data name="VirtualZoomedY_Rtl" inType="win:Double"/>
+      <data name="RealUnzoomedX_Rtl" inType="win:Double"/>
+      <data name="RealUnzoomedY_Rtl" inType="win:Double"/>
+      <data name="nextZoom" inType="win:Float"/>
+      <data name="Width" inType="win:Double"/>
+      <data name="Height" inType="win:Double"/>
+     </template>
+     <template tid="ScrollingLayer320Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="IsIntermediate" inType="win:Boolean"/>
+      <data name="LastSteadyZoom" inType="win:Float"/>
+      <data name="Zoom" inType="win:Float"/>
+      <data name="IntermediateCount" inType="win:UInt32"/>
+     </template>
+     <template tid="ScrollingLayerStart321Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="VirtualZoomedX" inType="win:Double"/>
+      <data name="VirtualZoomedY" inType="win:Double"/>
+      <data name="RealUnzoomedX" inType="win:Double"/>
+      <data name="RealUnzoomedY" inType="win:Double"/>
+      <data name="VirtualZoomedX_Rtl" inType="win:Double"/>
+      <data name="VirtualZoomedY_Rtl" inType="win:Double"/>
+      <data name="RealUnzoomedX_Rtl" inType="win:Double"/>
+      <data name="RealUnzoomedY_Rtl" inType="win:Double"/>
+      <data name="currentZoom" inType="win:Float"/>
+      <data name="VirtualPerimeterX" inType="win:Double"/>
+      <data name="VirtualPerimeterY" inType="win:Double"/>
+      <data name="VirtualPerimeterWidth" inType="win:Double"/>
+      <data name="VirtualPerimeterHeight" inType="win:Double"/>
+     </template>
+     <template tid="ScrollingLayerCanvas322Args_V2">
+      <data name="ScrollingLayerCanvas" inType="win:Pointer"/>
+      <data name="IsScroll" inType="win:Boolean"/>
+      <data name="IsZoom" inType="win:Boolean"/>
+      <data name="X" inType="win:Double"/>
+      <data name="Y" inType="win:Double"/>
+      <data name="Zoom" inType="win:Float"/>
+     </template>
+     <template tid="ScrollingLayer323Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="ViewportX" inType="win:Double"/>
+      <data name="ViewportY" inType="win:Double"/>
+      <data name="ViewportWidth" inType="win:Double"/>
+      <data name="ViewportHeight" inType="win:Double"/>
+      <data name="Zoom" inType="win:Double"/>
+      <data name="IsMoving" inType="win:Boolean"/>
+     </template>
+     <template tid="Compositor324Args_V2">
+      <data name="AllAppsBlocked" inType="win:Boolean"/>
+      <data name="BlockedDeviceId" inType="win:UnicodeString"/>
+      <data name="BlockedDriverVersion" inType="win:UnicodeString"/>
+      <data name="CrashHistory" inType="win:UnicodeString"/>
+      <data name="SecsBetweenCrashes" inType="win:Double"/>
+     </template>
+     <template tid="Compositor325Args_V2">
+      <data name="DeviceId" inType="win:UnicodeString"/>
+      <data name="BlockedDriverVersion" inType="win:UnicodeString"/>
+      <data name="UpdatedDriverVersion" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Compositor326Args_V2">
+      <data name="eventType" inType="win:UInt32"/>
+      <data name="animationProperty" inType="win:UInt32"/>
+      <data name="newValue" inType="win:Double"/>
+     </template>
+     <template tid="Compositor327Args_V2">
+      <data name="animationClass" inType="win:AnsiString"/>
+      <data name="animation" inType="win:AnsiString"/>
+      <data name="animationInstanceId" inType="win:Int32"/>
+      <data name="animationEvent" inType="win:UInt32"/>
+      <data name="customEvent" inType="win:UInt32"/>
+      <data name="looping" inType="win:Boolean"/>
+     </template>
+     <template tid="Compositor328Args_V2">
+      <data name="animationInstanceId" inType="win:Int32"/>
+      <data name="animationClass" inType="win:AnsiString"/>
+      <data name="animation" inType="win:AnsiString"/>
+     </template>
+     <template tid="Compositor331Args_V2">
+      <data name="animationInstanceHandle" inType="win:Int32"/>
+      <data name="animationClass" inType="win:AnsiString"/>
+      <data name="animation" inType="win:AnsiString"/>
+      <data name="seconds" inType="win:Double"/>
+      <data name="animationProperty" inType="win:UInt32"/>
+      <data name="value" inType="win:Double"/>
+     </template>
+     <template tid="Compositor332Args_V2">
+      <data name="airSpaceLayerHandle" inType="win:Int32"/>
+      <data name="classCookie" inType="win:Int32"/>
+      <data name="animationClassId" inType="win:Int32"/>
+     </template>
+     <template tid="Compositor334Args_V2">
+      <data name="airSpaceLayerHandle" inType="win:Int32"/>
+     </template>
+     <template tid="Compositor335Args_V2">
+      <data name="animationInstanceHandle" inType="win:Int32"/>
+      <data name="contextVariableId" inType="win:UInt32"/>
+      <data name="contextableValue" inType="win:Double"/>
+     </template>
+     <template tid="Compositor336Args_V2">
+      <data name="AppCrashingInHw" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Compositor337Args_V2">
+      <data name="SafeMode" inType="win:Boolean"/>
+      <data name="TerminalServer" inType="win:Boolean"/>
+      <data name="Registry" inType="win:Boolean"/>
+      <data name="AdminPolicy" inType="win:Boolean"/>
+      <data name="AnimationDisabled" inType="win:Boolean"/>
+      <data name="EaseOfAccess" inType="win:Boolean"/>
+      <data name="WARP" inType="win:Boolean"/>
+     </template>
+     <template tid="ScrollingLayer338Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="OldZoomFactor" inType="win:Float"/>
+      <data name="NewZoomFactor" inType="win:Float"/>
+     </template>
+     <template tid="ScrollingLayer340Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="oldVirtualPerimeterX" inType="win:Double"/>
+      <data name="oldVirtualPerimeterY" inType="win:Double"/>
+      <data name="oldVirtualPerimeterWidth" inType="win:Double"/>
+      <data name="oldVirtualPerimeterHeight" inType="win:Double"/>
+      <data name="newVirtualPerimeterX" inType="win:Double"/>
+      <data name="newVirtualPerimeterY" inType="win:Double"/>
+      <data name="newVirtualPerimeterWidth" inType="win:Double"/>
+      <data name="newVirtualPerimeterHeight" inType="win:Double"/>
+     </template>
+     <template tid="ScrollingLayer341Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="VirtualZoomedX" inType="win:Double"/>
+      <data name="VirtualZoomedY" inType="win:Double"/>
+      <data name="RealUnzoomedX" inType="win:Double"/>
+      <data name="RealUnzoomedY" inType="win:Double"/>
+      <data name="VirtualZoomedX_Rtl" inType="win:Double"/>
+      <data name="VirtualZoomedY_Rtl" inType="win:Double"/>
+      <data name="RealUnzoomedX_Rtl" inType="win:Double"/>
+      <data name="RealUnzoomedY_Rtl" inType="win:Double"/>
+      <data name="finalZoom" inType="win:Float"/>
+      <data name="IsPendingScroll" inType="win:Boolean"/>
+     </template>
+     <template tid="LayerTileManagerArgs_V2">
+      <data name="LayerTileManager" inType="win:Pointer"/>
+     </template>
+     <template tid="LayerCommandListVirtualTextureWinCompArgs_V2">
+      <data name="LCLVT" inType="win:Pointer"/>
+     </template>
+     <template tid="SurfaceLayerBitmapTextureWinCompArgs_V2">
+      <data name="LayerTexture" inType="win:Pointer"/>
+     </template>
+     <template tid="LayerCommandListVirtualTextureWinComp355Args_V2">
+      <data name="LCLVT" inType="win:Pointer"/>
+      <data name="LTM" inType="win:Pointer"/>
+      <data name="LayerHandle" inType="win:UInt32"/>
+      <data name="TextureHandle" inType="win:UInt32"/>
+     </template>
+     <template tid="LayerCommandListVirtualTextureWinComp356Args_V2">
+      <data name="LCLVT" inType="win:Pointer"/>
+      <data name="ContentZoom" inType="win:Float"/>
+      <data name="HighDpiScaleFactor" inType="win:Float"/>
+      <data name="BoundsLeft" inType="win:UInt32"/>
+      <data name="BoundsTop" inType="win:UInt32"/>
+      <data name="BoundsWidth" inType="win:UInt32"/>
+      <data name="BoundsHeight" inType="win:UInt32"/>
+      <data name="PrefetchDistanceX" inType="win:UInt32"/>
+      <data name="PrefetchDistanceY" inType="win:UInt32"/>
+     </template>
+     <template tid="SurfaceLayerBitmapTextureWinComp365Args_V2">
+      <data name="LayerTexture" inType="win:Pointer"/>
+      <data name="Surface" inType="win:Pointer"/>
+     </template>
+     <template tid="CommandListVirtualTextureWinComp366Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+      <data name="Playback" inType="win:Pointer"/>
+     </template>
+     <template tid="BitmapTextureWinCompArgs_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="OldStretchMode" inType="win:UInt32"/>
+      <data name="NewStretchMode" inType="win:UInt32"/>
+     </template>
+     <template tid="VirtualTextureWinComp377Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="OldWidth" inType="win:UInt32"/>
+      <data name="OldHeight" inType="win:UInt32"/>
+      <data name="NewWidth" inType="win:UInt32"/>
+      <data name="NewHeight" inType="win:UInt32"/>
+     </template>
+     <template tid="BitmapTextureWinComp379Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+      <data name="IsArc" inType="win:Boolean"/>
+     </template>
+     <template tid="ScrollingLayerWinComp382Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="ScrollingIndicatorMode" inType="win:UInt32"/>
+     </template>
+     <template tid="VirtualTextureWinComp384Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="X" inType="win:UInt32"/>
+      <data name="Y" inType="win:UInt32"/>
+     </template>
+     <template tid="LayerVirtualTextureWinCompArgs_V2">
+      <data name="LayerVirtualTexture" inType="win:Pointer"/>
+      <data name="LTM" inType="win:Pointer"/>
+      <data name="LayerHandle" inType="win:UInt32"/>
+      <data name="TextureHandle" inType="win:UInt32"/>
+     </template>
+     <template tid="SurfaceLayerBitmapTextureWinComp394Args_V2">
+      <data name="LayerTexture" inType="win:Pointer"/>
+      <data name="StretchMode" inType="win:UInt32"/>
+     </template>
+     <template tid="LayerVirtualTextureWinComp398Args_V2">
+      <data name="LayerVirtualTexture" inType="win:Pointer"/>
+     </template>
+     <template tid="SurfaceLayerBitmapTextureWinComp405Args_V2">
+      <data name="LayerTexture" inType="win:Pointer"/>
+      <data name="HResult" inType="win:UInt32"/>
+     </template>
+     <template tid="SurfaceLayerBitmapTextureWinComp409Args_V2">
+      <data name="LayerTexture" inType="win:Pointer"/>
+      <data name="LayerHandle" inType="win:UInt32"/>
+      <data name="TextureHandle" inType="win:UInt32"/>
+     </template>
+     <template tid="LayerTileManager411Args_V2">
+      <data name="LayerTileManager" inType="win:Pointer"/>
+      <data name="BoundsLeft" inType="win:UInt32"/>
+      <data name="BoundsTop" inType="win:UInt32"/>
+      <data name="BoundsWidth" inType="win:UInt32"/>
+      <data name="BoundsHeight" inType="win:UInt32"/>
+      <data name="PrefetchDistanceX" inType="win:UInt32"/>
+      <data name="PrefetchDistanceY" inType="win:UInt32"/>
+     </template>
+     <template tid="VirtualTextureWinComp412Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="X" inType="win:UInt32"/>
+      <data name="Y" inType="win:UInt32"/>
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+     </template>
+     <template tid="SurfaceLayerSwapChainTextureWinCompArgs_V2">
+      <data name="LayerTexture" inType="win:Pointer"/>
+      <data name="LayerHandle" inType="win:UInt32"/>
+      <data name="TextureHandle" inType="win:UInt32"/>
+      <data name="Surface" inType="win:Pointer"/>
+     </template>
+     <template tid="WindowCompositorArgs_V2">
+      <data name="WindowCompositor" inType="win:Pointer"/>
+      <data name="WindowCompositionGraphicsDevice" inType="win:Pointer"/>
+      <data name="DxgiDevice" inType="win:Pointer"/>
+     </template>
+     <template tid="Direct2DTextureWinCompArgs_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="HResult" inType="win:UInt32"/>
+     </template>
+     <template tid="WindowCompositor419Args_V2">
+      <data name="WindowCompositor" inType="win:Pointer"/>
+      <data name="Compositor" inType="win:Pointer"/>
+     </template>
+     <template tid="WindowCompositor425Args_V2">
+      <data name="WindowCompositor" inType="win:Pointer"/>
+     </template>
+     <template tid="Direct2DTextureWinComp427Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="StretchMode" inType="win:UInt32"/>
+     </template>
+     <template tid="VirtualTextureWinComp440Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+      <data name="IgnoreAlpha" inType="win:Boolean"/>
+      <data name="IsCommandListBacked" inType="win:Boolean"/>
+     </template>
+     <template tid="SwapChainTextureWinComp441Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+      <data name="Opaque" inType="win:Boolean"/>
+      <data name="Depth" inType="win:UInt32"/>
+     </template>
+     <template tid="WindowCompositor443Args_V2">
+      <data name="WindowCompositor" inType="win:Pointer"/>
+      <data name="DxgiDevice" inType="win:Pointer"/>
+      <data name="WindowCompositionGraphicsDevice" inType="win:Pointer"/>
+      <data name="GraphicsDevice" inType="win:Pointer"/>
+     </template>
+     <template tid="WindowCompositionGraphicsDeviceArgs_V2">
+      <data name="WindowCompositionGraphicsDevice" inType="win:Pointer"/>
+      <data name="GraphicsDevice" inType="win:Pointer"/>
+      <data name="DxgiDevice" inType="win:Pointer"/>
+     </template>
+     <template tid="SwapChainTextureWinComp474Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+      <data name="Depth" inType="win:UInt32"/>
+      <data name="Opaque" inType="win:Boolean"/>
+     </template>
+     <template tid="ScrollingLayerWinComp475Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="isMouseWheelSupportEnabled" inType="win:Boolean"/>
+     </template>
+     <template tid="LayerWinCompArgs_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="BorderPosition" inType="win:UInt32"/>
+     </template>
+     <template tid="ScrollingLayer480Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="Type" inType="win:UInt32"/>
+      <data name="isHorizontal" inType="win:Boolean"/>
+      <data name="Distance" inType="win:Float"/>
+      <data name="Offset" inType="win:Float"/>
+     </template>
+     <template tid="ScrollingLayer481Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="Type" inType="win:UInt32"/>
+      <data name="isHorizontal" inType="win:Boolean"/>
+      <data name="isZoom" inType="win:Boolean"/>
+     </template>
+     <template tid="ScrollingLayer482Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="Type" inType="win:UInt32"/>
+      <data name="isHorizontal" inType="win:Boolean"/>
+      <data name="Size" inType="win:UInt32"/>
+     </template>
+     <template tid="ScrollingLayer483Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="zoomFactor" inType="win:Float"/>
+     </template>
+     <template tid="TileWinComp485Args_V2">
+      <data name="HResult" inType="win:UInt32"/>
+     </template>
+     <template tid="Compositor486Args_V2">
+      <data name="WinCompEnabled" inType="win:Boolean"/>
+     </template>
+     <template tid="SwapChainTextureWinComp487Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="Type" inType="win:UInt32"/>
+     </template>
+     <template tid="SwapChainTextureWinComp488Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="HResult" inType="win:UInt32"/>
+      <data name="Type" inType="win:UInt32"/>
+     </template>
+     <template tid="ScrollingLayerWinComp497Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="isXChainingSupportEnabled" inType="win:Boolean"/>
+      <data name="isYChainingSupportEnabled" inType="win:Boolean"/>
+     </template>
+     <template tid="ScrollingLayerWinComp500Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="IsViewportMoving" inType="win:Boolean"/>
+     </template>
+     <template tid="ScrollingLayerWinComp501Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="VirtualZoomedX" inType="win:Double"/>
+      <data name="VirtualZoomedY" inType="win:Double"/>
+      <data name="RealUnzoomedX" inType="win:Double"/>
+      <data name="RealUnzoomedY" inType="win:Double"/>
+      <data name="VirtualZoomedX_Rtl" inType="win:Double"/>
+      <data name="VirtualZoomedY_Rtl" inType="win:Double"/>
+      <data name="RealUnzoomedX_Rtl" inType="win:Double"/>
+      <data name="RealUnzoomedY_Rtl" inType="win:Double"/>
+      <data name="finalZoom" inType="win:Float"/>
+      <data name="Width" inType="win:Double"/>
+      <data name="Height" inType="win:Double"/>
+      <data name="IsViewportMoving" inType="win:Boolean"/>
+      <data name="IsClientScroll" inType="win:Boolean"/>
+     </template>
+     <template tid="ScrollingLayerWinComp507Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="VirtualZoomedX" inType="win:Double"/>
+      <data name="VirtualZoomedY" inType="win:Double"/>
+      <data name="RealUnzoomedX" inType="win:Double"/>
+      <data name="RealUnzoomedY" inType="win:Double"/>
+      <data name="VirtualZoomedX_Rtl" inType="win:Double"/>
+      <data name="VirtualZoomedY_Rtl" inType="win:Double"/>
+      <data name="RealUnzoomedX_Rtl" inType="win:Double"/>
+      <data name="RealUnzoomedY_Rtl" inType="win:Double"/>
+      <data name="currentZoom" inType="win:Float"/>
+      <data name="Width" inType="win:Double"/>
+      <data name="Height" inType="win:Double"/>
+      <data name="IsViewportMoving" inType="win:Boolean"/>
+     </template>
+     <template tid="ScrollingLayer510Args_V2">
+      <data name="ObjectHandle" inType="win:UInt32"/>
+      <data name="MinPositionX" inType="win:Double"/>
+      <data name="MinPositionY" inType="win:Double"/>
+      <data name="MaxPositionX" inType="win:Double"/>
+      <data name="MaxPositionY" inType="win:Double"/>
+      <data name="MinMaxOrder" inType="win:Boolean"/>
+     </template>
+     <template tid="VirtualTexture511Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="RectX" inType="win:UInt32"/>
+      <data name="RectY" inType="win:UInt32"/>
+      <data name="RectWidth" inType="win:UInt32"/>
+      <data name="RectHeight" inType="win:UInt32"/>
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+     </template>
+     <template tid="GdiTextureArgs_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="NullHDCReason" inType="win:UInt32"/>
+     </template>
+     <template tid="Compositor516Args_V2">
+      <data name="animationProperty" inType="win:UInt32"/>
+      <data name="value" inType="win:Double"/>
+      <data name="hasAnimation" inType="win:Boolean"/>
+      <data name="animating" inType="win:Boolean"/>
+     </template>
+     <template tid="Compositor517Args_V2">
+      <data name="animationTracker" inType="win:UInt64"/>
+     </template>
+     <template tid="Compositor519Args_V2">
+      <data name="animationTracker" inType="win:UInt64"/>
+      <data name="handle" inType="win:UInt32"/>
+      <data name="duration" inType="win:UInt32"/>
+     </template>
+     <template tid="LayerHostWin32Args_V2">
+      <data name="HResult" inType="win:UInt32"/>
+      <data name="IsActivating" inType="win:Boolean"/>
+     </template>
+     <template tid="ScrollingLayerWinComp522Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="RequestId" inType="win:UInt32"/>
+     </template>
+     <template tid="ScrollingLayerWinComp528Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="ZoomCenterPointX" inType="win:Float"/>
+      <data name="ZoomCenterPointY" inType="win:Float"/>
+      <data name="RequestId" inType="win:UInt32"/>
+     </template>
+     <template tid="ScrollingLayerWinComp533Args_V2">
+      <data name="Handle" inType="win:UInt32"/>
+      <data name="canvasSizeX" inType="win:Float"/>
+      <data name="canvasSizeY" inType="win:Float"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Memory" value="Memory"/>
+    <string id="keyword_Timing" value="Timing"/>
+    <string id="keyword_FPS" value="FPS"/>
+    <string id="keyword_Layer" value="Layer"/>
+    <string id="keyword_Texture" value="Texture"/>
+    <string id="keyword_DirectX" value="DirectX"/>
+    <string id="keyword_CPU" value="CPU"/>
+    <string id="keyword_GPU" value="GPU"/>
+    <string id="keyword_Window" value="Window"/>
+    <string id="keyword_Initialization" value="Initialization"/>
+    <string id="keyword_Exception" value="Exception"/>
+    <string id="keyword_Animation" value="Animation"/>
+    <string id="keyword_Shutdown" value="Shutdown"/>
+    <string id="keyword_AirSpy" value="AirSpy"/>
+    <string id="keyword_Atlas" value="Atlas"/>
+    <string id="keyword_LowResourceMode" value="LowResourceMode"/>
+    <string id="keyword_GDIRendering" value="GDIRendering"/>
+    <string id="keyword_Channel" value="Channel"/>
+    <string id="keyword_Automation" value="Automation"/>
+    <string id="keyword_DebugLog" value="DebugLog"/>
+    <string id="keyword_Scrolling" value="Scrolling"/>
+    <string id="keyword_FrontEnd" value="FrontEnd"/>
+    <string id="keyword_BackEnd" value="BackEnd"/>
+    <string id="keyword_CommandList" value="CommandList"/>
+    <string id="keyword_Desktop" value="Desktop"/>
+    <string id="keyword_MaxTextureDimension" value="MaxTextureDimension"/>
+    <string id="keyword_Immersive" value="Immersive"/>
+    <string id="keyword_NullRenderTarget" value="NullRenderTarget"/>
+    <string id="keyword_WetInk" value="WetInk"/>
+    <string id="keyword_Scene" value="Scene"/>
+    <string id="keyword_Interaction" value="Interaction"/>
+    <string id="keyword_Pointer" value="Pointer"/>
+    <string id="keyword_LayerTileManager" value="LayerTileManager"/>
+    <string id="keyword_LayerTexture" value="LayerTexture"/>
+    <string id="keyword_Tile" value="Tile"/>
+    <string id="keyword_NullHDC" value="NullHDC"/>
+    <string id="keyword_DirectManipulation" value="DirectManipulation"/>
+    <string id="task_Compositor" value="Compositor"/>
+    <string id="task_DirectX" value="DirectX"/>
+    <string id="opcode_DirectXLayerHostEnterLowResourceMode" value="LayerHostEnterLowResourceMode"/>
+    <string id="task_Channel" value="Channel"/>
+    <string id="opcode_ChannelLayerHostStartingRecoveryFromLowResourceMode" value="LayerHostStartingRecoveryFromLowResourceMode"/>
+    <string id="opcode_ChannelLayerHostFinishedRecoveryFromLowResourceMode" value="LayerHostFinishedRecoveryFromLowResourceMode"/>
+    <string id="opcode_ChannelLayerHostPartiallyRecoveredFromLowResourceMode" value="LayerHostPartiallyRecoveredFromLowResourceMode"/>
+    <string id="opcode_ChannelCommandQueued" value="CommandQueued"/>
+    <string id="opcode_ChannelSceneBatch" value="SceneBatch"/>
+    <string id="task_AirSpy" value="AirSpy"/>
+    <string id="task_RenderThread" value="RenderThread"/>
+    <string id="opcode_RenderThreadRenderFrame" value="RenderFrame"/>
+    <string id="opcode_RenderThreadBatchPresented" value="BatchPresented"/>
+    <string id="task_UpdateTextures" value="UpdateTextures"/>
+    <string id="opcode_UpdateTexturesUpdateTextures" value="UpdateTextures"/>
+    <string id="task_VirtualTexture" value="VirtualTexture"/>
+    <string id="task_CommandList" value="CommandList"/>
+    <string id="task_CommandListComposite" value="CommandListComposite"/>
+    <string id="task_XamlDrawableSurface" value="XamlDrawableSurface"/>
+    <string id="task_XamlVirtualizedSurface" value="XamlVirtualizedSurface"/>
+    <string id="task_Layer" value="Layer"/>
+    <string id="task_ScrollingLayer" value="ScrollingLayer"/>
+    <string id="task_PrefetchScope" value="PrefetchScope"/>
+    <string id="task_Direct2DTexture" value="Direct2DTexture"/>
+    <string id="task_CommandListVirtualTexture" value="CommandListVirtualTexture"/>
+    <string id="task_VSISTile" value="VSISTile"/>
+    <string id="task_SceneD" value="SceneD"/>
+    <string id="task_LayerHostD" value="LayerHostD"/>
+    <string id="task_SurfaceManager" value="SurfaceManager"/>
+    <string id="task_WetInkTexture" value="WetInkTexture"/>
+    <string id="task_Scene" value="Scene"/>
+    <string id="task_LayerHostI" value="LayerHostI"/>
+    <string id="task_SceneI" value="SceneI"/>
+    <string id="task_XamlHostingLayer" value="XamlHostingLayer"/>
+    <string id="task_WetInkSwapChainPanel" value="WetInkSwapChainPanel"/>
+    <string id="task_BasicSwapChainPanel" value="BasicSwapChainPanel"/>
+    <string id="task_XamlMultithreadNativeSurfaceOffThread" value="XamlMultithreadNativeSurfaceOffThread"/>
+    <string id="task_XamlMultithreadNativeSurface" value="XamlMultithreadNativeSurface"/>
+    <string id="task_XamlMultithreadNativeSurfaceUI" value="XamlMultithreadNativeSurfaceUI"/>
+    <string id="task_InteractionInstance" value="InteractionInstance"/>
+    <string id="task_InputProcessor" value="InputProcessor"/>
+    <string id="task_CommandListRasterizeWork" value="CommandListRasterizeWork"/>
+    <string id="task_CommandListRasterizer" value="CommandListRasterizer"/>
+    <string id="task_VSISTiler" value="VSISTiler"/>
+    <string id="task_XamlMultithreadDrawableSurfaceOffThread" value="XamlMultithreadDrawableSurfaceOffThread"/>
+    <string id="task_XamlVirtualSurface" value="XamlVirtualSurface"/>
+    <string id="task_XamlMultithreadDrawableSurface" value="XamlMultithreadDrawableSurface"/>
+    <string id="task_XamlSurface" value="XamlSurface"/>
+    <string id="task_XamlMultithreadVirtualSurface" value="XamlMultithreadVirtualSurface"/>
+    <string id="task_BitmapAllocator" value="BitmapAllocator"/>
+    <string id="task_MemoryHelper" value="MemoryHelper"/>
+    <string id="task_BackEndLayer" value="BackEndLayer"/>
+    <string id="task_ScrollingLayerCanvas" value="ScrollingLayerCanvas"/>
+    <string id="task_AirSpace" value="AirSpace"/>
+    <string id="task_DirectXDeviceResources" value="DirectXDeviceResources"/>
+    <string id="task_Direct2dDeviceResources" value="Direct2dDeviceResources"/>
+    <string id="task_VirtualTextureWinComp" value="VirtualTextureWinComp"/>
+    <string id="task_CommandListVirtualTextureWinComp" value="CommandListVirtualTextureWinComp"/>
+    <string id="task_LayerTileManager" value="LayerTileManager"/>
+    <string id="task_LayerCommandListVirtualTextureWinComp" value="LayerCommandListVirtualTextureWinComp"/>
+    <string id="task_ScrollingLayerWinComp" value="ScrollingLayerWinComp"/>
+    <string id="task_TileWinComp" value="TileWinComp"/>
+    <string id="task_SurfaceLayerBitmapTextureWinComp" value="SurfaceLayerBitmapTextureWinComp"/>
+    <string id="task_BitmapTextureWinComp" value="BitmapTextureWinComp"/>
+    <string id="task_LayerVirtualTextureWinComp" value="LayerVirtualTextureWinComp"/>
+    <string id="task_Direct2DTextureWinComp" value="Direct2DTextureWinComp"/>
+    <string id="task_SurfaceLayerSwapChainTextureWinComp" value="SurfaceLayerSwapChainTextureWinComp"/>
+    <string id="task_SwapChainTextureWinComp" value="SwapChainTextureWinComp"/>
+    <string id="task_WindowCompositor" value="WindowCompositor"/>
+    <string id="task_WindowCompositionGraphicsDevice" value="WindowCompositionGraphicsDevice"/>
+    <string id="task_LayerWinComp" value="LayerWinComp"/>
+    <string id="task_VirtualTextureBaseWinComp" value="VirtualTextureBaseWinComp"/>
+    <string id="task_GdiTexture" value="GdiTexture"/>
+    <string id="task_ArcTextureApple" value="ArcTextureApple"/>
+    <string id="task_LayerHostWin32" value="LayerHostWin32"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,118 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-D3D9" guid="{783aca0a-790e-4d7f-8451-aa850511c6b9}" resourceFileName="Microsoft-Windows-D3D9" messageFileName="Microsoft-Windows-D3D9" symbol="MicrosoftWindowsD3D9" source="Xml" >
+    <keywords>
+     <keyword name="Events" message="$(string.keyword_Events)" mask="0x2"/>
+    </keywords>
+    <tasks>
+     <task name="Present" message="$(string.task_Present)" value="1"/>
+     <task name="Reset" message="$(string.task_Reset)" value="2"/>
+     <task name="BindToDWM" message="$(string.task_BindToDWM)" value="3"/>
+     <task name="DWMRedirection" message="$(string.task_DWMRedirection)" value="4"/>
+     <task name="FlipExSurfaceTimeout" message="$(string.task_FlipExSurfaceTimeout)" value="5"/>
+     <task name="FlipExSemaphoreTimeout" message="$(string.task_FlipExSemaphoreTimeout)" value="6"/>
+     <task name="GetPresentStats" message="$(string.task_GetPresentStats)" value="7"/>
+    </tasks>
+    <maps>
+     <bitMap name="D3D9PresentFlags">
+      <map value="0x1" message="$(string.map_D3D9PresentFlagsD3DPRESENT_DONOTWAIT)"/>
+      <map value="0x2" message="$(string.map_D3D9PresentFlagsD3DPRESENT_LINEAR_CONTENT)"/>
+      <map value="0x4" message="$(string.map_D3D9PresentFlagsD3DPRESENT_DONOTFLIP)"/>
+      <map value="0x8" message="$(string.map_D3D9PresentFlagsD3DPRESENT_FLIPRESTART)"/>
+      <map value="0x10" message="$(string.map_D3D9PresentFlagsD3DPRESENT_VIDEO_RESTRICT_TO_MONITOR)"/>
+      <map value="0x100" message="$(string.map_D3D9PresentFlagsD3DPRESENT_FORCEIMMEDIATE)"/>
+     </bitMap>
+     <valueMap name="D3D9SwapEffect">
+      <map value="0x1" message="$(string.map_D3D9SwapEffectD3DSWAPEFFECT_DISCARD)"/>
+      <map value="0x2" message="$(string.map_D3D9SwapEffectD3DSWAPEFFECT_FLIP)"/>
+      <map value="0x3" message="$(string.map_D3D9SwapEffectD3DSWAPEFFECT_COPY)"/>
+      <map value="0x4" message="$(string.map_D3D9SwapEffectD3DSWAPEFFECT_OVERLAY)"/>
+      <map value="0x5" message="$(string.map_D3D9SwapEffectD3DSWAPEFFECT_FLIPEX)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="PresentStart" version="0" task="Present" opcode="win:Start" level="win:Always" keywords="Events" template="PresentStartArgs"/>
+     <event value="2" symbol="PresentStop" version="0" task="Present" opcode="win:Stop" level="win:Always" keywords="Events" template="PresentStopArgs"/>
+     <event value="3" symbol="ResetStart" version="0" task="Reset" opcode="win:Start" level="win:Always" keywords="Events" template="ResetStartArgs"/>
+     <event value="4" symbol="ResetStop" version="0" task="Reset" opcode="win:Stop" level="win:Always" keywords="Events" template="PresentStopArgs"/>
+     <event value="5" symbol="BindToDWM" version="0" task="BindToDWM" level="win:Always" keywords="Events" template="BindToDWMArgs"/>
+     <event value="6" symbol="DWMRedirection" version="0" task="DWMRedirection" level="win:Always" keywords="Events" template="DWMRedirectionArgs"/>
+     <event value="7" symbol="FlipExSurfaceTimeout" version="0" task="FlipExSurfaceTimeout" level="win:Always" keywords="Events" template="FlipExSurfaceTimeoutArgs"/>
+     <event value="8" symbol="FlipExSemaphoreTimeout" version="0" task="FlipExSemaphoreTimeout" level="win:Always" keywords="Events" template="FlipExSemaphoreTimeoutArgs"/>
+     <event value="9" symbol="GetPresentStats" version="0" task="GetPresentStats" level="win:Always" keywords="Events" template="GetPresentStatsArgs"/>
+    </events>
+    <templates>
+     <template tid="PresentStartArgs">
+      <data name="pSwapchain" inType="win:Pointer"/>
+      <data name="Flags" inType="win:UInt32" map="D3D9PresentFlags"/>
+     </template>
+     <template tid="PresentStopArgs">
+      <data name="Result" inType="win:UInt32"/>
+     </template>
+     <template tid="ResetStartArgs">
+      <data name="pSwapchain" inType="win:Pointer"/>
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+      <data name="BackbufferFormat" inType="win:UInt32"/>
+      <data name="BackbufferCount" inType="win:UInt32"/>
+      <data name="SwapEffect" inType="win:UInt32" map="D3D9SwapEffect"/>
+      <data name="Windowed" inType="win:Boolean"/>
+      <data name="PresentationInterval" inType="win:UInt32"/>
+      <data name="AdditionalSwapchain" inType="win:Boolean"/>
+     </template>
+     <template tid="BindToDWMArgs">
+      <data name="LogicalSurfaceHandle" inType="win:UInt64"/>
+      <data name="BackBufferCount" inType="win:UInt16"/>
+      <data name="SharedHandles" inType="win:UInt32" count="BackBufferCount"/>
+     </template>
+     <template tid="DWMRedirectionArgs">
+      <data name="IsOn" inType="win:Boolean"/>
+     </template>
+     <template tid="FlipExSurfaceTimeoutArgs">
+      <data name="LogicalSurfaceHandle" inType="win:UInt64"/>
+      <data name="BackBufferNumber" inType="win:UInt32"/>
+      <data name="BackBufferHandle" inType="win:UInt32"/>
+     </template>
+     <template tid="FlipExSemaphoreTimeoutArgs">
+      <data name="LogicalSurfaceHandle" inType="win:UInt64"/>
+      <data name="AdjustValue" inType="win:UInt32"/>
+      <data name="FenceValue" inType="win:UInt64"/>
+     </template>
+     <template tid="GetPresentStatsArgs">
+      <data name="ReturnValue" inType="win:UInt32"/>
+      <data name="PresentCount" inType="win:UInt32"/>
+      <data name="PresentRefreshCount" inType="win:UInt32"/>
+      <data name="SyncRefreshCount" inType="win:UInt32"/>
+      <data name="SyncQPCTime" inType="win:UInt64"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Events" value="Events"/>
+    <string id="task_Present" value="Present"/>
+    <string id="task_Reset" value="Reset"/>
+    <string id="task_BindToDWM" value="BindToDWM"/>
+    <string id="task_DWMRedirection" value="DWMRedirection"/>
+    <string id="task_FlipExSurfaceTimeout" value="FlipExSurfaceTimeout"/>
+    <string id="task_FlipExSemaphoreTimeout" value="FlipExSemaphoreTimeout"/>
+    <string id="task_GetPresentStats" value="GetPresentStats"/>
+    <string id="map_D3D9PresentFlagsD3DPRESENT_DONOTWAIT" value="D3DPRESENT_DONOTWAIT"/>
+    <string id="map_D3D9PresentFlagsD3DPRESENT_LINEAR_CONTENT" value="D3DPRESENT_LINEAR_CONTENT"/>
+    <string id="map_D3D9PresentFlagsD3DPRESENT_DONOTFLIP" value="D3DPRESENT_DONOTFLIP"/>
+    <string id="map_D3D9PresentFlagsD3DPRESENT_FLIPRESTART" value="D3DPRESENT_FLIPRESTART"/>
+    <string id="map_D3D9PresentFlagsD3DPRESENT_VIDEO_RESTRICT_TO_MONITOR" value="D3DPRESENT_VIDEO_RESTRICT_TO_MONITOR"/>
+    <string id="map_D3D9PresentFlagsD3DPRESENT_FORCEIMMEDIATE" value="D3DPRESENT_FORCEIMMEDIATE"/>
+    <string id="map_D3D9SwapEffectD3DSWAPEFFECT_DISCARD" value="D3DSWAPEFFECT_DISCARD"/>
+    <string id="map_D3D9SwapEffectD3DSWAPEFFECT_FLIP" value="D3DSWAPEFFECT_FLIP"/>
+    <string id="map_D3D9SwapEffectD3DSWAPEFFECT_COPY" value="D3DSWAPEFFECT_COPY"/>
+    <string id="map_D3D9SwapEffectD3DSWAPEFFECT_OVERLAY" value="D3DSWAPEFFECT_OVERLAY"/>
+    <string id="map_D3D9SwapEffectD3DSWAPEFFECT_FLIPEX" value="D3DSWAPEFFECT_FLIPEX"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,63 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Push-To-Install-Service" guid="{3a718a68-6974-4075-abd3-e8243caef398}" resourceFileName="Microsoft-Windows-Push-To-Install-Service" messageFileName="Microsoft-Windows-Push-To-Install-Service" symbol="MicrosoftWindowsPushToInstallService" source="Xml" >
+    <keywords>
+     <keyword name="PushToInstallService" message="$(string.keyword_PushToInstallService)" mask="0x1"/>
+     <keyword name="Messages" message="$(string.keyword_Messages)" mask="0x2"/>
+    </keywords>
+    <tasks>
+     <task name="PushToInstallService" message="$(string.task_PushToInstallService)" value="6001"/>
+     <task name="PushToInstallService_6002" message="$(string.task_PushToInstallService_6002)" value="6002"/>
+     <task name="PushToInstallService_6003" message="$(string.task_PushToInstallService_6003)" value="6003"/>
+     <task name="PushToInstallService_6004" message="$(string.task_PushToInstallService_6004)" value="6004"/>
+     <task name="PushToInstallService_6005" message="$(string.task_PushToInstallService_6005)" value="6005"/>
+     <task name="PTIModuleLoaded" message="$(string.task_PTIModuleLoaded)" value="6006"/>
+    </tasks>
+    <events>
+     <event value="6001" symbol="PushToInstallService" version="0" task="PushToInstallService" level="win:Error" keywords="PushToInstallService" template="PushToInstallServiceArgs"/>
+     <event value="6002" symbol="PushToInstallService_6002" version="0" task="PushToInstallService_6002" level="win:Warning" keywords="PushToInstallService" template="PushToInstallService_6002Args"/>
+     <event value="6003" symbol="PushToInstallService_6003" version="0" task="PushToInstallService_6003" level="win:Warning" keywords="PushToInstallService" template="PushToInstallServiceArgs"/>
+     <event value="6004" symbol="PushToInstallService_6004" version="0" task="PushToInstallService_6004" level="win:Informational" keywords="PushToInstallService" template="PushToInstallServiceArgs"/>
+     <event value="6005" symbol="PushToInstallService_6005" version="0" task="PushToInstallService_6005" level="win:Verbose" keywords="PushToInstallService" template="PushToInstallServiceArgs"/>
+     <event value="6006" symbol="PTIModuleLoaded" version="0" task="PTIModuleLoaded" level="win:Informational" keywords="Messages" template="PTIModuleLoadedArgs"/>
+    </events>
+    <templates>
+     <template tid="PushToInstallServiceArgs">
+      <data name="Message" inType="win:UnicodeString"/>
+      <data name="Function" inType="win:AnsiString"/>
+      <data name="ErrorCode" inType="win:Int32"/>
+      <data name="Source" inType="win:AnsiString"/>
+      <data name="LineNumber" inType="win:UInt32"/>
+     </template>
+     <template tid="PushToInstallService_6002Args">
+      <data name="Message" inType="win:UnicodeString"/>
+      <data name="LineNumber" inType="win:UInt32"/>
+      <data name="FileName" inType="win:UnicodeString"/>
+      <data name="Function" inType="win:UnicodeString"/>
+      <data name="ExceptionDetails" inType="win:UnicodeString"/>
+     </template>
+     <template tid="PTIModuleLoadedArgs">
+      <data name="ProcessName" inType="win:UnicodeString"/>
+      <data name="ModuleName" inType="win:UnicodeString"/>
+      <data name="BuildName" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_PushToInstallService" value="PushToInstallService"/>
+    <string id="keyword_Messages" value="Messages"/>
+    <string id="task_PushToInstallService" value="PushToInstallService"/>
+    <string id="task_PushToInstallService_6002" value="PushToInstallService_6002"/>
+    <string id="task_PushToInstallService_6003" value="PushToInstallService_6003"/>
+    <string id="task_PushToInstallService_6004" value="PushToInstallService_6004"/>
+    <string id="task_PushToInstallService_6005" value="PushToInstallService_6005"/>
+    <string id="task_PTIModuleLoaded" value="PTIModuleLoaded"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

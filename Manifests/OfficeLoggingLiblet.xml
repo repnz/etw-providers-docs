@@ -1,0 +1,188 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="OfficeLoggingLiblet" guid="{f50d9315-e17e-43c1-8370-3edf6cc057be}" resourceFileName="OfficeLoggingLiblet" messageFileName="OfficeLoggingLiblet" symbol="OfficeLoggingLiblet" source="Xml" >
+    <keywords>
+     <keyword name="LoggingScope" message="$(string.keyword_LoggingScope)" mask="0x100"/>
+     <keyword name="DiskIO" message="$(string.keyword_DiskIO)" mask="0x200"/>
+     <keyword name="NetworkUsage" message="$(string.keyword_NetworkUsage)" mask="0x400"/>
+     <keyword name="ResourceUsageDiagnostic" message="$(string.keyword_ResourceUsageDiagnostic)" mask="0x800"/>
+     <keyword name="MemoryUsage" message="$(string.keyword_MemoryUsage)" mask="0x1000"/>
+     <keyword name="LoggingLiblet" message="$(string.keyword_LoggingLiblet)" mask="0x2000"/>
+    </keywords>
+    <tasks>
+     <task name="etwtaskLogging" message="$(string.task_etwtaskLogging)" value="1"/>
+     <task name="MsoLoggingScopetask" message="$(string.task_MsoLoggingScopetask)" value="2">
+>
+      <opcodes>
+       <opcode name="MsoLoggingScopelongstopOpcode" message="$(string.opcode_MsoLoggingScopetaskMsoLoggingScopelongstopOpcode)" value="10"/>
+      </opcodes>
+     </task>
+     <task name="ResouceUsagetask" message="$(string.task_ResouceUsagetask)" value="3"/>
+    </tasks>
+    <events>
+     <event value="100" symbol="etwtaskLogging" version="0" task="etwtaskLogging" level="win:Error" keywords="LoggingLiblet" template="etwtaskLoggingArgs"/>
+     <event value="101" symbol="etwtaskLogging101" version="0" task="etwtaskLogging" level="win:Warning" keywords="LoggingLiblet" template="etwtaskLoggingArgs"/>
+     <event value="102" symbol="etwtaskLogging102" version="0" task="etwtaskLogging" level="win:Informational" keywords="LoggingLiblet" template="etwtaskLoggingArgs"/>
+     <event value="103" symbol="etwtaskLogging103" version="0" task="etwtaskLogging" level="win:Verbose" keywords="LoggingLiblet" template="etwtaskLoggingArgs"/>
+     <event value="104" symbol="etwtaskLogging104" version="0" task="etwtaskLogging" keywords="LoggingLiblet" template="etwtaskLoggingArgs"/>
+     <event value="105" symbol="MsoLoggingScopetaskStart" version="0" task="MsoLoggingScopetask" opcode="win:Start" level="win:Informational" keywords="LoggingScope" template="MsoLoggingScopetaskStartArgs"/>
+     <event value="106" symbol="MsoLoggingScopetaskStop" version="0" task="MsoLoggingScopetask" opcode="win:Stop" level="win:Informational" keywords="LoggingScope" template="MsoLoggingScopetaskStopArgs"/>
+     <event value="107" symbol="MsoLoggingScopetaskMsoLoggingScopelongstopOpcode" version="0" task="MsoLoggingScopetask" opcode="MsoLoggingScopelongstopOpcode" level="win:Informational" keywords="LoggingScope" template="MsoLoggingScopetaskMsoLoggingScopelongstopOpcodeArgs"/>
+     <event value="108" symbol="MsoLoggingScopetaskStart108" version="0" task="MsoLoggingScopetask" opcode="win:Start" level="win:Informational" keywords="LoggingScope" template="MsoLoggingScopetaskStart108Args"/>
+     <event value="109" symbol="MsoLoggingScopetaskStop109" version="0" task="MsoLoggingScopetask" opcode="win:Stop" level="win:Informational" keywords="LoggingScope" template="MsoLoggingScopetaskStop109Args"/>
+     <event value="110" symbol="MsoLoggingScopetaskMsoLoggingScopelongstopOpcode110" version="0" task="MsoLoggingScopetask" opcode="MsoLoggingScopelongstopOpcode" level="win:Informational" keywords="LoggingScope" template="MsoLoggingScopetaskMsoLoggingScopelongstopOpcode110Args"/>
+     <event value="200" symbol="ResouceUsagetask" version="0" task="ResouceUsagetask" level="win:Informational" keywords="DiskIO" template="ResouceUsagetaskArgs"/>
+     <event value="201" symbol="ResouceUsagetask201" version="0" task="ResouceUsagetask" level="win:Informational" keywords="NetworkUsage" template="ResouceUsagetask201Args"/>
+     <event value="202" symbol="ResouceUsagetask202" version="0" task="ResouceUsagetask" level="win:Informational" keywords="MemoryUsage" template="ResouceUsagetask202Args"/>
+     <event value="1000" symbol="ResouceUsagetask1000" version="0" task="ResouceUsagetask" keywords="ResourceUsageDiagnostic" template="ResouceUsagetask1000Args"/>
+     <event value="1001" symbol="ResouceUsagetask1001" version="0" task="ResouceUsagetask" keywords="ResourceUsageDiagnostic" template="ResouceUsagetask1001Args"/>
+     <event value="1002" symbol="ResouceUsagetask1002" version="0" task="ResouceUsagetask" keywords="ResourceUsageDiagnostic" template="ResouceUsagetask1002Args"/>
+     <event value="1003" symbol="ResouceUsagetask1003" version="0" task="ResouceUsagetask" keywords="ResourceUsageDiagnostic" template="ResouceUsagetask1003Args"/>
+     <event value="1004" symbol="ResouceUsagetask1004" version="0" task="ResouceUsagetask" keywords="ResourceUsageDiagnostic" template="ResouceUsagetask1004Args"/>
+     <event value="1005" symbol="ResouceUsagetask1005" version="0" task="ResouceUsagetask" keywords="ResourceUsageDiagnostic" template="ResouceUsagetask1005Args"/>
+     <event value="1006" symbol="ResouceUsagetask1006" version="0" task="ResouceUsagetask" keywords="ResourceUsageDiagnostic" template="ResouceUsagetask1006Args"/>
+     <event value="1007" symbol="ResouceUsagetask1007" version="0" task="ResouceUsagetask" keywords="ResourceUsageDiagnostic" template="ResouceUsagetask1007Args"/>
+     <event value="1008" symbol="ResouceUsagetask1008" version="0" task="ResouceUsagetask" keywords="ResourceUsageDiagnostic" template="ResouceUsagetask1001Args"/>
+     <event value="1009" symbol="ResouceUsagetask1009" version="0" task="ResouceUsagetask" keywords="ResourceUsageDiagnostic" template="ResouceUsagetask1009Args"/>
+     <event value="1010" symbol="ResouceUsagetask1010" version="0" task="ResouceUsagetask" keywords="ResourceUsageDiagnostic" template="ResouceUsagetask1001Args"/>
+    </events>
+    <templates>
+     <template tid="etwtaskLoggingArgs">
+      <data name="wzProduct" inType="win:UnicodeString"/>
+      <data name="wzCategory" inType="win:UnicodeString"/>
+      <data name="wzTag" inType="win:UnicodeString"/>
+      <data name="wzMessage" inType="win:UnicodeString"/>
+     </template>
+     <template tid="MsoLoggingScopetaskStartArgs">
+      <data name="dwTag" inType="win:UInt32"/>
+      <data name="dwInstanceId" inType="win:UInt32"/>
+      <data name="dwParentInstanceId" inType="win:UInt32"/>
+      <data name="lpScopeName" inType="win:UnicodeString"/>
+      <data name="lpParentScenarioName" inType="win:UnicodeString"/>
+      <data name="dwParentScenarioTag" inType="win:UInt32"/>
+     </template>
+     <template tid="MsoLoggingScopetaskStopArgs">
+      <data name="dwTag" inType="win:UInt32"/>
+      <data name="dwInstanceId" inType="win:UInt32"/>
+      <data name="dwParentInstanceId" inType="win:UInt32"/>
+     </template>
+     <template tid="MsoLoggingScopetaskMsoLoggingScopelongstopOpcodeArgs">
+      <data name="dwTag" inType="win:UInt32"/>
+      <data name="dwInstanceId" inType="win:UInt32"/>
+      <data name="dwParentInstanceId" inType="win:UInt32"/>
+      <data name="bWasSuccessful" inType="win:Boolean"/>
+      <data name="bWasErrorCodeSet" inType="win:Boolean"/>
+      <data name="ErrorCode" inType="win:Int32"/>
+     </template>
+     <template tid="MsoLoggingScopetaskStart108Args">
+      <data name="dwTag" inType="win:UInt32"/>
+      <data name="dwInstanceId" inType="win:UInt32"/>
+      <data name="lpScenarioName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="MsoLoggingScopetaskStop109Args">
+      <data name="dwTag" inType="win:UInt32"/>
+      <data name="dwInstanceId" inType="win:UInt32"/>
+     </template>
+     <template tid="MsoLoggingScopetaskMsoLoggingScopelongstopOpcode110Args">
+      <data name="dwTag" inType="win:UInt32"/>
+      <data name="dwInstanceId" inType="win:UInt32"/>
+      <data name="bWasSuccessful" inType="win:Boolean"/>
+      <data name="bWasErrorCodeSet" inType="win:Boolean"/>
+      <data name="ErrorCode" inType="win:Int32"/>
+     </template>
+     <template tid="ResouceUsagetaskArgs">
+      <data name="dwTag" inType="win:UInt32"/>
+      <data name="dwInstanceId" inType="win:UInt32"/>
+      <data name="FilesCreated" inType="win:Int64"/>
+      <data name="NumberOfFileReads" inType="win:Int64"/>
+      <data name="TotalBytesRead" inType="win:Int64"/>
+      <data name="NumberOfFileWrites" inType="win:Int64"/>
+      <data name="TotalBytesWritten" inType="win:Int64"/>
+      <data name="NumberOfSetEndOfFiles" inType="win:Int64"/>
+      <data name="NumberOfSeeks" inType="win:Int64"/>
+      <data name="NumberOfLocks" inType="win:Int64"/>
+      <data name="NumberOfUnlocks" inType="win:Int64"/>
+     </template>
+     <template tid="ResouceUsagetask201Args">
+      <data name="dwTag" inType="win:UInt32"/>
+      <data name="dwInstanceId" inType="win:UInt32"/>
+      <data name="Requests" inType="win:Int64"/>
+      <data name="BytesSent" inType="win:Int64"/>
+      <data name="ElapsedMilliseconds" inType="win:Int64"/>
+      <data name="BytesReceived" inType="win:Int64"/>
+     </template>
+     <template tid="ResouceUsagetask202Args">
+      <data name="dwTag" inType="win:UInt32"/>
+      <data name="dwInstanceId" inType="win:UInt32"/>
+      <data name="BytesUsedDelta" inType="win:Int64"/>
+      <data name="BytesUsedAtComplete" inType="win:UInt64"/>
+     </template>
+     <template tid="ResouceUsagetask1000Args">
+      <data name="Tag" inType="win:UInt32"/>
+      <data name="InstanceId" inType="win:UInt32"/>
+      <data name="ResourceScopePtr" inType="win:Pointer"/>
+      <data name="FileUsagePtr" inType="win:Pointer"/>
+     </template>
+     <template tid="ResouceUsagetask1001Args">
+      <data name="Tag" inType="win:UInt32"/>
+      <data name="InstanceId" inType="win:UInt32"/>
+      <data name="ScopePtr" inType="win:Pointer"/>
+     </template>
+     <template tid="ResouceUsagetask1002Args">
+      <data name="Tag" inType="win:UInt32"/>
+      <data name="InstanceId" inType="win:UInt32"/>
+      <data name="ResourceScopePtr" inType="win:Pointer"/>
+      <data name="NetworkUsagePtr" inType="win:Pointer"/>
+     </template>
+     <template tid="ResouceUsagetask1003Args">
+      <data name="ChildScopePtr" inType="win:Pointer"/>
+      <data name="ParentScopePtr" inType="win:Pointer"/>
+      <data name="TypeOfData" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ResouceUsagetask1004Args">
+      <data name="Result" inType="win:Boolean"/>
+      <data name="StartCounter" inType="win:Int64"/>
+     </template>
+     <template tid="ResouceUsagetask1005Args">
+      <data name="Result" inType="win:Boolean"/>
+      <data name="StartCounter" inType="win:Int64"/>
+      <data name="StopCounter" inType="win:Int64"/>
+      <data name="ElapsedCounters" inType="win:Int64"/>
+      <data name="ElapsedMilliseconds" inType="win:Int64"/>
+     </template>
+     <template tid="ResouceUsagetask1006Args">
+      <data name="Result" inType="win:Boolean"/>
+      <data name="Frequency" inType="win:Int64"/>
+     </template>
+     <template tid="ResouceUsagetask1007Args">
+      <data name="FunctionName" inType="win:UnicodeString"/>
+      <data name="CurrentResourcePrt" inType="win:Pointer"/>
+     </template>
+     <template tid="ResouceUsagetask1009Args">
+      <data name="Tag" inType="win:UInt32"/>
+      <data name="InstanceId" inType="win:UInt32"/>
+      <data name="ResourceScopePtr" inType="win:Pointer"/>
+      <data name="MemoryUsagePtr" inType="win:Pointer"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_LoggingScope" value="LoggingScope"/>
+    <string id="keyword_DiskIO" value="DiskIO"/>
+    <string id="keyword_NetworkUsage" value="NetworkUsage"/>
+    <string id="keyword_ResourceUsageDiagnostic" value="ResourceUsageDiagnostic"/>
+    <string id="keyword_MemoryUsage" value="MemoryUsage"/>
+    <string id="keyword_LoggingLiblet" value="LoggingLiblet"/>
+    <string id="task_etwtaskLogging" value="etwtaskLogging"/>
+    <string id="task_MsoLoggingScopetask" value="MsoLoggingScopetask"/>
+    <string id="opcode_MsoLoggingScopetaskMsoLoggingScopelongstopOpcode" value="MsoLoggingScopelongstopOpcode"/>
+    <string id="task_ResouceUsagetask" value="ResouceUsagetask"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

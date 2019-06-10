@@ -1,0 +1,177 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Kernel-General" guid="{a68ca8b7-004f-d7b6-a698-07e2de0f1f5d}" resourceFileName="Microsoft-Windows-Kernel-General" messageFileName="Microsoft-Windows-Kernel-General" symbol="MicrosoftWindowsKernelGeneral" source="Xml" >
+    <keywords>
+     <keyword name="KERNEL_GENERAL_KEYWORD_TIME" message="$(string.keyword_KERNEL_GENERAL_KEYWORD_TIME)" mask="0x10"/>
+     <keyword name="KERNEL_GENERAL_SECURITY_ACCESSCHECK" message="$(string.keyword_KERNEL_GENERAL_SECURITY_ACCESSCHECK)" mask="0x20"/>
+     <keyword name="KERNEL_GENERAL_TOKEN_SID_MANAGEMENT" message="$(string.keyword_KERNEL_GENERAL_TOKEN_SID_MANAGEMENT)" mask="0x40"/>
+     <keyword name="BootPerformance" message="$(string.keyword_BootPerformance)" mask="0x80"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="SystemStart" message="$(string.task_SystemStart)" value="1"/>
+     <task name="SystemStop" message="$(string.task_SystemStop)" value="2"/>
+     <task name="SoftBootInfo" message="$(string.task_SoftBootInfo)" value="3"/>
+     <task name="BootPerformanceData" message="$(string.task_BootPerformanceData)" value="4"/>
+     <task name="SystemTimeChange" message="$(string.task_SystemTimeChange)" value="5"/>
+    </tasks>
+    <maps>
+     <valueMap name="Ex:SystemTimeChange.ReasonMap">
+      <map value="0x0" message="$(string.map_Ex:SystemTimeChange.ReasonMapSystem time initialized during boot)"/>
+      <map value="0x1" message="$(string.map_Ex:SystemTimeChange.ReasonMapAn application or system component changed the time)"/>
+      <map value="0x2" message="$(string.map_Ex:SystemTimeChange.ReasonMapSystem time synchronized with the hardware clock)"/>
+      <map value="0x3" message="$(string.map_Ex:SystemTimeChange.ReasonMapSystem time adjusted to the new time zone)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="task_0" version="0" task="task_0" level="win:Informational" keywords="KERNEL_GENERAL_KEYWORD_TIME" template="task_0Args"/>
+     <event value="1" symbol="SystemTimeChange_V1" version="1" task="SystemTimeChange" level="win:Informational" keywords="KERNEL_GENERAL_KEYWORD_TIME" template="SystemTimeChangeArgs_V1"/>
+     <event value="2" symbol="task_02" version="0" task="task_0" level="win:Informational"/>
+     <event value="3" symbol="task_03" version="0" task="task_0" level="win:Informational"/>
+     <event value="4" symbol="task_04" version="0" task="task_0" level="win:Informational"/>
+     <event value="5" symbol="task_05" version="0" task="task_0" level="win:Error" template="task_05Args"/>
+     <event value="6" symbol="task_06" version="0" task="task_0" level="win:Error" template="task_05Args"/>
+     <event value="11" symbol="task_011" version="0" task="task_0" level="win:Informational" template="task_011Args"/>
+     <event value="12" symbol="SystemStart" version="0" task="SystemStart" level="win:Informational" keywords="BootPerformance" template="SystemStartArgs"/>
+     <event value="13" symbol="SystemStop" version="0" task="SystemStop" level="win:Informational" keywords="BootPerformance" template="SystemStopArgs"/>
+     <event value="14" symbol="task_014" version="0" task="task_0" level="win:Error" keywords="KERNEL_GENERAL_SECURITY_ACCESSCHECK" template="task_014Args"/>
+     <event value="15" symbol="task_015" version="0" task="task_0" level="win:Informational" template="task_015Args"/>
+     <event value="16" symbol="task_016" version="0" task="task_0" level="win:Informational" template="task_016Args"/>
+     <event value="17" symbol="task_017" version="0" task="task_0" level="win:Informational" keywords="KERNEL_GENERAL_TOKEN_SID_MANAGEMENT" template="task_017Args"/>
+     <event value="18" symbol="SoftBootInfo" version="0" task="SoftBootInfo" level="win:Informational" keywords="BootPerformance" template="SoftBootInfoArgs"/>
+     <event value="19" symbol="BootPerformanceData" version="0" task="BootPerformanceData" level="win:Informational" keywords="BootPerformance" template="BootPerformanceDataArgs"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="NewTime" inType="win:FILETIME"/>
+      <data name="OldTime" inType="win:FILETIME"/>
+     </template>
+     <template tid="task_05Args">
+      <data name="FinalStatus" inType="win:HexInt32"/>
+      <data name="ExtraStringLength" inType="win:UInt16"/>
+      <data name="ExtraString" inType="win:UnicodeString" length="ExtraStringLength"/>
+     </template>
+     <template tid="task_011Args">
+      <data name="ExtraStringLength" inType="win:UInt16"/>
+      <data name="ExtraString" inType="win:UnicodeString" length="ExtraStringLength"/>
+      <data name="TmId" inType="win:GUID"/>
+      <data name="RmId" inType="win:GUID"/>
+      <data name="Status" inType="win:HexInt32"/>
+      <data name="InternalCode" inType="win:UInt32"/>
+     </template>
+     <template tid="SystemStartArgs">
+      <data name="MajorVersion" inType="win:UInt32"/>
+      <data name="MinorVersion" inType="win:UInt32"/>
+      <data name="BuildVersion" inType="win:UInt32"/>
+      <data name="QfeVersion" inType="win:UInt32"/>
+      <data name="ServiceVersion" inType="win:UInt16"/>
+      <data name="BootMode" inType="win:UInt32"/>
+      <data name="StartTime" inType="win:FILETIME"/>
+     </template>
+     <template tid="SystemStopArgs">
+      <data name="StopTime" inType="win:FILETIME"/>
+     </template>
+     <template tid="task_014Args">
+      <data name="Mode" inType="win:UnicodeString"/>
+      <data name="ObjectType" inType="win:UnicodeString"/>
+      <data name="ObjectName" inType="win:UnicodeString"/>
+      <data name="ProcessName" inType="win:UnicodeString"/>
+      <data name="ObjectCreatorProcessName" inType="win:UnicodeString"/>
+      <data name="AccessMask" inType="win:HexInt32"/>
+      <data name="TokenType" inType="win:UInt32"/>
+      <data name="ImpersonationLevel" inType="win:UInt32"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="LowBoxNumber" inType="win:UInt32"/>
+      <data name="TokenGroupsCount" inType="win:UInt32"/>
+      <data name="TokenGroups" inType="win:28" count="TokenGroupsCount"/>
+      <data name="TokenPackageCount" inType="win:UInt32"/>
+      <data name="TokenPackage" inType="win:30" count="TokenPackageCount"/>
+      <data name="TokenCapabilityCount" inType="win:UInt32"/>
+      <data name="TokenCapabilities" inType="win:31" count="TokenCapabilityCount"/>
+      <data name="TokenTrustLevelCount" inType="win:UInt32"/>
+      <data name="TokenTrustLevel" inType="win:33" count="TokenTrustLevelCount"/>
+      <data name="SecurityDescriptorRevision" inType="win:UInt8"/>
+      <data name="SecurityDescriptorControl" inType="win:UInt16"/>
+      <data name="SecurityDescriptorOwner" inType="win:SID"/>
+      <data name="SecurityDescriptorGroup" inType="win:SID"/>
+      <data name="DaclRevision" inType="win:UInt8"/>
+      <data name="DaclAceCount" inType="win:UInt16"/>
+      <data name="DaclAce" inType="win:34" count="DaclAceCount"/>
+      <data name="SaclRevision" inType="win:UInt8"/>
+      <data name="SaclAceCount" inType="win:UInt16"/>
+      <data name="SaclAce" inType="win:38" count="SaclAceCount"/>
+     </template>
+     <template tid="task_015Args">
+      <data name="HiveNameLength" inType="win:UInt16"/>
+      <data name="HiveName" inType="win:UnicodeString" length="HiveNameLength"/>
+      <data name="OriginalSize" inType="win:UInt32"/>
+      <data name="NewSize" inType="win:UInt32"/>
+     </template>
+     <template tid="task_016Args">
+      <data name="HiveNameLength" inType="win:UInt16"/>
+      <data name="HiveName" inType="win:UnicodeString" length="HiveNameLength"/>
+      <data name="KeysUpdated" inType="win:UInt32"/>
+      <data name="DirtyPages" inType="win:UInt32"/>
+     </template>
+     <template tid="task_017Args">
+      <data name="ActionName" inType="win:UnicodeString"/>
+      <data name="ProcessName" inType="win:UnicodeString"/>
+      <data name="AccountName" inType="win:UnicodeString"/>
+      <data name="AuthorityName" inType="win:UnicodeString"/>
+      <data name="TokenId" inType="win:HexInt64"/>
+      <data name="AuthenticationId" inType="win:HexInt64"/>
+      <data name="TokenType" inType="win:UInt32"/>
+      <data name="ImpersonationLevel" inType="win:UInt32"/>
+      <data name="TokenFlags" inType="win:HexInt32"/>
+      <data name="SidValuesReferenceCount" inType="win:Int64"/>
+      <data name="SidValuesCount" inType="win:UInt32"/>
+      <data name="SidValues" inType="win:GUID" count="SidValuesCount"/>
+      <data name="SharedSidValuesReferenceCount" inType="win:Int64"/>
+      <data name="SharedSidValuesCount" inType="win:UInt32"/>
+      <data name="SharedSidValues" inType="win:Pointer" count="SharedSidValuesCount"/>
+     </template>
+     <template tid="SoftBootInfoArgs">
+      <data name="TransitionStartTime" inType="win:FILETIME"/>
+      <data name="CurrentTime" inType="win:FILETIME"/>
+      <data name="SoftRestartCount" inType="win:UInt32"/>
+     </template>
+     <template tid="BootPerformanceDataArgs">
+      <data name="MmPhase0Start" inType="win:UInt64"/>
+      <data name="MmPhase0Stop" inType="win:UInt64"/>
+      <data name="Phase1Start" inType="win:UInt64"/>
+      <data name="KsrExtensionStart" inType="win:UInt64"/>
+      <data name="KsrExtensionStop" inType="win:UInt64"/>
+      <data name="StartProcessorsStart" inType="win:UInt64"/>
+      <data name="StartProcessorsStop" inType="win:UInt64"/>
+     </template>
+     <template tid="SystemTimeChangeArgs_V1">
+      <data name="NewTime" inType="win:FILETIME"/>
+      <data name="OldTime" inType="win:FILETIME"/>
+      <data name="Reason" inType="win:UInt32" map="Ex:SystemTimeChange.ReasonMap"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_KERNEL_GENERAL_KEYWORD_TIME" value="KERNEL_GENERAL_KEYWORD_TIME"/>
+    <string id="keyword_KERNEL_GENERAL_SECURITY_ACCESSCHECK" value="KERNEL_GENERAL_SECURITY_ACCESSCHECK"/>
+    <string id="keyword_KERNEL_GENERAL_TOKEN_SID_MANAGEMENT" value="KERNEL_GENERAL_TOKEN_SID_MANAGEMENT"/>
+    <string id="keyword_BootPerformance" value="BootPerformance"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_SystemStart" value="SystemStart"/>
+    <string id="task_SystemStop" value="SystemStop"/>
+    <string id="task_SoftBootInfo" value="SoftBootInfo"/>
+    <string id="task_BootPerformanceData" value="BootPerformanceData"/>
+    <string id="task_SystemTimeChange" value="SystemTimeChange"/>
+    <string id="map_Ex:SystemTimeChange.ReasonMapSystem time initialized during boot" value="System time initialized during boot"/>
+    <string id="map_Ex:SystemTimeChange.ReasonMapAn application or system component changed the time" value="An application or system component changed the time"/>
+    <string id="map_Ex:SystemTimeChange.ReasonMapSystem time synchronized with the hardware clock" value="System time synchronized with the hardware clock"/>
+    <string id="map_Ex:SystemTimeChange.ReasonMapSystem time adjusted to the new time zone" value="System time adjusted to the new time zone"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

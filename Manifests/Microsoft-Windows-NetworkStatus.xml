@@ -1,0 +1,56 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-NetworkStatus" guid="{7868b0d4-1423-4681-afdf-27913575441e}" resourceFileName="Microsoft-Windows-NetworkStatus" messageFileName="Microsoft-Windows-NetworkStatus" symbol="MicrosoftWindowsNetworkStatus" source="Xml" >
+    <keywords>
+     <keyword name="Aoac" message="$(string.keyword_Aoac)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="Status" message="$(string.task_Status)" value="101"/>
+    </tasks>
+    <maps>
+     <valueMap name="StatusMap">
+      <map value="0x0" message="$(string.map_StatusMapNetwork status is not available)"/>
+      <map value="0x1" message="$(string.map_StatusMapWired Internet)"/>
+      <map value="0x2" message="$(string.map_StatusMapWired no Internet)"/>
+      <map value="0x3" message="$(string.map_StatusMapWired disconnected)"/>
+      <map value="0x10" message="$(string.map_StatusMapWi-Fi Internet)"/>
+      <map value="0x11" message="$(string.map_StatusMapMobile broadband Internet)"/>
+      <map value="0x12" message="$(string.map_StatusMapMobile broadband roaming Internet)"/>
+      <map value="0x20" message="$(string.map_StatusMapWireless no Internet)"/>
+      <map value="0x21" message="$(string.map_StatusMapWireless connection available)"/>
+      <map value="0x22" message="$(string.map_StatusMapWireless disconnected)"/>
+      <map value="0x30" message="$(string.map_StatusMapAirplane mode)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="8001" symbol="Status" version="0" task="Status" level="win:Informational" keywords="Aoac" template="StatusArgs"/>
+    </events>
+    <templates>
+     <template tid="StatusArgs">
+      <data name="NetworkStatus" inType="win:UInt32" map="StatusMap"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Aoac" value="Aoac"/>
+    <string id="task_Status" value="Status"/>
+    <string id="map_StatusMapNetwork status is not available" value="Network status is not available"/>
+    <string id="map_StatusMapWired Internet" value="Wired Internet"/>
+    <string id="map_StatusMapWired no Internet" value="Wired no Internet"/>
+    <string id="map_StatusMapWired disconnected" value="Wired disconnected"/>
+    <string id="map_StatusMapWi-Fi Internet" value="Wi-Fi Internet"/>
+    <string id="map_StatusMapMobile broadband Internet" value="Mobile broadband Internet"/>
+    <string id="map_StatusMapMobile broadband roaming Internet" value="Mobile broadband roaming Internet"/>
+    <string id="map_StatusMapWireless no Internet" value="Wireless no Internet"/>
+    <string id="map_StatusMapWireless connection available" value="Wireless connection available"/>
+    <string id="map_StatusMapWireless disconnected" value="Wireless disconnected"/>
+    <string id="map_StatusMapAirplane mode" value="Airplane mode"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

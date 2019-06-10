@@ -1,0 +1,109 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Power-Troubleshooter" guid="{cdc05e28-c449-49c6-b9d2-88cf761644df}" resourceFileName="Microsoft-Windows-Power-Troubleshooter" messageFileName="Microsoft-Windows-Power-Troubleshooter" symbol="MicrosoftWindowsPowerTroubleshooter" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <maps>
+     <valueMap name="pots:mapWakeSource">
+      <map value="0x0" message="$(string.map_pots:mapWakeSourceUnknown)"/>
+      <map value="0x1" message="$(string.map_pots:mapWakeSourcePower Button)"/>
+      <map value="0x2" message="$(string.map_pots:mapWakeSourceSleep Button)"/>
+      <map value="0x3" message="$(string.map_pots:mapWakeSourceS4 Doze to Hibernate)"/>
+      <map value="0x4" message="$(string.map_pots:mapWakeSourcePredicted Presence User Return)"/>
+      <map value="0x5" message="$(string.map_pots:mapWakeSourceDevice -)"/>
+      <map value="0x6" message="$(string.map_pots:mapWakeSourceTimer -)"/>
+      <map value="0x7" message="$(string.map_pots:mapWakeSourceTimer Set by Legacy Driver)"/>
+      <map value="0x8" message="$(string.map_pots:mapWakeSourceUnknown, but possibily due to timer -)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="task_0" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+     <event value="1" symbol="task_0_V1" version="1" task="task_0" level="win:Informational" template="task_0Args_V1"/>
+     <event value="1" symbol="task_0_V2" version="2" task="task_0" level="win:Informational" template="task_0Args_V2"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="SleepTime" inType="win:FILETIME"/>
+      <data name="WakeTime" inType="win:FILETIME"/>
+      <data name="SleepDuration" inType="win:UInt32"/>
+      <data name="WakeDuration" inType="win:UInt32"/>
+      <data name="DriverInitDuration" inType="win:UInt32"/>
+      <data name="BiosInitDuration" inType="win:UInt32"/>
+      <data name="HiberWriteDuration" inType="win:UInt32"/>
+      <data name="HiberReadDuration" inType="win:UInt32"/>
+      <data name="HiberPagesWritten" inType="win:UInt32"/>
+      <data name="Attributes" inType="win:UInt32"/>
+      <data name="TargetState" inType="win:UInt32"/>
+      <data name="EffectiveState" inType="win:UInt32"/>
+      <data name="WakeSourceType" inType="win:UInt32" map="pots:mapWakeSource"/>
+      <data name="WakeSourceTextLength" inType="win:UInt16"/>
+      <data name="WakeSourceText" inType="win:UnicodeString" length="WakeSourceTextLength"/>
+     </template>
+     <template tid="task_0Args_V1">
+      <data name="SleepTime" inType="win:FILETIME"/>
+      <data name="WakeTime" inType="win:FILETIME"/>
+      <data name="SleepDuration" inType="win:UInt32"/>
+      <data name="WakeDuration" inType="win:UInt32"/>
+      <data name="DriverInitDuration" inType="win:UInt32"/>
+      <data name="BiosInitDuration" inType="win:UInt32"/>
+      <data name="HiberWriteDuration" inType="win:UInt32"/>
+      <data name="HiberReadDuration" inType="win:UInt32"/>
+      <data name="HiberPagesWritten" inType="win:UInt32"/>
+      <data name="Attributes" inType="win:UInt32"/>
+      <data name="TargetState" inType="win:UInt32"/>
+      <data name="EffectiveState" inType="win:UInt32"/>
+      <data name="WakeSourceType" inType="win:UInt32"/>
+      <data name="WakeSourceTextLength" inType="win:UInt16"/>
+      <data name="WakeSourceText" inType="win:UnicodeString" length="WakeSourceTextLength"/>
+      <data name="WakeTimerOwnerLength" inType="win:UInt16"/>
+      <data name="WakeTimerContextLength" inType="win:UInt16"/>
+      <data name="WakeTimerOwner" inType="win:UnicodeString" length="WakeTimerOwnerLength"/>
+      <data name="WakeTimerContext" inType="win:UnicodeString" length="WakeTimerContextLength"/>
+     </template>
+     <template tid="task_0Args_V2">
+      <data name="SleepTime" inType="win:FILETIME"/>
+      <data name="WakeTime" inType="win:FILETIME"/>
+      <data name="SleepDuration" inType="win:UInt32"/>
+      <data name="WakeDuration" inType="win:UInt32"/>
+      <data name="DriverInitDuration" inType="win:UInt32"/>
+      <data name="BiosInitDuration" inType="win:UInt32"/>
+      <data name="HiberWriteDuration" inType="win:UInt32"/>
+      <data name="HiberReadDuration" inType="win:UInt32"/>
+      <data name="HiberPagesWritten" inType="win:UInt32"/>
+      <data name="Attributes" inType="win:UInt32"/>
+      <data name="TargetState" inType="win:UInt32"/>
+      <data name="EffectiveState" inType="win:UInt32"/>
+      <data name="WakeSourceType" inType="win:UInt32"/>
+      <data name="WakeSourceTextLength" inType="win:UInt16"/>
+      <data name="WakeSourceText" inType="win:UnicodeString" length="WakeSourceTextLength"/>
+      <data name="WakeTimerOwnerLength" inType="win:UInt16"/>
+      <data name="WakeTimerContextLength" inType="win:UInt16"/>
+      <data name="NoMultiStageResumeReason" inType="win:UInt32"/>
+      <data name="WakeTimerOwner" inType="win:UnicodeString" length="WakeTimerOwnerLength"/>
+      <data name="WakeTimerContext" inType="win:UnicodeString" length="WakeTimerContextLength"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_task_0" value="task_0"/>
+    <string id="map_pots:mapWakeSourceUnknown" value="Unknown"/>
+    <string id="map_pots:mapWakeSourcePower Button" value="Power Button"/>
+    <string id="map_pots:mapWakeSourceSleep Button" value="Sleep Button"/>
+    <string id="map_pots:mapWakeSourceS4 Doze to Hibernate" value="S4 Doze to Hibernate"/>
+    <string id="map_pots:mapWakeSourcePredicted Presence User Return" value="Predicted Presence User Return"/>
+    <string id="map_pots:mapWakeSourceDevice -" value="Device -"/>
+    <string id="map_pots:mapWakeSourceTimer -" value="Timer -"/>
+    <string id="map_pots:mapWakeSourceTimer Set by Legacy Driver" value="Timer Set by Legacy Driver"/>
+    <string id="map_pots:mapWakeSourceUnknown, but possibily due to timer -" value="Unknown, but possibily due to timer -"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>
