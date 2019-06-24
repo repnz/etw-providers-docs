@@ -9,5 +9,5 @@ most of them are not documented very well.
 
 Using tdh.h API provider information can be dumped. For manifest based providers, a manifest can be recreated using the same method perfview uses:
 (https://github.com/Kae7in/perfview/blob/444fd391db9b8275846e2a5bbb8ec1d6e73a5dad/src/PerfView/Extensibility.cs#L2523) 
-For non-manifest based providers, currently only keywords are dumped. But theoretically you can register to the provider and just cache
+(this is not the original manifest, because manifests are compiled) For non-manifest based providers, currently only keywords are dumped. But theoretically you can register to the provider and just cache
 all the results from all the events (in this case the event must be raised for it to be documented)
