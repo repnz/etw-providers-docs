@@ -1,0 +1,89 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-AIT" guid="{6addabf4-8c54-4eab-bf4f-fbef61b62eb0}" resourceFileName="Microsoft-Windows-AIT" messageFileName="Microsoft-Windows-AIT" symbol="MicrosoftWindowsAIT" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="AitFeature" message="$(string.task_AitFeature)" value="1"/>
+     <task name="AitParentAitFeature" message="$(string.task_AitParentAitFeature)" value="2"/>
+     <task name="AitAppInfo" message="$(string.task_AitAppInfo)" value="3"/>
+     <task name="AitSystemUsageByParent" message="$(string.task_AitSystemUsageByParent)" value="4"/>
+     <task name="AitModuleInfo" message="$(string.task_AitModuleInfo)" value="5"/>
+     <task name="AitSystemUsageByStack" message="$(string.task_AitSystemUsageByStack)" value="6"/>
+     <task name="AitProcessEnd" message="$(string.task_AitProcessEnd)" value="7"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="AitFeature" version="0" task="AitFeature" level="win:Informational" template="AitFeatureArgs"/>
+     <event value="2" symbol="AitParentAitFeature" version="0" task="AitParentAitFeature" level="win:Informational" template="AitParentAitFeatureArgs"/>
+     <event value="3" symbol="AitAppInfo" version="0" task="AitAppInfo" level="win:Informational" template="AitAppInfoArgs"/>
+     <event value="4" symbol="AitSystemUsageByParent" version="0" task="AitSystemUsageByParent" level="win:Informational" template="AitSystemUsageByParentArgs"/>
+     <event value="5" symbol="AitModuleInfo" version="0" task="AitModuleInfo" level="win:Informational" template="AitModuleInfoArgs"/>
+     <event value="6" symbol="AitSystemUsageByStack" version="0" task="AitSystemUsageByStack" level="win:Informational" template="AitSystemUsageByStackArgs"/>
+     <event value="7" symbol="AitProcessEnd" version="0" task="AitProcessEnd" level="win:Informational"/>
+    </events>
+    <templates>
+     <template tid="AitFeatureArgs">
+      <data name="FeatureGuid" inType="win:GUID"/>
+      <data name="ApplicationImageHeaderHash" inType="win:Binary"/>
+     </template>
+     <template tid="AitParentAitFeatureArgs">
+      <data name="cchParentImagePathIncludingNull" inType="win:UInt16"/>
+      <data name="FeatureGuid" inType="win:GUID"/>
+      <data name="ParentProcessImageHeaderHash" inType="win:Binary"/>
+      <data name="ParentImagePath" inType="win:UnicodeString" length="cchParentImagePathIncludingNull"/>
+     </template>
+     <template tid="AitAppInfoArgs">
+      <data name="cchAppPathIncludingNull" inType="win:UInt16"/>
+      <data name="ApplicationImageHeaderHash" inType="win:Binary"/>
+      <data name="AppPath" inType="win:UnicodeString" length="cchAppPathIncludingNull"/>
+     </template>
+     <template tid="AitSystemUsageByParentArgs">
+      <data name="Flags" inType="win:Binary"/>
+      <data name="cchIdStringIncludingNull" inType="win:UInt16"/>
+      <data name="cchParentImagePathIncludingNull" inType="win:UInt16"/>
+      <data name="Category" inType="win:UInt32"/>
+      <data name="ManifestVersion" inType="win:UInt32"/>
+      <data name="ParentImageHeaderHash" inType="win:Binary"/>
+      <data name="ApplicationImageHeaderHash" inType="win:Binary"/>
+      <data name="IdString" inType="win:AnsiString" length="cchIdStringIncludingNull"/>
+      <data name="ParentImagePath" inType="win:UnicodeString" length="cchParentImagePathIncludingNull"/>
+     </template>
+     <template tid="AitModuleInfoArgs">
+      <data name="ImageIsBeingMapped" inType="win:Binary"/>
+      <data name="SequenceNumber" inType="win:UInt16"/>
+      <data name="cchImagePathIncludingNull" inType="win:UInt16"/>
+      <data name="ImageSize" inType="win:UInt32"/>
+      <data name="ImageBase" inType="win:UInt64"/>
+      <data name="ImageHeaderHash" inType="win:Binary"/>
+      <data name="ImagePath" inType="win:UnicodeString" length="cchImagePathIncludingNull"/>
+     </template>
+     <template tid="AitSystemUsageByStackArgs">
+      <data name="Flags" inType="win:Binary"/>
+      <data name="NextSequenceNumber" inType="win:UInt16"/>
+      <data name="cchIdStringIncludingNull" inType="win:UInt16"/>
+      <data name="cbStackFrames" inType="win:UInt16"/>
+      <data name="Category" inType="win:UInt32"/>
+      <data name="ManifestVersion" inType="win:UInt32"/>
+      <data name="ApplicationImageHeaderHash" inType="win:Binary"/>
+      <data name="IdString" inType="win:AnsiString" length="cchIdStringIncludingNull"/>
+      <data name="StackFrames" inType="win:Binary" length="cbStackFrames"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_AitFeature" value="AitFeature"/>
+    <string id="task_AitParentAitFeature" value="AitParentAitFeature"/>
+    <string id="task_AitAppInfo" value="AitAppInfo"/>
+    <string id="task_AitSystemUsageByParent" value="AitSystemUsageByParent"/>
+    <string id="task_AitModuleInfo" value="AitModuleInfo"/>
+    <string id="task_AitSystemUsageByStack" value="AitSystemUsageByStack"/>
+    <string id="task_AitProcessEnd" value="AitProcessEnd"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

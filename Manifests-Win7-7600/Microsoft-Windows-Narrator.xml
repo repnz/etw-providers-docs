@@ -1,0 +1,49 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Narrator" guid="{835b79e2-e76a-44c4-9885-26ad122d3b4d}" resourceFileName="Microsoft-Windows-Narrator" messageFileName="Microsoft-Windows-Narrator" symbol="MicrosoftWindowsNarrator" source="Xml" >
+    <keywords>
+     <keyword name="PerfInstrumentation" message="$(string.keyword_PerfInstrumentation)" mask="0x10000"/>
+     <keyword name="PerfDiagnostics" message="$(string.keyword_PerfDiagnostics)" mask="0x20000"/>
+    </keywords>
+    <tasks>
+     <task name="LaunchApp" message="$(string.task_LaunchApp)" value="1"/>
+     <task name="ScrapeWindow" message="$(string.task_ScrapeWindow)" value="3"/>
+     <task name="InitiateSpeaking" message="$(string.task_InitiateSpeaking)" value="5"/>
+     <task name="CancelSpeaking" message="$(string.task_CancelSpeaking)" value="7"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="LaunchAppStart" version="0" task="LaunchApp" opcode="win:Start" level="win:Informational" keywords="PerfInstrumentation"/>
+     <event value="2" symbol="LaunchAppStop" version="0" task="LaunchApp" opcode="win:Stop" level="win:Informational" keywords="PerfInstrumentation"/>
+     <event value="3" symbol="ScrapeWindowStart" version="0" task="ScrapeWindow" opcode="win:Start" level="win:Informational" keywords="PerfInstrumentation"/>
+     <event value="4" symbol="ScrapeWindowStop" version="0" task="ScrapeWindow" opcode="win:Stop" level="win:Informational" keywords="PerfInstrumentation"/>
+     <event value="5" symbol="InitiateSpeakingStart" version="0" task="InitiateSpeaking" opcode="win:Start" level="win:Informational" keywords="PerfInstrumentation" template="InitiateSpeakingStartArgs"/>
+     <event value="6" symbol="InitiateSpeakingStop" version="0" task="InitiateSpeaking" opcode="win:Stop" level="win:Informational" keywords="PerfInstrumentation" template="InitiateSpeakingStartArgs"/>
+     <event value="7" symbol="CancelSpeakingStart" version="0" task="CancelSpeaking" opcode="win:Start" level="win:Informational" keywords="PerfInstrumentation" template="CancelSpeakingStartArgs"/>
+     <event value="8" symbol="CancelSpeakingStop" version="0" task="CancelSpeaking" opcode="win:Stop" level="win:Informational" keywords="PerfInstrumentation" template="CancelSpeakingStartArgs"/>
+    </events>
+    <templates>
+     <template tid="InitiateSpeakingStartArgs">
+      <data name="Channel" inType="win:Int32"/>
+      <data name="SpokenText" inType="win:UnicodeString"/>
+     </template>
+     <template tid="CancelSpeakingStartArgs">
+      <data name="Channel" inType="win:Int32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_PerfInstrumentation" value="PerfInstrumentation"/>
+    <string id="keyword_PerfDiagnostics" value="PerfDiagnostics"/>
+    <string id="task_LaunchApp" value="LaunchApp"/>
+    <string id="task_ScrapeWindow" value="ScrapeWindow"/>
+    <string id="task_InitiateSpeaking" value="InitiateSpeaking"/>
+    <string id="task_CancelSpeaking" value="CancelSpeaking"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

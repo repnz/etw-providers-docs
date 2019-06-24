@@ -1,0 +1,159 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-WinHttp" guid="{7d44233d-3055-4b9c-ba64-0d47ca40a232}" resourceFileName="Microsoft-Windows-WinHttp" messageFileName="Microsoft-Windows-WinHttp" symbol="MicrosoftWindowsWinHttp" source="Xml" >
+    <keywords>
+     <keyword name="Keyword.API" message="$(string.keyword_Keyword.API)" mask="0x1"/>
+     <keyword name="Keyword.SEND" message="$(string.keyword_Keyword.SEND)" mask="0x100000000"/>
+     <keyword name="Keyword.RECEIVE" message="$(string.keyword_Keyword.RECEIVE)" mask="0x200000000"/>
+     <keyword name="Keyword.L3_CONNECT" message="$(string.keyword_Keyword.L3_CONNECT)" mask="0x400000000"/>
+     <keyword name="Keyword.CLOSE" message="$(string.keyword_Keyword.CLOSE)" mask="0x1000000000"/>
+     <keyword name="Keyword.SECURITY" message="$(string.keyword_Keyword.SECURITY)" mask="0x2000000000"/>
+     <keyword name="Keyword.CONFIGURATION" message="$(string.keyword_Keyword.CONFIGURATION)" mask="0x4000000000"/>
+     <keyword name="Keyword.GLOBAL" message="$(string.keyword_Keyword.GLOBAL)" mask="0x8000000000"/>
+     <keyword name="keyword_20000000000" message="$(string.keyword_keyword_20000000000)" mask="0x20000000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="API" message="$(string.task_API)" value="109"/>
+     <task name="Debug" message="$(string.task_Debug)" value="110"/>
+    </tasks>
+    <maps>
+     <valueMap name="mapWinHttpAuthTarget">
+      <map value="0x0" message="$(string.map_mapWinHttpAuthTargetWINHTTP_AUTH_TARGET_SERVER)"/>
+      <map value="0x1" message="$(string.map_mapWinHttpAuthTargetWINHTTP_AUTH_TARGET_PROXY)"/>
+     </valueMap>
+     <bitMap name="mapWinHttpAuthScheme">
+      <map value="0x1" message="$(string.map_mapWinHttpAuthSchemeWINHTTP_AUTH_SCHEME_BASIC)"/>
+      <map value="0x2" message="$(string.map_mapWinHttpAuthSchemeWINHTTP_AUTH_SCHEME_NTLM)"/>
+      <map value="0x4" message="$(string.map_mapWinHttpAuthSchemeWINHTTP_AUTH_SCHEME_PASSPORT)"/>
+      <map value="0x8" message="$(string.map_mapWinHttpAuthSchemeWINHTTP_AUTH_SCHEME_DIGEST)"/>
+      <map value="0x10" message="$(string.map_mapWinHttpAuthSchemeWINHTTP_AUTH_SCHEME_NEGOTIATE)"/>
+      <map value="0x20" message="$(string.map_mapWinHttpAuthSchemeWINHTTP_AUTH_SCHEME_KERBEROS)"/>
+     </bitMap>
+     <valueMap name="mapQueueActionType">
+      <map value="0x1" message="$(string.map_mapQueueActionTypeTimer)"/>
+      <map value="0x2" message="$(string.map_mapQueueActionTypeWorkItem)"/>
+      <map value="0x3" message="$(string.map_mapQueueActionTypeOverlapped IO)"/>
+      <map value="0x4" message="$(string.map_mapQueueActionTypeWait Callback)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="task_0" version="0" task="task_0" level="win:Always" template="task_0Args"/>
+     <event value="2" symbol="task_02" version="0" task="task_0" level="win:Always" template="task_0Args"/>
+     <event value="4" symbol="task_04" version="0" task="task_0" level="win:Always" template="task_04Args"/>
+     <event value="9" symbol="APIStart" version="0" task="API" opcode="win:Start" level="win:Verbose" keywords="Keyword.API" template="APIStartArgs"/>
+     <event value="10" symbol="APIStop" version="0" task="API" opcode="win:Stop" level="win:Verbose" keywords="Keyword.API" template="APIStopArgs"/>
+     <event value="11" symbol="APIStop11" version="0" task="API" opcode="win:Stop" level="win:Verbose" keywords="Keyword.API" template="APIStopArgs"/>
+     <event value="12" symbol="API" version="0" task="API" level="win:Verbose" keywords="Keyword.API" template="APIStartArgs"/>
+     <event value="13" symbol="APIStop13" version="0" task="API" opcode="win:Stop" level="win:Verbose" keywords="Keyword.API" template="APIStopArgs"/>
+     <event value="14" symbol="APIStop14" version="0" task="API" opcode="win:Stop" level="win:Verbose" keywords="Keyword.API" template="APIStopArgs"/>
+     <event value="100" symbol="API100" version="0" task="API" level="win:Verbose" keywords="Keyword.API keyword_20000000000" template="API100Args"/>
+     <event value="12501" symbol="task_012501" version="0" task="task_0" level="win:Always"/>
+     <event value="12503" symbol="task_012503" version="0" task="task_0" level="win:Always" template="task_012503Args"/>
+     <event value="12506" symbol="task_012506" version="0" task="task_0" level="win:Always" template="task_012506Args"/>
+     <event value="12507" symbol="task_012507" version="0" task="task_0" level="win:Always"/>
+     <event value="12509" symbol="task_012509" version="0" task="task_0" level="win:Always" template="task_012509Args"/>
+     <event value="12511" symbol="task_012511" version="0" task="task_0" level="win:Always" template="task_0Args"/>
+     <event value="12512" symbol="task_012512" version="0" task="task_0" level="win:Always"/>
+     <event value="12513" symbol="task_012513" version="0" task="task_0" level="win:Always"/>
+     <event value="12514" symbol="task_012514" version="0" task="task_0" level="win:Always" template="task_012514Args"/>
+     <event value="12516" symbol="task_012516" version="0" task="task_0" level="win:Always"/>
+     <event value="12517" symbol="task_012517" version="0" task="task_0" level="win:Always"/>
+     <event value="12518" symbol="task_012518" version="0" task="task_0" level="win:Always"/>
+     <event value="58999" symbol="Debug" version="0" task="Debug" level="win:Verbose" template="DebugArgs"/>
+     <event value="59995" symbol="DebugStop" version="0" task="Debug" opcode="win:Stop" level="win:Verbose" template="DebugStopArgs"/>
+     <event value="59996" symbol="DebugStart" version="0" task="Debug" opcode="win:Start" level="win:Verbose" template="DebugStartArgs"/>
+     <event value="59997" symbol="DebugStop59997" version="0" task="Debug" opcode="win:Stop" level="win:Verbose" template="DebugStartArgs"/>
+     <event value="59998" symbol="DebugStart59998" version="0" task="Debug" opcode="win:Start" level="win:Verbose" template="DebugStartArgs"/>
+     <event value="59999" symbol="Debug59999" version="0" task="Debug" level="win:Verbose" template="Debug59999Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="param1" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_04Args">
+      <data name="loadunloadinfo" inType="win:UnicodeString"/>
+     </template>
+     <template tid="APIStartArgs">
+      <data name="ApiHandle" inType="win:UInt64"/>
+      <data name="Api" inType="win:AnsiString"/>
+     </template>
+     <template tid="APIStopArgs">
+      <data name="ApiHandle" inType="win:UInt64"/>
+      <data name="Api" inType="win:AnsiString"/>
+      <data name="Result" inType="win:UInt32"/>
+     </template>
+     <template tid="API100Args">
+      <data name="hRequest" inType="win:Pointer"/>
+      <data name="AuthTargets" inType="win:UInt32" map="mapWinHttpAuthTarget"/>
+      <data name="AuthScheme" inType="win:UInt32" map="mapWinHttpAuthScheme"/>
+      <data name="UserName" inType="win:UnicodeString"/>
+      <data name="Password" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_012503Args">
+      <data name="IdleTime" inType="win:UInt32"/>
+     </template>
+     <template tid="task_012506Args">
+      <data name="Functionname" inType="win:UnicodeString"/>
+      <data name="Errortext" inType="win:UnicodeString"/>
+      <data name="Errorcode" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_012509Args">
+      <data name="Transporttype" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_012514Args">
+      <data name="Exceptioncode" inType="win:UnicodeString"/>
+     </template>
+     <template tid="DebugArgs">
+      <data name="Message" inType="win:AnsiString"/>
+     </template>
+     <template tid="DebugStopArgs">
+      <data name="Context" inType="win:Pointer"/>
+      <data name="EtwQueueActionType" inType="win:UInt32" map="mapQueueActionType"/>
+     </template>
+     <template tid="DebugStartArgs">
+      <data name="Context" inType="win:Pointer"/>
+      <data name="EtwQueueActionType" inType="win:UInt32"/>
+     </template>
+     <template tid="Debug59999Args">
+      <data name="File" inType="win:AnsiString"/>
+      <data name="Line" inType="win:UInt32"/>
+      <data name="Length" inType="win:UInt16"/>
+      <data name="Message" inType="win:AnsiString" length="Length"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Keyword.API" value="Keyword.API"/>
+    <string id="keyword_Keyword.SEND" value="Keyword.SEND"/>
+    <string id="keyword_Keyword.RECEIVE" value="Keyword.RECEIVE"/>
+    <string id="keyword_Keyword.L3_CONNECT" value="Keyword.L3_CONNECT"/>
+    <string id="keyword_Keyword.CLOSE" value="Keyword.CLOSE"/>
+    <string id="keyword_Keyword.SECURITY" value="Keyword.SECURITY"/>
+    <string id="keyword_Keyword.CONFIGURATION" value="Keyword.CONFIGURATION"/>
+    <string id="keyword_Keyword.GLOBAL" value="Keyword.GLOBAL"/>
+    <string id="keyword_keyword_20000000000" value="keyword_20000000000"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_API" value="API"/>
+    <string id="task_Debug" value="Debug"/>
+    <string id="map_mapWinHttpAuthTargetWINHTTP_AUTH_TARGET_SERVER" value="WINHTTP_AUTH_TARGET_SERVER"/>
+    <string id="map_mapWinHttpAuthTargetWINHTTP_AUTH_TARGET_PROXY" value="WINHTTP_AUTH_TARGET_PROXY"/>
+    <string id="map_mapWinHttpAuthSchemeWINHTTP_AUTH_SCHEME_BASIC" value="WINHTTP_AUTH_SCHEME_BASIC"/>
+    <string id="map_mapWinHttpAuthSchemeWINHTTP_AUTH_SCHEME_NTLM" value="WINHTTP_AUTH_SCHEME_NTLM"/>
+    <string id="map_mapWinHttpAuthSchemeWINHTTP_AUTH_SCHEME_PASSPORT" value="WINHTTP_AUTH_SCHEME_PASSPORT"/>
+    <string id="map_mapWinHttpAuthSchemeWINHTTP_AUTH_SCHEME_DIGEST" value="WINHTTP_AUTH_SCHEME_DIGEST"/>
+    <string id="map_mapWinHttpAuthSchemeWINHTTP_AUTH_SCHEME_NEGOTIATE" value="WINHTTP_AUTH_SCHEME_NEGOTIATE"/>
+    <string id="map_mapWinHttpAuthSchemeWINHTTP_AUTH_SCHEME_KERBEROS" value="WINHTTP_AUTH_SCHEME_KERBEROS"/>
+    <string id="map_mapQueueActionTypeTimer" value="Timer"/>
+    <string id="map_mapQueueActionTypeWorkItem" value="WorkItem"/>
+    <string id="map_mapQueueActionTypeOverlapped IO" value="Overlapped IO"/>
+    <string id="map_mapQueueActionTypeWait Callback" value="Wait Callback"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

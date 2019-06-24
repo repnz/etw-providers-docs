@@ -1,0 +1,55 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-ApplicationExperience-Cache" guid="{6d8a3a60-40af-445a-98ca-99359e500146}" resourceFileName="Microsoft-Windows-ApplicationExperience-Cache" messageFileName="Microsoft-Windows-ApplicationExperience-Cache" symbol="MicrosoftWindowsApplicationExperienceCache" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="AeCacheLookup" message="$(string.task_AeCacheLookup)" value="1"/>
+     <task name="AeCacheInsert" message="$(string.task_AeCacheInsert)" value="2"/>
+     <task name="AeCacheRemove" message="$(string.task_AeCacheRemove)" value="3"/>
+     <task name="AeCacheFlush" message="$(string.task_AeCacheFlush)" value="4"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="AeCacheLookup" version="0" task="AeCacheLookup" level="win:Informational" template="AeCacheLookupArgs"/>
+     <event value="2" symbol="AeCacheInsert" version="0" task="AeCacheInsert" level="win:Informational" template="AeCacheInsertArgs"/>
+     <event value="3" symbol="AeCacheRemove" version="0" task="AeCacheRemove" level="win:Informational" template="AeCacheRemoveArgs"/>
+     <event value="4" symbol="AeCacheFlush" version="0" task="AeCacheFlush" level="win:Informational" template="AeCacheFlushArgs"/>
+    </events>
+    <templates>
+     <template tid="AeCacheLookupArgs">
+      <data name="CacheLookupCounter" inType="win:UInt32"/>
+      <data name="CacheHitCounter" inType="win:UInt32"/>
+      <data name="FilePathLength" inType="win:UInt16"/>
+      <data name="FilePath" inType="win:UnicodeString" length="FilePathLength"/>
+     </template>
+     <template tid="AeCacheInsertArgs">
+      <data name="CacheInsertCounter" inType="win:UInt32"/>
+      <data name="CacheUpdateCounter" inType="win:UInt32"/>
+      <data name="CacheReplaceCounter" inType="win:UInt32"/>
+      <data name="FilePathLength" inType="win:UInt16"/>
+      <data name="FilePath" inType="win:UnicodeString" length="FilePathLength"/>
+     </template>
+     <template tid="AeCacheRemoveArgs">
+      <data name="CacheRemoveCounter" inType="win:UInt32"/>
+      <data name="FilePathLength" inType="win:UInt16"/>
+      <data name="FilePath" inType="win:UnicodeString" length="FilePathLength"/>
+     </template>
+     <template tid="AeCacheFlushArgs">
+      <data name="CacheFlushCounter" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_AeCacheLookup" value="AeCacheLookup"/>
+    <string id="task_AeCacheInsert" value="AeCacheInsert"/>
+    <string id="task_AeCacheRemove" value="AeCacheRemove"/>
+    <string id="task_AeCacheFlush" value="AeCacheFlush"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

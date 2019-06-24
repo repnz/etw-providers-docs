@@ -1,0 +1,120 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-CodeIntegrity" guid="{4ee76bd8-3cf4-44a0-a0ac-3937643e37a3}" resourceFileName="Microsoft-Windows-CodeIntegrity" messageFileName="Microsoft-Windows-CodeIntegrity" symbol="MicrosoftWindowsCodeIntegrity" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="CreateSection" message="$(string.task_CreateSection)" value="1">
+>
+      <opcodes>
+       <opcode name="UnsignedDriverLoaded" message="$(string.opcode_CreateSectionUnsignedDriverLoaded)" value="101"/>
+       <opcode name="PageHashNotFound" message="$(string.opcode_CreateSectionPageHashNotFound)" value="102"/>
+       <opcode name="PageHashNotFound_DbgAttached" message="$(string.opcode_CreateSectionPageHashNotFound_DbgAttached)" value="103"/>
+       <opcode name="FileHashNotFound" message="$(string.opcode_CreateSectionFileHashNotFound)" value="104"/>
+       <opcode name="FileHashNotFound_DbgAttached" message="$(string.opcode_CreateSectionFileHashNotFound_DbgAttached)" value="105"/>
+       <opcode name="RevokedDriverLoaded" message="$(string.opcode_CreateSectionRevokedDriverLoaded)" value="106"/>
+       <opcode name="RevokedDriverLoadedInDebugger" message="$(string.opcode_CreateSectionRevokedDriverLoadedInDebugger)" value="107"/>
+       <opcode name="RevokedDriverNotLoaded" message="$(string.opcode_CreateSectionRevokedDriverNotLoaded)" value="108"/>
+      </opcodes>
+     </task>
+     <task name="LoadCatalog" message="$(string.task_LoadCatalog)" value="2">
+>
+      <opcodes>
+       <opcode name="Failed" message="$(string.opcode_LoadCatalogFailed)" value="100"/>
+      </opcodes>
+     </task>
+     <task name="ReloadCatalogs" message="$(string.task_ReloadCatalogs)" value="3"/>
+     <task name="ValidateFileHash" message="$(string.task_ValidateFileHash)" value="4"/>
+     <task name="ValidatePageHash" message="$(string.task_ValidatePageHash)" value="5"/>
+     <task name="PageHashFoundInCatalog" message="$(string.task_PageHashFoundInCatalog)" value="6"/>
+     <task name="PageHashFoundInImageCertificate" message="$(string.task_PageHashFoundInImageCertificate)" value="7"/>
+     <task name="FileHashFoundInCatalog" message="$(string.task_FileHashFoundInCatalog)" value="8"/>
+     <task name="FileHashFoundInImageCertificate" message="$(string.task_FileHashFoundInImageCertificate)" value="9"/>
+     <task name="LoadCatalogCache" message="$(string.task_LoadCatalogCache)" value="10">
+>
+      <opcodes>
+       <opcode name="UpdateCatalogCacheFailed" message="$(string.opcode_LoadCatalogCacheUpdateCatalogCacheFailed)" value="109"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="3001" symbol="CreateSectionUnsignedDriverLoaded" version="0" task="CreateSection" opcode="UnsignedDriverLoaded" level="win:Warning" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3002" symbol="CreateSectionPageHashNotFound" version="0" task="CreateSection" opcode="PageHashNotFound" level="win:Error" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3003" symbol="CreateSectionPageHashNotFound_DbgAttached" version="0" task="CreateSection" opcode="PageHashNotFound_DbgAttached" level="win:Warning" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3004" symbol="CreateSectionFileHashNotFound" version="0" task="CreateSection" opcode="FileHashNotFound" level="win:Error" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3005" symbol="CreateSectionFileHashNotFound_DbgAttached" version="0" task="CreateSection" opcode="FileHashNotFound_DbgAttached" level="win:Warning" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3006" symbol="PageHashFoundInCatalog" version="0" task="PageHashFoundInCatalog" level="win:Informational" template="PageHashFoundInCatalogArgs"/>
+     <event value="3007" symbol="PageHashFoundInImageCertificate" version="0" task="PageHashFoundInImageCertificate" level="win:Informational" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3008" symbol="FileHashFoundInCatalog" version="0" task="FileHashFoundInCatalog" level="win:Informational" template="PageHashFoundInCatalogArgs"/>
+     <event value="3009" symbol="FileHashFoundInImageCertificate" version="0" task="FileHashFoundInImageCertificate" level="win:Informational" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3010" symbol="LoadCatalogFailed" version="0" task="LoadCatalog" opcode="Failed" level="win:Warning" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3011" symbol="LoadCatalogStop" version="0" task="LoadCatalog" opcode="win:Stop" level="win:Informational" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3012" symbol="LoadCatalogStart" version="0" task="LoadCatalog" opcode="win:Start" level="win:Informational" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3013" symbol="ReloadCatalogsStart" version="0" task="ReloadCatalogs" opcode="win:Start" level="win:Informational"/>
+     <event value="3014" symbol="ReloadCatalogsStop" version="0" task="ReloadCatalogs" opcode="win:Stop" level="win:Informational" template="ReloadCatalogsStopArgs"/>
+     <event value="3014" symbol="ReloadCatalogsStop_V1" version="1" task="ReloadCatalogs" opcode="win:Stop" level="win:Informational" template="LoadCatalogCacheUpdateCatalogCacheFailedArgs"/>
+     <event value="3015" symbol="ValidateFileHashStart" version="0" task="ValidateFileHash" opcode="win:Start" level="win:Verbose" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3016" symbol="ValidateFileHashStop" version="0" task="ValidateFileHash" opcode="win:Stop" level="win:Verbose" template="ReloadCatalogsStopArgs"/>
+     <event value="3016" symbol="ValidateFileHashStop_V1" version="1" task="ValidateFileHash" opcode="win:Stop" level="win:Verbose" template="LoadCatalogCacheUpdateCatalogCacheFailedArgs"/>
+     <event value="3017" symbol="ValidatePageHashStart" version="0" task="ValidatePageHash" opcode="win:Start" level="win:Verbose" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3018" symbol="ValidatePageHashStop" version="0" task="ValidatePageHash" opcode="win:Stop" level="win:Verbose" template="ReloadCatalogsStopArgs"/>
+     <event value="3018" symbol="ValidatePageHashStop_V1" version="1" task="ValidatePageHash" opcode="win:Stop" level="win:Verbose" template="LoadCatalogCacheUpdateCatalogCacheFailedArgs"/>
+     <event value="3019" symbol="LoadCatalogCacheStart" version="0" task="LoadCatalogCache" opcode="win:Start" level="win:Verbose" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3020" symbol="LoadCatalogCacheStop" version="0" task="LoadCatalogCache" opcode="win:Stop" level="win:Verbose" template="ReloadCatalogsStopArgs"/>
+     <event value="3020" symbol="LoadCatalogCacheStop_V1" version="1" task="LoadCatalogCache" opcode="win:Stop" level="win:Verbose" template="LoadCatalogCacheUpdateCatalogCacheFailedArgs"/>
+     <event value="3021" symbol="CreateSectionRevokedDriverLoaded" version="0" task="CreateSection" opcode="RevokedDriverLoaded" level="win:Warning" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3022" symbol="CreateSectionRevokedDriverLoadedInDebugger" version="0" task="CreateSection" opcode="RevokedDriverLoadedInDebugger" level="win:Warning" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3023" symbol="CreateSectionRevokedDriverNotLoaded" version="0" task="CreateSection" opcode="RevokedDriverNotLoaded" level="win:Error" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3024" symbol="LoadCatalogCacheUpdateCatalogCacheFailed" version="0" task="LoadCatalogCache" opcode="UpdateCatalogCacheFailed" level="win:Warning" template="LoadCatalogCacheUpdateCatalogCacheFailedArgs"/>
+     <event value="3025" symbol="CreateSectionUnsignedDriverLoaded3025" version="0" task="CreateSection" opcode="UnsignedDriverLoaded" level="win:Verbose" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3026" symbol="LoadCatalogFailed3026" version="0" task="LoadCatalog" opcode="Failed" level="win:Warning" template="CreateSectionUnsignedDriverLoadedArgs"/>
+    </events>
+    <templates>
+     <template tid="CreateSectionUnsignedDriverLoadedArgs">
+      <data name="FileNameLength" inType="win:UInt16"/>
+      <data name="FileNameBuffer" inType="win:UnicodeString" length="FileNameLength"/>
+     </template>
+     <template tid="PageHashFoundInCatalogArgs">
+      <data name="FileNameLength" inType="win:UInt16"/>
+      <data name="FileNameBuffer" inType="win:UnicodeString" length="FileNameLength"/>
+      <data name="CatalogNameLength" inType="win:UInt16"/>
+      <data name="CatalogNameBuffer" inType="win:UnicodeString" length="CatalogNameLength"/>
+     </template>
+     <template tid="ReloadCatalogsStopArgs">
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="LoadCatalogCacheUpdateCatalogCacheFailedArgs">
+      <data name="Status" inType="win:HexInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_CreateSection" value="CreateSection"/>
+    <string id="opcode_CreateSectionUnsignedDriverLoaded" value="UnsignedDriverLoaded"/>
+    <string id="opcode_CreateSectionPageHashNotFound" value="PageHashNotFound"/>
+    <string id="opcode_CreateSectionPageHashNotFound_DbgAttached" value="PageHashNotFound_DbgAttached"/>
+    <string id="opcode_CreateSectionFileHashNotFound" value="FileHashNotFound"/>
+    <string id="opcode_CreateSectionFileHashNotFound_DbgAttached" value="FileHashNotFound_DbgAttached"/>
+    <string id="opcode_CreateSectionRevokedDriverLoaded" value="RevokedDriverLoaded"/>
+    <string id="opcode_CreateSectionRevokedDriverLoadedInDebugger" value="RevokedDriverLoadedInDebugger"/>
+    <string id="opcode_CreateSectionRevokedDriverNotLoaded" value="RevokedDriverNotLoaded"/>
+    <string id="task_LoadCatalog" value="LoadCatalog"/>
+    <string id="opcode_LoadCatalogFailed" value="Failed"/>
+    <string id="task_ReloadCatalogs" value="ReloadCatalogs"/>
+    <string id="task_ValidateFileHash" value="ValidateFileHash"/>
+    <string id="task_ValidatePageHash" value="ValidatePageHash"/>
+    <string id="task_PageHashFoundInCatalog" value="PageHashFoundInCatalog"/>
+    <string id="task_PageHashFoundInImageCertificate" value="PageHashFoundInImageCertificate"/>
+    <string id="task_FileHashFoundInCatalog" value="FileHashFoundInCatalog"/>
+    <string id="task_FileHashFoundInImageCertificate" value="FileHashFoundInImageCertificate"/>
+    <string id="task_LoadCatalogCache" value="LoadCatalogCache"/>
+    <string id="opcode_LoadCatalogCacheUpdateCatalogCacheFailed" value="UpdateCatalogCacheFailed"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,103 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Dwm-Dwm" guid="{bc2eeeec-b77a-4a52-b6a4-dffb1b1370cb}" resourceFileName="Microsoft-Windows-Dwm-Dwm" messageFileName="Microsoft-Windows-Dwm-Dwm" symbol="MicrosoftWindowsDwmDwm" source="Xml" >
+    <keywords>
+     <keyword name="DwmExe" message="$(string.keyword_DwmExe)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="RedirectionStateAndInput" message="$(string.task_RedirectionStateAndInput)" value="1"/>
+     <task name="RedirectionStateOutput" message="$(string.task_RedirectionStateOutput)" value="2"/>
+     <task name="TraceGraphicsCapabilities" message="$(string.task_TraceGraphicsCapabilities)" value="3"/>
+     <task name="CompositionOverriden" message="$(string.task_CompositionOverriden)" value="4"/>
+     <task name="CompositionEnabledByPolicy" message="$(string.task_CompositionEnabledByPolicy)" value="5"/>
+     <task name="RemotingCaps" message="$(string.task_RemotingCaps)" value="6"/>
+    </tasks>
+    <maps>
+     <valueMap name="Redirection_State">
+      <map value="0x0" message="$(string.map_Redirection_StateRedirection_State_Idle)"/>
+      <map value="0x1" message="$(string.map_Redirection_StateRedirection_State_Restarting)"/>
+      <map value="0x2" message="$(string.map_Redirection_StateRedirection_State_Ready)"/>
+      <map value="0x3" message="$(string.map_Redirection_StateRedirection_State_HasDesktopComposition)"/>
+     </valueMap>
+     <valueMap name="Redirection_Input">
+      <map value="0x0" message="$(string.map_Redirection_InputRedirection_Input_HintPolicyOrModeChanged)"/>
+      <map value="0x1" message="$(string.map_Redirection_InputRedirection_Input_HintTransportChanged)"/>
+      <map value="0x2" message="$(string.map_Redirection_InputRedirection_Input_StartRedirection)"/>
+      <map value="0x3" message="$(string.map_Redirection_InputRedirection_Input_RedirectionStopped)"/>
+      <map value="0x4" message="$(string.map_Redirection_InputRedirection_Input_Shutdown)"/>
+      <map value="0x5" message="$(string.map_Redirection_InputInput_HintRequestEnableChange)"/>
+     </valueMap>
+     <valueMap name="Verify_Capabilities">
+      <map value="0x0" message="$(string.map_Verify_CapabilitiesCapabilities_None)"/>
+      <map value="0x1" message="$(string.map_Verify_CapabilitiesCapabilities_DisplayModeViaGdi)"/>
+      <map value="0x2" message="$(string.map_Verify_CapabilitiesCapabilities_RemotingPolicy)"/>
+      <map value="0x3" message="$(string.map_Verify_CapabilitiesCapabilities_DisplayModeViaMil)"/>
+      <map value="0x4" message="$(string.map_Verify_CapabilitiesCapabilities_GraphicsAssesment)"/>
+      <map value="0x5" message="$(string.map_Verify_CapabilitiesCapabilities_AllVerified)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="RedirectionStateAndInput" version="0" task="RedirectionStateAndInput" level="win:Informational" keywords="DwmExe" template="RedirectionStateAndInputArgs"/>
+     <event value="2" symbol="RedirectionStateOutput" version="0" task="RedirectionStateOutput" level="win:Informational" keywords="DwmExe" template="RedirectionStateOutputArgs"/>
+     <event value="3" symbol="TraceGraphicsCapabilities" version="0" task="TraceGraphicsCapabilities" level="win:Informational" keywords="DwmExe" template="TraceGraphicsCapabilitiesArgs"/>
+     <event value="4" symbol="CompositionOverriden" version="0" task="CompositionOverriden" level="win:Informational" keywords="DwmExe" template="CompositionOverridenArgs"/>
+     <event value="5" symbol="CompositionEnabledByPolicy" version="0" task="CompositionEnabledByPolicy" level="win:Informational" keywords="DwmExe" template="CompositionOverridenArgs"/>
+     <event value="6" symbol="RemotingCaps" version="0" task="RemotingCaps" level="win:Informational" keywords="DwmExe" template="RemotingCapsArgs"/>
+    </events>
+    <templates>
+     <template tid="RedirectionStateAndInputArgs">
+      <data name="State" inType="win:UInt32" map="Redirection_State"/>
+      <data name="Input" inType="win:UInt32" map="Redirection_Input"/>
+     </template>
+     <template tid="RedirectionStateOutputArgs">
+      <data name="State" inType="win:UInt32"/>
+     </template>
+     <template tid="TraceGraphicsCapabilitiesArgs">
+      <data name="Capability" inType="win:UInt32" map="Verify_Capabilities"/>
+      <data name="Verified" inType="win:UInt32"/>
+     </template>
+     <template tid="CompositionOverridenArgs">
+      <data name="Flag" inType="win:UInt32"/>
+     </template>
+     <template tid="RemotingCapsArgs">
+      <data name="IsCapable" inType="win:UInt32"/>
+      <data name="AllowDwmcoreInSession" inType="win:UInt32"/>
+      <data name="RemoteAppEnabled" inType="win:UInt32"/>
+      <data name="AllowDwmcoreInClient" inType="win:UInt32"/>
+      <data name="AllowThemesInCLient" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_DwmExe" value="DwmExe"/>
+    <string id="task_RedirectionStateAndInput" value="RedirectionStateAndInput"/>
+    <string id="task_RedirectionStateOutput" value="RedirectionStateOutput"/>
+    <string id="task_TraceGraphicsCapabilities" value="TraceGraphicsCapabilities"/>
+    <string id="task_CompositionOverriden" value="CompositionOverriden"/>
+    <string id="task_CompositionEnabledByPolicy" value="CompositionEnabledByPolicy"/>
+    <string id="task_RemotingCaps" value="RemotingCaps"/>
+    <string id="map_Redirection_StateRedirection_State_Idle" value="Redirection_State_Idle"/>
+    <string id="map_Redirection_StateRedirection_State_Restarting" value="Redirection_State_Restarting"/>
+    <string id="map_Redirection_StateRedirection_State_Ready" value="Redirection_State_Ready"/>
+    <string id="map_Redirection_StateRedirection_State_HasDesktopComposition" value="Redirection_State_HasDesktopComposition"/>
+    <string id="map_Redirection_InputRedirection_Input_HintPolicyOrModeChanged" value="Redirection_Input_HintPolicyOrModeChanged"/>
+    <string id="map_Redirection_InputRedirection_Input_HintTransportChanged" value="Redirection_Input_HintTransportChanged"/>
+    <string id="map_Redirection_InputRedirection_Input_StartRedirection" value="Redirection_Input_StartRedirection"/>
+    <string id="map_Redirection_InputRedirection_Input_RedirectionStopped" value="Redirection_Input_RedirectionStopped"/>
+    <string id="map_Redirection_InputRedirection_Input_Shutdown" value="Redirection_Input_Shutdown"/>
+    <string id="map_Redirection_InputInput_HintRequestEnableChange" value="Input_HintRequestEnableChange"/>
+    <string id="map_Verify_CapabilitiesCapabilities_None" value="Capabilities_None"/>
+    <string id="map_Verify_CapabilitiesCapabilities_DisplayModeViaGdi" value="Capabilities_DisplayModeViaGdi"/>
+    <string id="map_Verify_CapabilitiesCapabilities_RemotingPolicy" value="Capabilities_RemotingPolicy"/>
+    <string id="map_Verify_CapabilitiesCapabilities_DisplayModeViaMil" value="Capabilities_DisplayModeViaMil"/>
+    <string id="map_Verify_CapabilitiesCapabilities_GraphicsAssesment" value="Capabilities_GraphicsAssesment"/>
+    <string id="map_Verify_CapabilitiesCapabilities_AllVerified" value="Capabilities_AllVerified"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,125 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Sidebar" guid="{ed6b3ba8-95b2-4cf5-a317-d4af7003884c}" resourceFileName="Microsoft-Windows-Sidebar" messageFileName="Microsoft-Windows-Sidebar" symbol="MicrosoftWindowsSidebar" source="Xml" >
+    <keywords>
+     <keyword name="Sidebar" message="$(string.keyword_Sidebar)" mask="0x10000"/>
+    </keywords>
+    <tasks>
+     <task name="Sidebar_ShowDrawer" message="$(string.task_Sidebar_ShowDrawer)" value="1">
+>
+      <opcodes>
+       <opcode name="DialogExists" message="$(string.opcode_Sidebar_ShowDrawerDialogExists)" value="11"/>
+       <opcode name="AddMessageHandler" message="$(string.opcode_Sidebar_ShowDrawerAddMessageHandler)" value="12"/>
+       <opcode name="Show" message="$(string.opcode_Sidebar_ShowDrawerShow)" value="13"/>
+       <opcode name="Failure" message="$(string.opcode_Sidebar_ShowDrawerFailure)" value="14"/>
+      </opcodes>
+     </task>
+     <task name="Sidebar_SidebarStartup" message="$(string.task_Sidebar_SidebarStartup)" value="2"/>
+     <task name="Sidebar_ChangeSettings" message="$(string.task_Sidebar_ChangeSettings)" value="3"/>
+     <task name="Sidebar_PartFocused" message="$(string.task_Sidebar_PartFocused)" value="4"/>
+     <task name="Sidebar_PartClosed" message="$(string.task_Sidebar_PartClosed)" value="5"/>
+     <task name="Sidebar_RestoreLayout" message="$(string.task_Sidebar_RestoreLayout)" value="6">
+>
+      <opcodes>
+       <opcode name="Failure" message="$(string.opcode_Sidebar_RestoreLayoutFailure)" value="14"/>
+      </opcodes>
+     </task>
+     <task name="Sidebar_PartStarted" message="$(string.task_Sidebar_PartStarted)" value="7"/>
+     <task name="Sidebar_PartStarting" message="$(string.task_Sidebar_PartStarting)" value="8"/>
+     <task name="Sidebar_PartUserResize" message="$(string.task_Sidebar_PartUserResize)" value="9"/>
+     <task name="Sidebar_ProcessStarting" message="$(string.task_Sidebar_ProcessStarting)" value="10"/>
+     <task name="Sidebar_DrawerClosed" message="$(string.task_Sidebar_DrawerClosed)" value="11"/>
+     <task name="Sidebar_ShowTaskMan" message="$(string.task_Sidebar_ShowTaskMan)" value="12">
+>
+      <opcodes>
+       <opcode name="DialogExists" message="$(string.opcode_Sidebar_ShowTaskManDialogExists)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="Sidebar_TaskManClosed" message="$(string.task_Sidebar_TaskManClosed)" value="13"/>
+     <task name="Sidebar_MagneticEdgeAttach" message="$(string.task_Sidebar_MagneticEdgeAttach)" value="14"/>
+     <task name="Sidebar_MagneticEdgeDetach" message="$(string.task_Sidebar_MagneticEdgeDetach)" value="15"/>
+     <task name="Sidebar_SidebarStartup_FirstGadgetLoaded" message="$(string.task_Sidebar_SidebarStartup_FirstGadgetLoaded)" value="16"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="Sidebar_ShowDrawerStart" version="0" task="Sidebar_ShowDrawer" opcode="win:Start" level="win:Informational" keywords="Sidebar"/>
+     <event value="2" symbol="Sidebar_ShowDrawerDialogExists" version="0" task="Sidebar_ShowDrawer" opcode="DialogExists" level="win:Informational" keywords="Sidebar" template="Sidebar_ShowDrawerDialogExistsArgs"/>
+     <event value="3" symbol="Sidebar_ShowDrawerAddMessageHandler" version="0" task="Sidebar_ShowDrawer" opcode="AddMessageHandler" level="win:Informational" keywords="Sidebar"/>
+     <event value="4" symbol="Sidebar_ShowDrawerShow" version="0" task="Sidebar_ShowDrawer" opcode="Show" level="win:Informational" keywords="Sidebar"/>
+     <event value="5" symbol="Sidebar_ShowDrawerFailure" version="0" task="Sidebar_ShowDrawer" opcode="Failure" level="win:Informational" keywords="Sidebar"/>
+     <event value="6" symbol="Sidebar_ShowDrawerStop" version="0" task="Sidebar_ShowDrawer" opcode="win:Stop" level="win:Informational" keywords="Sidebar" template="Sidebar_ShowDrawerDialogExistsArgs"/>
+     <event value="7" symbol="Sidebar_SidebarStartupStart" version="0" task="Sidebar_SidebarStartup" opcode="win:Start" level="win:Informational" keywords="Sidebar"/>
+     <event value="8" symbol="Sidebar_SidebarStartupStop" version="0" task="Sidebar_SidebarStartup" opcode="win:Stop" level="win:Informational" keywords="Sidebar"/>
+     <event value="9" symbol="Sidebar_ChangeSettings" version="0" task="Sidebar_ChangeSettings" level="win:Informational" keywords="Sidebar"/>
+     <event value="10" symbol="Sidebar_PartFocused" version="0" task="Sidebar_PartFocused" level="win:Informational" keywords="Sidebar" template="Sidebar_PartFocusedArgs"/>
+     <event value="11" symbol="Sidebar_PartClosedStart" version="0" task="Sidebar_PartClosed" opcode="win:Start" level="win:Informational" keywords="Sidebar" template="Sidebar_PartClosedStartArgs"/>
+     <event value="12" symbol="Sidebar_PartClosedStop" version="0" task="Sidebar_PartClosed" opcode="win:Stop" level="win:Informational" keywords="Sidebar" template="Sidebar_PartClosedStartArgs"/>
+     <event value="13" symbol="Sidebar_RestoreLayoutStart" version="0" task="Sidebar_RestoreLayout" opcode="win:Start" level="win:Informational" keywords="Sidebar"/>
+     <event value="14" symbol="Sidebar_RestoreLayoutFailure" version="0" task="Sidebar_RestoreLayout" opcode="Failure" level="win:Informational" keywords="Sidebar"/>
+     <event value="15" symbol="Sidebar_RestoreLayoutStop" version="0" task="Sidebar_RestoreLayout" opcode="win:Stop" level="win:Informational" keywords="Sidebar"/>
+     <event value="16" symbol="Sidebar_PartStarted" version="0" task="Sidebar_PartStarted" level="win:Informational" keywords="Sidebar" template="Sidebar_PartClosedStartArgs"/>
+     <event value="17" symbol="Sidebar_PartStarting" version="0" task="Sidebar_PartStarting" level="win:Informational" keywords="Sidebar"/>
+     <event value="18" symbol="Sidebar_PartUserResizeStart" version="0" task="Sidebar_PartUserResize" opcode="win:Start" level="win:Informational" keywords="Sidebar" template="Sidebar_PartClosedStartArgs"/>
+     <event value="19" symbol="Sidebar_PartUserResizeStop" version="0" task="Sidebar_PartUserResize" opcode="win:Stop" level="win:Informational" keywords="Sidebar" template="Sidebar_PartClosedStartArgs"/>
+     <event value="20" symbol="Sidebar_ProcessStarting" version="0" task="Sidebar_ProcessStarting" level="win:Informational" keywords="Sidebar"/>
+     <event value="21" symbol="Sidebar_DrawerClosed" version="0" task="Sidebar_DrawerClosed" level="win:Informational" keywords="Sidebar"/>
+     <event value="22" symbol="Sidebar_ShowTaskManStart" version="0" task="Sidebar_ShowTaskMan" opcode="win:Start" level="win:Informational" keywords="Sidebar"/>
+     <event value="23" symbol="Sidebar_ShowTaskManStop" version="0" task="Sidebar_ShowTaskMan" opcode="win:Stop" level="win:Informational" keywords="Sidebar" template="Sidebar_ShowDrawerDialogExistsArgs"/>
+     <event value="24" symbol="Sidebar_ShowTaskManDialogExists" version="0" task="Sidebar_ShowTaskMan" opcode="DialogExists" level="win:Informational" keywords="Sidebar" template="Sidebar_ShowDrawerDialogExistsArgs"/>
+     <event value="25" symbol="Sidebar_TaskManClosed" version="0" task="Sidebar_TaskManClosed" level="win:Informational" keywords="Sidebar"/>
+     <event value="26" symbol="Sidebar_MagneticEdgeAttach" version="0" task="Sidebar_MagneticEdgeAttach" level="win:Informational" keywords="Sidebar" template="Sidebar_MagneticEdgeAttachArgs"/>
+     <event value="27" symbol="Sidebar_MagneticEdgeDetach" version="0" task="Sidebar_MagneticEdgeDetach" level="win:Informational" keywords="Sidebar" template="Sidebar_MagneticEdgeAttachArgs"/>
+     <event value="28" symbol="Sidebar_SidebarStartup_FirstGadgetLoadedStart" version="0" task="Sidebar_SidebarStartup_FirstGadgetLoaded" opcode="win:Start" level="win:Informational" keywords="Sidebar"/>
+     <event value="29" symbol="Sidebar_SidebarStartup_FirstGadgetLoadedStop" version="0" task="Sidebar_SidebarStartup_FirstGadgetLoaded" opcode="win:Stop" level="win:Informational" keywords="Sidebar"/>
+    </events>
+    <templates>
+     <template tid="Sidebar_ShowDrawerDialogExistsArgs">
+      <data name="HWND" inType="win:UInt32"/>
+     </template>
+     <template tid="Sidebar_PartFocusedArgs">
+      <data name="ID" inType="win:UInt32"/>
+     </template>
+     <template tid="Sidebar_PartClosedStartArgs">
+      <data name="Name" inType="win:UnicodeString"/>
+      <data name="ID" inType="win:UInt32"/>
+      <data name="HWND" inType="win:UInt32"/>
+     </template>
+     <template tid="Sidebar_MagneticEdgeAttachArgs">
+      <data name="HWND" inType="win:UInt32"/>
+      <data name="EdgeType" inType="win:UInt32"/>
+      <data name="EdgeSide" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Sidebar" value="Sidebar"/>
+    <string id="task_Sidebar_ShowDrawer" value="Sidebar_ShowDrawer"/>
+    <string id="opcode_Sidebar_ShowDrawerDialogExists" value="DialogExists"/>
+    <string id="opcode_Sidebar_ShowDrawerAddMessageHandler" value="AddMessageHandler"/>
+    <string id="opcode_Sidebar_ShowDrawerShow" value="Show"/>
+    <string id="opcode_Sidebar_ShowDrawerFailure" value="Failure"/>
+    <string id="task_Sidebar_SidebarStartup" value="Sidebar_SidebarStartup"/>
+    <string id="task_Sidebar_ChangeSettings" value="Sidebar_ChangeSettings"/>
+    <string id="task_Sidebar_PartFocused" value="Sidebar_PartFocused"/>
+    <string id="task_Sidebar_PartClosed" value="Sidebar_PartClosed"/>
+    <string id="task_Sidebar_RestoreLayout" value="Sidebar_RestoreLayout"/>
+    <string id="opcode_Sidebar_RestoreLayoutFailure" value="Failure"/>
+    <string id="task_Sidebar_PartStarted" value="Sidebar_PartStarted"/>
+    <string id="task_Sidebar_PartStarting" value="Sidebar_PartStarting"/>
+    <string id="task_Sidebar_PartUserResize" value="Sidebar_PartUserResize"/>
+    <string id="task_Sidebar_ProcessStarting" value="Sidebar_ProcessStarting"/>
+    <string id="task_Sidebar_DrawerClosed" value="Sidebar_DrawerClosed"/>
+    <string id="task_Sidebar_ShowTaskMan" value="Sidebar_ShowTaskMan"/>
+    <string id="opcode_Sidebar_ShowTaskManDialogExists" value="DialogExists"/>
+    <string id="task_Sidebar_TaskManClosed" value="Sidebar_TaskManClosed"/>
+    <string id="task_Sidebar_MagneticEdgeAttach" value="Sidebar_MagneticEdgeAttach"/>
+    <string id="task_Sidebar_MagneticEdgeDetach" value="Sidebar_MagneticEdgeDetach"/>
+    <string id="task_Sidebar_SidebarStartup_FirstGadgetLoaded" value="Sidebar_SidebarStartup_FirstGadgetLoaded"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

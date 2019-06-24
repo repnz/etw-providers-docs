@@ -1,0 +1,1575 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-TCPIP" guid="{2f07e2ee-15db-40f1-90ef-9d7ba282188a}" resourceFileName="Microsoft-Windows-TCPIP" messageFileName="Microsoft-Windows-TCPIP" symbol="MicrosoftWindowsTCPIP" source="Xml" >
+    <keywords>
+     <keyword name="ut:TcpipEndpoint" message="$(string.keyword_ut:TcpipEndpoint)" mask="0x1"/>
+     <keyword name="ut:TcpipListener" message="$(string.keyword_ut:TcpipListener)" mask="0x2"/>
+     <keyword name="ut:TcpipTcb" message="$(string.keyword_ut:TcpipTcb)" mask="0x4"/>
+     <keyword name="ut:TcpipBind" message="$(string.keyword_ut:TcpipBind)" mask="0x8"/>
+     <keyword name="ut:TcpipInterface" message="$(string.keyword_ut:TcpipInterface)" mask="0x10"/>
+     <keyword name="ut:TcpipRoute" message="$(string.keyword_ut:TcpipRoute)" mask="0x20"/>
+     <keyword name="ut:TcpipCtcp" message="$(string.keyword_ut:TcpipCtcp)" mask="0x40"/>
+     <keyword name="ut:TcpipDiagnosis" message="$(string.keyword_ut:TcpipDiagnosis)" mask="0x80"/>
+     <keyword name="ut:SendPath" message="$(string.keyword_ut:SendPath)" mask="0x100000000"/>
+     <keyword name="ut:ReceivePath" message="$(string.keyword_ut:ReceivePath)" mask="0x200000000"/>
+     <keyword name="ut:ConnectPath" message="$(string.keyword_ut:ConnectPath)" mask="0x400000000"/>
+     <keyword name="ut:ClosePath" message="$(string.keyword_ut:ClosePath)" mask="0x800000000"/>
+     <keyword name="ut:Authentication" message="$(string.keyword_ut:Authentication)" mask="0x1000000000"/>
+     <keyword name="ut:Configuration" message="$(string.keyword_ut:Configuration)" mask="0x2000000000"/>
+     <keyword name="ut:Global" message="$(string.keyword_ut:Global)" mask="0x4000000000"/>
+     <keyword name="ut:Dropped" message="$(string.keyword_ut:Dropped)" mask="0x8000000000"/>
+     <keyword name="keyword_80000000000" message="$(string.keyword_keyword_80000000000)" mask="0x80000000000"/>
+     <keyword name="keyword_100000000000" message="$(string.keyword_keyword_100000000000)" mask="0x100000000000"/>
+    </keywords>
+    <tasks>
+     <task name="TcpEndpointCreation" message="$(string.task_TcpEndpointCreation)" value="1001"/>
+     <task name="TcpRequestConnect" message="$(string.task_TcpRequestConnect)" value="1002"/>
+     <task name="TcpInspectConnectComplete" message="$(string.task_TcpInspectConnectComplete)" value="1003"/>
+     <task name="TcpTcbSynSend" message="$(string.task_TcpTcbSynSend)" value="1004"/>
+     <task name="TcpBindEndpointResolutionFailure" message="$(string.task_TcpBindEndpointResolutionFailure)" value="1005"/>
+     <task name="TcpBindEndpointPortFailure" message="$(string.task_TcpBindEndpointPortFailure)" value="1006"/>
+     <task name="TcpBindEndpointInspectionFailure" message="$(string.task_TcpBindEndpointInspectionFailure)" value="1007"/>
+     <task name="TcpBindEndpointComplete" message="$(string.task_TcpBindEndpointComplete)" value="1008"/>
+     <task name="TcpCloseEndpoint" message="$(string.task_TcpCloseEndpoint)" value="1009"/>
+     <task name="TcpCreateEndpointAfFailure" message="$(string.task_TcpCreateEndpointAfFailure)" value="1010"/>
+     <task name="TcpCreateEndpointCompartmentFailure" message="$(string.task_TcpCreateEndpointCompartmentFailure)" value="1011"/>
+     <task name="TcpCreateEndpointInspectionFailure" message="$(string.task_TcpCreateEndpointInspectionFailure)" value="1012"/>
+     <task name="TcpCreateEndpointComplete" message="$(string.task_TcpCreateEndpointComplete)" value="1013"/>
+     <task name="TcpAccpetListenerRouteLookupFailure" message="$(string.task_TcpAccpetListenerRouteLookupFailure)" value="1014"/>
+     <task name="TcpAcceptListenerInsertionFailure" message="$(string.task_TcpAcceptListenerInsertionFailure)" value="1015"/>
+     <task name="TcpAcceptListenerRejected" message="$(string.task_TcpAcceptListenerRejected)" value="1016"/>
+     <task name="TcpAcceptListenerComplete" message="$(string.task_TcpAcceptListenerComplete)" value="1017"/>
+     <task name="TcpConnectTcbFailedAf" message="$(string.task_TcpConnectTcbFailedAf)" value="1018"/>
+     <task name="TcpConnectTcbFailedCompartment" message="$(string.task_TcpConnectTcbFailedCompartment)" value="1019"/>
+     <task name="TcpConnectTcbFailedInspect" message="$(string.task_TcpConnectTcbFailedInspect)" value="1020"/>
+     <task name="TcpConnectTcbFailedRoute" message="$(string.task_TcpConnectTcbFailedRoute)" value="1021"/>
+     <task name="TcpConnectTcbSkipRateLimit" message="$(string.task_TcpConnectTcbSkipRateLimit)" value="1022"/>
+     <task name="TcpConnectTcbPassRateLimit" message="$(string.task_TcpConnectTcbPassRateLimit)" value="1023"/>
+     <task name="TcpConnectTcbCheckRateLimit" message="$(string.task_TcpConnectTcbCheckRateLimit)" value="1024"/>
+     <task name="TcpSecurityRateLimit" message="$(string.task_TcpSecurityRateLimit)" value="1025"/>
+     <task name="TcpRateLimitPathRelease" message="$(string.task_TcpRateLimitPathRelease)" value="1026"/>
+     <task name="TcpConnectTcbRateLimitRelease" message="$(string.task_TcpConnectTcbRateLimitRelease)" value="1027"/>
+     <task name="TcpRateLimitPathCancel" message="$(string.task_TcpRateLimitPathCancel)" value="1028"/>
+     <task name="TcpConnectTcbCancel" message="$(string.task_TcpConnectTcbCancel)" value="1029"/>
+     <task name="TcpConnectTcbFailInsertion" message="$(string.task_TcpConnectTcbFailInsertion)" value="1030"/>
+     <task name="TcpConnectTcbProceeding" message="$(string.task_TcpConnectTcbProceeding)" value="1031"/>
+     <task name="TcpConnectTcbRateLimitCancel" message="$(string.task_TcpConnectTcbRateLimitCancel)" value="1032"/>
+     <task name="TcpConnectTcbComplete" message="$(string.task_TcpConnectTcbComplete)" value="1033"/>
+     <task name="TcpConnectTcbFailure" message="$(string.task_TcpConnectTcbFailure)" value="1034"/>
+     <task name="TcpConnectTcbFailInspectConnectComplete" message="$(string.task_TcpConnectTcbFailInspectConnectComplete)" value="1035"/>
+     <task name="TcpConnectTcbFailSessionState" message="$(string.task_TcpConnectTcbFailSessionState)" value="1036"/>
+     <task name="TcpConnectTcbFailDontFragment" message="$(string.task_TcpConnectTcbFailDontFragment)" value="1037"/>
+     <task name="TcpCloseTcbRequest" message="$(string.task_TcpCloseTcbRequest)" value="1038"/>
+     <task name="TcpAbortTcbRequest" message="$(string.task_TcpAbortTcbRequest)" value="1039"/>
+     <task name="TcpAbortTcbComplete" message="$(string.task_TcpAbortTcbComplete)" value="1040"/>
+     <task name="TcpDisconnectTcbInjectFailed" message="$(string.task_TcpDisconnectTcbInjectFailed)" value="1041"/>
+     <task name="TcpDisconnectTcbRequest" message="$(string.task_TcpDisconnectTcbRequest)" value="1042"/>
+     <task name="TcpDisconnectTcbComplete" message="$(string.task_TcpDisconnectTcbComplete)" value="1043"/>
+     <task name="TcpShutdownTcb" message="$(string.task_TcpShutdownTcb)" value="1044"/>
+     <task name="TcpConnectTcbTimeout" message="$(string.task_TcpConnectTcbTimeout)" value="1045"/>
+     <task name="TcpDisconnectTcbRtoTimeout" message="$(string.task_TcpDisconnectTcbRtoTimeout)" value="1046"/>
+     <task name="TcpDisconnectTcbKeepaliveTimeout" message="$(string.task_TcpDisconnectTcbKeepaliveTimeout)" value="1047"/>
+     <task name="TcpDisconnectTcbTimeout" message="$(string.task_TcpDisconnectTcbTimeout)" value="1048"/>
+     <task name="TcpConnectTcbEstatsFailed" message="$(string.task_TcpConnectTcbEstatsFailed)" value="1049"/>
+     <task name="TcpConnectFailedPortAcquire" message="$(string.task_TcpConnectFailedPortAcquire)" value="1050"/>
+     <task name="TcpTcbStateChange" message="$(string.task_TcpTcbStateChange)" value="1051"/>
+     <task name="TcpEndpointAcquirePortReservation" message="$(string.task_TcpEndpointAcquirePortReservation)" value="1052"/>
+     <task name="TcpEndpointFailedPortReservation" message="$(string.task_TcpEndpointFailedPortReservation)" value="1053"/>
+     <task name="TcpGlobalPortReservation" message="$(string.task_TcpGlobalPortReservation)" value="1054"/>
+     <task name="TcpGlobalSynAttackEntry" message="$(string.task_TcpGlobalSynAttackEntry)" value="1055"/>
+     <task name="TcpGlobalReassemblyLimitViolation" message="$(string.task_TcpGlobalReassemblyLimitViolation)" value="1056"/>
+     <task name="TcpGlobalConnectionRateLimitViolation" message="$(string.task_TcpGlobalConnectionRateLimitViolation)" value="1057"/>
+     <task name="TcpGlobalLandAttackSegmentDrop" message="$(string.task_TcpGlobalLandAttackSegmentDrop)" value="1058"/>
+     <task name="TcpGlobalIsbBeginThrottle" message="$(string.task_TcpGlobalIsbBeginThrottle)" value="1059"/>
+     <task name="TcpGlobalIsbEndThrottle" message="$(string.task_TcpGlobalIsbEndThrottle)" value="1060"/>
+     <task name="TcpGlobalAddInterface" message="$(string.task_TcpGlobalAddInterface)" value="1061"/>
+     <task name="TcpGlobalDeleteInterface" message="$(string.task_TcpGlobalDeleteInterface)" value="1062"/>
+     <task name="TcpGlobalSynAttackExit" message="$(string.task_TcpGlobalSynAttackExit)" value="1063"/>
+     <task name="TcpTcbStartTimer" message="$(string.task_TcpTcbStartTimer)" value="1064"/>
+     <task name="TcpTcbStopTimer" message="$(string.task_TcpTcbStopTimer)" value="1065"/>
+     <task name="TcpTcbExpireTimer" message="$(string.task_TcpTcbExpireTimer)" value="1066"/>
+     <task name="TcpTcbChangeIsb" message="$(string.task_TcpTcbChangeIsb)" value="1067"/>
+     <task name="TcpRssTableChange" message="$(string.task_TcpRssTableChange)" value="1068"/>
+     <task name="TcpDataTransferTimeout" message="$(string.task_TcpDataTransferTimeout)" value="1069"/>
+     <task name="TcpDataTransferRttSample" message="$(string.task_TcpDataTransferRttSample)" value="1070"/>
+     <task name="TcpDataTransferCumAck" message="$(string.task_TcpDataTransferCumAck)" value="1071"/>
+     <task name="TcpDataTransferDupAck" message="$(string.task_TcpDataTransferDupAck)" value="1072"/>
+     <task name="TcpDataTransferSend" message="$(string.task_TcpDataTransferSend)" value="1073"/>
+     <task name="TcpDataTransferReceive" message="$(string.task_TcpDataTransferReceive)" value="1074"/>
+     <task name="TcpDataTransferEcn" message="$(string.task_TcpDataTransferEcn)" value="1075"/>
+     <task name="TcpDataTransferSpuriousTimeout" message="$(string.task_TcpDataTransferSpuriousTimeout)" value="1076"/>
+     <task name="TcpDataTransferRetransmitRound" message="$(string.task_TcpDataTransferRetransmitRound)" value="1077"/>
+     <task name="TcpLossRecoveryEntry" message="$(string.task_TcpLossRecoveryEntry)" value="1078"/>
+     <task name="TcpLossRecoveryExit" message="$(string.task_TcpLossRecoveryExit)" value="1079"/>
+     <task name="TcpLossRecoverySackEntry" message="$(string.task_TcpLossRecoverySackEntry)" value="1080"/>
+     <task name="TcpLossRecoverySackExit" message="$(string.task_TcpLossRecoverySackExit)" value="1081"/>
+     <task name="TcpSlowStartToCongestionAvoidance" message="$(string.task_TcpSlowStartToCongestionAvoidance)" value="1082"/>
+     <task name="TcpBlackHoleDetectionEntry" message="$(string.task_TcpBlackHoleDetectionEntry)" value="1084"/>
+     <task name="TcpBlackHoleDetectionExit" message="$(string.task_TcpBlackHoleDetectionExit)" value="1085"/>
+     <task name="TcpBlackHoleDetectionFailed" message="$(string.task_TcpBlackHoleDetectionFailed)" value="1086"/>
+     <task name="TcpSpuriousRtoDetectionBegin" message="$(string.task_TcpSpuriousRtoDetectionBegin)" value="1087"/>
+     <task name="TcpSpuriousRtoDetectionEnd" message="$(string.task_TcpSpuriousRtoDetectionEnd)" value="1088"/>
+     <task name="TcpConnectTcbFailedActiveConnect" message="$(string.task_TcpConnectTcbFailedActiveConnect)" value="1089"/>
+     <task name="TcpReleaseIndication" message="$(string.task_TcpReleaseIndication)" value="1090"/>
+     <task name="TcpAppSendBufferSize" message="$(string.task_TcpAppSendBufferSize)" value="1091"/>
+     <task name="TcpAutoTuningBegin" message="$(string.task_TcpAutoTuningBegin)" value="1092"/>
+     <task name="TcpAutoTuningEnd" message="$(string.task_TcpAutoTuningEnd)" value="1093"/>
+     <task name="TcpAutoTuningFailedRttEstimation" message="$(string.task_TcpAutoTuningFailedRttEstimation)" value="1094"/>
+     <task name="TcpAutoTuningFailedBandwidthEstimation" message="$(string.task_TcpAutoTuningFailedBandwidthEstimation)" value="1095"/>
+     <task name="TcpAutoTuningFailedAllocationFailure" message="$(string.task_TcpAutoTuningFailedAllocationFailure)" value="1096"/>
+     <task name="TcpAutoTuningChangeRcvBufferSize" message="$(string.task_TcpAutoTuningChangeRcvBufferSize)" value="1097"/>
+     <task name="TcpRttResiliencyDetection" message="$(string.task_TcpRttResiliencyDetection)" value="1098"/>
+     <task name="TcpConnectionOffloadStateChange" message="$(string.task_TcpConnectionOffloadStateChange)" value="1099"/>
+     <task name="TcpSwsAvoidanceBegin" message="$(string.task_TcpSwsAvoidanceBegin)" value="1100"/>
+     <task name="TcpSwsAvoidanceEnd" message="$(string.task_TcpSwsAvoidanceEnd)" value="1101"/>
+     <task name="TcpZeroWindowProbingBegin" message="$(string.task_TcpZeroWindowProbingBegin)" value="1102"/>
+     <task name="TcpZeroWindowProbingEnd" message="$(string.task_TcpZeroWindowProbingEnd)" value="1103"/>
+     <task name="TcpSetTcpOption" message="$(string.task_TcpSetTcpOption)" value="1104"/>
+     <task name="TcpSetTcpSoOption" message="$(string.task_TcpSetTcpSoOption)" value="1105"/>
+     <task name="TcpMediaDisconnect" message="$(string.task_TcpMediaDisconnect)" value="1106"/>
+     <task name="TcpModuleStarted" message="$(string.task_TcpModuleStarted)" value="1107"/>
+     <task name="TcpModuleStopped" message="$(string.task_TcpModuleStopped)" value="1108"/>
+     <task name="TcpMemoryFailures" message="$(string.task_TcpMemoryFailures)" value="1109"/>
+     <task name="TcpGlobalParameters" message="$(string.task_TcpGlobalParameters)" value="1110"/>
+     <task name="TcpLso" message="$(string.task_TcpLso)" value="1111"/>
+     <task name="TcpConnectionOffloadStatus" message="$(string.task_TcpConnectionOffloadStatus)" value="1112"/>
+     <task name="TcpConnectionOffloadPmax" message="$(string.task_TcpConnectionOffloadPmax)" value="1113"/>
+     <task name="IpDadSuccessful" message="$(string.task_IpDadSuccessful)" value="1114"/>
+     <task name="IpDadFailed" message="$(string.task_IpDadFailed)" value="1115"/>
+     <task name="IpDadStarted" message="$(string.task_IpDadStarted)" value="1116"/>
+     <task name="TcpListenerActivationFailedAf" message="$(string.task_TcpListenerActivationFailedAf)" value="1117"/>
+     <task name="TcpListenerActivationFailedCompartment" message="$(string.task_TcpListenerActivationFailedCompartment)" value="1118"/>
+     <task name="TcpListenerActivationFailedInspection1" message="$(string.task_TcpListenerActivationFailedInspection1)" value="1119"/>
+     <task name="TcpListenerActivationFailedInspection2" message="$(string.task_TcpListenerActivationFailedInspection2)" value="1120"/>
+     <task name="TcpListenerBindFailedResolution" message="$(string.task_TcpListenerBindFailedResolution)" value="1121"/>
+     <task name="TcpListenerBindFailedPort" message="$(string.task_TcpListenerBindFailedPort)" value="1122"/>
+     <task name="TcpListenerActivated" message="$(string.task_TcpListenerActivated)" value="1123"/>
+     <task name="TcpListenerUnbound" message="$(string.task_TcpListenerUnbound)" value="1124"/>
+     <task name="IpAddressAdded" message="$(string.task_IpAddressAdded)" value="1127"/>
+     <task name="IpAddressDeleted" message="$(string.task_IpAddressDeleted)" value="1128"/>
+     <task name="FramingIfOperStatus" message="$(string.task_FramingIfOperStatus)" value="1130"/>
+     <task name="FramingNdisPause" message="$(string.task_FramingNdisPause)" value="1136"/>
+     <task name="FramingNdisRestart" message="$(string.task_FramingNdisRestart)" value="1137"/>
+     <task name="IpAddressStatePreferred" message="$(string.task_IpAddressStatePreferred)" value="1138"/>
+     <task name="IpAddressStateNonPreferred" message="$(string.task_IpAddressStateNonPreferred)" value="1139"/>
+     <task name="IpInterfacePropertyChange" message="$(string.task_IpInterfacePropertyChange)" value="1144"/>
+     <task name="IpRouteCreated" message="$(string.task_IpRouteCreated)" value="1145"/>
+     <task name="IpRouteDeleted" message="$(string.task_IpRouteDeleted)" value="1146"/>
+     <task name="IpRoutePropertyChange" message="$(string.task_IpRoutePropertyChange)" value="1147"/>
+     <task name="IpNeighborUnreachable" message="$(string.task_IpNeighborUnreachable)" value="1148"/>
+     <task name="IpNeighborReachable" message="$(string.task_IpNeighborReachable)" value="1149"/>
+     <task name="TcpCtcpDataTransferTimeout" message="$(string.task_TcpCtcpDataTransferTimeout)" value="1150"/>
+     <task name="TcpCtcpDataTransferCumAck" message="$(string.task_TcpCtcpDataTransferCumAck)" value="1151"/>
+     <task name="TcpCtcpDataTransferDupAck" message="$(string.task_TcpCtcpDataTransferDupAck)" value="1152"/>
+     <task name="TcpCtcpDataTransferSend" message="$(string.task_TcpCtcpDataTransferSend)" value="1153"/>
+     <task name="TcpCtcpDataTransferEcn" message="$(string.task_TcpCtcpDataTransferEcn)" value="1154"/>
+     <task name="TcpCtcpDataTransferSpuriousTimeout" message="$(string.task_TcpCtcpDataTransferSpuriousTimeout)" value="1155"/>
+     <task name="TcpReceiveRequest" message="$(string.task_TcpReceiveRequest)" value="1156"/>
+     <task name="TcpDeliveryIndicated" message="$(string.task_TcpDeliveryIndicated)" value="1157"/>
+     <task name="TcpDeliverySatisfied" message="$(string.task_TcpDeliverySatisfied)" value="1158"/>
+     <task name="TcpSendPosted" message="$(string.task_TcpSendPosted)" value="1159"/>
+     <task name="TcpSendTransmitted" message="$(string.task_TcpSendTransmitted)" value="1160"/>
+     <task name="TcpSendAdvance" message="$(string.task_TcpSendAdvance)" value="1161"/>
+     <task name="TcpCTcpDelayWndwInactive" message="$(string.task_TcpCTcpDelayWndwInactive)" value="1162"/>
+     <task name="TcpCTcpAssignedBlocks" message="$(string.task_TcpCTcpAssignedBlocks)" value="1163"/>
+     <task name="TcpCTcpCongestionWndw" message="$(string.task_TcpCTcpCongestionWndw)" value="1164"/>
+     <task name="TcpCTcpGamma" message="$(string.task_TcpCTcpGamma)" value="1165"/>
+     <task name="TcpSrttMeasurementStarted" message="$(string.task_TcpSrttMeasurementStarted)" value="1166"/>
+     <task name="TcpSrttMeasurementComplete" message="$(string.task_TcpSrttMeasurementComplete)" value="1167"/>
+     <task name="TcpSrttMeasurementCancelled" message="$(string.task_TcpSrttMeasurementCancelled)" value="1168"/>
+     <task name="UdpEndpointSendMessages" message="$(string.task_UdpEndpointSendMessages)" value="1169"/>
+     <task name="UdpEndpointReceiveMessages" message="$(string.task_UdpEndpointReceiveMessages)" value="1170"/>
+     <task name="TcpDeliveryFlush" message="$(string.task_TcpDeliveryFlush)" value="1171"/>
+     <task name="TcpTcbInjectRcvFailure" message="$(string.task_TcpTcbInjectRcvFailure)" value="1172"/>
+     <task name="TcpDeliveryInjectingData" message="$(string.task_TcpDeliveryInjectingData)" value="1173"/>
+     <task name="TcpTcbInjectFinFailure" message="$(string.task_TcpTcbInjectFinFailure)" value="1174"/>
+     <task name="TcpDeliveryAccept" message="$(string.task_TcpDeliveryAccept)" value="1175"/>
+     <task name="TcpDeliveryFin" message="$(string.task_TcpDeliveryFin)" value="1176"/>
+     <task name="TcpDeliveryPush" message="$(string.task_TcpDeliveryPush)" value="1178"/>
+     <task name="TcpTcbInjectFinComplete" message="$(string.task_TcpTcbInjectFinComplete)" value="1180"/>
+     <task name="TcpDeliveryCompleting" message="$(string.task_TcpDeliveryCompleting)" value="1181"/>
+     <task name="TcpInitiateSynRstValidation" message="$(string.task_TcpInitiateSynRstValidation)" value="1182"/>
+     <task name="TcpConnectTcbFailedRcvdRst" message="$(string.task_TcpConnectTcbFailedRcvdRst)" value="1183"/>
+     <task name="TcpConnectionTerminatedRcvdRst" message="$(string.task_TcpConnectionTerminatedRcvdRst)" value="1184"/>
+     <task name="TcpConnectionTerminatedRcvdSyn" message="$(string.task_TcpConnectionTerminatedRcvdSyn)" value="1185"/>
+     <task name="TcpConnectRestransmit" message="$(string.task_TcpConnectRestransmit)" value="1186"/>
+     <task name="TcpDataTransferRestransmit" message="$(string.task_TcpDataTransferRestransmit)" value="1187"/>
+     <task name="TcpConnectionKeepAlive" message="$(string.task_TcpConnectionKeepAlive)" value="1188"/>
+     <task name="TcpDeliveryStateChange" message="$(string.task_TcpDeliveryStateChange)" value="1189"/>
+     <task name="TcpDeliveryDataDropped" message="$(string.task_TcpDeliveryDataDropped)" value="1190"/>
+     <task name="TcpAcquirePort" message="$(string.task_TcpAcquirePort)" value="1191"/>
+     <task name="TcpAcquireWeakRefPort" message="$(string.task_TcpAcquireWeakRefPort)" value="1192"/>
+     <task name="TcpReleasePort" message="$(string.task_TcpReleasePort)" value="1193"/>
+     <task name="TcpReplacePort" message="$(string.task_TcpReplacePort)" value="1194"/>
+     <task name="TcpAssignedWeakReferencePort" message="$(string.task_TcpAssignedWeakReferencePort)" value="1195"/>
+     <task name="TcpBhDetectFullSizeAck" message="$(string.task_TcpBhDetectFullSizeAck)" value="1196"/>
+     <task name="TcpFlushSack" message="$(string.task_TcpFlushSack)" value="1197"/>
+     <task name="TcpReassemblyEntry" message="$(string.task_TcpReassemblyEntry)" value="1198"/>
+     <task name="TcpReassemblyExit" message="$(string.task_TcpReassemblyExit)" value="1199"/>
+     <task name="TcpDisconnectTcbZeroWindowTimeout" message="$(string.task_TcpDisconnectTcbZeroWindowTimeout)" value="1200"/>
+     <task name="TcpDisconnectTcbFinWait2Timeout" message="$(string.task_TcpDisconnectTcbFinWait2Timeout)" value="1201"/>
+     <task name="IpInterfaceRundown" message="$(string.task_IpInterfaceRundown)" value="1202"/>
+     <task name="IpInterfaceSpeedChange" message="$(string.task_IpInterfaceSpeedChange)" value="1203"/>
+     <task name="TcpReassemblyFlush" message="$(string.task_TcpReassemblyFlush)" value="1204"/>
+     <task name="TcpipReceiveSlowPath" message="$(string.task_TcpipReceiveSlowPath)" value="1205"/>
+     <task name="TcpipSendSlowPath" message="$(string.task_TcpipSendSlowPath)" value="1206"/>
+     <task name="TcpWsdInitializationErrors" message="$(string.task_TcpWsdInitializationErrors)" value="1207"/>
+     <task name="TcpWsdInitializationInformation" message="$(string.task_TcpWsdInitializationInformation)" value="1208"/>
+     <task name="TcpWsdWsRestrictedProfile" message="$(string.task_TcpWsdWsRestrictedProfile)" value="1209"/>
+     <task name="TcpWsdWsRestrictedDestination" message="$(string.task_TcpWsdWsRestrictedDestination)" value="1210"/>
+     <task name="TcpWsdCacheEntryStateChange" message="$(string.task_TcpWsdCacheEntryStateChange)" value="1211"/>
+     <task name="TcpWsdProfileStateChange" message="$(string.task_TcpWsdProfileStateChange)" value="1212"/>
+     <task name="TcpWsdStateChange" message="$(string.task_TcpWsdStateChange)" value="1213"/>
+     <task name="TcpipTransportPacketDrops" message="$(string.task_TcpipTransportPacketDrops)" value="1214"/>
+     <task name="TcpipNetworkPacketDrops" message="$(string.task_TcpipNetworkPacketDrops)" value="1215"/>
+     <task name="TcpMppNppEvaluation" message="$(string.task_TcpMppNppEvaluation)" value="1216"/>
+     <task name="TcpMppStartEpisode" message="$(string.task_TcpMppStartEpisode)" value="1217"/>
+     <task name="TcpMppStopEpisode" message="$(string.task_TcpMppStopEpisode)" value="1218"/>
+     <task name="TcpMppStartEpoch" message="$(string.task_TcpMppStartEpoch)" value="1219"/>
+     <task name="TcpMppStopEpoch" message="$(string.task_TcpMppStopEpoch)" value="1220"/>
+     <task name="TcpConnectionRundown" message="$(string.task_TcpConnectionRundown)" value="1300"/>
+    </tasks>
+    <maps>
+     <valueMap name="TCPIP_ADDRESS_FAMILY_TYPE_ValueMap">
+      <map value="0x2" message="$(string.map_TCPIP_ADDRESS_FAMILY_TYPE_ValueMapIPV4)"/>
+      <map value="0x17" message="$(string.map_TCPIP_ADDRESS_FAMILY_TYPE_ValueMapIPV6)"/>
+     </valueMap>
+     <valueMap name="TCP_CONNECTION_STATE_ValueMap">
+      <map value="0x0" message="$(string.map_TCP_CONNECTION_STATE_ValueMapClosedState)"/>
+      <map value="0x1" message="$(string.map_TCP_CONNECTION_STATE_ValueMapListenState)"/>
+      <map value="0x2" message="$(string.map_TCP_CONNECTION_STATE_ValueMapSynSentState)"/>
+      <map value="0x3" message="$(string.map_TCP_CONNECTION_STATE_ValueMapSynRcvdState)"/>
+      <map value="0x4" message="$(string.map_TCP_CONNECTION_STATE_ValueMapEstablishedState)"/>
+      <map value="0x5" message="$(string.map_TCP_CONNECTION_STATE_ValueMapFinWait1State)"/>
+      <map value="0x6" message="$(string.map_TCP_CONNECTION_STATE_ValueMapFinWait2State)"/>
+      <map value="0x7" message="$(string.map_TCP_CONNECTION_STATE_ValueMapCloseWaitState)"/>
+      <map value="0x8" message="$(string.map_TCP_CONNECTION_STATE_ValueMapClosingState)"/>
+      <map value="0x9" message="$(string.map_TCP_CONNECTION_STATE_ValueMapLastAckState)"/>
+      <map value="0xa" message="$(string.map_TCP_CONNECTION_STATE_ValueMapTimeWaitState)"/>
+     </valueMap>
+     <valueMap name="TCP_TIMER_TYPE_ValueMap">
+      <map value="0x0" message="$(string.map_TCP_TIMER_TYPE_ValueMapRetransmitTimer)"/>
+      <map value="0x1" message="$(string.map_TCP_TIMER_TYPE_ValueMapConnectTimer)"/>
+      <map value="0x2" message="$(string.map_TCP_TIMER_TYPE_ValueMapDelAckTimer)"/>
+      <map value="0x3" message="$(string.map_TCP_TIMER_TYPE_ValueMapPushTimer)"/>
+      <map value="0x4" message="$(string.map_TCP_TIMER_TYPE_ValueMapKeepAliveTimer)"/>
+      <map value="0x5" message="$(string.map_TCP_TIMER_TYPE_ValueMapDisconnectTimer)"/>
+      <map value="0x6" message="$(string.map_TCP_TIMER_TYPE_ValueMapSwsTimer)"/>
+      <map value="0x7" message="$(string.map_TCP_TIMER_TYPE_ValueMapReassemblyRateTimer)"/>
+      <map value="0x8" message="$(string.map_TCP_TIMER_TYPE_ValueMapSynOrRstValidationTimer)"/>
+     </valueMap>
+     <valueMap name="TCPIP_BOOLEAN_ValueMap">
+      <map value="0x0" message="$(string.map_TCPIP_BOOLEAN_ValueMapFALSE)"/>
+      <map value="0x1" message="$(string.map_TCPIP_BOOLEAN_ValueMapTRUE)"/>
+     </valueMap>
+     <valueMap name="TCP_CONNECTION_OFFLOAD_STATE_ValueMap">
+      <map value="0x0" message="$(string.map_TCP_CONNECTION_OFFLOAD_STATE_ValueMapTcpConnectionOffloadStateInHost)"/>
+      <map value="0x2" message="$(string.map_TCP_CONNECTION_OFFLOAD_STATE_ValueMapTcpConnectionOffloadStateOffloaded)"/>
+     </valueMap>
+     <valueMap name="TCP_OPTION_TYPE_ValueMap">
+      <map value="0x0" message="$(string.map_TCP_OPTION_TYPE_ValueMapTCP_OFFLOAD_NO_PREFERENCE)"/>
+      <map value="0x1" message="$(string.map_TCP_OPTION_TYPE_ValueMapTCP_OFFLOAD_NOT_PREFERRED)"/>
+      <map value="0x2" message="$(string.map_TCP_OPTION_TYPE_ValueMapTCP_OFFLOAD_PREFERRED)"/>
+      <map value="0x3" message="$(string.map_TCP_OPTION_TYPE_ValueMapTCP_KEEPALIVE)"/>
+      <map value="0x4" message="$(string.map_TCP_OPTION_TYPE_ValueMapTCP_MAXSEG)"/>
+      <map value="0x5" message="$(string.map_TCP_OPTION_TYPE_ValueMapTCP_MAXRT)"/>
+      <map value="0x6" message="$(string.map_TCP_OPTION_TYPE_ValueMapTCP_STDURG)"/>
+      <map value="0x7" message="$(string.map_TCP_OPTION_TYPE_ValueMapTCP_NOURG)"/>
+      <map value="0x8" message="$(string.map_TCP_OPTION_TYPE_ValueMapTCP_ATMARK)"/>
+      <map value="0x9" message="$(string.map_TCP_OPTION_TYPE_ValueMapTCP_NOSYNRETRIES)"/>
+      <map value="0xa" message="$(string.map_TCP_OPTION_TYPE_ValueMapTCP_TIMESTAMPS)"/>
+      <map value="0xb" message="$(string.map_TCP_OPTION_TYPE_ValueMapTCP_OFFLOAD_PREFERENCE)"/>
+      <map value="0xc" message="$(string.map_TCP_OPTION_TYPE_ValueMapTCP_CONGESTION_ALGORITHM)"/>
+      <map value="0xd" message="$(string.map_TCP_OPTION_TYPE_ValueMapTCP_DELAY_FIN_ACK)"/>
+     </valueMap>
+     <valueMap name="TCP_SO_OPTION_TYPE_ValueMap">
+      <map value="0x1" message="$(string.map_TCP_SO_OPTION_TYPE_ValueMapSO_DEBUG)"/>
+      <map value="0x2" message="$(string.map_TCP_SO_OPTION_TYPE_ValueMapSO_ACCEPTCONN)"/>
+      <map value="0x4" message="$(string.map_TCP_SO_OPTION_TYPE_ValueMapSO_REUSEADDR)"/>
+      <map value="0x8" message="$(string.map_TCP_SO_OPTION_TYPE_ValueMapSO_KEEPALIVE)"/>
+      <map value="0x10" message="$(string.map_TCP_SO_OPTION_TYPE_ValueMapSO_DONTROUTE)"/>
+      <map value="0x20" message="$(string.map_TCP_SO_OPTION_TYPE_ValueMapSO_BROADCAST)"/>
+      <map value="0x40" message="$(string.map_TCP_SO_OPTION_TYPE_ValueMapSO_USELOOPBACK)"/>
+      <map value="0x80" message="$(string.map_TCP_SO_OPTION_TYPE_ValueMapSO_LINGER)"/>
+      <map value="0x100" message="$(string.map_TCP_SO_OPTION_TYPE_ValueMapSO_OOBINLINE)"/>
+      <map value="0x1001" message="$(string.map_TCP_SO_OPTION_TYPE_ValueMapSO_SNDBUF)"/>
+      <map value="0x1002" message="$(string.map_TCP_SO_OPTION_TYPE_ValueMapSO_RCVBUF)"/>
+      <map value="0x3002" message="$(string.map_TCP_SO_OPTION_TYPE_ValueMapSO_CONDITIONAL_ACCEPT)"/>
+      <map value="0x3003" message="$(string.map_TCP_SO_OPTION_TYPE_ValueMapSO_PAUSE_ACCEPT)"/>
+      <map value="0x3004" message="$(string.map_TCP_SO_OPTION_TYPE_ValueMapSO_COMPARTMENT_ID)"/>
+      <map value="0x3005" message="$(string.map_TCP_SO_OPTION_TYPE_ValueMapSO_RANDOMIZE_PORT)"/>
+      <map value="0x3006" message="$(string.map_TCP_SO_OPTION_TYPE_ValueMapSO_PORT_SCALABILITY)"/>
+     </valueMap>
+     <valueMap name="TCPIP_IP_DAD_STATE_ValueMap">
+      <map value="0x0" message="$(string.map_TCPIP_IP_DAD_STATE_ValueMapNldsInvalid)"/>
+      <map value="0x1" message="$(string.map_TCPIP_IP_DAD_STATE_ValueMapNldsTentative)"/>
+      <map value="0x2" message="$(string.map_TCPIP_IP_DAD_STATE_ValueMapNldsDuplicate)"/>
+      <map value="0x3" message="$(string.map_TCPIP_IP_DAD_STATE_ValueMapNldsDeprecated)"/>
+     </valueMap>
+     <valueMap name="TCPIP_Protocol_ValueMap">
+      <map value="0x4" message="$(string.map_TCPIP_Protocol_ValueMap)"/>
+      <map value="0x6" message="$(string.map_TCPIP_Protocol_ValueMap(Ignore IPv4 address), IPv6 address =)"/>
+     </valueMap>
+     <valueMap name="TCPIP_IP_IF_STATUS_ValueMap">
+      <map value="0x1" message="$(string.map_TCPIP_IP_IF_STATUS_ValueMapOperational)"/>
+      <map value="0x2" message="$(string.map_TCPIP_IP_IF_STATUS_ValueMapUnoperational)"/>
+      <map value="0x4" message="$(string.map_TCPIP_IP_IF_STATUS_ValueMapUnknown)"/>
+      <map value="0x5" message="$(string.map_TCPIP_IP_IF_STATUS_ValueMapDormant)"/>
+     </valueMap>
+     <valueMap name="TCPIP_TCP_DELIVERY_STATE_ValueMap">
+      <map value="0x0" message="$(string.map_TCPIP_TCP_DELIVERY_STATE_ValueMapIndicate)"/>
+      <map value="0x1" message="$(string.map_TCPIP_TCP_DELIVERY_STATE_ValueMapPend)"/>
+      <map value="0x2" message="$(string.map_TCPIP_TCP_DELIVERY_STATE_ValueMapSatisfy)"/>
+     </valueMap>
+     <valueMap name="TCPIP_IP_PHYSICALMEDIUM_TYPE_ValueMap">
+      <map value="0x0" message="$(string.map_TCPIP_IP_PHYSICALMEDIUM_TYPE_ValueMapNdisPhysicalMediumUnspecified)"/>
+      <map value="0x1" message="$(string.map_TCPIP_IP_PHYSICALMEDIUM_TYPE_ValueMapNdisPhysicalMediumWirelessLan)"/>
+      <map value="0x2" message="$(string.map_TCPIP_IP_PHYSICALMEDIUM_TYPE_ValueMapNdisPhysicalMediumCableModem)"/>
+      <map value="0x3" message="$(string.map_TCPIP_IP_PHYSICALMEDIUM_TYPE_ValueMapNdisPhysicalMediumPhoneLine)"/>
+      <map value="0x5" message="$(string.map_TCPIP_IP_PHYSICALMEDIUM_TYPE_ValueMapNdisPhysicalMediumDSL)"/>
+      <map value="0x7" message="$(string.map_TCPIP_IP_PHYSICALMEDIUM_TYPE_ValueMapNdisPhysicalMedium1394)"/>
+      <map value="0x8" message="$(string.map_TCPIP_IP_PHYSICALMEDIUM_TYPE_ValueMapNdisPhysicalMediumWirelessWan)"/>
+      <map value="0x9" message="$(string.map_TCPIP_IP_PHYSICALMEDIUM_TYPE_ValueMapNdisPhysicalMediumNative802_11)"/>
+      <map value="0xa" message="$(string.map_TCPIP_IP_PHYSICALMEDIUM_TYPE_ValueMapNdisPhysicalMediumBluetooth)"/>
+      <map value="0xb" message="$(string.map_TCPIP_IP_PHYSICALMEDIUM_TYPE_ValueMapNdisPhysicalMediumInfiniband)"/>
+      <map value="0xc" message="$(string.map_TCPIP_IP_PHYSICALMEDIUM_TYPE_ValueMapNdisPhysicalMediumWiMax)"/>
+      <map value="0xe" message="$(string.map_TCPIP_IP_PHYSICALMEDIUM_TYPE_ValueMapNdisPhysicalMedium802_3)"/>
+      <map value="0xf" message="$(string.map_TCPIP_IP_PHYSICALMEDIUM_TYPE_ValueMapNdisPhysicalMedium802_5)"/>
+      <map value="0x10" message="$(string.map_TCPIP_IP_PHYSICALMEDIUM_TYPE_ValueMapNdisPhysicalMediumIrda)"/>
+      <map value="0x11" message="$(string.map_TCPIP_IP_PHYSICALMEDIUM_TYPE_ValueMapNdisPhysicalMediumWiredWAN)"/>
+     </valueMap>
+     <valueMap name="TCPIP_Transport_Protocol_ValueMap">
+      <map value="0x0" message="$(string.map_TCPIP_Transport_Protocol_ValueMapUnknown (Header corrupt / not parsed))"/>
+      <map value="0x1" message="$(string.map_TCPIP_Transport_Protocol_ValueMapICMP)"/>
+      <map value="0x2" message="$(string.map_TCPIP_Transport_Protocol_ValueMapIGMP)"/>
+      <map value="0x6" message="$(string.map_TCPIP_Transport_Protocol_ValueMapTCP)"/>
+      <map value="0x11" message="$(string.map_TCPIP_Transport_Protocol_ValueMapUDP)"/>
+      <map value="0x2b" message="$(string.map_TCPIP_Transport_Protocol_ValueMapROUTING)"/>
+      <map value="0x2c" message="$(string.map_TCPIP_Transport_Protocol_ValueMapFRAGMENT)"/>
+      <map value="0x2f" message="$(string.map_TCPIP_Transport_Protocol_ValueMapGRE)"/>
+      <map value="0x32" message="$(string.map_TCPIP_Transport_Protocol_ValueMapESP)"/>
+      <map value="0x33" message="$(string.map_TCPIP_Transport_Protocol_ValueMapAH)"/>
+      <map value="0x3a" message="$(string.map_TCPIP_Transport_Protocol_ValueMapICMPV6)"/>
+      <map value="0x100" message="$(string.map_TCPIP_Transport_Protocol_ValueMapUnknown)"/>
+     </valueMap>
+     <valueMap name="TCPIP_SLOW_PATH_REASON_ValueMap">
+      <map value="0x0" message="$(string.map_TCPIP_SLOW_PATH_REASON_ValueMapIP checksum offload not computed)"/>
+      <map value="0x1" message="$(string.map_TCPIP_SLOW_PATH_REASON_ValueMapTCP checksum offload not computed)"/>
+      <map value="0x2" message="$(string.map_TCPIP_SLOW_PATH_REASON_ValueMapUDP checksum offload not computed)"/>
+      <map value="0x3" message="$(string.map_TCPIP_SLOW_PATH_REASON_ValueMapHeader not aligned on 4-byte boundary)"/>
+      <map value="0x4" message="$(string.map_TCPIP_SLOW_PATH_REASON_ValueMapIP fragmentation)"/>
+      <map value="0x5" message="$(string.map_TCPIP_SLOW_PATH_REASON_ValueMapSource address is not unicast)"/>
+      <map value="0x6" message="$(string.map_TCPIP_SLOW_PATH_REASON_ValueMapDestination address is not unicast)"/>
+      <map value="0x7" message="$(string.map_TCPIP_SLOW_PATH_REASON_ValueMapEthernet and IP header not contiguous)"/>
+      <map value="0x8" message="$(string.map_TCPIP_SLOW_PATH_REASON_ValueMapIP options present)"/>
+      <map value="0x9" message="$(string.map_TCPIP_SLOW_PATH_REASON_ValueMapESP over UDP)"/>
+      <map value="0xa" message="$(string.map_TCPIP_SLOW_PATH_REASON_ValueMapLack contiguous space for upper layer headers)"/>
+      <map value="0xb" message="$(string.map_TCPIP_SLOW_PATH_REASON_ValueMapWFP filters present)"/>
+      <map value="0xc" message="$(string.map_TCPIP_SLOW_PATH_REASON_ValueMapNexthop is unavailable)"/>
+      <map value="0xd" message="$(string.map_TCPIP_SLOW_PATH_REASON_ValueMapPath has been invalidated due to policy change)"/>
+      <map value="0xe" message="$(string.map_TCPIP_SLOW_PATH_REASON_ValueMapDHCP assigned IP address' promiscuous count is non-zero)"/>
+      <map value="0xf" message="$(string.map_TCPIP_SLOW_PATH_REASON_ValueMapECN codepoint has not been negotiated for this traffic)"/>
+      <map value="0x10" message="$(string.map_TCPIP_SLOW_PATH_REASON_ValueMapSession state is not compatible)"/>
+      <map value="0x11" message="$(string.map_TCPIP_SLOW_PATH_REASON_ValueMapSession state is not compatible)"/>
+      <map value="0x12" message="$(string.map_TCPIP_SLOW_PATH_REASON_ValueMapSession state is not compatible)"/>
+      <map value="0x13" message="$(string.map_TCPIP_SLOW_PATH_REASON_ValueMapSession state is not compatible)"/>
+     </valueMap>
+     <valueMap name="TCP_WSD_ValueMap">
+      <map value="0x0" message="$(string.map_TCP_WSD_ValueMapFailed to allocate the WSD cache)"/>
+      <map value="0x1" message="$(string.map_TCP_WSD_ValueMapFailure initializing PnP work queue)"/>
+      <map value="0x2" message="$(string.map_TCP_WSD_ValueMapFailed to get persistent parameters)"/>
+      <map value="0x3" message="$(string.map_TCP_WSD_ValueMapRejected persistent parameters)"/>
+      <map value="0x4" message="$(string.map_TCP_WSD_ValueMapqualified profile)"/>
+      <map value="0x5" message="$(string.map_TCP_WSD_ValueMapqualified destination)"/>
+      <map value="0x6" message="$(string.map_TCP_WSD_ValueMapsample collection completion)"/>
+      <map value="0x7" message="$(string.map_TCP_WSD_ValueMapidle time expiration)"/>
+      <map value="0x8" message="$(string.map_TCP_WSD_ValueMapallocation)"/>
+      <map value="0x9" message="$(string.map_TCP_WSD_ValueMapnew sample request)"/>
+      <map value="0xa" message="$(string.map_TCP_WSD_ValueMapconfiguration change)"/>
+     </valueMap>
+     <valueMap name="TCP_WSD_CACHE_ENTRY_STATE_ValueMap">
+      <map value="0x0" message="$(string.map_TCP_WSD_CACHE_ENTRY_STATE_ValueMapIdle)"/>
+      <map value="0x1" message="$(string.map_TCP_WSD_CACHE_ENTRY_STATE_ValueMapProbingWs)"/>
+      <map value="0x2" message="$(string.map_TCP_WSD_CACHE_ENTRY_STATE_ValueMapProbeWait)"/>
+      <map value="0x3" message="$(string.map_TCP_WSD_CACHE_ENTRY_STATE_ValueMapProbingWithoutWs)"/>
+      <map value="0x4" message="$(string.map_TCP_WSD_CACHE_ENTRY_STATE_ValueMapRecordWait)"/>
+      <map value="0x5" message="$(string.map_TCP_WSD_CACHE_ENTRY_STATE_ValueMapEreQualified)"/>
+      <map value="0x6" message="$(string.map_TCP_WSD_CACHE_ENTRY_STATE_ValueMapQualified)"/>
+     </valueMap>
+     <valueMap name="TCPIP_TRANSPORT_PACKET_DROP_REASON_ValueMap">
+      <map value="0x1" message="$(string.map_TCPIP_TRANSPORT_PACKET_DROP_REASON_ValueMapDestination is multicast)"/>
+      <map value="0x2" message="$(string.map_TCPIP_TRANSPORT_PACKET_DROP_REASON_ValueMapHeader is invalid)"/>
+      <map value="0x3" message="$(string.map_TCPIP_TRANSPORT_PACKET_DROP_REASON_ValueMapChecksum is invalid)"/>
+      <map value="0x4" message="$(string.map_TCPIP_TRANSPORT_PACKET_DROP_REASON_ValueMapTransport endpoint was not found)"/>
+      <map value="0x5" message="$(string.map_TCPIP_TRANSPORT_PACKET_DROP_REASON_ValueMapConnected path error)"/>
+      <map value="0x6" message="$(string.map_TCPIP_TRANSPORT_PACKET_DROP_REASON_ValueMapSession state error)"/>
+     </valueMap>
+     <valueMap name="TCPIP_NETWORK_PACKET_DROP_REASON_ValueMap">
+      <map value="0x1" message="$(string.map_TCPIP_NETWORK_PACKET_DROP_REASON_ValueMapBad source address)"/>
+      <map value="0x2" message="$(string.map_TCPIP_NETWORK_PACKET_DROP_REASON_ValueMapNot locally destined)"/>
+      <map value="0x3" message="$(string.map_TCPIP_NETWORK_PACKET_DROP_REASON_ValueMapProtocol unreachable)"/>
+      <map value="0x4" message="$(string.map_TCPIP_NETWORK_PACKET_DROP_REASON_ValueMapPort unreachable)"/>
+      <map value="0x5" message="$(string.map_TCPIP_NETWORK_PACKET_DROP_REASON_ValueMapBad length)"/>
+      <map value="0x6" message="$(string.map_TCPIP_NETWORK_PACKET_DROP_REASON_ValueMapMalformed Header)"/>
+      <map value="0x7" message="$(string.map_TCPIP_NETWORK_PACKET_DROP_REASON_ValueMapNo route available)"/>
+      <map value="0x8" message="$(string.map_TCPIP_NETWORK_PACKET_DROP_REASON_ValueMapBeyond scope)"/>
+      <map value="0x9" message="$(string.map_TCPIP_NETWORK_PACKET_DROP_REASON_ValueMapInspection drop)"/>
+      <map value="0xa" message="$(string.map_TCPIP_NETWORK_PACKET_DROP_REASON_ValueMapToo many decapsulations)"/>
+      <map value="0xb" message="$(string.map_TCPIP_NETWORK_PACKET_DROP_REASON_ValueMapAdministratively prohibited)"/>
+      <map value="0x80" message="$(string.map_TCPIP_NETWORK_PACKET_DROP_REASON_ValueMapHop limit exceeded)"/>
+      <map value="0x81" message="$(string.map_TCPIP_NETWORK_PACKET_DROP_REASON_ValueMapAddress unreachable)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1001" symbol="TcpEndpointCreation" version="0" task="TcpEndpointCreation" level="win:Informational" keywords="keyword_80000000000" template="TcpEndpointCreationArgs"/>
+     <event value="1002" symbol="TcpRequestConnect" version="0" task="TcpRequestConnect" level="win:Informational" keywords="ut:TcpipDiagnosis ut:ConnectPath keyword_80000000000" template="TcpRequestConnectArgs"/>
+     <event value="1003" symbol="TcpInspectConnectComplete" version="0" task="TcpInspectConnectComplete" level="win:Informational" keywords="ut:TcpipDiagnosis ut:ConnectPath keyword_80000000000" template="TcpInspectConnectCompleteArgs"/>
+     <event value="1004" symbol="TcpTcbSynSend" version="0" task="TcpTcbSynSend" level="win:Informational" keywords="ut:TcpipDiagnosis ut:SendPath ut:ConnectPath" template="TcpTcbSynSendArgs"/>
+     <event value="1005" symbol="TcpBindEndpointResolutionFailure" version="0" task="TcpBindEndpointResolutionFailure" level="win:Informational" keywords="ut:TcpipEndpoint ut:TcpipBind keyword_80000000000" template="TcpBindEndpointResolutionFailureArgs"/>
+     <event value="1006" symbol="TcpBindEndpointPortFailure" version="0" task="TcpBindEndpointPortFailure" level="win:Informational" keywords="ut:TcpipEndpoint ut:TcpipBind keyword_80000000000" template="TcpBindEndpointResolutionFailureArgs"/>
+     <event value="1007" symbol="TcpBindEndpointInspectionFailure" version="0" task="TcpBindEndpointInspectionFailure" level="win:Informational" keywords="ut:TcpipEndpoint ut:TcpipBind keyword_80000000000" template="TcpBindEndpointResolutionFailureArgs"/>
+     <event value="1008" symbol="TcpBindEndpointComplete" version="0" task="TcpBindEndpointComplete" level="win:Informational" keywords="ut:TcpipEndpoint ut:TcpipBind keyword_80000000000" template="TcpBindEndpointResolutionFailureArgs"/>
+     <event value="1009" symbol="TcpCloseEndpoint" version="0" task="TcpCloseEndpoint" level="win:Informational" keywords="ut:TcpipEndpoint ut:ClosePath keyword_80000000000" template="TcpBindEndpointResolutionFailureArgs"/>
+     <event value="1010" symbol="TcpCreateEndpointAfFailure" version="0" task="TcpCreateEndpointAfFailure" level="win:Informational" keywords="ut:TcpipEndpoint keyword_80000000000" template="TcpCreateEndpointAfFailureArgs"/>
+     <event value="1011" symbol="TcpCreateEndpointCompartmentFailure" version="0" task="TcpCreateEndpointCompartmentFailure" level="win:Informational" keywords="ut:TcpipEndpoint keyword_80000000000" template="TcpCreateEndpointAfFailureArgs"/>
+     <event value="1012" symbol="TcpCreateEndpointInspectionFailure" version="0" task="TcpCreateEndpointInspectionFailure" level="win:Informational" keywords="ut:TcpipEndpoint keyword_80000000000" template="TcpCreateEndpointAfFailureArgs"/>
+     <event value="1013" symbol="TcpCreateEndpointComplete" version="0" task="TcpCreateEndpointComplete" level="win:Informational" keywords="ut:TcpipEndpoint keyword_80000000000" template="TcpCreateEndpointAfFailureArgs"/>
+     <event value="1014" symbol="TcpAccpetListenerRouteLookupFailure" version="0" task="TcpAccpetListenerRouteLookupFailure" level="win:Informational" keywords="ut:TcpipListener ut:TcpipTcb ut:TcpipDiagnosis ut:ConnectPath keyword_80000000000" template="TcpAccpetListenerRouteLookupFailureArgs"/>
+     <event value="1015" symbol="TcpAcceptListenerInsertionFailure" version="0" task="TcpAcceptListenerInsertionFailure" level="win:Informational" keywords="ut:TcpipListener ut:TcpipTcb ut:TcpipDiagnosis ut:ConnectPath keyword_80000000000" template="TcpAcceptListenerInsertionFailureArgs"/>
+     <event value="1016" symbol="TcpAcceptListenerRejected" version="0" task="TcpAcceptListenerRejected" level="win:Informational" keywords="ut:TcpipListener ut:TcpipTcb ut:TcpipDiagnosis ut:ConnectPath keyword_80000000000" template="TcpAccpetListenerRouteLookupFailureArgs"/>
+     <event value="1017" symbol="TcpAcceptListenerComplete" version="0" task="TcpAcceptListenerComplete" level="win:Informational" keywords="ut:TcpipListener ut:TcpipTcb ut:TcpipDiagnosis ut:ConnectPath keyword_80000000000" template="TcpAccpetListenerRouteLookupFailureArgs"/>
+     <event value="1018" symbol="TcpConnectTcbFailedAf" version="0" task="TcpConnectTcbFailedAf" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ConnectPath keyword_80000000000" template="TcpAccpetListenerRouteLookupFailureArgs"/>
+     <event value="1019" symbol="TcpConnectTcbFailedCompartment" version="0" task="TcpConnectTcbFailedCompartment" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ConnectPath keyword_80000000000" template="TcpAccpetListenerRouteLookupFailureArgs"/>
+     <event value="1020" symbol="TcpConnectTcbFailedInspect" version="0" task="TcpConnectTcbFailedInspect" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ConnectPath keyword_80000000000" template="TcpAccpetListenerRouteLookupFailureArgs"/>
+     <event value="1021" symbol="TcpConnectTcbFailedRoute" version="0" task="TcpConnectTcbFailedRoute" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ConnectPath keyword_80000000000" template="TcpAccpetListenerRouteLookupFailureArgs"/>
+     <event value="1022" symbol="TcpConnectTcbSkipRateLimit" version="0" task="TcpConnectTcbSkipRateLimit" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ConnectPath keyword_80000000000" template="TcpConnectTcbSkipRateLimitArgs"/>
+     <event value="1023" symbol="TcpConnectTcbPassRateLimit" version="0" task="TcpConnectTcbPassRateLimit" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ConnectPath keyword_80000000000" template="TcpConnectTcbSkipRateLimitArgs"/>
+     <event value="1024" symbol="TcpConnectTcbCheckRateLimit" version="0" task="TcpConnectTcbCheckRateLimit" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ConnectPath keyword_80000000000" template="TcpAccpetListenerRouteLookupFailureArgs"/>
+     <event value="1025" symbol="TcpSecurityRateLimit" version="0" task="TcpSecurityRateLimit" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ConnectPath keyword_80000000000" template="TcpSecurityRateLimitArgs"/>
+     <event value="1026" symbol="TcpRateLimitPathRelease" version="0" task="TcpRateLimitPathRelease" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ConnectPath keyword_80000000000" template="TcpConnectTcbSkipRateLimitArgs"/>
+     <event value="1027" symbol="TcpConnectTcbRateLimitRelease" version="0" task="TcpConnectTcbRateLimitRelease" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ConnectPath keyword_80000000000" template="TcpAccpetListenerRouteLookupFailureArgs"/>
+     <event value="1028" symbol="TcpRateLimitPathCancel" version="0" task="TcpRateLimitPathCancel" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ConnectPath keyword_80000000000" template="TcpConnectTcbSkipRateLimitArgs"/>
+     <event value="1029" symbol="TcpConnectTcbCancel" version="0" task="TcpConnectTcbCancel" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ConnectPath keyword_80000000000" template="TcpAccpetListenerRouteLookupFailureArgs"/>
+     <event value="1030" symbol="TcpConnectTcbFailInsertion" version="0" task="TcpConnectTcbFailInsertion" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ConnectPath keyword_80000000000" template="TcpAcceptListenerInsertionFailureArgs"/>
+     <event value="1031" symbol="TcpConnectTcbProceeding" version="0" task="TcpConnectTcbProceeding" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ConnectPath keyword_80000000000" template="TcpAccpetListenerRouteLookupFailureArgs"/>
+     <event value="1032" symbol="TcpConnectTcbRateLimitCancel" version="0" task="TcpConnectTcbRateLimitCancel" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ConnectPath keyword_80000000000" template="TcpAccpetListenerRouteLookupFailureArgs"/>
+     <event value="1033" symbol="TcpConnectTcbComplete" version="0" task="TcpConnectTcbComplete" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ConnectPath keyword_80000000000" template="TcpAccpetListenerRouteLookupFailureArgs"/>
+     <event value="1034" symbol="TcpConnectTcbFailure" version="0" task="TcpConnectTcbFailure" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ConnectPath keyword_80000000000" template="TcpAccpetListenerRouteLookupFailureArgs"/>
+     <event value="1035" symbol="TcpConnectTcbFailInspectConnectComplete" version="0" task="TcpConnectTcbFailInspectConnectComplete" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ConnectPath keyword_80000000000" template="TcpAccpetListenerRouteLookupFailureArgs"/>
+     <event value="1036" symbol="TcpConnectTcbFailSessionState" version="0" task="TcpConnectTcbFailSessionState" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ConnectPath keyword_80000000000" template="TcpAccpetListenerRouteLookupFailureArgs"/>
+     <event value="1037" symbol="TcpConnectTcbFailDontFragment" version="0" task="TcpConnectTcbFailDontFragment" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ConnectPath keyword_80000000000" template="TcpAccpetListenerRouteLookupFailureArgs"/>
+     <event value="1038" symbol="TcpCloseTcbRequest" version="0" task="TcpCloseTcbRequest" level="win:Informational" keywords="ut:TcpipTcb ut:ClosePath keyword_80000000000" template="TcpAccpetListenerRouteLookupFailureArgs"/>
+     <event value="1039" symbol="TcpAbortTcbRequest" version="0" task="TcpAbortTcbRequest" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ClosePath keyword_80000000000" template="TcpAccpetListenerRouteLookupFailureArgs"/>
+     <event value="1040" symbol="TcpAbortTcbComplete" version="0" task="TcpAbortTcbComplete" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ClosePath keyword_80000000000" template="TcpAccpetListenerRouteLookupFailureArgs"/>
+     <event value="1041" symbol="TcpDisconnectTcbInjectFailed" version="0" task="TcpDisconnectTcbInjectFailed" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ClosePath keyword_80000000000" template="TcpDisconnectTcbInjectFailedArgs"/>
+     <event value="1042" symbol="TcpDisconnectTcbRequest" version="0" task="TcpDisconnectTcbRequest" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ClosePath keyword_80000000000" template="TcpDisconnectTcbRequestArgs"/>
+     <event value="1043" symbol="TcpDisconnectTcbComplete" version="0" task="TcpDisconnectTcbComplete" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ClosePath keyword_80000000000" template="TcpAccpetListenerRouteLookupFailureArgs"/>
+     <event value="1044" symbol="TcpShutdownTcb" version="0" task="TcpShutdownTcb" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ClosePath keyword_80000000000" template="TcpAccpetListenerRouteLookupFailureArgs"/>
+     <event value="1045" symbol="TcpConnectTcbTimeout" version="0" task="TcpConnectTcbTimeout" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ClosePath keyword_80000000000" template="TcpAccpetListenerRouteLookupFailureArgs"/>
+     <event value="1046" symbol="TcpDisconnectTcbRtoTimeout" version="0" task="TcpDisconnectTcbRtoTimeout" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ClosePath keyword_80000000000" template="TcpAccpetListenerRouteLookupFailureArgs"/>
+     <event value="1047" symbol="TcpDisconnectTcbKeepaliveTimeout" version="0" task="TcpDisconnectTcbKeepaliveTimeout" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ClosePath keyword_80000000000" template="TcpAccpetListenerRouteLookupFailureArgs"/>
+     <event value="1048" symbol="TcpDisconnectTcbTimeout" version="0" task="TcpDisconnectTcbTimeout" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ClosePath keyword_80000000000" template="TcpAccpetListenerRouteLookupFailureArgs"/>
+     <event value="1049" symbol="TcpConnectTcbEstatsFailed" version="0" task="TcpConnectTcbEstatsFailed" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ConnectPath keyword_80000000000" template="TcpAccpetListenerRouteLookupFailureArgs"/>
+     <event value="1050" symbol="TcpConnectFailedPortAcquire" version="0" task="TcpConnectFailedPortAcquire" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ConnectPath keyword_80000000000" template="TcpAccpetListenerRouteLookupFailureArgs"/>
+     <event value="1051" symbol="TcpTcbStateChange" version="0" task="TcpTcbStateChange" level="win:Informational" keywords="ut:TcpipTcb keyword_80000000000" template="TcpTcbStateChangeArgs"/>
+     <event value="1052" symbol="TcpEndpointAcquirePortReservation" version="0" task="TcpEndpointAcquirePortReservation" level="win:Informational" keywords="ut:TcpipEndpoint ut:TcpipBind keyword_80000000000" template="TcpEndpointAcquirePortReservationArgs"/>
+     <event value="1053" symbol="TcpEndpointFailedPortReservation" version="0" task="TcpEndpointFailedPortReservation" level="win:Informational" keywords="ut:TcpipEndpoint ut:TcpipBind keyword_80000000000" template="TcpEndpointAcquirePortReservationArgs"/>
+     <event value="1054" symbol="TcpGlobalPortReservation" version="0" task="TcpGlobalPortReservation" level="win:Informational" keywords="ut:TcpipDiagnosis ut:Global" template="TcpEndpointAcquirePortReservationArgs"/>
+     <event value="1055" symbol="TcpGlobalSynAttackEntry" version="0" task="TcpGlobalSynAttackEntry" level="win:Warning" keywords="ut:TcpipDiagnosis ut:Global" template="TcpSecurityRateLimitArgs"/>
+     <event value="1056" symbol="TcpGlobalReassemblyLimitViolation" version="0" task="TcpGlobalReassemblyLimitViolation" level="win:Warning" keywords="ut:TcpipDiagnosis ut:Global" template="TcpSecurityRateLimitArgs"/>
+     <event value="1057" symbol="TcpGlobalConnectionRateLimitViolation" version="0" task="TcpGlobalConnectionRateLimitViolation" level="win:Warning" keywords="ut:TcpipDiagnosis ut:Global" template="TcpSecurityRateLimitArgs"/>
+     <event value="1058" symbol="TcpGlobalLandAttackSegmentDrop" version="0" task="TcpGlobalLandAttackSegmentDrop" level="win:Warning" keywords="ut:TcpipDiagnosis ut:Global" template="TcpSecurityRateLimitArgs"/>
+     <event value="1059" symbol="TcpGlobalIsbBeginThrottle" version="0" task="TcpGlobalIsbBeginThrottle" level="win:Warning" keywords="ut:TcpipDiagnosis ut:Global" template="TcpGlobalIsbBeginThrottleArgs"/>
+     <event value="1060" symbol="TcpGlobalIsbEndThrottle" version="0" task="TcpGlobalIsbEndThrottle" level="win:Informational" keywords="ut:TcpipDiagnosis ut:Global" template="TcpGlobalIsbBeginThrottleArgs"/>
+     <event value="1061" symbol="TcpGlobalAddInterface" version="0" task="TcpGlobalAddInterface" level="win:Informational" keywords="ut:TcpipInterface ut:Global" template="TcpGlobalAddInterfaceArgs"/>
+     <event value="1062" symbol="TcpGlobalDeleteInterface" version="0" task="TcpGlobalDeleteInterface" level="win:Informational" keywords="ut:TcpipInterface ut:Global" template="TcpGlobalAddInterfaceArgs"/>
+     <event value="1063" symbol="TcpGlobalSynAttackExit" version="0" task="TcpGlobalSynAttackExit" level="win:Informational" keywords="ut:TcpipDiagnosis ut:Global" template="TcpSecurityRateLimitArgs"/>
+     <event value="1064" symbol="TcpTcbStartTimer" version="0" task="TcpTcbStartTimer" level="win:Verbose" keywords="ut:TcpipTcb keyword_80000000000" template="TcpTcbStartTimerArgs"/>
+     <event value="1065" symbol="TcpTcbStopTimer" version="0" task="TcpTcbStopTimer" level="win:Verbose" keywords="ut:TcpipTcb keyword_80000000000" template="TcpTcbStopTimerArgs"/>
+     <event value="1066" symbol="TcpTcbExpireTimer" version="0" task="TcpTcbExpireTimer" level="win:Verbose" keywords="ut:TcpipTcb keyword_80000000000" template="TcpTcbStopTimerArgs"/>
+     <event value="1067" symbol="TcpTcbChangeIsb" version="0" task="TcpTcbChangeIsb" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis keyword_80000000000" template="TcpTcbChangeIsbArgs"/>
+     <event value="1068" symbol="TcpRssTableChange" version="0" task="TcpRssTableChange" level="win:Informational" keywords="ut:TcpipDiagnosis ut:Global" template="TcpRssTableChangeArgs"/>
+     <event value="1069" symbol="TcpDataTransferTimeout" version="0" task="TcpDataTransferTimeout" level="win:Verbose" keywords="ut:TcpipDiagnosis ut:SendPath" template="TcpDataTransferTimeoutArgs"/>
+     <event value="1070" symbol="TcpDataTransferRttSample" version="0" task="TcpDataTransferRttSample" level="win:Verbose" keywords="ut:SendPath" template="TcpDataTransferTimeoutArgs"/>
+     <event value="1071" symbol="TcpDataTransferCumAck" version="0" task="TcpDataTransferCumAck" level="win:Informational" keywords="ut:SendPath" template="TcpDataTransferTimeoutArgs"/>
+     <event value="1072" symbol="TcpDataTransferDupAck" version="0" task="TcpDataTransferDupAck" level="win:Informational" keywords="ut:ReceivePath" template="TcpDataTransferTimeoutArgs"/>
+     <event value="1073" symbol="TcpDataTransferSend" version="0" task="TcpDataTransferSend" level="win:Informational" keywords="ut:SendPath" template="TcpDataTransferTimeoutArgs"/>
+     <event value="1074" symbol="TcpDataTransferReceive" version="0" task="TcpDataTransferReceive" level="win:Informational" keywords="ut:ReceivePath" template="TcpDataTransferReceiveArgs"/>
+     <event value="1075" symbol="TcpDataTransferEcn" version="0" task="TcpDataTransferEcn" level="win:Informational" keywords="ut:ReceivePath" template="TcpDataTransferEcnArgs"/>
+     <event value="1076" symbol="TcpDataTransferSpuriousTimeout" version="0" task="TcpDataTransferSpuriousTimeout" level="win:Informational" keywords="ut:TcpipDiagnosis ut:SendPath" template="TcpDataTransferTimeoutArgs"/>
+     <event value="1077" symbol="TcpDataTransferRetransmitRound" version="0" task="TcpDataTransferRetransmitRound" level="win:Informational" keywords="ut:TcpipDiagnosis ut:SendPath" template="TcpDataTransferTimeoutArgs"/>
+     <event value="1078" symbol="TcpLossRecoveryEntry" version="0" task="TcpLossRecoveryEntry" level="win:Informational" keywords="ut:TcpipDiagnosis ut:ReceivePath" template="TcpLossRecoveryEntryArgs"/>
+     <event value="1079" symbol="TcpLossRecoveryExit" version="0" task="TcpLossRecoveryExit" level="win:Informational" keywords="ut:TcpipDiagnosis ut:ReceivePath" template="TcpLossRecoveryEntryArgs"/>
+     <event value="1080" symbol="TcpLossRecoverySackEntry" version="0" task="TcpLossRecoverySackEntry" level="win:Informational" keywords="ut:TcpipDiagnosis ut:ReceivePath" template="TcpLossRecoverySackEntryArgs"/>
+     <event value="1081" symbol="TcpLossRecoverySackExit" version="0" task="TcpLossRecoverySackExit" level="win:Informational" keywords="ut:TcpipDiagnosis ut:ReceivePath" template="TcpLossRecoverySackExitArgs"/>
+     <event value="1082" symbol="TcpSlowStartToCongestionAvoidance" version="0" task="TcpSlowStartToCongestionAvoidance" level="win:Informational" keywords="ut:TcpipDiagnosis ut:ReceivePath" template="TcpDataTransferTimeoutArgs"/>
+     <event value="1084" symbol="TcpBlackHoleDetectionEntry" version="0" task="TcpBlackHoleDetectionEntry" level="win:Informational" keywords="ut:TcpipDiagnosis ut:Global" template="TcpBlackHoleDetectionEntryArgs"/>
+     <event value="1085" symbol="TcpBlackHoleDetectionExit" version="0" task="TcpBlackHoleDetectionExit" level="win:Informational" keywords="ut:TcpipDiagnosis ut:Global" template="TcpBlackHoleDetectionEntryArgs"/>
+     <event value="1086" symbol="TcpBlackHoleDetectionFailed" version="0" task="TcpBlackHoleDetectionFailed" level="win:Informational" keywords="ut:TcpipDiagnosis ut:Global" template="TcpBlackHoleDetectionEntryArgs"/>
+     <event value="1087" symbol="TcpSpuriousRtoDetectionBegin" version="0" task="TcpSpuriousRtoDetectionBegin" level="win:Informational" keywords="ut:TcpipDiagnosis ut:SendPath" template="TcpDataTransferTimeoutArgs"/>
+     <event value="1088" symbol="TcpSpuriousRtoDetectionEnd" version="0" task="TcpSpuriousRtoDetectionEnd" level="win:Informational" keywords="ut:TcpipDiagnosis ut:SendPath" template="TcpDataTransferTimeoutArgs"/>
+     <event value="1089" symbol="TcpConnectTcbFailedActiveConnect" version="0" task="TcpConnectTcbFailedActiveConnect" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ConnectPath keyword_80000000000" template="TcpInspectConnectCompleteArgs"/>
+     <event value="1090" symbol="TcpReleaseIndication" version="0" task="TcpReleaseIndication" level="win:Verbose" keywords="ut:ReceivePath" template="TcpReleaseIndicationArgs"/>
+     <event value="1091" symbol="TcpAppSendBufferSize" version="0" task="TcpAppSendBufferSize" level="win:Informational" keywords="ut:SendPath" template="TcpDataTransferTimeoutArgs"/>
+     <event value="1092" symbol="TcpAutoTuningBegin" version="0" task="TcpAutoTuningBegin" level="win:Verbose" keywords="ut:ReceivePath" template="TcpAutoTuningBeginArgs"/>
+     <event value="1093" symbol="TcpAutoTuningEnd" version="0" task="TcpAutoTuningEnd" level="win:Verbose" keywords="ut:ReceivePath" template="TcpAutoTuningBeginArgs"/>
+     <event value="1094" symbol="TcpAutoTuningFailedRttEstimation" version="0" task="TcpAutoTuningFailedRttEstimation" level="win:Informational" keywords="ut:TcpipDiagnosis ut:ReceivePath" template="TcpAutoTuningBeginArgs"/>
+     <event value="1095" symbol="TcpAutoTuningFailedBandwidthEstimation" version="0" task="TcpAutoTuningFailedBandwidthEstimation" level="win:Informational" keywords="ut:TcpipDiagnosis ut:ReceivePath" template="TcpAutoTuningBeginArgs"/>
+     <event value="1096" symbol="TcpAutoTuningFailedAllocationFailure" version="0" task="TcpAutoTuningFailedAllocationFailure" level="win:Informational" keywords="ut:TcpipDiagnosis ut:ReceivePath" template="TcpAutoTuningBeginArgs"/>
+     <event value="1097" symbol="TcpAutoTuningChangeRcvBufferSize" version="0" task="TcpAutoTuningChangeRcvBufferSize" level="win:Informational" keywords="ut:ReceivePath" template="TcpAutoTuningBeginArgs"/>
+     <event value="1098" symbol="TcpRttResiliencyDetection" version="0" task="TcpRttResiliencyDetection" level="win:Informational" keywords="ut:Global" template="TcpDataTransferTimeoutArgs"/>
+     <event value="1099" symbol="TcpConnectionOffloadStateChange" version="0" task="TcpConnectionOffloadStateChange" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis keyword_80000000000" template="TcpConnectionOffloadStateChangeArgs"/>
+     <event value="1100" symbol="TcpSwsAvoidanceBegin" version="0" task="TcpSwsAvoidanceBegin" level="win:Informational" keywords="ut:TcpipDiagnosis ut:SendPath" template="TcpSwsAvoidanceBeginArgs"/>
+     <event value="1101" symbol="TcpSwsAvoidanceEnd" version="0" task="TcpSwsAvoidanceEnd" level="win:Verbose" keywords="ut:TcpipDiagnosis ut:SendPath" template="TcpSwsAvoidanceBeginArgs"/>
+     <event value="1102" symbol="TcpZeroWindowProbingBegin" version="0" task="TcpZeroWindowProbingBegin" level="win:Informational" keywords="ut:TcpipDiagnosis ut:SendPath" template="TcpLossRecoveryEntryArgs"/>
+     <event value="1103" symbol="TcpZeroWindowProbingEnd" version="0" task="TcpZeroWindowProbingEnd" level="win:Informational" keywords="ut:TcpipDiagnosis ut:SendPath" template="TcpLossRecoveryEntryArgs"/>
+     <event value="1104" symbol="TcpSetTcpOption" version="0" task="TcpSetTcpOption" level="win:Informational" keywords="ut:TcpipTcb ut:Configuration keyword_80000000000" template="TcpSetTcpOptionArgs"/>
+     <event value="1105" symbol="TcpSetTcpSoOption" version="0" task="TcpSetTcpSoOption" level="win:Informational" keywords="ut:TcpipTcb ut:Configuration keyword_80000000000" template="TcpSetTcpSoOptionArgs"/>
+     <event value="1106" symbol="TcpMediaDisconnect" version="0" task="TcpMediaDisconnect" level="win:Informational" keywords="ut:TcpipInterface ut:TcpipDiagnosis ut:Global" template="TcpMediaDisconnectArgs"/>
+     <event value="1107" symbol="TcpModuleStarted" version="0" task="TcpModuleStarted" level="win:Informational" keywords="ut:Global" template="TcpModuleStartedArgs"/>
+     <event value="1108" symbol="TcpModuleStopped" version="0" task="TcpModuleStopped" level="win:Informational" keywords="ut:Global" template="TcpModuleStartedArgs"/>
+     <event value="1109" symbol="TcpMemoryFailures" version="0" task="TcpMemoryFailures" level="win:Error" keywords="ut:TcpipDiagnosis ut:Global" template="TcpMemoryFailuresArgs"/>
+     <event value="1110" symbol="TcpGlobalParameters" version="0" task="TcpGlobalParameters" level="win:Informational" keywords="ut:TcpipDiagnosis ut:Configuration ut:Global" template="TcpGlobalParametersArgs"/>
+     <event value="1111" symbol="TcpLso" version="0" task="TcpLso" level="win:Verbose" keywords="ut:SendPath" template="TcpLsoArgs"/>
+     <event value="1112" symbol="TcpConnectionOffloadStatus" version="0" task="TcpConnectionOffloadStatus" level="win:Informational" keywords="ut:TcpipTcb ut:Configuration" template="TcpConnectionOffloadStatusArgs"/>
+     <event value="1113" symbol="TcpConnectionOffloadPmax" version="0" task="TcpConnectionOffloadPmax" level="win:Verbose" keywords="ut:TcpipTcb ut:Configuration ut:Global" template="TcpConnectionOffloadStatusArgs"/>
+     <event value="1114" symbol="IpDadSuccessful" version="0" task="IpDadSuccessful" level="win:Informational" keywords="ut:Global keyword_100000000000" template="IpDadSuccessfulArgs"/>
+     <event value="1115" symbol="IpDadFailed" version="0" task="IpDadFailed" level="win:Warning" keywords="ut:Global keyword_100000000000" template="IpDadFailedArgs"/>
+     <event value="1116" symbol="IpDadStarted" version="0" task="IpDadStarted" level="win:Informational" keywords="ut:Global keyword_100000000000" template="IpDadFailedArgs"/>
+     <event value="1117" symbol="TcpListenerActivationFailedAf" version="0" task="TcpListenerActivationFailedAf" level="win:Informational" keywords="ut:TcpipListener ut:ConnectPath" template="TcpListenerActivationFailedAfArgs"/>
+     <event value="1118" symbol="TcpListenerActivationFailedCompartment" version="0" task="TcpListenerActivationFailedCompartment" level="win:Informational" keywords="ut:TcpipListener ut:ConnectPath" template="TcpListenerActivationFailedAfArgs"/>
+     <event value="1119" symbol="TcpListenerActivationFailedInspection1" version="0" task="TcpListenerActivationFailedInspection1" level="win:Informational" keywords="ut:TcpipListener ut:ConnectPath" template="TcpListenerActivationFailedAfArgs"/>
+     <event value="1120" symbol="TcpListenerActivationFailedInspection2" version="0" task="TcpListenerActivationFailedInspection2" level="win:Informational" keywords="ut:TcpipListener ut:ConnectPath" template="TcpListenerActivationFailedAfArgs"/>
+     <event value="1121" symbol="TcpListenerBindFailedResolution" version="0" task="TcpListenerBindFailedResolution" level="win:Informational" keywords="ut:TcpipListener ut:ConnectPath" template="TcpListenerActivationFailedAfArgs"/>
+     <event value="1122" symbol="TcpListenerBindFailedPort" version="0" task="TcpListenerBindFailedPort" level="win:Informational" keywords="ut:TcpipListener ut:ConnectPath" template="TcpListenerActivationFailedAfArgs"/>
+     <event value="1123" symbol="TcpListenerActivated" version="0" task="TcpListenerActivated" level="win:Informational" keywords="ut:TcpipListener ut:ConnectPath" template="TcpListenerActivationFailedAfArgs"/>
+     <event value="1124" symbol="TcpListenerUnbound" version="0" task="TcpListenerUnbound" level="win:Informational" keywords="ut:TcpipListener ut:ConnectPath" template="TcpListenerActivationFailedAfArgs"/>
+     <event value="1127" symbol="IpAddressAdded" version="0" task="IpAddressAdded" level="win:Informational" keywords="ut:TcpipDiagnosis ut:Global keyword_100000000000" template="IpDadFailedArgs"/>
+     <event value="1128" symbol="IpAddressDeleted" version="0" task="IpAddressDeleted" level="win:Informational" keywords="ut:TcpipDiagnosis ut:Global keyword_100000000000" template="IpDadFailedArgs"/>
+     <event value="1130" symbol="FramingIfOperStatus" version="0" task="FramingIfOperStatus" level="win:Informational" keywords="ut:TcpipInterface ut:Global" template="FramingIfOperStatusArgs"/>
+     <event value="1136" symbol="FramingNdisPause" version="0" task="FramingNdisPause" level="win:Informational" keywords="ut:TcpipInterface ut:Global" template="TcpMediaDisconnectArgs"/>
+     <event value="1137" symbol="FramingNdisRestart" version="0" task="FramingNdisRestart" level="win:Informational" keywords="ut:TcpipInterface ut:Global" template="TcpMediaDisconnectArgs"/>
+     <event value="1138" symbol="IpAddressStatePreferred" version="0" task="IpAddressStatePreferred" level="win:Informational" keywords="ut:Global keyword_100000000000" template="IpDadFailedArgs"/>
+     <event value="1139" symbol="IpAddressStateNonPreferred" version="0" task="IpAddressStateNonPreferred" level="win:Informational" keywords="ut:Global keyword_100000000000" template="IpDadFailedArgs"/>
+     <event value="1144" symbol="IpInterfacePropertyChange" version="0" task="IpInterfacePropertyChange" level="win:Informational" keywords="ut:TcpipInterface ut:Configuration" template="IpInterfacePropertyChangeArgs"/>
+     <event value="1145" symbol="IpRouteCreated" version="0" task="IpRouteCreated" level="win:Informational" keywords="ut:TcpipRoute ut:TcpipDiagnosis" template="IpRouteCreatedArgs"/>
+     <event value="1146" symbol="IpRouteDeleted" version="0" task="IpRouteDeleted" level="win:Informational" keywords="ut:TcpipRoute ut:TcpipDiagnosis" template="IpRouteCreatedArgs"/>
+     <event value="1147" symbol="IpRoutePropertyChange" version="0" task="IpRoutePropertyChange" level="win:Informational" keywords="ut:TcpipRoute ut:TcpipDiagnosis ut:Configuration" template="IpRouteCreatedArgs"/>
+     <event value="1148" symbol="IpNeighborUnreachable" version="0" task="IpNeighborUnreachable" level="win:Verbose" keywords="ut:TcpipRoute ut:TcpipDiagnosis" template="IpNeighborUnreachableArgs"/>
+     <event value="1149" symbol="IpNeighborReachable" version="0" task="IpNeighborReachable" level="win:Verbose" keywords="ut:TcpipRoute" template="IpNeighborUnreachableArgs"/>
+     <event value="1150" symbol="TcpCtcpDataTransferTimeout" version="0" task="TcpCtcpDataTransferTimeout" level="win:Informational" keywords="ut:TcpipDiagnosis ut:SendPath" template="TcpDataTransferTimeoutArgs"/>
+     <event value="1151" symbol="TcpCtcpDataTransferCumAck" version="0" task="TcpCtcpDataTransferCumAck" level="win:Informational" keywords="ut:SendPath" template="TcpDataTransferTimeoutArgs"/>
+     <event value="1152" symbol="TcpCtcpDataTransferDupAck" version="0" task="TcpCtcpDataTransferDupAck" level="win:Informational" keywords="ut:ReceivePath" template="TcpDataTransferTimeoutArgs"/>
+     <event value="1153" symbol="TcpCtcpDataTransferSend" version="0" task="TcpCtcpDataTransferSend" level="win:Verbose" keywords="ut:SendPath" template="TcpDataTransferTimeoutArgs"/>
+     <event value="1154" symbol="TcpCtcpDataTransferEcn" version="0" task="TcpCtcpDataTransferEcn" level="win:Informational" keywords="ut:ReceivePath" template="TcpDataTransferEcnArgs"/>
+     <event value="1155" symbol="TcpCtcpDataTransferSpuriousTimeout" version="0" task="TcpCtcpDataTransferSpuriousTimeout" level="win:Verbose" keywords="ut:TcpipDiagnosis ut:SendPath" template="TcpDataTransferTimeoutArgs"/>
+     <event value="1156" symbol="TcpReceiveRequest" version="0" task="TcpReceiveRequest" level="win:Informational" keywords="ut:ReceivePath" template="TcpDisconnectTcbInjectFailedArgs"/>
+     <event value="1157" symbol="TcpDeliveryIndicated" version="0" task="TcpDeliveryIndicated" level="win:Informational" keywords="ut:ReceivePath" template="TcpDisconnectTcbInjectFailedArgs"/>
+     <event value="1158" symbol="TcpDeliverySatisfied" version="0" task="TcpDeliverySatisfied" level="win:Informational" keywords="ut:ReceivePath" template="TcpDisconnectTcbInjectFailedArgs"/>
+     <event value="1159" symbol="TcpSendPosted" version="0" task="TcpSendPosted" level="win:Informational" keywords="ut:SendPath" template="TcpSendPostedArgs"/>
+     <event value="1160" symbol="TcpSendTransmitted" version="0" task="TcpSendTransmitted" level="win:Verbose" keywords="ut:SendPath" template="TcpSendPostedArgs"/>
+     <event value="1161" symbol="TcpSendAdvance" version="0" task="TcpSendAdvance" level="win:Verbose" keywords="ut:SendPath" template="TcpSendPostedArgs"/>
+     <event value="1162" symbol="TcpCTcpDelayWndwInactive" version="0" task="TcpCTcpDelayWndwInactive" level="win:Verbose" keywords="ut:TcpipCtcp ut:SendPath" template="TcpInspectConnectCompleteArgs"/>
+     <event value="1163" symbol="TcpCTcpAssignedBlocks" version="0" task="TcpCTcpAssignedBlocks" level="win:Verbose" keywords="ut:TcpipCtcp ut:SendPath" template="TcpCTcpAssignedBlocksArgs"/>
+     <event value="1164" symbol="TcpCTcpCongestionWndw" version="0" task="TcpCTcpCongestionWndw" level="win:Verbose" keywords="ut:TcpipCtcp ut:SendPath" template="TcpCTcpCongestionWndwArgs"/>
+     <event value="1165" symbol="TcpCTcpGamma" version="0" task="TcpCTcpGamma" level="win:Verbose" keywords="ut:TcpipCtcp ut:SendPath" template="TcpCTcpGammaArgs"/>
+     <event value="1166" symbol="TcpSrttMeasurementStarted" version="0" task="TcpSrttMeasurementStarted" level="win:Verbose" keywords="ut:SendPath" template="TcpSrttMeasurementStartedArgs"/>
+     <event value="1167" symbol="TcpSrttMeasurementComplete" version="0" task="TcpSrttMeasurementComplete" level="win:Verbose" keywords="ut:SendPath" template="TcpSrttMeasurementStartedArgs"/>
+     <event value="1168" symbol="TcpSrttMeasurementCancelled" version="0" task="TcpSrttMeasurementCancelled" level="win:Verbose" keywords="ut:SendPath" template="TcpSrttMeasurementStartedArgs"/>
+     <event value="1169" symbol="UdpEndpointSendMessages" version="0" task="UdpEndpointSendMessages" level="win:Informational" keywords="ut:SendPath" template="UdpEndpointSendMessagesArgs"/>
+     <event value="1170" symbol="UdpEndpointReceiveMessages" version="0" task="UdpEndpointReceiveMessages" level="win:Informational" keywords="ut:ReceivePath" template="UdpEndpointSendMessagesArgs"/>
+     <event value="1171" symbol="TcpDeliveryFlush" version="0" task="TcpDeliveryFlush" level="win:Verbose" keywords="ut:ReceivePath" template="TcpDisconnectTcbInjectFailedArgs"/>
+     <event value="1172" symbol="TcpTcbInjectRcvFailure" version="0" task="TcpTcbInjectRcvFailure" level="win:Warning" keywords="ut:ReceivePath" template="TcpDisconnectTcbInjectFailedArgs"/>
+     <event value="1173" symbol="TcpDeliveryInjectingData" version="0" task="TcpDeliveryInjectingData" level="win:Verbose" keywords="ut:ReceivePath" template="TcpDisconnectTcbInjectFailedArgs"/>
+     <event value="1174" symbol="TcpTcbInjectFinFailure" version="0" task="TcpTcbInjectFinFailure" level="win:Warning" keywords="ut:ReceivePath" template="TcpDisconnectTcbInjectFailedArgs"/>
+     <event value="1175" symbol="TcpDeliveryAccept" version="0" task="TcpDeliveryAccept" level="win:Verbose" keywords="ut:ReceivePath" template="TcpDisconnectTcbInjectFailedArgs"/>
+     <event value="1176" symbol="TcpDeliveryFin" version="0" task="TcpDeliveryFin" level="win:Informational" keywords="ut:ReceivePath" template="TcpDisconnectTcbInjectFailedArgs"/>
+     <event value="1178" symbol="TcpDeliveryPush" version="0" task="TcpDeliveryPush" level="win:Verbose" keywords="ut:ReceivePath" template="TcpDisconnectTcbInjectFailedArgs"/>
+     <event value="1180" symbol="TcpTcbInjectFinComplete" version="0" task="TcpTcbInjectFinComplete" level="win:Verbose" keywords="ut:ReceivePath" template="TcpDisconnectTcbInjectFailedArgs"/>
+     <event value="1181" symbol="TcpDeliveryCompleting" version="0" task="TcpDeliveryCompleting" level="win:Verbose" keywords="ut:ReceivePath" template="TcpDisconnectTcbInjectFailedArgs"/>
+     <event value="1182" symbol="TcpInitiateSynRstValidation" version="0" task="TcpInitiateSynRstValidation" level="win:Informational" keywords="ut:TcpipDiagnosis ut:ConnectPath" template="TcpAcceptListenerInsertionFailureArgs"/>
+     <event value="1183" symbol="TcpConnectTcbFailedRcvdRst" version="0" task="TcpConnectTcbFailedRcvdRst" level="win:Informational" keywords="ut:TcpipDiagnosis ut:ReceivePath ut:ConnectPath" template="TcpAcceptListenerInsertionFailureArgs"/>
+     <event value="1184" symbol="TcpConnectionTerminatedRcvdRst" version="0" task="TcpConnectionTerminatedRcvdRst" level="win:Informational" keywords="ut:TcpipDiagnosis ut:ReceivePath ut:ConnectPath" template="TcpAcceptListenerInsertionFailureArgs"/>
+     <event value="1185" symbol="TcpConnectionTerminatedRcvdSyn" version="0" task="TcpConnectionTerminatedRcvdSyn" level="win:Informational" keywords="ut:TcpipDiagnosis ut:ReceivePath ut:ConnectPath" template="TcpAcceptListenerInsertionFailureArgs"/>
+     <event value="1186" symbol="TcpConnectRestransmit" version="0" task="TcpConnectRestransmit" level="win:Informational" keywords="ut:TcpipDiagnosis ut:SendPath ut:ConnectPath" template="TcpAcceptListenerInsertionFailureArgs"/>
+     <event value="1187" symbol="TcpDataTransferRestransmit" version="0" task="TcpDataTransferRestransmit" level="win:Informational" keywords="ut:TcpipDiagnosis ut:SendPath ut:ConnectPath" template="TcpAcceptListenerInsertionFailureArgs"/>
+     <event value="1188" symbol="TcpConnectionKeepAlive" version="0" task="TcpConnectionKeepAlive" level="win:Informational" keywords="ut:TcpipDiagnosis ut:SendPath ut:ConnectPath" template="TcpLossRecoveryEntryArgs"/>
+     <event value="1189" symbol="TcpDeliveryStateChange" version="0" task="TcpDeliveryStateChange" level="win:Verbose" keywords="ut:ReceivePath" template="TcpDeliveryStateChangeArgs"/>
+     <event value="1190" symbol="TcpDeliveryDataDropped" version="0" task="TcpDeliveryDataDropped" level="win:Informational" keywords="ut:TcpipDiagnosis ut:ReceivePath" template="TcpDisconnectTcbInjectFailedArgs"/>
+     <event value="1191" symbol="TcpAcquirePort" version="0" task="TcpAcquirePort" level="win:Informational" keywords="ut:ConnectPath" template="TcpAcquirePortArgs"/>
+     <event value="1192" symbol="TcpAcquireWeakRefPort" version="0" task="TcpAcquireWeakRefPort" level="win:Informational" keywords="ut:ConnectPath" template="TcpAcquirePortArgs"/>
+     <event value="1193" symbol="TcpReleasePort" version="0" task="TcpReleasePort" level="win:Informational" keywords="ut:ConnectPath" template="TcpAcquirePortArgs"/>
+     <event value="1194" symbol="TcpReplacePort" version="0" task="TcpReplacePort" level="win:Informational" keywords="ut:ConnectPath" template="TcpAcquirePortArgs"/>
+     <event value="1195" symbol="TcpAssignedWeakReferencePort" version="0" task="TcpAssignedWeakReferencePort" level="win:Informational" keywords="ut:TcpipDiagnosis ut:ConnectPath" template="TcpAcquirePortArgs"/>
+     <event value="1196" symbol="TcpBhDetectFullSizeAck" version="0" task="TcpBhDetectFullSizeAck" level="win:Informational" keywords="ut:SendPath" template="TcpLossRecoverySackExitArgs"/>
+     <event value="1197" symbol="TcpFlushSack" version="0" task="TcpFlushSack" level="win:Informational" keywords="ut:SendPath" template="TcpLossRecoverySackExitArgs"/>
+     <event value="1198" symbol="TcpReassemblyEntry" version="0" task="TcpReassemblyEntry" level="win:Verbose" keywords="ut:ReceivePath" template="TcpLossRecoveryEntryArgs"/>
+     <event value="1199" symbol="TcpReassemblyExit" version="0" task="TcpReassemblyExit" level="win:Verbose" keywords="ut:ReceivePath" template="TcpLossRecoveryEntryArgs"/>
+     <event value="1200" symbol="TcpDisconnectTcbZeroWindowTimeout" version="0" task="TcpDisconnectTcbZeroWindowTimeout" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ClosePath keyword_80000000000" template="TcpAccpetListenerRouteLookupFailureArgs"/>
+     <event value="1201" symbol="TcpDisconnectTcbFinWait2Timeout" version="0" task="TcpDisconnectTcbFinWait2Timeout" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ClosePath keyword_80000000000" template="TcpAccpetListenerRouteLookupFailureArgs"/>
+     <event value="1202" symbol="IpInterfaceRundown" version="0" task="IpInterfaceRundown" level="win:Informational" keywords="ut:TcpipInterface ut:TcpipDiagnosis ut:Global" template="IpInterfaceRundownArgs"/>
+     <event value="1203" symbol="IpInterfaceSpeedChange" version="0" task="IpInterfaceSpeedChange" level="win:Informational" keywords="ut:TcpipInterface ut:TcpipDiagnosis ut:Global" template="IpInterfaceSpeedChangeArgs"/>
+     <event value="1204" symbol="TcpReassemblyFlush" version="0" task="TcpReassemblyFlush" level="win:Informational" keywords="ut:ReceivePath" template="TcpLossRecoverySackExitArgs"/>
+     <event value="1205" symbol="TcpipReceiveSlowPath" version="0" task="TcpipReceiveSlowPath" level="win:Verbose" keywords="ut:ReceivePath" template="TcpipReceiveSlowPathArgs"/>
+     <event value="1206" symbol="TcpipSendSlowPath" version="0" task="TcpipSendSlowPath" level="win:Verbose" keywords="ut:SendPath" template="TcpipSendSlowPathArgs"/>
+     <event value="1207" symbol="TcpWsdInitializationErrors" version="0" task="TcpWsdInitializationErrors" level="win:Error" keywords="ut:Global" template="TcpWsdInitializationErrorsArgs"/>
+     <event value="1208" symbol="TcpWsdInitializationInformation" version="0" task="TcpWsdInitializationInformation" level="win:Informational" keywords="ut:Global" template="TcpWsdInitializationInformationArgs"/>
+     <event value="1209" symbol="TcpWsdWsRestrictedProfile" version="0" task="TcpWsdWsRestrictedProfile" level="win:Informational" keywords="ut:Global" template="TcpWsdWsRestrictedProfileArgs"/>
+     <event value="1210" symbol="TcpWsdWsRestrictedDestination" version="0" task="TcpWsdWsRestrictedDestination" level="win:Informational" keywords="ut:Global" template="TcpWsdWsRestrictedProfileArgs"/>
+     <event value="1211" symbol="TcpWsdCacheEntryStateChange" version="0" task="TcpWsdCacheEntryStateChange" level="win:Informational" keywords="ut:Global" template="TcpWsdCacheEntryStateChangeArgs"/>
+     <event value="1212" symbol="TcpWsdProfileStateChange" version="0" task="TcpWsdProfileStateChange" level="win:Informational" keywords="ut:Global" template="TcpWsdProfileStateChangeArgs"/>
+     <event value="1213" symbol="TcpWsdStateChange" version="0" task="TcpWsdStateChange" level="win:Informational" keywords="ut:Global" template="TcpWsdStateChangeArgs"/>
+     <event value="1214" symbol="TcpipTransportPacketDrops" version="0" task="TcpipTransportPacketDrops" level="win:Verbose" keywords="ut:ReceivePath ut:Global" template="TcpipTransportPacketDropsArgs"/>
+     <event value="1215" symbol="TcpipNetworkPacketDrops" version="0" task="TcpipNetworkPacketDrops" level="win:Verbose" keywords="ut:ReceivePath ut:Global" template="TcpipNetworkPacketDropsArgs"/>
+     <event value="1216" symbol="TcpMppNppEvaluation" version="0" task="TcpMppNppEvaluation" level="win:Verbose" keywords="ut:Global" template="TcpMppNppEvaluationArgs"/>
+     <event value="1217" symbol="TcpMppStartEpisode" version="0" task="TcpMppStartEpisode" level="win:Informational" keywords="ut:Global" template="TcpMppStartEpisodeArgs"/>
+     <event value="1218" symbol="TcpMppStopEpisode" version="0" task="TcpMppStopEpisode" level="win:Informational" keywords="ut:Global" template="TcpMppStopEpisodeArgs"/>
+     <event value="1219" symbol="TcpMppStartEpoch" version="0" task="TcpMppStartEpoch" level="win:Informational" keywords="ut:Global" template="TcpMppStartEpochArgs"/>
+     <event value="1220" symbol="TcpMppStopEpoch" version="0" task="TcpMppStopEpoch" level="win:Informational" keywords="ut:Global" template="TcpMppStopEpochArgs"/>
+     <event value="1300" symbol="TcpConnectionRundown" version="0" task="TcpConnectionRundown" level="win:Informational" keywords="ut:TcpipTcb ut:TcpipDiagnosis ut:ConnectPath keyword_80000000000" template="TcpConnectionRundownArgs"/>
+    </events>
+    <templates>
+     <template tid="TcpEndpointCreationArgs">
+      <data name="Status" inType="win:UInt32"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="AddressFamily" inType="win:UInt32" map="TCPIP_ADDRESS_FAMILY_TYPE_ValueMap"/>
+      <data name="Pid" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpRequestConnectArgs">
+      <data name="Tcb" inType="win:Pointer"/>
+      <data name="LocalAddressLength" inType="win:UInt32"/>
+      <data name="LocalAddress" inType="win:Binary" length="LocalAddressLength"/>
+      <data name="RemoteAddressLength" inType="win:UInt32"/>
+      <data name="RemoteAddress" inType="win:Binary" length="RemoteAddressLength"/>
+      <data name="NewState" inType="win:UInt32" map="TCP_CONNECTION_STATE_ValueMap"/>
+      <data name="RexmitCount" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpInspectConnectCompleteArgs">
+      <data name="Tcb" inType="win:Pointer"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="AddressFamily" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpTcbSynSendArgs">
+      <data name="Tcb" inType="win:Pointer"/>
+      <data name="ISN" inType="win:UInt32"/>
+      <data name="RcvWnd" inType="win:UInt32"/>
+      <data name="RcvWndScale" inType="win:UInt8"/>
+     </template>
+     <template tid="TcpBindEndpointResolutionFailureArgs">
+      <data name="LocalAddressLength" inType="win:UInt32"/>
+      <data name="LocalAddress" inType="win:Binary" length="LocalAddressLength"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpCreateEndpointAfFailureArgs">
+      <data name="LocalAddressLength" inType="win:UInt32"/>
+      <data name="LocalAddress" inType="win:Binary" length="LocalAddressLength"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="ProcessId" inType="win:UInt32"/>
+      <data name="CompartmentId" inType="win:UInt32"/>
+      <data name="AddressFamily" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpAccpetListenerRouteLookupFailureArgs">
+      <data name="LocalAddressLength" inType="win:UInt32"/>
+      <data name="LocalAddress" inType="win:Binary" length="LocalAddressLength"/>
+      <data name="RemoteAddressLength" inType="win:UInt32"/>
+      <data name="RemoteAddress" inType="win:Binary" length="RemoteAddressLength"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="ProcessId" inType="win:UInt32"/>
+      <data name="Compartment" inType="win:UInt32"/>
+      <data name="Tcb" inType="win:Pointer"/>
+     </template>
+     <template tid="TcpAcceptListenerInsertionFailureArgs">
+      <data name="Tcb" inType="win:Pointer"/>
+      <data name="LocalAddressLength" inType="win:UInt32"/>
+      <data name="LocalAddress" inType="win:Binary" length="LocalAddressLength"/>
+      <data name="RemoteAddressLength" inType="win:UInt32"/>
+      <data name="RemoteAddress" inType="win:Binary" length="RemoteAddressLength"/>
+      <data name="NewState" inType="win:UInt32"/>
+      <data name="RexmitCount" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpConnectTcbSkipRateLimitArgs">
+      <data name="LocalAddressLength" inType="win:UInt32"/>
+      <data name="LocalAddress" inType="win:Binary" length="LocalAddressLength"/>
+      <data name="RemoteAddressLength" inType="win:UInt32"/>
+      <data name="RemoteAddress" inType="win:Binary" length="RemoteAddressLength"/>
+      <data name="Path" inType="win:Pointer"/>
+     </template>
+     <template tid="TcpSecurityRateLimitArgs">
+      <data name="SynAttacksDetected" inType="win:UInt32"/>
+      <data name="ReassemblyLimitViolations" inType="win:UInt32"/>
+      <data name="ConnectionRateLimitBacklog" inType="win:UInt32"/>
+      <data name="ConnectionRateLimitViolations" inType="win:UInt32"/>
+      <data name="LandAttackSegmentsDropped" inType="win:UInt32"/>
+      <data name="ConnectionRateLimitDepth" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpDisconnectTcbInjectFailedArgs">
+      <data name="Tcb" inType="win:Pointer"/>
+      <data name="Delivery" inType="win:Pointer"/>
+      <data name="Request" inType="win:Pointer"/>
+      <data name="NumBytes" inType="win:Pointer"/>
+      <data name="RequestFlags" inType="win:UInt32"/>
+      <data name="Length" inType="win:Pointer"/>
+      <data name="RequestStatus" inType="win:UInt32"/>
+      <data name="IsUrgentDelivery" inType="win:UInt32"/>
+      <data name="FullySatisfiedORDelayedPush" inType="win:UInt32"/>
+      <data name="RcvNxt" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpDisconnectTcbRequestArgs">
+      <data name="Length" inType="win:Pointer"/>
+      <data name="Timeout" inType="win:UInt64"/>
+      <data name="Injected" inType="win:UnicodeString"/>
+     </template>
+     <template tid="TcpTcbStateChangeArgs">
+      <data name="OldState" inType="win:UInt32"/>
+      <data name="NewState" inType="win:UInt32"/>
+      <data name="SndNxt" inType="win:UInt32"/>
+      <data name="Tcb" inType="win:Pointer"/>
+     </template>
+     <template tid="TcpEndpointAcquirePortReservationArgs">
+      <data name="ProcessId" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="StartPort" inType="win:UInt16"/>
+      <data name="NumberOfPorts" inType="win:UInt16"/>
+     </template>
+     <template tid="TcpGlobalIsbBeginThrottleArgs">
+      <data name="HighMemoryEvent" inType="win:UInt32"/>
+      <data name="HighPagedPoolEvent" inType="win:UInt32"/>
+      <data name="LowMemoryEvent" inType="win:UInt32"/>
+      <data name="LowPagedPoolEvent" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpGlobalAddInterfaceArgs">
+      <data name="InterfaceIndex" inType="win:UInt32"/>
+      <data name="AddressFamily" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpTcbStartTimerArgs">
+      <data name="Tcb" inType="win:Pointer"/>
+      <data name="TimerType" inType="win:UInt32" map="TCP_TIMER_TYPE_ValueMap"/>
+      <data name="WaitTimeMilliseconds" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpTcbStopTimerArgs">
+      <data name="Tcb" inType="win:Pointer"/>
+      <data name="TimerType" inType="win:UInt32"/>
+      <data name="WaitTimeMilliseconds" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpTcbChangeIsbArgs">
+      <data name="IsbSize" inType="win:UInt32"/>
+      <data name="Cwnd" inType="win:UInt32"/>
+      <data name="SndWnd" inType="win:UInt32"/>
+      <data name="SendAvailable" inType="win:UInt32"/>
+      <data name="SSThresh" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpRssTableChangeArgs">
+      <data name="SourceProcessor" inType="win:UInt32"/>
+      <data name="SourceActivity" inType="win:UInt32"/>
+      <data name="DestinationProcessor" inType="win:UInt32"/>
+      <data name="DestinationActivity" inType="win:UInt32"/>
+      <data name="PartitionMovesRemaining" inType="win:UInt32"/>
+      <data name="TableEntry" inType="win:UInt8"/>
+     </template>
+     <template tid="TcpDataTransferTimeoutArgs">
+      <data name="Tcb" inType="win:Pointer"/>
+      <data name="Cwnd" inType="win:UInt32"/>
+      <data name="SSThresh" inType="win:UInt32"/>
+      <data name="RttSample" inType="win:UInt32"/>
+      <data name="NumBytes" inType="win:UInt32"/>
+      <data name="SeqNo" inType="win:UInt32"/>
+      <data name="SndUna" inType="win:UInt32"/>
+      <data name="Round" inType="win:UInt32"/>
+      <data name="SRTT" inType="win:UInt32"/>
+      <data name="RTO" inType="win:UInt32"/>
+      <data name="DWnd" inType="win:UInt32"/>
+      <data name="BaseRtt" inType="win:UInt32"/>
+      <data name="DupAckCount" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpDataTransferReceiveArgs">
+      <data name="Tcb" inType="win:Pointer"/>
+      <data name="NumBytes" inType="win:UInt32"/>
+      <data name="SeqNo" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpDataTransferEcnArgs">
+      <data name="Tcb" inType="win:Pointer"/>
+      <data name="Cwnd" inType="win:UInt32"/>
+      <data name="SSThresh" inType="win:UInt32"/>
+      <data name="SndUna" inType="win:UInt32"/>
+      <data name="Mss" inType="win:UInt32"/>
+      <data name="ThAck" inType="win:UInt32"/>
+      <data name="DWnd" inType="win:UInt32"/>
+      <data name="BaseRtt" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpLossRecoveryEntryArgs">
+      <data name="Tcb" inType="win:Pointer"/>
+      <data name="SndUna" inType="win:UInt32"/>
+      <data name="SndMax" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpLossRecoverySackEntryArgs">
+      <data name="Tcb" inType="win:Pointer"/>
+      <data name="SndUna" inType="win:UInt32"/>
+      <data name="SndMax" inType="win:UInt32"/>
+      <data name="Reason" inType="win:UnicodeString"/>
+      <data name="IsSack" inType="win:UInt32" map="TCPIP_BOOLEAN_ValueMap"/>
+     </template>
+     <template tid="TcpLossRecoverySackExitArgs">
+      <data name="Tcb" inType="win:Pointer"/>
+      <data name="SndUna" inType="win:UInt32"/>
+      <data name="SndMax" inType="win:UInt32"/>
+      <data name="Reason" inType="win:UnicodeString"/>
+      <data name="IsSack" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpBlackHoleDetectionEntryArgs">
+      <data name="Tcb" inType="win:Pointer"/>
+      <data name="BHMSS" inType="win:UInt32"/>
+      <data name="OriginalMSS" inType="win:UInt32"/>
+      <data name="TraceString" inType="win:UnicodeString"/>
+     </template>
+     <template tid="TcpReleaseIndicationArgs">
+      <data name="NBL" inType="win:Pointer"/>
+     </template>
+     <template tid="TcpAutoTuningBeginArgs">
+      <data name="LocalAddressLength" inType="win:UInt32"/>
+      <data name="LocalAddress" inType="win:Binary" length="LocalAddressLength"/>
+      <data name="RemoteAddressLength" inType="win:UInt32"/>
+      <data name="RemoteAddress" inType="win:Binary" length="RemoteAddressLength"/>
+      <data name="BufferSize" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpConnectionOffloadStateChangeArgs">
+      <data name="TcbState" inType="win:UInt32"/>
+      <data name="OcbState" inType="win:UInt32" map="TCP_CONNECTION_OFFLOAD_STATE_ValueMap"/>
+      <data name="SndNxt" inType="win:UInt32"/>
+      <data name="RcvNxt" inType="win:UInt32"/>
+      <data name="Tcb" inType="win:Pointer"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpSwsAvoidanceBeginArgs">
+      <data name="Tcb" inType="win:Pointer"/>
+      <data name="TimerValue" inType="win:UInt32"/>
+      <data name="BytesToSend" inType="win:Pointer"/>
+      <data name="SendAvailable" inType="win:UInt32"/>
+      <data name="Cwnd" inType="win:UInt32"/>
+      <data name="MaxSndWnd" inType="win:Pointer"/>
+     </template>
+     <template tid="TcpSetTcpOptionArgs">
+      <data name="Tcb" inType="win:Pointer"/>
+      <data name="OptionType" inType="win:UInt32" map="TCP_OPTION_TYPE_ValueMap"/>
+      <data name="SoOptionType" inType="win:UInt32" map="TCP_SO_OPTION_TYPE_ValueMap"/>
+     </template>
+     <template tid="TcpSetTcpSoOptionArgs">
+      <data name="Tcb" inType="win:Pointer"/>
+      <data name="OptionType" inType="win:UInt32"/>
+      <data name="SoOptionType" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpMediaDisconnectArgs">
+      <data name="InterfaceIndex" inType="win:UInt32"/>
+      <data name="TraceString" inType="win:AnsiString"/>
+     </template>
+     <template tid="TcpModuleStartedArgs">
+      <data name="ModuleNameString" inType="win:UnicodeString"/>
+     </template>
+     <template tid="TcpMemoryFailuresArgs">
+      <data name="AllocationObjectString" inType="win:UnicodeString"/>
+     </template>
+     <template tid="TcpGlobalParametersArgs">
+      <data name="AddressFamily" inType="win:UInt32"/>
+      <data name="EnablePMTUDiscovery" inType="win:UInt8"/>
+      <data name="TcpUseRFC1122UrgentPointer" inType="win:UInt8"/>
+      <data name="DisableTaskOffload" inType="win:UInt8"/>
+      <data name="EnablePMTUBHDetect" inType="win:UInt8"/>
+      <data name="DisableTcpChimneyOffload" inType="win:UInt8"/>
+      <data name="DisableRss" inType="win:UInt8"/>
+      <data name="EcnCapability" inType="win:UInt8"/>
+      <data name="TcpMaxDataRetransmissions" inType="win:UInt8"/>
+      <data name="KeepAliveTime" inType="win:UInt32"/>
+      <data name="KeepAliveInterval" inType="win:UInt32"/>
+      <data name="TcpTimedWaitDelay" inType="win:UInt32"/>
+      <data name="SillyWindowTimeout" inType="win:UInt32"/>
+      <data name="TcpFinWait2Delay" inType="win:UInt32"/>
+      <data name="CongestionAlgorithm" inType="win:UInt8"/>
+      <data name="Tcp1323Opts" inType="win:UInt8"/>
+      <data name="AutoTuningLevelLocal" inType="win:UInt32"/>
+      <data name="AutoTuningLevelGroupPolicy" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpLsoArgs">
+      <data name="Tcb" inType="win:Pointer"/>
+      <data name="BytesInSegment" inType="win:UInt32"/>
+      <data name="BytesRemaining" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpConnectionOffloadStatusArgs">
+      <data name="Tcb" inType="win:Pointer"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="Interface" inType="win:UInt32"/>
+      <data name="PMax" inType="win:UInt32"/>
+     </template>
+     <template tid="IpDadSuccessfulArgs">
+      <data name="Interface" inType="win:UInt32"/>
+      <data name="Protocol" inType="win:AnsiString"/>
+      <data name="DadState" inType="win:UInt32" map="TCPIP_IP_DAD_STATE_ValueMap"/>
+      <data name="DlAddrLength" inType="win:UInt32"/>
+      <data name="DLAddress" inType="win:Binary" length="DlAddrLength"/>
+      <data name="IpAddrLength" inType="win:UInt32"/>
+      <data name="IPv4Address" inType="win:UInt32"/>
+      <data name="IPv6Address" inType="win:Binary" length="IpAddrLength"/>
+      <data name="IPProtocol" inType="win:UInt32" map="TCPIP_Protocol_ValueMap"/>
+     </template>
+     <template tid="IpDadFailedArgs">
+      <data name="Interface" inType="win:UInt32"/>
+      <data name="Protocol" inType="win:AnsiString"/>
+      <data name="DadState" inType="win:UInt32"/>
+      <data name="DlAddrLength" inType="win:UInt32"/>
+      <data name="DLAddress" inType="win:Binary" length="DlAddrLength"/>
+      <data name="IpAddrLength" inType="win:UInt32"/>
+      <data name="IPv4Address" inType="win:UInt32"/>
+      <data name="IPv6Address" inType="win:Binary" length="IpAddrLength"/>
+      <data name="IPProtocol" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpListenerActivationFailedAfArgs">
+      <data name="Listener" inType="win:Pointer"/>
+      <data name="AddressLength" inType="win:UInt32"/>
+      <data name="SocketAddress" inType="win:Binary" length="AddressLength"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="ProcessId" inType="win:UInt32"/>
+      <data name="CompartmentId" inType="win:UInt32"/>
+      <data name="AddressFamily" inType="win:UInt32"/>
+     </template>
+     <template tid="FramingIfOperStatusArgs">
+      <data name="Interface" inType="win:UInt32"/>
+      <data name="OperationalStatus" inType="win:UInt32" map="TCPIP_IP_IF_STATUS_ValueMap"/>
+      <data name="Status" inType="win:UInt64"/>
+     </template>
+     <template tid="IpInterfacePropertyChangeArgs">
+      <data name="Interface" inType="win:UInt32"/>
+      <data name="Advertise" inType="win:UInt32"/>
+      <data name="AdvertiseDefaultRoute" inType="win:UInt32"/>
+      <data name="Forward" inType="win:UInt32"/>
+      <data name="ForwardMulticast" inType="win:UInt32"/>
+      <data name="UseNud" inType="win:UInt32"/>
+      <data name="AdvertisingEnabled" inType="win:UInt32"/>
+     </template>
+     <template tid="IpRouteCreatedArgs">
+      <data name="Route" inType="win:Pointer"/>
+      <data name="Interface" inType="win:UInt32"/>
+      <data name="DestinationPrefixAddressLength" inType="win:UInt32"/>
+      <data name="NextHopAddressLength" inType="win:UInt32"/>
+      <data name="Protocol" inType="win:AnsiString"/>
+      <data name="DestinationPrefixLength" inType="win:UInt32"/>
+      <data name="DestinationPrefix" inType="win:Binary" length="DestinationPrefixAddressLength"/>
+      <data name="NextHopAddress" inType="win:Binary" length="NextHopAddressLength"/>
+      <data name="ValidLifetime" inType="win:UInt64"/>
+      <data name="PreferredLifetime" inType="win:UInt64"/>
+      <data name="Metric" inType="win:UInt32"/>
+      <data name="Loopback" inType="win:UInt32"/>
+      <data name="AutoconfigureAddress" inType="win:UInt32"/>
+      <data name="Publish" inType="win:UInt32"/>
+      <data name="Immortal" inType="win:UInt32"/>
+      <data name="IPv4DestinationPrefix" inType="win:UInt32"/>
+      <data name="IPv4NextHopAddress" inType="win:UInt32"/>
+      <data name="IPProtocol" inType="win:UInt32"/>
+     </template>
+     <template tid="IpNeighborUnreachableArgs">
+      <data name="Interface" inType="win:UInt32"/>
+      <data name="DlAddrLength" inType="win:UInt32"/>
+      <data name="DlAddress" inType="win:Binary" length="DlAddrLength"/>
+      <data name="IpAddrLength" inType="win:UInt32"/>
+      <data name="IPv4Address" inType="win:UInt32"/>
+      <data name="IPv6Address" inType="win:Binary" length="IpAddrLength"/>
+      <data name="IPProtocol" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpSendPostedArgs">
+      <data name="Tcb" inType="win:Pointer"/>
+      <data name="Injected" inType="win:UnicodeString"/>
+      <data name="NumBytes" inType="win:UInt32"/>
+      <data name="SndNxt" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpCTcpAssignedBlocksArgs">
+      <data name="AssignedBlocks" inType="win:UInt32"/>
+      <data name="AllocatedBlocks" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpCTcpCongestionWndwArgs">
+      <data name="Tcb" inType="win:Pointer"/>
+      <data name="DWnd" inType="win:UInt32"/>
+      <data name="PrevDWnd" inType="win:UInt32"/>
+      <data name="BaseRtt" inType="win:UInt32"/>
+      <data name="AvgRtt" inType="win:UInt32"/>
+      <data name="Cwnd" inType="win:UInt32"/>
+      <data name="DiffWnd" inType="win:UInt32"/>
+      <data name="DwndIncrement" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpCTcpGammaArgs">
+      <data name="Tcb" inType="win:Pointer"/>
+      <data name="Gamma" inType="win:UInt32"/>
+      <data name="AverageBacklog" inType="win:UInt32"/>
+      <data name="AverageBacklogAcrossLFP" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpSrttMeasurementStartedArgs">
+      <data name="Tcb" inType="win:Pointer"/>
+      <data name="SeqNum" inType="win:UInt32"/>
+      <data name="Tick" inType="win:UInt32"/>
+      <data name="RttSample" inType="win:UInt32"/>
+      <data name="NewSrtt" inType="win:UInt32"/>
+     </template>
+     <template tid="UdpEndpointSendMessagesArgs">
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="NumMessages" inType="win:UInt32"/>
+      <data name="NumBytes" inType="win:UInt32"/>
+      <data name="LocalSockAddrLength" inType="win:UInt32"/>
+      <data name="LocalSockAddr" inType="win:Binary" length="LocalSockAddrLength"/>
+      <data name="RemoteSockAddrLength" inType="win:UInt32"/>
+      <data name="RemoteSockAddr" inType="win:Binary" length="RemoteSockAddrLength"/>
+      <data name="Pid" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpDeliveryStateChangeArgs">
+      <data name="Tcb" inType="win:Pointer"/>
+      <data name="Delivery" inType="win:Pointer"/>
+      <data name="OldDeliveryState" inType="win:UInt32" map="TCPIP_TCP_DELIVERY_STATE_ValueMap"/>
+      <data name="NewDeliveryState" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpAcquirePortArgs">
+      <data name="PortAcquirer" inType="win:Pointer"/>
+      <data name="PortNumber" inType="win:UInt16"/>
+      <data name="WeakReference" inType="win:UInt32"/>
+      <data name="OriginalAcquirer" inType="win:Pointer"/>
+     </template>
+     <template tid="IpInterfaceRundownArgs">
+      <data name="IfIndex" inType="win:UInt32"/>
+      <data name="LinkSpeed" inType="win:UInt64"/>
+      <data name="IPProtocol" inType="win:UInt32"/>
+      <data name="IPv4Address" inType="win:UInt32"/>
+      <data name="IpAddrLength" inType="win:UInt32"/>
+      <data name="IPv6Address" inType="win:Binary" length="IpAddrLength"/>
+      <data name="PhysicalMediumType" inType="win:UInt32" map="TCPIP_IP_PHYSICALMEDIUM_TYPE_ValueMap"/>
+     </template>
+     <template tid="IpInterfaceSpeedChangeArgs">
+      <data name="IfIndex" inType="win:UInt32"/>
+      <data name="LinkSpeed" inType="win:UInt64"/>
+      <data name="IPProtocol" inType="win:UInt32"/>
+      <data name="IPv4Address" inType="win:UInt32"/>
+      <data name="IpAddrLength" inType="win:UInt32"/>
+      <data name="IPv6Address" inType="win:Binary" length="IpAddrLength"/>
+      <data name="PhysicalMediumType" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpipReceiveSlowPathArgs">
+      <data name="Nbl" inType="win:Pointer"/>
+      <data name="IPTransportProtocol" inType="win:UInt32" map="TCPIP_Transport_Protocol_ValueMap"/>
+      <data name="AddressFamily" inType="win:UInt32"/>
+      <data name="SourceIPv4Address" inType="win:UInt32"/>
+      <data name="DestIPv4Address" inType="win:UInt32"/>
+      <data name="IPv6SourceIpAddrLength" inType="win:UInt32"/>
+      <data name="IPv6SourceAddress" inType="win:Binary" length="IPv6SourceIpAddrLength"/>
+      <data name="IPv6DestIpAddrLength" inType="win:UInt32"/>
+      <data name="IPv6DestAddress" inType="win:Binary" length="IPv6DestIpAddrLength"/>
+      <data name="Reason" inType="win:UInt32" map="TCPIP_SLOW_PATH_REASON_ValueMap"/>
+      <data name="NblCount" inType="win:UInt32"/>
+      <data name="IPProtocol" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpipSendSlowPathArgs">
+      <data name="Nbl" inType="win:Pointer"/>
+      <data name="IPTransportProtocol" inType="win:UInt32"/>
+      <data name="AddressFamily" inType="win:UInt32"/>
+      <data name="SourceIPv4Address" inType="win:UInt32"/>
+      <data name="DestIPv4Address" inType="win:UInt32"/>
+      <data name="IPv6SourceIpAddrLength" inType="win:UInt32"/>
+      <data name="IPv6SourceAddress" inType="win:Binary" length="IPv6SourceIpAddrLength"/>
+      <data name="IPv6DestIpAddrLength" inType="win:UInt32"/>
+      <data name="IPv6DestAddress" inType="win:Binary" length="IPv6DestIpAddrLength"/>
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="NblCount" inType="win:UInt32"/>
+      <data name="IPProtocol" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpWsdInitializationErrorsArgs">
+      <data name="TcpWsdEtwPoint" inType="win:UInt32" map="TCP_WSD_ValueMap"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpWsdInitializationInformationArgs">
+      <data name="TcpWsdEtwPoint" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpWsdWsRestrictedProfileArgs">
+      <data name="TcpWsdEtwPoint" inType="win:UInt32"/>
+      <data name="Tcb" inType="win:Pointer"/>
+     </template>
+     <template tid="TcpWsdCacheEntryStateChangeArgs">
+      <data name="TcpWsdEtwPoint" inType="win:UInt32"/>
+      <data name="Processor" inType="win:UInt32"/>
+      <data name="Entry" inType="win:UInt32"/>
+      <data name="OldState" inType="win:UInt32" map="TCP_WSD_CACHE_ENTRY_STATE_ValueMap"/>
+      <data name="NewState" inType="win:UInt32"/>
+      <data name="ProbeCount" inType="win:UInt32"/>
+      <data name="ProbeCountWs" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpWsdProfileStateChangeArgs">
+      <data name="Profile" inType="win:UInt32"/>
+      <data name="State" inType="win:UInt32"/>
+      <data name="Qualified" inType="win:UInt32"/>
+      <data name="EreQualified" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpWsdStateChangeArgs">
+      <data name="OldEnabledState" inType="win:UInt32"/>
+      <data name="NewEnabledState" inType="win:UInt32"/>
+      <data name="OldThreshold" inType="win:UInt32"/>
+      <data name="NewThreshold" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpipTransportPacketDropsArgs">
+      <data name="IPTransportProtocol" inType="win:UInt32"/>
+      <data name="AddressFamily" inType="win:UInt32"/>
+      <data name="LocalSockAddrLength" inType="win:UInt32"/>
+      <data name="LocalSockAddr" inType="win:Binary" length="LocalSockAddrLength"/>
+      <data name="RemoteSockAddrLength" inType="win:UInt32"/>
+      <data name="RemoteSockAddr" inType="win:Binary" length="RemoteSockAddrLength"/>
+      <data name="Reason" inType="win:UInt32" map="TCPIP_TRANSPORT_PACKET_DROP_REASON_ValueMap"/>
+      <data name="PacketCount" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpipNetworkPacketDropsArgs">
+      <data name="IPTransportProtocol" inType="win:UInt32"/>
+      <data name="AddressFamily" inType="win:UInt32"/>
+      <data name="SourceIPv4Address" inType="win:UInt32"/>
+      <data name="DestIPv4Address" inType="win:UInt32"/>
+      <data name="IPv6SourceIpAddrLength" inType="win:UInt32"/>
+      <data name="IPv6SourceAddress" inType="win:Binary" length="IPv6SourceIpAddrLength"/>
+      <data name="IPv6DestIpAddrLength" inType="win:UInt32"/>
+      <data name="IPv6DestAddress" inType="win:Binary" length="IPv6DestIpAddrLength"/>
+      <data name="Reason" inType="win:UInt32" map="TCPIP_NETWORK_PACKET_DROP_REASON_ValueMap"/>
+      <data name="PacketCount" inType="win:UInt32"/>
+      <data name="IPProtocol" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpMppNppEvaluationArgs">
+      <data name="PhysicalPages" inType="win:UInt32"/>
+      <data name="NonPagedPoolPages" inType="win:UInt32"/>
+      <data name="CurrentWatermark" inType="win:UInt32"/>
+      <data name="PeakWatermark" inType="win:UInt32"/>
+      <data name="HighWatermark" inType="win:UInt32"/>
+      <data name="LowWatermark" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpMppStartEpisodeArgs">
+      <data name="LowNppEventState" inType="win:UInt32"/>
+      <data name="HighNppEventState" inType="win:UInt32"/>
+      <data name="EpisodeStartTick" inType="win:UInt64"/>
+      <data name="EpisodeStopTick" inType="win:UInt64"/>
+      <data name="CurrentWatermark" inType="win:UInt32"/>
+      <data name="LowWatermark" inType="win:UInt32"/>
+      <data name="ReentryWatermark" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpMppStopEpisodeArgs">
+      <data name="LowNppEventState" inType="win:UInt32"/>
+      <data name="HighNppEventState" inType="win:UInt32"/>
+      <data name="EpisodeStartTick" inType="win:UInt64"/>
+      <data name="EpisodeStopTick" inType="win:UInt64"/>
+      <data name="ReentryWatermark" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpMppStartEpochArgs">
+      <data name="Epoch" inType="win:UInt32"/>
+      <data name="LowNppEventState" inType="win:UInt32"/>
+      <data name="HighNppEventState" inType="win:UInt32"/>
+      <data name="EpochStartTick" inType="win:UInt64"/>
+      <data name="EpochStopTick" inType="win:UInt64"/>
+      <data name="OldSynDropRate" inType="win:UInt32"/>
+      <data name="NewSynDropRate" inType="win:UInt32"/>
+      <data name="OldTcbAbortionRate" inType="win:UInt32"/>
+      <data name="NewTcbAbortionRate" inType="win:UInt32"/>
+      <data name="CurrentWatermark" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpMppStopEpochArgs">
+      <data name="Epoch" inType="win:UInt32"/>
+      <data name="LowNppEventState" inType="win:UInt32"/>
+      <data name="HighNppEventState" inType="win:UInt32"/>
+      <data name="EpochStartTick" inType="win:UInt64"/>
+      <data name="EpochStopTick" inType="win:UInt64"/>
+      <data name="SynDropRate" inType="win:UInt32"/>
+      <data name="TcbAbortionRate" inType="win:UInt32"/>
+      <data name="CurrentWatermark" inType="win:UInt32"/>
+     </template>
+     <template tid="TcpConnectionRundownArgs">
+      <data name="Tcb" inType="win:Pointer"/>
+      <data name="LocalAddressLength" inType="win:UInt32"/>
+      <data name="LocalAddress" inType="win:Binary" length="LocalAddressLength"/>
+      <data name="RemoteAddressLength" inType="win:UInt32"/>
+      <data name="RemoteAddress" inType="win:Binary" length="RemoteAddressLength"/>
+      <data name="State" inType="win:UInt32"/>
+      <data name="Pid" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_ut:TcpipEndpoint" value="ut:TcpipEndpoint"/>
+    <string id="keyword_ut:TcpipListener" value="ut:TcpipListener"/>
+    <string id="keyword_ut:TcpipTcb" value="ut:TcpipTcb"/>
+    <string id="keyword_ut:TcpipBind" value="ut:TcpipBind"/>
+    <string id="keyword_ut:TcpipInterface" value="ut:TcpipInterface"/>
+    <string id="keyword_ut:TcpipRoute" value="ut:TcpipRoute"/>
+    <string id="keyword_ut:TcpipCtcp" value="ut:TcpipCtcp"/>
+    <string id="keyword_ut:TcpipDiagnosis" value="ut:TcpipDiagnosis"/>
+    <string id="keyword_ut:SendPath" value="ut:SendPath"/>
+    <string id="keyword_ut:ReceivePath" value="ut:ReceivePath"/>
+    <string id="keyword_ut:ConnectPath" value="ut:ConnectPath"/>
+    <string id="keyword_ut:ClosePath" value="ut:ClosePath"/>
+    <string id="keyword_ut:Authentication" value="ut:Authentication"/>
+    <string id="keyword_ut:Configuration" value="ut:Configuration"/>
+    <string id="keyword_ut:Global" value="ut:Global"/>
+    <string id="keyword_ut:Dropped" value="ut:Dropped"/>
+    <string id="keyword_keyword_80000000000" value="keyword_80000000000"/>
+    <string id="keyword_keyword_100000000000" value="keyword_100000000000"/>
+    <string id="task_TcpEndpointCreation" value="TcpEndpointCreation"/>
+    <string id="task_TcpRequestConnect" value="TcpRequestConnect"/>
+    <string id="task_TcpInspectConnectComplete" value="TcpInspectConnectComplete"/>
+    <string id="task_TcpTcbSynSend" value="TcpTcbSynSend"/>
+    <string id="task_TcpBindEndpointResolutionFailure" value="TcpBindEndpointResolutionFailure"/>
+    <string id="task_TcpBindEndpointPortFailure" value="TcpBindEndpointPortFailure"/>
+    <string id="task_TcpBindEndpointInspectionFailure" value="TcpBindEndpointInspectionFailure"/>
+    <string id="task_TcpBindEndpointComplete" value="TcpBindEndpointComplete"/>
+    <string id="task_TcpCloseEndpoint" value="TcpCloseEndpoint"/>
+    <string id="task_TcpCreateEndpointAfFailure" value="TcpCreateEndpointAfFailure"/>
+    <string id="task_TcpCreateEndpointCompartmentFailure" value="TcpCreateEndpointCompartmentFailure"/>
+    <string id="task_TcpCreateEndpointInspectionFailure" value="TcpCreateEndpointInspectionFailure"/>
+    <string id="task_TcpCreateEndpointComplete" value="TcpCreateEndpointComplete"/>
+    <string id="task_TcpAccpetListenerRouteLookupFailure" value="TcpAccpetListenerRouteLookupFailure"/>
+    <string id="task_TcpAcceptListenerInsertionFailure" value="TcpAcceptListenerInsertionFailure"/>
+    <string id="task_TcpAcceptListenerRejected" value="TcpAcceptListenerRejected"/>
+    <string id="task_TcpAcceptListenerComplete" value="TcpAcceptListenerComplete"/>
+    <string id="task_TcpConnectTcbFailedAf" value="TcpConnectTcbFailedAf"/>
+    <string id="task_TcpConnectTcbFailedCompartment" value="TcpConnectTcbFailedCompartment"/>
+    <string id="task_TcpConnectTcbFailedInspect" value="TcpConnectTcbFailedInspect"/>
+    <string id="task_TcpConnectTcbFailedRoute" value="TcpConnectTcbFailedRoute"/>
+    <string id="task_TcpConnectTcbSkipRateLimit" value="TcpConnectTcbSkipRateLimit"/>
+    <string id="task_TcpConnectTcbPassRateLimit" value="TcpConnectTcbPassRateLimit"/>
+    <string id="task_TcpConnectTcbCheckRateLimit" value="TcpConnectTcbCheckRateLimit"/>
+    <string id="task_TcpSecurityRateLimit" value="TcpSecurityRateLimit"/>
+    <string id="task_TcpRateLimitPathRelease" value="TcpRateLimitPathRelease"/>
+    <string id="task_TcpConnectTcbRateLimitRelease" value="TcpConnectTcbRateLimitRelease"/>
+    <string id="task_TcpRateLimitPathCancel" value="TcpRateLimitPathCancel"/>
+    <string id="task_TcpConnectTcbCancel" value="TcpConnectTcbCancel"/>
+    <string id="task_TcpConnectTcbFailInsertion" value="TcpConnectTcbFailInsertion"/>
+    <string id="task_TcpConnectTcbProceeding" value="TcpConnectTcbProceeding"/>
+    <string id="task_TcpConnectTcbRateLimitCancel" value="TcpConnectTcbRateLimitCancel"/>
+    <string id="task_TcpConnectTcbComplete" value="TcpConnectTcbComplete"/>
+    <string id="task_TcpConnectTcbFailure" value="TcpConnectTcbFailure"/>
+    <string id="task_TcpConnectTcbFailInspectConnectComplete" value="TcpConnectTcbFailInspectConnectComplete"/>
+    <string id="task_TcpConnectTcbFailSessionState" value="TcpConnectTcbFailSessionState"/>
+    <string id="task_TcpConnectTcbFailDontFragment" value="TcpConnectTcbFailDontFragment"/>
+    <string id="task_TcpCloseTcbRequest" value="TcpCloseTcbRequest"/>
+    <string id="task_TcpAbortTcbRequest" value="TcpAbortTcbRequest"/>
+    <string id="task_TcpAbortTcbComplete" value="TcpAbortTcbComplete"/>
+    <string id="task_TcpDisconnectTcbInjectFailed" value="TcpDisconnectTcbInjectFailed"/>
+    <string id="task_TcpDisconnectTcbRequest" value="TcpDisconnectTcbRequest"/>
+    <string id="task_TcpDisconnectTcbComplete" value="TcpDisconnectTcbComplete"/>
+    <string id="task_TcpShutdownTcb" value="TcpShutdownTcb"/>
+    <string id="task_TcpConnectTcbTimeout" value="TcpConnectTcbTimeout"/>
+    <string id="task_TcpDisconnectTcbRtoTimeout" value="TcpDisconnectTcbRtoTimeout"/>
+    <string id="task_TcpDisconnectTcbKeepaliveTimeout" value="TcpDisconnectTcbKeepaliveTimeout"/>
+    <string id="task_TcpDisconnectTcbTimeout" value="TcpDisconnectTcbTimeout"/>
+    <string id="task_TcpConnectTcbEstatsFailed" value="TcpConnectTcbEstatsFailed"/>
+    <string id="task_TcpConnectFailedPortAcquire" value="TcpConnectFailedPortAcquire"/>
+    <string id="task_TcpTcbStateChange" value="TcpTcbStateChange"/>
+    <string id="task_TcpEndpointAcquirePortReservation" value="TcpEndpointAcquirePortReservation"/>
+    <string id="task_TcpEndpointFailedPortReservation" value="TcpEndpointFailedPortReservation"/>
+    <string id="task_TcpGlobalPortReservation" value="TcpGlobalPortReservation"/>
+    <string id="task_TcpGlobalSynAttackEntry" value="TcpGlobalSynAttackEntry"/>
+    <string id="task_TcpGlobalReassemblyLimitViolation" value="TcpGlobalReassemblyLimitViolation"/>
+    <string id="task_TcpGlobalConnectionRateLimitViolation" value="TcpGlobalConnectionRateLimitViolation"/>
+    <string id="task_TcpGlobalLandAttackSegmentDrop" value="TcpGlobalLandAttackSegmentDrop"/>
+    <string id="task_TcpGlobalIsbBeginThrottle" value="TcpGlobalIsbBeginThrottle"/>
+    <string id="task_TcpGlobalIsbEndThrottle" value="TcpGlobalIsbEndThrottle"/>
+    <string id="task_TcpGlobalAddInterface" value="TcpGlobalAddInterface"/>
+    <string id="task_TcpGlobalDeleteInterface" value="TcpGlobalDeleteInterface"/>
+    <string id="task_TcpGlobalSynAttackExit" value="TcpGlobalSynAttackExit"/>
+    <string id="task_TcpTcbStartTimer" value="TcpTcbStartTimer"/>
+    <string id="task_TcpTcbStopTimer" value="TcpTcbStopTimer"/>
+    <string id="task_TcpTcbExpireTimer" value="TcpTcbExpireTimer"/>
+    <string id="task_TcpTcbChangeIsb" value="TcpTcbChangeIsb"/>
+    <string id="task_TcpRssTableChange" value="TcpRssTableChange"/>
+    <string id="task_TcpDataTransferTimeout" value="TcpDataTransferTimeout"/>
+    <string id="task_TcpDataTransferRttSample" value="TcpDataTransferRttSample"/>
+    <string id="task_TcpDataTransferCumAck" value="TcpDataTransferCumAck"/>
+    <string id="task_TcpDataTransferDupAck" value="TcpDataTransferDupAck"/>
+    <string id="task_TcpDataTransferSend" value="TcpDataTransferSend"/>
+    <string id="task_TcpDataTransferReceive" value="TcpDataTransferReceive"/>
+    <string id="task_TcpDataTransferEcn" value="TcpDataTransferEcn"/>
+    <string id="task_TcpDataTransferSpuriousTimeout" value="TcpDataTransferSpuriousTimeout"/>
+    <string id="task_TcpDataTransferRetransmitRound" value="TcpDataTransferRetransmitRound"/>
+    <string id="task_TcpLossRecoveryEntry" value="TcpLossRecoveryEntry"/>
+    <string id="task_TcpLossRecoveryExit" value="TcpLossRecoveryExit"/>
+    <string id="task_TcpLossRecoverySackEntry" value="TcpLossRecoverySackEntry"/>
+    <string id="task_TcpLossRecoverySackExit" value="TcpLossRecoverySackExit"/>
+    <string id="task_TcpSlowStartToCongestionAvoidance" value="TcpSlowStartToCongestionAvoidance"/>
+    <string id="task_TcpBlackHoleDetectionEntry" value="TcpBlackHoleDetectionEntry"/>
+    <string id="task_TcpBlackHoleDetectionExit" value="TcpBlackHoleDetectionExit"/>
+    <string id="task_TcpBlackHoleDetectionFailed" value="TcpBlackHoleDetectionFailed"/>
+    <string id="task_TcpSpuriousRtoDetectionBegin" value="TcpSpuriousRtoDetectionBegin"/>
+    <string id="task_TcpSpuriousRtoDetectionEnd" value="TcpSpuriousRtoDetectionEnd"/>
+    <string id="task_TcpConnectTcbFailedActiveConnect" value="TcpConnectTcbFailedActiveConnect"/>
+    <string id="task_TcpReleaseIndication" value="TcpReleaseIndication"/>
+    <string id="task_TcpAppSendBufferSize" value="TcpAppSendBufferSize"/>
+    <string id="task_TcpAutoTuningBegin" value="TcpAutoTuningBegin"/>
+    <string id="task_TcpAutoTuningEnd" value="TcpAutoTuningEnd"/>
+    <string id="task_TcpAutoTuningFailedRttEstimation" value="TcpAutoTuningFailedRttEstimation"/>
+    <string id="task_TcpAutoTuningFailedBandwidthEstimation" value="TcpAutoTuningFailedBandwidthEstimation"/>
+    <string id="task_TcpAutoTuningFailedAllocationFailure" value="TcpAutoTuningFailedAllocationFailure"/>
+    <string id="task_TcpAutoTuningChangeRcvBufferSize" value="TcpAutoTuningChangeRcvBufferSize"/>
+    <string id="task_TcpRttResiliencyDetection" value="TcpRttResiliencyDetection"/>
+    <string id="task_TcpConnectionOffloadStateChange" value="TcpConnectionOffloadStateChange"/>
+    <string id="task_TcpSwsAvoidanceBegin" value="TcpSwsAvoidanceBegin"/>
+    <string id="task_TcpSwsAvoidanceEnd" value="TcpSwsAvoidanceEnd"/>
+    <string id="task_TcpZeroWindowProbingBegin" value="TcpZeroWindowProbingBegin"/>
+    <string id="task_TcpZeroWindowProbingEnd" value="TcpZeroWindowProbingEnd"/>
+    <string id="task_TcpSetTcpOption" value="TcpSetTcpOption"/>
+    <string id="task_TcpSetTcpSoOption" value="TcpSetTcpSoOption"/>
+    <string id="task_TcpMediaDisconnect" value="TcpMediaDisconnect"/>
+    <string id="task_TcpModuleStarted" value="TcpModuleStarted"/>
+    <string id="task_TcpModuleStopped" value="TcpModuleStopped"/>
+    <string id="task_TcpMemoryFailures" value="TcpMemoryFailures"/>
+    <string id="task_TcpGlobalParameters" value="TcpGlobalParameters"/>
+    <string id="task_TcpLso" value="TcpLso"/>
+    <string id="task_TcpConnectionOffloadStatus" value="TcpConnectionOffloadStatus"/>
+    <string id="task_TcpConnectionOffloadPmax" value="TcpConnectionOffloadPmax"/>
+    <string id="task_IpDadSuccessful" value="IpDadSuccessful"/>
+    <string id="task_IpDadFailed" value="IpDadFailed"/>
+    <string id="task_IpDadStarted" value="IpDadStarted"/>
+    <string id="task_TcpListenerActivationFailedAf" value="TcpListenerActivationFailedAf"/>
+    <string id="task_TcpListenerActivationFailedCompartment" value="TcpListenerActivationFailedCompartment"/>
+    <string id="task_TcpListenerActivationFailedInspection1" value="TcpListenerActivationFailedInspection1"/>
+    <string id="task_TcpListenerActivationFailedInspection2" value="TcpListenerActivationFailedInspection2"/>
+    <string id="task_TcpListenerBindFailedResolution" value="TcpListenerBindFailedResolution"/>
+    <string id="task_TcpListenerBindFailedPort" value="TcpListenerBindFailedPort"/>
+    <string id="task_TcpListenerActivated" value="TcpListenerActivated"/>
+    <string id="task_TcpListenerUnbound" value="TcpListenerUnbound"/>
+    <string id="task_IpAddressAdded" value="IpAddressAdded"/>
+    <string id="task_IpAddressDeleted" value="IpAddressDeleted"/>
+    <string id="task_FramingIfOperStatus" value="FramingIfOperStatus"/>
+    <string id="task_FramingNdisPause" value="FramingNdisPause"/>
+    <string id="task_FramingNdisRestart" value="FramingNdisRestart"/>
+    <string id="task_IpAddressStatePreferred" value="IpAddressStatePreferred"/>
+    <string id="task_IpAddressStateNonPreferred" value="IpAddressStateNonPreferred"/>
+    <string id="task_IpInterfacePropertyChange" value="IpInterfacePropertyChange"/>
+    <string id="task_IpRouteCreated" value="IpRouteCreated"/>
+    <string id="task_IpRouteDeleted" value="IpRouteDeleted"/>
+    <string id="task_IpRoutePropertyChange" value="IpRoutePropertyChange"/>
+    <string id="task_IpNeighborUnreachable" value="IpNeighborUnreachable"/>
+    <string id="task_IpNeighborReachable" value="IpNeighborReachable"/>
+    <string id="task_TcpCtcpDataTransferTimeout" value="TcpCtcpDataTransferTimeout"/>
+    <string id="task_TcpCtcpDataTransferCumAck" value="TcpCtcpDataTransferCumAck"/>
+    <string id="task_TcpCtcpDataTransferDupAck" value="TcpCtcpDataTransferDupAck"/>
+    <string id="task_TcpCtcpDataTransferSend" value="TcpCtcpDataTransferSend"/>
+    <string id="task_TcpCtcpDataTransferEcn" value="TcpCtcpDataTransferEcn"/>
+    <string id="task_TcpCtcpDataTransferSpuriousTimeout" value="TcpCtcpDataTransferSpuriousTimeout"/>
+    <string id="task_TcpReceiveRequest" value="TcpReceiveRequest"/>
+    <string id="task_TcpDeliveryIndicated" value="TcpDeliveryIndicated"/>
+    <string id="task_TcpDeliverySatisfied" value="TcpDeliverySatisfied"/>
+    <string id="task_TcpSendPosted" value="TcpSendPosted"/>
+    <string id="task_TcpSendTransmitted" value="TcpSendTransmitted"/>
+    <string id="task_TcpSendAdvance" value="TcpSendAdvance"/>
+    <string id="task_TcpCTcpDelayWndwInactive" value="TcpCTcpDelayWndwInactive"/>
+    <string id="task_TcpCTcpAssignedBlocks" value="TcpCTcpAssignedBlocks"/>
+    <string id="task_TcpCTcpCongestionWndw" value="TcpCTcpCongestionWndw"/>
+    <string id="task_TcpCTcpGamma" value="TcpCTcpGamma"/>
+    <string id="task_TcpSrttMeasurementStarted" value="TcpSrttMeasurementStarted"/>
+    <string id="task_TcpSrttMeasurementComplete" value="TcpSrttMeasurementComplete"/>
+    <string id="task_TcpSrttMeasurementCancelled" value="TcpSrttMeasurementCancelled"/>
+    <string id="task_UdpEndpointSendMessages" value="UdpEndpointSendMessages"/>
+    <string id="task_UdpEndpointReceiveMessages" value="UdpEndpointReceiveMessages"/>
+    <string id="task_TcpDeliveryFlush" value="TcpDeliveryFlush"/>
+    <string id="task_TcpTcbInjectRcvFailure" value="TcpTcbInjectRcvFailure"/>
+    <string id="task_TcpDeliveryInjectingData" value="TcpDeliveryInjectingData"/>
+    <string id="task_TcpTcbInjectFinFailure" value="TcpTcbInjectFinFailure"/>
+    <string id="task_TcpDeliveryAccept" value="TcpDeliveryAccept"/>
+    <string id="task_TcpDeliveryFin" value="TcpDeliveryFin"/>
+    <string id="task_TcpDeliveryPush" value="TcpDeliveryPush"/>
+    <string id="task_TcpTcbInjectFinComplete" value="TcpTcbInjectFinComplete"/>
+    <string id="task_TcpDeliveryCompleting" value="TcpDeliveryCompleting"/>
+    <string id="task_TcpInitiateSynRstValidation" value="TcpInitiateSynRstValidation"/>
+    <string id="task_TcpConnectTcbFailedRcvdRst" value="TcpConnectTcbFailedRcvdRst"/>
+    <string id="task_TcpConnectionTerminatedRcvdRst" value="TcpConnectionTerminatedRcvdRst"/>
+    <string id="task_TcpConnectionTerminatedRcvdSyn" value="TcpConnectionTerminatedRcvdSyn"/>
+    <string id="task_TcpConnectRestransmit" value="TcpConnectRestransmit"/>
+    <string id="task_TcpDataTransferRestransmit" value="TcpDataTransferRestransmit"/>
+    <string id="task_TcpConnectionKeepAlive" value="TcpConnectionKeepAlive"/>
+    <string id="task_TcpDeliveryStateChange" value="TcpDeliveryStateChange"/>
+    <string id="task_TcpDeliveryDataDropped" value="TcpDeliveryDataDropped"/>
+    <string id="task_TcpAcquirePort" value="TcpAcquirePort"/>
+    <string id="task_TcpAcquireWeakRefPort" value="TcpAcquireWeakRefPort"/>
+    <string id="task_TcpReleasePort" value="TcpReleasePort"/>
+    <string id="task_TcpReplacePort" value="TcpReplacePort"/>
+    <string id="task_TcpAssignedWeakReferencePort" value="TcpAssignedWeakReferencePort"/>
+    <string id="task_TcpBhDetectFullSizeAck" value="TcpBhDetectFullSizeAck"/>
+    <string id="task_TcpFlushSack" value="TcpFlushSack"/>
+    <string id="task_TcpReassemblyEntry" value="TcpReassemblyEntry"/>
+    <string id="task_TcpReassemblyExit" value="TcpReassemblyExit"/>
+    <string id="task_TcpDisconnectTcbZeroWindowTimeout" value="TcpDisconnectTcbZeroWindowTimeout"/>
+    <string id="task_TcpDisconnectTcbFinWait2Timeout" value="TcpDisconnectTcbFinWait2Timeout"/>
+    <string id="task_IpInterfaceRundown" value="IpInterfaceRundown"/>
+    <string id="task_IpInterfaceSpeedChange" value="IpInterfaceSpeedChange"/>
+    <string id="task_TcpReassemblyFlush" value="TcpReassemblyFlush"/>
+    <string id="task_TcpipReceiveSlowPath" value="TcpipReceiveSlowPath"/>
+    <string id="task_TcpipSendSlowPath" value="TcpipSendSlowPath"/>
+    <string id="task_TcpWsdInitializationErrors" value="TcpWsdInitializationErrors"/>
+    <string id="task_TcpWsdInitializationInformation" value="TcpWsdInitializationInformation"/>
+    <string id="task_TcpWsdWsRestrictedProfile" value="TcpWsdWsRestrictedProfile"/>
+    <string id="task_TcpWsdWsRestrictedDestination" value="TcpWsdWsRestrictedDestination"/>
+    <string id="task_TcpWsdCacheEntryStateChange" value="TcpWsdCacheEntryStateChange"/>
+    <string id="task_TcpWsdProfileStateChange" value="TcpWsdProfileStateChange"/>
+    <string id="task_TcpWsdStateChange" value="TcpWsdStateChange"/>
+    <string id="task_TcpipTransportPacketDrops" value="TcpipTransportPacketDrops"/>
+    <string id="task_TcpipNetworkPacketDrops" value="TcpipNetworkPacketDrops"/>
+    <string id="task_TcpMppNppEvaluation" value="TcpMppNppEvaluation"/>
+    <string id="task_TcpMppStartEpisode" value="TcpMppStartEpisode"/>
+    <string id="task_TcpMppStopEpisode" value="TcpMppStopEpisode"/>
+    <string id="task_TcpMppStartEpoch" value="TcpMppStartEpoch"/>
+    <string id="task_TcpMppStopEpoch" value="TcpMppStopEpoch"/>
+    <string id="task_TcpConnectionRundown" value="TcpConnectionRundown"/>
+    <string id="map_TCPIP_ADDRESS_FAMILY_TYPE_ValueMapIPV4" value="IPV4"/>
+    <string id="map_TCPIP_ADDRESS_FAMILY_TYPE_ValueMapIPV6" value="IPV6"/>
+    <string id="map_TCP_CONNECTION_STATE_ValueMapClosedState" value="ClosedState"/>
+    <string id="map_TCP_CONNECTION_STATE_ValueMapListenState" value="ListenState"/>
+    <string id="map_TCP_CONNECTION_STATE_ValueMapSynSentState" value="SynSentState"/>
+    <string id="map_TCP_CONNECTION_STATE_ValueMapSynRcvdState" value="SynRcvdState"/>
+    <string id="map_TCP_CONNECTION_STATE_ValueMapEstablishedState" value="EstablishedState"/>
+    <string id="map_TCP_CONNECTION_STATE_ValueMapFinWait1State" value="FinWait1State"/>
+    <string id="map_TCP_CONNECTION_STATE_ValueMapFinWait2State" value="FinWait2State"/>
+    <string id="map_TCP_CONNECTION_STATE_ValueMapCloseWaitState" value="CloseWaitState"/>
+    <string id="map_TCP_CONNECTION_STATE_ValueMapClosingState" value="ClosingState"/>
+    <string id="map_TCP_CONNECTION_STATE_ValueMapLastAckState" value="LastAckState"/>
+    <string id="map_TCP_CONNECTION_STATE_ValueMapTimeWaitState" value="TimeWaitState"/>
+    <string id="map_TCP_TIMER_TYPE_ValueMapRetransmitTimer" value="RetransmitTimer"/>
+    <string id="map_TCP_TIMER_TYPE_ValueMapConnectTimer" value="ConnectTimer"/>
+    <string id="map_TCP_TIMER_TYPE_ValueMapDelAckTimer" value="DelAckTimer"/>
+    <string id="map_TCP_TIMER_TYPE_ValueMapPushTimer" value="PushTimer"/>
+    <string id="map_TCP_TIMER_TYPE_ValueMapKeepAliveTimer" value="KeepAliveTimer"/>
+    <string id="map_TCP_TIMER_TYPE_ValueMapDisconnectTimer" value="DisconnectTimer"/>
+    <string id="map_TCP_TIMER_TYPE_ValueMapSwsTimer" value="SwsTimer"/>
+    <string id="map_TCP_TIMER_TYPE_ValueMapReassemblyRateTimer" value="ReassemblyRateTimer"/>
+    <string id="map_TCP_TIMER_TYPE_ValueMapSynOrRstValidationTimer" value="SynOrRstValidationTimer"/>
+    <string id="map_TCPIP_BOOLEAN_ValueMapFALSE" value="FALSE"/>
+    <string id="map_TCPIP_BOOLEAN_ValueMapTRUE" value="TRUE"/>
+    <string id="map_TCP_CONNECTION_OFFLOAD_STATE_ValueMapTcpConnectionOffloadStateInHost" value="TcpConnectionOffloadStateInHost"/>
+    <string id="map_TCP_CONNECTION_OFFLOAD_STATE_ValueMapTcpConnectionOffloadStateOffloaded" value="TcpConnectionOffloadStateOffloaded"/>
+    <string id="map_TCP_OPTION_TYPE_ValueMapTCP_OFFLOAD_NO_PREFERENCE" value="TCP_OFFLOAD_NO_PREFERENCE"/>
+    <string id="map_TCP_OPTION_TYPE_ValueMapTCP_OFFLOAD_NOT_PREFERRED" value="TCP_OFFLOAD_NOT_PREFERRED"/>
+    <string id="map_TCP_OPTION_TYPE_ValueMapTCP_OFFLOAD_PREFERRED" value="TCP_OFFLOAD_PREFERRED"/>
+    <string id="map_TCP_OPTION_TYPE_ValueMapTCP_KEEPALIVE" value="TCP_KEEPALIVE"/>
+    <string id="map_TCP_OPTION_TYPE_ValueMapTCP_MAXSEG" value="TCP_MAXSEG"/>
+    <string id="map_TCP_OPTION_TYPE_ValueMapTCP_MAXRT" value="TCP_MAXRT"/>
+    <string id="map_TCP_OPTION_TYPE_ValueMapTCP_STDURG" value="TCP_STDURG"/>
+    <string id="map_TCP_OPTION_TYPE_ValueMapTCP_NOURG" value="TCP_NOURG"/>
+    <string id="map_TCP_OPTION_TYPE_ValueMapTCP_ATMARK" value="TCP_ATMARK"/>
+    <string id="map_TCP_OPTION_TYPE_ValueMapTCP_NOSYNRETRIES" value="TCP_NOSYNRETRIES"/>
+    <string id="map_TCP_OPTION_TYPE_ValueMapTCP_TIMESTAMPS" value="TCP_TIMESTAMPS"/>
+    <string id="map_TCP_OPTION_TYPE_ValueMapTCP_OFFLOAD_PREFERENCE" value="TCP_OFFLOAD_PREFERENCE"/>
+    <string id="map_TCP_OPTION_TYPE_ValueMapTCP_CONGESTION_ALGORITHM" value="TCP_CONGESTION_ALGORITHM"/>
+    <string id="map_TCP_OPTION_TYPE_ValueMapTCP_DELAY_FIN_ACK" value="TCP_DELAY_FIN_ACK"/>
+    <string id="map_TCP_SO_OPTION_TYPE_ValueMapSO_DEBUG" value="SO_DEBUG"/>
+    <string id="map_TCP_SO_OPTION_TYPE_ValueMapSO_ACCEPTCONN" value="SO_ACCEPTCONN"/>
+    <string id="map_TCP_SO_OPTION_TYPE_ValueMapSO_REUSEADDR" value="SO_REUSEADDR"/>
+    <string id="map_TCP_SO_OPTION_TYPE_ValueMapSO_KEEPALIVE" value="SO_KEEPALIVE"/>
+    <string id="map_TCP_SO_OPTION_TYPE_ValueMapSO_DONTROUTE" value="SO_DONTROUTE"/>
+    <string id="map_TCP_SO_OPTION_TYPE_ValueMapSO_BROADCAST" value="SO_BROADCAST"/>
+    <string id="map_TCP_SO_OPTION_TYPE_ValueMapSO_USELOOPBACK" value="SO_USELOOPBACK"/>
+    <string id="map_TCP_SO_OPTION_TYPE_ValueMapSO_LINGER" value="SO_LINGER"/>
+    <string id="map_TCP_SO_OPTION_TYPE_ValueMapSO_OOBINLINE" value="SO_OOBINLINE"/>
+    <string id="map_TCP_SO_OPTION_TYPE_ValueMapSO_SNDBUF" value="SO_SNDBUF"/>
+    <string id="map_TCP_SO_OPTION_TYPE_ValueMapSO_RCVBUF" value="SO_RCVBUF"/>
+    <string id="map_TCP_SO_OPTION_TYPE_ValueMapSO_CONDITIONAL_ACCEPT" value="SO_CONDITIONAL_ACCEPT"/>
+    <string id="map_TCP_SO_OPTION_TYPE_ValueMapSO_PAUSE_ACCEPT" value="SO_PAUSE_ACCEPT"/>
+    <string id="map_TCP_SO_OPTION_TYPE_ValueMapSO_COMPARTMENT_ID" value="SO_COMPARTMENT_ID"/>
+    <string id="map_TCP_SO_OPTION_TYPE_ValueMapSO_RANDOMIZE_PORT" value="SO_RANDOMIZE_PORT"/>
+    <string id="map_TCP_SO_OPTION_TYPE_ValueMapSO_PORT_SCALABILITY" value="SO_PORT_SCALABILITY"/>
+    <string id="map_TCPIP_IP_DAD_STATE_ValueMapNldsInvalid" value="NldsInvalid"/>
+    <string id="map_TCPIP_IP_DAD_STATE_ValueMapNldsTentative" value="NldsTentative"/>
+    <string id="map_TCPIP_IP_DAD_STATE_ValueMapNldsDuplicate" value="NldsDuplicate"/>
+    <string id="map_TCPIP_IP_DAD_STATE_ValueMapNldsDeprecated" value="NldsDeprecated"/>
+    <string id="map_TCPIP_Protocol_ValueMap" value=""/>
+    <string id="map_TCPIP_Protocol_ValueMap(Ignore IPv4 address), IPv6 address =" value="(Ignore IPv4 address), IPv6 address ="/>
+    <string id="map_TCPIP_IP_IF_STATUS_ValueMapOperational" value="Operational"/>
+    <string id="map_TCPIP_IP_IF_STATUS_ValueMapUnoperational" value="Unoperational"/>
+    <string id="map_TCPIP_IP_IF_STATUS_ValueMapUnknown" value="Unknown"/>
+    <string id="map_TCPIP_IP_IF_STATUS_ValueMapDormant" value="Dormant"/>
+    <string id="map_TCPIP_TCP_DELIVERY_STATE_ValueMapIndicate" value="Indicate"/>
+    <string id="map_TCPIP_TCP_DELIVERY_STATE_ValueMapPend" value="Pend"/>
+    <string id="map_TCPIP_TCP_DELIVERY_STATE_ValueMapSatisfy" value="Satisfy"/>
+    <string id="map_TCPIP_IP_PHYSICALMEDIUM_TYPE_ValueMapNdisPhysicalMediumUnspecified" value="NdisPhysicalMediumUnspecified"/>
+    <string id="map_TCPIP_IP_PHYSICALMEDIUM_TYPE_ValueMapNdisPhysicalMediumWirelessLan" value="NdisPhysicalMediumWirelessLan"/>
+    <string id="map_TCPIP_IP_PHYSICALMEDIUM_TYPE_ValueMapNdisPhysicalMediumCableModem" value="NdisPhysicalMediumCableModem"/>
+    <string id="map_TCPIP_IP_PHYSICALMEDIUM_TYPE_ValueMapNdisPhysicalMediumPhoneLine" value="NdisPhysicalMediumPhoneLine"/>
+    <string id="map_TCPIP_IP_PHYSICALMEDIUM_TYPE_ValueMapNdisPhysicalMediumDSL" value="NdisPhysicalMediumDSL"/>
+    <string id="map_TCPIP_IP_PHYSICALMEDIUM_TYPE_ValueMapNdisPhysicalMedium1394" value="NdisPhysicalMedium1394"/>
+    <string id="map_TCPIP_IP_PHYSICALMEDIUM_TYPE_ValueMapNdisPhysicalMediumWirelessWan" value="NdisPhysicalMediumWirelessWan"/>
+    <string id="map_TCPIP_IP_PHYSICALMEDIUM_TYPE_ValueMapNdisPhysicalMediumNative802_11" value="NdisPhysicalMediumNative802_11"/>
+    <string id="map_TCPIP_IP_PHYSICALMEDIUM_TYPE_ValueMapNdisPhysicalMediumBluetooth" value="NdisPhysicalMediumBluetooth"/>
+    <string id="map_TCPIP_IP_PHYSICALMEDIUM_TYPE_ValueMapNdisPhysicalMediumInfiniband" value="NdisPhysicalMediumInfiniband"/>
+    <string id="map_TCPIP_IP_PHYSICALMEDIUM_TYPE_ValueMapNdisPhysicalMediumWiMax" value="NdisPhysicalMediumWiMax"/>
+    <string id="map_TCPIP_IP_PHYSICALMEDIUM_TYPE_ValueMapNdisPhysicalMedium802_3" value="NdisPhysicalMedium802_3"/>
+    <string id="map_TCPIP_IP_PHYSICALMEDIUM_TYPE_ValueMapNdisPhysicalMedium802_5" value="NdisPhysicalMedium802_5"/>
+    <string id="map_TCPIP_IP_PHYSICALMEDIUM_TYPE_ValueMapNdisPhysicalMediumIrda" value="NdisPhysicalMediumIrda"/>
+    <string id="map_TCPIP_IP_PHYSICALMEDIUM_TYPE_ValueMapNdisPhysicalMediumWiredWAN" value="NdisPhysicalMediumWiredWAN"/>
+    <string id="map_TCPIP_Transport_Protocol_ValueMapUnknown (Header corrupt / not parsed)" value="Unknown (Header corrupt / not parsed)"/>
+    <string id="map_TCPIP_Transport_Protocol_ValueMapICMP" value="ICMP"/>
+    <string id="map_TCPIP_Transport_Protocol_ValueMapIGMP" value="IGMP"/>
+    <string id="map_TCPIP_Transport_Protocol_ValueMapTCP" value="TCP"/>
+    <string id="map_TCPIP_Transport_Protocol_ValueMapUDP" value="UDP"/>
+    <string id="map_TCPIP_Transport_Protocol_ValueMapROUTING" value="ROUTING"/>
+    <string id="map_TCPIP_Transport_Protocol_ValueMapFRAGMENT" value="FRAGMENT"/>
+    <string id="map_TCPIP_Transport_Protocol_ValueMapGRE" value="GRE"/>
+    <string id="map_TCPIP_Transport_Protocol_ValueMapESP" value="ESP"/>
+    <string id="map_TCPIP_Transport_Protocol_ValueMapAH" value="AH"/>
+    <string id="map_TCPIP_Transport_Protocol_ValueMapICMPV6" value="ICMPV6"/>
+    <string id="map_TCPIP_Transport_Protocol_ValueMapUnknown" value="Unknown"/>
+    <string id="map_TCPIP_SLOW_PATH_REASON_ValueMapIP checksum offload not computed" value="IP checksum offload not computed"/>
+    <string id="map_TCPIP_SLOW_PATH_REASON_ValueMapTCP checksum offload not computed" value="TCP checksum offload not computed"/>
+    <string id="map_TCPIP_SLOW_PATH_REASON_ValueMapUDP checksum offload not computed" value="UDP checksum offload not computed"/>
+    <string id="map_TCPIP_SLOW_PATH_REASON_ValueMapHeader not aligned on 4-byte boundary" value="Header not aligned on 4-byte boundary"/>
+    <string id="map_TCPIP_SLOW_PATH_REASON_ValueMapIP fragmentation" value="IP fragmentation"/>
+    <string id="map_TCPIP_SLOW_PATH_REASON_ValueMapSource address is not unicast" value="Source address is not unicast"/>
+    <string id="map_TCPIP_SLOW_PATH_REASON_ValueMapDestination address is not unicast" value="Destination address is not unicast"/>
+    <string id="map_TCPIP_SLOW_PATH_REASON_ValueMapEthernet and IP header not contiguous" value="Ethernet and IP header not contiguous"/>
+    <string id="map_TCPIP_SLOW_PATH_REASON_ValueMapIP options present" value="IP options present"/>
+    <string id="map_TCPIP_SLOW_PATH_REASON_ValueMapESP over UDP" value="ESP over UDP"/>
+    <string id="map_TCPIP_SLOW_PATH_REASON_ValueMapLack contiguous space for upper layer headers" value="Lack contiguous space for upper layer headers"/>
+    <string id="map_TCPIP_SLOW_PATH_REASON_ValueMapWFP filters present" value="WFP filters present"/>
+    <string id="map_TCPIP_SLOW_PATH_REASON_ValueMapNexthop is unavailable" value="Nexthop is unavailable"/>
+    <string id="map_TCPIP_SLOW_PATH_REASON_ValueMapPath has been invalidated due to policy change" value="Path has been invalidated due to policy change"/>
+    <string id="map_TCPIP_SLOW_PATH_REASON_ValueMapDHCP assigned IP address' promiscuous count is non-zero" value="DHCP assigned IP address' promiscuous count is non-zero"/>
+    <string id="map_TCPIP_SLOW_PATH_REASON_ValueMapECN codepoint has not been negotiated for this traffic" value="ECN codepoint has not been negotiated for this traffic"/>
+    <string id="map_TCPIP_SLOW_PATH_REASON_ValueMapSession state is not compatible" value="Session state is not compatible"/>
+    <string id="map_TCPIP_SLOW_PATH_REASON_ValueMapSession state is not compatible" value="Session state is not compatible"/>
+    <string id="map_TCPIP_SLOW_PATH_REASON_ValueMapSession state is not compatible" value="Session state is not compatible"/>
+    <string id="map_TCPIP_SLOW_PATH_REASON_ValueMapSession state is not compatible" value="Session state is not compatible"/>
+    <string id="map_TCP_WSD_ValueMapFailed to allocate the WSD cache" value="Failed to allocate the WSD cache"/>
+    <string id="map_TCP_WSD_ValueMapFailure initializing PnP work queue" value="Failure initializing PnP work queue"/>
+    <string id="map_TCP_WSD_ValueMapFailed to get persistent parameters" value="Failed to get persistent parameters"/>
+    <string id="map_TCP_WSD_ValueMapRejected persistent parameters" value="Rejected persistent parameters"/>
+    <string id="map_TCP_WSD_ValueMapqualified profile" value="qualified profile"/>
+    <string id="map_TCP_WSD_ValueMapqualified destination" value="qualified destination"/>
+    <string id="map_TCP_WSD_ValueMapsample collection completion" value="sample collection completion"/>
+    <string id="map_TCP_WSD_ValueMapidle time expiration" value="idle time expiration"/>
+    <string id="map_TCP_WSD_ValueMapallocation" value="allocation"/>
+    <string id="map_TCP_WSD_ValueMapnew sample request" value="new sample request"/>
+    <string id="map_TCP_WSD_ValueMapconfiguration change" value="configuration change"/>
+    <string id="map_TCP_WSD_CACHE_ENTRY_STATE_ValueMapIdle" value="Idle"/>
+    <string id="map_TCP_WSD_CACHE_ENTRY_STATE_ValueMapProbingWs" value="ProbingWs"/>
+    <string id="map_TCP_WSD_CACHE_ENTRY_STATE_ValueMapProbeWait" value="ProbeWait"/>
+    <string id="map_TCP_WSD_CACHE_ENTRY_STATE_ValueMapProbingWithoutWs" value="ProbingWithoutWs"/>
+    <string id="map_TCP_WSD_CACHE_ENTRY_STATE_ValueMapRecordWait" value="RecordWait"/>
+    <string id="map_TCP_WSD_CACHE_ENTRY_STATE_ValueMapEreQualified" value="EreQualified"/>
+    <string id="map_TCP_WSD_CACHE_ENTRY_STATE_ValueMapQualified" value="Qualified"/>
+    <string id="map_TCPIP_TRANSPORT_PACKET_DROP_REASON_ValueMapDestination is multicast" value="Destination is multicast"/>
+    <string id="map_TCPIP_TRANSPORT_PACKET_DROP_REASON_ValueMapHeader is invalid" value="Header is invalid"/>
+    <string id="map_TCPIP_TRANSPORT_PACKET_DROP_REASON_ValueMapChecksum is invalid" value="Checksum is invalid"/>
+    <string id="map_TCPIP_TRANSPORT_PACKET_DROP_REASON_ValueMapTransport endpoint was not found" value="Transport endpoint was not found"/>
+    <string id="map_TCPIP_TRANSPORT_PACKET_DROP_REASON_ValueMapConnected path error" value="Connected path error"/>
+    <string id="map_TCPIP_TRANSPORT_PACKET_DROP_REASON_ValueMapSession state error" value="Session state error"/>
+    <string id="map_TCPIP_NETWORK_PACKET_DROP_REASON_ValueMapBad source address" value="Bad source address"/>
+    <string id="map_TCPIP_NETWORK_PACKET_DROP_REASON_ValueMapNot locally destined" value="Not locally destined"/>
+    <string id="map_TCPIP_NETWORK_PACKET_DROP_REASON_ValueMapProtocol unreachable" value="Protocol unreachable"/>
+    <string id="map_TCPIP_NETWORK_PACKET_DROP_REASON_ValueMapPort unreachable" value="Port unreachable"/>
+    <string id="map_TCPIP_NETWORK_PACKET_DROP_REASON_ValueMapBad length" value="Bad length"/>
+    <string id="map_TCPIP_NETWORK_PACKET_DROP_REASON_ValueMapMalformed Header" value="Malformed Header"/>
+    <string id="map_TCPIP_NETWORK_PACKET_DROP_REASON_ValueMapNo route available" value="No route available"/>
+    <string id="map_TCPIP_NETWORK_PACKET_DROP_REASON_ValueMapBeyond scope" value="Beyond scope"/>
+    <string id="map_TCPIP_NETWORK_PACKET_DROP_REASON_ValueMapInspection drop" value="Inspection drop"/>
+    <string id="map_TCPIP_NETWORK_PACKET_DROP_REASON_ValueMapToo many decapsulations" value="Too many decapsulations"/>
+    <string id="map_TCPIP_NETWORK_PACKET_DROP_REASON_ValueMapAdministratively prohibited" value="Administratively prohibited"/>
+    <string id="map_TCPIP_NETWORK_PACKET_DROP_REASON_ValueMapHop limit exceeded" value="Hop limit exceeded"/>
+    <string id="map_TCPIP_NETWORK_PACKET_DROP_REASON_ValueMapAddress unreachable" value="Address unreachable"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

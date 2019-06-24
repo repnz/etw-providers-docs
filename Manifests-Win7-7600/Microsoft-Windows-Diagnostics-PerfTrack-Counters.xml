@@ -1,0 +1,103 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Diagnostics-PerfTrack-Counters" guid="{c06ed57a-a7bd-42d7-b5ff-77a9dec5732d}" resourceFileName="Microsoft-Windows-Diagnostics-PerfTrack-Counters" messageFileName="Microsoft-Windows-Diagnostics-PerfTrack-Counters" symbol="MicrosoftWindowsDiagnosticsPerfTrackCounters" source="Xml" >
+    <keywords>
+     <keyword name="ProcessCounter" message="$(string.keyword_ProcessCounter)" mask="0x10000"/>
+     <keyword name="FileCacheCounter" message="$(string.keyword_FileCacheCounter)" mask="0x20000"/>
+     <keyword name="PoolCounter" message="$(string.keyword_PoolCounter)" mask="0x40000"/>
+     <keyword name="SessionPoolCounter" message="$(string.keyword_SessionPoolCounter)" mask="0x80000"/>
+     <keyword name="PoolTagCounter" message="$(string.keyword_PoolTagCounter)" mask="0x100000"/>
+     <keyword name="SessionPoolTagCounter" message="$(string.keyword_SessionPoolTagCounter)" mask="0x200000"/>
+    </keywords>
+    <tasks>
+     <task name="PerfTrackCounter_Process" message="$(string.task_PerfTrackCounter_Process)" value="2000"/>
+     <task name="PerfTrackCounter_FileCache" message="$(string.task_PerfTrackCounter_FileCache)" value="2001"/>
+     <task name="PerfTrackCounter_Pool" message="$(string.task_PerfTrackCounter_Pool)" value="2002"/>
+     <task name="PerfTrackCounter_SessionPool" message="$(string.task_PerfTrackCounter_SessionPool)" value="2003"/>
+     <task name="PerfTrackCounter_PoolTag" message="$(string.task_PerfTrackCounter_PoolTag)" value="2004"/>
+     <task name="PerfTrackCounter_SessionPoolTag" message="$(string.task_PerfTrackCounter_SessionPoolTag)" value="2005"/>
+    </tasks>
+    <events>
+     <event value="2000" symbol="PerfTrackCounter_Process" version="0" task="PerfTrackCounter_Process" level="win:Informational" keywords="ProcessCounter" template="PerfTrackCounter_ProcessArgs"/>
+     <event value="2001" symbol="PerfTrackCounter_FileCache" version="0" task="PerfTrackCounter_FileCache" level="win:Informational" keywords="FileCacheCounter" template="PerfTrackCounter_FileCacheArgs"/>
+     <event value="2002" symbol="PerfTrackCounter_Pool" version="0" task="PerfTrackCounter_Pool" level="win:Informational" keywords="PoolCounter" template="PerfTrackCounter_PoolArgs"/>
+     <event value="2003" symbol="PerfTrackCounter_SessionPool" version="0" task="PerfTrackCounter_SessionPool" level="win:Informational" keywords="SessionPoolCounter" template="PerfTrackCounter_SessionPoolArgs"/>
+     <event value="2004" symbol="PerfTrackCounter_PoolTag" version="0" task="PerfTrackCounter_PoolTag" level="win:Informational" keywords="PoolTagCounter" template="PerfTrackCounter_PoolTagArgs"/>
+     <event value="2005" symbol="PerfTrackCounter_SessionPoolTag" version="0" task="PerfTrackCounter_SessionPoolTag" level="win:Informational" keywords="SessionPoolTagCounter" template="PerfTrackCounter_SessionPoolTagArgs"/>
+    </events>
+    <templates>
+     <template tid="PerfTrackCounter_ProcessArgs">
+      <data name="WorkingSetPrivateSize" inType="win:Int64"/>
+      <data name="QuotaNonPagedPoolUsage" inType="win:Pointer"/>
+      <data name="QuotaPagedPoolUsage" inType="win:Pointer"/>
+      <data name="PrivatePageCount" inType="win:Pointer"/>
+      <data name="VirtualSize" inType="win:Pointer"/>
+      <data name="WorkingSetSize" inType="win:Pointer"/>
+      <data name="HandleCount" inType="win:UInt32"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="ProcessId" inType="win:UInt32"/>
+      <data name="ProcessName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="PerfTrackCounter_FileCacheArgs">
+      <data name="CurrentSize" inType="win:Pointer"/>
+      <data name="PeakSize" inType="win:Pointer"/>
+      <data name="MinimumWorkingSet" inType="win:Pointer"/>
+      <data name="MaximumWorkingSet" inType="win:Pointer"/>
+      <data name="CurrentSizeIncludingTransitionInPages" inType="win:Pointer"/>
+      <data name="PeakSizeIncludingTransitionInPages" inType="win:Pointer"/>
+      <data name="PageFaultCount" inType="win:UInt32"/>
+      <data name="TransitionRePurposeCount" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+     </template>
+     <template tid="PerfTrackCounter_PoolArgs">
+      <data name="PagedPoolPages" inType="win:UInt32"/>
+      <data name="NonPagedPoolPages" inType="win:UInt32"/>
+     </template>
+     <template tid="PerfTrackCounter_SessionPoolArgs">
+      <data name="PagedPoolPages" inType="win:Pointer"/>
+      <data name="NonPagedPoolPages" inType="win:Pointer"/>
+      <data name="SessionId" inType="win:UInt32"/>
+     </template>
+     <template tid="PerfTrackCounter_PoolTagArgs">
+      <data name="PagedAllocs" inType="win:UInt32"/>
+      <data name="PagedFrees" inType="win:UInt32"/>
+      <data name="PagedUsed" inType="win:Pointer"/>
+      <data name="NonPagedAllocs" inType="win:UInt32"/>
+      <data name="NonPagedFrees" inType="win:UInt32"/>
+      <data name="NonPagedUsed" inType="win:Pointer"/>
+      <data name="Tag" inType="win:AnsiString"/>
+     </template>
+     <template tid="PerfTrackCounter_SessionPoolTagArgs">
+      <data name="PagedAllocs" inType="win:UInt32"/>
+      <data name="PagedFrees" inType="win:UInt32"/>
+      <data name="PagedUsed" inType="win:Pointer"/>
+      <data name="NonPagedAllocs" inType="win:UInt32"/>
+      <data name="NonPagedFrees" inType="win:UInt32"/>
+      <data name="NonPagedUsed" inType="win:Pointer"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="Tag" inType="win:AnsiString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_ProcessCounter" value="ProcessCounter"/>
+    <string id="keyword_FileCacheCounter" value="FileCacheCounter"/>
+    <string id="keyword_PoolCounter" value="PoolCounter"/>
+    <string id="keyword_SessionPoolCounter" value="SessionPoolCounter"/>
+    <string id="keyword_PoolTagCounter" value="PoolTagCounter"/>
+    <string id="keyword_SessionPoolTagCounter" value="SessionPoolTagCounter"/>
+    <string id="task_PerfTrackCounter_Process" value="PerfTrackCounter_Process"/>
+    <string id="task_PerfTrackCounter_FileCache" value="PerfTrackCounter_FileCache"/>
+    <string id="task_PerfTrackCounter_Pool" value="PerfTrackCounter_Pool"/>
+    <string id="task_PerfTrackCounter_SessionPool" value="PerfTrackCounter_SessionPool"/>
+    <string id="task_PerfTrackCounter_PoolTag" value="PerfTrackCounter_PoolTag"/>
+    <string id="task_PerfTrackCounter_SessionPoolTag" value="PerfTrackCounter_SessionPoolTag"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

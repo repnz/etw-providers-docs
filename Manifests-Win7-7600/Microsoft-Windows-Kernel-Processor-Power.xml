@@ -1,0 +1,289 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Kernel-Processor-Power" guid="{0f67e49f-fe51-4e9f-b490-6f2948cc6027}" resourceFileName="Microsoft-Windows-Kernel-Processor-Power" messageFileName="Microsoft-Windows-Kernel-Processor-Power" symbol="MicrosoftWindowsKernelProcessorPower" source="Xml" >
+    <keywords>
+     <keyword name="Perf" message="$(string.keyword_Perf)" mask="0x1"/>
+     <keyword name="Diag" message="$(string.keyword_Diag)" mask="0x2"/>
+     <keyword name="PowerDiagnostics" message="$(string.keyword_PowerDiagnostics)" mask="0x4"/>
+    </keywords>
+    <tasks>
+     <task name="IdleStatesError" message="$(string.task_IdleStatesError)" value="1"/>
+     <task name="PerfStatesError" message="$(string.task_PerfStatesError)" value="2"/>
+     <task name="ThrottleStatesError" message="$(string.task_ThrottleStatesError)" value="3"/>
+     <task name="Summary" message="$(string.task_Summary)" value="4"/>
+     <task name="IdleStatesErrata" message="$(string.task_IdleStatesErrata)" value="5"/>
+     <task name="PerfStatesErrata" message="$(string.task_PerfStatesErrata)" value="6"/>
+     <task name="LongCapInfo" message="$(string.task_LongCapInfo)" value="7"/>
+     <task name="QuickCapInfo" message="$(string.task_QuickCapInfo)" value="8"/>
+     <task name="DomainPerfStateChange" message="$(string.task_DomainPerfStateChange)" value="9"/>
+     <task name="ProcessorPerfStateChange" message="$(string.task_ProcessorPerfStateChange)" value="10"/>
+     <task name="PerfCheck" message="$(string.task_PerfCheck)" value="11"/>
+     <task name="RecordedUtility" message="$(string.task_RecordedUtility)" value="12"/>
+     <task name="ExpectedUtility" message="$(string.task_ExpectedUtility)" value="13"/>
+     <task name="ParkCore" message="$(string.task_ParkCore)" value="14"/>
+     <task name="UnparkCore" message="$(string.task_UnparkCore)" value="15"/>
+     <task name="IdleAccountingRundown" message="$(string.task_IdleAccountingRundown)" value="17"/>
+     <task name="ProcessorFirmwareRundown" message="$(string.task_ProcessorFirmwareRundown)" value="18"/>
+     <task name="CStateDomainFirmwareRundown" message="$(string.task_CStateDomainFirmwareRundown)" value="19"/>
+     <task name="PTStateDomainFirmwareRundown" message="$(string.task_PTStateDomainFirmwareRundown)" value="20"/>
+     <task name="ThrottleStatesErrata" message="$(string.task_ThrottleStatesErrata)" value="21"/>
+     <task name="PccSummary" message="$(string.task_PccSummary)" value="22"/>
+     <task name="PccErrata" message="$(string.task_PccErrata)" value="23"/>
+     <task name="PccError" message="$(string.task_PccError)" value="24"/>
+     <task name="NotifyPStates" message="$(string.task_NotifyPStates)" value="25"/>
+     <task name="NotifyCStates" message="$(string.task_NotifyCStates)" value="26"/>
+     <task name="NotifyTStates" message="$(string.task_NotifyTStates)" value="27"/>
+     <task name="PerfStatesRundown" message="$(string.task_PerfStatesRundown)" value="28"/>
+     <task name="BiosPStatesRundown" message="$(string.task_BiosPStatesRundown)" value="29"/>
+     <task name="BiosCStatesRundown" message="$(string.task_BiosCStatesRundown)" value="30"/>
+     <task name="BiosTStatesRundown" message="$(string.task_BiosTStatesRundown)" value="31"/>
+     <task name="PccCapChange" message="$(string.task_PccCapChange)" value="32"/>
+     <task name="BiosCapChange" message="$(string.task_BiosCapChange)" value="33"/>
+     <task name="ThermalCapChange" message="$(string.task_ThermalCapChange)" value="34"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="IdleStatesError" version="0" task="IdleStatesError" level="win:Error" template="IdleStatesErrorArgs"/>
+     <event value="2" symbol="PerfStatesError" version="0" task="PerfStatesError" level="win:Error" template="IdleStatesErrorArgs"/>
+     <event value="3" symbol="ThrottleStatesError" version="0" task="ThrottleStatesError" level="win:Error" template="IdleStatesErrorArgs"/>
+     <event value="4" symbol="Summary" version="0" task="Summary" level="win:Informational" template="SummaryArgs"/>
+     <event value="5" symbol="IdleStatesErrata" version="0" task="IdleStatesErrata" level="win:Error"/>
+     <event value="6" symbol="PerfStatesErrata" version="0" task="PerfStatesErrata" level="win:Error"/>
+     <event value="7" symbol="LongCapInfo" version="0" task="LongCapInfo" level="win:Warning" template="LongCapInfoArgs"/>
+     <event value="8" symbol="QuickCapInfo" version="0" task="QuickCapInfo" level="win:Warning" template="LongCapInfoArgs"/>
+     <event value="9" symbol="DomainPerfStateChange" version="0" task="DomainPerfStateChange" level="win:Informational" keywords="Perf" template="DomainPerfStateChangeArgs"/>
+     <event value="10" symbol="ProcessorPerfStateChange" version="0" task="ProcessorPerfStateChange" level="win:Informational" keywords="Perf" template="ProcessorPerfStateChangeArgs"/>
+     <event value="11" symbol="PerfCheckStart" version="0" task="PerfCheck" opcode="win:Start" level="win:Verbose" keywords="Diag" template="PerfCheckStartArgs"/>
+     <event value="12" symbol="RecordedUtility" version="0" task="RecordedUtility" level="win:Informational" keywords="Diag" template="RecordedUtilityArgs"/>
+     <event value="13" symbol="ExpectedUtility" version="0" task="ExpectedUtility" level="win:Informational" keywords="Diag" template="ExpectedUtilityArgs"/>
+     <event value="14" symbol="ParkCore" version="0" task="ParkCore" level="win:Informational" keywords="Perf Diag" template="ParkCoreArgs"/>
+     <event value="15" symbol="UnparkCore" version="0" task="UnparkCore" level="win:Informational" keywords="Perf Diag" template="ParkCoreArgs"/>
+     <event value="16" symbol="PerfCheckStop" version="0" task="PerfCheck" opcode="win:Stop" level="win:Verbose" keywords="Diag" template="PerfCheckStartArgs"/>
+     <event value="18" symbol="ProcessorPerfStateChange18" version="0" task="ProcessorPerfStateChange" level="win:Informational" keywords="Perf" template="ProcessorPerfStateChangeArgs"/>
+     <event value="19" symbol="IdleAccountingRundown" version="0" task="IdleAccountingRundown" level="win:Informational" keywords="Diag PowerDiagnostics" template="IdleAccountingRundownArgs"/>
+     <event value="20" symbol="ProcessorFirmwareRundown" version="0" task="ProcessorFirmwareRundown" level="win:Informational" keywords="Diag PowerDiagnostics" template="ProcessorFirmwareRundownArgs"/>
+     <event value="21" symbol="CStateDomainFirmwareRundown" version="0" task="CStateDomainFirmwareRundown" level="win:Informational" keywords="Diag PowerDiagnostics" template="CStateDomainFirmwareRundownArgs"/>
+     <event value="22" symbol="PTStateDomainFirmwareRundown" version="0" task="PTStateDomainFirmwareRundown" level="win:Informational" keywords="Diag PowerDiagnostics" template="CStateDomainFirmwareRundownArgs"/>
+     <event value="23" symbol="Summary23" version="0" task="Summary" level="win:Informational" keywords="Diag PowerDiagnostics" template="Summary23Args"/>
+     <event value="24" symbol="IdleStatesErrata24" version="0" task="IdleStatesErrata" level="win:Error" keywords="Diag PowerDiagnostics"/>
+     <event value="25" symbol="PerfStatesErrata25" version="0" task="PerfStatesErrata" level="win:Error" keywords="Diag PowerDiagnostics"/>
+     <event value="26" symbol="Summary26" version="0" task="Summary" level="win:Informational" template="Summary23Args"/>
+     <event value="27" symbol="ThrottleStatesErrata" version="0" task="ThrottleStatesErrata" level="win:Error"/>
+     <event value="28" symbol="ThrottleStatesErrata28" version="0" task="ThrottleStatesErrata" level="win:Error" keywords="Diag PowerDiagnostics"/>
+     <event value="29" symbol="PccSummary" version="0" task="PccSummary" level="win:Informational" template="PccSummaryArgs"/>
+     <event value="30" symbol="PccSummary30" version="0" task="PccSummary" level="win:Informational" keywords="Diag PowerDiagnostics" template="PccSummaryArgs"/>
+     <event value="31" symbol="PccErrata" version="0" task="PccErrata" level="win:Error"/>
+     <event value="32" symbol="PccErrata32" version="0" task="PccErrata" level="win:Error" keywords="Diag PowerDiagnostics"/>
+     <event value="33" symbol="PccError" version="0" task="PccError" level="win:Error" template="PccErrorArgs"/>
+     <event value="34" symbol="IdleStatesError34" version="0" task="IdleStatesError" level="win:Error" template="PccErrorArgs"/>
+     <event value="35" symbol="PerfStatesError35" version="0" task="PerfStatesError" level="win:Error" template="PccErrorArgs"/>
+     <event value="36" symbol="ThrottleStatesError36" version="0" task="ThrottleStatesError" level="win:Error" template="PccErrorArgs"/>
+     <event value="37" symbol="LongCapInfo37" version="0" task="LongCapInfo" level="win:Warning" template="LongCapInfo37Args"/>
+     <event value="38" symbol="QuickCapInfo38" version="0" task="QuickCapInfo" level="win:Warning" template="LongCapInfo37Args"/>
+     <event value="39" symbol="NotifyPStates" version="0" task="NotifyPStates" level="win:Informational" keywords="Diag" template="NotifyPStatesArgs"/>
+     <event value="40" symbol="NotifyCStates" version="0" task="NotifyCStates" level="win:Informational" keywords="Diag" template="PccErrorArgs"/>
+     <event value="41" symbol="NotifyTStates" version="0" task="NotifyTStates" level="win:Informational" keywords="Diag" template="NotifyPStatesArgs"/>
+     <event value="42" symbol="PerfStatesRundown" version="0" task="PerfStatesRundown" level="win:Informational" keywords="Diag PowerDiagnostics" template="PerfStatesRundownArgs"/>
+     <event value="43" symbol="BiosPStatesRundown" version="0" task="BiosPStatesRundown" level="win:Informational" keywords="Diag PowerDiagnostics" template="BiosPStatesRundownArgs"/>
+     <event value="44" symbol="BiosCStatesRundown" version="0" task="BiosCStatesRundown" level="win:Informational" keywords="Diag PowerDiagnostics" template="BiosCStatesRundownArgs"/>
+     <event value="45" symbol="BiosTStatesRundown" version="0" task="BiosTStatesRundown" level="win:Informational" keywords="Diag PowerDiagnostics" template="BiosTStatesRundownArgs"/>
+     <event value="46" symbol="PccCapChange" version="0" task="PccCapChange" level="win:Informational" keywords="Diag" template="NotifyPStatesArgs"/>
+     <event value="47" symbol="BiosCapChange" version="0" task="BiosCapChange" level="win:Informational" keywords="Diag" template="NotifyPStatesArgs"/>
+     <event value="48" symbol="ThermalCapChange" version="0" task="ThermalCapChange" level="win:Informational" keywords="Diag" template="NotifyPStatesArgs"/>
+    </events>
+    <templates>
+     <template tid="IdleStatesErrorArgs">
+      <data name="Processor" inType="win:UInt32"/>
+     </template>
+     <template tid="SummaryArgs">
+      <data name="Processor" inType="win:UInt32"/>
+      <data name="IdleStateCount" inType="win:UInt32"/>
+      <data name="PerfStateCount" inType="win:UInt32"/>
+      <data name="ThrottleStateCount" inType="win:UInt32"/>
+      <data name="IdleState" inType="win:UInt16" count="IdleStateCount"/>
+      <data name="PerfState" inType="win:Int32" count="PerfStateCount"/>
+     </template>
+     <template tid="LongCapInfoArgs">
+      <data name="Processor" inType="win:UInt32"/>
+      <data name="CapDurationInSeconds" inType="win:UInt32"/>
+      <data name="PpcChanges" inType="win:UInt32"/>
+      <data name="TpcChanges" inType="win:UInt32"/>
+     </template>
+     <template tid="DomainPerfStateChangeArgs">
+      <data name="State" inType="win:UInt32"/>
+      <data name="Speed" inType="win:UInt32"/>
+      <data name="GroupCount" inType="win:UInt16"/>
+      <data name="Group" inType="win:UInt8" count="GroupCount"/>
+     </template>
+     <template tid="ProcessorPerfStateChangeArgs">
+      <data name="State" inType="win:UInt32"/>
+      <data name="Speed" inType="win:UInt32"/>
+      <data name="Group" inType="win:UInt16"/>
+      <data name="Number" inType="win:UInt8"/>
+     </template>
+     <template tid="PerfCheckStartArgs">
+      <data name="PpmCheckTime" inType="win:UInt64"/>
+     </template>
+     <template tid="RecordedUtilityArgs">
+      <data name="PpmCheckTime" inType="win:UInt64"/>
+      <data name="IdleTime" inType="win:UInt64"/>
+      <data name="BusyTime" inType="win:UInt64"/>
+      <data name="Frequency" inType="win:UInt32"/>
+      <data name="Group" inType="win:UInt16"/>
+      <data name="Number" inType="win:UInt8"/>
+     </template>
+     <template tid="ExpectedUtilityArgs">
+      <data name="PpmCheckTime" inType="win:UInt64"/>
+      <data name="IdleTimeInMs" inType="win:UInt32"/>
+      <data name="BusyTimeInMs" inType="win:UInt32"/>
+      <data name="ExcessBusyTimeInMs" inType="win:UInt32"/>
+      <data name="Frequency" inType="win:UInt32"/>
+      <data name="Group" inType="win:UInt16"/>
+      <data name="Number" inType="win:UInt8"/>
+     </template>
+     <template tid="ParkCoreArgs">
+      <data name="PpmCheckTime" inType="win:UInt64"/>
+      <data name="Group" inType="win:UInt16"/>
+      <data name="Number" inType="win:UInt8"/>
+     </template>
+     <template tid="IdleAccountingRundownArgs">
+      <data name="StateCount" inType="win:UInt32"/>
+      <data name="TotalTransitions" inType="win:UInt32"/>
+      <data name="ResetCount" inType="win:UInt32"/>
+      <data name="Pad" inType="win:UInt32"/>
+      <data name="StartTime" inType="win:UInt64"/>
+      <data name="State" inType="win:UInt32" count="StateCount"/>
+      <data name="Group" inType="win:UInt16"/>
+      <data name="Number" inType="win:UInt8"/>
+     </template>
+     <template tid="ProcessorFirmwareRundownArgs">
+      <data name="FeaturesPresent" inType="win:UInt32"/>
+      <data name="FeaturesAccessed" inType="win:UInt32"/>
+      <data name="FeaturesValidated" inType="win:UInt32"/>
+      <data name="Group" inType="win:UInt16"/>
+      <data name="Number" inType="win:UInt8"/>
+     </template>
+     <template tid="CStateDomainFirmwareRundownArgs">
+      <data name="DomainId" inType="win:UInt32"/>
+      <data name="MemberCount" inType="win:UInt32"/>
+      <data name="MembersEnumerated" inType="win:UInt32"/>
+     </template>
+     <template tid="Summary23Args">
+      <data name="Group" inType="win:UInt16"/>
+      <data name="Number" inType="win:UInt8"/>
+      <data name="IdleStateCount" inType="win:UInt32"/>
+      <data name="PerfStateCount" inType="win:UInt32"/>
+      <data name="ThrottleStateCount" inType="win:UInt32"/>
+      <data name="IdleState" inType="win:Int32" count="IdleStateCount"/>
+      <data name="PerfState" inType="win:UInt32" count="PerfStateCount"/>
+     </template>
+     <template tid="PccSummaryArgs">
+      <data name="MajorVersion" inType="win:UInt8"/>
+      <data name="MinorVersion" inType="win:UInt8"/>
+      <data name="MinPerfPercent" inType="win:UInt8"/>
+      <data name="MinThrottlePercent" inType="win:UInt8"/>
+     </template>
+     <template tid="PccErrorArgs">
+      <data name="Group" inType="win:UInt16"/>
+      <data name="Number" inType="win:UInt8"/>
+     </template>
+     <template tid="LongCapInfo37Args">
+      <data name="Group" inType="win:UInt16"/>
+      <data name="Number" inType="win:UInt8"/>
+      <data name="CapDurationInSeconds" inType="win:UInt32"/>
+      <data name="PpcChanges" inType="win:UInt32"/>
+      <data name="TpcChanges" inType="win:UInt32"/>
+      <data name="PccChanges" inType="win:UInt32"/>
+     </template>
+     <template tid="NotifyPStatesArgs">
+      <data name="Group" inType="win:UInt16"/>
+      <data name="Number" inType="win:UInt8"/>
+      <data name="Cap" inType="win:UInt32"/>
+     </template>
+     <template tid="PerfStatesRundownArgs">
+      <data name="Group" inType="win:UInt16"/>
+      <data name="Number" inType="win:UInt8"/>
+      <data name="StateCount" inType="win:UInt32"/>
+      <data name="States" inType="win:UInt8" count="StateCount"/>
+     </template>
+     <template tid="BiosPStatesRundownArgs">
+      <data name="Group" inType="win:UInt16"/>
+      <data name="Number" inType="win:UInt8"/>
+      <data name="PBlockAddress" inType="win:UInt32"/>
+      <data name="PBlockLength" inType="win:UInt8"/>
+      <data name="ProcessorId" inType="win:UInt32"/>
+      <data name="ApicId" inType="win:UInt32"/>
+      <data name="Ppc" inType="win:UInt32"/>
+      <data name="PctControl" inType="win:Float"/>
+      <data name="PctStatus" inType="win:Pointer"/>
+      <data name="StateCount" inType="win:UInt32"/>
+      <data name="PssStates" inType="win:HexInt64" count="StateCount"/>
+     </template>
+     <template tid="BiosCStatesRundownArgs">
+      <data name="Group" inType="win:UInt16"/>
+      <data name="Number" inType="win:UInt8"/>
+      <data name="FadtC2Latency" inType="win:UInt16"/>
+      <data name="FadtC3Latency" inType="win:UInt16"/>
+      <data name="CStateVersionInUse" inType="win:UInt32"/>
+      <data name="StateCount" inType="win:UInt32"/>
+      <data name="CstStates" inType="win:Int32" count="StateCount"/>
+     </template>
+     <template tid="BiosTStatesRundownArgs">
+      <data name="Group" inType="win:UInt16"/>
+      <data name="Number" inType="win:UInt8"/>
+      <data name="FadtDutyWidth" inType="win:UInt8"/>
+      <data name="FadtDutyOffset" inType="win:UInt8"/>
+      <data name="Tpc" inType="win:UInt32"/>
+      <data name="TStateVersionInUse" inType="win:UInt32"/>
+      <data name="PtcControl" inType="win:UInt64"/>
+      <data name="PtcStatus" inType="win:GUID"/>
+      <data name="StateCount" inType="win:UInt32"/>
+      <data name="TssStates" inType="win:HexInt32" count="StateCount"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Perf" value="Perf"/>
+    <string id="keyword_Diag" value="Diag"/>
+    <string id="keyword_PowerDiagnostics" value="PowerDiagnostics"/>
+    <string id="task_IdleStatesError" value="IdleStatesError"/>
+    <string id="task_PerfStatesError" value="PerfStatesError"/>
+    <string id="task_ThrottleStatesError" value="ThrottleStatesError"/>
+    <string id="task_Summary" value="Summary"/>
+    <string id="task_IdleStatesErrata" value="IdleStatesErrata"/>
+    <string id="task_PerfStatesErrata" value="PerfStatesErrata"/>
+    <string id="task_LongCapInfo" value="LongCapInfo"/>
+    <string id="task_QuickCapInfo" value="QuickCapInfo"/>
+    <string id="task_DomainPerfStateChange" value="DomainPerfStateChange"/>
+    <string id="task_ProcessorPerfStateChange" value="ProcessorPerfStateChange"/>
+    <string id="task_PerfCheck" value="PerfCheck"/>
+    <string id="task_RecordedUtility" value="RecordedUtility"/>
+    <string id="task_ExpectedUtility" value="ExpectedUtility"/>
+    <string id="task_ParkCore" value="ParkCore"/>
+    <string id="task_UnparkCore" value="UnparkCore"/>
+    <string id="task_IdleAccountingRundown" value="IdleAccountingRundown"/>
+    <string id="task_ProcessorFirmwareRundown" value="ProcessorFirmwareRundown"/>
+    <string id="task_CStateDomainFirmwareRundown" value="CStateDomainFirmwareRundown"/>
+    <string id="task_PTStateDomainFirmwareRundown" value="PTStateDomainFirmwareRundown"/>
+    <string id="task_ThrottleStatesErrata" value="ThrottleStatesErrata"/>
+    <string id="task_PccSummary" value="PccSummary"/>
+    <string id="task_PccErrata" value="PccErrata"/>
+    <string id="task_PccError" value="PccError"/>
+    <string id="task_NotifyPStates" value="NotifyPStates"/>
+    <string id="task_NotifyCStates" value="NotifyCStates"/>
+    <string id="task_NotifyTStates" value="NotifyTStates"/>
+    <string id="task_PerfStatesRundown" value="PerfStatesRundown"/>
+    <string id="task_BiosPStatesRundown" value="BiosPStatesRundown"/>
+    <string id="task_BiosCStatesRundown" value="BiosCStatesRundown"/>
+    <string id="task_BiosTStatesRundown" value="BiosTStatesRundown"/>
+    <string id="task_PccCapChange" value="PccCapChange"/>
+    <string id="task_BiosCapChange" value="BiosCapChange"/>
+    <string id="task_ThermalCapChange" value="ThermalCapChange"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,233 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-QoS-Pacer" guid="{914ed502-b70d-4add-b758-95692854f8a3}" resourceFileName="Microsoft-Windows-QoS-Pacer" messageFileName="Microsoft-Windows-QoS-Pacer" symbol="MicrosoftWindowsQoSPacer" source="Xml" >
+    <keywords>
+     <keyword name="ut:SendPath" message="$(string.keyword_ut:SendPath)" mask="0x100000000"/>
+     <keyword name="ut:ReceivePath" message="$(string.keyword_ut:ReceivePath)" mask="0x200000000"/>
+     <keyword name="ut:L3ConnectPath" message="$(string.keyword_ut:L3ConnectPath)" mask="0x400000000"/>
+     <keyword name="ut:L2ConnectPath" message="$(string.keyword_ut:L2ConnectPath)" mask="0x800000000"/>
+     <keyword name="ut:ClosePath" message="$(string.keyword_ut:ClosePath)" mask="0x1000000000"/>
+     <keyword name="ut:Authentication" message="$(string.keyword_ut:Authentication)" mask="0x2000000000"/>
+     <keyword name="ut:Configuration" message="$(string.keyword_ut:Configuration)" mask="0x4000000000"/>
+     <keyword name="ut:Global" message="$(string.keyword_ut:Global)" mask="0x8000000000"/>
+     <keyword name="keyword_10000000000" message="$(string.keyword_keyword_10000000000)" mask="0x10000000000"/>
+     <keyword name="keyword_40000000000" message="$(string.keyword_keyword_40000000000)" mask="0x40000000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <maps>
+     <valueMap name="valuemap_flowtype">
+      <map value="0x0" message="$(string.map_valuemap_flowtypeGQoS)"/>
+      <map value="0x1" message="$(string.map_valuemap_flowtypeTC)"/>
+      <map value="0x2" message="$(string.map_valuemap_flowtypeEQoS)"/>
+      <map value="0x3" message="$(string.map_valuemap_flowtypeFull)"/>
+      <map value="0x4" message="$(string.map_valuemap_flowtypeIDP)"/>
+     </valueMap>
+     <valueMap name="valuemap_dropreason">
+      <map value="0x0" message="$(string.map_valuemap_dropreasonNon-conformance)"/>
+      <map value="0x1" message="$(string.map_valuemap_dropreasonExcessive delay)"/>
+     </valueMap>
+     <valueMap name="valuemap_servicetype">
+      <map value="0x0" message="$(string.map_valuemap_servicetypeNOTRAFFIC)"/>
+      <map value="0x1" message="$(string.map_valuemap_servicetypeBESTEFFORT)"/>
+      <map value="0x2" message="$(string.map_valuemap_servicetypeCONTROLLEDLOAD)"/>
+      <map value="0x3" message="$(string.map_valuemap_servicetypeGUARANTEED)"/>
+      <map value="0x4" message="$(string.map_valuemap_servicetypeNETWORK_UNAVAILABLE)"/>
+      <map value="0x5" message="$(string.map_valuemap_servicetypeGENERAL_INFORMATION)"/>
+      <map value="0x6" message="$(string.map_valuemap_servicetypeNOCHANGE)"/>
+      <map value="0x9" message="$(string.map_valuemap_servicetypeNONCONFORMING)"/>
+      <map value="0xa" message="$(string.map_valuemap_servicetypeNETWORK_CONTROL)"/>
+      <map value="0xd" message="$(string.map_valuemap_servicetypeQUALITATIVE)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="task_0" version="0" task="task_0" level="win:Informational" keywords="ut:Configuration" template="task_0Args"/>
+     <event value="1" symbol="task_0Start_V1" version="1" task="task_0" opcode="win:Start" level="win:Informational" keywords="ut:Configuration" template="task_0StartArgs_V1"/>
+     <event value="2" symbol="task_02" version="0" task="task_0" level="win:Informational" keywords="ut:Configuration" template="task_02Args"/>
+     <event value="2" symbol="task_02_V1" version="1" task="task_0" level="win:Informational" keywords="ut:Configuration" template="task_02Args_V1"/>
+     <event value="3" symbol="task_03" version="0" task="task_0" level="win:Informational" keywords="ut:Global" template="task_03Args"/>
+     <event value="3" symbol="task_03_V1" version="1" task="task_0" level="win:Informational" keywords="ut:Global" template="task_03Args_V1"/>
+     <event value="4" symbol="task_04" version="0" task="task_0" level="win:Informational" template="task_03Args"/>
+     <event value="4" symbol="task_04_V1" version="1" task="task_0" level="win:Informational" keywords="ut:Global" template="task_03Args_V1"/>
+     <event value="5" symbol="task_05" version="0" task="task_0" level="win:Informational" template="task_05Args"/>
+     <event value="6" symbol="task_0Stop" version="0" task="task_0" opcode="win:Stop" level="win:Informational" keywords="ut:Configuration" template="task_0StopArgs"/>
+     <event value="7" symbol="task_07" version="0" task="task_0" level="win:Error" keywords="keyword_10000000000 keyword_40000000000" template="task_07Args"/>
+     <event value="8" symbol="task_08" version="0" task="task_0" level="win:Warning" keywords="keyword_40000000000" template="task_08Args"/>
+     <event value="9" symbol="task_09" version="0" task="task_0" level="win:Informational" keywords="ut:Global" template="task_09Args"/>
+     <event value="10" symbol="task_010" version="0" task="task_0" level="win:Informational" keywords="keyword_40000000000" template="task_010Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="Status" inType="win:UInt32"/>
+      <data name="FlowType" inType="win:UInt32" map="valuemap_flowtype"/>
+      <data name="SendSpecTokenRate" inType="win:UInt32"/>
+      <data name="SendSpecTokenBucketSize" inType="win:UInt32"/>
+      <data name="SendSpecPeakBandwidth" inType="win:UInt32"/>
+      <data name="SendSpecLatency" inType="win:UInt32"/>
+      <data name="SendSpecDelayVariation" inType="win:UInt32"/>
+      <data name="SendSpecServiceType" inType="win:UInt32"/>
+      <data name="SendSpecMaxSduSize" inType="win:UInt32"/>
+      <data name="SendSpecMinimumPolicedSize" inType="win:UInt32"/>
+      <data name="QoSObjectBufferLen" inType="win:UInt32"/>
+      <data name="QoSObjectBuffer" inType="win:Binary" length="QoSObjectBufferLen"/>
+     </template>
+     <template tid="task_02Args">
+      <data name="Status" inType="win:UInt32"/>
+      <data name="FlowType" inType="win:UInt32"/>
+      <data name="OldSendSpecTokenRate" inType="win:UInt32"/>
+      <data name="OldSendSpecTokenBucketSize" inType="win:UInt32"/>
+      <data name="OldSendSpecPeakBandwidth" inType="win:UInt32"/>
+      <data name="OldSendSpecLatency" inType="win:UInt32"/>
+      <data name="OldSendSpecDelayVariation" inType="win:UInt32"/>
+      <data name="OldSendSpecServiceType" inType="win:UInt32"/>
+      <data name="OldSendSpecMaxSduSize" inType="win:UInt32"/>
+      <data name="OldSendSpecMinimumPolicedSize" inType="win:UInt32"/>
+      <data name="NewSendSpecTokenRate" inType="win:UInt32"/>
+      <data name="NewSendSpecTokenBucketSize" inType="win:UInt32"/>
+      <data name="NewSendSpecPeakBandwidth" inType="win:UInt32"/>
+      <data name="NewSendSpecLatency" inType="win:UInt32"/>
+      <data name="NewSendSpecDelayVariation" inType="win:UInt32"/>
+      <data name="NewSendSpecServiceType" inType="win:UInt32"/>
+      <data name="NewSendSpecMaxSduSize" inType="win:UInt32"/>
+      <data name="NewSendSpecMinimumPolicedSize" inType="win:UInt32"/>
+      <data name="NewQoSObjectBufferLen" inType="win:UInt32"/>
+      <data name="NewQoSObjectBuffer" inType="win:Binary" length="NewQoSObjectBufferLen"/>
+     </template>
+     <template tid="task_03Args">
+      <data name="NetLuid" inType="win:Binary"/>
+      <data name="NdisMediumType" inType="win:UInt32"/>
+      <data name="FriendlyName" inType="win:UnicodeString"/>
+      <data name="DeviceName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_05Args">
+      <data name="FlowType" inType="win:UInt32"/>
+      <data name="OldSendSpecTokenRate" inType="win:UInt32"/>
+      <data name="OldSendSpecTokenBucketSize" inType="win:UInt32"/>
+      <data name="OldSendSpecPeakBandwidth" inType="win:UInt32"/>
+      <data name="OldSendSpecLatency" inType="win:UInt32"/>
+      <data name="OldSendSpecDelayVariation" inType="win:UInt32"/>
+      <data name="OldSendSpecServiceType" inType="win:UInt32"/>
+      <data name="OldSendSpecMaxSduSize" inType="win:UInt32"/>
+      <data name="OldSendSpecMinimumPolicedSize" inType="win:UInt32"/>
+      <data name="NewSendSpecTokenRate" inType="win:UInt32"/>
+      <data name="NewSendSpecTokenBucketSize" inType="win:UInt32"/>
+      <data name="NewSendSpecPeakBandwidth" inType="win:UInt32"/>
+      <data name="NewSendSpecLatency" inType="win:UInt32"/>
+      <data name="NewSendSpecDelayVariation" inType="win:UInt32"/>
+      <data name="NewSendSpecServiceType" inType="win:UInt32"/>
+      <data name="NewSendSpecMaxSduSize" inType="win:UInt32"/>
+      <data name="NewSendSpecMinimumPolicedSize" inType="win:UInt32"/>
+      <data name="NewQoSObjectBufferLen" inType="win:UInt32"/>
+      <data name="NewQoSObjectBuffer" inType="win:Binary" length="NewQoSObjectBufferLen"/>
+      <data name="AffectedPackets" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0StopArgs">
+      <data name="DroppedPackets" inType="win:UInt32"/>
+      <data name="PacketsScheduled" inType="win:UInt32"/>
+      <data name="PacketsTransmitted" inType="win:UInt32"/>
+      <data name="BytesScheduled" inType="win:UInt64"/>
+      <data name="BytesTransmitted" inType="win:UInt64"/>
+      <data name="NblSent" inType="win:UInt32"/>
+      <data name="NblComplete" inType="win:UInt32"/>
+     </template>
+     <template tid="task_07Args">
+      <data name="DropReason" inType="win:UInt32" map="valuemap_dropreason"/>
+     </template>
+     <template tid="task_08Args">
+      <data name="DsClass" inType="win:Int16"/>
+      <data name="TrafficClass" inType="win:Int16"/>
+      <data name="Wmm" inType="win:Int16"/>
+     </template>
+     <template tid="task_09Args">
+      <data name="Allow" inType="win:UInt32"/>
+     </template>
+     <template tid="task_010Args">
+      <data name="IneligibleCount" inType="win:UInt32"/>
+      <data name="TotalCount" inType="win:UInt32"/>
+      <data name="IneligibleFirstDelta" inType="win:UInt32"/>
+      <data name="IneligibleLastDelta" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0StartArgs_V1">
+      <data name="Status" inType="win:UInt32"/>
+      <data name="FlowType" inType="win:UInt32"/>
+      <data name="SendSpecTokenRate" inType="win:UInt32"/>
+      <data name="SendSpecTokenBucketSize" inType="win:UInt32"/>
+      <data name="SendSpecPeakBandwidth" inType="win:UInt32"/>
+      <data name="SendSpecLatency" inType="win:UInt32"/>
+      <data name="SendSpecDelayVariation" inType="win:UInt32"/>
+      <data name="SendSpecServiceType" inType="win:UInt32" map="valuemap_servicetype"/>
+      <data name="SendSpecMaxSduSize" inType="win:UInt32"/>
+      <data name="SendSpecMinimumPolicedSize" inType="win:UInt32"/>
+      <data name="DsClass" inType="win:Int16"/>
+      <data name="TrafficClass" inType="win:Int16"/>
+      <data name="QoSObjectBufferLen" inType="win:UInt32"/>
+      <data name="QoSObjectBuffer" inType="win:Binary" length="QoSObjectBufferLen"/>
+      <data name="DefaultSystemFlow" inType="win:UInt8"/>
+     </template>
+     <template tid="task_02Args_V1">
+      <data name="Status" inType="win:UInt32"/>
+      <data name="FlowType" inType="win:UInt32"/>
+      <data name="SendSpecTokenRate" inType="win:UInt32"/>
+      <data name="SendSpecTokenBucketSize" inType="win:UInt32"/>
+      <data name="SendSpecPeakBandwidth" inType="win:UInt32"/>
+      <data name="SendSpecLatency" inType="win:UInt32"/>
+      <data name="SendSpecDelayVariation" inType="win:UInt32"/>
+      <data name="SendSpecServiceType" inType="win:UInt32"/>
+      <data name="SendSpecMaxSduSize" inType="win:UInt32"/>
+      <data name="SendSpecMinimumPolicedSize" inType="win:UInt32"/>
+      <data name="DsClass" inType="win:Int16"/>
+      <data name="TrafficClass" inType="win:Int16"/>
+      <data name="NewQoSObjectBufferLen" inType="win:UInt32"/>
+      <data name="NewQoSObjectBuffer" inType="win:Binary" length="NewQoSObjectBufferLen"/>
+      <data name="AffectedPackets" inType="win:UInt32"/>
+     </template>
+     <template tid="task_03Args_V1">
+      <data name="NetLuid" inType="win:UInt64"/>
+      <data name="NdisMediumType" inType="win:UInt32"/>
+      <data name="FriendlyNameLen" inType="win:UInt32"/>
+      <data name="FriendlyName" inType="win:UnicodeString" length="FriendlyNameLen"/>
+      <data name="DeviceNameLen" inType="win:UInt32"/>
+      <data name="DeviceName" inType="win:UnicodeString" length="DeviceNameLen"/>
+      <data name="Context" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_ut:SendPath" value="ut:SendPath"/>
+    <string id="keyword_ut:ReceivePath" value="ut:ReceivePath"/>
+    <string id="keyword_ut:L3ConnectPath" value="ut:L3ConnectPath"/>
+    <string id="keyword_ut:L2ConnectPath" value="ut:L2ConnectPath"/>
+    <string id="keyword_ut:ClosePath" value="ut:ClosePath"/>
+    <string id="keyword_ut:Authentication" value="ut:Authentication"/>
+    <string id="keyword_ut:Configuration" value="ut:Configuration"/>
+    <string id="keyword_ut:Global" value="ut:Global"/>
+    <string id="keyword_keyword_10000000000" value="keyword_10000000000"/>
+    <string id="keyword_keyword_40000000000" value="keyword_40000000000"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="map_valuemap_flowtypeGQoS" value="GQoS"/>
+    <string id="map_valuemap_flowtypeTC" value="TC"/>
+    <string id="map_valuemap_flowtypeEQoS" value="EQoS"/>
+    <string id="map_valuemap_flowtypeFull" value="Full"/>
+    <string id="map_valuemap_flowtypeIDP" value="IDP"/>
+    <string id="map_valuemap_dropreasonNon-conformance" value="Non-conformance"/>
+    <string id="map_valuemap_dropreasonExcessive delay" value="Excessive delay"/>
+    <string id="map_valuemap_servicetypeNOTRAFFIC" value="NOTRAFFIC"/>
+    <string id="map_valuemap_servicetypeBESTEFFORT" value="BESTEFFORT"/>
+    <string id="map_valuemap_servicetypeCONTROLLEDLOAD" value="CONTROLLEDLOAD"/>
+    <string id="map_valuemap_servicetypeGUARANTEED" value="GUARANTEED"/>
+    <string id="map_valuemap_servicetypeNETWORK_UNAVAILABLE" value="NETWORK_UNAVAILABLE"/>
+    <string id="map_valuemap_servicetypeGENERAL_INFORMATION" value="GENERAL_INFORMATION"/>
+    <string id="map_valuemap_servicetypeNOCHANGE" value="NOCHANGE"/>
+    <string id="map_valuemap_servicetypeNONCONFORMING" value="NONCONFORMING"/>
+    <string id="map_valuemap_servicetypeNETWORK_CONTROL" value="NETWORK_CONTROL"/>
+    <string id="map_valuemap_servicetypeQUALITATIVE" value="QUALITATIVE"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

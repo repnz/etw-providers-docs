@@ -1,0 +1,75 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-VHDMP" guid="{e2816346-87f4-4f85-95c3-0c79409aa89d}" resourceFileName="Microsoft-Windows-VHDMP" messageFileName="Microsoft-Windows-VHDMP" symbol="MicrosoftWindowsVHDMP" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <maps>
+     <valueMap name="IoTypeMap">
+      <map value="0x0" message="$(string.map_IoTypeMapwrite data to)"/>
+      <map value="0x1" message="$(string.map_IoTypeMapread data from)"/>
+      <map value="0x2" message="$(string.map_IoTypeMapFlush data to)"/>
+      <map value="0x3" message="$(string.map_IoTypeMapWrite block allocation table to)"/>
+      <map value="0x4" message="$(string.map_IoTypeMapwrite sector bitmap to)"/>
+      <map value="0x5" message="$(string.map_IoTypeMapread sector bitmap from)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="task_0" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+     <event value="2" symbol="task_02" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+     <event value="3" symbol="task_03" version="0" task="task_0" level="win:Error" template="task_03Args"/>
+     <event value="4" symbol="task_04" version="0" task="task_0" level="win:Error" template="task_04Args"/>
+     <event value="5" symbol="task_05" version="0" task="task_0" level="win:Error" template="task_05Args"/>
+     <event value="6" symbol="task_06" version="0" task="task_0" level="win:Error" template="task_06Args"/>
+     <event value="7" symbol="task_07" version="0" task="task_0" level="win:Informational" template="task_07Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="VhdFileName" inType="win:UnicodeString"/>
+      <data name="VhdDiskNumber" inType="win:UInt32"/>
+     </template>
+     <template tid="task_03Args">
+      <data name="VhdFileName" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_04Args">
+      <data name="VhdFileName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_05Args">
+      <data name="VhdMetaOps" inType="win:AnsiString"/>
+      <data name="VhdFileName" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_06Args">
+      <data name="VhdIoType" inType="win:UInt32" map="IoTypeMap"/>
+      <data name="VhdFileName" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_07Args">
+      <data name="SqmType" inType="win:UInt32"/>
+      <data name="SqmSessionGuid" inType="win:GUID"/>
+      <data name="SqmID" inType="win:UInt32"/>
+      <data name="SqmStreamRowLength" inType="win:UInt32"/>
+      <data name="SqmStreamRow" inType="win:Int16" count="SqmStreamRowLength"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_task_0" value="task_0"/>
+    <string id="map_IoTypeMapwrite data to" value="write data to"/>
+    <string id="map_IoTypeMapread data from" value="read data from"/>
+    <string id="map_IoTypeMapFlush data to" value="Flush data to"/>
+    <string id="map_IoTypeMapWrite block allocation table to" value="Write block allocation table to"/>
+    <string id="map_IoTypeMapwrite sector bitmap to" value="write sector bitmap to"/>
+    <string id="map_IoTypeMapread sector bitmap from" value="read sector bitmap from"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

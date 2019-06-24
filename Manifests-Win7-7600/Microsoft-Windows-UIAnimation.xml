@@ -1,0 +1,45 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-UIAnimation" guid="{e0a40b26-30c4-4656-bc9a-74a5c3a0b2ec}" resourceFileName="Microsoft-Windows-UIAnimation" messageFileName="Microsoft-Windows-UIAnimation" symbol="MicrosoftWindowsUIAnimation" source="Xml" >
+    <keywords>
+     <keyword name="Default" message="$(string.keyword_Default)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="ScheduleEnter" message="$(string.task_ScheduleEnter)" value="1"/>
+     <task name="ScheduleLeave" message="$(string.task_ScheduleLeave)" value="2"/>
+     <task name="UpdateEnter" message="$(string.task_UpdateEnter)" value="3"/>
+     <task name="UpdateLeave" message="$(string.task_UpdateLeave)" value="4"/>
+     <task name="OnTimerTickEnter" message="$(string.task_OnTimerTickEnter)" value="5"/>
+     <task name="OnTimerTickLeave" message="$(string.task_OnTimerTickLeave)" value="6"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="ScheduleEnter" version="0" task="ScheduleEnter" level="win:Informational" keywords="Default" template="ScheduleEnterArgs"/>
+     <event value="2" symbol="ScheduleLeave" version="0" task="ScheduleLeave" level="win:Informational" keywords="Default"/>
+     <event value="3" symbol="UpdateEnter" version="0" task="UpdateEnter" level="win:Informational" keywords="Default" template="ScheduleEnterArgs"/>
+     <event value="4" symbol="UpdateLeave" version="0" task="UpdateLeave" level="win:Informational" keywords="Default"/>
+     <event value="5" symbol="OnTimerTickEnter" version="0" task="OnTimerTickEnter" level="win:Informational" keywords="Default"/>
+     <event value="6" symbol="OnTimerTickLeave" version="0" task="OnTimerTickLeave" level="win:Informational" keywords="Default"/>
+    </events>
+    <templates>
+     <template tid="ScheduleEnterArgs">
+      <data name="secondsNow" inType="win:Double"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Default" value="Default"/>
+    <string id="task_ScheduleEnter" value="ScheduleEnter"/>
+    <string id="task_ScheduleLeave" value="ScheduleLeave"/>
+    <string id="task_UpdateEnter" value="UpdateEnter"/>
+    <string id="task_UpdateLeave" value="UpdateLeave"/>
+    <string id="task_OnTimerTickEnter" value="OnTimerTickEnter"/>
+    <string id="task_OnTimerTickLeave" value="OnTimerTickLeave"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

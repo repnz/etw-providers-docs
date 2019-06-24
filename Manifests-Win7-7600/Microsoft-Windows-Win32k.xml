@@ -1,0 +1,541 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Win32k" guid="{e7ef96be-969f-414f-97d7-3ddb7b558ccc}" resourceFileName="Microsoft-Windows-Win32k" messageFileName="Microsoft-Windows-Win32k" symbol="MicrosoftWindowsWin32k" source="Xml" >
+    <keywords>
+     <keyword name="Updates" message="$(string.keyword_Updates)" mask="0x1000"/>
+     <keyword name="Focus" message="$(string.keyword_Focus)" mask="0x2000"/>
+     <keyword name="UIPI" message="$(string.keyword_UIPI)" mask="0x4000"/>
+     <keyword name="win32Power" message="$(string.keyword_win32Power)" mask="0x8000"/>
+     <keyword name="Concurrency" message="$(string.keyword_Concurrency)" mask="0x10000"/>
+     <keyword name="UserActivity" message="$(string.keyword_UserActivity)" mask="0x20000"/>
+     <keyword name="UIUnresponsiveness" message="$(string.keyword_UIUnresponsiveness)" mask="0x40000"/>
+     <keyword name="ThreadRundown" message="$(string.keyword_ThreadRundown)" mask="0x80000"/>
+     <keyword name="Rendering" message="$(string.keyword_Rendering)" mask="0x100000"/>
+     <keyword name="ThreadInfo" message="$(string.keyword_ThreadInfo)" mask="0x200000"/>
+    </keywords>
+    <tasks>
+     <task name="WindowUpdate" message="$(string.task_WindowUpdate)" value="1"/>
+     <task name="FocusChange" message="$(string.task_FocusChange)" value="2"/>
+     <task name="UIPIMsgError" message="$(string.task_UIPIMsgError)" value="3"/>
+     <task name="UIPIHookError" message="$(string.task_UIPIHookError)" value="4"/>
+     <task name="UIPIEventHookError" message="$(string.task_UIPIEventHookError)" value="5"/>
+     <task name="UIPIHandleValError" message="$(string.task_UIPIHandleValError)" value="6"/>
+     <task name="UIPIInputError" message="$(string.task_UIPIInputError)" value="7"/>
+     <task name="UIPIClipboardError" message="$(string.task_UIPIClipboardError)" value="8"/>
+     <task name="UIPISystemError" message="$(string.task_UIPISystemError)" value="9"/>
+     <task name="PowerDisplayChange" message="$(string.task_PowerDisplayChange)" value="10"/>
+     <task name="IdleActionExpiration" message="$(string.task_IdleActionExpiration)" value="11"/>
+     <task name="DisplayReqChange" message="$(string.task_DisplayReqChange)" value="12"/>
+     <task name="DisplayTimeoutReset" message="$(string.task_DisplayTimeoutReset)" value="13"/>
+     <task name="LockAcquireExclusive" message="$(string.task_LockAcquireExclusive)" value="14"/>
+     <task name="LockAcquireShared" message="$(string.task_LockAcquireShared)" value="15"/>
+     <task name="LockAcquireSharedStarveExclusive" message="$(string.task_LockAcquireSharedStarveExclusive)" value="16"/>
+     <task name="LockRelease" message="$(string.task_LockRelease)" value="17"/>
+     <task name="SwapChainBind" message="$(string.task_SwapChainBind)" value="18"/>
+     <task name="SwapChainSetStats" message="$(string.task_SwapChainSetStats)" value="19"/>
+     <task name="SwapChainUnBind" message="$(string.task_SwapChainUnBind)" value="20"/>
+     <task name="IdleStatusTracing" message="$(string.task_IdleStatusTracing)" value="21"/>
+     <task name="ScreenSaverProcess" message="$(string.task_ScreenSaverProcess)" value="22"/>
+     <task name="WinlogonShowUI" message="$(string.task_WinlogonShowUI)" value="23"/>
+     <task name="WinlogonHideUI" message="$(string.task_WinlogonHideUI)" value="24"/>
+     <task name="UserActive" message="$(string.task_UserActive)" value="25"/>
+     <task name="FocusedProcessChange" message="$(string.task_FocusedProcessChange)" value="26"/>
+     <task name="DwmSpriteCreate" message="$(string.task_DwmSpriteCreate)" value="27"/>
+     <task name="DwmSpriteDestroy" message="$(string.task_DwmSpriteDestroy)" value="28"/>
+     <task name="LogicalSurfCreate" message="$(string.task_LogicalSurfCreate)" value="29"/>
+     <task name="LogicalSurfDestroy" message="$(string.task_LogicalSurfDestroy)" value="30"/>
+     <task name="LogicalSurfPhysSurfBind" message="$(string.task_LogicalSurfPhysSurfBind)" value="31"/>
+     <task name="LogicalSurfPhysSurfUnbind" message="$(string.task_LogicalSurfPhysSurfUnbind)" value="32"/>
+     <task name="GdiSysMemToken" message="$(string.task_GdiSysMemToken)" value="33"/>
+     <task name="WatermarkChange" message="$(string.task_WatermarkChange)" value="34"/>
+     <task name="WaitCursor" message="$(string.task_WaitCursor)" value="35"/>
+     <task name="ThreadInfoRundown" message="$(string.task_ThreadInfoRundown)" value="36"/>
+     <task name="InputProcessDelay" message="$(string.task_InputProcessDelay)" value="37"/>
+     <task name="MessageCheckDelay" message="$(string.task_MessageCheckDelay)" value="38"/>
+     <task name="Rendering" message="$(string.task_Rendering)" value="39">
+>
+      <opcodes>
+       <opcode name="OldToNewRendering" message="$(string.opcode_RenderingOldToNewRendering)" value="10"/>
+       <opcode name="NewRendering" message="$(string.opcode_RenderingNewRendering)" value="11"/>
+       <opcode name="AppRenderingUpdate" message="$(string.opcode_RenderingAppRenderingUpdate)" value="12"/>
+       <opcode name="AppRenderingTightUpdate" message="$(string.opcode_RenderingAppRenderingTightUpdate)" value="13"/>
+       <opcode name="ValidateWindow" message="$(string.opcode_RenderingValidateWindow)" value="17"/>
+       <opcode name="InvalidateWindow" message="$(string.opcode_RenderingInvalidateWindow)" value="18"/>
+      </opcodes>
+     </task>
+     <task name="ThreadExit" message="$(string.task_ThreadExit)" value="45"/>
+     <task name="BindLogicalSurface" message="$(string.task_BindLogicalSurface)" value="46"/>
+     <task name="UnBindLogicalSurface" message="$(string.task_UnBindLogicalSurface)" value="47"/>
+     <task name="BindLogicalSurfaceRH" message="$(string.task_BindLogicalSurfaceRH)" value="48"/>
+     <task name="DwmSpriteLogicalSurfBind" message="$(string.task_DwmSpriteLogicalSurfBind)" value="49"/>
+     <task name="DwmSpriteLogicalSurfUnBind" message="$(string.task_DwmSpriteLogicalSurfUnBind)" value="50"/>
+     <task name="LogicalSurfEnableDirtyNotification" message="$(string.task_LogicalSurfEnableDirtyNotification)" value="51"/>
+     <task name="PhysicalSurfCreate" message="$(string.task_PhysicalSurfCreate)" value="52"/>
+     <task name="ModifyRgn" message="$(string.task_ModifyRgn)" value="53"/>
+    </tasks>
+    <maps>
+     <valueMap name="UIPIInputType">
+      <map value="0x1" message="$(string.map_UIPIInputTypeSendInput)"/>
+      <map value="0x2" message="$(string.map_UIPIInputTypeInput Queue)"/>
+      <map value="0x3" message="$(string.map_UIPIInputTypeKey State)"/>
+      <map value="0x4" message="$(string.map_UIPIInputTypeMouse State)"/>
+      <map value="0x5" message="$(string.map_UIPIInputTypeRaw Input)"/>
+      <map value="0x6" message="$(string.map_UIPIInputTypeLow Level Hooks)"/>
+      <map value="0x7" message="$(string.map_UIPIInputTypeHotKey)"/>
+      <map value="0x8" message="$(string.map_UIPIInputTypeMessage Post-Processing)"/>
+     </valueMap>
+     <valueMap name="UIPISysErrType">
+      <map value="0x1" message="$(string.map_UIPISysErrTypeSPI Set)"/>
+      <map value="0x2" message="$(string.map_UIPISysErrTypeBlockInput)"/>
+      <map value="0x3" message="$(string.map_UIPISysErrTypeChange Window Message Filter)"/>
+      <map value="0x4" message="$(string.map_UIPISysErrTypeJournal Hook)"/>
+      <map value="0x5" message="$(string.map_UIPISysErrTypeGesture Engine)"/>
+     </valueMap>
+     <valueMap name="IdleActionType">
+      <map value="0x1" message="$(string.map_IdleActionTypeScreen Saver timeout)"/>
+      <map value="0x2" message="$(string.map_IdleActionTypeDisplay Blanking timeout)"/>
+      <map value="0x3" message="$(string.map_IdleActionTypeConsole Lock timeout)"/>
+      <map value="0x4" message="$(string.map_IdleActionTypeDisplay Dim timeout)"/>
+     </valueMap>
+     <valueMap name="ScreenSaverProcessActionType">
+      <map value="0x1" message="$(string.map_ScreenSaverProcessActionTypeScreenSaver Process Start)"/>
+      <map value="0x2" message="$(string.map_ScreenSaverProcessActionTypeScreenSaver Process End)"/>
+     </valueMap>
+     <valueMap name="WinlogonNotificationActionType">
+      <map value="0x0" message="$(string.map_WinlogonNotificationActionTypeWinlogon Notification End)"/>
+      <map value="0x1" message="$(string.map_WinlogonNotificationActionTypeWinlogon Notification Start)"/>
+     </valueMap>
+     <bitMap name="ThreadInfoFlags">
+      <map value="0x1" message="$(string.map_ThreadInfoFlagsThread had input messages)"/>
+      <map value="0x2" message="$(string.map_ThreadInfoFlagsThread had visible windows)"/>
+      <map value="0x4" message="$(string.map_ThreadInfoFlagsThread has new input)"/>
+      <map value="0x8" message="$(string.map_ThreadInfoFlagsThread has visible windows)"/>
+      <map value="0x10" message="$(string.map_ThreadInfoFlagsThread has windows)"/>
+      <map value="0x20" message="$(string.map_ThreadInfoFlagsThread has ghosted windows)"/>
+      <map value="0x40" message="$(string.map_ThreadInfoFlagsThread is being destroyed)"/>
+      <map value="0x80" message="$(string.map_ThreadInfoFlagsThread pumped per-window messages)"/>
+      <map value="0x100" message="$(string.map_ThreadInfoFlagsThread has input messages)"/>
+      <map value="0x200" message="$(string.map_ThreadInfoFlagsThread is spinning making windowing API calls)"/>
+      <map value="0x400" message="$(string.map_ThreadInfoFlagsThread has window focus)"/>
+     </bitMap>
+     <valueMap name="SurfaceType">
+      <map value="0x0" message="$(string.map_SurfaceTypeSystem Memory)"/>
+      <map value="0x1" message="$(string.map_SurfaceTypeDevice Bitmap)"/>
+     </valueMap>
+     <valueMap name="LogicalSurfaceRegionType">
+      <map value="0x0" message="$(string.map_LogicalSurfaceRegionTypeAccumulated dirty region since last time it was cleared)"/>
+      <map value="0x1" message="$(string.map_LogicalSurfaceRegionTypeAccumulated dirty region since the surface weas created)"/>
+      <map value="0x2" message="$(string.map_LogicalSurfaceRegionTypeClip region derived from the Window region)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="WindowUpdate" version="0" task="WindowUpdate" level="win:Informational" keywords="Updates" template="WindowUpdateArgs"/>
+     <event value="2" symbol="FocusChange" version="0" task="FocusChange" level="win:Informational" keywords="Focus" template="FocusChangeArgs"/>
+     <event value="3" symbol="UIPIMsgError" version="0" task="UIPIMsgError" level="win:Informational" keywords="UIPI" template="UIPIMsgErrorArgs"/>
+     <event value="4" symbol="UIPIHookError" version="0" task="UIPIHookError" level="win:Informational" keywords="UIPI" template="UIPIHookErrorArgs"/>
+     <event value="5" symbol="UIPIEventHookError" version="0" task="UIPIEventHookError" level="win:Informational" keywords="UIPI" template="UIPIEventHookErrorArgs"/>
+     <event value="6" symbol="UIPIHandleValError" version="0" task="UIPIHandleValError" level="win:Informational" keywords="UIPI" template="UIPIHandleValErrorArgs"/>
+     <event value="7" symbol="UIPIInputError" version="0" task="UIPIInputError" level="win:Informational" keywords="UIPI" template="UIPIInputErrorArgs"/>
+     <event value="8" symbol="UIPIClipboardError" version="0" task="UIPIClipboardError" level="win:Informational" keywords="UIPI" template="UIPIClipboardErrorArgs"/>
+     <event value="9" symbol="UIPISystemError" version="0" task="UIPISystemError" level="win:Informational" keywords="UIPI" template="UIPISystemErrorArgs"/>
+     <event value="10" symbol="PowerDisplayChange" version="0" task="PowerDisplayChange" level="win:Informational" keywords="win32Power" template="PowerDisplayChangeArgs"/>
+     <event value="11" symbol="IdleActionExpiration" version="0" task="IdleActionExpiration" level="win:Informational" keywords="win32Power" template="IdleActionExpirationArgs"/>
+     <event value="12" symbol="DisplayReqChange" version="0" task="DisplayReqChange" level="win:Informational" keywords="win32Power" template="DisplayReqChangeArgs"/>
+     <event value="13" symbol="DisplayTimeoutReset" version="0" task="DisplayTimeoutReset" level="win:Informational" keywords="win32Power" template="DisplayTimeoutResetArgs"/>
+     <event value="14" symbol="LockAcquireExclusive" version="0" task="LockAcquireExclusive" level="win:Informational" keywords="Concurrency" template="LockAcquireExclusiveArgs"/>
+     <event value="15" symbol="LockAcquireShared" version="0" task="LockAcquireShared" level="win:Informational" keywords="Concurrency" template="LockAcquireSharedArgs"/>
+     <event value="16" symbol="LockAcquireSharedStarveExclusive" version="0" task="LockAcquireSharedStarveExclusive" level="win:Informational" keywords="Concurrency" template="LockAcquireSharedArgs"/>
+     <event value="17" symbol="LockRelease" version="0" task="LockRelease" level="win:Informational" keywords="Concurrency" template="LockAcquireSharedArgs"/>
+     <event value="18" symbol="SwapChainBind" version="0" task="SwapChainBind" level="win:Informational" keywords="Updates" template="SwapChainBindArgs"/>
+     <event value="19" symbol="SwapChainUnBind" version="0" task="SwapChainUnBind" level="win:Informational" keywords="Updates" template="SwapChainBindArgs"/>
+     <event value="20" symbol="IdleStatusTracing" version="0" task="IdleStatusTracing" level="win:Informational" keywords="win32Power" template="IdleStatusTracingArgs"/>
+     <event value="21" symbol="SwapChainSetStats" version="0" task="SwapChainSetStats" level="win:Informational" keywords="Updates" template="SwapChainSetStatsArgs"/>
+     <event value="22" symbol="ScreenSaverProcess" version="0" task="ScreenSaverProcess" level="win:Informational" keywords="win32Power" template="ScreenSaverProcessArgs"/>
+     <event value="23" symbol="WinlogonShowUI" version="0" task="WinlogonShowUI" level="win:Informational" keywords="win32Power" template="WinlogonShowUIArgs"/>
+     <event value="24" symbol="WinlogonHideUI" version="0" task="WinlogonHideUI" level="win:Informational" keywords="win32Power" template="WinlogonHideUIArgs"/>
+     <event value="25" symbol="UserActive" version="0" task="UserActive" level="win:Informational" keywords="UserActivity" template="UserActiveArgs"/>
+     <event value="26" symbol="FocusedProcessChange" version="0" task="FocusedProcessChange" level="win:Informational" keywords="UserActivity" template="FocusedProcessChangeArgs"/>
+     <event value="27" symbol="DwmSpriteCreate" version="0" task="DwmSpriteCreate" level="win:Informational" keywords="Updates" template="DwmSpriteCreateArgs"/>
+     <event value="28" symbol="DwmSpriteDestroy" version="0" task="DwmSpriteDestroy" level="win:Informational" keywords="Updates" template="DwmSpriteCreateArgs"/>
+     <event value="29" symbol="LogicalSurfCreate" version="0" task="LogicalSurfCreate" level="win:Informational" keywords="Updates" template="LogicalSurfCreateArgs"/>
+     <event value="30" symbol="LogicalSurfDestroy" version="0" task="LogicalSurfDestroy" level="win:Informational" keywords="Updates" template="LogicalSurfCreateArgs"/>
+     <event value="31" symbol="LogicalSurfPhysSurfBind" version="0" task="LogicalSurfPhysSurfBind" level="win:Informational" keywords="Updates" template="LogicalSurfPhysSurfBindArgs"/>
+     <event value="32" symbol="LogicalSurfPhysSurfUnbind" version="0" task="LogicalSurfPhysSurfUnbind" level="win:Informational" keywords="Updates" template="LogicalSurfPhysSurfBindArgs"/>
+     <event value="33" symbol="GdiSysMemToken" version="0" task="GdiSysMemToken" level="win:Informational" keywords="Updates" template="GdiSysMemTokenArgs"/>
+     <event value="34" symbol="WatermarkChange" version="0" task="WatermarkChange" level="win:Informational" keywords="Updates" template="WatermarkChangeArgs"/>
+     <event value="35" symbol="WaitCursor" version="0" task="WaitCursor" level="win:Informational" keywords="UIUnresponsiveness" template="WaitCursorArgs"/>
+     <event value="36" symbol="ThreadInfoRundown" version="0" task="ThreadInfoRundown" level="win:Informational" keywords="ThreadRundown" template="ThreadInfoRundownArgs"/>
+     <event value="37" symbol="InputProcessDelay" version="0" task="InputProcessDelay" level="win:Informational" keywords="UIUnresponsiveness" template="InputProcessDelayArgs"/>
+     <event value="38" symbol="MessageCheckDelay" version="0" task="MessageCheckDelay" level="win:Informational" keywords="UIUnresponsiveness" template="MessageCheckDelayArgs"/>
+     <event value="39" symbol="RenderingNewRendering" version="0" task="Rendering" opcode="NewRendering" level="win:Informational" keywords="Rendering" template="RenderingNewRenderingArgs"/>
+     <event value="40" symbol="RenderingOldToNewRendering" version="0" task="Rendering" opcode="OldToNewRendering" level="win:Informational" keywords="Rendering" template="RenderingNewRenderingArgs"/>
+     <event value="41" symbol="RenderingAppRenderingUpdate" version="0" task="Rendering" opcode="AppRenderingUpdate" level="win:Informational" keywords="Rendering" template="RenderingAppRenderingUpdateArgs"/>
+     <event value="42" symbol="RenderingAppRenderingTightUpdate" version="0" task="Rendering" opcode="AppRenderingTightUpdate" level="win:Informational" keywords="Rendering" template="RenderingAppRenderingUpdateArgs"/>
+     <event value="43" symbol="RenderingValidateWindow" version="0" task="Rendering" opcode="ValidateWindow" level="win:Informational" keywords="Rendering" template="RenderingValidateWindowArgs"/>
+     <event value="44" symbol="RenderingInvalidateWindow" version="0" task="Rendering" opcode="InvalidateWindow" level="win:Informational" keywords="Rendering" template="RenderingValidateWindowArgs"/>
+     <event value="45" symbol="ThreadExit" version="0" task="ThreadExit" level="win:Informational" keywords="ThreadInfo" template="ThreadExitArgs"/>
+     <event value="46" symbol="BindLogicalSurface" version="0" task="BindLogicalSurface" level="win:Informational" keywords="Updates" template="BindLogicalSurfaceArgs"/>
+     <event value="47" symbol="UnBindLogicalSurface" version="0" task="UnBindLogicalSurface" level="win:Informational" keywords="Updates" template="BindLogicalSurfaceArgs"/>
+     <event value="48" symbol="BindLogicalSurfaceRH" version="0" task="BindLogicalSurfaceRH" level="win:Informational" keywords="Updates" template="BindLogicalSurfaceRHArgs"/>
+     <event value="49" symbol="DwmSpriteLogicalSurfBind" version="0" task="DwmSpriteLogicalSurfBind" level="win:Informational" keywords="Updates" template="DwmSpriteLogicalSurfBindArgs"/>
+     <event value="50" symbol="DwmSpriteLogicalSurfUnBind" version="0" task="DwmSpriteLogicalSurfUnBind" level="win:Informational" keywords="Updates" template="DwmSpriteLogicalSurfBindArgs"/>
+     <event value="51" symbol="LogicalSurfEnableDirtyNotification" version="0" task="LogicalSurfEnableDirtyNotification" level="win:Informational" keywords="Updates" template="LogicalSurfEnableDirtyNotificationArgs"/>
+     <event value="52" symbol="PhysicalSurfCreate" version="0" task="PhysicalSurfCreate" level="win:Informational" keywords="Updates" template="PhysicalSurfCreateArgs"/>
+     <event value="53" symbol="ModifyRgn" version="0" task="ModifyRgn" level="win:Informational" keywords="Updates" template="ModifyRgnArgs"/>
+    </events>
+    <templates>
+     <template tid="WindowUpdateArgs">
+      <data name="Hwnd" inType="win:Pointer"/>
+      <data name="Type" inType="win:UInt32"/>
+     </template>
+     <template tid="FocusChangeArgs">
+      <data name="OldThreadId" inType="win:UInt32"/>
+      <data name="NewThreadId" inType="win:UInt32"/>
+     </template>
+     <template tid="UIPIMsgErrorArgs">
+      <data name="UIPI_Trace_Header" inType="win:UInt8"/>
+      <data name="Message" inType="win:UInt32"/>
+      <data name="wParam" inType="win:UInt64"/>
+      <data name="lParam" inType="win:UInt64"/>
+     </template>
+     <template tid="UIPIHookErrorArgs">
+      <data name="UIPI_Trace_Header" inType="win:UInt16"/>
+      <data name="HookID" inType="win:Int32"/>
+      <data name="Flags" inType="win:Int8"/>
+      <data name="nCode" inType="win:Int32"/>
+      <data name="wParam" inType="win:UInt64"/>
+      <data name="lParam" inType="win:UInt64"/>
+     </template>
+     <template tid="UIPIEventHookErrorArgs">
+      <data name="UIPI_Trace_Header" inType="win:UInt32"/>
+      <data name="WinEvent" inType="win:UInt32"/>
+      <data name="WndHandle" inType="win:UInt64"/>
+      <data name="ObjectID" inType="win:UInt32"/>
+      <data name="ChildID" inType="win:UInt32"/>
+      <data name="SenderTID" inType="win:Int32"/>
+      <data name="Time" inType="win:Int32"/>
+      <data name="Flags" inType="win:UInt32"/>
+     </template>
+     <template tid="UIPIHandleValErrorArgs">
+      <data name="UIPI_Trace_Header" inType="win:UInt8"/>
+      <data name="Handle" inType="win:UInt64"/>
+      <data name="HandleType" inType="win:UInt32"/>
+      <data name="Reserved" inType="win:UInt32"/>
+     </template>
+     <template tid="UIPIInputErrorArgs">
+      <data name="UIPI_Trace_Header" inType="win:Int8"/>
+      <data name="InputType" inType="win:UInt32" map="UIPIInputType"/>
+      <data name="QIL" inType="win:UInt32"/>
+     </template>
+     <template tid="UIPIClipboardErrorArgs">
+      <data name="UIPI_Trace_Header" inType="win:Int8"/>
+      <data name="ClipFormat" inType="win:UInt32"/>
+      <data name="ClipIL" inType="win:UInt32"/>
+     </template>
+     <template tid="UIPISystemErrorArgs">
+      <data name="UIPI_Trace_Header" inType="win:AnsiString"/>
+      <data name="SysErrorType" inType="win:UInt32" map="UIPISysErrType"/>
+     </template>
+     <template tid="PowerDisplayChangeArgs">
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="PreviousStateTime" inType="win:UInt32"/>
+      <data name="PreviousState" inType="win:UInt16"/>
+      <data name="NewState" inType="win:UInt16"/>
+      <data name="IsConsoleSession" inType="win:UInt16"/>
+     </template>
+     <template tid="IdleActionExpirationArgs">
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="IdleAction" inType="win:UInt32" map="IdleActionType"/>
+      <data name="TimeoutValueMs" inType="win:UInt32"/>
+      <data name="IdleStartTime" inType="win:UInt32"/>
+      <data name="IsConsoleSession" inType="win:UInt16"/>
+     </template>
+     <template tid="DisplayReqChangeArgs">
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="IsConsoleSession" inType="win:UInt16"/>
+      <data name="NewCount" inType="win:UInt32"/>
+     </template>
+     <template tid="DisplayTimeoutResetArgs">
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="IsConsoleSession" inType="win:UInt16"/>
+      <data name="DisplayTimeoutValueMs" inType="win:UInt32"/>
+     </template>
+     <template tid="LockAcquireExclusiveArgs">
+      <data name="LockId" inType="win:Pointer"/>
+      <data name="LockLevel" inType="win:UInt32"/>
+      <data name="LockName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="LockAcquireSharedArgs">
+      <data name="LockId" inType="win:Pointer"/>
+      <data name="LockName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="SwapChainBindArgs">
+      <data name="hWnd" inType="win:UInt64"/>
+      <data name="hLogicalSurfSwapChainBind" inType="win:UInt64"/>
+     </template>
+     <template tid="IdleStatusTracingArgs">
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="AccruedIdleTime" inType="win:UInt32"/>
+      <data name="DisplayTimeoutValueMs" inType="win:UInt32"/>
+      <data name="ScreenSaverTimeoutValueMs" inType="win:UInt32"/>
+      <data name="DimTimeoutValueMs" inType="win:UInt32"/>
+      <data name="DimBrightnessValue" inType="win:UInt32"/>
+      <data name="NormalBrightnessValue" inType="win:UInt32"/>
+     </template>
+     <template tid="SwapChainSetStatsArgs">
+      <data name="hLogicalSurfSwapChainBind" inType="win:UInt64"/>
+      <data name="ConfirmReason" inType="win:UInt32"/>
+      <data name="LastPresentId" inType="win:UInt32"/>
+      <data name="LastFrameCount" inType="win:UInt32"/>
+      <data name="SyncFrameCount" inType="win:UInt32"/>
+      <data name="LastFrameTime" inType="win:UInt64"/>
+     </template>
+     <template tid="ScreenSaverProcessArgs">
+      <data name="Action" inType="win:UInt32" map="ScreenSaverProcessActionType"/>
+     </template>
+     <template tid="WinlogonShowUIArgs">
+      <data name="Action" inType="win:UInt32" map="WinlogonNotificationActionType"/>
+     </template>
+     <template tid="WinlogonHideUIArgs">
+      <data name="Action" inType="win:UInt32"/>
+     </template>
+     <template tid="UserActiveArgs">
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="ProcessIdOwningFocus" inType="win:UInt32"/>
+     </template>
+     <template tid="FocusedProcessChangeArgs">
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="OldProcessId" inType="win:UInt32"/>
+      <data name="NewProcessId" inType="win:UInt32"/>
+     </template>
+     <template tid="DwmSpriteCreateArgs">
+      <data name="hWnd" inType="win:UInt64"/>
+      <data name="hSprite" inType="win:UInt64"/>
+     </template>
+     <template tid="LogicalSurfCreateArgs">
+      <data name="hLogicalSurf" inType="win:UInt64"/>
+      <data name="Flags" inType="win:UInt32"/>
+     </template>
+     <template tid="LogicalSurfPhysSurfBindArgs">
+      <data name="hLogicalSurf" inType="win:UInt64"/>
+      <data name="hPhysicalSurf" inType="win:UInt64"/>
+     </template>
+     <template tid="GdiSysMemTokenArgs">
+      <data name="Pending" inType="win:UInt32"/>
+      <data name="dwDirtyFlags" inType="win:UInt32"/>
+      <data name="hLogicalSurf" inType="win:UInt64"/>
+      <data name="uiCookie" inType="win:UInt64"/>
+     </template>
+     <template tid="WatermarkChangeArgs">
+      <data name="EvalSKUString" inType="win:UnicodeString"/>
+      <data name="NonGenuineString" inType="win:UnicodeString"/>
+      <data name="BuildString" inType="win:UnicodeString"/>
+      <data name="ActivationBrandString" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WaitCursorArgs">
+      <data name="CursorThreadId" inType="win:UInt32"/>
+      <data name="CursorProcessId" inType="win:UInt32"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="CursorType" inType="win:UInt32"/>
+      <data name="DisplayTimeMs" inType="win:UInt32"/>
+     </template>
+     <template tid="ThreadInfoRundownArgs">
+      <data name="ThreadId" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32" map="ThreadInfoFlags"/>
+      <data name="TimeSinceInputCheckMs" inType="win:UInt32"/>
+      <data name="TimeSinceInputRemoveMs" inType="win:UInt32"/>
+      <data name="TimeSinceOldestInputMs" inType="win:UInt32"/>
+     </template>
+     <template tid="InputProcessDelayArgs">
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="TimeSinceInputRemoveMs" inType="win:UInt32"/>
+      <data name="TimeSinceOldestInputMs" inType="win:UInt32"/>
+     </template>
+     <template tid="MessageCheckDelayArgs">
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="DelayTimeMs" inType="win:UInt32"/>
+      <data name="TimeSinceInputRemoveMs" inType="win:UInt32"/>
+      <data name="TimeSinceOldestInputMs" inType="win:UInt32"/>
+     </template>
+     <template tid="RenderingNewRenderingArgs">
+      <data name="hwndDst" inType="win:Pointer"/>
+      <data name="hwndDstSprite" inType="win:Pointer"/>
+      <data name="hbmDst" inType="win:Pointer"/>
+      <data name="DstLeft" inType="win:UInt32"/>
+      <data name="DstTop" inType="win:UInt32"/>
+      <data name="DstRight" inType="win:UInt32"/>
+      <data name="DstBottom" inType="win:UInt32"/>
+      <data name="hwndSrc" inType="win:Pointer"/>
+      <data name="hwndSrcSprite" inType="win:Pointer"/>
+      <data name="hbmSrc" inType="win:Pointer"/>
+      <data name="SrcLeft" inType="win:UInt32"/>
+      <data name="SrcTop" inType="win:UInt32"/>
+      <data name="SrcRight" inType="win:UInt32"/>
+      <data name="SrcBottom" inType="win:UInt32"/>
+     </template>
+     <template tid="RenderingAppRenderingUpdateArgs">
+      <data name="hwnd" inType="win:Pointer"/>
+      <data name="bitmapCX" inType="win:UInt32"/>
+      <data name="bitmapCY" inType="win:UInt32"/>
+      <data name="DirtyLeft" inType="win:UInt32"/>
+      <data name="DirtyTop" inType="win:UInt32"/>
+      <data name="DirtyRight" inType="win:UInt32"/>
+      <data name="DirtyBottom" inType="win:UInt32"/>
+     </template>
+     <template tid="RenderingValidateWindowArgs">
+      <data name="hwnd" inType="win:Pointer"/>
+      <data name="FULL" inType="win:UInt32"/>
+      <data name="Left" inType="win:UInt32"/>
+      <data name="Top" inType="win:UInt32"/>
+      <data name="Right" inType="win:UInt32"/>
+      <data name="Bottom" inType="win:UInt32"/>
+     </template>
+     <template tid="ThreadExitArgs">
+      <data name="ThreadId" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="TimeSinceInputCheckMs" inType="win:UInt32"/>
+      <data name="TimeSinceInputRemoveMs" inType="win:UInt32"/>
+      <data name="TimeSinceOldestInputMs" inType="win:UInt32"/>
+     </template>
+     <template tid="BindLogicalSurfaceArgs">
+      <data name="hWnd" inType="win:UInt64"/>
+      <data name="hLogicalSurf" inType="win:UInt64"/>
+     </template>
+     <template tid="BindLogicalSurfaceRHArgs">
+      <data name="hLogicalSurf" inType="win:UInt64"/>
+      <data name="bCreated" inType="win:UInt64"/>
+     </template>
+     <template tid="DwmSpriteLogicalSurfBindArgs">
+      <data name="hDwmSprite" inType="win:UInt64"/>
+      <data name="hLogicalSurf" inType="win:UInt64"/>
+     </template>
+     <template tid="LogicalSurfEnableDirtyNotificationArgs">
+      <data name="hLogicalSurf" inType="win:UInt64"/>
+      <data name="hPhysSurf" inType="win:UInt64"/>
+     </template>
+     <template tid="PhysicalSurfCreateArgs">
+      <data name="hPhysicalSurf" inType="win:UInt64"/>
+      <data name="Type" inType="win:UInt32" map="SurfaceType"/>
+      <data name="hDxSharedSurface" inType="win:UInt64"/>
+      <data name="Flags" inType="win:UInt32"/>
+     </template>
+     <template tid="ModifyRgnArgs">
+      <data name="hLogicalSurface" inType="win:UInt64"/>
+      <data name="RgnType" inType="win:UInt32" map="LogicalSurfaceRegionType"/>
+      <data name="rcBounds" inType="win:Int16"/>
+      <data name="NumRects" inType="win:UInt32"/>
+      <data name="rcData" inType="win:Int64" count="NumRects"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Updates" value="Updates"/>
+    <string id="keyword_Focus" value="Focus"/>
+    <string id="keyword_UIPI" value="UIPI"/>
+    <string id="keyword_win32Power" value="win32Power"/>
+    <string id="keyword_Concurrency" value="Concurrency"/>
+    <string id="keyword_UserActivity" value="UserActivity"/>
+    <string id="keyword_UIUnresponsiveness" value="UIUnresponsiveness"/>
+    <string id="keyword_ThreadRundown" value="ThreadRundown"/>
+    <string id="keyword_Rendering" value="Rendering"/>
+    <string id="keyword_ThreadInfo" value="ThreadInfo"/>
+    <string id="task_WindowUpdate" value="WindowUpdate"/>
+    <string id="task_FocusChange" value="FocusChange"/>
+    <string id="task_UIPIMsgError" value="UIPIMsgError"/>
+    <string id="task_UIPIHookError" value="UIPIHookError"/>
+    <string id="task_UIPIEventHookError" value="UIPIEventHookError"/>
+    <string id="task_UIPIHandleValError" value="UIPIHandleValError"/>
+    <string id="task_UIPIInputError" value="UIPIInputError"/>
+    <string id="task_UIPIClipboardError" value="UIPIClipboardError"/>
+    <string id="task_UIPISystemError" value="UIPISystemError"/>
+    <string id="task_PowerDisplayChange" value="PowerDisplayChange"/>
+    <string id="task_IdleActionExpiration" value="IdleActionExpiration"/>
+    <string id="task_DisplayReqChange" value="DisplayReqChange"/>
+    <string id="task_DisplayTimeoutReset" value="DisplayTimeoutReset"/>
+    <string id="task_LockAcquireExclusive" value="LockAcquireExclusive"/>
+    <string id="task_LockAcquireShared" value="LockAcquireShared"/>
+    <string id="task_LockAcquireSharedStarveExclusive" value="LockAcquireSharedStarveExclusive"/>
+    <string id="task_LockRelease" value="LockRelease"/>
+    <string id="task_SwapChainBind" value="SwapChainBind"/>
+    <string id="task_SwapChainSetStats" value="SwapChainSetStats"/>
+    <string id="task_SwapChainUnBind" value="SwapChainUnBind"/>
+    <string id="task_IdleStatusTracing" value="IdleStatusTracing"/>
+    <string id="task_ScreenSaverProcess" value="ScreenSaverProcess"/>
+    <string id="task_WinlogonShowUI" value="WinlogonShowUI"/>
+    <string id="task_WinlogonHideUI" value="WinlogonHideUI"/>
+    <string id="task_UserActive" value="UserActive"/>
+    <string id="task_FocusedProcessChange" value="FocusedProcessChange"/>
+    <string id="task_DwmSpriteCreate" value="DwmSpriteCreate"/>
+    <string id="task_DwmSpriteDestroy" value="DwmSpriteDestroy"/>
+    <string id="task_LogicalSurfCreate" value="LogicalSurfCreate"/>
+    <string id="task_LogicalSurfDestroy" value="LogicalSurfDestroy"/>
+    <string id="task_LogicalSurfPhysSurfBind" value="LogicalSurfPhysSurfBind"/>
+    <string id="task_LogicalSurfPhysSurfUnbind" value="LogicalSurfPhysSurfUnbind"/>
+    <string id="task_GdiSysMemToken" value="GdiSysMemToken"/>
+    <string id="task_WatermarkChange" value="WatermarkChange"/>
+    <string id="task_WaitCursor" value="WaitCursor"/>
+    <string id="task_ThreadInfoRundown" value="ThreadInfoRundown"/>
+    <string id="task_InputProcessDelay" value="InputProcessDelay"/>
+    <string id="task_MessageCheckDelay" value="MessageCheckDelay"/>
+    <string id="task_Rendering" value="Rendering"/>
+    <string id="opcode_RenderingOldToNewRendering" value="OldToNewRendering"/>
+    <string id="opcode_RenderingNewRendering" value="NewRendering"/>
+    <string id="opcode_RenderingAppRenderingUpdate" value="AppRenderingUpdate"/>
+    <string id="opcode_RenderingAppRenderingTightUpdate" value="AppRenderingTightUpdate"/>
+    <string id="opcode_RenderingValidateWindow" value="ValidateWindow"/>
+    <string id="opcode_RenderingInvalidateWindow" value="InvalidateWindow"/>
+    <string id="task_ThreadExit" value="ThreadExit"/>
+    <string id="task_BindLogicalSurface" value="BindLogicalSurface"/>
+    <string id="task_UnBindLogicalSurface" value="UnBindLogicalSurface"/>
+    <string id="task_BindLogicalSurfaceRH" value="BindLogicalSurfaceRH"/>
+    <string id="task_DwmSpriteLogicalSurfBind" value="DwmSpriteLogicalSurfBind"/>
+    <string id="task_DwmSpriteLogicalSurfUnBind" value="DwmSpriteLogicalSurfUnBind"/>
+    <string id="task_LogicalSurfEnableDirtyNotification" value="LogicalSurfEnableDirtyNotification"/>
+    <string id="task_PhysicalSurfCreate" value="PhysicalSurfCreate"/>
+    <string id="task_ModifyRgn" value="ModifyRgn"/>
+    <string id="map_UIPIInputTypeSendInput" value="SendInput"/>
+    <string id="map_UIPIInputTypeInput Queue" value="Input Queue"/>
+    <string id="map_UIPIInputTypeKey State" value="Key State"/>
+    <string id="map_UIPIInputTypeMouse State" value="Mouse State"/>
+    <string id="map_UIPIInputTypeRaw Input" value="Raw Input"/>
+    <string id="map_UIPIInputTypeLow Level Hooks" value="Low Level Hooks"/>
+    <string id="map_UIPIInputTypeHotKey" value="HotKey"/>
+    <string id="map_UIPIInputTypeMessage Post-Processing" value="Message Post-Processing"/>
+    <string id="map_UIPISysErrTypeSPI Set" value="SPI Set"/>
+    <string id="map_UIPISysErrTypeBlockInput" value="BlockInput"/>
+    <string id="map_UIPISysErrTypeChange Window Message Filter" value="Change Window Message Filter"/>
+    <string id="map_UIPISysErrTypeJournal Hook" value="Journal Hook"/>
+    <string id="map_UIPISysErrTypeGesture Engine" value="Gesture Engine"/>
+    <string id="map_IdleActionTypeScreen Saver timeout" value="Screen Saver timeout"/>
+    <string id="map_IdleActionTypeDisplay Blanking timeout" value="Display Blanking timeout"/>
+    <string id="map_IdleActionTypeConsole Lock timeout" value="Console Lock timeout"/>
+    <string id="map_IdleActionTypeDisplay Dim timeout" value="Display Dim timeout"/>
+    <string id="map_ScreenSaverProcessActionTypeScreenSaver Process Start" value="ScreenSaver Process Start"/>
+    <string id="map_ScreenSaverProcessActionTypeScreenSaver Process End" value="ScreenSaver Process End"/>
+    <string id="map_WinlogonNotificationActionTypeWinlogon Notification End" value="Winlogon Notification End"/>
+    <string id="map_WinlogonNotificationActionTypeWinlogon Notification Start" value="Winlogon Notification Start"/>
+    <string id="map_ThreadInfoFlagsThread had input messages" value="Thread had input messages"/>
+    <string id="map_ThreadInfoFlagsThread had visible windows" value="Thread had visible windows"/>
+    <string id="map_ThreadInfoFlagsThread has new input" value="Thread has new input"/>
+    <string id="map_ThreadInfoFlagsThread has visible windows" value="Thread has visible windows"/>
+    <string id="map_ThreadInfoFlagsThread has windows" value="Thread has windows"/>
+    <string id="map_ThreadInfoFlagsThread has ghosted windows" value="Thread has ghosted windows"/>
+    <string id="map_ThreadInfoFlagsThread is being destroyed" value="Thread is being destroyed"/>
+    <string id="map_ThreadInfoFlagsThread pumped per-window messages" value="Thread pumped per-window messages"/>
+    <string id="map_ThreadInfoFlagsThread has input messages" value="Thread has input messages"/>
+    <string id="map_ThreadInfoFlagsThread is spinning making windowing API calls" value="Thread is spinning making windowing API calls"/>
+    <string id="map_ThreadInfoFlagsThread has window focus" value="Thread has window focus"/>
+    <string id="map_SurfaceTypeSystem Memory" value="System Memory"/>
+    <string id="map_SurfaceTypeDevice Bitmap" value="Device Bitmap"/>
+    <string id="map_LogicalSurfaceRegionTypeAccumulated dirty region since last time it was cleared" value="Accumulated dirty region since last time it was cleared"/>
+    <string id="map_LogicalSurfaceRegionTypeAccumulated dirty region since the surface weas created" value="Accumulated dirty region since the surface weas created"/>
+    <string id="map_LogicalSurfaceRegionTypeClip region derived from the Window region" value="Clip region derived from the Window region"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

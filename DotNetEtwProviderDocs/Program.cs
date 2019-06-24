@@ -28,21 +28,54 @@ namespace DotNetEtwProviderDocs
             }
 
             Console.WriteLine("[+] Writing " + manifestFileName);
-
+            
             string manifest = RegisteredTraceEventParser.GetManifestForRegisteredProvider(providerName);
 
             File.WriteAllText(manifestFilePath, manifest);
         }
 
+        static bool IsIgnoredProvider(string[] args, string providerName)
+        {
+            foreach (string arg in args)
+            {
+                if (providerName.Contains(arg))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         static void Main(string[] args)
         {
+            Console.WriteLine("Dumping Provides! Ignored Providers: " + string.Join(", ", args));
+
             if (!Directory.Exists(manifestsDirectory))
             {
                 Directory.CreateDirectory(manifestsDirectory);
             }
 
-            foreach (string providerName in EventLogSession.GlobalSession.GetProviderNames())
+            List<string> providers = null;
+
+            try
             {
+                providers = EventLogSession.GlobalSession.GetProviderNames().ToList();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Could Not Get ETW Provider List: " + e.ToString());
+                Environment.Exit(0);
+            }
+
+            foreach (string providerName in providers)
+            {
+                if (IsIgnoredProvider(args, providerName))
+                {
+                    Console.WriteLine("[+++] Ignoring " + providerName);
+                    continue;
+                }
+
                 try
                 {
                     DumpProvider(providerName);

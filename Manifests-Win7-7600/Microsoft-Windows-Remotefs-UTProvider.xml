@@ -1,0 +1,142 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Remotefs-UTProvider" guid="{588cd2e4-a5b0-492d-a59b-f6dd3e7681c6}" resourceFileName="Microsoft-Windows-Remotefs-UTProvider" messageFileName="Microsoft-Windows-Remotefs-UTProvider" symbol="MicrosoftWindowsRemotefsUTProvider" source="Xml" >
+    <keywords>
+     <keyword name="ut:SendPath" message="$(string.keyword_ut:SendPath)" mask="0x100000000"/>
+     <keyword name="ut:ReceivePath" message="$(string.keyword_ut:ReceivePath)" mask="0x200000000"/>
+     <keyword name="ut:L3ConnectPath" message="$(string.keyword_ut:L3ConnectPath)" mask="0x400000000"/>
+     <keyword name="ut:L2ConnectPath" message="$(string.keyword_ut:L2ConnectPath)" mask="0x800000000"/>
+     <keyword name="ut:ClosePath" message="$(string.keyword_ut:ClosePath)" mask="0x1000000000"/>
+     <keyword name="ut:Authentication" message="$(string.keyword_ut:Authentication)" mask="0x2000000000"/>
+     <keyword name="ut:Configuration" message="$(string.keyword_ut:Configuration)" mask="0x4000000000"/>
+     <keyword name="ut:Global" message="$(string.keyword_ut:Global)" mask="0x8000000000"/>
+     <keyword name="keyword_200000000000" message="$(string.keyword_keyword_200000000000)" mask="0x200000000000"/>
+     <keyword name="keyword_400000000000" message="$(string.keyword_keyword_400000000000)" mask="0x400000000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0">
+>
+      <opcodes>
+       <opcode name="StartState" message="$(string.opcode_task_0StartState)" value="180"/>
+       <opcode name="ConnectState" message="$(string.opcode_task_0ConnectState)" value="184"/>
+       <opcode name="AuthenticationState" message="$(string.opcode_task_0AuthenticationState)" value="187"/>
+      </opcodes>
+     </task>
+     <task name="Create" message="$(string.task_Create)" value="1">
+>
+      <opcodes>
+       <opcode name="AuthenticationState" message="$(string.opcode_CreateAuthenticationState)" value="187"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <maps>
+     <valueMap name="ut:OpcodeMap">
+      <map value="0xb4" message="$(string.map_ut:OpcodeMapStart State)"/>
+      <map value="0xb5" message="$(string.map_ut:OpcodeMapEnd State)"/>
+      <map value="0xb6" message="$(string.map_ut:OpcodeMapClosed State)"/>
+      <map value="0xb7" message="$(string.map_ut:OpcodeMapOpen State)"/>
+      <map value="0xb8" message="$(string.map_ut:OpcodeMapConnect State)"/>
+      <map value="0xb9" message="$(string.map_ut:OpcodeMapListen State)"/>
+      <map value="0xba" message="$(string.map_ut:OpcodeMapAssociation State)"/>
+      <map value="0xbb" message="$(string.map_ut:OpcodeMapAuthentication State)"/>
+      <map value="0xbc" message="$(string.map_ut:OpcodeMapEstablished State)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="100" symbol="task_0StartState" version="0" task="task_0" opcode="StartState" level="win:Error" keywords="keyword_400000000000" template="task_0StartStateArgs"/>
+     <event value="101" symbol="task_0StartState101" version="0" task="task_0" opcode="StartState" level="win:Error" keywords="keyword_400000000000" template="task_0StartStateArgs"/>
+     <event value="201" symbol="task_0ConnectState" version="0" task="task_0" opcode="ConnectState" level="win:Error" keywords="keyword_400000000000" template="task_0StartStateArgs"/>
+     <event value="301" symbol="task_0AuthenticationState" version="0" task="task_0" opcode="AuthenticationState" level="win:Error" keywords="keyword_400000000000" template="task_0StartStateArgs"/>
+     <event value="401" symbol="task_0ConnectState401" version="0" task="task_0" opcode="ConnectState" level="win:Error" keywords="keyword_400000000000" template="task_0StartStateArgs"/>
+     <event value="501" symbol="task_0AuthenticationState501" version="0" task="task_0" opcode="AuthenticationState" level="win:Error" keywords="keyword_400000000000" template="task_0StartStateArgs"/>
+     <event value="20001" symbol="CreateAuthenticationState" version="0" task="Create" opcode="AuthenticationState" level="win:Informational" keywords="keyword_400000000000" template="CreateAuthenticationStateArgs"/>
+     <event value="60001" symbol="task_0" version="0" task="task_0" level="win:Error" template="task_0StartStateArgs"/>
+     <event value="60002" symbol="task_060002" version="0" task="task_0" level="win:Warning" template="task_060002Args"/>
+     <event value="60003" symbol="task_060003" version="0" task="task_0" level="win:Informational" keywords="keyword_200000000000" template="task_060003Args"/>
+     <event value="60004" symbol="task_060004" version="0" task="task_0" level="win:Informational" template="task_060004Args"/>
+     <event value="60101" symbol="task_060101" version="0" task="task_0" level="win:Informational" template="task_060101Args"/>
+     <event value="60102" symbol="task_060102" version="0" task="task_0" level="win:Informational" template="task_060102Args"/>
+     <event value="60103" symbol="task_060103" version="0" task="task_0" level="win:Informational" template="task_060103Args"/>
+    </events>
+    <templates>
+     <template tid="task_0StartStateArgs">
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Context" inType="win:UInt32"/>
+     </template>
+     <template tid="CreateAuthenticationStateArgs">
+      <data name="CurrentOrNextState" inType="win:UInt8" map="ut:OpcodeMap"/>
+      <data name="Context" inType="win:UInt32"/>
+     </template>
+     <template tid="task_060002Args">
+      <data name="WarningCode" inType="win:UInt32"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Context" inType="win:UInt32"/>
+     </template>
+     <template tid="task_060003Args">
+      <data name="CurrentOrNextState" inType="win:UInt8"/>
+      <data name="Context" inType="win:UInt32"/>
+     </template>
+     <template tid="task_060004Args">
+      <data name="Context" inType="win:UInt32"/>
+      <data name="UpdateReasonCode" inType="win:UInt32"/>
+     </template>
+     <template tid="task_060101Args">
+      <data name="SourceAddress" inType="win:UInt32"/>
+      <data name="SourcePort" inType="win:UInt32"/>
+      <data name="DestinationAddress" inType="win:UInt32"/>
+      <data name="DestinationPort" inType="win:UInt32"/>
+      <data name="Protocol" inType="win:UInt32"/>
+      <data name="ReferenceContext" inType="win:UInt32"/>
+     </template>
+     <template tid="task_060102Args">
+      <data name="SourceAddress" inType="win:Binary"/>
+      <data name="SourcePort" inType="win:UInt32"/>
+      <data name="DestinationAddress" inType="win:Binary"/>
+      <data name="DestinationPort" inType="win:UInt32"/>
+      <data name="Protocol" inType="win:UInt32"/>
+      <data name="ReferenceContext" inType="win:UInt32"/>
+     </template>
+     <template tid="task_060103Args">
+      <data name="IfGuid" inType="win:GUID"/>
+      <data name="IfIndex" inType="win:UInt32"/>
+      <data name="IfLuid" inType="win:UInt64"/>
+      <data name="ReferenceContext" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_ut:SendPath" value="ut:SendPath"/>
+    <string id="keyword_ut:ReceivePath" value="ut:ReceivePath"/>
+    <string id="keyword_ut:L3ConnectPath" value="ut:L3ConnectPath"/>
+    <string id="keyword_ut:L2ConnectPath" value="ut:L2ConnectPath"/>
+    <string id="keyword_ut:ClosePath" value="ut:ClosePath"/>
+    <string id="keyword_ut:Authentication" value="ut:Authentication"/>
+    <string id="keyword_ut:Configuration" value="ut:Configuration"/>
+    <string id="keyword_ut:Global" value="ut:Global"/>
+    <string id="keyword_keyword_200000000000" value="keyword_200000000000"/>
+    <string id="keyword_keyword_400000000000" value="keyword_400000000000"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="opcode_task_0StartState" value="StartState"/>
+    <string id="opcode_task_0ConnectState" value="ConnectState"/>
+    <string id="opcode_task_0AuthenticationState" value="AuthenticationState"/>
+    <string id="task_Create" value="Create"/>
+    <string id="opcode_CreateAuthenticationState" value="AuthenticationState"/>
+    <string id="map_ut:OpcodeMapStart State" value="Start State"/>
+    <string id="map_ut:OpcodeMapEnd State" value="End State"/>
+    <string id="map_ut:OpcodeMapClosed State" value="Closed State"/>
+    <string id="map_ut:OpcodeMapOpen State" value="Open State"/>
+    <string id="map_ut:OpcodeMapConnect State" value="Connect State"/>
+    <string id="map_ut:OpcodeMapListen State" value="Listen State"/>
+    <string id="map_ut:OpcodeMapAssociation State" value="Association State"/>
+    <string id="map_ut:OpcodeMapAuthentication State" value="Authentication State"/>
+    <string id="map_ut:OpcodeMapEstablished State" value="Established State"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,42 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-FileInfoMinifilter" guid="{a319d300-015c-48be-acdb-47746e154751}" resourceFileName="Microsoft-Windows-FileInfoMinifilter" messageFileName="Microsoft-Windows-FileInfoMinifilter" symbol="MicrosoftWindowsFileInfoMinifilter" source="Xml" >
+    <keywords>
+     <keyword name="fi:FileNameCreate" message="$(string.keyword_fi:FileNameCreate)" mask="0x10000"/>
+     <keyword name="fi:FileNameRundown" message="$(string.keyword_fi:FileNameRundown)" mask="0x20000"/>
+     <keyword name="fi:FileNameDelete" message="$(string.keyword_fi:FileNameDelete)" mask="0x40000"/>
+    </keywords>
+    <tasks>
+     <task name="fi:FileNameCreate" message="$(string.task_fi:FileNameCreate)" value="1"/>
+     <task name="fi:FileNameRundown" message="$(string.task_fi:FileNameRundown)" value="2"/>
+     <task name="fi:FileNameDelete" message="$(string.task_fi:FileNameDelete)" value="3"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="fi:FileNameCreate" version="0" task="fi:FileNameCreate" level="win:Informational" keywords="fi:FileNameCreate" template="fi:FileNameCreateArgs"/>
+     <event value="2" symbol="fi:FileNameRundown" version="0" task="fi:FileNameRundown" level="win:Informational" keywords="fi:FileNameRundown" template="fi:FileNameCreateArgs"/>
+     <event value="3" symbol="fi:FileNameDelete" version="0" task="fi:FileNameDelete" level="win:Informational" keywords="fi:FileNameDelete" template="fi:FileNameCreateArgs"/>
+    </events>
+    <templates>
+     <template tid="fi:FileNameCreateArgs">
+      <data name="FileObject" inType="win:Pointer"/>
+      <data name="PathLength" inType="win:UInt16"/>
+      <data name="Path" inType="win:UnicodeString" length="PathLength"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_fi:FileNameCreate" value="fi:FileNameCreate"/>
+    <string id="keyword_fi:FileNameRundown" value="fi:FileNameRundown"/>
+    <string id="keyword_fi:FileNameDelete" value="fi:FileNameDelete"/>
+    <string id="task_fi:FileNameCreate" value="fi:FileNameCreate"/>
+    <string id="task_fi:FileNameRundown" value="fi:FileNameRundown"/>
+    <string id="task_fi:FileNameDelete" value="fi:FileNameDelete"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

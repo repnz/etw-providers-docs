@@ -1,0 +1,41 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-AltTab" guid="{11a377e3-be1e-4ee7-abda-81c6eda62e71}" resourceFileName="Microsoft-Windows-AltTab" messageFileName="Microsoft-Windows-AltTab" symbol="MicrosoftWindowsAltTab" source="Xml" >
+    <keywords>
+     <keyword name="Default" message="$(string.keyword_Default)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="AltTab_Invoke" message="$(string.task_AltTab_Invoke)" value="1"/>
+     <task name="AltTab_FocusNext" message="$(string.task_AltTab_FocusNext)" value="3"/>
+     <task name="AltTab_Paint" message="$(string.task_AltTab_Paint)" value="5"/>
+     <task name="AltTab_PaintIcons" message="$(string.task_AltTab_PaintIcons)" value="7"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="AltTab_InvokeStart" version="0" task="AltTab_Invoke" opcode="win:Start" level="win:Informational"/>
+     <event value="2" symbol="AltTab_InvokeStop" version="0" task="AltTab_Invoke" opcode="win:Stop" level="win:Informational"/>
+     <event value="3" symbol="AltTab_Invoke" version="0" task="AltTab_Invoke" level="win:Informational" keywords="Default"/>
+     <event value="11" symbol="AltTab_FocusNextStart" version="0" task="AltTab_FocusNext" opcode="win:Start" level="win:Informational" keywords="Default"/>
+     <event value="12" symbol="AltTab_FocusNextStop" version="0" task="AltTab_FocusNext" opcode="win:Stop" level="win:Informational" keywords="Default"/>
+     <event value="21" symbol="AltTab_PaintStart" version="0" task="AltTab_Paint" opcode="win:Start" level="win:Informational" keywords="Default"/>
+     <event value="22" symbol="AltTab_PaintStop" version="0" task="AltTab_Paint" opcode="win:Stop" level="win:Informational" keywords="Default"/>
+     <event value="31" symbol="AltTab_PaintIconsStart" version="0" task="AltTab_PaintIcons" opcode="win:Start" level="win:Informational" keywords="Default"/>
+     <event value="32" symbol="AltTab_PaintIconsStop" version="0" task="AltTab_PaintIcons" opcode="win:Stop" level="win:Informational" keywords="Default"/>
+    </events>
+    <templates>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Default" value="Default"/>
+    <string id="task_AltTab_Invoke" value="AltTab_Invoke"/>
+    <string id="task_AltTab_FocusNext" value="AltTab_FocusNext"/>
+    <string id="task_AltTab_Paint" value="AltTab_Paint"/>
+    <string id="task_AltTab_PaintIcons" value="AltTab_PaintIcons"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,84 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Magnification" guid="{c882ff1d-7585-4b33-b135-95c577179137}" resourceFileName="Microsoft-Windows-Magnification" messageFileName="Microsoft-Windows-Magnification" symbol="MicrosoftWindowsMagnification" source="Xml" >
+    <keywords>
+     <keyword name="Magnification" message="$(string.keyword_Magnification)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="LensCreate" message="$(string.task_LensCreate)" value="1"/>
+     <task name="LensDestroy" message="$(string.task_LensDestroy)" value="2"/>
+     <task name="SetWindowSource" message="$(string.task_SetWindowSource)" value="3"/>
+     <task name="SetWindowTransform" message="$(string.task_SetWindowTransform)" value="4"/>
+     <task name="UpdateLensContent" message="$(string.task_UpdateLensContent)" value="5"/>
+     <task name="UpdateContentSurfaces" message="$(string.task_UpdateContentSurfaces)" value="6"/>
+     <task name="UpdateRedirectionSurfaces" message="$(string.task_UpdateRedirectionSurfaces)" value="7"/>
+     <task name="UpdateRedirectionResources" message="$(string.task_UpdateRedirectionResources)" value="8"/>
+     <task name="UpdateSettings" message="$(string.task_UpdateSettings)" value="9"/>
+     <task name="RecreateTextures" message="$(string.task_RecreateTextures)" value="10"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="LensCreate" version="0" task="LensCreate" level="win:Informational" keywords="Magnification" template="LensCreateArgs"/>
+     <event value="2" symbol="LensDestroy" version="0" task="LensDestroy" level="win:Informational" keywords="Magnification" template="LensCreateArgs"/>
+     <event value="3" symbol="SetWindowSource" version="0" task="SetWindowSource" level="win:Informational" keywords="Magnification" template="SetWindowSourceArgs"/>
+     <event value="4" symbol="SetWindowTransform" version="0" task="SetWindowTransform" level="win:Informational" keywords="Magnification" template="SetWindowTransformArgs"/>
+     <event value="5" symbol="UpdateLensContentStart" version="0" task="UpdateLensContent" opcode="win:Start" level="win:Informational" keywords="Magnification" template="UpdateLensContentStartArgs"/>
+     <event value="6" symbol="UpdateLensContentStop" version="0" task="UpdateLensContent" opcode="win:Stop" level="win:Informational" keywords="Magnification" template="UpdateLensContentStartArgs"/>
+     <event value="7" symbol="UpdateContentSurfacesStart" version="0" task="UpdateContentSurfaces" opcode="win:Start" level="win:Informational" keywords="Magnification" template="UpdateContentSurfacesStartArgs"/>
+     <event value="8" symbol="UpdateContentSurfacesStop" version="0" task="UpdateContentSurfaces" opcode="win:Stop" level="win:Informational" keywords="Magnification" template="UpdateContentSurfacesStartArgs"/>
+     <event value="9" symbol="UpdateRedirectionSurfacesStart" version="0" task="UpdateRedirectionSurfaces" opcode="win:Start" level="win:Informational" keywords="Magnification" template="UpdateContentSurfacesStartArgs"/>
+     <event value="10" symbol="UpdateRedirectionSurfacesStop" version="0" task="UpdateRedirectionSurfaces" opcode="win:Stop" level="win:Informational" keywords="Magnification" template="UpdateContentSurfacesStartArgs"/>
+     <event value="11" symbol="UpdateRedirectionResourcesStart" version="0" task="UpdateRedirectionResources" opcode="win:Start" level="win:Informational" keywords="Magnification" template="UpdateContentSurfacesStartArgs"/>
+     <event value="12" symbol="UpdateRedirectionResourcesStop" version="0" task="UpdateRedirectionResources" opcode="win:Stop" level="win:Informational" keywords="Magnification" template="UpdateContentSurfacesStartArgs"/>
+     <event value="13" symbol="UpdateSettingsStart" version="0" task="UpdateSettings" opcode="win:Start" level="win:Informational" keywords="Magnification" template="LensCreateArgs"/>
+     <event value="14" symbol="UpdateSettingsStop" version="0" task="UpdateSettings" opcode="win:Stop" level="win:Informational" keywords="Magnification" template="LensCreateArgs"/>
+     <event value="15" symbol="RecreateTexturesStart" version="0" task="RecreateTextures" opcode="win:Start" level="win:Informational" keywords="Magnification" template="RecreateTexturesStartArgs"/>
+     <event value="16" symbol="RecreateTexturesStop" version="0" task="RecreateTextures" opcode="win:Stop" level="win:Informational" keywords="Magnification" template="LensCreateArgs"/>
+    </events>
+    <templates>
+     <template tid="LensCreateArgs">
+      <data name="hWndLensCtx" inType="win:UInt64"/>
+     </template>
+     <template tid="SetWindowSourceArgs">
+      <data name="hWndLensCtx" inType="win:UInt64"/>
+      <data name="SrcRect" inType="win:AnsiString"/>
+     </template>
+     <template tid="SetWindowTransformArgs">
+      <data name="hWndLensCtx" inType="win:UInt64"/>
+      <data name="Transform" inType="win:AnsiString"/>
+     </template>
+     <template tid="UpdateLensContentStartArgs">
+      <data name="hWndLensCtx" inType="win:UInt64"/>
+      <data name="DesktopComposited" inType="win:UInt32"/>
+     </template>
+     <template tid="UpdateContentSurfacesStartArgs">
+      <data name="hWndLensCtx" inType="win:UInt64"/>
+      <data name="UpdateId" inType="win:UInt64"/>
+     </template>
+     <template tid="RecreateTexturesStartArgs">
+      <data name="hWndLensCtx" inType="win:UInt64"/>
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Magnification" value="Magnification"/>
+    <string id="task_LensCreate" value="LensCreate"/>
+    <string id="task_LensDestroy" value="LensDestroy"/>
+    <string id="task_SetWindowSource" value="SetWindowSource"/>
+    <string id="task_SetWindowTransform" value="SetWindowTransform"/>
+    <string id="task_UpdateLensContent" value="UpdateLensContent"/>
+    <string id="task_UpdateContentSurfaces" value="UpdateContentSurfaces"/>
+    <string id="task_UpdateRedirectionSurfaces" value="UpdateRedirectionSurfaces"/>
+    <string id="task_UpdateRedirectionResources" value="UpdateRedirectionResources"/>
+    <string id="task_UpdateSettings" value="UpdateSettings"/>
+    <string id="task_RecreateTextures" value="RecreateTextures"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,120 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Dhcp-Nap-Enforcement-Client" guid="{f6da35ce-d312-41c8-9828-5a2e173c91b6}" resourceFileName="Microsoft-Windows-Dhcp-Nap-Enforcement-Client" messageFileName="Microsoft-Windows-Dhcp-Nap-Enforcement-Client" symbol="MicrosoftWindowsDhcpNapEnforcementClient" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="ConfigurationStateEvent" message="$(string.task_ConfigurationStateEvent)" value="1">
+>
+      <opcodes>
+       <opcode name="ErrorDeterminingLANAttributes" message="$(string.opcode_ConfigurationStateEventErrorDeterminingLANAttributes)" value="11"/>
+       <opcode name="ErrorObtainingSOH" message="$(string.opcode_ConfigurationStateEventErrorObtainingSOH)" value="12"/>
+       <opcode name="ErrorRenewingLease" message="$(string.opcode_ConfigurationStateEventErrorRenewingLease)" value="13"/>
+       <opcode name="ErrorProcessingSOHResponse" message="$(string.opcode_ConfigurationStateEventErrorProcessingSOHResponse)" value="14"/>
+       <opcode name="ErrorObtainingSOHResponse" message="$(string.opcode_ConfigurationStateEventErrorObtainingSOHResponse)" value="15"/>
+       <opcode name="ErrorPlumbingSOH" message="$(string.opcode_ConfigurationStateEventErrorPlumbingSOH)" value="16"/>
+       <opcode name="ErrorDhcpNapBinding" message="$(string.opcode_ConfigurationStateEventErrorDhcpNapBinding)" value="17"/>
+       <opcode name="QuarantineConfigurationSet" message="$(string.opcode_ConfigurationStateEventQuarantineConfigurationSet)" value="18"/>
+       <opcode name="NonQuarantineConfigurationSet" message="$(string.opcode_ConfigurationStateEventNonQuarantineConfigurationSet)" value="19"/>
+      </opcodes>
+     </task>
+     <task name="Notification" message="$(string.task_Notification)" value="2">
+>
+      <opcodes>
+       <opcode name="DhcpServiceStopped" message="$(string.opcode_NotificationDhcpServiceStopped)" value="20"/>
+       <opcode name="DhcpServiceRunning" message="$(string.opcode_NotificationDhcpServiceRunning)" value="21"/>
+       <opcode name="MediaConnect" message="$(string.opcode_NotificationMediaConnect)" value="22"/>
+       <opcode name="MediaDisconnect" message="$(string.opcode_NotificationMediaDisconnect)" value="23"/>
+       <opcode name="NotificationAckReceived" message="$(string.opcode_NotificationNotificationAckReceived)" value="24"/>
+       <opcode name="NotificationNonDhcpAddress" message="$(string.opcode_NotificationNotificationNonDhcpAddress)" value="25"/>
+       <opcode name="NotificationSOHChange" message="$(string.opcode_NotificationNotificationSOHChange)" value="26"/>
+       <opcode name="GetConnectionsCall" message="$(string.opcode_NotificationGetConnectionsCall)" value="27"/>
+      </opcodes>
+     </task>
+     <task name="ServiceStateEvent" message="$(string.task_ServiceStateEvent)" value="3">
+>
+      <opcodes>
+       <opcode name="ServiceStart" message="$(string.opcode_ServiceStateEventServiceStart)" value="28"/>
+       <opcode name="ServiceStop" message="$(string.opcode_ServiceStateEventServiceStop)" value="29"/>
+       <opcode name="ErrorServiceStart" message="$(string.opcode_ServiceStateEventErrorServiceStart)" value="30"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="52001" symbol="ConfigurationStateEventErrorDeterminingLANAttributes" version="0" task="ConfigurationStateEvent" opcode="ErrorDeterminingLANAttributes" level="win:Error" template="ConfigurationStateEventErrorDeterminingLANAttributesArgs"/>
+     <event value="52002" symbol="ConfigurationStateEventErrorObtainingSOH" version="0" task="ConfigurationStateEvent" opcode="ErrorObtainingSOH" level="win:Error" template="ConfigurationStateEventErrorObtainingSOHArgs"/>
+     <event value="52003" symbol="ConfigurationStateEventErrorRenewingLease" version="0" task="ConfigurationStateEvent" opcode="ErrorRenewingLease" level="win:Error" template="ConfigurationStateEventErrorRenewingLeaseArgs"/>
+     <event value="52004" symbol="ConfigurationStateEventErrorProcessingSOHResponse" version="0" task="ConfigurationStateEvent" opcode="ErrorProcessingSOHResponse" level="win:Error" template="ConfigurationStateEventErrorObtainingSOHArgs"/>
+     <event value="52005" symbol="ConfigurationStateEventErrorObtainingSOHResponse" version="0" task="ConfigurationStateEvent" opcode="ErrorObtainingSOHResponse" level="win:Error" template="ConfigurationStateEventErrorObtainingSOHResponseArgs"/>
+     <event value="52006" symbol="ConfigurationStateEventErrorPlumbingSOH" version="0" task="ConfigurationStateEvent" opcode="ErrorPlumbingSOH" level="win:Error" template="ConfigurationStateEventErrorObtainingSOHResponseArgs"/>
+     <event value="52007" symbol="NotificationDhcpServiceStopped" version="0" task="Notification" opcode="DhcpServiceStopped" level="win:Informational"/>
+     <event value="52008" symbol="NotificationDhcpServiceRunning" version="0" task="Notification" opcode="DhcpServiceRunning" level="win:Informational"/>
+     <event value="52009" symbol="NotificationMediaConnect" version="0" task="Notification" opcode="MediaConnect" level="win:Informational" template="NotificationMediaConnectArgs"/>
+     <event value="52010" symbol="NotificationMediaDisconnect" version="0" task="Notification" opcode="MediaDisconnect" level="win:Informational" template="NotificationMediaConnectArgs"/>
+     <event value="52011" symbol="NotificationNotificationAckReceived" version="0" task="Notification" opcode="NotificationAckReceived" level="win:Informational" template="NotificationMediaConnectArgs"/>
+     <event value="52012" symbol="NotificationNotificationNonDhcpAddress" version="0" task="Notification" opcode="NotificationNonDhcpAddress" level="win:Informational" template="NotificationMediaConnectArgs"/>
+     <event value="52013" symbol="NotificationNotificationSOHChange" version="0" task="Notification" opcode="NotificationSOHChange" level="win:Informational"/>
+     <event value="52014" symbol="NotificationGetConnectionsCall" version="0" task="Notification" opcode="GetConnectionsCall" level="win:Informational"/>
+     <event value="52015" symbol="ServiceStateEventServiceStart" version="0" task="ServiceStateEvent" opcode="ServiceStart" level="win:Informational"/>
+     <event value="52016" symbol="ServiceStateEventErrorServiceStart" version="0" task="ServiceStateEvent" opcode="ErrorServiceStart" level="win:Error" template="ServiceStateEventErrorServiceStartArgs"/>
+     <event value="52017" symbol="ServiceStateEventServiceStop" version="0" task="ServiceStateEvent" opcode="ServiceStop" level="win:Warning"/>
+     <event value="52018" symbol="ConfigurationStateEventErrorDhcpNapBinding" version="0" task="ConfigurationStateEvent" opcode="ErrorDhcpNapBinding" level="win:Error" template="ServiceStateEventErrorServiceStartArgs"/>
+     <event value="52019" symbol="ConfigurationStateEventQuarantineConfigurationSet" version="0" task="ConfigurationStateEvent" opcode="QuarantineConfigurationSet" level="win:Warning" template="NotificationMediaConnectArgs"/>
+     <event value="52020" symbol="ConfigurationStateEventNonQuarantineConfigurationSet" version="0" task="ConfigurationStateEvent" opcode="NonQuarantineConfigurationSet" level="win:Informational" template="NotificationMediaConnectArgs"/>
+    </events>
+    <templates>
+     <template tid="ConfigurationStateEventErrorDeterminingLANAttributesArgs">
+      <data name="StatusCode" inType="win:UInt32"/>
+     </template>
+     <template tid="ConfigurationStateEventErrorObtainingSOHArgs">
+      <data name="HResult" inType="win:UInt32"/>
+     </template>
+     <template tid="ConfigurationStateEventErrorRenewingLeaseArgs">
+      <data name="InterfaceGUID" inType="win:UnicodeString"/>
+      <data name="StatusCode" inType="win:UInt32"/>
+     </template>
+     <template tid="ConfigurationStateEventErrorObtainingSOHResponseArgs">
+      <data name="InterfaceGUID" inType="win:UnicodeString"/>
+      <data name="HResult" inType="win:UInt32"/>
+     </template>
+     <template tid="NotificationMediaConnectArgs">
+      <data name="InterfaceGUID" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ServiceStateEventErrorServiceStartArgs">
+      <data name="HRString" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_ConfigurationStateEvent" value="ConfigurationStateEvent"/>
+    <string id="opcode_ConfigurationStateEventErrorDeterminingLANAttributes" value="ErrorDeterminingLANAttributes"/>
+    <string id="opcode_ConfigurationStateEventErrorObtainingSOH" value="ErrorObtainingSOH"/>
+    <string id="opcode_ConfigurationStateEventErrorRenewingLease" value="ErrorRenewingLease"/>
+    <string id="opcode_ConfigurationStateEventErrorProcessingSOHResponse" value="ErrorProcessingSOHResponse"/>
+    <string id="opcode_ConfigurationStateEventErrorObtainingSOHResponse" value="ErrorObtainingSOHResponse"/>
+    <string id="opcode_ConfigurationStateEventErrorPlumbingSOH" value="ErrorPlumbingSOH"/>
+    <string id="opcode_ConfigurationStateEventErrorDhcpNapBinding" value="ErrorDhcpNapBinding"/>
+    <string id="opcode_ConfigurationStateEventQuarantineConfigurationSet" value="QuarantineConfigurationSet"/>
+    <string id="opcode_ConfigurationStateEventNonQuarantineConfigurationSet" value="NonQuarantineConfigurationSet"/>
+    <string id="task_Notification" value="Notification"/>
+    <string id="opcode_NotificationDhcpServiceStopped" value="DhcpServiceStopped"/>
+    <string id="opcode_NotificationDhcpServiceRunning" value="DhcpServiceRunning"/>
+    <string id="opcode_NotificationMediaConnect" value="MediaConnect"/>
+    <string id="opcode_NotificationMediaDisconnect" value="MediaDisconnect"/>
+    <string id="opcode_NotificationNotificationAckReceived" value="NotificationAckReceived"/>
+    <string id="opcode_NotificationNotificationNonDhcpAddress" value="NotificationNonDhcpAddress"/>
+    <string id="opcode_NotificationNotificationSOHChange" value="NotificationSOHChange"/>
+    <string id="opcode_NotificationGetConnectionsCall" value="GetConnectionsCall"/>
+    <string id="task_ServiceStateEvent" value="ServiceStateEvent"/>
+    <string id="opcode_ServiceStateEventServiceStart" value="ServiceStart"/>
+    <string id="opcode_ServiceStateEventServiceStop" value="ServiceStop"/>
+    <string id="opcode_ServiceStateEventErrorServiceStart" value="ErrorServiceStart"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

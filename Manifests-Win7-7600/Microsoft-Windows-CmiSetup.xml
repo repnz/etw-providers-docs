@@ -1,0 +1,39 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-CmiSetup" guid="{75ebc33e-0cc6-49da-8cd9-8903a5222aa0}" resourceFileName="Microsoft-Windows-CmiSetup" messageFileName="Microsoft-Windows-CmiSetup" symbol="MicrosoftWindowsCmiSetup" source="Xml" >
+    <keywords>
+     <keyword name="keyPerformance" message="$(string.keyword_keyPerformance)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="CMIConfiguration" message="$(string.task_CMIConfiguration)" value="1000"/>
+     <task name="CMIExecuteChanges" message="$(string.task_CMIExecuteChanges)" value="2000"/>
+     <task name="CBSOnlineInstall" message="$(string.task_CBSOnlineInstall)" value="3000"/>
+    </tasks>
+    <events>
+     <event value="1001" symbol="CMIConfigurationStart" version="0" task="CMIConfiguration" opcode="win:Start" level="win:Informational" keywords="keyPerformance"/>
+     <event value="1002" symbol="CMIConfigurationStop" version="0" task="CMIConfiguration" opcode="win:Stop" level="win:Informational" keywords="keyPerformance" template="CMIConfigurationStopArgs"/>
+     <event value="2001" symbol="CMIExecuteChangesStart" version="0" task="CMIExecuteChanges" opcode="win:Start" level="win:Informational" keywords="keyPerformance"/>
+     <event value="2002" symbol="CMIExecuteChangesStop" version="0" task="CMIExecuteChanges" opcode="win:Stop" level="win:Informational" keywords="keyPerformance" template="CMIConfigurationStopArgs"/>
+     <event value="3001" symbol="CBSOnlineInstallStart" version="0" task="CBSOnlineInstall" opcode="win:Start" level="win:Informational" keywords="keyPerformance"/>
+     <event value="3002" symbol="CBSOnlineInstallStop" version="0" task="CBSOnlineInstall" opcode="win:Stop" level="win:Informational" keywords="keyPerformance" template="CMIConfigurationStopArgs"/>
+    </events>
+    <templates>
+     <template tid="CMIConfigurationStopArgs">
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_keyPerformance" value="keyPerformance"/>
+    <string id="task_CMIConfiguration" value="CMIConfiguration"/>
+    <string id="task_CMIExecuteChanges" value="CMIExecuteChanges"/>
+    <string id="task_CBSOnlineInstall" value="CBSOnlineInstall"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

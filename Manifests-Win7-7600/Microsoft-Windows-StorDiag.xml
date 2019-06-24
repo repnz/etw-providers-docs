@@ -1,0 +1,72 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-StorDiag" guid="{f5d05b38-80a6-4653-825d-c414e4ab3c68}" resourceFileName="Microsoft-Windows-StorDiag" messageFileName="Microsoft-Windows-StorDiag" symbol="MicrosoftWindowsStorDiag" source="Xml" >
+    <keywords>
+     <keyword name="ClassPnPAllIO" message="$(string.keyword_ClassPnPAllIO)" mask="0x1"/>
+     <keyword name="ClassPnPIdleIO" message="$(string.keyword_ClassPnPIdleIO)" mask="0x2"/>
+    </keywords>
+    <tasks>
+     <task name="ClassPnPIOrequestcomplete" message="$(string.task_ClassPnPIOrequestcomplete)" value="1">
+>
+      <opcodes>
+       <opcode name="ClassPnP_IO_End" message="$(string.opcode_ClassPnPIOrequestcompleteClassPnP_IO_End)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="ClassPnPEnqueueIdleIOrequest" message="$(string.task_ClassPnPEnqueueIdleIOrequest)" value="2">
+>
+      <opcodes>
+       <opcode name="ClassPnP_Enqueue_IdleIO" message="$(string.opcode_ClassPnPEnqueueIdleIOrequestClassPnP_Enqueue_IdleIO)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="ClassPnPBoostIdleIOrequest" message="$(string.task_ClassPnPBoostIdleIOrequest)" value="3">
+>
+      <opcodes>
+       <opcode name="ClassPnP_Boost_IdleIO" message="$(string.opcode_ClassPnPBoostIdleIOrequestClassPnP_Boost_IdleIO)" value="13"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="1" symbol="ClassPnPIOrequestcompleteClassPnP_IO_End_V1" version="1" task="ClassPnPIOrequestcomplete" opcode="ClassPnP_IO_End" level="win:Informational" keywords="ClassPnPAllIO" template="ClassPnPIOrequestcompleteClassPnP_IO_EndArgs_V1"/>
+     <event value="2" symbol="ClassPnPEnqueueIdleIOrequestClassPnP_Enqueue_IdleIO_V1" version="1" task="ClassPnPEnqueueIdleIOrequest" opcode="ClassPnP_Enqueue_IdleIO" level="win:Informational" keywords="ClassPnPIdleIO" template="ClassPnPEnqueueIdleIOrequestClassPnP_Enqueue_IdleIOArgs_V1"/>
+     <event value="3" symbol="ClassPnPBoostIdleIOrequestClassPnP_Boost_IdleIO_V1" version="1" task="ClassPnPBoostIdleIOrequest" opcode="ClassPnP_Boost_IdleIO" level="win:Informational" keywords="ClassPnPIdleIO" template="ClassPnPBoostIdleIOrequestClassPnP_Boost_IdleIOArgs_V1"/>
+    </events>
+    <templates>
+     <template tid="ClassPnPIOrequestcompleteClassPnP_IO_EndArgs_V1">
+      <data name="RequestProcessTime" inType="win:UInt64"/>
+      <data name="OriginalIrp" inType="win:Pointer"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="MajorFunction" inType="win:UInt8"/>
+      <data name="RequestType" inType="win:UInt8"/>
+      <data name="SrbStatus" inType="win:UInt8"/>
+     </template>
+     <template tid="ClassPnPEnqueueIdleIOrequestClassPnP_Enqueue_IdleIOArgs_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="CurrentIOCount" inType="win:UInt32"/>
+      <data name="ActiveIOCount" inType="win:UInt32"/>
+     </template>
+     <template tid="ClassPnPBoostIdleIOrequestClassPnP_Boost_IdleIOArgs_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="Thread" inType="win:Pointer"/>
+      <data name="CurrentIOCount" inType="win:UInt32"/>
+      <data name="ActiveIOCount" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_ClassPnPAllIO" value="ClassPnPAllIO"/>
+    <string id="keyword_ClassPnPIdleIO" value="ClassPnPIdleIO"/>
+    <string id="task_ClassPnPIOrequestcomplete" value="ClassPnPIOrequestcomplete"/>
+    <string id="opcode_ClassPnPIOrequestcompleteClassPnP_IO_End" value="ClassPnP_IO_End"/>
+    <string id="task_ClassPnPEnqueueIdleIOrequest" value="ClassPnPEnqueueIdleIOrequest"/>
+    <string id="opcode_ClassPnPEnqueueIdleIOrequestClassPnP_Enqueue_IdleIO" value="ClassPnP_Enqueue_IdleIO"/>
+    <string id="task_ClassPnPBoostIdleIOrequest" value="ClassPnPBoostIdleIOrequest"/>
+    <string id="opcode_ClassPnPBoostIdleIOrequestClassPnP_Boost_IdleIO" value="ClassPnP_Boost_IdleIO"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

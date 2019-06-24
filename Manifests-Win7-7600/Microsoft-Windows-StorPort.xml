@@ -1,0 +1,185 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-StorPort" guid="{c4636a1e-7986-4646-bf10-7bc3b4a76e8e}" resourceFileName="Microsoft-Windows-StorPort" messageFileName="Microsoft-Windows-StorPort" symbol="MicrosoftWindowsStorPort" source="Xml" >
+    <keywords>
+     <keyword name="Reset" message="$(string.keyword_Reset)" mask="0x1"/>
+     <keyword name="PortNotification" message="$(string.keyword_PortNotification)" mask="0x2"/>
+     <keyword name="PauseResume" message="$(string.keyword_PauseResume)" mask="0x4"/>
+    </keywords>
+    <tasks>
+     <task name="LogicalUnitreset" message="$(string.task_LogicalUnitreset)" value="1">
+>
+      <opcodes>
+       <opcode name="OpCodeLUReset" message="$(string.opcode_LogicalUnitresetOpCodeLUReset)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="Targetreset" message="$(string.task_Targetreset)" value="2">
+>
+      <opcodes>
+       <opcode name="OpCodeTargetReset" message="$(string.opcode_TargetresetOpCodeTargetReset)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="Busreset" message="$(string.task_Busreset)" value="3">
+>
+      <opcodes>
+       <opcode name="OpCodeBusReset" message="$(string.opcode_BusresetOpCodeBusReset)" value="13"/>
+      </opcodes>
+     </task>
+     <task name="Resetdetectednotification" message="$(string.task_Resetdetectednotification)" value="4">
+>
+      <opcodes>
+       <opcode name="OpCodeResetDetected" message="$(string.opcode_ResetdetectednotificationOpCodeResetDetected)" value="14"/>
+      </opcodes>
+     </task>
+     <task name="Linkdownnotification" message="$(string.task_Linkdownnotification)" value="5">
+>
+      <opcodes>
+       <opcode name="OpCodeLinkDown" message="$(string.opcode_LinkdownnotificationOpCodeLinkDown)" value="15"/>
+      </opcodes>
+     </task>
+     <task name="LinkUpnotification" message="$(string.task_LinkUpnotification)" value="6">
+>
+      <opcodes>
+       <opcode name="OpCodeLinkUp" message="$(string.opcode_LinkUpnotificationOpCodeLinkUp)" value="16"/>
+      </opcodes>
+     </task>
+     <task name="RequestTimernotification" message="$(string.task_RequestTimernotification)" value="7">
+>
+      <opcodes>
+       <opcode name="OpCodeRequestTimerCall" message="$(string.opcode_RequestTimernotificationOpCodeRequestTimerCall)" value="17"/>
+      </opcodes>
+     </task>
+     <task name="Portpause" message="$(string.task_Portpause)" value="8">
+>
+      <opcodes>
+       <opcode name="OpCodePortPause" message="$(string.opcode_PortpauseOpCodePortPause)" value="18"/>
+      </opcodes>
+     </task>
+     <task name="Portresume" message="$(string.task_Portresume)" value="9">
+>
+      <opcodes>
+       <opcode name="OpCodePortResume" message="$(string.opcode_PortresumeOpCodePortResume)" value="19"/>
+      </opcodes>
+     </task>
+     <task name="Portpausedevice" message="$(string.task_Portpausedevice)" value="10">
+>
+      <opcodes>
+       <opcode name="OpCodePortPauseDevice" message="$(string.opcode_PortpausedeviceOpCodePortPauseDevice)" value="20"/>
+      </opcodes>
+     </task>
+     <task name="Portresumedevice" message="$(string.task_Portresumedevice)" value="11">
+>
+      <opcodes>
+       <opcode name="OpCodePortResumeDevice" message="$(string.opcode_PortresumedeviceOpCodePortResumeDevice)" value="21"/>
+      </opcodes>
+     </task>
+     <task name="Buschangedetectnotification" message="$(string.task_Buschangedetectnotification)" value="12">
+>
+      <opcodes>
+       <opcode name="OpCodeBusChangeDetected" message="$(string.opcode_BuschangedetectnotificationOpCodeBusChangeDetected)" value="22"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="1" symbol="LogicalUnitresetOpCodeLUReset_V1" version="1" task="LogicalUnitreset" opcode="OpCodeLUReset" level="win:Error" keywords="Reset" template="LogicalUnitresetOpCodeLUResetArgs_V1"/>
+     <event value="2" symbol="TargetresetOpCodeTargetReset_V1" version="1" task="Targetreset" opcode="OpCodeTargetReset" level="win:Error" keywords="Reset" template="TargetresetOpCodeTargetResetArgs_V1"/>
+     <event value="3" symbol="BusresetOpCodeBusReset_V1" version="1" task="Busreset" opcode="OpCodeBusReset" level="win:Error" keywords="Reset" template="BusresetOpCodeBusResetArgs_V1"/>
+     <event value="4" symbol="ResetdetectednotificationOpCodeResetDetected_V1" version="1" task="Resetdetectednotification" opcode="OpCodeResetDetected" level="win:Informational" keywords="PortNotification" template="ResetdetectednotificationOpCodeResetDetectedArgs_V1"/>
+     <event value="5" symbol="LinkdownnotificationOpCodeLinkDown_V1" version="1" task="Linkdownnotification" opcode="OpCodeLinkDown" level="win:Informational" keywords="PortNotification" template="LinkdownnotificationOpCodeLinkDownArgs_V1"/>
+     <event value="6" symbol="LinkUpnotificationOpCodeLinkUp_V1" version="1" task="LinkUpnotification" opcode="OpCodeLinkUp" level="win:Informational" keywords="PortNotification" template="LinkUpnotificationOpCodeLinkUpArgs_V1"/>
+     <event value="7" symbol="RequestTimernotificationOpCodeRequestTimerCall_V1" version="1" task="RequestTimernotification" opcode="OpCodeRequestTimerCall" level="win:Informational" keywords="PortNotification" template="RequestTimernotificationOpCodeRequestTimerCallArgs_V1"/>
+     <event value="8" symbol="PortpauseOpCodePortPause_V1" version="1" task="Portpause" opcode="OpCodePortPause" level="win:Informational" keywords="PauseResume" template="ResetdetectednotificationOpCodeResetDetectedArgs_V1"/>
+     <event value="9" symbol="PortresumeOpCodePortResume_V1" version="1" task="Portresume" opcode="OpCodePortResume" level="win:Informational" keywords="PauseResume" template="LinkUpnotificationOpCodeLinkUpArgs_V1"/>
+     <event value="10" symbol="PortpausedeviceOpCodePortPauseDevice_V1" version="1" task="Portpausedevice" opcode="OpCodePortPauseDevice" level="win:Informational" keywords="PauseResume" template="PortpausedeviceOpCodePortPauseDeviceArgs_V1"/>
+     <event value="11" symbol="PortresumedeviceOpCodePortResumeDevice_V1" version="1" task="Portresumedevice" opcode="OpCodePortResumeDevice" level="win:Informational" keywords="PauseResume" template="PortresumedeviceOpCodePortResumeDeviceArgs_V1"/>
+     <event value="12" symbol="BuschangedetectnotificationOpCodeBusChangeDetected_V1" version="1" task="Buschangedetectnotification" opcode="OpCodeBusChangeDetected" level="win:Informational" keywords="PortNotification" template="LinkUpnotificationOpCodeLinkUpArgs_V1"/>
+    </events>
+    <templates>
+     <template tid="LogicalUnitresetOpCodeLUResetArgs_V1">
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="PathID" inType="win:UInt8"/>
+      <data name="TargetID" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+     </template>
+     <template tid="TargetresetOpCodeTargetResetArgs_V1">
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="PathID" inType="win:UInt8"/>
+      <data name="TargetID" inType="win:UInt8"/>
+     </template>
+     <template tid="BusresetOpCodeBusResetArgs_V1">
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="PathID" inType="win:UInt8"/>
+     </template>
+     <template tid="ResetdetectednotificationOpCodeResetDetectedArgs_V1">
+      <data name="MiniportExtension" inType="win:Pointer"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="PauseTime" inType="win:UInt32"/>
+     </template>
+     <template tid="LinkdownnotificationOpCodeLinkDownArgs_V1">
+      <data name="MiniportExtension" inType="win:Pointer"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="LinkDownTime" inType="win:UInt32"/>
+     </template>
+     <template tid="LinkUpnotificationOpCodeLinkUpArgs_V1">
+      <data name="MiniportExtension" inType="win:Pointer"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+     </template>
+     <template tid="RequestTimernotificationOpCodeRequestTimerCallArgs_V1">
+      <data name="MiniportExtension" inType="win:Pointer"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="Timeout" inType="win:UInt32"/>
+     </template>
+     <template tid="PortpausedeviceOpCodePortPauseDeviceArgs_V1">
+      <data name="MiniportExtension" inType="win:Pointer"/>
+      <data name="PauseTime" inType="win:UInt32"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="PathID" inType="win:UInt8"/>
+      <data name="TargetID" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+     </template>
+     <template tid="PortresumedeviceOpCodePortResumeDeviceArgs_V1">
+      <data name="MiniportExtension" inType="win:Pointer"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="PathID" inType="win:UInt8"/>
+      <data name="TargetID" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Reset" value="Reset"/>
+    <string id="keyword_PortNotification" value="PortNotification"/>
+    <string id="keyword_PauseResume" value="PauseResume"/>
+    <string id="task_LogicalUnitreset" value="LogicalUnitreset"/>
+    <string id="opcode_LogicalUnitresetOpCodeLUReset" value="OpCodeLUReset"/>
+    <string id="task_Targetreset" value="Targetreset"/>
+    <string id="opcode_TargetresetOpCodeTargetReset" value="OpCodeTargetReset"/>
+    <string id="task_Busreset" value="Busreset"/>
+    <string id="opcode_BusresetOpCodeBusReset" value="OpCodeBusReset"/>
+    <string id="task_Resetdetectednotification" value="Resetdetectednotification"/>
+    <string id="opcode_ResetdetectednotificationOpCodeResetDetected" value="OpCodeResetDetected"/>
+    <string id="task_Linkdownnotification" value="Linkdownnotification"/>
+    <string id="opcode_LinkdownnotificationOpCodeLinkDown" value="OpCodeLinkDown"/>
+    <string id="task_LinkUpnotification" value="LinkUpnotification"/>
+    <string id="opcode_LinkUpnotificationOpCodeLinkUp" value="OpCodeLinkUp"/>
+    <string id="task_RequestTimernotification" value="RequestTimernotification"/>
+    <string id="opcode_RequestTimernotificationOpCodeRequestTimerCall" value="OpCodeRequestTimerCall"/>
+    <string id="task_Portpause" value="Portpause"/>
+    <string id="opcode_PortpauseOpCodePortPause" value="OpCodePortPause"/>
+    <string id="task_Portresume" value="Portresume"/>
+    <string id="opcode_PortresumeOpCodePortResume" value="OpCodePortResume"/>
+    <string id="task_Portpausedevice" value="Portpausedevice"/>
+    <string id="opcode_PortpausedeviceOpCodePortPauseDevice" value="OpCodePortPauseDevice"/>
+    <string id="task_Portresumedevice" value="Portresumedevice"/>
+    <string id="opcode_PortresumedeviceOpCodePortResumeDevice" value="OpCodePortResumeDevice"/>
+    <string id="task_Buschangedetectnotification" value="Buschangedetectnotification"/>
+    <string id="opcode_BuschangedetectnotificationOpCodeBusChangeDetected" value="OpCodeBusChangeDetected"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,77 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-WMPNSSUI" guid="{7c314e58-8246-47d1-8f7a-4049dc543e0b}" resourceFileName="Microsoft-Windows-WMPNSSUI" messageFileName="Microsoft-Windows-WMPNSSUI" symbol="MicrosoftWindowsWMPNSSUI" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="Populate_ContextMenu" message="$(string.task_Populate_ContextMenu)" value="101"/>
+     <task name="PlayTo_VerifyShouldDisplay" message="$(string.task_PlayTo_VerifyShouldDisplay)" value="102"/>
+     <task name="LaunchDMC" message="$(string.task_LaunchDMC)" value="103"/>
+     <task name="AuthorizeDevice" message="$(string.task_AuthorizeDevice)" value="104"/>
+     <task name="PlayTo_LaunchSharingCPL" message="$(string.task_PlayTo_LaunchSharingCPL)" value="105"/>
+     <task name="ToggleDeviceAuthorization" message="$(string.task_ToggleDeviceAuthorization)" value="201"/>
+     <task name="DeviceAuthorization_VerifyShouldDisplay" message="$(string.task_DeviceAuthorization_VerifyShouldDisplay)" value="202"/>
+     <task name="DeviceAuthorization_LaunchSharingCPL" message="$(string.task_DeviceAuthorization_LaunchSharingCPL)" value="203"/>
+     <task name="LaunchMediaSharing_LaunchSharingCPL" message="$(string.task_LaunchMediaSharing_LaunchSharingCPL)" value="301"/>
+    </tasks>
+    <events>
+     <event value="1001" symbol="Populate_ContextMenuStart" version="0" task="Populate_ContextMenu" opcode="win:Start" level="win:Informational" template="Populate_ContextMenuStartArgs"/>
+     <event value="1002" symbol="Populate_ContextMenuStop" version="0" task="Populate_ContextMenu" opcode="win:Stop" level="win:Informational" template="Populate_ContextMenuStartArgs"/>
+     <event value="1003" symbol="PlayTo_VerifyShouldDisplayStart" version="0" task="PlayTo_VerifyShouldDisplay" opcode="win:Start" level="win:Informational" template="PlayTo_VerifyShouldDisplayStartArgs"/>
+     <event value="1004" symbol="PlayTo_VerifyShouldDisplayStop" version="0" task="PlayTo_VerifyShouldDisplay" opcode="win:Stop" level="win:Informational" template="PlayTo_VerifyShouldDisplayStartArgs"/>
+     <event value="1005" symbol="LaunchDMCStart" version="0" task="LaunchDMC" opcode="win:Start" level="win:Informational" template="LaunchDMCStartArgs"/>
+     <event value="1006" symbol="LaunchDMCStop" version="0" task="LaunchDMC" opcode="win:Stop" level="win:Informational" template="LaunchDMCStartArgs"/>
+     <event value="1007" symbol="AuthorizeDeviceStart" version="0" task="AuthorizeDevice" opcode="win:Start" level="win:Informational" template="PlayTo_VerifyShouldDisplayStartArgs"/>
+     <event value="1008" symbol="AuthorizeDeviceStop" version="0" task="AuthorizeDevice" opcode="win:Stop" level="win:Informational" template="PlayTo_VerifyShouldDisplayStartArgs"/>
+     <event value="1009" symbol="PlayTo_LaunchSharingCPLStart" version="0" task="PlayTo_LaunchSharingCPL" opcode="win:Start" level="win:Informational" template="PlayTo_VerifyShouldDisplayStartArgs"/>
+     <event value="1010" symbol="PlayTo_LaunchSharingCPLStop" version="0" task="PlayTo_LaunchSharingCPL" opcode="win:Stop" level="win:Informational" template="PlayTo_VerifyShouldDisplayStartArgs"/>
+     <event value="2001" symbol="ToggleDeviceAuthorizationStart" version="0" task="ToggleDeviceAuthorization" opcode="win:Start" level="win:Informational" template="ToggleDeviceAuthorizationStartArgs"/>
+     <event value="2002" symbol="ToggleDeviceAuthorizationStop" version="0" task="ToggleDeviceAuthorization" opcode="win:Stop" level="win:Informational" template="ToggleDeviceAuthorizationStartArgs"/>
+     <event value="2003" symbol="DeviceAuthorization_VerifyShouldDisplayStart" version="0" task="DeviceAuthorization_VerifyShouldDisplay" opcode="win:Start" level="win:Informational" template="DeviceAuthorization_VerifyShouldDisplayStartArgs"/>
+     <event value="2004" symbol="DeviceAuthorization_VerifyShouldDisplayStop" version="0" task="DeviceAuthorization_VerifyShouldDisplay" opcode="win:Stop" level="win:Informational" template="DeviceAuthorization_VerifyShouldDisplayStartArgs"/>
+     <event value="2005" symbol="DeviceAuthorization_LaunchSharingCPLStart" version="0" task="DeviceAuthorization_LaunchSharingCPL" opcode="win:Start" level="win:Informational" template="PlayTo_VerifyShouldDisplayStartArgs"/>
+     <event value="2006" symbol="DeviceAuthorization_LaunchSharingCPLStop" version="0" task="DeviceAuthorization_LaunchSharingCPL" opcode="win:Stop" level="win:Informational" template="PlayTo_VerifyShouldDisplayStartArgs"/>
+     <event value="3001" symbol="LaunchMediaSharing_LaunchSharingCPLStart" version="0" task="LaunchMediaSharing_LaunchSharingCPL" opcode="win:Start" level="win:Informational" template="PlayTo_VerifyShouldDisplayStartArgs"/>
+     <event value="3002" symbol="LaunchMediaSharing_LaunchSharingCPLStop" version="0" task="LaunchMediaSharing_LaunchSharingCPL" opcode="win:Stop" level="win:Informational" template="PlayTo_VerifyShouldDisplayStartArgs"/>
+    </events>
+    <templates>
+     <template tid="Populate_ContextMenuStartArgs">
+      <data name="MenuItemCount" inType="win:UInt32"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="PlayTo_VerifyShouldDisplayStartArgs">
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="LaunchDMCStartArgs">
+      <data name="ItemCount" inType="win:UInt32"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="ToggleDeviceAuthorizationStartArgs">
+      <data name="EnableDevice" inType="win:Boolean"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="DeviceAuthorization_VerifyShouldDisplayStartArgs">
+      <data name="ShouldDisplayMenu" inType="win:Boolean"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_Populate_ContextMenu" value="Populate_ContextMenu"/>
+    <string id="task_PlayTo_VerifyShouldDisplay" value="PlayTo_VerifyShouldDisplay"/>
+    <string id="task_LaunchDMC" value="LaunchDMC"/>
+    <string id="task_AuthorizeDevice" value="AuthorizeDevice"/>
+    <string id="task_PlayTo_LaunchSharingCPL" value="PlayTo_LaunchSharingCPL"/>
+    <string id="task_ToggleDeviceAuthorization" value="ToggleDeviceAuthorization"/>
+    <string id="task_DeviceAuthorization_VerifyShouldDisplay" value="DeviceAuthorization_VerifyShouldDisplay"/>
+    <string id="task_DeviceAuthorization_LaunchSharingCPL" value="DeviceAuthorization_LaunchSharingCPL"/>
+    <string id="task_LaunchMediaSharing_LaunchSharingCPL" value="LaunchMediaSharing_LaunchSharingCPL"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

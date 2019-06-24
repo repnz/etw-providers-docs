@@ -1,0 +1,82 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Superfetch" guid="{99806515-9f51-4c2f-b918-1eae407aa8cb}" resourceFileName="Microsoft-Windows-Superfetch" messageFileName="Microsoft-Windows-Superfetch" symbol="MicrosoftWindowsSuperfetch" source="Xml" >
+    <keywords>
+     <keyword name="Prefetch" message="$(string.keyword_Prefetch)" mask="0x1"/>
+     <keyword name="Store" message="$(string.keyword_Store)" mask="0x2"/>
+     <keyword name="StoreLog" message="$(string.keyword_StoreLog)" mask="0x4"/>
+    </keywords>
+    <tasks>
+     <task name="VirtualRebalance" message="$(string.task_VirtualRebalance)" value="1"/>
+     <task name="EmptyVirtualStore" message="$(string.task_EmptyVirtualStore)" value="2"/>
+     <task name="CreateVirtualStore" message="$(string.task_CreateVirtualStore)" value="3"/>
+     <task name="DeleteVirtualStore" message="$(string.task_DeleteVirtualStore)" value="4"/>
+     <task name="MemoryInversionReaction" message="$(string.task_MemoryInversionReaction)" value="5"/>
+     <task name="InMemoryCompression" message="$(string.task_InMemoryCompression)" value="6"/>
+     <task name="InMemoryDecompression" message="$(string.task_InMemoryDecompression)" value="7"/>
+     <task name="StoreLogAdd" message="$(string.task_StoreLogAdd)" value="8"/>
+     <task name="StoreLogRemove" message="$(string.task_StoreLogRemove)" value="9"/>
+     <task name="StoreLogFull" message="$(string.task_StoreLogFull)" value="10"/>
+     <task name="StoreLogEmpty" message="$(string.task_StoreLogEmpty)" value="11"/>
+     <task name="StoreLogDelete" message="$(string.task_StoreLogDelete)" value="12"/>
+    </tasks>
+    <events>
+     <event value="1000" symbol="VirtualRebalanceStart_V1" version="1" task="VirtualRebalance" opcode="win:Start" level="win:Informational" keywords="Store" template="VirtualRebalanceStartArgs_V1"/>
+     <event value="1001" symbol="VirtualRebalanceStop_V1" version="1" task="VirtualRebalance" opcode="win:Stop" level="win:Informational" keywords="Store" template="VirtualRebalanceStartArgs_V1"/>
+     <event value="1002" symbol="EmptyVirtualStore_V1" version="1" task="EmptyVirtualStore" level="win:Informational" keywords="Store" template="EmptyVirtualStoreArgs_V1"/>
+     <event value="1003" symbol="CreateVirtualStore_V1" version="1" task="CreateVirtualStore" level="win:Informational" keywords="Store" template="EmptyVirtualStoreArgs_V1"/>
+     <event value="1004" symbol="DeleteVirtualStore_V1" version="1" task="DeleteVirtualStore" level="win:Informational" keywords="Store" template="EmptyVirtualStoreArgs_V1"/>
+     <event value="1005" symbol="MemoryInversionReaction_V1" version="1" task="MemoryInversionReaction" level="win:Informational" keywords="Store" template="EmptyVirtualStoreArgs_V1"/>
+     <event value="1006" symbol="InMemoryCompression_V1" version="1" task="InMemoryCompression" level="win:Informational" keywords="Store" template="InMemoryCompressionArgs_V1"/>
+     <event value="1007" symbol="InMemoryDecompression_V1" version="1" task="InMemoryDecompression" level="win:Informational" keywords="Store" template="InMemoryCompressionArgs_V1"/>
+     <event value="1008" symbol="StoreLogAdd_V1" version="1" task="StoreLogAdd" level="win:Informational" keywords="StoreLog" template="StoreLogAddArgs_V1"/>
+     <event value="1009" symbol="StoreLogRemove_V1" version="1" task="StoreLogRemove" level="win:Informational" keywords="StoreLog" template="StoreLogAddArgs_V1"/>
+     <event value="1010" symbol="StoreLogFull_V1" version="1" task="StoreLogFull" level="win:Informational" keywords="StoreLog"/>
+     <event value="1011" symbol="StoreLogEmpty_V1" version="1" task="StoreLogEmpty" level="win:Informational" keywords="StoreLog" template="VirtualRebalanceStartArgs_V1"/>
+     <event value="1012" symbol="StoreLogDelete_V1" version="1" task="StoreLogDelete" level="win:Informational" keywords="StoreLog" template="VirtualRebalanceStartArgs_V1"/>
+    </events>
+    <templates>
+     <template tid="VirtualRebalanceStartArgs_V1">
+      <data name="StoreBitmap" inType="win:UInt32"/>
+     </template>
+     <template tid="EmptyVirtualStoreArgs_V1">
+      <data name="StoreId" inType="win:UInt32"/>
+     </template>
+     <template tid="InMemoryCompressionArgs_V1">
+      <data name="StoreId" inType="win:UInt32"/>
+      <data name="PageCount" inType="win:UInt32"/>
+      <data name="ScoreLevel" inType="win:UInt32"/>
+     </template>
+     <template tid="StoreLogAddArgs_V1">
+      <data name="ContainerKey" inType="win:Pointer"/>
+      <data name="VirtualAddress" inType="win:Pointer"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="InterpretedPid" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Prefetch" value="Prefetch"/>
+    <string id="keyword_Store" value="Store"/>
+    <string id="keyword_StoreLog" value="StoreLog"/>
+    <string id="task_VirtualRebalance" value="VirtualRebalance"/>
+    <string id="task_EmptyVirtualStore" value="EmptyVirtualStore"/>
+    <string id="task_CreateVirtualStore" value="CreateVirtualStore"/>
+    <string id="task_DeleteVirtualStore" value="DeleteVirtualStore"/>
+    <string id="task_MemoryInversionReaction" value="MemoryInversionReaction"/>
+    <string id="task_InMemoryCompression" value="InMemoryCompression"/>
+    <string id="task_InMemoryDecompression" value="InMemoryDecompression"/>
+    <string id="task_StoreLogAdd" value="StoreLogAdd"/>
+    <string id="task_StoreLogRemove" value="StoreLogRemove"/>
+    <string id="task_StoreLogFull" value="StoreLogFull"/>
+    <string id="task_StoreLogEmpty" value="StoreLogEmpty"/>
+    <string id="task_StoreLogDelete" value="StoreLogDelete"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

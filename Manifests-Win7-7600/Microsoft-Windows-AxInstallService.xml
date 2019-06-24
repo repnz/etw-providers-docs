@@ -1,0 +1,51 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-AxInstallService" guid="{dab3b18c-3c0f-43e8-80b1-e44bc0dad901}" resourceFileName="Microsoft-Windows-AxInstallService" messageFileName="Microsoft-Windows-AxInstallService" symbol="MicrosoftWindowsAxInstallService" source="Xml" >
+    <keywords>
+     <keyword name="ZonePolicy" message="$(string.keyword_ZonePolicy)" mask="0x1"/>
+     <keyword name="Download" message="$(string.keyword_Download)" mask="0x2"/>
+     <keyword name="UrlCache" message="$(string.keyword_UrlCache)" mask="0x4"/>
+     <keyword name="General" message="$(string.keyword_General)" mask="0x8"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="task_0" version="0" task="task_0" level="win:Informational" keywords="ZonePolicy" template="task_0Args"/>
+     <event value="2" symbol="task_02" version="0" task="task_0" level="win:Error" keywords="ZonePolicy" template="task_0Args"/>
+     <event value="3" symbol="task_03" version="0" task="task_0" level="win:Informational" keywords="Download" template="task_0Args"/>
+     <event value="4" symbol="task_04" version="0" task="task_0" level="win:Error" keywords="Download" template="task_0Args"/>
+     <event value="5" symbol="task_05" version="0" task="task_0" level="win:Informational" keywords="UrlCache" template="task_0Args"/>
+     <event value="6" symbol="task_06" version="0" task="task_0" level="win:Error" keywords="UrlCache" template="task_0Args"/>
+     <event value="7" symbol="task_07" version="0" task="task_0" level="win:Informational" keywords="General" template="task_0Args"/>
+     <event value="8" symbol="task_08" version="0" task="task_0" level="win:Error" keywords="General" template="task_0Args"/>
+     <event value="4097" symbol="task_04097" version="0" task="task_0" level="win:Error" template="task_04097Args"/>
+     <event value="4098" symbol="task_04098" version="0" task="task_0" level="win:Informational" template="task_04097Args"/>
+     <event value="4099" symbol="task_04099" version="0" task="task_0" level="win:Error" template="task_04097Args"/>
+     <event value="4100" symbol="task_04100" version="0" task="task_0" level="win:Error" template="task_04097Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="Message" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_04097Args">
+      <data name="URL" inType="win:UnicodeString"/>
+      <data name="HostName" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_ZonePolicy" value="ZonePolicy"/>
+    <string id="keyword_Download" value="Download"/>
+    <string id="keyword_UrlCache" value="UrlCache"/>
+    <string id="keyword_General" value="General"/>
+    <string id="task_task_0" value="task_0"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

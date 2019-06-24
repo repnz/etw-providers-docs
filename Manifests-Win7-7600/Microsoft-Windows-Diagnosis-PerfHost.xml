@@ -1,0 +1,68 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Diagnosis-PerfHost" guid="{f27b948b-0a7c-4eb6-92ec-8a2c1b353ecd}" resourceFileName="Microsoft-Windows-Diagnosis-PerfHost" messageFileName="Microsoft-Windows-Diagnosis-PerfHost" symbol="MicrosoftWindowsDiagnosisPerfHost" source="Xml" >
+    <keywords>
+     <keyword name="errors" message="$(string.keyword_errors)" mask="0x800"/>
+     <keyword name="callouts" message="$(string.keyword_callouts)" mask="0x1000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="task_0" version="0" task="task_0" level="win:Always" keywords="errors" template="task_0Args"/>
+     <event value="2" symbol="task_02" version="0" task="task_0" level="win:Always" keywords="errors" template="task_02Args"/>
+     <event value="3" symbol="task_03" version="0" task="task_0" level="win:Always" keywords="errors" template="task_0Args"/>
+     <event value="4" symbol="task_04" version="0" task="task_0" level="win:Always" keywords="errors" template="task_0Args"/>
+     <event value="10" symbol="task_010" version="0" task="task_0" level="win:Always" keywords="callouts" template="task_010Args"/>
+     <event value="11" symbol="task_011" version="0" task="task_0" level="win:Always" keywords="callouts" template="task_011Args"/>
+     <event value="12" symbol="task_012" version="0" task="task_0" level="win:Always" keywords="callouts" template="task_012Args"/>
+     <event value="13" symbol="task_013" version="0" task="task_0" level="win:Always" keywords="callouts" template="task_013Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="Error" inType="win:UInt32"/>
+      <data name="Function" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_02Args">
+      <data name="Error" inType="win:UInt32"/>
+      <data name="ProviderName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_010Args">
+      <data name="ReturnValue" inType="win:UInt32"/>
+      <data name="Provider" inType="win:UnicodeString"/>
+      <data name="ProviderDll" inType="win:UnicodeString"/>
+      <data name="Function" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_011Args">
+      <data name="FirstArgument" inType="win:UnicodeString"/>
+      <data name="Provider" inType="win:UnicodeString"/>
+      <data name="ProviderDll" inType="win:UnicodeString"/>
+      <data name="Function" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_012Args">
+      <data name="Query" inType="win:UnicodeString"/>
+      <data name="Size" inType="win:UInt32"/>
+      <data name="Provider" inType="win:UnicodeString"/>
+      <data name="ProviderDll" inType="win:UnicodeString"/>
+      <data name="Function" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_013Args">
+      <data name="Provider" inType="win:UnicodeString"/>
+      <data name="ProviderDll" inType="win:UnicodeString"/>
+      <data name="Function" inType="win:AnsiString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_errors" value="errors"/>
+    <string id="keyword_callouts" value="callouts"/>
+    <string id="task_task_0" value="task_0"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,242 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Kernel-PnP" guid="{9c205a39-1250-487d-abd7-e831c6290539}" resourceFileName="Microsoft-Windows-Kernel-PnP" messageFileName="Microsoft-Windows-Kernel-PnP" symbol="MicrosoftWindowsKernelPnP" source="Xml" >
+    <keywords>
+     <keyword name="Performance" message="$(string.keyword_Performance)" mask="0x20"/>
+     <keyword name="BootInit" message="$(string.keyword_BootInit)" mask="0x1000"/>
+     <keyword name="DriverLoad" message="$(string.keyword_DriverLoad)" mask="0x2000"/>
+     <keyword name="DriverUnload" message="$(string.keyword_DriverUnload)" mask="0x4000"/>
+     <keyword name="DeviceStart" message="$(string.keyword_DeviceStart)" mask="0x8000"/>
+     <keyword name="DeviceEnum" message="$(string.keyword_DeviceEnum)" mask="0x10000"/>
+     <keyword name="DriverInit" message="$(string.keyword_DriverInit)" mask="0x20000"/>
+     <keyword name="DeviceEject" message="$(string.keyword_DeviceEject)" mask="0x40000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="BootStart" message="$(string.task_BootStart)" value="200"/>
+     <task name="SystemStart" message="$(string.task_SystemStart)" value="202"/>
+     <task name="OsLoader" message="$(string.task_OsLoader)" value="204"/>
+     <task name="BootInit" message="$(string.task_BootInit)" value="210"/>
+     <task name="DriverLoad" message="$(string.task_DriverLoad)" value="212"/>
+     <task name="DriverUnload" message="$(string.task_DriverUnload)" value="214"/>
+     <task name="DeviceStart" message="$(string.task_DeviceStart)" value="216"/>
+     <task name="DeviceEnum" message="$(string.task_DeviceEnum)" value="220"/>
+     <task name="DeviceEject" message="$(string.task_DeviceEject)" value="223"/>
+     <task name="DriverInit" message="$(string.task_DriverInit)" value="226"/>
+     <task name="SystemStartPnPEnum" message="$(string.task_SystemStartPnPEnum)" value="260"/>
+     <task name="SystemStartLegacyEnum" message="$(string.task_SystemStartLegacyEnum)" value="262"/>
+     <task name="BootDriverReinit" message="$(string.task_BootDriverReinit)" value="264"/>
+     <task name="SystemStartDriverReinit" message="$(string.task_SystemStartDriverReinit)" value="266"/>
+    </tasks>
+    <maps>
+     <valueMap name="Pnp:DpReplace.ExtendedStatusMap">
+      <map value="0x0" message="$(string.map_Pnp:DpReplace.ExtendedStatusMapUnknown failure)"/>
+      <map value="0x1" message="$(string.map_Pnp:DpReplace.ExtendedStatusMapGeneral internal failure)"/>
+      <map value="0x2" message="$(string.map_Pnp:DpReplace.ExtendedStatusMapOperation is not supported by SKU)"/>
+      <map value="0x3" message="$(string.map_Pnp:DpReplace.ExtendedStatusMapPartition unit does not exist)"/>
+      <map value="0x4" message="$(string.map_Pnp:DpReplace.ExtendedStatusMapPartition units are not compatible)"/>
+      <map value="0x5" message="$(string.map_Pnp:DpReplace.ExtendedStatusMapA partition unit is not ready)"/>
+      <map value="0x6" message="$(string.map_Pnp:DpReplace.ExtendedStatusMapPartition unit resources are not supported)"/>
+      <map value="0x7" message="$(string.map_Pnp:DpReplace.ExtendedStatusMapSystem quiesce failure)"/>
+      <map value="0x8" message="$(string.map_Pnp:DpReplace.ExtendedStatusMapChipset driver error)"/>
+      <map value="0x9" message="$(string.map_Pnp:DpReplace.ExtendedStatusMapChipset driver capabilities are not supported)"/>
+      <map value="0xa" message="$(string.map_Pnp:DpReplace.ExtendedStatusMapMemory allocation failure)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="200" symbol="BootStart" version="0" task="BootStart" opcode="win:Start" level="win:Informational" keywords="Performance"/>
+     <event value="201" symbol="BootStartStop" version="0" task="BootStart" opcode="win:Stop" level="win:Informational" keywords="Performance"/>
+     <event value="202" symbol="SystemStart" version="0" task="SystemStart" opcode="win:Start" level="win:Informational" keywords="Performance"/>
+     <event value="203" symbol="SystemStartStop" version="0" task="SystemStart" opcode="win:Stop" level="win:Informational" keywords="Performance"/>
+     <event value="204" symbol="OsLoader" version="0" task="OsLoader" level="win:Informational" keywords="Performance" template="OsLoaderArgs"/>
+     <event value="210" symbol="BootInitStart" version="0" task="BootInit" opcode="win:Start" level="win:Informational" keywords="Performance BootInit" template="BootInitStartArgs"/>
+     <event value="211" symbol="BootInitStop" version="0" task="BootInit" opcode="win:Stop" level="win:Informational" keywords="Performance BootInit" template="BootInitStopArgs"/>
+     <event value="212" symbol="DriverLoadStart" version="0" task="DriverLoad" opcode="win:Start" level="win:Informational" keywords="Performance DriverLoad" template="BootInitStartArgs"/>
+     <event value="213" symbol="DriverLoadStop" version="0" task="DriverLoad" opcode="win:Stop" level="win:Informational" keywords="Performance DriverLoad" template="DriverLoadStopArgs"/>
+     <event value="214" symbol="DriverUnloadStart" version="0" task="DriverUnload" opcode="win:Start" level="win:Informational" keywords="Performance DriverUnload" template="BootInitStartArgs"/>
+     <event value="215" symbol="DriverUnloadStop" version="0" task="DriverUnload" opcode="win:Stop" level="win:Informational" keywords="Performance DriverUnload" template="DriverLoadStopArgs"/>
+     <event value="216" symbol="DeviceStart" version="0" task="DeviceStart" opcode="win:Start" level="win:Informational" keywords="Performance DeviceStart" template="BootInitStartArgs"/>
+     <event value="217" symbol="DeviceStartSuspend" version="0" task="DeviceStart" opcode="win:Suspend" level="win:Informational" keywords="Performance" template="BootInitStartArgs"/>
+     <event value="218" symbol="DeviceStartStop" version="0" task="DeviceStart" opcode="win:Stop" level="win:Informational" keywords="Performance DeviceStart" template="DeviceStartStopArgs"/>
+     <event value="219" symbol="DriverLoad" version="0" task="DriverLoad" level="win:Warning" template="DeviceStartStopArgs"/>
+     <event value="220" symbol="DeviceEnumStart" version="0" task="DeviceEnum" opcode="win:Start" level="win:Informational" keywords="Performance DeviceEnum" template="BootInitStartArgs"/>
+     <event value="221" symbol="DeviceEnumSuspend" version="0" task="DeviceEnum" opcode="win:Suspend" level="win:Informational" keywords="Performance" template="BootInitStartArgs"/>
+     <event value="222" symbol="DeviceEnumStop" version="0" task="DeviceEnum" opcode="win:Stop" level="win:Informational" keywords="Performance DeviceEnum" template="BootInitStartArgs"/>
+     <event value="223" symbol="DeviceEjectStart" version="0" task="DeviceEject" opcode="win:Start" level="win:Informational" keywords="DeviceEject" template="BootInitStartArgs"/>
+     <event value="224" symbol="DeviceEjectStop" version="0" task="DeviceEject" opcode="win:Stop" level="win:Informational" keywords="DeviceEject" template="DeviceStartStopArgs"/>
+     <event value="225" symbol="DeviceEject" version="0" task="DeviceEject" level="win:Warning" template="DeviceEjectArgs"/>
+     <event value="226" symbol="DriverInitStart" version="0" task="DriverInit" opcode="win:Start" level="win:Informational" keywords="Performance DriverInit" template="BootInitStartArgs"/>
+     <event value="227" symbol="DriverInitStop" version="0" task="DriverInit" opcode="win:Stop" level="win:Informational" keywords="Performance DriverInit" template="BootInitStopArgs"/>
+     <event value="228" symbol="task_0" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+     <event value="229" symbol="task_0229" version="0" task="task_0" level="win:Informational" template="task_0229Args"/>
+     <event value="230" symbol="task_0230" version="0" task="task_0" level="win:Informational" template="task_0230Args"/>
+     <event value="231" symbol="task_0Stop" version="0" task="task_0" opcode="win:Stop" level="win:Informational" template="task_0230Args"/>
+     <event value="232" symbol="task_0232" version="0" task="task_0" level="win:Informational" template="task_0230Args"/>
+     <event value="233" symbol="task_0233" version="0" task="task_0" level="win:Informational" template="task_0230Args"/>
+     <event value="234" symbol="task_0234" version="0" task="task_0" level="win:Informational" template="task_0230Args"/>
+     <event value="235" symbol="task_0235" version="0" task="task_0" level="win:Informational" template="task_0235Args"/>
+     <event value="236" symbol="task_0236" version="0" task="task_0" level="win:Informational" template="task_0236Args"/>
+     <event value="240" symbol="task_0240" version="0" task="task_0" level="win:Informational" template="task_0240Args"/>
+     <event value="241" symbol="task_0241" version="0" task="task_0" level="win:Error" template="task_0241Args"/>
+     <event value="241" symbol="task_0241_V1" version="1" task="task_0" level="win:Error" template="task_0241Args_V1"/>
+     <event value="242" symbol="task_0242" version="0" task="task_0" level="win:Informational" template="task_0242Args"/>
+     <event value="260" symbol="SystemStartPnPEnumStart" version="0" task="SystemStartPnPEnum" opcode="win:Start" level="win:Informational" keywords="Performance"/>
+     <event value="261" symbol="SystemStartPnPEnumStop" version="0" task="SystemStartPnPEnum" opcode="win:Stop" level="win:Informational" keywords="Performance"/>
+     <event value="262" symbol="SystemStartLegacyEnumStart" version="0" task="SystemStartLegacyEnum" opcode="win:Start" level="win:Informational" keywords="Performance"/>
+     <event value="263" symbol="SystemStartLegacyEnumStop" version="0" task="SystemStartLegacyEnum" opcode="win:Stop" level="win:Informational" keywords="Performance"/>
+     <event value="264" symbol="BootDriverReinitStart" version="0" task="BootDriverReinit" opcode="win:Start" level="win:Informational" keywords="Performance"/>
+     <event value="265" symbol="BootDriverReinitStop" version="0" task="BootDriverReinit" opcode="win:Stop" level="win:Informational" keywords="Performance"/>
+     <event value="266" symbol="SystemStartDriverReinitStart" version="0" task="SystemStartDriverReinit" opcode="win:Start" level="win:Informational" keywords="Performance"/>
+     <event value="267" symbol="SystemStartDriverReinitStop" version="0" task="SystemStartDriverReinit" opcode="win:Stop" level="win:Informational" keywords="Performance"/>
+     <event value="300" symbol="task_0300" version="0" task="task_0" level="win:Informational"/>
+     <event value="301" symbol="task_0301" version="0" task="task_0" level="win:Informational"/>
+    </events>
+    <templates>
+     <template tid="OsLoaderArgs">
+      <data name="OSLoaderStart" inType="win:UInt64"/>
+      <data name="OSLoaderEnd" inType="win:UInt64"/>
+     </template>
+     <template tid="BootInitStartArgs">
+      <data name="DriverNameLength" inType="win:UInt16"/>
+      <data name="DriverName" inType="win:UnicodeString" length="DriverNameLength"/>
+     </template>
+     <template tid="BootInitStopArgs">
+      <data name="DriverNameLength" inType="win:UInt16"/>
+      <data name="DriverName" inType="win:UnicodeString" length="DriverNameLength"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="DriverLoadStopArgs">
+      <data name="ServiceNameLength" inType="win:UInt16"/>
+      <data name="ServiceName" inType="win:UnicodeString" length="ServiceNameLength"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="DriverNameLength" inType="win:UInt16"/>
+      <data name="DriverName" inType="win:UnicodeString" length="DriverNameLength"/>
+      <data name="Version" inType="win:UInt32"/>
+     </template>
+     <template tid="DeviceStartStopArgs">
+      <data name="DriverNameLength" inType="win:UInt16"/>
+      <data name="DriverName" inType="win:UnicodeString" length="DriverNameLength"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="FailureNameLength" inType="win:UInt16"/>
+      <data name="FailureName" inType="win:UnicodeString" length="FailureNameLength"/>
+      <data name="Version" inType="win:UInt32"/>
+     </template>
+     <template tid="DeviceEjectArgs">
+      <data name="ProcessId" inType="win:UInt32"/>
+      <data name="ProcessNameLength" inType="win:UInt16"/>
+      <data name="ProcessName" inType="win:UnicodeString" length="ProcessNameLength"/>
+      <data name="DeviceInstanceLength" inType="win:UInt16"/>
+      <data name="DeviceInstance" inType="win:UnicodeString" length="DeviceInstanceLength"/>
+     </template>
+     <template tid="task_0Args">
+      <data name="SqmType" inType="win:UInt32"/>
+      <data name="SqmSessionGuid" inType="win:GUID"/>
+      <data name="SqmSid" inType="win:SID"/>
+      <data name="SqmWindowsSessionId" inType="win:UInt32"/>
+      <data name="SqmSessionFlags" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0229Args">
+      <data name="SqmType" inType="win:UInt32"/>
+      <data name="SqmSessionGuid" inType="win:GUID"/>
+     </template>
+     <template tid="task_0230Args">
+      <data name="SqmType" inType="win:UInt32"/>
+      <data name="SqmSessionGuid" inType="win:GUID"/>
+      <data name="SqmID" inType="win:UInt32"/>
+      <data name="SqmDWORDDatapointValue" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0235Args">
+      <data name="SqmType" inType="win:UInt32"/>
+      <data name="SqmSessionGuid" inType="win:GUID"/>
+      <data name="SqmID" inType="win:UInt32"/>
+      <data name="SqmStringDatapointValue" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0236Args">
+      <data name="SqmType" inType="win:UInt32"/>
+      <data name="SqmSessionGuid" inType="win:GUID"/>
+      <data name="SqmID" inType="win:UInt32"/>
+      <data name="SqmStreamRowLength" inType="win:UInt32"/>
+      <data name="SqmStreamRow" inType="win:Int16" count="SqmStreamRowLength"/>
+     </template>
+     <template tid="task_0240Args">
+      <data name="TargetPath" inType="win:UnicodeString"/>
+      <data name="SparePath" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0241Args">
+      <data name="TargetPath" inType="win:UnicodeString"/>
+      <data name="SparePath" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:HexInt32"/>
+      <data name="Location" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0242Args">
+      <data name="TargetPath" inType="win:UnicodeString"/>
+      <data name="TargetAffinity" inType="win:HexInt64"/>
+      <data name="TargetProcessorCount" inType="win:UInt32"/>
+      <data name="TargetMemoryCount" inType="win:UInt32"/>
+      <data name="TargetMemorySize" inType="win:HexInt64"/>
+      <data name="SparePath" inType="win:UnicodeString"/>
+      <data name="SpareProcessorCount" inType="win:UInt32"/>
+      <data name="SpareMemoryCount" inType="win:UInt32"/>
+      <data name="SpareMemorySize" inType="win:HexInt64"/>
+      <data name="TimeTotal" inType="win:UInt32"/>
+      <data name="TimeToQuiesce" inType="win:UInt32"/>
+      <data name="TimeQuiesced" inType="win:UInt32"/>
+      <data name="TimeToWake" inType="win:UInt32"/>
+      <data name="TargetProcessors" inType="win:FILETIME" count="TargetProcessorCount"/>
+      <data name="TargetMemoryRanges" inType="win:SYSTEMTIME" count="TargetMemoryCount"/>
+      <data name="SpareProcessors" inType="win:HexInt32" count="SpareProcessorCount"/>
+      <data name="SpareMemoryRanges" inType="win:HexInt64" count="SpareMemoryCount"/>
+     </template>
+     <template tid="task_0241Args_V1">
+      <data name="TargetPath" inType="win:UnicodeString"/>
+      <data name="SparePath" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:HexInt32"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="ExtendedStatus" inType="win:UInt32" map="Pnp:DpReplace.ExtendedStatusMap"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Performance" value="Performance"/>
+    <string id="keyword_BootInit" value="BootInit"/>
+    <string id="keyword_DriverLoad" value="DriverLoad"/>
+    <string id="keyword_DriverUnload" value="DriverUnload"/>
+    <string id="keyword_DeviceStart" value="DeviceStart"/>
+    <string id="keyword_DeviceEnum" value="DeviceEnum"/>
+    <string id="keyword_DriverInit" value="DriverInit"/>
+    <string id="keyword_DeviceEject" value="DeviceEject"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_BootStart" value="BootStart"/>
+    <string id="task_SystemStart" value="SystemStart"/>
+    <string id="task_OsLoader" value="OsLoader"/>
+    <string id="task_BootInit" value="BootInit"/>
+    <string id="task_DriverLoad" value="DriverLoad"/>
+    <string id="task_DriverUnload" value="DriverUnload"/>
+    <string id="task_DeviceStart" value="DeviceStart"/>
+    <string id="task_DeviceEnum" value="DeviceEnum"/>
+    <string id="task_DeviceEject" value="DeviceEject"/>
+    <string id="task_DriverInit" value="DriverInit"/>
+    <string id="task_SystemStartPnPEnum" value="SystemStartPnPEnum"/>
+    <string id="task_SystemStartLegacyEnum" value="SystemStartLegacyEnum"/>
+    <string id="task_BootDriverReinit" value="BootDriverReinit"/>
+    <string id="task_SystemStartDriverReinit" value="SystemStartDriverReinit"/>
+    <string id="map_Pnp:DpReplace.ExtendedStatusMapUnknown failure" value="Unknown failure"/>
+    <string id="map_Pnp:DpReplace.ExtendedStatusMapGeneral internal failure" value="General internal failure"/>
+    <string id="map_Pnp:DpReplace.ExtendedStatusMapOperation is not supported by SKU" value="Operation is not supported by SKU"/>
+    <string id="map_Pnp:DpReplace.ExtendedStatusMapPartition unit does not exist" value="Partition unit does not exist"/>
+    <string id="map_Pnp:DpReplace.ExtendedStatusMapPartition units are not compatible" value="Partition units are not compatible"/>
+    <string id="map_Pnp:DpReplace.ExtendedStatusMapA partition unit is not ready" value="A partition unit is not ready"/>
+    <string id="map_Pnp:DpReplace.ExtendedStatusMapPartition unit resources are not supported" value="Partition unit resources are not supported"/>
+    <string id="map_Pnp:DpReplace.ExtendedStatusMapSystem quiesce failure" value="System quiesce failure"/>
+    <string id="map_Pnp:DpReplace.ExtendedStatusMapChipset driver error" value="Chipset driver error"/>
+    <string id="map_Pnp:DpReplace.ExtendedStatusMapChipset driver capabilities are not supported" value="Chipset driver capabilities are not supported"/>
+    <string id="map_Pnp:DpReplace.ExtendedStatusMapMemory allocation failure" value="Memory allocation failure"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

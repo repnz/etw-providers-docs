@@ -1,0 +1,79 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Kernel-Acpi" guid="{c514638f-7723-485b-bcfc-96565d735d4a}" resourceFileName="Microsoft-Windows-Kernel-Acpi" messageFileName="Microsoft-Windows-Kernel-Acpi" symbol="MicrosoftWindowsKernelAcpi" source="Xml" >
+    <keywords>
+     <keyword name="acpi:Diagnostic" message="$(string.keyword_acpi:Diagnostic)" mask="0x1"/>
+     <keyword name="acpi:Thermal" message="$(string.keyword_acpi:Thermal)" mask="0x2"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="ResourceTranslation" message="$(string.task_ResourceTranslation)" value="100"/>
+     <task name="GpeEventHandling" message="$(string.task_GpeEventHandling)" value="101"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="ResourceTranslation" version="0" task="ResourceTranslation" level="win:Informational" keywords="acpi:Diagnostic" template="ResourceTranslationArgs"/>
+     <event value="2" symbol="GpeEventHandling" version="0" task="GpeEventHandling" level="win:Informational" keywords="acpi:Diagnostic" template="GpeEventHandlingArgs"/>
+     <event value="3" symbol="task_0" version="0" task="task_0" level="win:Informational" keywords="acpi:Thermal" template="task_0Args"/>
+     <event value="4" symbol="task_04" version="0" task="task_0" level="win:Informational" keywords="acpi:Thermal" template="task_0Args"/>
+     <event value="5" symbol="task_05" version="0" task="task_0" level="win:Informational" keywords="acpi:Thermal" template="task_05Args"/>
+    </events>
+    <templates>
+     <template tid="ResourceTranslationArgs">
+      <data name="ResourceFlag" inType="win:UInt8"/>
+      <data name="GeneralFlag" inType="win:UInt8"/>
+      <data name="TypeSpecificFlag" inType="win:UInt8"/>
+      <data name="Granularity" inType="win:UInt64"/>
+      <data name="AddressMin" inType="win:UInt64"/>
+      <data name="AddressMax" inType="win:UInt64"/>
+      <data name="AddressTranslation" inType="win:UInt64"/>
+      <data name="AddressLength" inType="win:UInt64"/>
+     </template>
+     <template tid="GpeEventHandlingArgs">
+      <data name="GpeRegister" inType="win:UInt32"/>
+      <data name="UnexpectedEventMap" inType="win:UInt8"/>
+     </template>
+     <template tid="task_0Args">
+      <data name="ThermalZoneDeviceInstanceLength" inType="win:UInt16"/>
+      <data name="ThermalZoneDeviceInstance" inType="win:UnicodeString" length="ThermalZoneDeviceInstanceLength"/>
+      <data name="_TMP" inType="win:UInt32"/>
+      <data name="_PSV" inType="win:UInt32"/>
+      <data name="_AC0" inType="win:UInt32"/>
+      <data name="_AC1" inType="win:UInt32"/>
+      <data name="_AC2" inType="win:UInt32"/>
+      <data name="_AC3" inType="win:UInt32"/>
+      <data name="_AC4" inType="win:UInt32"/>
+      <data name="_AC5" inType="win:UInt32"/>
+      <data name="_AC6" inType="win:UInt32"/>
+      <data name="_AC7" inType="win:UInt32"/>
+      <data name="_AC8" inType="win:UInt32"/>
+      <data name="_AC9" inType="win:UInt32"/>
+      <data name="_HOT" inType="win:UInt32"/>
+      <data name="_CRT" inType="win:UInt32"/>
+     </template>
+     <template tid="task_05Args">
+      <data name="ThermalZoneDeviceInstanceLength" inType="win:UInt16"/>
+      <data name="ThermalZoneDeviceInstance" inType="win:UnicodeString" length="ThermalZoneDeviceInstanceLength"/>
+      <data name="ActiveCoolingLevel" inType="win:UInt32"/>
+      <data name="ActiveCoolingDeviceIndex" inType="win:UInt32"/>
+      <data name="FanDeviceInstanceLength" inType="win:UInt16"/>
+      <data name="FanDeviceInstance" inType="win:UnicodeString" length="FanDeviceInstanceLength"/>
+      <data name="PowerStateLength" inType="win:UInt16"/>
+      <data name="PowerState" inType="win:UnicodeString" length="PowerStateLength"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_acpi:Diagnostic" value="acpi:Diagnostic"/>
+    <string id="keyword_acpi:Thermal" value="acpi:Thermal"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_ResourceTranslation" value="ResourceTranslation"/>
+    <string id="task_GpeEventHandling" value="GpeEventHandling"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

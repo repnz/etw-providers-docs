@@ -1,0 +1,45 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-RPCSS" guid="{d8975f88-7ddb-4ed0-91bf-3adf48c48e0c}" resourceFileName="Microsoft-Windows-RPCSS" messageFileName="Microsoft-Windows-RPCSS" symbol="MicrosoftWindowsRPCSS" source="Xml" >
+    <keywords>
+     <keyword name="EpmapDebug" message="$(string.keyword_EpmapDebug)" mask="0x100"/>
+     <keyword name="EpmapInterfaceRegister" message="$(string.keyword_EpmapInterfaceRegister)" mask="0x200"/>
+     <keyword name="EpmapInterfaceUnregister" message="$(string.keyword_EpmapInterfaceUnregister)" mask="0x400"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="task_0_V1" version="1" task="task_0" level="win:Error" keywords="EpmapDebug" template="task_0Args_V1"/>
+     <event value="2" symbol="task_02_V1" version="1" task="task_0" level="win:Informational" keywords="EpmapInterfaceRegister" template="task_02Args_V1"/>
+     <event value="3" symbol="task_03_V1" version="1" task="task_0" level="win:Informational" keywords="EpmapInterfaceUnregister" template="task_02Args_V1"/>
+    </events>
+    <templates>
+     <template tid="task_0Args_V1">
+      <data name="DetectionLocation" inType="win:UInt16"/>
+      <data name="Status" inType="win:HexInt32"/>
+      <data name="AdditionalData1" inType="win:HexInt32"/>
+      <data name="AdditionalData2" inType="win:HexInt32"/>
+     </template>
+     <template tid="task_02Args_V1">
+      <data name="InterfaceUUID" inType="win:GUID"/>
+      <data name="ObjectUUID" inType="win:GUID"/>
+      <data name="Protocol" inType="win:AnsiString"/>
+      <data name="EndPoint" inType="win:AnsiString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_EpmapDebug" value="EpmapDebug"/>
+    <string id="keyword_EpmapInterfaceRegister" value="EpmapInterfaceRegister"/>
+    <string id="keyword_EpmapInterfaceUnregister" value="EpmapInterfaceUnregister"/>
+    <string id="task_task_0" value="task_0"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

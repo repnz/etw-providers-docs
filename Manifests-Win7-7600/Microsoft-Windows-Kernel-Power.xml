@@ -1,0 +1,826 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Kernel-Power" guid="{331c3b3a-2005-44c2-ac5e-77220c37d6b4}" resourceFileName="Microsoft-Windows-Kernel-Power" messageFileName="Microsoft-Windows-Kernel-Power" symbol="MicrosoftWindowsKernelPower" source="Xml" >
+    <keywords>
+     <keyword name="po:Scenario" message="$(string.keyword_po:Scenario)" mask="0x1"/>
+     <keyword name="po:Simple" message="$(string.keyword_po:Simple)" mask="0x2"/>
+     <keyword name="po:Diagnostic" message="$(string.keyword_po:Diagnostic)" mask="0x4"/>
+     <keyword name="po:Performance" message="$(string.keyword_po:Performance)" mask="0x8"/>
+     <keyword name="po:Idle" message="$(string.keyword_po:Idle)" mask="0x10"/>
+     <keyword name="po:Thermal" message="$(string.keyword_po:Thermal)" mask="0x20"/>
+     <keyword name="po:PerfTrackContext" message="$(string.keyword_po:PerfTrackContext)" mask="0x40"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="PowerTransition" message="$(string.task_PowerTransition)" value="33"/>
+     <task name="QueryApps" message="$(string.task_QueryApps)" value="34">
+>
+      <opcodes>
+       <opcode name="PhaseStart" message="$(string.opcode_QueryAppsPhaseStart)" value="33"/>
+       <opcode name="PhaseStop" message="$(string.opcode_QueryAppsPhaseStop)" value="34"/>
+       <opcode name="Veto" message="$(string.opcode_QueryAppsVeto)" value="35"/>
+      </opcodes>
+     </task>
+     <task name="QueryServices" message="$(string.task_QueryServices)" value="35">
+>
+      <opcodes>
+       <opcode name="PhaseStart" message="$(string.opcode_QueryServicesPhaseStart)" value="33"/>
+       <opcode name="PhaseStop" message="$(string.opcode_QueryServicesPhaseStop)" value="34"/>
+       <opcode name="Veto" message="$(string.opcode_QueryServicesVeto)" value="35"/>
+      </opcodes>
+     </task>
+     <task name="QueryDrivers" message="$(string.task_QueryDrivers)" value="36">
+>
+      <opcodes>
+       <opcode name="Veto" message="$(string.opcode_QueryDriversVeto)" value="35"/>
+      </opcodes>
+     </task>
+     <task name="SuspendApps" message="$(string.task_SuspendApps)" value="37">
+>
+      <opcodes>
+       <opcode name="PhaseStart" message="$(string.opcode_SuspendAppsPhaseStart)" value="33"/>
+       <opcode name="PhaseStop" message="$(string.opcode_SuspendAppsPhaseStop)" value="34"/>
+      </opcodes>
+     </task>
+     <task name="SuspendServices" message="$(string.task_SuspendServices)" value="38">
+>
+      <opcodes>
+       <opcode name="PhaseStart" message="$(string.opcode_SuspendServicesPhaseStart)" value="33"/>
+       <opcode name="PhaseStop" message="$(string.opcode_SuspendServicesPhaseStop)" value="34"/>
+      </opcodes>
+     </task>
+     <task name="Irp" message="$(string.task_Irp)" value="39"/>
+     <task name="Driver" message="$(string.task_Driver)" value="40"/>
+     <task name="SuspendDevices" message="$(string.task_SuspendDevices)" value="41">
+>
+      <opcodes>
+       <opcode name="PhaseStart" message="$(string.opcode_SuspendDevicesPhaseStart)" value="33"/>
+       <opcode name="PhaseStop" message="$(string.opcode_SuspendDevicesPhaseStop)" value="34"/>
+      </opcodes>
+     </task>
+     <task name="WakeDevices" message="$(string.task_WakeDevices)" value="42">
+>
+      <opcodes>
+       <opcode name="PhaseStart" message="$(string.opcode_WakeDevicesPhaseStart)" value="33"/>
+       <opcode name="PhaseStop" message="$(string.opcode_WakeDevicesPhaseStop)" value="34"/>
+      </opcodes>
+     </task>
+     <task name="ResumeServices" message="$(string.task_ResumeServices)" value="43">
+>
+      <opcodes>
+       <opcode name="PhaseStart" message="$(string.opcode_ResumeServicesPhaseStart)" value="33"/>
+      </opcodes>
+     </task>
+     <task name="ResumeApps" message="$(string.task_ResumeApps)" value="44">
+>
+      <opcodes>
+       <opcode name="PhaseStart" message="$(string.opcode_ResumeAppsPhaseStart)" value="33"/>
+      </opcodes>
+     </task>
+     <task name="Hibernate" message="$(string.task_Hibernate)" value="45"/>
+     <task name="ZeroHiberFile" message="$(string.task_ZeroHiberFile)" value="46"/>
+     <task name="FlushVolumes" message="$(string.task_FlushVolumes)" value="47"/>
+     <task name="GracefulShutdown" message="$(string.task_GracefulShutdown)" value="48"/>
+     <task name="ZeroPageFile" message="$(string.task_ZeroPageFile)" value="49"/>
+     <task name="IoShutdownSystem" message="$(string.task_IoShutdownSystem)" value="50"/>
+     <task name="WaitForProcesses" message="$(string.task_WaitForProcesses)" value="51"/>
+     <task name="CmShutdownSystem" message="$(string.task_CmShutdownSystem)" value="52"/>
+     <task name="ShowUI" message="$(string.task_ShowUI)" value="53">
+>
+      <opcodes>
+       <opcode name="PhaseStart" message="$(string.opcode_ShowUIPhaseStart)" value="33"/>
+       <opcode name="PhaseStop" message="$(string.opcode_ShowUIPhaseStop)" value="34"/>
+      </opcodes>
+     </task>
+     <task name="Superfetch" message="$(string.task_Superfetch)" value="54">
+>
+      <opcodes>
+       <opcode name="PhaseStart" message="$(string.opcode_SuperfetchPhaseStart)" value="33"/>
+       <opcode name="PhaseStop" message="$(string.opcode_SuperfetchPhaseStop)" value="34"/>
+      </opcodes>
+     </task>
+     <task name="Winlogon" message="$(string.task_Winlogon)" value="55">
+>
+      <opcodes>
+       <opcode name="PhaseStart" message="$(string.opcode_WinlogonPhaseStart)" value="33"/>
+       <opcode name="PhaseStop" message="$(string.opcode_WinlogonPhaseStop)" value="34"/>
+      </opcodes>
+     </task>
+     <task name="PreSleepCallbacks" message="$(string.task_PreSleepCallbacks)" value="56">
+>
+      <opcodes>
+       <opcode name="PhaseStart" message="$(string.opcode_PreSleepCallbacksPhaseStart)" value="33"/>
+       <opcode name="PhaseStop" message="$(string.opcode_PreSleepCallbacksPhaseStop)" value="34"/>
+      </opcodes>
+     </task>
+     <task name="HideUI" message="$(string.task_HideUI)" value="57">
+>
+      <opcodes>
+       <opcode name="PhaseStart" message="$(string.opcode_HideUIPhaseStart)" value="33"/>
+       <opcode name="PhaseStop" message="$(string.opcode_HideUIPhaseStop)" value="34"/>
+      </opcodes>
+     </task>
+     <task name="IrpWaiting" message="$(string.task_IrpWaiting)" value="58"/>
+     <task name="QueryFailedApps" message="$(string.task_QueryFailedApps)" value="59"/>
+     <task name="QueryFailedServices" message="$(string.task_QueryFailedServices)" value="60"/>
+     <task name="QueryFailedApp" message="$(string.task_QueryFailedApp)" value="61"/>
+     <task name="QueryFailedService" message="$(string.task_QueryFailedService)" value="62"/>
+     <task name="DirtyTransition" message="$(string.task_DirtyTransition)" value="63"/>
+     <task name="PreSleepNotification" message="$(string.task_PreSleepNotification)" value="64"/>
+     <task name="AwayMode" message="$(string.task_AwayMode)" value="65"/>
+     <task name="UserQueryAllowed" message="$(string.task_UserQueryAllowed)" value="66"/>
+     <task name="KernelQueryAllowed" message="$(string.task_KernelQueryAllowed)" value="67"/>
+     <task name="SetExecutionState" message="$(string.task_SetExecutionState)" value="68"/>
+     <task name="SystemTimeResolutionChange" message="$(string.task_SystemTimeResolutionChange)" value="69"/>
+     <task name="IdleCheck" message="$(string.task_IdleCheck)" value="70"/>
+     <task name="SetSystemState" message="$(string.task_SetSystemState)" value="71"/>
+     <task name="RegisterSystemState" message="$(string.task_RegisterSystemState)" value="72"/>
+     <task name="DeviceIdle" message="$(string.task_DeviceIdle)" value="73"/>
+     <task name="DeviceIdleCheck" message="$(string.task_DeviceIdleCheck)" value="74"/>
+     <task name="DiskIdleCheck" message="$(string.task_DiskIdleCheck)" value="75"/>
+     <task name="SkipTick" message="$(string.task_SkipTick)" value="76"/>
+     <task name="CoolingModeChange" message="$(string.task_CoolingModeChange)" value="77"/>
+     <task name="PassiveCoolingDiagnostic" message="$(string.task_PassiveCoolingDiagnostic)" value="78"/>
+     <task name="PassiveCoolingOperational" message="$(string.task_PassiveCoolingOperational)" value="79"/>
+     <task name="ActiveCoolingDiagnostic" message="$(string.task_ActiveCoolingDiagnostic)" value="80"/>
+     <task name="ActiveCoolingOperational" message="$(string.task_ActiveCoolingOperational)" value="81"/>
+     <task name="CriticalTripPointExceededDiagnostic" message="$(string.task_CriticalTripPointExceededDiagnostic)" value="82"/>
+     <task name="CriticalTripPointExceededSystem" message="$(string.task_CriticalTripPointExceededSystem)" value="83"/>
+     <task name="S4TripPointExceededDiagnostic" message="$(string.task_S4TripPointExceededDiagnostic)" value="84"/>
+     <task name="S4TripPointExceededSystem" message="$(string.task_S4TripPointExceededSystem)" value="85"/>
+     <task name="ThermalZoneEnumerated" message="$(string.task_ThermalZoneEnumerated)" value="86"/>
+     <task name="IllegalProcessorThrottleDiagnostic" message="$(string.task_IllegalProcessorThrottleDiagnostic)" value="87"/>
+     <task name="IllegalProcessorThrottleOperational" message="$(string.task_IllegalProcessorThrottleOperational)" value="88"/>
+     <task name="CreatePowerRequest" message="$(string.task_CreatePowerRequest)" value="89"/>
+     <task name="ChangePowerRequest" message="$(string.task_ChangePowerRequest)" value="90"/>
+     <task name="ClosePowerRequest" message="$(string.task_ClosePowerRequest)" value="91"/>
+     <task name="SystemTimeResolutionUpdate" message="$(string.task_SystemTimeResolutionUpdate)" value="92"/>
+     <task name="SystemTimeResolutionRundown" message="$(string.task_SystemTimeResolutionRundown)" value="93"/>
+     <task name="SystemTimeResolutionRequestRundown" message="$(string.task_SystemTimeResolutionRequestRundown)" value="94"/>
+     <task name="SystemTimeResolutionKernelChange" message="$(string.task_SystemTimeResolutionKernelChange)" value="95"/>
+     <task name="PowerRequestRundown" message="$(string.task_PowerRequestRundown)" value="96"/>
+     <task name="FlushAllPages" message="$(string.task_FlushAllPages)" value="97">
+>
+      <opcodes>
+       <opcode name="PhaseStart" message="$(string.opcode_FlushAllPagesPhaseStart)" value="33"/>
+       <opcode name="PhaseStop" message="$(string.opcode_FlushAllPagesPhaseStop)" value="34"/>
+      </opcodes>
+     </task>
+     <task name="BuildNotifyList" message="$(string.task_BuildNotifyList)" value="98">
+>
+      <opcodes>
+       <opcode name="PhaseStart" message="$(string.opcode_BuildNotifyListPhaseStart)" value="33"/>
+       <opcode name="PhaseStop" message="$(string.opcode_BuildNotifyListPhaseStop)" value="34"/>
+      </opcodes>
+     </task>
+     <task name="SleepDisableReasonRundown" message="$(string.task_SleepDisableReasonRundown)" value="99"/>
+     <task name="AcDcStateChange" message="$(string.task_AcDcStateChange)" value="100"/>
+     <task name="AcDcStateRundown" message="$(string.task_AcDcStateRundown)" value="101"/>
+     <task name="PostSleepNotification" message="$(string.task_PostSleepNotification)" value="102"/>
+     <task name="ShutdownAction" message="$(string.task_ShutdownAction)" value="103"/>
+     <task name="SystemTimerResolutionStackRundown" message="$(string.task_SystemTimerResolutionStackRundown)" value="104"/>
+    </tasks>
+    <maps>
+     <valueMap name="Pop:MapPowerAction">
+      <map value="0x4" message="$(string.map_Pop:MapPowerActionPower Action Shutdown)"/>
+      <map value="0x5" message="$(string.map_Pop:MapPowerActionPower Action Shutdown Reset)"/>
+      <map value="0x6" message="$(string.map_Pop:MapPowerActionPower Action Shutdown Off)"/>
+     </valueMap>
+     <valueMap name="Pop:MapSleepReason">
+      <map value="0x0" message="$(string.map_Pop:MapSleepReasonButton or Lid)"/>
+      <map value="0x2" message="$(string.map_Pop:MapSleepReasonBattery)"/>
+      <map value="0x4" message="$(string.map_Pop:MapSleepReasonApplication API)"/>
+      <map value="0x5" message="$(string.map_Pop:MapSleepReasonKernel API)"/>
+      <map value="0x6" message="$(string.map_Pop:MapSleepReasonHibernate from Sleep)"/>
+      <map value="0x7" message="$(string.map_Pop:MapSleepReasonSystem Idle)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="PowerTransitionStart" version="0" task="PowerTransition" opcode="win:Start" level="win:Critical" keywords="po:Scenario po:Performance" template="PowerTransitionStartArgs"/>
+     <event value="2" symbol="PowerTransitionStop" version="0" task="PowerTransition" opcode="win:Stop" level="win:Critical" keywords="po:Scenario po:Performance" template="PowerTransitionStopArgs"/>
+     <event value="3" symbol="QueryAppsPhaseStart" version="0" task="QueryApps" opcode="PhaseStart" level="win:Informational" keywords="po:Performance"/>
+     <event value="4" symbol="QueryAppsPhaseStop" version="0" task="QueryApps" opcode="PhaseStop" level="win:Informational" keywords="po:Performance" template="QueryAppsPhaseStopArgs"/>
+     <event value="5" symbol="QueryServicesPhaseStart" version="0" task="QueryServices" opcode="PhaseStart" level="win:Informational" keywords="po:Performance"/>
+     <event value="6" symbol="QueryServicesPhaseStop" version="0" task="QueryServices" opcode="PhaseStop" level="win:Informational" keywords="po:Performance" template="QueryAppsPhaseStopArgs"/>
+     <event value="7" symbol="IrpStart" version="0" task="Irp" opcode="win:Start" level="win:Informational" keywords="po:Performance" template="IrpStartArgs"/>
+     <event value="7" symbol="IrpStart_V1" version="1" task="Irp" opcode="win:Start" level="win:Informational" keywords="po:Performance" template="IrpStartArgs_V1"/>
+     <event value="8" symbol="IrpStop" version="0" task="Irp" opcode="win:Stop" level="win:Informational" keywords="po:Performance" template="IrpStopArgs"/>
+     <event value="9" symbol="QueryAppsVeto" version="0" task="QueryApps" opcode="Veto" level="win:Informational" keywords="po:Diagnostic" template="QueryAppsVetoArgs"/>
+     <event value="10" symbol="QueryServicesVeto" version="0" task="QueryServices" opcode="Veto" level="win:Informational" keywords="po:Diagnostic" template="QueryServicesVetoArgs"/>
+     <event value="11" symbol="IrpWaiting" version="0" task="IrpWaiting" level="win:Informational" template="IrpWaitingArgs"/>
+     <event value="12" symbol="QueryAppsStart" version="0" task="QueryApps" opcode="win:Start" level="win:Informational" keywords="po:Performance" template="QueryAppsStartArgs"/>
+     <event value="13" symbol="QueryAppsStop" version="0" task="QueryApps" opcode="win:Stop" level="win:Informational" keywords="po:Performance" template="QueryAppsStopArgs"/>
+     <event value="14" symbol="QueryServicesStart" version="0" task="QueryServices" opcode="win:Start" level="win:Informational" keywords="po:Performance" template="QueryServicesStartArgs"/>
+     <event value="15" symbol="QueryServicesStop" version="0" task="QueryServices" opcode="win:Stop" level="win:Informational" keywords="po:Performance" template="QueryServicesStartArgs"/>
+     <event value="16" symbol="SuspendAppsStart" version="0" task="SuspendApps" opcode="win:Start" level="win:Informational" keywords="po:Performance" template="QueryAppsStartArgs"/>
+     <event value="17" symbol="SuspendAppsStop" version="0" task="SuspendApps" opcode="win:Stop" level="win:Informational" keywords="po:Performance" template="QueryAppsStopArgs"/>
+     <event value="18" symbol="SuspendServicesStart" version="0" task="SuspendServices" opcode="win:Start" level="win:Informational" keywords="po:Performance" template="QueryServicesStartArgs"/>
+     <event value="19" symbol="SuspendServicesStop" version="0" task="SuspendServices" opcode="win:Stop" level="win:Informational" keywords="po:Performance" template="QueryServicesStartArgs"/>
+     <event value="20" symbol="DriverStart" version="0" task="Driver" opcode="win:Start" level="win:Informational" keywords="po:Performance" template="DriverStartArgs"/>
+     <event value="21" symbol="DriverStop" version="0" task="Driver" opcode="win:Stop" level="win:Informational" keywords="po:Performance" template="DriverStopArgs"/>
+     <event value="22" symbol="SuspendAppsPhaseStart" version="0" task="SuspendApps" opcode="PhaseStart" level="win:Informational" keywords="po:Performance"/>
+     <event value="23" symbol="SuspendAppsPhaseStop" version="0" task="SuspendApps" opcode="PhaseStop" level="win:Informational" keywords="po:Performance"/>
+     <event value="24" symbol="SuspendServicesPhaseStart" version="0" task="SuspendServices" opcode="PhaseStart" level="win:Informational" keywords="po:Performance"/>
+     <event value="25" symbol="SuspendServicesPhaseStop" version="0" task="SuspendServices" opcode="PhaseStop" level="win:Informational" keywords="po:Performance"/>
+     <event value="26" symbol="ResumeAppsPhaseStart" version="0" task="ResumeApps" opcode="PhaseStart" level="win:Informational" keywords="po:Performance"/>
+     <event value="27" symbol="ResumeServicesPhaseStart" version="0" task="ResumeServices" opcode="PhaseStart" level="win:Informational" keywords="po:Performance"/>
+     <event value="28" symbol="ResumeAppsStart" version="0" task="ResumeApps" opcode="win:Start" level="win:Informational" keywords="po:Performance" template="QueryAppsStartArgs"/>
+     <event value="29" symbol="ResumeServicesStart" version="0" task="ResumeServices" opcode="win:Start" level="win:Informational" keywords="po:Performance" template="QueryServicesStartArgs"/>
+     <event value="30" symbol="QueryFailedApps" version="0" task="QueryFailedApps" level="win:Informational"/>
+     <event value="31" symbol="QueryFailedServices" version="0" task="QueryFailedServices" level="win:Informational"/>
+     <event value="32" symbol="QueryFailedApp" version="0" task="QueryFailedApp" level="win:Informational" template="QueryAppsStartArgs"/>
+     <event value="33" symbol="QueryFailedService" version="0" task="QueryFailedService" level="win:Informational" template="QueryServicesStartArgs"/>
+     <event value="34" symbol="Hibernate" version="0" task="Hibernate" level="win:Informational" keywords="po:Diagnostic po:Performance" template="QueryAppsPhaseStopArgs"/>
+     <event value="35" symbol="SuspendDevicesPhaseStart" version="0" task="SuspendDevices" opcode="PhaseStart" level="win:Informational" keywords="po:Diagnostic po:Performance" template="SuspendDevicesPhaseStartArgs"/>
+     <event value="36" symbol="SuspendDevicesPhaseStop" version="0" task="SuspendDevices" opcode="PhaseStop" level="win:Informational" keywords="po:Performance"/>
+     <event value="37" symbol="WakeDevicesPhaseStart" version="0" task="WakeDevices" opcode="PhaseStart" level="win:Informational" keywords="po:Performance"/>
+     <event value="38" symbol="WakeDevicesPhaseStop" version="0" task="WakeDevices" opcode="PhaseStop" level="win:Informational" keywords="po:Performance"/>
+     <event value="39" symbol="PowerTransition" version="0" task="PowerTransition" level="win:Informational" keywords="po:Diagnostic po:Performance" template="PowerTransitionArgs"/>
+     <event value="40" symbol="QueryDriversVeto" version="0" task="QueryDrivers" opcode="Veto" level="win:Informational" keywords="po:Diagnostic" template="QueryDriversVetoArgs"/>
+     <event value="41" symbol="DirtyTransition" version="0" task="DirtyTransition" level="win:Critical" keywords="po:Simple"/>
+     <event value="41" symbol="DirtyTransition_V1" version="1" task="DirtyTransition" level="win:Critical" keywords="po:Simple" template="DirtyTransitionArgs_V1"/>
+     <event value="41" symbol="DirtyTransition_V2" version="2" task="DirtyTransition" level="win:Critical" keywords="po:Simple" template="DirtyTransitionArgs_V2"/>
+     <event value="42" symbol="PreSleepNotification" version="0" task="PreSleepNotification" level="win:Informational" keywords="po:Diagnostic" template="PreSleepNotificationArgs"/>
+     <event value="42" symbol="PreSleepNotification_V2" version="2" task="PreSleepNotification" level="win:Informational" keywords="po:Diagnostic" template="PreSleepNotificationArgs_V2"/>
+     <event value="43" symbol="ZeroHiberFileStart" version="0" task="ZeroHiberFile" opcode="win:Start" level="win:Informational" keywords="po:Performance"/>
+     <event value="44" symbol="ZeroHiberFileStop" version="0" task="ZeroHiberFile" opcode="win:Stop" level="win:Informational" keywords="po:Performance"/>
+     <event value="45" symbol="FlushVolumesStart" version="0" task="FlushVolumes" opcode="win:Start" level="win:Informational" keywords="po:Performance"/>
+     <event value="46" symbol="FlushVolumesStop" version="0" task="FlushVolumes" opcode="win:Stop" level="win:Informational" keywords="po:Performance"/>
+     <event value="47" symbol="GracefulShutdownStart" version="0" task="GracefulShutdown" opcode="win:Start" level="win:Informational" keywords="po:Performance"/>
+     <event value="48" symbol="GracefulShutdownStop" version="0" task="GracefulShutdown" opcode="win:Stop" level="win:Informational" keywords="po:Scenario po:Performance"/>
+     <event value="49" symbol="ZeroPageFileStart" version="0" task="ZeroPageFile" opcode="win:Start" level="win:Informational" keywords="po:Performance"/>
+     <event value="50" symbol="ZeroPageFileStop" version="0" task="ZeroPageFile" opcode="win:Stop" level="win:Informational" keywords="po:Performance"/>
+     <event value="51" symbol="IoShutdownSystemStart" version="0" task="IoShutdownSystem" opcode="win:Start" level="win:Informational" keywords="po:Performance"/>
+     <event value="52" symbol="IoShutdownSystemStop" version="0" task="IoShutdownSystem" opcode="win:Stop" level="win:Informational" keywords="po:Performance"/>
+     <event value="53" symbol="WaitForProcessesStart" version="0" task="WaitForProcesses" opcode="win:Start" level="win:Informational" keywords="po:Performance"/>
+     <event value="54" symbol="WaitForProcessesStop" version="0" task="WaitForProcesses" opcode="win:Stop" level="win:Informational" keywords="po:Performance"/>
+     <event value="55" symbol="CmShutdownSystemStart" version="0" task="CmShutdownSystem" opcode="win:Start" level="win:Informational" keywords="po:Performance"/>
+     <event value="56" symbol="CmShutdownSystemStop" version="0" task="CmShutdownSystem" opcode="win:Stop" level="win:Informational" keywords="po:Performance"/>
+     <event value="57" symbol="ShowUIPhaseStart" version="0" task="ShowUI" opcode="PhaseStart" level="win:Informational" keywords="po:Performance"/>
+     <event value="58" symbol="ShowUIPhaseStop" version="0" task="ShowUI" opcode="PhaseStop" level="win:Informational" keywords="po:Performance"/>
+     <event value="59" symbol="AwayMode" version="0" task="AwayMode" level="win:Informational" keywords="po:Diagnostic"/>
+     <event value="60" symbol="UserQueryAllowed" version="0" task="UserQueryAllowed" level="win:Informational" keywords="po:Diagnostic" template="UserQueryAllowedArgs"/>
+     <event value="61" symbol="KernelQueryAllowed" version="0" task="KernelQueryAllowed" level="win:Informational" keywords="po:Diagnostic" template="UserQueryAllowedArgs"/>
+     <event value="62" symbol="SetExecutionState" version="0" task="SetExecutionState" level="win:Informational" keywords="po:Diagnostic" template="SetExecutionStateArgs"/>
+     <event value="62" symbol="SetExecutionState_V1" version="1" task="SetExecutionState" level="win:Informational" keywords="po:Diagnostic" template="SetExecutionStateArgs_V1"/>
+     <event value="63" symbol="SystemTimeResolutionChange" version="0" task="SystemTimeResolutionChange" level="win:Informational" keywords="po:Diagnostic" template="SetExecutionStateArgs"/>
+     <event value="63" symbol="SystemTimeResolutionChange_V1" version="1" task="SystemTimeResolutionChange" level="win:Informational" keywords="po:Diagnostic" template="SystemTimeResolutionChangeArgs_V1"/>
+     <event value="64" symbol="SuperfetchPhaseStart" version="0" task="Superfetch" opcode="PhaseStart" level="win:Informational" keywords="po:Performance"/>
+     <event value="65" symbol="SuperfetchPhaseStop" version="0" task="Superfetch" opcode="PhaseStop" level="win:Informational" keywords="po:Performance"/>
+     <event value="66" symbol="WinlogonPhaseStart" version="0" task="Winlogon" opcode="PhaseStart" level="win:Informational" keywords="po:Performance"/>
+     <event value="67" symbol="WinlogonPhaseStop" version="0" task="Winlogon" opcode="PhaseStop" level="win:Informational" keywords="po:Performance"/>
+     <event value="68" symbol="PreSleepCallbacksPhaseStart" version="0" task="PreSleepCallbacks" opcode="PhaseStart" level="win:Informational" keywords="po:Performance"/>
+     <event value="69" symbol="PreSleepCallbacksPhaseStop" version="0" task="PreSleepCallbacks" opcode="PhaseStop" level="win:Informational" keywords="po:Performance"/>
+     <event value="70" symbol="HideUIPhaseStart" version="0" task="HideUI" opcode="PhaseStart" level="win:Informational" keywords="po:Performance"/>
+     <event value="71" symbol="HideUIPhaseStop" version="0" task="HideUI" opcode="PhaseStop" level="win:Informational" keywords="po:Performance"/>
+     <event value="72" symbol="IdleCheck" version="0" task="IdleCheck" level="win:Informational" keywords="po:Idle" template="IdleCheckArgs"/>
+     <event value="73" symbol="SetSystemState" version="0" task="SetSystemState" level="win:Verbose" keywords="po:Diagnostic" template="SetSystemStateArgs"/>
+     <event value="74" symbol="RegisterSystemState" version="0" task="RegisterSystemState" level="win:Informational" keywords="po:Diagnostic" template="RegisterSystemStateArgs"/>
+     <event value="75" symbol="DeviceIdleStart" version="0" task="DeviceIdle" opcode="win:Start" level="win:Informational" keywords="po:Idle"/>
+     <event value="76" symbol="DeviceIdleStop" version="0" task="DeviceIdle" opcode="win:Stop" level="win:Informational" keywords="po:Idle"/>
+     <event value="77" symbol="DeviceIdleCheck" version="0" task="DeviceIdleCheck" level="win:Informational" keywords="po:Idle" template="DeviceIdleCheckArgs"/>
+     <event value="78" symbol="DiskIdleCheck" version="0" task="DiskIdleCheck" level="win:Informational" keywords="po:Idle" template="DiskIdleCheckArgs"/>
+     <event value="79" symbol="SkipTick" version="0" task="SkipTick" level="win:Informational" keywords="po:Diagnostic po:Performance" template="SkipTickArgs"/>
+     <event value="80" symbol="CoolingModeChange" version="0" task="CoolingModeChange" level="win:Informational" keywords="po:Thermal" template="CoolingModeChangeArgs"/>
+     <event value="81" symbol="PassiveCoolingDiagnostic" version="0" task="PassiveCoolingDiagnostic" level="win:Informational" keywords="po:Thermal" template="PassiveCoolingDiagnosticArgs"/>
+     <event value="82" symbol="PassiveCoolingOperational" version="0" task="PassiveCoolingOperational" level="win:Informational" keywords="po:Thermal" template="PassiveCoolingDiagnosticArgs"/>
+     <event value="83" symbol="ActiveCoolingDiagnostic" version="0" task="ActiveCoolingDiagnostic" level="win:Informational" keywords="po:Thermal" template="ActiveCoolingDiagnosticArgs"/>
+     <event value="84" symbol="ActiveCoolingOperational" version="0" task="ActiveCoolingOperational" level="win:Informational" keywords="po:Thermal" template="ActiveCoolingDiagnosticArgs"/>
+     <event value="85" symbol="CriticalTripPointExceededDiagnostic" version="0" task="CriticalTripPointExceededDiagnostic" level="win:Error" keywords="po:Thermal" template="CriticalTripPointExceededDiagnosticArgs"/>
+     <event value="86" symbol="CriticalTripPointExceededSystem" version="0" task="CriticalTripPointExceededSystem" level="win:Error" keywords="po:Thermal" template="CriticalTripPointExceededDiagnosticArgs"/>
+     <event value="87" symbol="S4TripPointExceededDiagnostic" version="0" task="S4TripPointExceededDiagnostic" level="win:Error" keywords="po:Thermal" template="S4TripPointExceededDiagnosticArgs"/>
+     <event value="88" symbol="S4TripPointExceededSystem" version="0" task="S4TripPointExceededSystem" level="win:Error" keywords="po:Thermal" template="S4TripPointExceededDiagnosticArgs"/>
+     <event value="89" symbol="ThermalZoneEnumerated" version="0" task="ThermalZoneEnumerated" level="win:Informational" keywords="po:Thermal" template="ThermalZoneEnumeratedArgs"/>
+     <event value="90" symbol="IllegalProcessorThrottleDiagnostic" version="0" task="IllegalProcessorThrottleDiagnostic" level="win:Warning" keywords="po:Thermal" template="IllegalProcessorThrottleDiagnosticArgs"/>
+     <event value="91" symbol="IllegalProcessorThrottleOperational" version="0" task="IllegalProcessorThrottleOperational" level="win:Warning" keywords="po:Thermal" template="IllegalProcessorThrottleDiagnosticArgs"/>
+     <event value="92" symbol="CreatePowerRequest" version="0" task="CreatePowerRequest" level="win:Informational" keywords="po:Diagnostic" template="CreatePowerRequestArgs"/>
+     <event value="93" symbol="ChangePowerRequest" version="0" task="ChangePowerRequest" level="win:Informational" keywords="po:Diagnostic" template="ChangePowerRequestArgs"/>
+     <event value="94" symbol="ClosePowerRequest" version="0" task="ClosePowerRequest" level="win:Informational" keywords="po:Diagnostic" template="ClosePowerRequestArgs"/>
+     <event value="95" symbol="SystemTimeResolutionUpdate" version="0" task="SystemTimeResolutionUpdate" level="win:Informational" keywords="po:Diagnostic" template="SystemTimeResolutionUpdateArgs"/>
+     <event value="96" symbol="SystemTimeResolutionRundown" version="0" task="SystemTimeResolutionRundown" level="win:Informational" keywords="po:Diagnostic" template="SystemTimeResolutionRundownArgs"/>
+     <event value="97" symbol="SystemTimeResolutionRequestRundown" version="0" task="SystemTimeResolutionRequestRundown" level="win:Informational" keywords="po:Diagnostic" template="SystemTimeResolutionRequestRundownArgs"/>
+     <event value="98" symbol="SystemTimeResolutionKernelChange" version="0" task="SystemTimeResolutionKernelChange" level="win:Informational" keywords="po:Diagnostic" template="SystemTimeResolutionKernelChangeArgs"/>
+     <event value="99" symbol="PowerRequestRundown" version="0" task="PowerRequestRundown" level="win:Informational" keywords="po:Diagnostic" template="CreatePowerRequestArgs"/>
+     <event value="100" symbol="FlushAllPagesPhaseStart" version="0" task="FlushAllPages" opcode="PhaseStart" level="win:Informational" keywords="po:Performance"/>
+     <event value="101" symbol="FlushAllPagesPhaseStop" version="0" task="FlushAllPages" opcode="PhaseStop" level="win:Informational" keywords="po:Performance"/>
+     <event value="102" symbol="BuildNotifyListPhaseStart" version="0" task="BuildNotifyList" opcode="PhaseStart" level="win:Informational" keywords="po:Performance"/>
+     <event value="103" symbol="BuildNotifyListPhaseStop" version="0" task="BuildNotifyList" opcode="PhaseStop" level="win:Informational" keywords="po:Performance"/>
+     <event value="104" symbol="SleepDisableReasonRundown" version="0" task="SleepDisableReasonRundown" level="win:Informational" keywords="po:Diagnostic" template="SleepDisableReasonRundownArgs"/>
+     <event value="105" symbol="AcDcStateChange" version="0" task="AcDcStateChange" level="win:Informational" keywords="po:Diagnostic" template="AcDcStateChangeArgs"/>
+     <event value="106" symbol="AcDcStateRundown" version="0" task="AcDcStateRundown" level="win:Informational" keywords="po:Diagnostic" template="AcDcStateChangeArgs"/>
+     <event value="107" symbol="PostSleepNotification" version="0" task="PostSleepNotification" level="win:Informational" keywords="po:Diagnostic po:PerfTrackContext" template="PostSleepNotificationArgs"/>
+     <event value="108" symbol="PowerTransition108" version="0" task="PowerTransition" level="win:Informational" keywords="po:Diagnostic po:Performance" template="PowerTransition108Args"/>
+     <event value="109" symbol="ShutdownAction" version="0" task="ShutdownAction" level="win:Informational" keywords="po:Diagnostic" template="ShutdownActionArgs"/>
+     <event value="110" symbol="SystemTimerResolutionStackRundown" version="0" task="SystemTimerResolutionStackRundown" level="win:Informational" keywords="po:Diagnostic" template="SystemTimerResolutionStackRundownArgs"/>
+     <event value="200" symbol="task_0" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+     <event value="201" symbol="task_0201" version="0" task="task_0" level="win:Informational" template="task_0201Args"/>
+     <event value="202" symbol="task_0202" version="0" task="task_0" level="win:Informational" template="task_0202Args"/>
+     <event value="203" symbol="task_0Stop" version="0" task="task_0" opcode="win:Stop" level="win:Informational" template="task_0202Args"/>
+     <event value="204" symbol="task_0204" version="0" task="task_0" level="win:Informational" template="task_0202Args"/>
+     <event value="205" symbol="task_0205" version="0" task="task_0" level="win:Informational" template="task_0202Args"/>
+     <event value="206" symbol="task_0206" version="0" task="task_0" level="win:Informational" template="task_0202Args"/>
+     <event value="207" symbol="task_0207" version="0" task="task_0" level="win:Informational" template="task_0207Args"/>
+     <event value="208" symbol="task_0208" version="0" task="task_0" level="win:Informational" template="task_0208Args"/>
+    </events>
+    <templates>
+     <template tid="PowerTransitionStartArgs">
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="Time" inType="win:FILETIME"/>
+     </template>
+     <template tid="PowerTransitionStopArgs">
+      <data name="Status" inType="win:UInt32"/>
+      <data name="Time" inType="win:FILETIME"/>
+     </template>
+     <template tid="QueryAppsPhaseStopArgs">
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="IrpStartArgs">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="PowerStateType" inType="win:UInt32"/>
+      <data name="MinorFunction" inType="win:UInt8"/>
+      <data name="TargetDevice" inType="win:Pointer"/>
+      <data name="InstanceNameLength" inType="win:UInt16"/>
+      <data name="InstanceName" inType="win:UnicodeString" length="InstanceNameLength"/>
+     </template>
+     <template tid="IrpStopArgs">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="FailedDriver" inType="win:UnicodeString"/>
+     </template>
+     <template tid="QueryAppsVetoArgs">
+      <data name="Pid" inType="win:UInt32"/>
+      <data name="Window" inType="win:Pointer"/>
+      <data name="AppNameLength" inType="win:UInt16"/>
+      <data name="AppName" inType="win:UnicodeString" length="AppNameLength"/>
+     </template>
+     <template tid="QueryServicesVetoArgs">
+      <data name="Pid" inType="win:UInt32"/>
+      <data name="ServiceNameLength" inType="win:UInt16"/>
+      <data name="ServiceName" inType="win:UnicodeString" length="ServiceNameLength"/>
+     </template>
+     <template tid="IrpWaitingArgs">
+      <data name="Irp" inType="win:Pointer"/>
+     </template>
+     <template tid="QueryAppsStartArgs">
+      <data name="Pid" inType="win:UInt32"/>
+      <data name="NameLength" inType="win:UInt16"/>
+      <data name="Name" inType="win:UnicodeString" length="NameLength"/>
+     </template>
+     <template tid="QueryAppsStopArgs">
+      <data name="Pid" inType="win:UInt32"/>
+     </template>
+     <template tid="QueryServicesStartArgs">
+      <data name="NameLength" inType="win:UInt16"/>
+      <data name="Name" inType="win:UnicodeString" length="NameLength"/>
+     </template>
+     <template tid="DriverStartArgs">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="Device" inType="win:Pointer"/>
+      <data name="DriverName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="DriverStopArgs">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="Device" inType="win:Pointer"/>
+     </template>
+     <template tid="SuspendDevicesPhaseStartArgs">
+      <data name="Query" inType="win:Boolean"/>
+      <data name="TargetState" inType="win:UInt32"/>
+      <data name="EffectiveState" inType="win:UInt32"/>
+     </template>
+     <template tid="PowerTransitionArgs">
+      <data name="SleepTime" inType="win:UInt32"/>
+      <data name="ResumeTime" inType="win:UInt32"/>
+      <data name="DriverWakeTime" inType="win:UInt32"/>
+      <data name="HiberWriteTime" inType="win:UInt32"/>
+      <data name="HiberReadTime" inType="win:UInt32"/>
+      <data name="HiberPagesWritten" inType="win:UInt32"/>
+      <data name="BiosInitTime" inType="win:UInt32"/>
+     </template>
+     <template tid="QueryDriversVetoArgs">
+      <data name="DriverNameLength" inType="win:UInt16"/>
+      <data name="DriverName" inType="win:UnicodeString" length="DriverNameLength"/>
+      <data name="InstanceNameLength" inType="win:UInt16"/>
+      <data name="InstanceName" inType="win:UnicodeString" length="InstanceNameLength"/>
+     </template>
+     <template tid="PreSleepNotificationArgs">
+      <data name="TargetState" inType="win:UInt32"/>
+      <data name="EffectiveState" inType="win:UInt32"/>
+     </template>
+     <template tid="UserQueryAllowedArgs">
+      <data name="Value" inType="win:Boolean"/>
+     </template>
+     <template tid="SetExecutionStateArgs">
+      <data name="ExecutionState" inType="win:UInt32"/>
+      <data name="AppNameLength" inType="win:UInt16"/>
+      <data name="AppName" inType="win:UnicodeString" length="AppNameLength"/>
+     </template>
+     <template tid="IdleCheckArgs">
+      <data name="Threshold" inType="win:UInt32"/>
+      <data name="LowestIdleness" inType="win:UInt32"/>
+      <data name="AverageIdleness" inType="win:UInt32"/>
+      <data name="AccruedIdleTime" inType="win:UInt32"/>
+      <data name="NonIdleIgnored" inType="win:Boolean"/>
+      <data name="IdleToSleep" inType="win:Boolean"/>
+      <data name="NonIdleReferences" inType="win:Boolean"/>
+     </template>
+     <template tid="SetSystemStateArgs">
+      <data name="ExecutionState" inType="win:UInt32"/>
+     </template>
+     <template tid="RegisterSystemStateArgs">
+      <data name="ExecutionState" inType="win:UInt32"/>
+      <data name="StateHandle" inType="win:Pointer"/>
+     </template>
+     <template tid="DeviceIdleCheckArgs">
+      <data name="Device" inType="win:Pointer"/>
+      <data name="Pdo" inType="win:Pointer"/>
+      <data name="InstancePathLength" inType="win:UInt16"/>
+      <data name="InstancePath" inType="win:UnicodeString" length="InstancePathLength"/>
+      <data name="ConservativeTimeout" inType="win:UInt32"/>
+      <data name="PerformanceTimeout" inType="win:UInt32"/>
+      <data name="IdleTime" inType="win:UInt32"/>
+      <data name="BusyCount" inType="win:UInt32"/>
+      <data name="TotalBusyCount" inType="win:UInt32"/>
+      <data name="IdlePowerState" inType="win:UInt8"/>
+      <data name="CurrentPowerState" inType="win:UInt8"/>
+     </template>
+     <template tid="DiskIdleCheckArgs">
+      <data name="Device" inType="win:Pointer"/>
+      <data name="Timeout" inType="win:UInt32"/>
+      <data name="IgnoreThreshold" inType="win:UInt32"/>
+      <data name="IdleTime" inType="win:UInt32"/>
+      <data name="NonIdleTime" inType="win:UInt32"/>
+     </template>
+     <template tid="SkipTickArgs">
+      <data name="Disabled" inType="win:Boolean"/>
+      <data name="Overridden" inType="win:Boolean"/>
+     </template>
+     <template tid="CoolingModeChangeArgs">
+      <data name="ThermalZoneDeviceInstanceLength" inType="win:UInt16"/>
+      <data name="ThermalZoneDeviceInstance" inType="win:UnicodeString" length="ThermalZoneDeviceInstanceLength"/>
+      <data name="CoolingModeLength" inType="win:UInt16"/>
+      <data name="CoolingMode" inType="win:UnicodeString" length="CoolingModeLength"/>
+     </template>
+     <template tid="PassiveCoolingDiagnosticArgs">
+      <data name="ThermalZoneDeviceInstanceLength" inType="win:UInt16"/>
+      <data name="ThermalZoneDeviceInstance" inType="win:UnicodeString" length="ThermalZoneDeviceInstanceLength"/>
+      <data name="EventTime" inType="win:FILETIME"/>
+      <data name="PassiveCoolingStateLength" inType="win:UInt16"/>
+      <data name="PassiveCoolingState" inType="win:UnicodeString" length="PassiveCoolingStateLength"/>
+      <data name="AffinityCount" inType="win:UInt16"/>
+      <data name="_PSV" inType="win:UInt32"/>
+      <data name="_TMP" inType="win:UInt32"/>
+      <data name="_TC1" inType="win:UInt32"/>
+      <data name="_TC2" inType="win:UInt32"/>
+      <data name="_TSP" inType="win:UInt32"/>
+      <data name="DeltaP" inType="win:Int32"/>
+      <data name="_PSL" inType="win:Boolean" count="AffinityCount"/>
+     </template>
+     <template tid="ActiveCoolingDiagnosticArgs">
+      <data name="ThermalZoneDeviceInstanceLength" inType="win:UInt16"/>
+      <data name="ThermalZoneDeviceInstance" inType="win:UnicodeString" length="ThermalZoneDeviceInstanceLength"/>
+      <data name="EventTime" inType="win:FILETIME"/>
+      <data name="ActiveCoolingStateLength" inType="win:UInt16"/>
+      <data name="ActiveCoolingState" inType="win:UnicodeString" length="ActiveCoolingStateLength"/>
+      <data name="_AC0" inType="win:UInt32"/>
+      <data name="_AC1" inType="win:UInt32"/>
+      <data name="_AC2" inType="win:UInt32"/>
+      <data name="_AC3" inType="win:UInt32"/>
+      <data name="_AC4" inType="win:UInt32"/>
+      <data name="_AC5" inType="win:UInt32"/>
+      <data name="_AC6" inType="win:UInt32"/>
+      <data name="_AC7" inType="win:UInt32"/>
+      <data name="_AC8" inType="win:UInt32"/>
+      <data name="_AC9" inType="win:UInt32"/>
+      <data name="_TMP" inType="win:UInt32"/>
+     </template>
+     <template tid="CriticalTripPointExceededDiagnosticArgs">
+      <data name="ThermalZoneDeviceInstanceLength" inType="win:UInt16"/>
+      <data name="ThermalZoneDeviceInstance" inType="win:UnicodeString" length="ThermalZoneDeviceInstanceLength"/>
+      <data name="ShutdownTime" inType="win:FILETIME"/>
+      <data name="_CRT" inType="win:UInt32"/>
+     </template>
+     <template tid="S4TripPointExceededDiagnosticArgs">
+      <data name="ThermalZoneDeviceInstanceLength" inType="win:UInt16"/>
+      <data name="ThermalZoneDeviceInstance" inType="win:UnicodeString" length="ThermalZoneDeviceInstanceLength"/>
+      <data name="HibernateTime" inType="win:FILETIME"/>
+      <data name="_HOT" inType="win:UInt32"/>
+     </template>
+     <template tid="ThermalZoneEnumeratedArgs">
+      <data name="ThermalZoneDeviceInstanceLength" inType="win:UInt16"/>
+      <data name="ThermalZoneDeviceInstance" inType="win:UnicodeString" length="ThermalZoneDeviceInstanceLength"/>
+      <data name="AffinityCount" inType="win:UInt16"/>
+      <data name="_PSV" inType="win:UInt32"/>
+      <data name="_TC1" inType="win:UInt32"/>
+      <data name="_TC2" inType="win:UInt32"/>
+      <data name="_TSP" inType="win:UInt32"/>
+      <data name="_AC0" inType="win:UInt32"/>
+      <data name="_AC1" inType="win:UInt32"/>
+      <data name="_AC2" inType="win:UInt32"/>
+      <data name="_AC3" inType="win:UInt32"/>
+      <data name="_AC4" inType="win:UInt32"/>
+      <data name="_AC5" inType="win:UInt32"/>
+      <data name="_AC6" inType="win:UInt32"/>
+      <data name="_AC7" inType="win:UInt32"/>
+      <data name="_AC8" inType="win:UInt32"/>
+      <data name="_AC9" inType="win:UInt32"/>
+      <data name="_CRT" inType="win:UInt32"/>
+      <data name="_HOT" inType="win:UInt32"/>
+      <data name="_PSL" inType="win:HexInt32" count="AffinityCount"/>
+     </template>
+     <template tid="IllegalProcessorThrottleDiagnosticArgs">
+      <data name="ProcessorId" inType="win:UInt32"/>
+      <data name="ThrottleMSR" inType="win:HexInt64"/>
+      <data name="ElapsedTime" inType="win:UInt32"/>
+      <data name="LogInterval" inType="win:UInt32"/>
+     </template>
+     <template tid="CreatePowerRequestArgs">
+      <data name="Token" inType="win:Pointer"/>
+      <data name="Type" inType="win:UInt32"/>
+      <data name="ProcessID" inType="win:UInt32"/>
+      <data name="SessionID" inType="win:UInt32"/>
+      <data name="Legacy" inType="win:Boolean"/>
+      <data name="SystemAllowed" inType="win:Boolean"/>
+      <data name="DisplayAllowed" inType="win:Boolean"/>
+      <data name="AwayModeAllowed" inType="win:Boolean"/>
+      <data name="SystemCount" inType="win:UInt32"/>
+      <data name="DisplayCount" inType="win:UInt32"/>
+      <data name="AwayModeCount" inType="win:UInt32"/>
+      <data name="CallerLength" inType="win:UInt16"/>
+      <data name="ContextLength" inType="win:UInt16"/>
+      <data name="Caller" inType="win:UnicodeString" length="CallerLength"/>
+      <data name="Context" inType="win:UnicodeString" length="ContextLength"/>
+     </template>
+     <template tid="ChangePowerRequestArgs">
+      <data name="Token" inType="win:Pointer"/>
+      <data name="SystemCount" inType="win:UInt32"/>
+      <data name="DisplayCount" inType="win:UInt32"/>
+      <data name="AwayModeCount" inType="win:UInt32"/>
+     </template>
+     <template tid="ClosePowerRequestArgs">
+      <data name="Token" inType="win:Pointer"/>
+     </template>
+     <template tid="SystemTimeResolutionUpdateArgs">
+      <data name="NewResolution" inType="win:UInt32"/>
+     </template>
+     <template tid="SystemTimeResolutionRundownArgs">
+      <data name="CurrentPeriod" inType="win:UInt32"/>
+      <data name="MinimumPeriod" inType="win:UInt32"/>
+      <data name="MaximumPeriod" inType="win:UInt32"/>
+      <data name="KernelRequestCount" inType="win:UInt32"/>
+      <data name="KernelRequestedPeriod" inType="win:UInt32"/>
+     </template>
+     <template tid="SystemTimeResolutionRequestRundownArgs">
+      <data name="RequestedPeriod" inType="win:UInt32"/>
+      <data name="Pid" inType="win:UInt32"/>
+      <data name="AppNameLength" inType="win:UInt16"/>
+      <data name="AppName" inType="win:UnicodeString" length="AppNameLength"/>
+     </template>
+     <template tid="SystemTimeResolutionKernelChangeArgs">
+      <data name="RequestedResolution" inType="win:UInt32"/>
+     </template>
+     <template tid="SleepDisableReasonRundownArgs">
+      <data name="AffectedState" inType="win:UInt8"/>
+      <data name="PowerReasonCode" inType="win:UInt32"/>
+      <data name="PowerReasonLength" inType="win:UInt32"/>
+      <data name="PowerReasonInfo" inType="win:Binary" length="PowerReasonLength"/>
+     </template>
+     <template tid="AcDcStateChangeArgs">
+      <data name="AcOnline" inType="win:Boolean"/>
+     </template>
+     <template tid="PostSleepNotificationArgs">
+      <data name="TargetState" inType="win:UInt32"/>
+      <data name="EffectiveState" inType="win:UInt32"/>
+      <data name="WakeFromState" inType="win:UInt32"/>
+     </template>
+     <template tid="PowerTransition108Args">
+      <data name="CopyBytes" inType="win:UInt64"/>
+      <data name="ElapsedTime" inType="win:UInt32"/>
+      <data name="IoTime" inType="win:UInt32"/>
+      <data name="InitTime" inType="win:UInt32"/>
+      <data name="CopyTime" inType="win:UInt32"/>
+      <data name="PagesWritten" inType="win:UInt32"/>
+      <data name="PagesProcessed" inType="win:UInt32"/>
+      <data name="DumpCount" inType="win:UInt32"/>
+      <data name="FileRuns" inType="win:UInt32"/>
+      <data name="ReadTime" inType="win:UInt32"/>
+      <data name="ResumeAppTime" inType="win:UInt32"/>
+      <data name="CompressTime" inType="win:UInt32"/>
+     </template>
+     <template tid="ShutdownActionArgs">
+      <data name="ShutdownActionType" inType="win:UInt32" map="Pop:MapPowerAction"/>
+      <data name="ShutdownEventCode" inType="win:UInt32"/>
+      <data name="ShutdownReason" inType="win:UInt32" map="Pop:MapSleepReason"/>
+     </template>
+     <template tid="SystemTimerResolutionStackRundownArgs">
+      <data name="RequestedPeriod" inType="win:UInt32"/>
+      <data name="Pid" inType="win:UInt32"/>
+      <data name="AppNameLength" inType="win:UInt16"/>
+      <data name="AppName" inType="win:UnicodeString" length="AppNameLength"/>
+      <data name="StackSize" inType="win:UInt32"/>
+      <data name="Stack" inType="win:Pointer" count="StackSize"/>
+     </template>
+     <template tid="task_0Args">
+      <data name="SqmType" inType="win:UInt32"/>
+      <data name="SqmSessionGuid" inType="win:GUID"/>
+      <data name="SqmSid" inType="win:SID"/>
+      <data name="SqmWindowsSessionId" inType="win:UInt32"/>
+      <data name="SqmSessionFlags" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0201Args">
+      <data name="SqmType" inType="win:UInt32"/>
+      <data name="SqmSessionGuid" inType="win:GUID"/>
+     </template>
+     <template tid="task_0202Args">
+      <data name="SqmType" inType="win:UInt32"/>
+      <data name="SqmSessionGuid" inType="win:GUID"/>
+      <data name="SqmID" inType="win:UInt32"/>
+      <data name="SqmDWORDDatapointValue" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0207Args">
+      <data name="SqmType" inType="win:UInt32"/>
+      <data name="SqmSessionGuid" inType="win:GUID"/>
+      <data name="SqmID" inType="win:UInt32"/>
+      <data name="SqmStringDatapointValue" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0208Args">
+      <data name="SqmType" inType="win:UInt32"/>
+      <data name="SqmSessionGuid" inType="win:GUID"/>
+      <data name="SqmID" inType="win:UInt32"/>
+      <data name="SqmStreamRowLength" inType="win:UInt32"/>
+      <data name="SqmStreamRow" inType="win:Int16" count="SqmStreamRowLength"/>
+     </template>
+     <template tid="IrpStartArgs_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="PowerStateType" inType="win:UInt32"/>
+      <data name="MinorFunction" inType="win:UInt8"/>
+      <data name="TargetDevice" inType="win:Pointer"/>
+      <data name="InstanceNameLength" inType="win:UInt16"/>
+      <data name="InstanceName" inType="win:UnicodeString" length="InstanceNameLength"/>
+      <data name="PowerState" inType="win:UInt8"/>
+     </template>
+     <template tid="DirtyTransitionArgs_V1">
+      <data name="BugcheckCode" inType="win:UInt32"/>
+      <data name="BugcheckParameter" inType="win:Pointer"/>
+     </template>
+     <template tid="SetExecutionStateArgs_V1">
+      <data name="ExecutionState" inType="win:UInt32"/>
+      <data name="AppNameLength" inType="win:UInt16"/>
+      <data name="AppName" inType="win:UnicodeString" length="AppNameLength"/>
+      <data name="Pid" inType="win:UInt32"/>
+      <data name="Tid" inType="win:UInt32"/>
+     </template>
+     <template tid="SystemTimeResolutionChangeArgs_V1">
+      <data name="RequestedResolution" inType="win:UInt32"/>
+      <data name="Pid" inType="win:UInt32"/>
+      <data name="AppNameLength" inType="win:UInt16"/>
+      <data name="AppName" inType="win:UnicodeString" length="AppNameLength"/>
+      <data name="SubProcessTag" inType="win:UInt32"/>
+     </template>
+     <template tid="DirtyTransitionArgs_V2">
+      <data name="BugcheckCode" inType="win:UInt32"/>
+      <data name="BugcheckParameter1" inType="win:Pointer"/>
+      <data name="BugcheckParameter2" inType="win:Pointer"/>
+      <data name="BugcheckParameter3" inType="win:Pointer"/>
+      <data name="BugcheckParameter4" inType="win:Pointer"/>
+      <data name="SleepInProgress" inType="win:Boolean"/>
+      <data name="PowerButtonTimestamp" inType="win:UInt64"/>
+     </template>
+     <template tid="PreSleepNotificationArgs_V2">
+      <data name="TargetState" inType="win:UInt32"/>
+      <data name="EffectiveState" inType="win:UInt32"/>
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_po:Scenario" value="po:Scenario"/>
+    <string id="keyword_po:Simple" value="po:Simple"/>
+    <string id="keyword_po:Diagnostic" value="po:Diagnostic"/>
+    <string id="keyword_po:Performance" value="po:Performance"/>
+    <string id="keyword_po:Idle" value="po:Idle"/>
+    <string id="keyword_po:Thermal" value="po:Thermal"/>
+    <string id="keyword_po:PerfTrackContext" value="po:PerfTrackContext"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_PowerTransition" value="PowerTransition"/>
+    <string id="task_QueryApps" value="QueryApps"/>
+    <string id="opcode_QueryAppsPhaseStart" value="PhaseStart"/>
+    <string id="opcode_QueryAppsPhaseStop" value="PhaseStop"/>
+    <string id="opcode_QueryAppsVeto" value="Veto"/>
+    <string id="task_QueryServices" value="QueryServices"/>
+    <string id="opcode_QueryServicesPhaseStart" value="PhaseStart"/>
+    <string id="opcode_QueryServicesPhaseStop" value="PhaseStop"/>
+    <string id="opcode_QueryServicesVeto" value="Veto"/>
+    <string id="task_QueryDrivers" value="QueryDrivers"/>
+    <string id="opcode_QueryDriversVeto" value="Veto"/>
+    <string id="task_SuspendApps" value="SuspendApps"/>
+    <string id="opcode_SuspendAppsPhaseStart" value="PhaseStart"/>
+    <string id="opcode_SuspendAppsPhaseStop" value="PhaseStop"/>
+    <string id="task_SuspendServices" value="SuspendServices"/>
+    <string id="opcode_SuspendServicesPhaseStart" value="PhaseStart"/>
+    <string id="opcode_SuspendServicesPhaseStop" value="PhaseStop"/>
+    <string id="task_Irp" value="Irp"/>
+    <string id="task_Driver" value="Driver"/>
+    <string id="task_SuspendDevices" value="SuspendDevices"/>
+    <string id="opcode_SuspendDevicesPhaseStart" value="PhaseStart"/>
+    <string id="opcode_SuspendDevicesPhaseStop" value="PhaseStop"/>
+    <string id="task_WakeDevices" value="WakeDevices"/>
+    <string id="opcode_WakeDevicesPhaseStart" value="PhaseStart"/>
+    <string id="opcode_WakeDevicesPhaseStop" value="PhaseStop"/>
+    <string id="task_ResumeServices" value="ResumeServices"/>
+    <string id="opcode_ResumeServicesPhaseStart" value="PhaseStart"/>
+    <string id="task_ResumeApps" value="ResumeApps"/>
+    <string id="opcode_ResumeAppsPhaseStart" value="PhaseStart"/>
+    <string id="task_Hibernate" value="Hibernate"/>
+    <string id="task_ZeroHiberFile" value="ZeroHiberFile"/>
+    <string id="task_FlushVolumes" value="FlushVolumes"/>
+    <string id="task_GracefulShutdown" value="GracefulShutdown"/>
+    <string id="task_ZeroPageFile" value="ZeroPageFile"/>
+    <string id="task_IoShutdownSystem" value="IoShutdownSystem"/>
+    <string id="task_WaitForProcesses" value="WaitForProcesses"/>
+    <string id="task_CmShutdownSystem" value="CmShutdownSystem"/>
+    <string id="task_ShowUI" value="ShowUI"/>
+    <string id="opcode_ShowUIPhaseStart" value="PhaseStart"/>
+    <string id="opcode_ShowUIPhaseStop" value="PhaseStop"/>
+    <string id="task_Superfetch" value="Superfetch"/>
+    <string id="opcode_SuperfetchPhaseStart" value="PhaseStart"/>
+    <string id="opcode_SuperfetchPhaseStop" value="PhaseStop"/>
+    <string id="task_Winlogon" value="Winlogon"/>
+    <string id="opcode_WinlogonPhaseStart" value="PhaseStart"/>
+    <string id="opcode_WinlogonPhaseStop" value="PhaseStop"/>
+    <string id="task_PreSleepCallbacks" value="PreSleepCallbacks"/>
+    <string id="opcode_PreSleepCallbacksPhaseStart" value="PhaseStart"/>
+    <string id="opcode_PreSleepCallbacksPhaseStop" value="PhaseStop"/>
+    <string id="task_HideUI" value="HideUI"/>
+    <string id="opcode_HideUIPhaseStart" value="PhaseStart"/>
+    <string id="opcode_HideUIPhaseStop" value="PhaseStop"/>
+    <string id="task_IrpWaiting" value="IrpWaiting"/>
+    <string id="task_QueryFailedApps" value="QueryFailedApps"/>
+    <string id="task_QueryFailedServices" value="QueryFailedServices"/>
+    <string id="task_QueryFailedApp" value="QueryFailedApp"/>
+    <string id="task_QueryFailedService" value="QueryFailedService"/>
+    <string id="task_DirtyTransition" value="DirtyTransition"/>
+    <string id="task_PreSleepNotification" value="PreSleepNotification"/>
+    <string id="task_AwayMode" value="AwayMode"/>
+    <string id="task_UserQueryAllowed" value="UserQueryAllowed"/>
+    <string id="task_KernelQueryAllowed" value="KernelQueryAllowed"/>
+    <string id="task_SetExecutionState" value="SetExecutionState"/>
+    <string id="task_SystemTimeResolutionChange" value="SystemTimeResolutionChange"/>
+    <string id="task_IdleCheck" value="IdleCheck"/>
+    <string id="task_SetSystemState" value="SetSystemState"/>
+    <string id="task_RegisterSystemState" value="RegisterSystemState"/>
+    <string id="task_DeviceIdle" value="DeviceIdle"/>
+    <string id="task_DeviceIdleCheck" value="DeviceIdleCheck"/>
+    <string id="task_DiskIdleCheck" value="DiskIdleCheck"/>
+    <string id="task_SkipTick" value="SkipTick"/>
+    <string id="task_CoolingModeChange" value="CoolingModeChange"/>
+    <string id="task_PassiveCoolingDiagnostic" value="PassiveCoolingDiagnostic"/>
+    <string id="task_PassiveCoolingOperational" value="PassiveCoolingOperational"/>
+    <string id="task_ActiveCoolingDiagnostic" value="ActiveCoolingDiagnostic"/>
+    <string id="task_ActiveCoolingOperational" value="ActiveCoolingOperational"/>
+    <string id="task_CriticalTripPointExceededDiagnostic" value="CriticalTripPointExceededDiagnostic"/>
+    <string id="task_CriticalTripPointExceededSystem" value="CriticalTripPointExceededSystem"/>
+    <string id="task_S4TripPointExceededDiagnostic" value="S4TripPointExceededDiagnostic"/>
+    <string id="task_S4TripPointExceededSystem" value="S4TripPointExceededSystem"/>
+    <string id="task_ThermalZoneEnumerated" value="ThermalZoneEnumerated"/>
+    <string id="task_IllegalProcessorThrottleDiagnostic" value="IllegalProcessorThrottleDiagnostic"/>
+    <string id="task_IllegalProcessorThrottleOperational" value="IllegalProcessorThrottleOperational"/>
+    <string id="task_CreatePowerRequest" value="CreatePowerRequest"/>
+    <string id="task_ChangePowerRequest" value="ChangePowerRequest"/>
+    <string id="task_ClosePowerRequest" value="ClosePowerRequest"/>
+    <string id="task_SystemTimeResolutionUpdate" value="SystemTimeResolutionUpdate"/>
+    <string id="task_SystemTimeResolutionRundown" value="SystemTimeResolutionRundown"/>
+    <string id="task_SystemTimeResolutionRequestRundown" value="SystemTimeResolutionRequestRundown"/>
+    <string id="task_SystemTimeResolutionKernelChange" value="SystemTimeResolutionKernelChange"/>
+    <string id="task_PowerRequestRundown" value="PowerRequestRundown"/>
+    <string id="task_FlushAllPages" value="FlushAllPages"/>
+    <string id="opcode_FlushAllPagesPhaseStart" value="PhaseStart"/>
+    <string id="opcode_FlushAllPagesPhaseStop" value="PhaseStop"/>
+    <string id="task_BuildNotifyList" value="BuildNotifyList"/>
+    <string id="opcode_BuildNotifyListPhaseStart" value="PhaseStart"/>
+    <string id="opcode_BuildNotifyListPhaseStop" value="PhaseStop"/>
+    <string id="task_SleepDisableReasonRundown" value="SleepDisableReasonRundown"/>
+    <string id="task_AcDcStateChange" value="AcDcStateChange"/>
+    <string id="task_AcDcStateRundown" value="AcDcStateRundown"/>
+    <string id="task_PostSleepNotification" value="PostSleepNotification"/>
+    <string id="task_ShutdownAction" value="ShutdownAction"/>
+    <string id="task_SystemTimerResolutionStackRundown" value="SystemTimerResolutionStackRundown"/>
+    <string id="map_Pop:MapPowerActionPower Action Shutdown" value="Power Action Shutdown"/>
+    <string id="map_Pop:MapPowerActionPower Action Shutdown Reset" value="Power Action Shutdown Reset"/>
+    <string id="map_Pop:MapPowerActionPower Action Shutdown Off" value="Power Action Shutdown Off"/>
+    <string id="map_Pop:MapSleepReasonButton or Lid" value="Button or Lid"/>
+    <string id="map_Pop:MapSleepReasonBattery" value="Battery"/>
+    <string id="map_Pop:MapSleepReasonApplication API" value="Application API"/>
+    <string id="map_Pop:MapSleepReasonKernel API" value="Kernel API"/>
+    <string id="map_Pop:MapSleepReasonHibernate from Sleep" value="Hibernate from Sleep"/>
+    <string id="map_Pop:MapSleepReasonSystem Idle" value="System Idle"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

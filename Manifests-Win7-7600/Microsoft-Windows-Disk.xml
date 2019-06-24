@@ -1,0 +1,44 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Disk" guid="{6b4db0bc-9a3d-467d-81b9-a84c6f2f3d40}" resourceFileName="Microsoft-Windows-Disk" messageFileName="Microsoft-Windows-Disk" symbol="MicrosoftWindowsDisk" source="Xml" >
+    <keywords>
+     <keyword name="DiskCache" message="$(string.keyword_DiskCache)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="DiskCacheInformation" message="$(string.task_DiskCacheInformation)" value="1">
+>
+      <opcodes>
+       <opcode name="OpCodeDiskCacheInfo" message="$(string.opcode_DiskCacheInformationOpCodeDiskCacheInfo)" value="11"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="1" symbol="DiskCacheInformationOpCodeDiskCacheInfo_V1" version="1" task="DiskCacheInformation" opcode="OpCodeDiskCacheInfo" level="win:Informational" keywords="DiskCache" template="DiskCacheInformationOpCodeDiskCacheInfoArgs_V1"/>
+    </events>
+    <templates>
+     <template tid="DiskCacheInformationOpCodeDiskCacheInfoArgs_V1">
+      <data name="ReadCacheEnabled" inType="win:UInt8"/>
+      <data name="WriteCacheEnabled" inType="win:UInt8"/>
+      <data name="ReadRetentionPriority" inType="win:UInt8"/>
+      <data name="WriteRetentionPriority" inType="win:UInt8"/>
+      <data name="PrefetchScalar" inType="win:UInt8"/>
+      <data name="DisablePrefetchTransferLength" inType="win:UInt16"/>
+      <data name="Minimum" inType="win:UInt16"/>
+      <data name="Maximum" inType="win:UInt16"/>
+      <data name="MaximumBlocks" inType="win:UInt16"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_DiskCache" value="DiskCache"/>
+    <string id="task_DiskCacheInformation" value="DiskCacheInformation"/>
+    <string id="opcode_DiskCacheInformationOpCodeDiskCacheInfo" value="OpCodeDiskCacheInfo"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,58 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-NDF-HelperClassDiscovery" guid="{fc3bc8a7-2f61-449c-a8b4-22ac22058f92}" resourceFileName="Microsoft-Windows-NDF-HelperClassDiscovery" messageFileName="Microsoft-Windows-NDF-HelperClassDiscovery" symbol="MicrosoftWindowsNDFHelperClassDiscovery" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="LoadHelperClass" message="$(string.task_LoadHelperClass)" value="1"/>
+     <task name="Registry" message="$(string.task_Registry)" value="2"/>
+    </tasks>
+    <events>
+     <event value="1001" symbol="LoadHelperClass" version="0" task="LoadHelperClass" level="win:Error" template="LoadHelperClassArgs"/>
+     <event value="1002" symbol="LoadHelperClass1002" version="0" task="LoadHelperClass" level="win:Error" template="LoadHelperClassArgs"/>
+     <event value="1003" symbol="LoadHelperClass1003" version="0" task="LoadHelperClass" level="win:Error" template="LoadHelperClass1003Args"/>
+     <event value="1004" symbol="LoadHelperClass1004" version="0" task="LoadHelperClass" level="win:Error" template="LoadHelperClass1003Args"/>
+     <event value="1005" symbol="LoadHelperClass1005" version="0" task="LoadHelperClass" level="win:Error" template="LoadHelperClass1003Args"/>
+     <event value="1006" symbol="LoadHelperClass1006" version="0" task="LoadHelperClass" level="win:Warning" template="LoadHelperClass1003Args"/>
+     <event value="1007" symbol="LoadHelperClass1007" version="0" task="LoadHelperClass" level="win:Warning" template="LoadHelperClass1003Args"/>
+     <event value="1008" symbol="LoadHelperClass1008" version="0" task="LoadHelperClass" level="win:Warning" template="LoadHelperClassArgs"/>
+     <event value="1009" symbol="LoadHelperClass1009" version="0" task="LoadHelperClass" level="win:Error" template="LoadHelperClass1009Args"/>
+     <event value="1010" symbol="LoadHelperClass1010" version="0" task="LoadHelperClass" level="win:Error" template="LoadHelperClass1009Args"/>
+     <event value="1011" symbol="LoadHelperClass1011" version="0" task="LoadHelperClass" level="win:Error" template="LoadHelperClass1009Args"/>
+     <event value="1012" symbol="LoadHelperClass1012" version="0" task="LoadHelperClass" level="win:Error" template="LoadHelperClass1009Args"/>
+     <event value="1100" symbol="Registry" version="0" task="Registry" level="win:Error" template="RegistryArgs"/>
+     <event value="1101" symbol="Registry1101" version="0" task="Registry" level="win:Warning" template="RegistryArgs"/>
+    </events>
+    <templates>
+     <template tid="LoadHelperClassArgs">
+      <data name="HelperClassName" inType="win:UnicodeString"/>
+      <data name="ComponentName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="LoadHelperClass1003Args">
+      <data name="HelperClassName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="LoadHelperClass1009Args">
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Name" inType="win:UnicodeString"/>
+     </template>
+     <template tid="RegistryArgs">
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Name" inType="win:UnicodeString"/>
+      <data name="KeyOrValue" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_LoadHelperClass" value="LoadHelperClass"/>
+    <string id="task_Registry" value="Registry"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

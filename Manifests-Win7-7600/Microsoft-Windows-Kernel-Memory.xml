@@ -1,0 +1,37 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Kernel-Memory" guid="{d1d93ef7-e1f2-4f45-9943-03d245fe6c00}" resourceFileName="Microsoft-Windows-Kernel-Memory" messageFileName="Microsoft-Windows-Kernel-Memory" symbol="MicrosoftWindowsKernelMemory" source="Xml" >
+    <keywords>
+     <keyword name="KERNEL_MEM_KEYWORD_MEMINFO" message="$(string.keyword_KERNEL_MEM_KEYWORD_MEMINFO)" mask="0x20"/>
+    </keywords>
+    <tasks>
+     <task name="MemInfo" message="$(string.task_MemInfo)" value="1"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="MemInfo" version="0" task="MemInfo" level="win:Informational" keywords="KERNEL_MEM_KEYWORD_MEMINFO" template="MemInfoArgs"/>
+    </events>
+    <templates>
+     <template tid="MemInfoArgs">
+      <data name="PriorityLevels" inType="win:UInt8"/>
+      <data name="ZeroPageCount" inType="win:Pointer"/>
+      <data name="FreePageCount" inType="win:Pointer"/>
+      <data name="ModifiedPageCount" inType="win:Pointer"/>
+      <data name="ModifiedNoWritePageCount" inType="win:Pointer"/>
+      <data name="BadPageCount" inType="win:Pointer"/>
+      <data name="StandbyPageCounts" inType="win:Pointer" count="PriorityLevels"/>
+      <data name="RepurposedPageCounts" inType="win:Pointer" count="PriorityLevels"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_KERNEL_MEM_KEYWORD_MEMINFO" value="KERNEL_MEM_KEYWORD_MEMINFO"/>
+    <string id="task_MemInfo" value="MemInfo"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,377 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-PowerShell" guid="{a0c1853b-5c40-4b15-8766-3cf1c58f985a}" resourceFileName="Microsoft-Windows-PowerShell" messageFileName="Microsoft-Windows-PowerShell" symbol="MicrosoftWindowsPowerShell" source="Xml" >
+    <keywords>
+     <keyword name="Runspace" message="$(string.keyword_Runspace)" mask="0x1"/>
+     <keyword name="Pipeline" message="$(string.keyword_Pipeline)" mask="0x2"/>
+     <keyword name="Protocol" message="$(string.keyword_Protocol)" mask="0x4"/>
+     <keyword name="Transport" message="$(string.keyword_Transport)" mask="0x8"/>
+     <keyword name="Host" message="$(string.keyword_Host)" mask="0x10"/>
+     <keyword name="Cmdlets" message="$(string.keyword_Cmdlets)" mask="0x20"/>
+     <keyword name="Serializer" message="$(string.keyword_Serializer)" mask="0x40"/>
+     <keyword name="Session" message="$(string.keyword_Session)" mask="0x80"/>
+     <keyword name="Plugin" message="$(string.keyword_Plugin)" mask="0x100"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0">
+>
+      <opcodes>
+       <opcode name="Open(async)" message="$(string.opcode_task_0Open(async))" value="10"/>
+       <opcode name="connect" message="$(string.opcode_task_0connect)" value="12"/>
+       <opcode name="Disconnect" message="$(string.opcode_task_0Disconnect)" value="13"/>
+       <opcode name="Send(Async)" message="$(string.opcode_task_0Send(Async))" value="21"/>
+       <opcode name="Receive(Async)" message="$(string.opcode_task_0Receive(Async))" value="22"/>
+      </opcodes>
+     </task>
+     <task name="Connect" message="$(string.task_Connect)" value="1">
+>
+      <opcodes>
+       <opcode name="Open(async)" message="$(string.opcode_ConnectOpen(async))" value="10"/>
+       <opcode name="tobeusedwhenanobjectisconstructed" message="$(string.opcode_Connecttobeusedwhenanobjectisconstructed)" value="16"/>
+       <opcode name="Tobeusedwhenoperationisjustexecutingamethod" message="$(string.opcode_ConnectTobeusedwhenoperationisjustexecutingamethod)" value="20"/>
+      </opcodes>
+     </task>
+     <task name="Serializeordeserializeremotingpayload" message="$(string.task_Serializeordeserializeremotingpayload)" value="3">
+>
+      <opcodes>
+       <opcode name="Tobeusedwhenanexceptionisraised" message="$(string.opcode_SerializeordeserializeremotingpayloadTobeusedwhenanexceptionisraised)" value="19"/>
+       <opcode name="Rehydration" message="$(string.opcode_SerializeordeserializeremotingpayloadRehydration)" value="23"/>
+       <opcode name="Serializationsettings" message="$(string.opcode_SerializeordeserializeremotingpayloadSerializationsettings)" value="24"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <maps>
+     <bitMap name="WSManAuthenticationMechanism">
+      <map value="0x1" message="$(string.map_WSManAuthenticationMechanismWSMAN_FLAG_NO_AUTHENTICATION)"/>
+      <map value="0x2" message="$(string.map_WSManAuthenticationMechanismWSMAN_FLAG_AUTH_DIGEST)"/>
+      <map value="0x4" message="$(string.map_WSManAuthenticationMechanismWSMAN_FLAG_AUTH_NEGOTIATE)"/>
+      <map value="0x8" message="$(string.map_WSManAuthenticationMechanismWSMAN_FLAG_AUTH_BASIC)"/>
+      <map value="0x10" message="$(string.map_WSManAuthenticationMechanismWSMAN_FLAG_AUTH_KERBEROS)"/>
+      <map value="0x20" message="$(string.map_WSManAuthenticationMechanismWSMAN_FLAG_AUTH_CLIENT_CERTIFICATE)"/>
+      <map value="0x80" message="$(string.map_WSManAuthenticationMechanismWSMAN_FLAG_AUTH_CREDSSP)"/>
+     </bitMap>
+     <valueMap name="SerializationMethod">
+      <map value="0x0" message="$(string.map_SerializationMethodAllPublicProperties)"/>
+      <map value="0x1" message="$(string.map_SerializationMethodString)"/>
+      <map value="0x2" message="$(string.map_SerializationMethodSpecificProperties)"/>
+     </valueMap>
+     <bitMap name="RemotingDestination">
+      <map value="0x1" message="$(string.map_RemotingDestinationClient)"/>
+      <map value="0x2" message="$(string.map_RemotingDestinationServer)"/>
+      <map value="0x4" message="$(string.map_RemotingDestinationListener)"/>
+     </bitMap>
+     <valueMap name="RemotingDataType">
+      <map value="0x0" message="$(string.map_RemotingDataTypeInvalidDataType)"/>
+      <map value="0x1" message="$(string.map_RemotingDataTypeExceptionAsErrorRecord)"/>
+      <map value="0x10000" message="$(string.map_RemotingDataTypeSessionConfiguration)"/>
+      <map value="0x10001" message="$(string.map_RemotingDataTypeSessionConfigurationRequest)"/>
+      <map value="0x10002" message="$(string.map_RemotingDataTypeSessionCapability)"/>
+      <map value="0x10003" message="$(string.map_RemotingDataTypeCloseSession)"/>
+      <map value="0x10004" message="$(string.map_RemotingDataTypeCreateRunspacePool)"/>
+      <map value="0x21002" message="$(string.map_RemotingDataTypeSetMaxRunspaces)"/>
+      <map value="0x21003" message="$(string.map_RemotingDataTypeSetMinRunspaces)"/>
+      <map value="0x21004" message="$(string.map_RemotingDataTypeRunspacePoolOperationResponse)"/>
+      <map value="0x21005" message="$(string.map_RemotingDataTypeRunspacePoolStateInfo)"/>
+      <map value="0x21006" message="$(string.map_RemotingDataTypeCreatePowerShell)"/>
+      <map value="0x21007" message="$(string.map_RemotingDataTypeAvailableRunspaces)"/>
+      <map value="0x21008" message="$(string.map_RemotingDataTypePSEventArgs)"/>
+      <map value="0x21100" message="$(string.map_RemotingDataTypeRemoteHostCallUsingRunspaceHost)"/>
+      <map value="0x21101" message="$(string.map_RemotingDataTypeRemoteRunspaceHostResponseData)"/>
+      <map value="0x41002" message="$(string.map_RemotingDataTypePowerShellInput)"/>
+      <map value="0x41003" message="$(string.map_RemotingDataTypePowerShellInputEnd)"/>
+      <map value="0x41004" message="$(string.map_RemotingDataTypePowerShellOutput)"/>
+      <map value="0x41005" message="$(string.map_RemotingDataTypePowerShellErrorRecord)"/>
+      <map value="0x41006" message="$(string.map_RemotingDataTypePowerShellStateInfo)"/>
+      <map value="0x41007" message="$(string.map_RemotingDataTypePowerShellDebug)"/>
+      <map value="0x41008" message="$(string.map_RemotingDataTypePowerShellVerbose)"/>
+      <map value="0x41009" message="$(string.map_RemotingDataTypePowerShellWarning)"/>
+      <map value="0x41010" message="$(string.map_RemotingDataTypePowerShellProgress)"/>
+      <map value="0x41012" message="$(string.map_RemotingDataTypeStopPowerShell)"/>
+      <map value="0x41100" message="$(string.map_RemotingDataTypeRemoteHostCallUsingPowerShellHost)"/>
+      <map value="0x41101" message="$(string.map_RemotingDataTypeRemotePowerShellHostResponseData)"/>
+     </valueMap>
+     <valueMap name="RemotingTargetInterface">
+      <map value="0x0" message="$(string.map_RemotingTargetInterfaceInvalidTargetInterface)"/>
+      <map value="0x1" message="$(string.map_RemotingTargetInterfaceSession)"/>
+      <map value="0x2" message="$(string.map_RemotingTargetInterfaceRunspacePool)"/>
+      <map value="0x3" message="$(string.map_RemotingTargetInterfacePowerShell)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="4097" symbol="ConnectTobeusedwhenoperationisjustexecutingamethod_V1" version="1" task="Connect" opcode="Tobeusedwhenoperationisjustexecutingamethod" level="win:Verbose" keywords="Cmdlets"/>
+     <event value="4098" symbol="ConnectTobeusedwhenoperationisjustexecutingamethod4098_V1" version="1" task="Connect" opcode="Tobeusedwhenoperationisjustexecutingamethod" level="win:Verbose" keywords="Cmdlets"/>
+     <event value="4099" symbol="ConnectTobeusedwhenoperationisjustexecutingamethod4099_V1" version="1" task="Connect" opcode="Tobeusedwhenoperationisjustexecutingamethod" level="win:Verbose" keywords="Cmdlets"/>
+     <event value="8193" symbol="ConnectOBEUSEDWHENANOBJECTISCONSTRUCTEDobeusedwhenanobjectisconstructed_V1" version="1" task="Connect" opcode="tobeusedwhenanobjectisconstructed" level="win:Verbose" keywords="Runspace" template="ConnectOBEUSEDWHENANOBJECTISCONSTRUCTEDobeusedwhenanobjectisconstructedArgs_V1"/>
+     <event value="8194" symbol="ConnectOBEUSEDWHENANOBJECTISCONSTRUCTEDobeusedwhenanobjectisconstructed8194_V1" version="1" task="Connect" opcode="tobeusedwhenanobjectisconstructed" level="win:Verbose" keywords="Runspace" template="ConnectOBEUSEDWHENANOBJECTISCONSTRUCTEDobeusedwhenanobjectisconstructed8194Args_V1"/>
+     <event value="8195" symbol="ConnectOpen(async)_V1" version="1" task="Connect" opcode="Open(async)" level="win:Verbose" keywords="Runspace"/>
+     <event value="8196" symbol="ConnectOpen(async)8196_V1" version="1" task="Connect" opcode="Open(async)" level="win:Verbose" keywords="Runspace"/>
+     <event value="12033" symbol="ConnectTobeusedwhenoperationisjustexecutingamethod12033_V1" version="1" task="Connect" opcode="Tobeusedwhenoperationisjustexecutingamethod" level="win:Verbose" keywords="Runspace" template="ConnectOBEUSEDWHENANOBJECTISCONSTRUCTEDobeusedwhenanobjectisconstructedArgs_V1"/>
+     <event value="12034" symbol="ConnectTobeusedwhenoperationisjustexecutingamethod12034_V1" version="1" task="Connect" opcode="Tobeusedwhenoperationisjustexecutingamethod" level="win:Verbose" keywords="Runspace" template="ConnectOBEUSEDWHENANOBJECTISCONSTRUCTEDobeusedwhenanobjectisconstructedArgs_V1"/>
+     <event value="12035" symbol="ConnectTobeusedwhenoperationisjustexecutingamethod12035_V1" version="1" task="Connect" opcode="Tobeusedwhenoperationisjustexecutingamethod" level="win:Verbose" keywords="Runspace" template="ConnectOBEUSEDWHENANOBJECTISCONSTRUCTEDobeusedwhenanobjectisconstructedArgs_V1"/>
+     <event value="12036" symbol="ConnectTobeusedwhenoperationisjustexecutingamethod12036_V1" version="1" task="Connect" opcode="Tobeusedwhenoperationisjustexecutingamethod" level="win:Verbose" keywords="Runspace" template="ConnectOBEUSEDWHENANOBJECTISCONSTRUCTEDobeusedwhenanobjectisconstructedArgs_V1"/>
+     <event value="12037" symbol="ConnectTobeusedwhenoperationisjustexecutingamethod12037_V1" version="1" task="Connect" opcode="Tobeusedwhenoperationisjustexecutingamethod" level="win:Informational" keywords="Runspace"/>
+     <event value="12038" symbol="ConnectTobeusedwhenoperationisjustexecutingamethod12038_V1" version="1" task="Connect" opcode="Tobeusedwhenoperationisjustexecutingamethod" level="win:Informational" keywords="Runspace" template="ConnectTobeusedwhenoperationisjustexecutingamethod12038Args_V1"/>
+     <event value="12039" symbol="ConnectOpen(async)12039_V1" version="1" task="Connect" opcode="Open(async)" level="win:Verbose" keywords="Runspace"/>
+     <event value="28673" symbol="SerializeordeserializeremotingpayloadRehydration_V1" version="1" task="Serializeordeserializeremotingpayload" opcode="Rehydration" level="win:Verbose" keywords="Serializer" template="SerializeordeserializeremotingpayloadRehydrationArgs_V1"/>
+     <event value="28674" symbol="SerializeordeserializeremotingpayloadRehydration28674_V1" version="1" task="Serializeordeserializeremotingpayload" opcode="Rehydration" level="win:Error" keywords="Serializer" template="SerializeordeserializeremotingpayloadRehydration28674Args_V1"/>
+     <event value="28675" symbol="SerializeordeserializeremotingpayloadSerializationsettings_V1" version="1" task="Serializeordeserializeremotingpayload" opcode="Serializationsettings" level="win:Verbose" keywords="Serializer" template="SerializeordeserializeremotingpayloadSerializationsettingsArgs_V1"/>
+     <event value="28676" symbol="SerializeordeserializeremotingpayloadSerializationsettings28676_V1" version="1" task="Serializeordeserializeremotingpayload" opcode="Serializationsettings" level="win:Verbose" keywords="Serializer" template="SerializeordeserializeremotingpayloadSerializationsettings28676Args_V1"/>
+     <event value="28677" symbol="SerializeordeserializeremotingpayloadTobeusedwhenanexceptionisraised_V1" version="1" task="Serializeordeserializeremotingpayload" opcode="Tobeusedwhenanexceptionisraised" level="win:Warning" keywords="Serializer" template="SerializeordeserializeremotingpayloadTobeusedwhenanexceptionisraisedArgs_V1"/>
+     <event value="28678" symbol="SerializeordeserializeremotingpayloadTobeusedwhenanexceptionisraised28678_V1" version="1" task="Serializeordeserializeremotingpayload" opcode="Tobeusedwhenanexceptionisraised" level="win:Warning" keywords="Serializer" template="SerializeordeserializeremotingpayloadTobeusedwhenanexceptionisraised28678Args_V1"/>
+     <event value="28679" symbol="SerializeordeserializeremotingpayloadTobeusedwhenanexceptionisraised28679_V1" version="1" task="Serializeordeserializeremotingpayload" opcode="Tobeusedwhenanexceptionisraised" level="win:Warning" keywords="Serializer" template="SerializeordeserializeremotingpayloadTobeusedwhenanexceptionisraised28679Args_V1"/>
+     <event value="28680" symbol="SerializeordeserializeremotingpayloadTobeusedwhenanexceptionisraised28680_V1" version="1" task="Serializeordeserializeremotingpayload" opcode="Tobeusedwhenanexceptionisraised" level="win:Warning" keywords="Serializer" template="SerializeordeserializeremotingpayloadTobeusedwhenanexceptionisraised28680Args_V1"/>
+     <event value="28682" symbol="SerializeordeserializeremotingpayloadTobeusedwhenanexceptionisraised28682_V1" version="1" task="Serializeordeserializeremotingpayload" opcode="Tobeusedwhenanexceptionisraised" level="win:Error" keywords="Serializer" template="SerializeordeserializeremotingpayloadTobeusedwhenanexceptionisraised28682Args_V1"/>
+     <event value="28683" symbol="SerializeordeserializeremotingpayloadTobeusedwhenanexceptionisraised28683_V1" version="1" task="Serializeordeserializeremotingpayload" opcode="Tobeusedwhenanexceptionisraised" level="win:Error" keywords="Serializer" template="SerializeordeserializeremotingpayloadTobeusedwhenanexceptionisraised28683Args_V1"/>
+     <event value="28684" symbol="SerializeordeserializeremotingpayloadTobeusedwhenanexceptionisraised28684_V1" version="1" task="Serializeordeserializeremotingpayload" opcode="Tobeusedwhenanexceptionisraised" level="win:Warning" keywords="Serializer" template="SerializeordeserializeremotingpayloadTobeusedwhenanexceptionisraised28684Args_V1"/>
+     <event value="32769" symbol="task_0Receive(Async)_V1" version="1" task="task_0" opcode="Receive(Async)" level="win:Informational" keywords="Transport" template="task_0Receive(Async)Args_V1"/>
+     <event value="32775" symbol="task_0Open(async)_V1" version="1" task="task_0" opcode="Open(async)" level="win:Error" keywords="Transport" template="task_0Open(async)Args_V1"/>
+     <event value="32776" symbol="task_0Open(async)32776_V1" version="1" task="task_0" opcode="Open(async)" level="win:Error" keywords="Transport" template="task_0Open(async)32776Args_V1"/>
+     <event value="32777" symbol="task_0Open(async)32777_V1" version="1" task="task_0" opcode="Open(async)" level="win:Error" keywords="Transport" template="task_0Open(async)Args_V1"/>
+     <event value="32784" symbol="task_0Open(async)32784_V1" version="1" task="task_0" opcode="Open(async)" level="win:Error" keywords="Transport" template="task_0Open(async)32776Args_V1"/>
+     <event value="32785" symbol="task_0ONNECTonnect_V1" version="1" task="task_0" opcode="connect" level="win:Informational" keywords="Transport" template="ConnectOBEUSEDWHENANOBJECTISCONSTRUCTEDobeusedwhenanobjectisconstructedArgs_V1"/>
+     <event value="32786" symbol="task_0ONNECTonnect32786_V1" version="1" task="task_0" opcode="connect" level="win:Informational" keywords="Transport" template="ConnectOBEUSEDWHENANOBJECTISCONSTRUCTEDobeusedwhenanobjectisconstructedArgs_V1"/>
+     <event value="32787" symbol="task_0Disconnect_V1" version="1" task="task_0" opcode="Disconnect" level="win:Informational" keywords="Transport" template="ConnectOBEUSEDWHENANOBJECTISCONSTRUCTEDobeusedwhenanobjectisconstructedArgs_V1"/>
+     <event value="32788" symbol="task_0Disconnect32788_V1" version="1" task="task_0" opcode="Disconnect" level="win:Informational" keywords="Transport" template="ConnectOBEUSEDWHENANOBJECTISCONSTRUCTEDobeusedwhenanobjectisconstructedArgs_V1"/>
+     <event value="32789" symbol="task_0Send(Async)_V1" version="1" task="task_0" opcode="Send(Async)" level="win:Informational" keywords="Transport" template="task_0Send(Async)Args_V1"/>
+     <event value="32790" symbol="task_0Send(Async)32790_V1" version="1" task="task_0" opcode="Send(Async)" level="win:Informational" keywords="Transport" template="task_0Send(Async)32790Args_V1"/>
+     <event value="32791" symbol="task_0Receive(Async)32791_V1" version="1" task="task_0" opcode="Receive(Async)" level="win:Informational" keywords="Transport" template="task_0Send(Async)32790Args_V1"/>
+     <event value="32792" symbol="task_0Receive(Async)32792_V1" version="1" task="task_0" opcode="Receive(Async)" level="win:Informational" keywords="Transport" template="task_0Send(Async)Args_V1"/>
+     <event value="32793" symbol="task_0ONNECTonnect32793_V1" version="1" task="task_0" opcode="connect" level="win:Informational" keywords="Transport" template="task_0Send(Async)32790Args_V1"/>
+     <event value="32800" symbol="task_0ONNECTonnect32800_V1" version="1" task="task_0" opcode="connect" level="win:Informational" keywords="Transport" template="task_0Send(Async)32790Args_V1"/>
+     <event value="32801" symbol="task_0Disconnect32801_V1" version="1" task="task_0" opcode="Disconnect" level="win:Informational" keywords="Transport" template="task_0Send(Async)32790Args_V1"/>
+     <event value="32802" symbol="task_0Disconnect32802_V1" version="1" task="task_0" opcode="Disconnect" level="win:Informational" keywords="Transport" template="task_0Send(Async)32790Args_V1"/>
+     <event value="32803" symbol="task_0Disconnect32803_V1" version="1" task="task_0" opcode="Disconnect" level="win:Informational" keywords="Transport" template="task_0Disconnect32803Args_V1"/>
+     <event value="32804" symbol="task_0Disconnect32804_V1" version="1" task="task_0" opcode="Disconnect" level="win:Informational" keywords="Transport" template="task_0Send(Async)32790Args_V1"/>
+     <event value="32805" symbol="task_0ONNECTonnect32805_V1" version="1" task="task_0" opcode="connect" level="win:Informational" keywords="Transport" template="task_0ONNECTonnect32805Args_V1"/>
+     <event value="32849" symbol="task_0Send(Async)32849_V1" version="1" task="task_0" opcode="Send(Async)" level="win:Informational" keywords="Transport" template="task_0Send(Async)32849Args_V1"/>
+     <event value="32850" symbol="task_0ONNECTonnect32850_V1" version="1" task="task_0" opcode="connect" level="win:Informational" keywords="Transport" template="task_0Open(async)Args_V1"/>
+     <event value="32851" symbol="task_0ONNECTonnect32851_V1" version="1" task="task_0" opcode="connect" level="win:Informational" keywords="Transport" template="task_0ONNECTonnect32851Args_V1"/>
+     <event value="32852" symbol="task_0ONNECTonnect32852_V1" version="1" task="task_0" opcode="connect" level="win:Informational" keywords="Transport" template="task_0ONNECTonnect32852Args_V1"/>
+     <event value="32853" symbol="task_0ONNECTonnect32853_V1" version="1" task="task_0" opcode="connect" level="win:Informational" keywords="Transport" template="task_0ONNECTonnect32851Args_V1"/>
+     <event value="32854" symbol="task_0Disconnect32854_V1" version="1" task="task_0" opcode="Disconnect" level="win:Informational" keywords="Transport" template="task_0Open(async)Args_V1"/>
+     <event value="32855" symbol="task_0Open(async)32855_V1" version="1" task="task_0" opcode="Open(async)" level="win:Informational" keywords="Transport" template="task_0Open(async)Args_V1"/>
+     <event value="32856" symbol="task_0Open(async)32856_V1" version="1" task="task_0" opcode="Open(async)" level="win:Informational" keywords="Transport" template="task_0Open(async)Args_V1"/>
+     <event value="32857" symbol="task_0Disconnect32857_V1" version="1" task="task_0" opcode="Disconnect" level="win:Informational" keywords="Transport" template="task_0Open(async)Args_V1"/>
+     <event value="32865" symbol="task_0ONNECTonnect32865_V1" version="1" task="task_0" opcode="connect" level="win:Informational" keywords="Transport" template="task_0ONNECTonnect32851Args_V1"/>
+     <event value="32866" symbol="task_0ONNECTonnect32866_V1" version="1" task="task_0" opcode="connect" level="win:Informational" keywords="Transport" template="task_0ONNECTonnect32851Args_V1"/>
+     <event value="32867" symbol="task_0Receive(Async)32867_V1" version="1" task="task_0" opcode="Receive(Async)" level="win:Verbose" keywords="Transport" template="task_0Receive(Async)32867Args_V1"/>
+     <event value="32868" symbol="task_0Send(Async)32868_V1" version="1" task="task_0" opcode="Send(Async)" level="win:Verbose" keywords="Transport" template="task_0Receive(Async)32867Args_V1"/>
+    </events>
+    <templates>
+     <template tid="ConnectOBEUSEDWHENANOBJECTISCONSTRUCTEDobeusedwhenanobjectisconstructedArgs_V1">
+      <data name="param1" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ConnectOBEUSEDWHENANOBJECTISCONSTRUCTEDobeusedwhenanobjectisconstructed8194Args_V1">
+      <data name="InstanceId" inType="win:UnicodeString"/>
+      <data name="MaxRunspaces" inType="win:UnicodeString"/>
+      <data name="MinRunspaces" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ConnectTobeusedwhenoperationisjustexecutingamethod12038Args_V1">
+      <data name="uri" inType="win:UnicodeString"/>
+      <data name="shell" inType="win:UnicodeString"/>
+      <data name="userName" inType="win:UnicodeString"/>
+      <data name="opentimeout" inType="win:UnicodeString"/>
+      <data name="idletimeout" inType="win:UnicodeString"/>
+      <data name="canceltimeout" inType="win:UnicodeString"/>
+      <data name="auth" inType="win:UInt32" map="WSManAuthenticationMechanism"/>
+      <data name="thumbPrint" inType="win:UnicodeString"/>
+      <data name="redircount" inType="win:UnicodeString"/>
+      <data name="recvdDataSize" inType="win:UnicodeString"/>
+      <data name="recvdObjSize" inType="win:UnicodeString"/>
+     </template>
+     <template tid="SerializeordeserializeremotingpayloadRehydrationArgs_V1">
+      <data name="DeserializedType" inType="win:UnicodeString"/>
+      <data name="CastedToType" inType="win:UnicodeString"/>
+      <data name="RehydratedType" inType="win:UnicodeString"/>
+     </template>
+     <template tid="SerializeordeserializeremotingpayloadRehydration28674Args_V1">
+      <data name="DeserializedType" inType="win:UnicodeString"/>
+      <data name="CastedToType" inType="win:UnicodeString"/>
+      <data name="TypeCastException" inType="win:UnicodeString"/>
+      <data name="TypeCastInnerException" inType="win:UnicodeString"/>
+     </template>
+     <template tid="SerializeordeserializeremotingpayloadSerializationsettingsArgs_V1">
+      <data name="SerializedType" inType="win:UnicodeString"/>
+      <data name="OriginalDepth" inType="win:Int32"/>
+      <data name="OverridenDepth" inType="win:Int32"/>
+      <data name="CurrentDepthBelowTopLevel" inType="win:Int32"/>
+     </template>
+     <template tid="SerializeordeserializeremotingpayloadSerializationsettings28676Args_V1">
+      <data name="SerializedType" inType="win:UnicodeString"/>
+      <data name="OverridenMode" inType="win:UInt32" map="SerializationMethod"/>
+     </template>
+     <template tid="SerializeordeserializeremotingpayloadTobeusedwhenanexceptionisraisedArgs_V1">
+      <data name="PropertyName" inType="win:UnicodeString"/>
+      <data name="PropertyOwnerType" inType="win:UnicodeString"/>
+      <data name="GetterScript" inType="win:UnicodeString"/>
+     </template>
+     <template tid="SerializeordeserializeremotingpayloadTobeusedwhenanexceptionisraised28678Args_V1">
+      <data name="PropertyName" inType="win:UnicodeString"/>
+      <data name="PropertyOwnerType" inType="win:UnicodeString"/>
+      <data name="Exception" inType="win:UnicodeString"/>
+      <data name="InnerException" inType="win:UnicodeString"/>
+     </template>
+     <template tid="SerializeordeserializeremotingpayloadTobeusedwhenanexceptionisraised28679Args_V1">
+      <data name="TypeBeingEnumerated" inType="win:UnicodeString"/>
+      <data name="Exception" inType="win:UnicodeString"/>
+     </template>
+     <template tid="SerializeordeserializeremotingpayloadTobeusedwhenanexceptionisraised28680Args_V1">
+      <data name="Type" inType="win:UnicodeString"/>
+      <data name="Exception" inType="win:UnicodeString"/>
+     </template>
+     <template tid="SerializeordeserializeremotingpayloadTobeusedwhenanexceptionisraised28682Args_V1">
+      <data name="TypeOfObjectAtMaxDepth" inType="win:UnicodeString"/>
+      <data name="PropertyNameAtMaxDepth" inType="win:UnicodeString"/>
+      <data name="Depth" inType="win:Int32"/>
+     </template>
+     <template tid="SerializeordeserializeremotingpayloadTobeusedwhenanexceptionisraised28683Args_V1">
+      <data name="LineNumber" inType="win:Int32"/>
+      <data name="LinePosition" inType="win:Int32"/>
+      <data name="Exception" inType="win:UnicodeString"/>
+     </template>
+     <template tid="SerializeordeserializeremotingpayloadTobeusedwhenanexceptionisraised28684Args_V1">
+      <data name="TypeOfObjectWithMissingProperty" inType="win:UnicodeString"/>
+      <data name="PropertyName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0Receive(Async)Args_V1">
+      <data name="Runspace_InstanceId" inType="win:UnicodeString"/>
+      <data name="PowerShell_InstanceId" inType="win:UnicodeString"/>
+      <data name="Destination" inType="win:UInt32" map="RemotingDestination"/>
+      <data name="DataType" inType="win:UInt32" map="RemotingDataType"/>
+      <data name="TargetInterface" inType="win:UInt32" map="RemotingTargetInterface"/>
+     </template>
+     <template tid="task_0Open(async)Args_V1">
+      <data name="param1" inType="win:UnicodeString"/>
+      <data name="param2" inType="win:UnicodeString"/>
+      <data name="param3" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0Open(async)32776Args_V1">
+      <data name="SessionId" inType="win:UnicodeString"/>
+      <data name="PipelineId" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:UnicodeString"/>
+      <data name="ErrorMessage" inType="win:UnicodeString"/>
+      <data name="StackTrace" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0Send(Async)Args_V1">
+      <data name="SessionId" inType="win:UnicodeString"/>
+      <data name="PipelineId" inType="win:UnicodeString"/>
+      <data name="DataSize" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0Send(Async)32790Args_V1">
+      <data name="SessionId" inType="win:UnicodeString"/>
+      <data name="PipelineId" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0Disconnect32803Args_V1">
+      <data name="SessionId" inType="win:UnicodeString"/>
+      <data name="PipelineId" inType="win:UnicodeString"/>
+      <data name="SignalCode" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0ONNECTonnect32805Args_V1">
+      <data name="SessionId" inType="win:UnicodeString"/>
+      <data name="Uri" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0Send(Async)32849Args_V1">
+      <data name="Runspace_InstanceId" inType="win:UnicodeString"/>
+      <data name="PowerShell_InstanceId" inType="win:UnicodeString"/>
+      <data name="DataSize" inType="win:UnicodeString"/>
+      <data name="DataType" inType="win:UInt32"/>
+      <data name="TargetInterface" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0ONNECTonnect32851Args_V1">
+      <data name="param1" inType="win:UnicodeString"/>
+      <data name="param2" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0ONNECTonnect32852Args_V1">
+      <data name="param1" inType="win:UnicodeString"/>
+      <data name="param2" inType="win:UnicodeString"/>
+      <data name="param3" inType="win:UnicodeString"/>
+      <data name="param4" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0Receive(Async)32867Args_V1">
+      <data name="ObjectId" inType="win:Int64"/>
+      <data name="FragmentId" inType="win:Int64"/>
+      <data name="sFlag" inType="win:Int32"/>
+      <data name="eFlag" inType="win:Int32"/>
+      <data name="FragmentLength" inType="win:UInt32"/>
+      <data name="FragmentPayload" inType="win:Binary" length="FragmentLength"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Runspace" value="Runspace"/>
+    <string id="keyword_Pipeline" value="Pipeline"/>
+    <string id="keyword_Protocol" value="Protocol"/>
+    <string id="keyword_Transport" value="Transport"/>
+    <string id="keyword_Host" value="Host"/>
+    <string id="keyword_Cmdlets" value="Cmdlets"/>
+    <string id="keyword_Serializer" value="Serializer"/>
+    <string id="keyword_Session" value="Session"/>
+    <string id="keyword_Plugin" value="Plugin"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="opcode_task_0Open(async)" value="Open(async)"/>
+    <string id="opcode_task_0connect" value="connect"/>
+    <string id="opcode_task_0Disconnect" value="Disconnect"/>
+    <string id="opcode_task_0Send(Async)" value="Send(Async)"/>
+    <string id="opcode_task_0Receive(Async)" value="Receive(Async)"/>
+    <string id="task_Connect" value="Connect"/>
+    <string id="opcode_ConnectOpen(async)" value="Open(async)"/>
+    <string id="opcode_Connecttobeusedwhenanobjectisconstructed" value="tobeusedwhenanobjectisconstructed"/>
+    <string id="opcode_ConnectTobeusedwhenoperationisjustexecutingamethod" value="Tobeusedwhenoperationisjustexecutingamethod"/>
+    <string id="task_Serializeordeserializeremotingpayload" value="Serializeordeserializeremotingpayload"/>
+    <string id="opcode_SerializeordeserializeremotingpayloadTobeusedwhenanexceptionisraised" value="Tobeusedwhenanexceptionisraised"/>
+    <string id="opcode_SerializeordeserializeremotingpayloadRehydration" value="Rehydration"/>
+    <string id="opcode_SerializeordeserializeremotingpayloadSerializationsettings" value="Serializationsettings"/>
+    <string id="map_WSManAuthenticationMechanismWSMAN_FLAG_NO_AUTHENTICATION" value="WSMAN_FLAG_NO_AUTHENTICATION"/>
+    <string id="map_WSManAuthenticationMechanismWSMAN_FLAG_AUTH_DIGEST" value="WSMAN_FLAG_AUTH_DIGEST"/>
+    <string id="map_WSManAuthenticationMechanismWSMAN_FLAG_AUTH_NEGOTIATE" value="WSMAN_FLAG_AUTH_NEGOTIATE"/>
+    <string id="map_WSManAuthenticationMechanismWSMAN_FLAG_AUTH_BASIC" value="WSMAN_FLAG_AUTH_BASIC"/>
+    <string id="map_WSManAuthenticationMechanismWSMAN_FLAG_AUTH_KERBEROS" value="WSMAN_FLAG_AUTH_KERBEROS"/>
+    <string id="map_WSManAuthenticationMechanismWSMAN_FLAG_AUTH_CLIENT_CERTIFICATE" value="WSMAN_FLAG_AUTH_CLIENT_CERTIFICATE"/>
+    <string id="map_WSManAuthenticationMechanismWSMAN_FLAG_AUTH_CREDSSP" value="WSMAN_FLAG_AUTH_CREDSSP"/>
+    <string id="map_SerializationMethodAllPublicProperties" value="AllPublicProperties"/>
+    <string id="map_SerializationMethodString" value="String"/>
+    <string id="map_SerializationMethodSpecificProperties" value="SpecificProperties"/>
+    <string id="map_RemotingDestinationClient" value="Client"/>
+    <string id="map_RemotingDestinationServer" value="Server"/>
+    <string id="map_RemotingDestinationListener" value="Listener"/>
+    <string id="map_RemotingDataTypeInvalidDataType" value="InvalidDataType"/>
+    <string id="map_RemotingDataTypeExceptionAsErrorRecord" value="ExceptionAsErrorRecord"/>
+    <string id="map_RemotingDataTypeSessionConfiguration" value="SessionConfiguration"/>
+    <string id="map_RemotingDataTypeSessionConfigurationRequest" value="SessionConfigurationRequest"/>
+    <string id="map_RemotingDataTypeSessionCapability" value="SessionCapability"/>
+    <string id="map_RemotingDataTypeCloseSession" value="CloseSession"/>
+    <string id="map_RemotingDataTypeCreateRunspacePool" value="CreateRunspacePool"/>
+    <string id="map_RemotingDataTypeSetMaxRunspaces" value="SetMaxRunspaces"/>
+    <string id="map_RemotingDataTypeSetMinRunspaces" value="SetMinRunspaces"/>
+    <string id="map_RemotingDataTypeRunspacePoolOperationResponse" value="RunspacePoolOperationResponse"/>
+    <string id="map_RemotingDataTypeRunspacePoolStateInfo" value="RunspacePoolStateInfo"/>
+    <string id="map_RemotingDataTypeCreatePowerShell" value="CreatePowerShell"/>
+    <string id="map_RemotingDataTypeAvailableRunspaces" value="AvailableRunspaces"/>
+    <string id="map_RemotingDataTypePSEventArgs" value="PSEventArgs"/>
+    <string id="map_RemotingDataTypeRemoteHostCallUsingRunspaceHost" value="RemoteHostCallUsingRunspaceHost"/>
+    <string id="map_RemotingDataTypeRemoteRunspaceHostResponseData" value="RemoteRunspaceHostResponseData"/>
+    <string id="map_RemotingDataTypePowerShellInput" value="PowerShellInput"/>
+    <string id="map_RemotingDataTypePowerShellInputEnd" value="PowerShellInputEnd"/>
+    <string id="map_RemotingDataTypePowerShellOutput" value="PowerShellOutput"/>
+    <string id="map_RemotingDataTypePowerShellErrorRecord" value="PowerShellErrorRecord"/>
+    <string id="map_RemotingDataTypePowerShellStateInfo" value="PowerShellStateInfo"/>
+    <string id="map_RemotingDataTypePowerShellDebug" value="PowerShellDebug"/>
+    <string id="map_RemotingDataTypePowerShellVerbose" value="PowerShellVerbose"/>
+    <string id="map_RemotingDataTypePowerShellWarning" value="PowerShellWarning"/>
+    <string id="map_RemotingDataTypePowerShellProgress" value="PowerShellProgress"/>
+    <string id="map_RemotingDataTypeStopPowerShell" value="StopPowerShell"/>
+    <string id="map_RemotingDataTypeRemoteHostCallUsingPowerShellHost" value="RemoteHostCallUsingPowerShellHost"/>
+    <string id="map_RemotingDataTypeRemotePowerShellHostResponseData" value="RemotePowerShellHostResponseData"/>
+    <string id="map_RemotingTargetInterfaceInvalidTargetInterface" value="InvalidTargetInterface"/>
+    <string id="map_RemotingTargetInterfaceSession" value="Session"/>
+    <string id="map_RemotingTargetInterfaceRunspacePool" value="RunspacePool"/>
+    <string id="map_RemotingTargetInterfacePowerShell" value="PowerShell"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

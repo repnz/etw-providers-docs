@@ -1,0 +1,129 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-TerminalServices-ClientActiveXCore" guid="{28aa95bb-d444-4719-a36f-40462168127e}" resourceFileName="Microsoft-Windows-TerminalServices-ClientActiveXCore" messageFileName="Microsoft-Windows-TerminalServices-ClientActiveXCore" symbol="MicrosoftWindowsTerminalServicesClientActiveXCore" source="Xml" >
+    <keywords>
+     <keyword name="AccessDenied" message="$(string.keyword_AccessDenied)" mask="0x100"/>
+     <keyword name="Disconnected" message="$(string.keyword_Disconnected)" mask="0x200"/>
+     <keyword name="AuthFailed" message="$(string.keyword_AuthFailed)" mask="0x400"/>
+     <keyword name="LicenseError" message="$(string.keyword_LicenseError)" mask="0x800"/>
+     <keyword name="TimedOut" message="$(string.keyword_TimedOut)" mask="0x1000"/>
+     <keyword name="InvalidState" message="$(string.keyword_InvalidState)" mask="0x2000"/>
+     <keyword name="GatewayConnectFailed" message="$(string.keyword_GatewayConnectFailed)" mask="0x4000"/>
+     <keyword name="NetworkUnAvailable" message="$(string.keyword_NetworkUnAvailable)" mask="0x8000"/>
+     <keyword name="DnsResolutionFailure" message="$(string.keyword_DnsResolutionFailure)" mask="0x10000"/>
+     <keyword name="SignVerifFailed" message="$(string.keyword_SignVerifFailed)" mask="0x20000"/>
+     <keyword name="ResourceFailure" message="$(string.keyword_ResourceFailure)" mask="0x40000"/>
+     <keyword name="LogonFailed" message="$(string.keyword_LogonFailed)" mask="0x80000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="General" message="$(string.task_General)" value="100"/>
+     <task name="ConnectionSequence" message="$(string.task_ConnectionSequence)" value="101">
+>
+      <opcodes>
+       <opcode name="Thiseventisraisedduringtheconnectionprocess" message="$(string.opcode_ConnectionSequenceThiseventisraisedduringtheconnectionprocess)" value="10"/>
+       <opcode name="Thiseventisraisedduringthedisconnectionprocess" message="$(string.opcode_ConnectionSequenceThiseventisraisedduringthedisconnectionprocess)" value="11"/>
+       <opcode name="Thiseventisraisedduringtheauthenticationprocess" message="$(string.opcode_ConnectionSequenceThiseventisraisedduringtheauthenticationprocess)" value="12"/>
+       <opcode name="Thiseventisraisedwhiletryingtoautomaticallyreconnecttotheserver" message="$(string.opcode_ConnectionSequenceThiseventisraisedwhiletryingtoautomaticallyreconnecttotheserver)" value="13"/>
+       <opcode name="Thiseventisraisedduringresolvingtheservername" message="$(string.opcode_ConnectionSequenceThiseventisraisedduringresolvingtheservername)" value="14"/>
+       <opcode name="Thiseventisraisedwhiletryingtogetavalidlicense" message="$(string.opcode_ConnectionSequenceThiseventisraisedwhiletryingtogetavalidlicense)" value="15"/>
+      </opcodes>
+     </task>
+     <task name="AutomaticReconnectionSequence" message="$(string.task_AutomaticReconnectionSequence)" value="102">
+>
+      <opcodes>
+       <opcode name="Thiseventisraisedwhiletryingtoautomaticallyreconnecttotheserver" message="$(string.opcode_AutomaticReconnectionSequenceThiseventisraisedwhiletryingtoautomaticallyreconnecttotheserver)" value="13"/>
+      </opcodes>
+     </task>
+     <task name="GatewayConnectionSequence" message="$(string.task_GatewayConnectionSequence)" value="103">
+>
+      <opcodes>
+       <opcode name="Thiseventisraisedinthegatewaytransport" message="$(string.opcode_GatewayConnectionSequenceThiseventisraisedinthegatewaytransport)" value="16"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="1000" symbol="task_0" version="0" task="task_0" level="win:Verbose" template="task_0Args"/>
+     <event value="1001" symbol="ConnectionSequenceThiseventisraisedduringtheconnectionprocess" version="0" task="ConnectionSequence" opcode="Thiseventisraisedduringtheconnectionprocess" level="win:Verbose" template="ConnectionSequenceThiseventisraisedduringtheconnectionprocessArgs"/>
+     <event value="1002" symbol="ConnectionSequenceThiseventisraisedduringtheconnectionprocess1002" version="0" task="ConnectionSequence" opcode="Thiseventisraisedduringtheconnectionprocess" level="win:Informational"/>
+     <event value="1003" symbol="ConnectionSequenceThiseventisraisedduringthedisconnectionprocess" version="0" task="ConnectionSequence" opcode="Thiseventisraisedduringthedisconnectionprocess" level="win:Informational" template="ConnectionSequenceThiseventisraisedduringtheconnectionprocessArgs"/>
+     <event value="1004" symbol="ConnectionSequenceThiseventisraisedduringtheconnectionprocess1004" version="0" task="ConnectionSequence" opcode="Thiseventisraisedduringtheconnectionprocess" level="win:Informational" template="ConnectionSequenceThiseventisraisedduringtheconnectionprocessArgs"/>
+     <event value="1005" symbol="ConnectionSequenceThiseventisraisedduringtheconnectionprocess1005" version="0" task="ConnectionSequence" opcode="Thiseventisraisedduringtheconnectionprocess" level="win:Error" template="ConnectionSequenceThiseventisraisedduringtheconnectionprocess1005Args"/>
+     <event value="1006" symbol="ConnectionSequenceThiseventisraisedwhiletryingtoautomaticallyreconnecttotheserver" version="0" task="ConnectionSequence" opcode="Thiseventisraisedwhiletryingtoautomaticallyreconnecttotheserver" level="win:Warning" template="ConnectionSequenceThiseventisraisedduringtheconnectionprocess1005Args"/>
+     <event value="1007" symbol="ConnectionSequenceThiseventisraisedduringresolvingtheservername" version="0" task="ConnectionSequence" opcode="Thiseventisraisedduringresolvingtheservername" level="win:Error" template="ConnectionSequenceThiseventisraisedduringtheconnectionprocess1005Args"/>
+     <event value="1008" symbol="ConnectionSequenceThiseventisraisedduringtheauthenticationprocess" version="0" task="ConnectionSequence" opcode="Thiseventisraisedduringtheauthenticationprocess" level="win:Verbose" template="ConnectionSequenceThiseventisraisedduringtheconnectionprocess1005Args"/>
+     <event value="1009" symbol="ConnectionSequenceThiseventisraisedduringtheauthenticationprocess1009" version="0" task="ConnectionSequence" opcode="Thiseventisraisedduringtheauthenticationprocess" level="win:Warning" template="ConnectionSequenceThiseventisraisedduringtheconnectionprocess1005Args"/>
+     <event value="1010" symbol="GatewayConnectionSequenceThiseventisraisedinthegatewaytransport" version="0" task="GatewayConnectionSequence" opcode="Thiseventisraisedinthegatewaytransport" level="win:Informational" template="ConnectionSequenceThiseventisraisedduringtheconnectionprocessArgs"/>
+     <event value="1011" symbol="GatewayConnectionSequenceThiseventisraisedinthegatewaytransport1011" version="0" task="GatewayConnectionSequence" opcode="Thiseventisraisedinthegatewaytransport" level="win:Informational"/>
+     <event value="1012" symbol="GatewayConnectionSequenceThiseventisraisedinthegatewaytransport1012" version="0" task="GatewayConnectionSequence" opcode="Thiseventisraisedinthegatewaytransport" level="win:Error" template="ConnectionSequenceThiseventisraisedduringtheconnectionprocess1005Args"/>
+     <event value="1013" symbol="AutomaticReconnectionSequenceThiseventisraisedwhiletryingtoautomaticallyreconnecttotheserver" version="0" task="AutomaticReconnectionSequence" opcode="Thiseventisraisedwhiletryingtoautomaticallyreconnecttotheserver" level="win:Informational" template="AutomaticReconnectionSequenceThiseventisraisedwhiletryingtoautomaticallyreconnecttotheserverArgs"/>
+     <event value="1014" symbol="AutomaticReconnectionSequenceThiseventisraisedwhiletryingtoautomaticallyreconnecttotheserver1014" version="0" task="AutomaticReconnectionSequence" opcode="Thiseventisraisedwhiletryingtoautomaticallyreconnecttotheserver" level="win:Informational" template="AutomaticReconnectionSequenceThiseventisraisedwhiletryingtoautomaticallyreconnecttotheserver1014Args"/>
+     <event value="1015" symbol="AutomaticReconnectionSequenceThiseventisraisedwhiletryingtoautomaticallyreconnecttotheserver1015" version="0" task="AutomaticReconnectionSequence" opcode="Thiseventisraisedwhiletryingtoautomaticallyreconnecttotheserver" level="win:Error" template="AutomaticReconnectionSequenceThiseventisraisedwhiletryingtoautomaticallyreconnecttotheserver1014Args"/>
+     <event value="1016" symbol="ConnectionSequenceThiseventisraisedwhiletryingtogetavalidlicense" version="0" task="ConnectionSequence" opcode="Thiseventisraisedwhiletryingtogetavalidlicense" level="win:Verbose" template="ConnectionSequenceThiseventisraisedduringtheconnectionprocessArgs"/>
+     <event value="1017" symbol="ConnectionSequenceThiseventisraisedwhiletryingtogetavalidlicense1017" version="0" task="ConnectionSequence" opcode="Thiseventisraisedwhiletryingtogetavalidlicense" level="win:Warning" template="ConnectionSequenceThiseventisraisedduringtheconnectionprocess1005Args"/>
+     <event value="1018" symbol="ConnectionSequenceThiseventisraisedduringtheconnectionprocess1018" version="0" task="ConnectionSequence" opcode="Thiseventisraisedduringtheconnectionprocess" level="win:Error" template="ConnectionSequenceThiseventisraisedduringtheconnectionprocess1005Args"/>
+     <event value="1019" symbol="General" version="0" task="General" level="win:Informational" template="AutomaticReconnectionSequenceThiseventisraisedwhiletryingtoautomaticallyreconnecttotheserver1014Args"/>
+     <event value="1020" symbol="General1020" version="0" task="General" level="win:Error" template="ConnectionSequenceThiseventisraisedduringtheconnectionprocess1005Args"/>
+     <event value="1021" symbol="GatewayConnectionSequenceThiseventisraisedinthegatewaytransport1021" version="0" task="GatewayConnectionSequence" opcode="Thiseventisraisedinthegatewaytransport" level="win:Warning" template="ConnectionSequenceThiseventisraisedduringtheconnectionprocess1005Args"/>
+     <event value="1022" symbol="GatewayConnectionSequenceThiseventisraisedinthegatewaytransport1022" version="0" task="GatewayConnectionSequence" opcode="Thiseventisraisedinthegatewaytransport" level="win:Informational" template="AutomaticReconnectionSequenceThiseventisraisedwhiletryingtoautomaticallyreconnecttotheserver1014Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="Function" inType="win:UnicodeString"/>
+      <data name="Line" inType="win:UnicodeString"/>
+      <data name="DebugMessage" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ConnectionSequenceThiseventisraisedduringtheconnectionprocessArgs">
+      <data name="Name" inType="win:UnicodeString"/>
+      <data name="Value" inType="win:UnicodeString"/>
+      <data name="CustomLevel" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ConnectionSequenceThiseventisraisedduringtheconnectionprocess1005Args">
+      <data name="TraceMessage" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="AutomaticReconnectionSequenceThiseventisraisedwhiletryingtoautomaticallyreconnecttotheserverArgs">
+      <data name="Name" inType="win:UnicodeString"/>
+      <data name="Value" inType="win:UInt32"/>
+      <data name="CustomLevel" inType="win:UnicodeString"/>
+     </template>
+     <template tid="AutomaticReconnectionSequenceThiseventisraisedwhiletryingtoautomaticallyreconnecttotheserver1014Args">
+      <data name="TraceMessage" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_AccessDenied" value="AccessDenied"/>
+    <string id="keyword_Disconnected" value="Disconnected"/>
+    <string id="keyword_AuthFailed" value="AuthFailed"/>
+    <string id="keyword_LicenseError" value="LicenseError"/>
+    <string id="keyword_TimedOut" value="TimedOut"/>
+    <string id="keyword_InvalidState" value="InvalidState"/>
+    <string id="keyword_GatewayConnectFailed" value="GatewayConnectFailed"/>
+    <string id="keyword_NetworkUnAvailable" value="NetworkUnAvailable"/>
+    <string id="keyword_DnsResolutionFailure" value="DnsResolutionFailure"/>
+    <string id="keyword_SignVerifFailed" value="SignVerifFailed"/>
+    <string id="keyword_ResourceFailure" value="ResourceFailure"/>
+    <string id="keyword_LogonFailed" value="LogonFailed"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_General" value="General"/>
+    <string id="task_ConnectionSequence" value="ConnectionSequence"/>
+    <string id="opcode_ConnectionSequenceThiseventisraisedduringtheconnectionprocess" value="Thiseventisraisedduringtheconnectionprocess"/>
+    <string id="opcode_ConnectionSequenceThiseventisraisedduringthedisconnectionprocess" value="Thiseventisraisedduringthedisconnectionprocess"/>
+    <string id="opcode_ConnectionSequenceThiseventisraisedduringtheauthenticationprocess" value="Thiseventisraisedduringtheauthenticationprocess"/>
+    <string id="opcode_ConnectionSequenceThiseventisraisedwhiletryingtoautomaticallyreconnecttotheserver" value="Thiseventisraisedwhiletryingtoautomaticallyreconnecttotheserver"/>
+    <string id="opcode_ConnectionSequenceThiseventisraisedduringresolvingtheservername" value="Thiseventisraisedduringresolvingtheservername"/>
+    <string id="opcode_ConnectionSequenceThiseventisraisedwhiletryingtogetavalidlicense" value="Thiseventisraisedwhiletryingtogetavalidlicense"/>
+    <string id="task_AutomaticReconnectionSequence" value="AutomaticReconnectionSequence"/>
+    <string id="opcode_AutomaticReconnectionSequenceThiseventisraisedwhiletryingtoautomaticallyreconnecttotheserver" value="Thiseventisraisedwhiletryingtoautomaticallyreconnecttotheserver"/>
+    <string id="task_GatewayConnectionSequence" value="GatewayConnectionSequence"/>
+    <string id="opcode_GatewayConnectionSequenceThiseventisraisedinthegatewaytransport" value="Thiseventisraisedinthegatewaytransport"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

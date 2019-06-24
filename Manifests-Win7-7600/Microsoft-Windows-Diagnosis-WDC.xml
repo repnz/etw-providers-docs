@@ -1,0 +1,105 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Diagnosis-WDC" guid="{05921578-2261-42c7-a0d3-26ddbce6c50d}" resourceFileName="Microsoft-Windows-Diagnosis-WDC" messageFileName="Microsoft-Windows-Diagnosis-WDC" symbol="MicrosoftWindowsDiagnosisWDC" source="Xml" >
+    <keywords>
+     <keyword name="memory" message="$(string.keyword_memory)" mask="0x200"/>
+     <keyword name="list" message="$(string.keyword_list)" mask="0x400"/>
+     <keyword name="error" message="$(string.keyword_error)" mask="0x800"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="ListUpdate" message="$(string.task_ListUpdate)" value="100">
+>
+      <opcodes>
+       <opcode name="Update" message="$(string.opcode_ListUpdateUpdate)" value="10"/>
+       <opcode name="Insert" message="$(string.opcode_ListUpdateInsert)" value="11"/>
+       <opcode name="Delete" message="$(string.opcode_ListUpdateDelete)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="PerfTrack_Launch" message="$(string.task_PerfTrack_Launch)" value="101"/>
+     <task name="PerfTrack_TabSwitch" message="$(string.task_PerfTrack_TabSwitch)" value="102"/>
+     <task name="PerfTrack_HandleSearch" message="$(string.task_PerfTrack_HandleSearch)" value="103"/>
+     <task name="PerfTrack_ColumnSort" message="$(string.task_PerfTrack_ColumnSort)" value="104"/>
+    </tasks>
+    <events>
+     <event value="5016" symbol="task_0" version="0" task="task_0" level="win:Always" keywords="memory" template="task_0Args"/>
+     <event value="5017" symbol="task_05017" version="0" task="task_0" level="win:Always" keywords="memory" template="task_05017Args"/>
+     <event value="5018" symbol="task_05018" version="0" task="task_0" level="win:Always" keywords="memory" template="task_05018Args"/>
+     <event value="5100" symbol="ListUpdate" version="0" task="ListUpdate" opcode="Update" level="win:Informational" keywords="list" template="ListUpdateArgs"/>
+     <event value="5101" symbol="ListUpdateInsert" version="0" task="ListUpdate" opcode="Insert" level="win:Informational" keywords="list" template="ListUpdateArgs"/>
+     <event value="5102" symbol="ListUpdateDelete" version="0" task="ListUpdate" opcode="Delete" level="win:Informational" keywords="list" template="ListUpdateArgs"/>
+     <event value="5103" symbol="task_05103" version="0" task="task_0" level="win:Error" keywords="error" template="task_05103Args"/>
+     <event value="5200" symbol="PerfTrack_LaunchStart" version="0" task="PerfTrack_Launch" opcode="win:Start" level="win:Informational"/>
+     <event value="5201" symbol="PerfTrack_LaunchStop" version="0" task="PerfTrack_Launch" opcode="win:Stop" level="win:Informational"/>
+     <event value="5202" symbol="PerfTrack_TabSwitchStart" version="0" task="PerfTrack_TabSwitch" opcode="win:Start" level="win:Informational" template="PerfTrack_TabSwitchStartArgs"/>
+     <event value="5203" symbol="PerfTrack_TabSwitchStop" version="0" task="PerfTrack_TabSwitch" opcode="win:Stop" level="win:Informational" template="PerfTrack_TabSwitchStartArgs"/>
+     <event value="5204" symbol="PerfTrack_HandleSearchStart" version="0" task="PerfTrack_HandleSearch" opcode="win:Start" level="win:Informational" template="PerfTrack_HandleSearchStartArgs"/>
+     <event value="5205" symbol="PerfTrack_HandleSearchStop" version="0" task="PerfTrack_HandleSearch" opcode="win:Stop" level="win:Informational" template="PerfTrack_HandleSearchStartArgs"/>
+     <event value="5206" symbol="PerfTrack_ColumnSortStart" version="0" task="PerfTrack_ColumnSort" opcode="win:Start" level="win:Informational" template="PerfTrack_ColumnSortStartArgs"/>
+     <event value="5207" symbol="PerfTrack_ColumnSortStop" version="0" task="PerfTrack_ColumnSort" opcode="win:Stop" level="win:Informational" template="PerfTrack_ColumnSortStartArgs"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="FileName" inType="win:AnsiString"/>
+      <data name="Line" inType="win:UInt32"/>
+      <data name="Address" inType="win:Pointer"/>
+      <data name="Size" inType="win:Pointer"/>
+     </template>
+     <template tid="task_05017Args">
+      <data name="FileName" inType="win:AnsiString"/>
+      <data name="Line" inType="win:UInt32"/>
+      <data name="Address" inType="win:Pointer"/>
+     </template>
+     <template tid="task_05018Args">
+      <data name="FileName" inType="win:AnsiString"/>
+      <data name="Line" inType="win:UInt32"/>
+      <data name="Address" inType="win:Pointer"/>
+      <data name="Size" inType="win:Pointer"/>
+      <data name="OrigAddress" inType="win:Pointer"/>
+     </template>
+     <template tid="ListUpdateArgs">
+      <data name="TableId" inType="win:UInt32"/>
+      <data name="ItemPos" inType="win:UInt32"/>
+      <data name="ItemState" inType="win:UInt32"/>
+      <data name="ItemContent" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_05103Args">
+      <data name="FileName" inType="win:AnsiString"/>
+      <data name="Function" inType="win:AnsiString"/>
+      <data name="Line" inType="win:UInt32"/>
+      <data name="ErrorText" inType="win:UnicodeString"/>
+     </template>
+     <template tid="PerfTrack_TabSwitchStartArgs">
+      <data name="TabId" inType="win:UInt32"/>
+     </template>
+     <template tid="PerfTrack_HandleSearchStartArgs">
+      <data name="RequestCookie" inType="win:UInt32"/>
+     </template>
+     <template tid="PerfTrack_ColumnSortStartArgs">
+      <data name="TableId" inType="win:UInt32"/>
+      <data name="ColumnId" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_memory" value="memory"/>
+    <string id="keyword_list" value="list"/>
+    <string id="keyword_error" value="error"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_ListUpdate" value="ListUpdate"/>
+    <string id="opcode_ListUpdateUpdate" value="Update"/>
+    <string id="opcode_ListUpdateInsert" value="Insert"/>
+    <string id="opcode_ListUpdateDelete" value="Delete"/>
+    <string id="task_PerfTrack_Launch" value="PerfTrack_Launch"/>
+    <string id="task_PerfTrack_TabSwitch" value="PerfTrack_TabSwitch"/>
+    <string id="task_PerfTrack_HandleSearch" value="PerfTrack_HandleSearch"/>
+    <string id="task_PerfTrack_ColumnSort" value="PerfTrack_ColumnSort"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

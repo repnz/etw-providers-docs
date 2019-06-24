@@ -1,0 +1,36 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-EFSTriggerProvider" guid="{6863e644-dd5d-43a2-a8b5-7a81b46672e6}" resourceFileName="Microsoft-Windows-EFSTriggerProvider" messageFileName="Microsoft-Windows-EFSTriggerProvider" symbol="MicrosoftWindowsEFSTriggerProvider" source="Xml" >
+    <keywords>
+     <keyword name="Keyword_EfsStartEvent" message="$(string.keyword_Keyword_EfsStartEvent)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0">
+>
+      <opcodes>
+       <opcode name="Opcode_EfsStartEvent" message="$(string.opcode_task_0Opcode_EfsStartEvent)" value="100"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="1" symbol="task_0Opcode_EfsStartEvent" version="0" task="task_0" opcode="Opcode_EfsStartEvent" level="win:Informational" keywords="Keyword_EfsStartEvent" template="task_0Opcode_EfsStartEventArgs"/>
+    </events>
+    <templates>
+     <template tid="task_0Opcode_EfsStartEventArgs">
+      <data name="StartReason" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Keyword_EfsStartEvent" value="Keyword_EfsStartEvent"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="opcode_task_0Opcode_EfsStartEvent" value="Opcode_EfsStartEvent"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

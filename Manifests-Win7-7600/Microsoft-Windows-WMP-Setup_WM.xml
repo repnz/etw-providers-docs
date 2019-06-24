@@ -1,0 +1,39 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-WMP-Setup_WM" guid="{0d759f0f-cff9-4902-8867-eb9e29d7a98b}" resourceFileName="Microsoft-Windows-WMP-Setup_WM" messageFileName="Microsoft-Windows-WMP-Setup_WM" symbol="MicrosoftWindowsWMPSetup_WM" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="FUE_CONFIGURATION" message="$(string.task_FUE_CONFIGURATION)" value="1001"/>
+     <task name="FUE_INTERNAL_CONFIGURATION" message="$(string.task_FUE_INTERNAL_CONFIGURATION)" value="1002"/>
+     <task name="FUE_PATH_SELECTION" message="$(string.task_FUE_PATH_SELECTION)" value="1003"/>
+     <task name="FUE_PATH_TAKEN" message="$(string.task_FUE_PATH_TAKEN)" value="1004"/>
+    </tasks>
+    <events>
+     <event value="801" symbol="FUE_CONFIGURATIONStart" version="0" task="FUE_CONFIGURATION" opcode="win:Start" level="win:Informational" template="FUE_CONFIGURATIONStartArgs"/>
+     <event value="802" symbol="FUE_CONFIGURATIONStop" version="0" task="FUE_CONFIGURATION" opcode="win:Stop" level="win:Informational" template="FUE_CONFIGURATIONStartArgs"/>
+     <event value="803" symbol="FUE_INTERNAL_CONFIGURATIONStart" version="0" task="FUE_INTERNAL_CONFIGURATION" opcode="win:Start" level="win:Informational" template="FUE_CONFIGURATIONStartArgs"/>
+     <event value="804" symbol="FUE_INTERNAL_CONFIGURATIONStop" version="0" task="FUE_INTERNAL_CONFIGURATION" opcode="win:Stop" level="win:Informational" template="FUE_CONFIGURATIONStartArgs"/>
+     <event value="805" symbol="FUE_PATH_SELECTION" version="0" task="FUE_PATH_SELECTION" level="win:Informational" template="FUE_CONFIGURATIONStartArgs"/>
+     <event value="806" symbol="FUE_PATH_TAKEN" version="0" task="FUE_PATH_TAKEN" level="win:Informational" template="FUE_CONFIGURATIONStartArgs"/>
+    </events>
+    <templates>
+     <template tid="FUE_CONFIGURATIONStartArgs">
+      <data name="WMPSetupID" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_FUE_CONFIGURATION" value="FUE_CONFIGURATION"/>
+    <string id="task_FUE_INTERNAL_CONFIGURATION" value="FUE_INTERNAL_CONFIGURATION"/>
+    <string id="task_FUE_PATH_SELECTION" value="FUE_PATH_SELECTION"/>
+    <string id="task_FUE_PATH_TAKEN" value="FUE_PATH_TAKEN"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,47 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-VAN" guid="{01578f96-c270-4602-ade0-578d9c29fc0c}" resourceFileName="Microsoft-Windows-VAN" messageFileName="Microsoft-Windows-VAN" symbol="MicrosoftWindowsVAN" source="Xml" >
+    <keywords>
+     <keyword name="PerfLabTest" message="$(string.keyword_PerfLabTest)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="Init" message="$(string.task_Init)" value="1"/>
+     <task name="ShowTooltip" message="$(string.task_ShowTooltip)" value="2"/>
+     <task name="ShowFlyoutFromTray" message="$(string.task_ShowFlyoutFromTray)" value="3"/>
+     <task name="ShowCFE" message="$(string.task_ShowCFE)" value="4"/>
+     <task name="Disconnect" message="$(string.task_Disconnect)" value="5"/>
+     <task name="LaunchNetworkCenter" message="$(string.task_LaunchNetworkCenter)" value="6"/>
+    </tasks>
+    <events>
+     <event value="8001" symbol="InitStart" version="0" task="Init" opcode="win:Start" level="win:Informational"/>
+     <event value="8002" symbol="InitStop" version="0" task="Init" opcode="win:Stop" level="win:Informational"/>
+     <event value="8003" symbol="ShowTooltipStart" version="0" task="ShowTooltip" opcode="win:Start" level="win:Informational"/>
+     <event value="8004" symbol="ShowTooltipStop" version="0" task="ShowTooltip" opcode="win:Stop" level="win:Informational"/>
+     <event value="8005" symbol="ShowFlyoutFromTrayStart" version="0" task="ShowFlyoutFromTray" opcode="win:Start" level="win:Informational"/>
+     <event value="8006" symbol="ShowFlyoutFromTrayStop" version="0" task="ShowFlyoutFromTray" opcode="win:Stop" level="win:Informational"/>
+     <event value="8007" symbol="ShowCFEStart" version="0" task="ShowCFE" opcode="win:Start" level="win:Informational"/>
+     <event value="8008" symbol="ShowCFEStop" version="0" task="ShowCFE" opcode="win:Stop" level="win:Informational"/>
+     <event value="8009" symbol="DisconnectStart" version="0" task="Disconnect" opcode="win:Start" level="win:Informational"/>
+     <event value="8010" symbol="DisconnectStop" version="0" task="Disconnect" opcode="win:Stop" level="win:Informational"/>
+     <event value="8011" symbol="LaunchNetworkCenterStart" version="0" task="LaunchNetworkCenter" opcode="win:Start" level="win:Informational" keywords="PerfLabTest"/>
+    </events>
+    <templates>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_PerfLabTest" value="PerfLabTest"/>
+    <string id="task_Init" value="Init"/>
+    <string id="task_ShowTooltip" value="ShowTooltip"/>
+    <string id="task_ShowFlyoutFromTray" value="ShowFlyoutFromTray"/>
+    <string id="task_ShowCFE" value="ShowCFE"/>
+    <string id="task_Disconnect" value="Disconnect"/>
+    <string id="task_LaunchNetworkCenter" value="LaunchNetworkCenter"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

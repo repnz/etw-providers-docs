@@ -1,0 +1,69 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-TerminalServices-MediaRedirection-DShow" guid="{b1c94ed9-ac9b-410e-aa48-4ffc5e45f4e3}" resourceFileName="Microsoft-Windows-TerminalServices-MediaRedirection-DShow" messageFileName="Microsoft-Windows-TerminalServices-MediaRedirection-DShow" symbol="MicrosoftWindowsTerminalServicesMediaRedirectionDShow" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="FormatCheck" message="$(string.task_FormatCheck)" value="200"/>
+     <task name="SettingsCheck" message="$(string.task_SettingsCheck)" value="201"/>
+     <task name="StreamSetup" message="$(string.task_StreamSetup)" value="202"/>
+    </tasks>
+    <events>
+     <event value="2000" symbol="SettingsCheck" version="0" task="SettingsCheck" level="win:Error" template="SettingsCheckArgs"/>
+     <event value="2001" symbol="SettingsCheck2001" version="0" task="SettingsCheck" level="win:Informational" template="SettingsCheckArgs"/>
+     <event value="2002" symbol="FormatCheck" version="0" task="FormatCheck" level="win:Informational" template="FormatCheckArgs"/>
+     <event value="2003" symbol="FormatCheck2003" version="0" task="FormatCheck" level="win:Warning" template="FormatCheckArgs"/>
+     <event value="2004" symbol="StreamSetup" version="0" task="StreamSetup" level="win:Informational" template="FormatCheckArgs"/>
+     <event value="2005" symbol="SettingsCheck2005" version="0" task="SettingsCheck" level="win:Error" template="SettingsCheck2005Args"/>
+     <event value="2006" symbol="SettingsCheck2006" version="0" task="SettingsCheck" level="win:Informational" template="SettingsCheck2005Args"/>
+     <event value="2007" symbol="SettingsCheck2007" version="0" task="SettingsCheck" level="win:Informational" template="SettingsCheck2007Args"/>
+     <event value="2008" symbol="SettingsCheck2008" version="0" task="SettingsCheck" level="win:Error" template="SettingsCheck2008Args"/>
+     <event value="2009" symbol="SettingsCheck2009" version="0" task="SettingsCheck" level="win:Error" template="SettingsCheck2008Args"/>
+     <event value="2010" symbol="SettingsCheck2010" version="0" task="SettingsCheck" level="win:Error" template="SettingsCheck2008Args"/>
+     <event value="2011" symbol="SettingsCheck2011" version="0" task="SettingsCheck" level="win:Error" template="SettingsCheck2008Args"/>
+     <event value="2012" symbol="SettingsCheck2012" version="0" task="SettingsCheck" level="win:Informational" template="SettingsCheck2008Args"/>
+     <event value="2013" symbol="SettingsCheck2013" version="0" task="SettingsCheck" level="win:Informational" template="SettingsCheck2008Args"/>
+    </events>
+    <templates>
+     <template tid="SettingsCheckArgs">
+      <data name="UInt32_1" inType="win:UInt32"/>
+      <data name="UInt32_2" inType="win:UInt32"/>
+      <data name="UInt32_3" inType="win:UInt32"/>
+      <data name="UInt32_4" inType="win:UInt32"/>
+      <data name="SessionID" inType="win:UInt32"/>
+     </template>
+     <template tid="FormatCheckArgs">
+      <data name="Guid1" inType="win:GUID"/>
+      <data name="String1" inType="win:UnicodeString"/>
+      <data name="Guid2" inType="win:GUID"/>
+      <data name="String2" inType="win:UnicodeString"/>
+      <data name="UInt32_1" inType="win:UInt32"/>
+      <data name="SessionID" inType="win:UInt32"/>
+     </template>
+     <template tid="SettingsCheck2005Args">
+      <data name="StringParameter" inType="win:UnicodeString"/>
+      <data name="SessionID" inType="win:UInt32"/>
+     </template>
+     <template tid="SettingsCheck2007Args">
+      <data name="SessionID" inType="win:UInt32"/>
+     </template>
+     <template tid="SettingsCheck2008Args">
+      <data name="StringParameter" inType="win:UnicodeString"/>
+      <data name="UInt32Parameter" inType="win:UInt32"/>
+      <data name="SessionID" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_FormatCheck" value="FormatCheck"/>
+    <string id="task_SettingsCheck" value="SettingsCheck"/>
+    <string id="task_StreamSetup" value="StreamSetup"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

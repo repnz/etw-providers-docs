@@ -1,0 +1,95 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Display" guid="{6ece3302-fee1-4ea9-8b88-086d459ed976}" resourceFileName="Microsoft-Windows-Display" messageFileName="Microsoft-Windows-Display" symbol="MicrosoftWindowsDisplay" source="Xml" >
+    <keywords>
+     <keyword name="DisplayCPL" message="$(string.keyword_DisplayCPL)" mask="0x10000"/>
+    </keywords>
+    <tasks>
+     <task name="DisplayCpl_InitializePage" message="$(string.task_DisplayCpl_InitializePage)" value="101"/>
+     <task name="DisplayCpl_Initialize" message="$(string.task_DisplayCpl_Initialize)" value="103"/>
+     <task name="DisplayCpl_OpenCustomDPIDialog" message="$(string.task_DisplayCpl_OpenCustomDPIDialog)" value="105"/>
+     <task name="DisplayCpl_SelectionChange" message="$(string.task_DisplayCpl_SelectionChange)" value="107">
+>
+      <opcodes>
+       <opcode name="Updatepreviewimage" message="$(string.opcode_DisplayCpl_SelectionChangeUpdatepreviewimage)" value="30"/>
+       <opcode name="Hidepreviewimage" message="$(string.opcode_DisplayCpl_SelectionChangeHidepreviewimage)" value="31"/>
+       <opcode name="Showpreviewimage" message="$(string.opcode_DisplayCpl_SelectionChangeShowpreviewimage)" value="32"/>
+      </opcodes>
+     </task>
+     <task name="DisplayCpl_ApplyButtonClicked" message="$(string.task_DisplayCpl_ApplyButtonClicked)" value="113">
+>
+      <opcodes>
+       <opcode name="Showrestartprompt" message="$(string.opcode_DisplayCpl_ApplyButtonClickedShowrestartprompt)" value="34"/>
+      </opcodes>
+     </task>
+     <task name="DisplayCpl_SettingsPage_Initialize" message="$(string.task_DisplayCpl_SettingsPage_Initialize)" value="116"/>
+     <task name="DisplayCpl_SettingsPage_ApplyButtonClicked" message="$(string.task_DisplayCpl_SettingsPage_ApplyButtonClicked)" value="118"/>
+     <task name="DisplayCpl_SettingsPage_EnumAllDisplays" message="$(string.task_DisplayCpl_SettingsPage_EnumAllDisplays)" value="120"/>
+     <task name="DisplayCpl_SettingsPage_LayoutMonitorElement" message="$(string.task_DisplayCpl_SettingsPage_LayoutMonitorElement)" value="122"/>
+     <task name="DisplayCpl_ResolutionControl" message="$(string.task_DisplayCpl_ResolutionControl)" value="124"/>
+     <task name="DisplayCpl_ResolutionSlider" message="$(string.task_DisplayCpl_ResolutionSlider)" value="127"/>
+    </tasks>
+    <events>
+     <event value="101" symbol="DisplayCpl_InitializePageStart" version="0" task="DisplayCpl_InitializePage" opcode="win:Start" level="win:Informational"/>
+     <event value="102" symbol="DisplayCpl_InitializePageStop" version="0" task="DisplayCpl_InitializePage" opcode="win:Stop" level="win:Informational"/>
+     <event value="103" symbol="DisplayCpl_InitializeStart" version="0" task="DisplayCpl_Initialize" opcode="win:Start" level="win:Informational" keywords="DisplayCPL"/>
+     <event value="104" symbol="DisplayCpl_InitializeStop" version="0" task="DisplayCpl_Initialize" opcode="win:Stop" level="win:Informational" keywords="DisplayCPL"/>
+     <event value="105" symbol="DisplayCpl_OpenCustomDPIDialogStart" version="0" task="DisplayCpl_OpenCustomDPIDialog" opcode="win:Start" level="win:Informational" keywords="DisplayCPL"/>
+     <event value="106" symbol="DisplayCpl_OpenCustomDPIDialogStop" version="0" task="DisplayCpl_OpenCustomDPIDialog" opcode="win:Stop" level="win:Informational" keywords="DisplayCPL"/>
+     <event value="107" symbol="DisplayCpl_SelectionChangeStart" version="0" task="DisplayCpl_SelectionChange" opcode="win:Start" level="win:Informational" keywords="DisplayCPL"/>
+     <event value="108" symbol="DisplayCpl_SelectionChangeUpdatepreviewimage" version="0" task="DisplayCpl_SelectionChange" opcode="Updatepreviewimage" level="win:Informational" keywords="DisplayCPL"/>
+     <event value="109" symbol="DisplayCpl_SelectionChangeHidepreviewimage" version="0" task="DisplayCpl_SelectionChange" opcode="Hidepreviewimage" level="win:Informational" keywords="DisplayCPL"/>
+     <event value="110" symbol="DisplayCpl_SelectionChangeShowpreviewimage" version="0" task="DisplayCpl_SelectionChange" opcode="Showpreviewimage" level="win:Informational" keywords="DisplayCPL"/>
+     <event value="111" symbol="DisplayCpl_SelectionChangeStop" version="0" task="DisplayCpl_SelectionChange" opcode="win:Stop" level="win:Informational" keywords="DisplayCPL"/>
+     <event value="113" symbol="DisplayCpl_ApplyButtonClickedStart" version="0" task="DisplayCpl_ApplyButtonClicked" opcode="win:Start" level="win:Informational" keywords="DisplayCPL"/>
+     <event value="114" symbol="DisplayCpl_ApplyButtonClickedShowrestartprompt" version="0" task="DisplayCpl_ApplyButtonClicked" opcode="Showrestartprompt" level="win:Informational" keywords="DisplayCPL"/>
+     <event value="115" symbol="DisplayCpl_ApplyButtonClickedStop" version="0" task="DisplayCpl_ApplyButtonClicked" opcode="win:Stop" level="win:Informational" keywords="DisplayCPL"/>
+     <event value="116" symbol="DisplayCpl_SettingsPage_InitializeStart" version="0" task="DisplayCpl_SettingsPage_Initialize" opcode="win:Start" level="win:Informational"/>
+     <event value="117" symbol="DisplayCpl_SettingsPage_InitializeStop" version="0" task="DisplayCpl_SettingsPage_Initialize" opcode="win:Stop" level="win:Informational"/>
+     <event value="118" symbol="DisplayCpl_SettingsPage_ApplyButtonClickedStart" version="0" task="DisplayCpl_SettingsPage_ApplyButtonClicked" opcode="win:Start" level="win:Informational" keywords="DisplayCPL"/>
+     <event value="119" symbol="DisplayCpl_SettingsPage_ApplyButtonClickedStop" version="0" task="DisplayCpl_SettingsPage_ApplyButtonClicked" opcode="win:Stop" level="win:Informational" keywords="DisplayCPL"/>
+     <event value="120" symbol="DisplayCpl_SettingsPage_EnumAllDisplaysStart" version="0" task="DisplayCpl_SettingsPage_EnumAllDisplays" opcode="win:Start" level="win:Informational" keywords="DisplayCPL"/>
+     <event value="121" symbol="DisplayCpl_SettingsPage_EnumAllDisplaysStop" version="0" task="DisplayCpl_SettingsPage_EnumAllDisplays" opcode="win:Stop" level="win:Informational" keywords="DisplayCPL"/>
+     <event value="122" symbol="DisplayCpl_SettingsPage_LayoutMonitorElementStart" version="0" task="DisplayCpl_SettingsPage_LayoutMonitorElement" opcode="win:Start" level="win:Informational" keywords="DisplayCPL"/>
+     <event value="123" symbol="DisplayCpl_SettingsPage_LayoutMonitorElementStop" version="0" task="DisplayCpl_SettingsPage_LayoutMonitorElement" opcode="win:Stop" level="win:Informational" keywords="DisplayCPL"/>
+     <event value="124" symbol="DisplayCpl_ResolutionControl" version="0" task="DisplayCpl_ResolutionControl" level="win:Informational" keywords="DisplayCPL"/>
+     <event value="125" symbol="DisplayCpl_ResolutionControl125" version="0" task="DisplayCpl_ResolutionControl" level="win:Informational" keywords="DisplayCPL" template="DisplayCpl_ResolutionControl125Args"/>
+     <event value="126" symbol="DisplayCpl_ResolutionControl126" version="0" task="DisplayCpl_ResolutionControl" level="win:Informational" keywords="DisplayCPL" template="DisplayCpl_ResolutionControl125Args"/>
+     <event value="127" symbol="DisplayCpl_ResolutionSlider" version="0" task="DisplayCpl_ResolutionSlider" level="win:Informational" keywords="DisplayCPL"/>
+     <event value="128" symbol="DisplayCpl_ResolutionSlider128" version="0" task="DisplayCpl_ResolutionSlider" level="win:Informational" keywords="DisplayCPL"/>
+    </events>
+    <templates>
+     <template tid="DisplayCpl_ResolutionControl125Args">
+      <data name="x" inType="win:UInt32"/>
+      <data name="y" inType="win:UInt32"/>
+      <data name="fRecommended" inType="win:Boolean"/>
+      <data name="fMatchAspectedRatio" inType="win:Boolean"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_DisplayCPL" value="DisplayCPL"/>
+    <string id="task_DisplayCpl_InitializePage" value="DisplayCpl_InitializePage"/>
+    <string id="task_DisplayCpl_Initialize" value="DisplayCpl_Initialize"/>
+    <string id="task_DisplayCpl_OpenCustomDPIDialog" value="DisplayCpl_OpenCustomDPIDialog"/>
+    <string id="task_DisplayCpl_SelectionChange" value="DisplayCpl_SelectionChange"/>
+    <string id="opcode_DisplayCpl_SelectionChangeUpdatepreviewimage" value="Updatepreviewimage"/>
+    <string id="opcode_DisplayCpl_SelectionChangeHidepreviewimage" value="Hidepreviewimage"/>
+    <string id="opcode_DisplayCpl_SelectionChangeShowpreviewimage" value="Showpreviewimage"/>
+    <string id="task_DisplayCpl_ApplyButtonClicked" value="DisplayCpl_ApplyButtonClicked"/>
+    <string id="opcode_DisplayCpl_ApplyButtonClickedShowrestartprompt" value="Showrestartprompt"/>
+    <string id="task_DisplayCpl_SettingsPage_Initialize" value="DisplayCpl_SettingsPage_Initialize"/>
+    <string id="task_DisplayCpl_SettingsPage_ApplyButtonClicked" value="DisplayCpl_SettingsPage_ApplyButtonClicked"/>
+    <string id="task_DisplayCpl_SettingsPage_EnumAllDisplays" value="DisplayCpl_SettingsPage_EnumAllDisplays"/>
+    <string id="task_DisplayCpl_SettingsPage_LayoutMonitorElement" value="DisplayCpl_SettingsPage_LayoutMonitorElement"/>
+    <string id="task_DisplayCpl_ResolutionControl" value="DisplayCpl_ResolutionControl"/>
+    <string id="task_DisplayCpl_ResolutionSlider" value="DisplayCpl_ResolutionSlider"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

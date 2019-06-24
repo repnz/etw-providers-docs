@@ -1,0 +1,56 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-DisplaySwitch" guid="{192ede41-9175-4c86-ac02-9d003c9d43ab}" resourceFileName="Microsoft-Windows-DisplaySwitch" messageFileName="Microsoft-Windows-DisplaySwitch" symbol="MicrosoftWindowsDisplaySwitch" source="Xml" >
+    <keywords>
+     <keyword name="Default" message="$(string.keyword_Default)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="DisplaySwitch_Application" message="$(string.task_DisplaySwitch_Application)" value="1"/>
+     <task name="DisplaySwitch_Application_Mode" message="$(string.task_DisplaySwitch_Application_Mode)" value="3"/>
+     <task name="DisplaySwitch_MainWindowShow" message="$(string.task_DisplaySwitch_MainWindowShow)" value="4"/>
+     <task name="DisplaySwitch_Selection" message="$(string.task_DisplaySwitch_Selection)" value="5"/>
+     <task name="DisplaySwitch_CommittingChange" message="$(string.task_DisplaySwitch_CommittingChange)" value="6"/>
+     <task name="DisplaySwitch_IsLoadingLTRImages" message="$(string.task_DisplaySwitch_IsLoadingLTRImages)" value="8"/>
+     <task name="DisplaySwitch_TitleText" message="$(string.task_DisplaySwitch_TitleText)" value="9"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="DisplaySwitch_ApplicationStart" version="0" task="DisplaySwitch_Application" opcode="win:Start" level="win:Informational" keywords="Default"/>
+     <event value="2" symbol="DisplaySwitch_ApplicationStop" version="0" task="DisplaySwitch_Application" opcode="win:Stop" level="win:Informational" keywords="Default"/>
+     <event value="3" symbol="DisplaySwitch_Application_Mode" version="0" task="DisplaySwitch_Application_Mode" level="win:Informational" keywords="Default" template="DisplaySwitch_Application_ModeArgs"/>
+     <event value="4" symbol="DisplaySwitch_MainWindowShow" version="0" task="DisplaySwitch_MainWindowShow" level="win:Informational" keywords="Default"/>
+     <event value="5" symbol="DisplaySwitch_Selection" version="0" task="DisplaySwitch_Selection" level="win:Informational" keywords="Default" template="DisplaySwitch_Application_ModeArgs"/>
+     <event value="6" symbol="DisplaySwitch_CommittingChangeStart" version="0" task="DisplaySwitch_CommittingChange" opcode="win:Start" level="win:Informational" keywords="Default" template="DisplaySwitch_Application_ModeArgs"/>
+     <event value="7" symbol="DisplaySwitch_CommittingChangeStop" version="0" task="DisplaySwitch_CommittingChange" opcode="win:Stop" level="win:Informational" keywords="Default"/>
+     <event value="8" symbol="DisplaySwitch_IsLoadingLTRImages" version="0" task="DisplaySwitch_IsLoadingLTRImages" level="win:Informational" keywords="Default" template="DisplaySwitch_IsLoadingLTRImagesArgs"/>
+     <event value="9" symbol="DisplaySwitch_TitleText" version="0" task="DisplaySwitch_TitleText" level="win:Informational" keywords="Default" template="DisplaySwitch_TitleTextArgs"/>
+    </events>
+    <templates>
+     <template tid="DisplaySwitch_Application_ModeArgs">
+      <data name="nMode" inType="win:Int32"/>
+     </template>
+     <template tid="DisplaySwitch_IsLoadingLTRImagesArgs">
+      <data name="fLTR" inType="win:Int32"/>
+     </template>
+     <template tid="DisplaySwitch_TitleTextArgs">
+      <data name="nTextID" inType="win:Int32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Default" value="Default"/>
+    <string id="task_DisplaySwitch_Application" value="DisplaySwitch_Application"/>
+    <string id="task_DisplaySwitch_Application_Mode" value="DisplaySwitch_Application_Mode"/>
+    <string id="task_DisplaySwitch_MainWindowShow" value="DisplaySwitch_MainWindowShow"/>
+    <string id="task_DisplaySwitch_Selection" value="DisplaySwitch_Selection"/>
+    <string id="task_DisplaySwitch_CommittingChange" value="DisplaySwitch_CommittingChange"/>
+    <string id="task_DisplaySwitch_IsLoadingLTRImages" value="DisplaySwitch_IsLoadingLTRImages"/>
+    <string id="task_DisplaySwitch_TitleText" value="DisplaySwitch_TitleText"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

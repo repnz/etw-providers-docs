@@ -1,0 +1,64 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Kernel-General" guid="{a68ca8b7-004f-d7b6-a698-07e2de0f1f5d}" resourceFileName="Microsoft-Windows-Kernel-General" messageFileName="Microsoft-Windows-Kernel-General" symbol="MicrosoftWindowsKernelGeneral" source="Xml" >
+    <keywords>
+     <keyword name="KERNEL_GENERAL_KEYWORD_TIME" message="$(string.keyword_KERNEL_GENERAL_KEYWORD_TIME)" mask="0x10"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="task_0" version="0" task="task_0" level="win:Informational" keywords="KERNEL_GENERAL_KEYWORD_TIME" template="task_0Args"/>
+     <event value="2" symbol="task_02" version="0" task="task_0" level="win:Informational"/>
+     <event value="3" symbol="task_03" version="0" task="task_0" level="win:Informational"/>
+     <event value="4" symbol="task_04" version="0" task="task_0" level="win:Informational"/>
+     <event value="5" symbol="task_05" version="0" task="task_0" level="win:Error" template="task_05Args"/>
+     <event value="6" symbol="task_06" version="0" task="task_0" level="win:Error" template="task_05Args"/>
+     <event value="11" symbol="task_011" version="0" task="task_0" level="win:Informational" template="task_011Args"/>
+     <event value="12" symbol="task_012" version="0" task="task_0" level="win:Informational" template="task_012Args"/>
+     <event value="13" symbol="task_013" version="0" task="task_0" level="win:Informational" template="task_013Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="NewTime" inType="win:FILETIME"/>
+      <data name="OldTime" inType="win:FILETIME"/>
+     </template>
+     <template tid="task_05Args">
+      <data name="FinalStatus" inType="win:HexInt32"/>
+      <data name="ExtraStringLength" inType="win:UInt16"/>
+      <data name="ExtraString" inType="win:UnicodeString" length="ExtraStringLength"/>
+     </template>
+     <template tid="task_011Args">
+      <data name="ExtraStringLength" inType="win:UInt16"/>
+      <data name="ExtraString" inType="win:UnicodeString" length="ExtraStringLength"/>
+      <data name="TmId" inType="win:GUID"/>
+      <data name="RmId" inType="win:GUID"/>
+      <data name="Status" inType="win:HexInt32"/>
+      <data name="InternalCode" inType="win:UInt32"/>
+     </template>
+     <template tid="task_012Args">
+      <data name="MajorVersion" inType="win:UInt32"/>
+      <data name="MinorVersion" inType="win:UInt32"/>
+      <data name="BuildVersion" inType="win:UInt32"/>
+      <data name="QfeVersion" inType="win:UInt32"/>
+      <data name="ServiceVersion" inType="win:UInt16"/>
+      <data name="BootMode" inType="win:UInt32"/>
+      <data name="StartTime" inType="win:FILETIME"/>
+     </template>
+     <template tid="task_013Args">
+      <data name="StopTime" inType="win:FILETIME"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_KERNEL_GENERAL_KEYWORD_TIME" value="KERNEL_GENERAL_KEYWORD_TIME"/>
+    <string id="task_task_0" value="task_0"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

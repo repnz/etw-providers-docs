@@ -1,0 +1,43 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-ADSI" guid="{7288c9f8-d63c-4932-a345-89d6b060174d}" resourceFileName="Microsoft-Windows-ADSI" messageFileName="Microsoft-Windows-ADSI" symbol="MicrosoftWindowsADSI" source="Xml" >
+    <keywords>
+     <keyword name="schema" message="$(string.keyword_schema)" mask="0x1"/>
+     <keyword name="changepwd" message="$(string.keyword_changepwd)" mask="0x2"/>
+     <keyword name="setpwd" message="$(string.keyword_setpwd)" mask="0x4"/>
+     <keyword name="bindcache" message="$(string.keyword_bindcache)" mask="0x8"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="task_0" version="0" task="task_0" level="win:Informational" keywords="schema" template="task_0Args"/>
+     <event value="2" symbol="task_02" version="0" task="task_0" level="win:Error" keywords="schema" template="task_0Args"/>
+     <event value="3" symbol="task_03" version="0" task="task_0" level="win:Informational" keywords="changepwd" template="task_0Args"/>
+     <event value="4" symbol="task_04" version="0" task="task_0" level="win:Error" keywords="changepwd" template="task_0Args"/>
+     <event value="5" symbol="task_05" version="0" task="task_0" level="win:Informational" keywords="setpwd" template="task_0Args"/>
+     <event value="6" symbol="task_06" version="0" task="task_0" level="win:Error" keywords="setpwd" template="task_0Args"/>
+     <event value="7" symbol="task_07" version="0" task="task_0" level="win:Informational" keywords="bindcache" template="task_0Args"/>
+     <event value="8" symbol="task_08" version="0" task="task_0" level="win:Error" keywords="bindcache" template="task_0Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="Message" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_schema" value="schema"/>
+    <string id="keyword_changepwd" value="changepwd"/>
+    <string id="keyword_setpwd" value="setpwd"/>
+    <string id="keyword_bindcache" value="bindcache"/>
+    <string id="task_task_0" value="task_0"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

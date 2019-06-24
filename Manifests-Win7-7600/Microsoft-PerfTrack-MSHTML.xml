@@ -1,0 +1,42 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-PerfTrack-MSHTML" guid="{ffdb9886-80f3-4540-aa8b-b85192217ddf}" resourceFileName="Microsoft-PerfTrack-MSHTML" messageFileName="Microsoft-PerfTrack-MSHTML" symbol="MicrosoftPerfTrackMSHTML" source="Xml" >
+    <keywords>
+     <keyword name="defunct" message="$(string.keyword_defunct)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="Navigation" message="$(string.task_Navigation)" value="101"/>
+     <task name="Scroll" message="$(string.task_Scroll)" value="103"/>
+     <task name="Redirect" message="$(string.task_Redirect)" value="105"/>
+    </tasks>
+    <events>
+     <event value="101" symbol="NavigationStart" version="0" task="Navigation" opcode="win:Start" level="win:Informational" template="NavigationStartArgs"/>
+     <event value="102" symbol="NavigationStop" version="0" task="Navigation" opcode="win:Stop" level="win:Informational" template="NavigationStartArgs"/>
+     <event value="103" symbol="ScrollStart" version="0" task="Scroll" opcode="win:Start" level="win:Informational" keywords="defunct" template="ScrollStartArgs"/>
+     <event value="104" symbol="ScrollStop" version="0" task="Scroll" opcode="win:Stop" level="win:Informational" keywords="defunct" template="ScrollStartArgs"/>
+     <event value="105" symbol="RedirectStart" version="0" task="Redirect" opcode="win:Start" level="win:Informational" template="NavigationStartArgs"/>
+    </events>
+    <templates>
+     <template tid="NavigationStartArgs">
+      <data name="ObjectMSHTML" inType="win:UInt64"/>
+      <data name="Counter" inType="win:UInt32"/>
+     </template>
+     <template tid="ScrollStartArgs">
+      <data name="ObjectMSHTML" inType="win:UInt64"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_defunct" value="defunct"/>
+    <string id="task_Navigation" value="Navigation"/>
+    <string id="task_Scroll" value="Scroll"/>
+    <string id="task_Redirect" value="Redirect"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

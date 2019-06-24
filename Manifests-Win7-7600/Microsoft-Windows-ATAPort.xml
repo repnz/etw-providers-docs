@@ -1,0 +1,129 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-ATAPort" guid="{cb587ad1-cc35-4ef1-ad93-36cc82a2d319}" resourceFileName="Microsoft-Windows-ATAPort" messageFileName="Microsoft-Windows-ATAPort" symbol="MicrosoftWindowsATAPort" source="Xml" >
+    <keywords>
+     <keyword name="AllIORequests" message="$(string.keyword_AllIORequests)" mask="0x1"/>
+     <keyword name="DeviceEnumeration" message="$(string.keyword_DeviceEnumeration)" mask="0x2"/>
+     <keyword name="IOErrors" message="$(string.keyword_IOErrors)" mask="0x4"/>
+     <keyword name="Reset" message="$(string.keyword_Reset)" mask="0x8"/>
+     <keyword name="XferModeChange" message="$(string.keyword_XferModeChange)" mask="0x10"/>
+     <keyword name="LinkPowerMgmt" message="$(string.keyword_LinkPowerMgmt)" mask="0x20"/>
+    </keywords>
+    <tasks>
+     <task name="LPMstatechange" message="$(string.task_LPMstatechange)" value="1">
+>
+      <opcodes>
+       <opcode name="ATAPORT_OPCODE_LPM_POWERSTATE_PARTIAL" message="$(string.opcode_LPMstatechangeATAPORT_OPCODE_LPM_POWERSTATE_PARTIAL)" value="200"/>
+       <opcode name="ATAPORT_OPCODE_LPM_POWERSTATE_SLUMBER" message="$(string.opcode_LPMstatechangeATAPORT_OPCODE_LPM_POWERSTATE_SLUMBER)" value="201"/>
+      </opcodes>
+     </task>
+     <task name="ATAportGeneral" message="$(string.task_ATAportGeneral)" value="2">
+>
+      <opcodes>
+       <opcode name="ATAPORT_OPCODE_DEV_ENUM_INIT" message="$(string.opcode_ATAportGeneralATAPORT_OPCODE_DEV_ENUM_INIT)" value="10"/>
+       <opcode name="ATAPORT_OPCODE_DEV_ENUM_COMPLETE" message="$(string.opcode_ATAportGeneralATAPORT_OPCODE_DEV_ENUM_COMPLETE)" value="11"/>
+       <opcode name="ATAPORT_OPCODE_XFER_MODE_CHANGE" message="$(string.opcode_ATAportGeneralATAPORT_OPCODE_XFER_MODE_CHANGE)" value="12"/>
+       <opcode name="ATAPORT_OPCODE_IO_REQUEST_COMPLETE" message="$(string.opcode_ATAportGeneralATAPORT_OPCODE_IO_REQUEST_COMPLETE)" value="13"/>
+       <opcode name="ATAPORT_OPCODE_IO_REQUEST_TIMEOUT" message="$(string.opcode_ATAportGeneralATAPORT_OPCODE_IO_REQUEST_TIMEOUT)" value="14"/>
+       <opcode name="ATAPORT_OPCODE_IO_REQUEST_TRANSPORT_ERROR" message="$(string.opcode_ATAportGeneralATAPORT_OPCODE_IO_REQUEST_TRANSPORT_ERROR)" value="15"/>
+       <opcode name="ATAPORT_OPCODE_DEVICE_MISSING" message="$(string.opcode_ATAportGeneralATAPORT_OPCODE_DEVICE_MISSING)" value="16"/>
+       <opcode name="ATAPORT_OPCODE_CHANNEL_RESET_INIT" message="$(string.opcode_ATAportGeneralATAPORT_OPCODE_CHANNEL_RESET_INIT)" value="17"/>
+       <opcode name="ATAPORT_OPCODE_CHANNEL_RESET_COMPLETE" message="$(string.opcode_ATAportGeneralATAPORT_OPCODE_CHANNEL_RESET_COMPLETE)" value="18"/>
+       <opcode name="ATAPORT_OPCODE_DEVICE_RESET_INIT" message="$(string.opcode_ATAportGeneralATAPORT_OPCODE_DEVICE_RESET_INIT)" value="19"/>
+       <opcode name="ATAPORT_OPCODE_DEVICE_RESET_COMPLETE" message="$(string.opcode_ATAportGeneralATAPORT_OPCODE_DEVICE_RESET_COMPLETE)" value="20"/>
+       <opcode name="ATAPORT_OPCODE_CHANNEL_START_INIT" message="$(string.opcode_ATAportGeneralATAPORT_OPCODE_CHANNEL_START_INIT)" value="21"/>
+       <opcode name="ATAPORT_OPCODE_CHANNEL_START_COMPLETE" message="$(string.opcode_ATAportGeneralATAPORT_OPCODE_CHANNEL_START_COMPLETE)" value="22"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="0" symbol="LPMstatechangeATAPORT_OPCODE_LPM_POWERSTATE_PARTIAL" version="0" task="LPMstatechange" opcode="ATAPORT_OPCODE_LPM_POWERSTATE_PARTIAL" level="win:Verbose" keywords="LinkPowerMgmt" template="LPMstatechangeATAPORT_OPCODE_LPM_POWERSTATE_PARTIALArgs"/>
+     <event value="1" symbol="LPMstatechangeATAPORT_OPCODE_LPM_POWERSTATE_SLUMBER" version="0" task="LPMstatechange" opcode="ATAPORT_OPCODE_LPM_POWERSTATE_SLUMBER" level="win:Verbose" keywords="LinkPowerMgmt" template="LPMstatechangeATAPORT_OPCODE_LPM_POWERSTATE_PARTIALArgs"/>
+     <event value="100" symbol="ATAportGeneralATAPORT_OPCODE_DEV_ENUM_INIT" version="0" task="ATAportGeneral" opcode="ATAPORT_OPCODE_DEV_ENUM_INIT" level="win:Verbose" keywords="DeviceEnumeration" template="ATAportGeneralATAPORT_OPCODE_DEV_ENUM_INITArgs"/>
+     <event value="101" symbol="ATAportGeneralATAPORT_OPCODE_DEV_ENUM_COMPLETE" version="0" task="ATAportGeneral" opcode="ATAPORT_OPCODE_DEV_ENUM_COMPLETE" level="win:Verbose" keywords="DeviceEnumeration" template="ATAportGeneralATAPORT_OPCODE_DEV_ENUM_INITArgs"/>
+     <event value="102" symbol="ATAportGeneralATAPORT_OPCODE_XFER_MODE_CHANGE" version="0" task="ATAportGeneral" opcode="ATAPORT_OPCODE_XFER_MODE_CHANGE" level="win:Verbose" keywords="XferModeChange" template="ATAportGeneralATAPORT_OPCODE_XFER_MODE_CHANGEArgs"/>
+     <event value="103" symbol="ATAportGeneralATAPORT_OPCODE_IO_REQUEST_COMPLETE" version="0" task="ATAportGeneral" opcode="ATAPORT_OPCODE_IO_REQUEST_COMPLETE" level="win:Verbose" keywords="AllIORequests" template="ATAportGeneralATAPORT_OPCODE_IO_REQUEST_COMPLETEArgs"/>
+     <event value="104" symbol="ATAportGeneralATAPORT_OPCODE_IO_REQUEST_TIMEOUT" version="0" task="ATAportGeneral" opcode="ATAPORT_OPCODE_IO_REQUEST_TIMEOUT" level="win:Verbose" keywords="IOErrors" template="ATAportGeneralATAPORT_OPCODE_IO_REQUEST_COMPLETEArgs"/>
+     <event value="105" symbol="ATAportGeneralATAPORT_OPCODE_IO_REQUEST_TRANSPORT_ERROR" version="0" task="ATAportGeneral" opcode="ATAPORT_OPCODE_IO_REQUEST_TRANSPORT_ERROR" level="win:Verbose" keywords="IOErrors" template="ATAportGeneralATAPORT_OPCODE_IO_REQUEST_COMPLETEArgs"/>
+     <event value="106" symbol="ATAportGeneralATAPORT_OPCODE_DEVICE_MISSING" version="0" task="ATAportGeneral" opcode="ATAPORT_OPCODE_DEVICE_MISSING" level="win:Verbose" keywords="DeviceEnumeration" template="ATAportGeneralATAPORT_OPCODE_DEV_ENUM_INITArgs"/>
+     <event value="107" symbol="ATAportGeneralATAPORT_OPCODE_CHANNEL_RESET_INIT" version="0" task="ATAportGeneral" opcode="ATAPORT_OPCODE_CHANNEL_RESET_INIT" level="win:Verbose" keywords="Reset" template="LPMstatechangeATAPORT_OPCODE_LPM_POWERSTATE_PARTIALArgs"/>
+     <event value="108" symbol="ATAportGeneralATAPORT_OPCODE_CHANNEL_RESET_COMPLETE" version="0" task="ATAportGeneral" opcode="ATAPORT_OPCODE_CHANNEL_RESET_COMPLETE" level="win:Verbose" keywords="Reset" template="LPMstatechangeATAPORT_OPCODE_LPM_POWERSTATE_PARTIALArgs"/>
+     <event value="109" symbol="ATAportGeneralATAPORT_OPCODE_DEVICE_RESET_INIT" version="0" task="ATAportGeneral" opcode="ATAPORT_OPCODE_DEVICE_RESET_INIT" level="win:Verbose" keywords="Reset" template="LPMstatechangeATAPORT_OPCODE_LPM_POWERSTATE_PARTIALArgs"/>
+     <event value="110" symbol="ATAportGeneralATAPORT_OPCODE_DEVICE_RESET_COMPLETE" version="0" task="ATAportGeneral" opcode="ATAPORT_OPCODE_DEVICE_RESET_COMPLETE" level="win:Verbose" keywords="Reset" template="LPMstatechangeATAPORT_OPCODE_LPM_POWERSTATE_PARTIALArgs"/>
+     <event value="111" symbol="ATAportGeneralATAPORT_OPCODE_CHANNEL_START_INIT" version="0" task="ATAportGeneral" opcode="ATAPORT_OPCODE_CHANNEL_START_INIT" level="win:Verbose" keywords="DeviceEnumeration"/>
+     <event value="112" symbol="ATAportGeneralATAPORT_OPCODE_CHANNEL_START_COMPLETE" version="0" task="ATAportGeneral" opcode="ATAPORT_OPCODE_CHANNEL_START_COMPLETE" level="win:Verbose" keywords="DeviceEnumeration"/>
+    </events>
+    <templates>
+     <template tid="LPMstatechangeATAPORT_OPCODE_LPM_POWERSTATE_PARTIALArgs">
+      <data name="SCSIAddressSize" inType="win:UInt32"/>
+      <data name="PortNumber" inType="win:UInt8"/>
+      <data name="PathID" inType="win:UInt8"/>
+      <data name="TargetID" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="DeviceType" inType="win:UInt32"/>
+      <data name="Result" inType="win:UInt32"/>
+     </template>
+     <template tid="ATAportGeneralATAPORT_OPCODE_DEV_ENUM_INITArgs">
+      <data name="SCSIAddressSize" inType="win:UInt32"/>
+      <data name="PortNumber" inType="win:UInt8"/>
+      <data name="PathID" inType="win:UInt8"/>
+      <data name="TargetID" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="DeviceType" inType="win:UInt32"/>
+     </template>
+     <template tid="ATAportGeneralATAPORT_OPCODE_XFER_MODE_CHANGEArgs">
+      <data name="SCSIAddressSize" inType="win:UInt32"/>
+      <data name="PortNumber" inType="win:UInt8"/>
+      <data name="PathID" inType="win:UInt8"/>
+      <data name="TargetID" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="DMAtoPIO" inType="win:UInt8"/>
+      <data name="StepDownInDMAModes" inType="win:UInt8"/>
+     </template>
+     <template tid="ATAportGeneralATAPORT_OPCODE_IO_REQUEST_COMPLETEArgs">
+      <data name="DeviceAddress" inType="win:UInt32"/>
+      <data name="RequestSequence" inType="win:UInt32"/>
+      <data name="QueueTime" inType="win:UInt64"/>
+      <data name="DeviceTime" inType="win:UInt64"/>
+      <data name="MasterIRP" inType="win:Pointer"/>
+      <data name="ActiveRequestCount" inType="win:UInt32"/>
+      <data name="IRBFunction" inType="win:UInt16"/>
+      <data name="DeviceCommand" inType="win:UInt8"/>
+      <data name="IRBStatus" inType="win:UInt8"/>
+      <data name="ATAStatus" inType="win:UInt8"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_AllIORequests" value="AllIORequests"/>
+    <string id="keyword_DeviceEnumeration" value="DeviceEnumeration"/>
+    <string id="keyword_IOErrors" value="IOErrors"/>
+    <string id="keyword_Reset" value="Reset"/>
+    <string id="keyword_XferModeChange" value="XferModeChange"/>
+    <string id="keyword_LinkPowerMgmt" value="LinkPowerMgmt"/>
+    <string id="task_LPMstatechange" value="LPMstatechange"/>
+    <string id="opcode_LPMstatechangeATAPORT_OPCODE_LPM_POWERSTATE_PARTIAL" value="ATAPORT_OPCODE_LPM_POWERSTATE_PARTIAL"/>
+    <string id="opcode_LPMstatechangeATAPORT_OPCODE_LPM_POWERSTATE_SLUMBER" value="ATAPORT_OPCODE_LPM_POWERSTATE_SLUMBER"/>
+    <string id="task_ATAportGeneral" value="ATAportGeneral"/>
+    <string id="opcode_ATAportGeneralATAPORT_OPCODE_DEV_ENUM_INIT" value="ATAPORT_OPCODE_DEV_ENUM_INIT"/>
+    <string id="opcode_ATAportGeneralATAPORT_OPCODE_DEV_ENUM_COMPLETE" value="ATAPORT_OPCODE_DEV_ENUM_COMPLETE"/>
+    <string id="opcode_ATAportGeneralATAPORT_OPCODE_XFER_MODE_CHANGE" value="ATAPORT_OPCODE_XFER_MODE_CHANGE"/>
+    <string id="opcode_ATAportGeneralATAPORT_OPCODE_IO_REQUEST_COMPLETE" value="ATAPORT_OPCODE_IO_REQUEST_COMPLETE"/>
+    <string id="opcode_ATAportGeneralATAPORT_OPCODE_IO_REQUEST_TIMEOUT" value="ATAPORT_OPCODE_IO_REQUEST_TIMEOUT"/>
+    <string id="opcode_ATAportGeneralATAPORT_OPCODE_IO_REQUEST_TRANSPORT_ERROR" value="ATAPORT_OPCODE_IO_REQUEST_TRANSPORT_ERROR"/>
+    <string id="opcode_ATAportGeneralATAPORT_OPCODE_DEVICE_MISSING" value="ATAPORT_OPCODE_DEVICE_MISSING"/>
+    <string id="opcode_ATAportGeneralATAPORT_OPCODE_CHANNEL_RESET_INIT" value="ATAPORT_OPCODE_CHANNEL_RESET_INIT"/>
+    <string id="opcode_ATAportGeneralATAPORT_OPCODE_CHANNEL_RESET_COMPLETE" value="ATAPORT_OPCODE_CHANNEL_RESET_COMPLETE"/>
+    <string id="opcode_ATAportGeneralATAPORT_OPCODE_DEVICE_RESET_INIT" value="ATAPORT_OPCODE_DEVICE_RESET_INIT"/>
+    <string id="opcode_ATAportGeneralATAPORT_OPCODE_DEVICE_RESET_COMPLETE" value="ATAPORT_OPCODE_DEVICE_RESET_COMPLETE"/>
+    <string id="opcode_ATAportGeneralATAPORT_OPCODE_CHANNEL_START_INIT" value="ATAPORT_OPCODE_CHANNEL_START_INIT"/>
+    <string id="opcode_ATAportGeneralATAPORT_OPCODE_CHANNEL_START_COMPLETE" value="ATAPORT_OPCODE_CHANNEL_START_COMPLETE"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

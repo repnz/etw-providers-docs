@@ -1,0 +1,43 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-DUSER" guid="{8429e243-345b-47c1-8a91-2c94caf0daab}" resourceFileName="Microsoft-Windows-DUSER" messageFileName="Microsoft-Windows-DUSER" symbol="MicrosoftWindowsDUSER" source="Xml" >
+    <keywords>
+     <keyword name="Default" message="$(string.keyword_Default)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="DUser_Paint" message="$(string.task_DUser_Paint)" value="1"/>
+     <task name="DUser_SyncAdaptors" message="$(string.task_DUser_SyncAdaptors)" value="2"/>
+     <task name="DUser_EndDrawBitBlt" message="$(string.task_DUser_EndDrawBitBlt)" value="3"/>
+     <task name="DUser_ResetInvalid" message="$(string.task_DUser_ResetInvalid)" value="4"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="DUser_PaintStart" version="0" task="DUser_Paint" opcode="win:Start" level="win:Informational" keywords="Default"/>
+     <event value="2" symbol="DUser_PaintStop" version="0" task="DUser_Paint" opcode="win:Stop" level="win:Informational" keywords="Default"/>
+     <event value="3" symbol="DUser_SyncAdaptorsStart" version="0" task="DUser_SyncAdaptors" opcode="win:Start" level="win:Informational" keywords="Default"/>
+     <event value="4" symbol="DUser_SyncAdaptorsStop" version="0" task="DUser_SyncAdaptors" opcode="win:Stop" level="win:Informational" keywords="Default" template="DUser_SyncAdaptorsStopArgs"/>
+     <event value="5" symbol="DUser_ResetInvalidStart" version="0" task="DUser_ResetInvalid" opcode="win:Start" level="win:Informational" keywords="Default"/>
+     <event value="6" symbol="DUser_ResetInvalidStop" version="0" task="DUser_ResetInvalid" opcode="win:Stop" level="win:Informational" keywords="Default"/>
+     <event value="7" symbol="DUser_EndDrawBitBltStart" version="0" task="DUser_EndDrawBitBlt" opcode="win:Start" level="win:Informational" keywords="Default"/>
+     <event value="8" symbol="DUser_EndDrawBitBltStop" version="0" task="DUser_EndDrawBitBlt" opcode="win:Stop" level="win:Informational" keywords="Default"/>
+    </events>
+    <templates>
+     <template tid="DUser_SyncAdaptorsStopArgs">
+      <data name="cAdaptors" inType="win:Int32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Default" value="Default"/>
+    <string id="task_DUser_Paint" value="DUser_Paint"/>
+    <string id="task_DUser_SyncAdaptors" value="DUser_SyncAdaptors"/>
+    <string id="task_DUser_EndDrawBitBlt" value="DUser_EndDrawBitBlt"/>
+    <string id="task_DUser_ResetInvalid" value="DUser_ResetInvalid"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

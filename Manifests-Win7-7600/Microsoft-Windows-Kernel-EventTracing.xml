@@ -1,0 +1,119 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Kernel-EventTracing" guid="{b675ec37-bdb6-4648-bc92-f3fdc74d3ca2}" resourceFileName="Microsoft-Windows-Kernel-EventTracing" messageFileName="Microsoft-Windows-Kernel-EventTracing" symbol="MicrosoftWindowsKernelEventTracing" source="Xml" >
+    <keywords>
+     <keyword name="ETW_KEYWORD_SESSION" message="$(string.keyword_ETW_KEYWORD_SESSION)" mask="0x10"/>
+     <keyword name="ETW_KEYWORD_PROVIDER" message="$(string.keyword_ETW_KEYWORD_PROVIDER)" mask="0x20"/>
+    </keywords>
+    <tasks>
+     <task name="Logging" message="$(string.task_Logging)" value="1">
+>
+      <opcodes>
+       <opcode name="WriteBuffer" message="$(string.opcode_LoggingWriteBuffer)" value="10"/>
+       <opcode name="FileSwitch" message="$(string.opcode_LoggingFileSwitch)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="Session" message="$(string.task_Session)" value="2">
+>
+      <opcodes>
+       <opcode name="Start" message="$(string.opcode_SessionStart)" value="12"/>
+       <opcode name="Stop" message="$(string.opcode_SessionStop)" value="14"/>
+       <opcode name="Flush" message="$(string.opcode_SessionFlush)" value="15"/>
+       <opcode name="Configure" message="$(string.opcode_SessionConfigure)" value="20"/>
+      </opcodes>
+     </task>
+     <task name="Provider" message="$(string.task_Provider)" value="3">
+>
+      <opcodes>
+       <opcode name="Register" message="$(string.opcode_ProviderRegister)" value="16"/>
+       <opcode name="Unregister" message="$(string.opcode_ProviderUnregister)" value="17"/>
+       <opcode name="Enable" message="$(string.opcode_ProviderEnable)" value="18"/>
+       <opcode name="Disable" message="$(string.opcode_ProviderDisable)" value="19"/>
+      </opcodes>
+     </task>
+     <task name="StackTrace" message="$(string.task_StackTrace)" value="6">
+>
+      <opcodes>
+       <opcode name="UserModeStackTrace" message="$(string.opcode_StackTraceUserModeStackTrace)" value="24"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="0" symbol="LoggingWriteBuffer" version="0" task="Logging" opcode="WriteBuffer" level="win:Error" keywords="ETW_KEYWORD_SESSION" template="LoggingWriteBufferArgs"/>
+     <event value="1" symbol="LoggingWriteBuffer1" version="0" task="Logging" opcode="WriteBuffer" level="win:Warning" keywords="ETW_KEYWORD_SESSION" template="LoggingWriteBuffer1Args"/>
+     <event value="2" symbol="SessionStart" version="0" task="Session" opcode="Start" level="win:Error" keywords="ETW_KEYWORD_SESSION" template="LoggingWriteBufferArgs"/>
+     <event value="3" symbol="SessionStop" version="0" task="Session" opcode="Stop" level="win:Error" keywords="ETW_KEYWORD_SESSION" template="LoggingWriteBufferArgs"/>
+     <event value="4" symbol="LoggingWriteBuffer4" version="0" task="Logging" opcode="WriteBuffer" level="win:Warning" keywords="ETW_KEYWORD_SESSION" template="LoggingWriteBuffer4Args"/>
+     <event value="5" symbol="LoggingFileSwitch" version="0" task="Logging" opcode="FileSwitch" level="win:Error" keywords="ETW_KEYWORD_SESSION" template="LoggingWriteBufferArgs"/>
+     <event value="8" symbol="ProviderRegister" version="0" task="Provider" opcode="Register" level="win:Verbose" keywords="ETW_KEYWORD_PROVIDER" template="ProviderRegisterArgs"/>
+     <event value="9" symbol="ProviderUnregister" version="0" task="Provider" opcode="Unregister" level="win:Verbose" keywords="ETW_KEYWORD_PROVIDER" template="ProviderRegisterArgs"/>
+     <event value="10" symbol="SessionStart10" version="0" task="Session" opcode="Start" level="win:Verbose" keywords="ETW_KEYWORD_SESSION" template="SessionStart10Args"/>
+     <event value="11" symbol="SessionStop11" version="0" task="Session" opcode="Stop" level="win:Verbose" keywords="ETW_KEYWORD_SESSION" template="SessionStart10Args"/>
+     <event value="12" symbol="SessionConfigure" version="0" task="Session" opcode="Configure" level="win:Verbose" keywords="ETW_KEYWORD_SESSION" template="SessionStart10Args"/>
+     <event value="13" symbol="SessionFlush" version="0" task="Session" opcode="Flush" level="win:Verbose" keywords="ETW_KEYWORD_SESSION" template="SessionStart10Args"/>
+     <event value="14" symbol="ProviderEnable" version="0" task="Provider" opcode="Enable" level="win:Verbose" keywords="ETW_KEYWORD_PROVIDER" template="ProviderEnableArgs"/>
+     <event value="15" symbol="ProviderDisable" version="0" task="Provider" opcode="Disable" level="win:Verbose" keywords="ETW_KEYWORD_PROVIDER" template="ProviderEnableArgs"/>
+     <event value="17" symbol="SessionConfigure17" version="0" task="Session" opcode="Configure" level="win:Verbose" keywords="ETW_KEYWORD_SESSION" template="SessionStart10Args"/>
+     <event value="18" symbol="StackTraceUserModeStackTrace" version="0" task="StackTrace" opcode="UserModeStackTrace" level="win:Informational"/>
+    </events>
+    <templates>
+     <template tid="LoggingWriteBufferArgs">
+      <data name="SessionName" inType="win:UnicodeString"/>
+      <data name="FileName" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="LoggingMode" inType="win:UInt32"/>
+     </template>
+     <template tid="LoggingWriteBuffer1Args">
+      <data name="SessionName" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="LoggingMode" inType="win:UInt32"/>
+     </template>
+     <template tid="LoggingWriteBuffer4Args">
+      <data name="SessionName" inType="win:UnicodeString"/>
+      <data name="FileName" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="LoggingMode" inType="win:UInt32"/>
+      <data name="MaxFileSize" inType="win:UInt64"/>
+     </template>
+     <template tid="ProviderRegisterArgs">
+      <data name="ProviderName" inType="win:GUID"/>
+     </template>
+     <template tid="SessionStart10Args">
+      <data name="SessionGuid" inType="win:GUID"/>
+      <data name="LoggerMode" inType="win:UInt32"/>
+      <data name="SessionName" inType="win:UnicodeString"/>
+      <data name="LogFileName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ProviderEnableArgs">
+      <data name="ProviderName" inType="win:GUID"/>
+      <data name="SessionName" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_ETW_KEYWORD_SESSION" value="ETW_KEYWORD_SESSION"/>
+    <string id="keyword_ETW_KEYWORD_PROVIDER" value="ETW_KEYWORD_PROVIDER"/>
+    <string id="task_Logging" value="Logging"/>
+    <string id="opcode_LoggingWriteBuffer" value="WriteBuffer"/>
+    <string id="opcode_LoggingFileSwitch" value="FileSwitch"/>
+    <string id="task_Session" value="Session"/>
+    <string id="opcode_SessionStart" value="Start"/>
+    <string id="opcode_SessionStop" value="Stop"/>
+    <string id="opcode_SessionFlush" value="Flush"/>
+    <string id="opcode_SessionConfigure" value="Configure"/>
+    <string id="task_Provider" value="Provider"/>
+    <string id="opcode_ProviderRegister" value="Register"/>
+    <string id="opcode_ProviderUnregister" value="Unregister"/>
+    <string id="opcode_ProviderEnable" value="Enable"/>
+    <string id="opcode_ProviderDisable" value="Disable"/>
+    <string id="task_StackTrace" value="StackTrace"/>
+    <string id="opcode_StackTraceUserModeStackTrace" value="UserModeStackTrace"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,118 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Kernel-WDI" guid="{2ff3e6b7-cb90-4700-9621-443f389734ed}" resourceFileName="Microsoft-Windows-Kernel-WDI" messageFileName="Microsoft-Windows-Kernel-WDI" symbol="MicrosoftWindowsKernelWDI" source="Xml" >
+    <keywords>
+     <keyword name="context" message="$(string.keyword_context)" mask="0x100000000"/>
+     <keyword name="diag" message="$(string.keyword_diag)" mask="0x200000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="SEMScenarioLifecycle" message="$(string.task_SEMScenarioLifecycle)" value="9">
+>
+      <opcodes>
+       <opcode name="ScenariostartenablescontextproviderstotheWDIcontextlogger." message="$(string.opcode_SEMScenarioLifecycleScenariostartenablescontextproviderstotheWDIcontextlogger.)" value="10"/>
+       <opcode name="ScenarioenddisablescontextproviderstotheWDIcontextlogger." message="$(string.opcode_SEMScenarioLifecycleScenarioenddisablescontextproviderstotheWDIcontextlogger.)" value="11"/>
+       <opcode name="Whenascenariohasremainedin_flightbeyondthemaximumtimewindowitisautomaticallyterminatedbytheSEM." message="$(string.opcode_SEMScenarioLifecycleWhenascenariohasremainedin_flightbeyondthemaximumtimewindowitisautomaticallyterminatedbytheSEM.)" value="12"/>
+       <opcode name="AscenariostartattemptfailedintheSEM." message="$(string.opcode_SEMScenarioLifecycleAscenariostartattemptfailedintheSEM.)" value="13"/>
+       <opcode name="AscenarioendattemptfailedintheSEM." message="$(string.opcode_SEMScenarioLifecycleAscenarioendattemptfailedintheSEM.)" value="14"/>
+       <opcode name="TheSEMreceivedarequesttostartanewscenario,butthemaximumnumberofscenarioswerealreadyin_flight." message="$(string.opcode_SEMScenarioLifecycleTheSEMreceivedarequesttostartanewscenario,butthemaximumnumberofscenarioswerealreadyin_flight.)" value="15"/>
+      </opcodes>
+     </task>
+     <task name="SEMInitialization" message="$(string.task_SEMInitialization)" value="10">
+>
+      <opcodes>
+       <opcode name="ThereisaninvalidconfigurationparameterintheSEMregistrynamespace." message="$(string.opcode_SEMInitializationThereisaninvalidconfigurationparameterintheSEMregistrynamespace.)" value="16"/>
+       <opcode name="TheSEMisconfiguredwithmorescenariosthanthemaximumallowedcount." message="$(string.opcode_SEMInitializationTheSEMisconfiguredwithmorescenariosthanthemaximumallowedcount.)" value="17"/>
+       <opcode name="TheSEMisconfiguredwithascenariowithtoomanycontextproviders." message="$(string.opcode_SEMInitializationTheSEMisconfiguredwithascenariowithtoomanycontextproviders.)" value="18"/>
+       <opcode name="TheSEMisconfiguredwithascenariothathastoomanyendevents." message="$(string.opcode_SEMInitializationTheSEMisconfiguredwithascenariothathastoomanyendevents.)" value="19"/>
+       <opcode name="Thenumberofprovidersspecifiedacrossallscenariosisabovethemaximumallowedamount." message="$(string.opcode_SEMInitializationThenumberofprovidersspecifiedacrossallscenariosisabovethemaximumallowedamount.)" value="20"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="32" symbol="SEMScenarioLifecycleScenariostartenablescontextproviderstotheWDIcontextlogger." version="0" task="SEMScenarioLifecycle" opcode="ScenariostartenablescontextproviderstotheWDIcontextlogger." level="win:Informational" keywords="context" template="SEMScenarioLifecycleScenariostartenablescontextproviderstotheWDIcontextlogger.Args"/>
+     <event value="33" symbol="SEMScenarioLifecycleScenarioenddisablescontextproviderstotheWDIcontextlogger." version="0" task="SEMScenarioLifecycle" opcode="ScenarioenddisablescontextproviderstotheWDIcontextlogger." level="win:Informational" keywords="context" template="SEMScenarioLifecycleScenariostartenablescontextproviderstotheWDIcontextlogger.Args"/>
+     <event value="34" symbol="SEMScenarioLifecycleWhenascenariohasremainedin_flightbeyondthemaximumtimewindowitisautomaticallyterminatedbytheSEM." version="0" task="SEMScenarioLifecycle" opcode="Whenascenariohasremainedin_flightbeyondthemaximumtimewindowitisautomaticallyterminatedbytheSEM." level="win:Warning" keywords="diag" template="SEMScenarioLifecycleWhenascenariohasremainedin_flightbeyondthemaximumtimewindowitisautomaticallyterminatedbytheSEM.Args"/>
+     <event value="35" symbol="SEMScenarioLifecycleTheSEMreceivedarequesttostartanewscenario,butthemaximumnumberofscenarioswerealreadyin_flight." version="0" task="SEMScenarioLifecycle" opcode="TheSEMreceivedarequesttostartanewscenario,butthemaximumnumberofscenarioswerealreadyin_flight." level="win:Warning" template="SEMScenarioLifecycleTheSEMreceivedarequesttostartanewscenario,butthemaximumnumberofscenarioswerealreadyin_flight.Args"/>
+     <event value="36" symbol="SEMScenarioLifecycleAscenariostartattemptfailedintheSEM." version="0" task="SEMScenarioLifecycle" opcode="AscenariostartattemptfailedintheSEM." level="win:Warning" template="SEMScenarioLifecycleAscenariostartattemptfailedintheSEM.Args"/>
+     <event value="37" symbol="SEMScenarioLifecycleAscenarioendattemptfailedintheSEM." version="0" task="SEMScenarioLifecycle" opcode="AscenarioendattemptfailedintheSEM." level="win:Warning" template="SEMScenarioLifecycleAscenariostartattemptfailedintheSEM.Args"/>
+     <event value="38" symbol="SEMInitializationTheSEMisconfiguredwithmorescenariosthanthemaximumallowedcount." version="0" task="SEMInitialization" opcode="TheSEMisconfiguredwithmorescenariosthanthemaximumallowedcount." level="win:Error" template="SEMScenarioLifecycleWhenascenariohasremainedin_flightbeyondthemaximumtimewindowitisautomaticallyterminatedbytheSEM.Args"/>
+     <event value="39" symbol="SEMInitializationTheSEMisconfiguredwithascenariowithtoomanycontextproviders." version="0" task="SEMInitialization" opcode="TheSEMisconfiguredwithascenariowithtoomanycontextproviders." level="win:Error" template="SEMScenarioLifecycleWhenascenariohasremainedin_flightbeyondthemaximumtimewindowitisautomaticallyterminatedbytheSEM.Args"/>
+     <event value="40" symbol="SEMInitializationTheSEMisconfiguredwithascenariothathastoomanyendevents." version="0" task="SEMInitialization" opcode="TheSEMisconfiguredwithascenariothathastoomanyendevents." level="win:Error" template="SEMScenarioLifecycleWhenascenariohasremainedin_flightbeyondthemaximumtimewindowitisautomaticallyterminatedbytheSEM.Args"/>
+     <event value="41" symbol="SEMInitializationThenumberofprovidersspecifiedacrossallscenariosisabovethemaximumallowedamount." version="0" task="SEMInitialization" opcode="Thenumberofprovidersspecifiedacrossallscenariosisabovethemaximumallowedamount." level="win:Error" template="SEMInitializationThenumberofprovidersspecifiedacrossallscenariosisabovethemaximumallowedamount.Args"/>
+     <event value="42" symbol="SEMInitializationThereisaninvalidconfigurationparameterintheSEMregistrynamespace." version="0" task="SEMInitialization" opcode="ThereisaninvalidconfigurationparameterintheSEMregistrynamespace." level="win:Error" template="SEMScenarioLifecycleAscenariostartattemptfailedintheSEM.Args"/>
+     <event value="43" symbol="task_0" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+     <event value="44" symbol="task_044" version="0" task="task_0" level="win:Informational" template="task_044Args"/>
+     <event value="45" symbol="task_045" version="0" task="task_0" level="win:Informational" template="task_045Args"/>
+    </events>
+    <templates>
+     <template tid="SEMScenarioLifecycleScenariostartenablescontextproviderstotheWDIcontextlogger.Args">
+      <data name="ProviderID" inType="win:GUID"/>
+      <data name="EventID" inType="win:UInt16"/>
+      <data name="DroppedEventCount" inType="win:UInt32"/>
+      <data name="ActionCount" inType="win:UInt8"/>
+      <data name="SemActions" inType="win:Int16" count="ActionCount"/>
+     </template>
+     <template tid="SEMScenarioLifecycleWhenascenariohasremainedin_flightbeyondthemaximumtimewindowitisautomaticallyterminatedbytheSEM.Args">
+      <data name="ProviderID" inType="win:GUID"/>
+      <data name="EventID" inType="win:UInt16"/>
+     </template>
+     <template tid="SEMScenarioLifecycleTheSEMreceivedarequesttostartanewscenario,butthemaximumnumberofscenarioswerealreadyin_flight.Args">
+      <data name="ProviderID" inType="win:GUID"/>
+      <data name="EventID" inType="win:UInt16"/>
+      <data name="ScenarioCount" inType="win:UInt8"/>
+      <data name="ScenarioInflightItems" inType="win:UInt8" count="ScenarioCount"/>
+     </template>
+     <template tid="SEMScenarioLifecycleAscenariostartattemptfailedintheSEM.Args">
+      <data name="ProviderID" inType="win:GUID"/>
+      <data name="EventID" inType="win:UInt16"/>
+      <data name="NTStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="SEMInitializationThenumberofprovidersspecifiedacrossallscenariosisabovethemaximumallowedamount.Args">
+      <data name="ProviderID" inType="win:GUID"/>
+     </template>
+     <template tid="task_0Args">
+      <data name="SqmType" inType="win:UInt32"/>
+      <data name="SqmSid" inType="win:SID"/>
+     </template>
+     <template tid="task_044Args">
+      <data name="SqmSessionGuid" inType="win:GUID"/>
+      <data name="SqmID" inType="win:UInt32"/>
+      <data name="SqmType" inType="win:UInt32"/>
+      <data name="SqmDWORDDatapointValue" inType="win:UInt32"/>
+     </template>
+     <template tid="task_045Args">
+      <data name="SqmSessionGuid" inType="win:GUID"/>
+      <data name="SqmID" inType="win:UInt32"/>
+      <data name="SqmType" inType="win:UInt32"/>
+      <data name="SqmStreamRowLength" inType="win:UInt32"/>
+      <data name="SqmStreamRow" inType="win:Int16" count="SqmStreamRowLength"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_context" value="context"/>
+    <string id="keyword_diag" value="diag"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_SEMScenarioLifecycle" value="SEMScenarioLifecycle"/>
+    <string id="opcode_SEMScenarioLifecycleScenariostartenablescontextproviderstotheWDIcontextlogger." value="ScenariostartenablescontextproviderstotheWDIcontextlogger."/>
+    <string id="opcode_SEMScenarioLifecycleScenarioenddisablescontextproviderstotheWDIcontextlogger." value="ScenarioenddisablescontextproviderstotheWDIcontextlogger."/>
+    <string id="opcode_SEMScenarioLifecycleWhenascenariohasremainedin_flightbeyondthemaximumtimewindowitisautomaticallyterminatedbytheSEM." value="Whenascenariohasremainedin_flightbeyondthemaximumtimewindowitisautomaticallyterminatedbytheSEM."/>
+    <string id="opcode_SEMScenarioLifecycleAscenariostartattemptfailedintheSEM." value="AscenariostartattemptfailedintheSEM."/>
+    <string id="opcode_SEMScenarioLifecycleAscenarioendattemptfailedintheSEM." value="AscenarioendattemptfailedintheSEM."/>
+    <string id="opcode_SEMScenarioLifecycleTheSEMreceivedarequesttostartanewscenario,butthemaximumnumberofscenarioswerealreadyin_flight." value="TheSEMreceivedarequesttostartanewscenario,butthemaximumnumberofscenarioswerealreadyin_flight."/>
+    <string id="task_SEMInitialization" value="SEMInitialization"/>
+    <string id="opcode_SEMInitializationThereisaninvalidconfigurationparameterintheSEMregistrynamespace." value="ThereisaninvalidconfigurationparameterintheSEMregistrynamespace."/>
+    <string id="opcode_SEMInitializationTheSEMisconfiguredwithmorescenariosthanthemaximumallowedcount." value="TheSEMisconfiguredwithmorescenariosthanthemaximumallowedcount."/>
+    <string id="opcode_SEMInitializationTheSEMisconfiguredwithascenariowithtoomanycontextproviders." value="TheSEMisconfiguredwithascenariowithtoomanycontextproviders."/>
+    <string id="opcode_SEMInitializationTheSEMisconfiguredwithascenariothathastoomanyendevents." value="TheSEMisconfiguredwithascenariothathastoomanyendevents."/>
+    <string id="opcode_SEMInitializationThenumberofprovidersspecifiedacrossallscenariosisabovethemaximumallowedamount." value="Thenumberofprovidersspecifiedacrossallscenariosisabovethemaximumallowedamount."/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

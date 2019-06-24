@@ -1,0 +1,79 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Crypto-RNG" guid="{54d5ac20-e14f-4fda-92da-ebf7556ff176}" resourceFileName="Microsoft-Windows-Crypto-RNG" messageFileName="Microsoft-Windows-Crypto-RNG" symbol="MicrosoftWindowsCryptoRNG" source="Xml" >
+    <keywords>
+     <keyword name="KEYWORD_SYSTEMRNG_ENTROPY_REGISTRATION" message="$(string.keyword_KEYWORD_SYSTEMRNG_ENTROPY_REGISTRATION)" mask="0x1"/>
+     <keyword name="KEYWORD_SYSTEMRNG_ENTROPY_DATA" message="$(string.keyword_KEYWORD_SYSTEMRNG_ENTROPY_DATA)" mask="0x2"/>
+    </keywords>
+    <tasks>
+     <task name="Gatherentropyforthesystemrandomnumbergenerator" message="$(string.task_Gatherentropyforthesystemrandomnumbergenerator)" value="10"/>
+    </tasks>
+    <maps>
+     <valueMap name="SystemRngEntropyTypeMap">
+      <map value="0x1" message="$(string.map_SystemRngEntropyTypeMapHigh entropy push)"/>
+     </valueMap>
+     <valueMap name="SystemRngTpmBootEntropyPolicy">
+      <map value="0x0" message="$(string.map_SystemRngTpmBootEntropyPolicyDefault)"/>
+      <map value="0x1" message="$(string.map_SystemRngTpmBootEntropyPolicyForceDisable)"/>
+      <map value="0x2" message="$(string.map_SystemRngTpmBootEntropyPolicyForceEnable)"/>
+     </valueMap>
+     <valueMap name="SystemRngTpmBootEntropyResult">
+      <map value="0x0" message="$(string.map_SystemRngTpmBootEntropyResultERROR (uninitialized))"/>
+      <map value="0x1" message="$(string.map_SystemRngTpmBootEntropyResultDisabled by policy)"/>
+      <map value="0x2" message="$(string.map_SystemRngTpmBootEntropyResultNo TPM found)"/>
+      <map value="0x3" message="$(string.map_SystemRngTpmBootEntropyResultTPM error)"/>
+      <map value="0x4" message="$(string.map_SystemRngTpmBootEntropyResultSuccess)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="GatherentropyforthesystemrandomnumbergeneratorStart" version="0" task="Gatherentropyforthesystemrandomnumbergenerator" opcode="win:Start" level="win:Informational" keywords="KEYWORD_SYSTEMRNG_ENTROPY_REGISTRATION" template="GatherentropyforthesystemrandomnumbergeneratorStartArgs"/>
+     <event value="2" symbol="GatherentropyforthesystemrandomnumbergeneratorStop" version="0" task="Gatherentropyforthesystemrandomnumbergenerator" opcode="win:Stop" level="win:Informational" keywords="KEYWORD_SYSTEMRNG_ENTROPY_REGISTRATION" template="GatherentropyforthesystemrandomnumbergeneratorStopArgs"/>
+     <event value="3" symbol="Gatherentropyforthesystemrandomnumbergenerator" version="0" task="Gatherentropyforthesystemrandomnumbergenerator" level="win:Informational" keywords="KEYWORD_SYSTEMRNG_ENTROPY_DATA" template="GatherentropyforthesystemrandomnumbergeneratorArgs"/>
+     <event value="16" symbol="Gatherentropyforthesystemrandomnumbergenerator16" version="0" task="Gatherentropyforthesystemrandomnumbergenerator" level="win:Informational" keywords="KEYWORD_SYSTEMRNG_ENTROPY_DATA" template="Gatherentropyforthesystemrandomnumbergenerator16Args"/>
+    </events>
+    <templates>
+     <template tid="GatherentropyforthesystemrandomnumbergeneratorStartArgs">
+      <data name="SourceNumber" inType="win:UInt64"/>
+      <data name="SourceName" inType="win:UnicodeString"/>
+      <data name="SourceType" inType="win:UInt32" map="SystemRngEntropyTypeMap"/>
+     </template>
+     <template tid="GatherentropyforthesystemrandomnumbergeneratorStopArgs">
+      <data name="SourceNumber" inType="win:UInt64"/>
+      <data name="SourceName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="GatherentropyforthesystemrandomnumbergeneratorArgs">
+      <data name="SourceNumber" inType="win:UInt64"/>
+      <data name="BytesProvided" inType="win:UInt32"/>
+      <data name="EntropyEstimate" inType="win:Int32"/>
+     </template>
+     <template tid="Gatherentropyforthesystemrandomnumbergenerator16Args">
+      <data name="Policy" inType="win:UInt32" map="SystemRngTpmBootEntropyPolicy"/>
+      <data name="ResultCode" inType="win:UInt32" map="SystemRngTpmBootEntropyResult"/>
+      <data name="ResultStatus" inType="win:HexInt32"/>
+      <data name="Time" inType="win:UInt64"/>
+      <data name="nBytes" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_KEYWORD_SYSTEMRNG_ENTROPY_REGISTRATION" value="KEYWORD_SYSTEMRNG_ENTROPY_REGISTRATION"/>
+    <string id="keyword_KEYWORD_SYSTEMRNG_ENTROPY_DATA" value="KEYWORD_SYSTEMRNG_ENTROPY_DATA"/>
+    <string id="task_Gatherentropyforthesystemrandomnumbergenerator" value="Gatherentropyforthesystemrandomnumbergenerator"/>
+    <string id="map_SystemRngEntropyTypeMapHigh entropy push" value="High entropy push"/>
+    <string id="map_SystemRngTpmBootEntropyPolicyDefault" value="Default"/>
+    <string id="map_SystemRngTpmBootEntropyPolicyForceDisable" value="ForceDisable"/>
+    <string id="map_SystemRngTpmBootEntropyPolicyForceEnable" value="ForceEnable"/>
+    <string id="map_SystemRngTpmBootEntropyResultERROR (uninitialized)" value="ERROR (uninitialized)"/>
+    <string id="map_SystemRngTpmBootEntropyResultDisabled by policy" value="Disabled by policy"/>
+    <string id="map_SystemRngTpmBootEntropyResultNo TPM found" value="No TPM found"/>
+    <string id="map_SystemRngTpmBootEntropyResultTPM error" value="TPM error"/>
+    <string id="map_SystemRngTpmBootEntropyResultSuccess" value="Success"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

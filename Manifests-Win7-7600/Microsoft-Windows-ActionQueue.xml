@@ -1,0 +1,44 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-ActionQueue" guid="{0dd4d48e-2bbf-452f-a7ec-ba3dba8407ae}" resourceFileName="Microsoft-Windows-ActionQueue" messageFileName="Microsoft-Windows-ActionQueue" symbol="MicrosoftWindowsActionQueue" source="Xml" >
+    <keywords>
+     <keyword name="keyPerformance" message="$(string.keyword_keyPerformance)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="ProcessActionQueue" message="$(string.task_ProcessActionQueue)" value="1000"/>
+     <task name="ExecuteCommand" message="$(string.task_ExecuteCommand)" value="2000"/>
+    </tasks>
+    <events>
+     <event value="1001" symbol="ProcessActionQueueStart" version="0" task="ProcessActionQueue" opcode="win:Start" level="win:Informational" keywords="keyPerformance" template="ProcessActionQueueStartArgs"/>
+     <event value="1002" symbol="ProcessActionQueueStop" version="0" task="ProcessActionQueue" opcode="win:Stop" level="win:Informational" keywords="keyPerformance" template="ProcessActionQueueStopArgs"/>
+     <event value="2001" symbol="ExecuteCommandStart" version="0" task="ExecuteCommand" opcode="win:Start" level="win:Informational" keywords="keyPerformance" template="ExecuteCommandStartArgs"/>
+     <event value="2002" symbol="ExecuteCommandStop" version="0" task="ExecuteCommand" opcode="win:Stop" level="win:Informational" keywords="keyPerformance" template="ProcessActionQueueStopArgs"/>
+    </events>
+    <templates>
+     <template tid="ProcessActionQueueStartArgs">
+      <data name="QueueFile" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ProcessActionQueueStopArgs">
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="ExecuteCommandStartArgs">
+      <data name="ExecutableName" inType="win:AnsiString"/>
+      <data name="Arguments" inType="win:AnsiString"/>
+      <data name="Identity" inType="win:AnsiString"/>
+      <data name="Pass" inType="win:AnsiString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_keyPerformance" value="keyPerformance"/>
+    <string id="task_ProcessActionQueue" value="ProcessActionQueue"/>
+    <string id="task_ExecuteCommand" value="ExecuteCommand"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

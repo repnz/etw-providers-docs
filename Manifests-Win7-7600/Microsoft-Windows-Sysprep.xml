@@ -1,0 +1,45 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Sysprep" guid="{75ebc33e-77b8-4ba8-9474-4f4a9db2f5c6}" resourceFileName="Microsoft-Windows-Sysprep" messageFileName="Microsoft-Windows-Sysprep" symbol="MicrosoftWindowsSysprep" source="Xml" >
+    <keywords>
+     <keyword name="keyPerformance" message="$(string.keyword_keyPerformance)" mask="0x1"/>
+     <keyword name="keySysprep" message="$(string.keyword_keySysprep)" mask="0x2"/>
+    </keywords>
+    <tasks>
+     <task name="RunRegistryDlls" message="$(string.task_RunRegistryDlls)" value="1000"/>
+     <task name="CallExternalProviderFunction" message="$(string.task_CallExternalProviderFunction)" value="2000"/>
+    </tasks>
+    <events>
+     <event value="1001" symbol="RunRegistryDllsStart" version="0" task="RunRegistryDlls" opcode="win:Start" level="win:Informational" keywords="keyPerformance keySysprep" template="RunRegistryDllsStartArgs"/>
+     <event value="1002" symbol="RunRegistryDllsStop" version="0" task="RunRegistryDlls" opcode="win:Stop" level="win:Informational" keywords="keyPerformance keySysprep" template="RunRegistryDllsStopArgs"/>
+     <event value="2001" symbol="CallExternalProviderFunctionStart" version="0" task="CallExternalProviderFunction" opcode="win:Start" level="win:Informational" keywords="keyPerformance keySysprep" template="CallExternalProviderFunctionStartArgs"/>
+     <event value="2002" symbol="CallExternalProviderFunctionStop" version="0" task="CallExternalProviderFunction" opcode="win:Stop" level="win:Informational" keywords="keyPerformance keySysprep" template="RunRegistryDllsStopArgs"/>
+    </events>
+    <templates>
+     <template tid="RunRegistryDllsStartArgs">
+      <data name="BasePath" inType="win:UnicodeString"/>
+      <data name="Phase" inType="win:UnicodeString"/>
+     </template>
+     <template tid="RunRegistryDllsStopArgs">
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="CallExternalProviderFunctionStartArgs">
+      <data name="DllName" inType="win:UnicodeString"/>
+      <data name="FunctionName" inType="win:AnsiString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_keyPerformance" value="keyPerformance"/>
+    <string id="keyword_keySysprep" value="keySysprep"/>
+    <string id="task_RunRegistryDlls" value="RunRegistryDlls"/>
+    <string id="task_CallExternalProviderFunction" value="CallExternalProviderFunction"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>
