@@ -1,0 +1,96 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-BackgroundTransfer-ContentPrefetcher" guid="{648a0644-7d62-4fd3-8841-440064762f95}" resourceFileName="Microsoft-Windows-BackgroundTransfer-ContentPrefetcher" messageFileName="Microsoft-Windows-BackgroundTransfer-ContentPrefetcher" symbol="MicrosoftWindowsBackgroundTransferContentPrefetcher" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="PrefetchTaskActivity" message="$(string.task_PrefetchTaskActivity)" value="100"/>
+     <task name="URIFetch" message="$(string.task_URIFetch)" value="101"/>
+     <task name="IndirectContentURI" message="$(string.task_IndirectContentURI)" value="102"/>
+    </tasks>
+    <events>
+     <event value="0" symbol="PrefetchTaskActivity" version="0" task="PrefetchTaskActivity" level="win:Informational" template="PrefetchTaskActivityArgs"/>
+     <event value="1" symbol="PrefetchTaskActivity1" version="0" task="PrefetchTaskActivity" level="win:Informational" template="PrefetchTaskActivityArgs"/>
+     <event value="2" symbol="URIFetch" version="0" task="URIFetch" level="win:Informational" template="URIFetchArgs"/>
+     <event value="3" symbol="URIFetch3" version="0" task="URIFetch" level="win:Informational" template="URIFetchArgs"/>
+     <event value="4" symbol="URIFetch4" version="0" task="URIFetch" level="win:Informational" template="URIFetch4Args"/>
+     <event value="6" symbol="URIFetch6" version="0" task="URIFetch" level="win:Error" template="URIFetch6Args"/>
+     <event value="7" symbol="URIFetch7" version="0" task="URIFetch" level="win:Error" template="URIFetch7Args"/>
+     <event value="8" symbol="IndirectContentURI" version="0" task="IndirectContentURI" level="win:Informational" template="IndirectContentURIArgs"/>
+     <event value="9" symbol="IndirectContentURI9" version="0" task="IndirectContentURI" level="win:Error" template="IndirectContentURI9Args"/>
+     <event value="10" symbol="URIFetch10" version="0" task="URIFetch" level="win:Informational" template="URIFetch10Args"/>
+     <event value="11" symbol="URIFetch11" version="0" task="URIFetch" level="win:Warning" template="URIFetchArgs"/>
+     <event value="12" symbol="PrefetchTaskActivity12" version="0" task="PrefetchTaskActivity" level="win:Error" template="PrefetchTaskActivity12Args"/>
+     <event value="13" symbol="PrefetchTaskActivity13" version="0" task="PrefetchTaskActivity" level="win:Error" template="PrefetchTaskActivity13Args"/>
+     <event value="14" symbol="PrefetchTaskActivity14" version="0" task="PrefetchTaskActivity" level="win:Error" template="PrefetchTaskActivityArgs"/>
+     <event value="15" symbol="PrefetchTaskActivity15" version="0" task="PrefetchTaskActivity" level="win:Error" template="PrefetchTaskActivity15Args"/>
+     <event value="16" symbol="URIFetch16" version="0" task="URIFetch" level="win:Error" template="URIFetch16Args"/>
+     <event value="17" symbol="IndirectContentURI17" version="0" task="IndirectContentURI" level="win:Informational" template="URIFetch10Args"/>
+     <event value="18" symbol="URIFetch18" version="0" task="URIFetch" level="win:Informational" template="URIFetchArgs"/>
+    </events>
+    <templates>
+     <template tid="PrefetchTaskActivityArgs">
+      <data name="appName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="URIFetchArgs">
+      <data name="uri" inType="win:UnicodeString"/>
+     </template>
+     <template tid="URIFetch4Args">
+      <data name="uri" inType="win:UnicodeString"/>
+      <data name="httpStatusCode" inType="win:UInt32"/>
+      <data name="errorString" inType="win:UnicodeString"/>
+     </template>
+     <template tid="URIFetch6Args">
+      <data name="uri" inType="win:UnicodeString"/>
+      <data name="statusCode" inType="win:UInt32"/>
+      <data name="errorString" inType="win:UnicodeString"/>
+     </template>
+     <template tid="URIFetch7Args">
+      <data name="uri" inType="win:UnicodeString"/>
+      <data name="errorString" inType="win:AnsiString"/>
+     </template>
+     <template tid="IndirectContentURIArgs">
+      <data name="uri" inType="win:UnicodeString"/>
+      <data name="xmlBlob" inType="win:AnsiString"/>
+     </template>
+     <template tid="IndirectContentURI9Args">
+      <data name="statusCode" inType="win:UInt32"/>
+      <data name="errorReason" inType="win:UnicodeString"/>
+      <data name="sourceText" inType="win:UnicodeString"/>
+      <data name="errorOffset" inType="win:UInt32"/>
+     </template>
+     <template tid="URIFetch10Args">
+      <data name="count" inType="win:UInt32"/>
+     </template>
+     <template tid="PrefetchTaskActivity12Args">
+      <data name="appName" inType="win:UnicodeString"/>
+      <data name="httpStatusCode" inType="win:UInt32"/>
+      <data name="errorString" inType="win:UnicodeString"/>
+     </template>
+     <template tid="PrefetchTaskActivity13Args">
+      <data name="appName" inType="win:UnicodeString"/>
+      <data name="errorString" inType="win:AnsiString"/>
+     </template>
+     <template tid="PrefetchTaskActivity15Args">
+      <data name="appName" inType="win:UnicodeString"/>
+      <data name="errorString" inType="win:UInt32"/>
+     </template>
+     <template tid="URIFetch16Args">
+      <data name="uri" inType="win:UnicodeString"/>
+      <data name="statusCode" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_PrefetchTaskActivity" value="PrefetchTaskActivity"/>
+    <string id="task_URIFetch" value="URIFetch"/>
+    <string id="task_IndirectContentURI" value="IndirectContentURI"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

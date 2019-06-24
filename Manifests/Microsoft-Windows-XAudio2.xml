@@ -1,0 +1,157 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-XAudio2" guid="{1ee3abdb-c1fc-4b43-9e56-11064abba866}" resourceFileName="Microsoft-Windows-XAudio2" messageFileName="Microsoft-Windows-XAudio2" symbol="MicrosoftWindowsXAudio2" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="Initialize" message="$(string.task_Initialize)" value="1"/>
+     <task name="Shutdown" message="$(string.task_Shutdown)" value="2"/>
+     <task name="SourceVoice" message="$(string.task_SourceVoice)" value="3">
+>
+      <opcodes>
+       <opcode name="PerformanceWarning" message="$(string.opcode_SourceVoicePerformanceWarning)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="SubmixVoice" message="$(string.task_SubmixVoice)" value="4">
+>
+      <opcodes>
+       <opcode name="Create" message="$(string.opcode_SubmixVoiceCreate)" value="10"/>
+      </opcodes>
+     </task>
+     <task name="MasteringVoice" message="$(string.task_MasteringVoice)" value="5">
+>
+      <opcodes>
+       <opcode name="Create" message="$(string.opcode_MasteringVoiceCreate)" value="10"/>
+      </opcodes>
+     </task>
+     <task name="Processing" message="$(string.task_Processing)" value="6">
+>
+      <opcodes>
+       <opcode name="PerformanceWarning" message="$(string.opcode_ProcessingPerformanceWarning)" value="11"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <maps>
+     <valueMap name="Callback">
+      <map value="0x0" message="$(string.map_CallbackOnProcessingPassStart)"/>
+      <map value="0x1" message="$(string.map_CallbackOnProcessingPassEnd)"/>
+      <map value="0x2" message="$(string.map_CallbackOnVoiceProcessingPassStart)"/>
+      <map value="0x3" message="$(string.map_CallbackOnVoiceProcessingPassEnd)"/>
+      <map value="0x4" message="$(string.map_CallbackOnBufferStart)"/>
+      <map value="0x5" message="$(string.map_CallbackOnBufferEnd)"/>
+      <map value="0x6" message="$(string.map_CallbackOnStreamEnd)"/>
+      <map value="0x7" message="$(string.map_CallbackOnLoopEnd)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="16" symbol="Initialize" version="0" task="Initialize" level="win:Informational" template="InitializeArgs"/>
+     <event value="17" symbol="Initialize17" version="0" task="Initialize" level="win:Error"/>
+     <event value="32" symbol="Shutdown" version="0" task="Shutdown" level="win:Informational" template="ShutdownArgs"/>
+     <event value="33" symbol="Shutdown33" version="0" task="Shutdown" level="win:Warning" template="Shutdown33Args"/>
+     <event value="48" symbol="SubmixVoiceCreate" version="0" task="SubmixVoice" opcode="Create" level="win:Verbose" template="SubmixVoiceCreateArgs"/>
+     <event value="49" symbol="SubmixVoiceCreate49" version="0" task="SubmixVoice" opcode="Create" level="win:Warning" template="SubmixVoiceCreate49Args"/>
+     <event value="64" symbol="MasteringVoiceCreate" version="0" task="MasteringVoice" opcode="Create" level="win:Verbose" template="MasteringVoiceCreateArgs"/>
+     <event value="65" symbol="MasteringVoiceCreate65" version="0" task="MasteringVoice" opcode="Create" level="win:Warning" template="SubmixVoiceCreate49Args"/>
+     <event value="66" symbol="MasteringVoiceCreate66" version="0" task="MasteringVoice" opcode="Create" level="win:Informational" template="MasteringVoiceCreateArgs"/>
+     <event value="67" symbol="MasteringVoiceCreate67" version="0" task="MasteringVoice" opcode="Create" level="win:Verbose" template="MasteringVoiceCreate67Args"/>
+     <event value="80" symbol="task_0" version="0" task="task_0" level="win:Critical" template="task_0Args"/>
+     <event value="96" symbol="ProcessingPerformanceWarning" version="0" task="Processing" opcode="PerformanceWarning" level="win:Warning" template="ProcessingPerformanceWarningArgs"/>
+     <event value="97" symbol="ProcessingPerformanceWarning97" version="0" task="Processing" opcode="PerformanceWarning" level="win:Warning" template="ProcessingPerformanceWarning97Args"/>
+     <event value="98" symbol="ProcessingPerformanceWarning98" version="0" task="Processing" opcode="PerformanceWarning" level="win:Warning" template="ProcessingPerformanceWarning98Args"/>
+     <event value="99" symbol="SourceVoicePerformanceWarning" version="0" task="SourceVoice" opcode="PerformanceWarning" level="win:Warning" template="ShutdownArgs"/>
+     <event value="112" symbol="ProcessingStart" version="0" task="Processing" opcode="win:Start" level="win:Informational"/>
+     <event value="128" symbol="ProcessingStop" version="0" task="Processing" opcode="win:Stop" level="win:Informational"/>
+     <event value="256" symbol="Processing" version="0" task="Processing" template="ProcessingArgs"/>
+    </events>
+    <templates>
+     <template tid="InitializeArgs">
+      <data name="Instance" inType="win:Pointer"/>
+      <data name="Processors" inType="win:HexInt32"/>
+     </template>
+     <template tid="ShutdownArgs">
+      <data name="Pointer" inType="win:Pointer"/>
+     </template>
+     <template tid="Shutdown33Args">
+      <data name="SourceVoiceCount" inType="win:UInt32"/>
+      <data name="SubmixVoiceCount" inType="win:UInt32"/>
+      <data name="MasteringVoiceCount" inType="win:UInt32"/>
+     </template>
+     <template tid="SubmixVoiceCreateArgs">
+      <data name="Address" inType="win:Pointer"/>
+      <data name="ProcessingStage" inType="win:UInt32"/>
+      <data name="Channels" inType="win:UInt32"/>
+      <data name="SampleRate" inType="win:UInt32"/>
+     </template>
+     <template tid="SubmixVoiceCreate49Args">
+      <data name="OriginalHz" inType="win:UInt32"/>
+      <data name="NewHz" inType="win:UInt32"/>
+      <data name="Quantum" inType="win:UInt32"/>
+     </template>
+     <template tid="MasteringVoiceCreateArgs">
+      <data name="Address" inType="win:Pointer"/>
+      <data name="Channels" inType="win:UInt32"/>
+      <data name="SampleRate" inType="win:UInt32"/>
+      <data name="RendererId" inType="win:UnicodeString"/>
+     </template>
+     <template tid="MasteringVoiceCreate67Args">
+      <data name="DeviceId" inType="win:UnicodeString"/>
+      <data name="EndpointId" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0Args">
+      <data name="hr" inType="win:Int32"/>
+     </template>
+     <template tid="ProcessingPerformanceWarningArgs">
+      <data name="Time" inType="win:Float"/>
+      <data name="Callback" inType="win:UInt32" map="Callback"/>
+     </template>
+     <template tid="ProcessingPerformanceWarning97Args">
+      <data name="Value" inType="win:Float"/>
+     </template>
+     <template tid="ProcessingPerformanceWarning98Args">
+      <data name="Value" inType="win:UInt32"/>
+     </template>
+     <template tid="ProcessingArgs">
+      <data name="MinimumCyclesPerQuantum" inType="win:UInt32"/>
+      <data name="MaximumCyclesPerQuantum" inType="win:UInt32"/>
+      <data name="GlitchesSinceEngineStarted" inType="win:UInt32"/>
+      <data name="CpuUsage" inType="win:Float"/>
+      <data name="LatencyInSamples" inType="win:UInt32"/>
+      <data name="TotalMemoryUsage" inType="win:UInt32"/>
+      <data name="ActiveSourceVoices" inType="win:UInt32"/>
+      <data name="TotalSourceVoices" inType="win:UInt32"/>
+      <data name="ActiveSubmixVoices" inType="win:UInt32"/>
+      <data name="ActiveResamplers" inType="win:UInt32"/>
+      <data name="ActiveMatrixMixers" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_Initialize" value="Initialize"/>
+    <string id="task_Shutdown" value="Shutdown"/>
+    <string id="task_SourceVoice" value="SourceVoice"/>
+    <string id="opcode_SourceVoicePerformanceWarning" value="PerformanceWarning"/>
+    <string id="task_SubmixVoice" value="SubmixVoice"/>
+    <string id="opcode_SubmixVoiceCreate" value="Create"/>
+    <string id="task_MasteringVoice" value="MasteringVoice"/>
+    <string id="opcode_MasteringVoiceCreate" value="Create"/>
+    <string id="task_Processing" value="Processing"/>
+    <string id="opcode_ProcessingPerformanceWarning" value="PerformanceWarning"/>
+    <string id="map_CallbackOnProcessingPassStart" value="OnProcessingPassStart"/>
+    <string id="map_CallbackOnProcessingPassEnd" value="OnProcessingPassEnd"/>
+    <string id="map_CallbackOnVoiceProcessingPassStart" value="OnVoiceProcessingPassStart"/>
+    <string id="map_CallbackOnVoiceProcessingPassEnd" value="OnVoiceProcessingPassEnd"/>
+    <string id="map_CallbackOnBufferStart" value="OnBufferStart"/>
+    <string id="map_CallbackOnBufferEnd" value="OnBufferEnd"/>
+    <string id="map_CallbackOnStreamEnd" value="OnStreamEnd"/>
+    <string id="map_CallbackOnLoopEnd" value="OnLoopEnd"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

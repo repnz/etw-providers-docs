@@ -2,6 +2,8 @@
 using Microsoft.Diagnostics.Tracing.Session;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -13,19 +15,11 @@ namespace DotNetEtwProviderDocs
     {
         static string manifestsDirectory = "Manifests";
 
-        static void DumpProvider(Guid guid)
+        static void DumpProvider(string providerName)
         {
-            string manifestFileName;
+            string manifestFileName = providerName + ".xml";
 
-            try
-            {
-                manifestFileName = TraceEventProviders.GetProviderName(guid) + ".xml";
-            }
-            catch (Exception)
-            {
-                manifestFileName = guid.ToString() + ".xml";
-            }
-            
+
             string manifestFilePath = Path.Combine(manifestsDirectory, manifestFileName);
 
             if (File.Exists(manifestFilePath))
@@ -35,24 +29,23 @@ namespace DotNetEtwProviderDocs
 
             Console.WriteLine("[+] Writing " + manifestFileName);
 
-            string manifest = RegisteredTraceEventParser.GetManifestForRegisteredProvider(guid);
+            string manifest = RegisteredTraceEventParser.GetManifestForRegisteredProvider(providerName);
 
             File.WriteAllText(manifestFilePath, manifest);
         }
 
         static void Main(string[] args)
         {
-
             if (!Directory.Exists(manifestsDirectory))
             {
                 Directory.CreateDirectory(manifestsDirectory);
             }
 
-            foreach (Guid providerGuid in TraceEventProviders.GetRegisteredOrEnabledProviders())
+            foreach (string providerName in EventLogSession.GlobalSession.GetProviderNames())
             {
                 try
                 {
-                    DumpProvider(providerGuid);
+                    DumpProvider(providerName);
                 }
                 catch (Exception)
                 {

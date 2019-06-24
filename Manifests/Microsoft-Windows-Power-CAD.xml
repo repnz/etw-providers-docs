@@ -1,0 +1,114 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Power-CAD" guid="{daba4d32-cc40-4266-bb95-c30344dbc680}" resourceFileName="Microsoft-Windows-Power-CAD" messageFileName="Microsoft-Windows-Power-CAD" symbol="MicrosoftWindowsPowerCAD" source="Xml" >
+    <keywords>
+     <keyword name="Error" message="$(string.keyword_Error)" mask="0x1"/>
+     <keyword name="Performance" message="$(string.keyword_Performance)" mask="0x2"/>
+     <keyword name="Trace" message="$(string.keyword_Trace)" mask="0x4"/>
+     <keyword name="Notify" message="$(string.keyword_Notify)" mask="0x8"/>
+    </keywords>
+    <tasks>
+     <task name="Trace" message="$(string.task_Trace)" value="1"/>
+     <task name="Error" message="$(string.task_Error)" value="2"/>
+     <task name="Notify" message="$(string.task_Notify)" value="4"/>
+    </tasks>
+    <events>
+     <event value="100" symbol="Trace" version="0" task="Trace" level="win:Informational" keywords="Trace" template="TraceArgs"/>
+     <event value="101" symbol="Error" version="0" task="Error" level="win:Error" keywords="Error" template="ErrorArgs"/>
+     <event value="201" symbol="Notify" version="0" task="Notify" level="win:Informational" keywords="Notify" template="NotifyArgs"/>
+     <event value="202" symbol="Notify202" version="0" task="Notify" level="win:Informational" keywords="Notify" template="NotifyArgs"/>
+     <event value="203" symbol="Notify203" version="0" task="Notify" level="win:Informational" keywords="Notify" template="NotifyArgs"/>
+     <event value="204" symbol="Notify204" version="0" task="Notify" level="win:Informational" keywords="Notify" template="Notify204Args"/>
+     <event value="205" symbol="Notify205" version="0" task="Notify" level="win:Informational" keywords="Notify" template="Notify205Args"/>
+     <event value="206" symbol="Notify206" version="0" task="Notify" level="win:Informational" keywords="Notify" template="Notify206Args"/>
+     <event value="207" symbol="Notify207" version="0" task="Notify" level="win:Informational" keywords="Notify" template="Notify207Args"/>
+     <event value="208" symbol="Notify208" version="0" task="Notify" level="win:Informational" keywords="Notify" template="Notify208Args"/>
+     <event value="209" symbol="Notify209" version="0" task="Notify" level="win:Informational" keywords="Notify" template="Notify209Args"/>
+     <event value="210" symbol="Notify210" version="0" task="Notify" level="win:Informational" keywords="Notify" template="Notify210Args"/>
+    </events>
+    <templates>
+     <template tid="TraceArgs">
+      <data name="Message" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ErrorArgs">
+      <data name="Function" inType="win:AnsiString"/>
+      <data name="Line" inType="win:UInt32"/>
+      <data name="ErrorCode" inType="win:HexInt32"/>
+     </template>
+     <template tid="NotifyArgs">
+      <data name="PowerSourceId" inType="win:UInt32"/>
+      <data name="MaxChargeCurrent" inType="win:UInt32"/>
+      <data name="PowerSourceInformation" inType="win:UInt32"/>
+      <data name="PowerSourceStatus" inType="win:UInt32"/>
+      <data name="ChargerId" inType="win:GUID"/>
+     </template>
+     <template tid="Notify204Args">
+      <data name="PowerSourceId" inType="win:UInt32"/>
+     </template>
+     <template tid="Notify205Args">
+      <data name="PowerSourceId" inType="win:UInt32"/>
+      <data name="SourceOnline" inType="win:UInt32"/>
+     </template>
+     <template tid="Notify206Args">
+      <data name="Capacity" inType="win:UInt32"/>
+      <data name="FullChargedCapacity" inType="win:UInt32"/>
+      <data name="Voltage" inType="win:UInt32"/>
+      <data name="Rate" inType="win:Int32"/>
+     </template>
+     <template tid="Notify207Args">
+      <data name="Size" inType="win:UInt32"/>
+      <data name="BatteryTag" inType="win:UInt32"/>
+      <data name="InformationLevel" inType="win:UInt32"/>
+      <data name="ChargingSourceType" inType="win:UInt32"/>
+      <data name="VaData" inType="win:UInt32"/>
+     </template>
+     <template tid="Notify208Args">
+      <data name="BatteryTag" inType="win:UInt32"/>
+      <data name="InformationLevel" inType="win:UInt32"/>
+      <data name="ChargingSourceType" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="Notify209Args">
+      <data name="PowerSourceId" inType="win:UInt32"/>
+      <data name="Version" inType="win:UInt16"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="MaxCurrent" inType="win:UInt32"/>
+      <data name="Voltage" inType="win:UInt32"/>
+      <data name="PortType" inType="win:UInt32"/>
+      <data name="PortId" inType="win:UInt64"/>
+      <data name="PowerSourceInformation" inType="win:UInt32"/>
+      <data name="OemCharger" inType="win:GUID"/>
+     </template>
+     <template tid="Notify210Args">
+      <data name="Size" inType="win:UInt32"/>
+      <data name="BatteryTag" inType="win:UInt32"/>
+      <data name="InformationLevel" inType="win:UInt32"/>
+      <data name="ChargingSourceType" inType="win:UInt32"/>
+      <data name="Reserved" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="MaxCurrent" inType="win:UInt32"/>
+      <data name="Voltage" inType="win:UInt32"/>
+      <data name="PortType" inType="win:UInt32"/>
+      <data name="PortId" inType="win:UInt64"/>
+      <data name="PowerSourceInformation" inType="win:Pointer"/>
+      <data name="OemCharger" inType="win:GUID"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Error" value="Error"/>
+    <string id="keyword_Performance" value="Performance"/>
+    <string id="keyword_Trace" value="Trace"/>
+    <string id="keyword_Notify" value="Notify"/>
+    <string id="task_Trace" value="Trace"/>
+    <string id="task_Error" value="Error"/>
+    <string id="task_Notify" value="Notify"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,156 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-WindowsPhone-Ufx" guid="{e98ebdbf-3058-4784-8521-47860b1d2b8e}" resourceFileName="Microsoft-WindowsPhone-Ufx" messageFileName="Microsoft-WindowsPhone-Ufx" symbol="MicrosoftWindowsPhoneUfx" source="Xml" >
+    <keywords>
+     <keyword name="Error" message="$(string.keyword_Error)" mask="0x1"/>
+     <keyword name="Performance" message="$(string.keyword_Performance)" mask="0x2"/>
+     <keyword name="Debug" message="$(string.keyword_Debug)" mask="0x4"/>
+     <keyword name="Function" message="$(string.keyword_Function)" mask="0x8"/>
+     <keyword name="UfxBus" message="$(string.keyword_UfxBus)" mask="0x10"/>
+     <keyword name="Setup" message="$(string.keyword_Setup)" mask="0x20"/>
+     <keyword name="StateMachine" message="$(string.keyword_StateMachine)" mask="0x40"/>
+     <keyword name="Notification" message="$(string.keyword_Notification)" mask="0x80"/>
+     <keyword name="keyword_400000000000" message="$(string.keyword_keyword_400000000000)" mask="0x400000000000"/>
+    </keywords>
+    <tasks>
+     <task name="Error" message="$(string.task_Error)" value="1"/>
+     <task name="Debug" message="$(string.task_Debug)" value="2"/>
+     <task name="FailedCall" message="$(string.task_FailedCall)" value="3"/>
+     <task name="FunctionEntry" message="$(string.task_FunctionEntry)" value="4"/>
+     <task name="FunctionExit" message="$(string.task_FunctionExit)" value="5"/>
+     <task name="IoctlRequest" message="$(string.task_IoctlRequest)" value="6"/>
+     <task name="Setup" message="$(string.task_Setup)" value="7"/>
+     <task name="StateMachine" message="$(string.task_StateMachine)" value="8"/>
+     <task name="Notification" message="$(string.task_Notification)" value="9"/>
+    </tasks>
+    <events>
+     <event value="100" symbol="Error" version="0" task="Error" level="win:Error" keywords="Error keyword_400000000000" template="ErrorArgs"/>
+     <event value="101" symbol="FailedCall" version="0" task="FailedCall" level="win:Error" keywords="Error" template="FailedCallArgs"/>
+     <event value="102" symbol="FunctionEntry" version="0" task="FunctionEntry" level="win:Verbose" keywords="Function" template="FunctionEntryArgs"/>
+     <event value="103" symbol="FunctionExit" version="0" task="FunctionExit" level="win:Verbose" keywords="Function" template="FunctionEntryArgs"/>
+     <event value="104" symbol="FailedCall104" version="0" task="FailedCall" level="win:Error" keywords="Error" template="FailedCall104Args"/>
+     <event value="105" symbol="IoctlRequest" version="0" task="IoctlRequest" level="win:Verbose" keywords="UfxBus" template="IoctlRequestArgs"/>
+     <event value="106" symbol="Debug" version="0" task="Debug" level="win:Informational" keywords="Debug" template="DebugArgs"/>
+     <event value="107" symbol="Setup" version="0" task="Setup" level="win:Informational" keywords="Setup" template="SetupArgs"/>
+     <event value="108" symbol="StateMachine" version="0" task="StateMachine" level="win:Informational" keywords="StateMachine" template="StateMachineArgs"/>
+     <event value="109" symbol="StateMachine109" version="0" task="StateMachine" level="win:Informational" keywords="StateMachine" template="StateMachine109Args"/>
+     <event value="110" symbol="StateMachine110" version="0" task="StateMachine" level="win:Informational" keywords="StateMachine" template="StateMachine110Args"/>
+     <event value="111" symbol="StateMachine111" version="0" task="StateMachine" level="win:Informational" keywords="StateMachine" template="StateMachine111Args"/>
+     <event value="112" symbol="StateMachine112" version="0" task="StateMachine" level="win:Informational" keywords="StateMachine" template="StateMachine112Args"/>
+     <event value="113" symbol="StateMachine113" version="0" task="StateMachine" level="win:Informational" keywords="StateMachine" template="StateMachine113Args"/>
+     <event value="114" symbol="StateMachine114" version="0" task="StateMachine" level="win:Informational" keywords="StateMachine keyword_400000000000" template="StateMachine114Args"/>
+     <event value="115" symbol="StateMachine115" version="0" task="StateMachine" level="win:Informational" keywords="StateMachine" template="StateMachine115Args"/>
+     <event value="116" symbol="StateMachine116" version="0" task="StateMachine" level="win:Informational" keywords="StateMachine" template="StateMachine116Args"/>
+     <event value="117" symbol="Debug117" version="0" task="Debug" level="win:Informational" keywords="Debug" template="FailedCall104Args"/>
+     <event value="118" symbol="Notification" version="0" task="Notification" level="win:Informational" keywords="Notification" template="NotificationArgs"/>
+     <event value="119" symbol="Notification119" version="0" task="Notification" level="win:Informational" keywords="Notification" template="ErrorArgs"/>
+    </events>
+    <templates>
+     <template tid="ErrorArgs">
+      <data name="Str" inType="win:AnsiString"/>
+      <data name="Int" inType="win:UInt32"/>
+     </template>
+     <template tid="FailedCallArgs">
+      <data name="File" inType="win:AnsiString"/>
+      <data name="Line" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="FunctionEntryArgs">
+      <data name="Function" inType="win:AnsiString"/>
+     </template>
+     <template tid="FailedCall104Args">
+      <data name="Function" inType="win:AnsiString"/>
+      <data name="Message" inType="win:AnsiString"/>
+      <data name="IntParam" inType="win:UInt32"/>
+     </template>
+     <template tid="IoctlRequestArgs">
+      <data name="Index" inType="win:UInt32"/>
+      <data name="IOCTL" inType="win:UInt32"/>
+     </template>
+     <template tid="DebugArgs">
+      <data name="Function" inType="win:AnsiString"/>
+      <data name="Message" inType="win:AnsiString"/>
+     </template>
+     <template tid="SetupArgs">
+      <data name="Description" inType="win:AnsiString"/>
+      <data name="Direction" inType="win:UInt32"/>
+      <data name="Type" inType="win:UInt32"/>
+      <data name="Recipient" inType="win:UInt32"/>
+      <data name="Request" inType="win:UInt32"/>
+      <data name="wValue" inType="win:UInt32"/>
+      <data name="wIndex" inType="win:UInt32"/>
+      <data name="wLength" inType="win:UInt32"/>
+     </template>
+     <template tid="StateMachineArgs">
+      <data name="Machine" inType="win:AnsiString"/>
+     </template>
+     <template tid="StateMachine109Args">
+      <data name="Machine" inType="win:AnsiString"/>
+      <data name="Type" inType="win:AnsiString"/>
+      <data name="State" inType="win:AnsiString"/>
+     </template>
+     <template tid="StateMachine110Args">
+      <data name="Machine" inType="win:AnsiString"/>
+      <data name="Type" inType="win:AnsiString"/>
+      <data name="Event" inType="win:AnsiString"/>
+      <data name="Payload" inType="win:Pointer"/>
+     </template>
+     <template tid="StateMachine111Args">
+      <data name="Machine" inType="win:AnsiString"/>
+      <data name="Event" inType="win:AnsiString"/>
+      <data name="Payload" inType="win:Pointer"/>
+     </template>
+     <template tid="StateMachine112Args">
+      <data name="Machine" inType="win:AnsiString"/>
+      <data name="ActionName" inType="win:AnsiString"/>
+     </template>
+     <template tid="StateMachine113Args">
+      <data name="Machine" inType="win:AnsiString"/>
+      <data name="Event" inType="win:AnsiString"/>
+      <data name="ToState" inType="win:AnsiString"/>
+     </template>
+     <template tid="StateMachine114Args">
+      <data name="Machine" inType="win:AnsiString"/>
+      <data name="Exception" inType="win:UInt32"/>
+     </template>
+     <template tid="StateMachine115Args">
+      <data name="Machine" inType="win:AnsiString"/>
+      <data name="NewQueueSize" inType="win:UInt32"/>
+     </template>
+     <template tid="StateMachine116Args">
+      <data name="Machine" inType="win:AnsiString"/>
+      <data name="FromState" inType="win:AnsiString"/>
+     </template>
+     <template tid="NotificationArgs">
+      <data name="Str" inType="win:AnsiString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Error" value="Error"/>
+    <string id="keyword_Performance" value="Performance"/>
+    <string id="keyword_Debug" value="Debug"/>
+    <string id="keyword_Function" value="Function"/>
+    <string id="keyword_UfxBus" value="UfxBus"/>
+    <string id="keyword_Setup" value="Setup"/>
+    <string id="keyword_StateMachine" value="StateMachine"/>
+    <string id="keyword_Notification" value="Notification"/>
+    <string id="keyword_keyword_400000000000" value="keyword_400000000000"/>
+    <string id="task_Error" value="Error"/>
+    <string id="task_Debug" value="Debug"/>
+    <string id="task_FailedCall" value="FailedCall"/>
+    <string id="task_FunctionEntry" value="FunctionEntry"/>
+    <string id="task_FunctionExit" value="FunctionExit"/>
+    <string id="task_IoctlRequest" value="IoctlRequest"/>
+    <string id="task_Setup" value="Setup"/>
+    <string id="task_StateMachine" value="StateMachine"/>
+    <string id="task_Notification" value="Notification"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

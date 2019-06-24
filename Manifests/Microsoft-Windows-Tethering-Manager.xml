@@ -1,0 +1,50 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Tethering-Manager" guid="{cc311f1f-623c-4ca4-ba44-a458016555e8}" resourceFileName="Microsoft-Windows-Tethering-Manager" messageFileName="Microsoft-Windows-Tethering-Manager" symbol="MicrosoftWindowsTetheringManager" source="Xml" >
+    <keywords>
+     <keyword name="DiagTrack" message="$(string.keyword_DiagTrack)" mask="0x1"/>
+     <keyword name="PerfCounter" message="$(string.keyword_PerfCounter)" mask="0x2"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <events>
+     <event value="1000" symbol="task_0" version="0" task="task_0" level="win:Error" keywords="DiagTrack" template="task_0Args"/>
+     <event value="1001" symbol="task_0Start" version="0" task="task_0" opcode="win:Start" level="win:Informational"/>
+     <event value="1002" symbol="task_0Stop" version="0" task="task_0" opcode="win:Stop" level="win:Informational" template="task_0StopArgs"/>
+     <event value="1003" symbol="task_0Stop1003" version="0" task="task_0" opcode="win:Stop" level="win:Informational"/>
+     <event value="1004" symbol="task_01004" version="0" task="task_0" level="win:Informational" keywords="PerfCounter" template="task_01004Args"/>
+     <event value="1005" symbol="task_01005" version="0" task="task_0" level="win:Informational" keywords="PerfCounter" template="task_01004Args"/>
+     <event value="1006" symbol="task_01006" version="0" task="task_0" level="win:Informational" keywords="PerfCounter" template="task_01004Args"/>
+     <event value="1007" symbol="task_01007" version="0" task="task_0" level="win:Informational" keywords="PerfCounter" template="task_01004Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="Result" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0StopArgs">
+      <data name="TetheringStartResult" inType="win:UInt32"/>
+      <data name="EntitlementCheckCompletionTime" inType="win:UInt32"/>
+      <data name="MbConnectCompletionTime" inType="win:UInt32"/>
+      <data name="ApStartCompletionTime" inType="win:UInt32"/>
+      <data name="IcsStartCompletionTime" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01004Args">
+      <data name="Result" inType="win:UInt32"/>
+      <data name="CompletedTime" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_DiagTrack" value="DiagTrack"/>
+    <string id="keyword_PerfCounter" value="PerfCounter"/>
+    <string id="task_task_0" value="task_0"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

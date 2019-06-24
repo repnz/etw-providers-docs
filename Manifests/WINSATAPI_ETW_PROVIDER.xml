@@ -1,0 +1,91 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="WINSATAPI_ETW_PROVIDER" guid="{617853d6-728b-4b59-8a78-c3a9a5eade92}" resourceFileName="WINSATAPI_ETW_PROVIDER" messageFileName="WINSATAPI_ETW_PROVIDER" symbol="WINSATAPI_ETW_PROVIDER" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="Application" message="$(string.task_Application)" value="1"/>
+    </tasks>
+    <events>
+     <event value="0" symbol="Application" version="0" task="Application" level="win:Informational" template="ApplicationArgs"/>
+     <event value="1" symbol="ApplicationStart" version="0" task="Application" opcode="win:Start" level="win:Always" template="ApplicationStartArgs"/>
+     <event value="2" symbol="Application2" version="0" task="Application" level="win:Always" template="Application2Args"/>
+     <event value="3" symbol="ApplicationStop" version="0" task="Application" opcode="win:Stop" level="win:Always" template="ApplicationStopArgs"/>
+     <event value="4" symbol="Application4" version="0" task="Application" level="win:Always" template="Application4Args"/>
+     <event value="5" symbol="Application5" version="0" task="Application" level="win:Always" template="Application5Args"/>
+     <event value="6" symbol="Application6" version="0" task="Application" level="win:Always" template="Application6Args"/>
+     <event value="7" symbol="Application7" version="0" task="Application" level="win:Always" template="Application7Args"/>
+     <event value="8" symbol="Application8" version="0" task="Application" level="win:Informational" template="Application8Args"/>
+     <event value="9" symbol="Application9" version="0" task="Application" level="win:Informational" template="Application9Args"/>
+     <event value="10" symbol="Application10" version="0" task="Application" level="win:Informational" template="Application10Args"/>
+    </events>
+    <templates>
+     <template tid="ApplicationArgs">
+      <data name="TestV1" inType="win:UInt32"/>
+      <data name="TestV2" inType="win:UInt32"/>
+      <data name="TestV3" inType="win:UInt32"/>
+      <data name="TestV4" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ApplicationStartArgs">
+      <data name="StartTimeOfDay" inType="win:FILETIME"/>
+     </template>
+     <template tid="Application2Args">
+      <data name="CommandLineSize" inType="win:UInt16"/>
+      <data name="CommandLine" inType="win:UnicodeString" length="CommandLineSize"/>
+     </template>
+     <template tid="ApplicationStopArgs">
+      <data name="ExitCode" inType="win:UInt32"/>
+     </template>
+     <template tid="Application4Args">
+      <data name="Win32Error" inType="win:UInt32"/>
+      <data name="CantMsgSize" inType="win:UInt16"/>
+      <data name="CantMsg" inType="win:UnicodeString" length="CantMsgSize"/>
+     </template>
+     <template tid="Application5Args">
+      <data name="FailingHresult" inType="win:HexInt32"/>
+      <data name="FailingInterfaceCLSID" inType="win:GUID"/>
+      <data name="SourceSize" inType="win:UInt16"/>
+      <data name="Source" inType="win:UnicodeString" length="SourceSize"/>
+      <data name="InfterfaceSize" inType="win:UInt16"/>
+      <data name="Interface" inType="win:UnicodeString" length="InfterfaceSize"/>
+      <data name="ErrorMsgSize" inType="win:UInt16"/>
+      <data name="ErrorMsg" inType="win:UnicodeString" length="ErrorMsgSize"/>
+      <data name="CantMsgSize" inType="win:UInt16"/>
+      <data name="CantMsg" inType="win:UnicodeString" length="CantMsgSize"/>
+     </template>
+     <template tid="Application6Args">
+      <data name="ErrorMsgSize" inType="win:UInt16"/>
+      <data name="ErrorMsg" inType="win:UnicodeString" length="ErrorMsgSize"/>
+     </template>
+     <template tid="Application7Args">
+      <data name="FailingHresult" inType="win:HexInt32"/>
+      <data name="ErrorMsgSize" inType="win:UInt16"/>
+      <data name="ErrorMsg" inType="win:UnicodeString" length="ErrorMsgSize"/>
+      <data name="CantMsgSize" inType="win:UInt16"/>
+      <data name="CantMsg" inType="win:UnicodeString" length="CantMsgSize"/>
+     </template>
+     <template tid="Application8Args">
+      <data name="MessageSize" inType="win:UInt16"/>
+      <data name="Message" inType="win:AnsiString" length="MessageSize"/>
+     </template>
+     <template tid="Application9Args">
+      <data name="PhaseID" inType="win:UInt16"/>
+      <data name="DescriptionSize" inType="win:UInt16"/>
+      <data name="Description" inType="win:UnicodeString" length="DescriptionSize"/>
+     </template>
+     <template tid="Application10Args">
+      <data name="PhaseID" inType="win:UInt16"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_Application" value="Application"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

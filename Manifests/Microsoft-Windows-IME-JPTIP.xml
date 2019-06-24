@@ -1,0 +1,33 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-IME-JPTIP" guid="{8c8a69ad-cc89-481f-bbad-fd95b5006256}" resourceFileName="Microsoft-Windows-IME-JPTIP" messageFileName="Microsoft-Windows-IME-JPTIP" symbol="MicrosoftWindowsIMEJPTIP" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="TaskID:IMEInvokeCommand" message="$(string.task_TaskID:IMEInvokeCommand)" value="104"/>
+     <task name="TaskID:IME_JPN_HWKBD_CandUIProcess" message="$(string.task_TaskID:IME_JPN_HWKBD_CandUIProcess)" value="105"/>
+    </tasks>
+    <events>
+     <event value="23" symbol="TaskID:IMEInvokeCommandStart" version="0" task="TaskID:IMEInvokeCommand" opcode="win:Start" level="win:Informational"/>
+     <event value="24" symbol="TaskID:IMEInvokeCommandStop" version="0" task="TaskID:IMEInvokeCommand" opcode="win:Stop" level="win:Informational"/>
+     <event value="30" symbol="TaskID:IME_JPN_HWKBD_CandUIProcess" version="0" task="TaskID:IME_JPN_HWKBD_CandUIProcess" level="win:Informational" template="TaskID:IME_JPN_HWKBD_CandUIProcessArgs"/>
+    </events>
+    <templates>
+     <template tid="TaskID:IME_JPN_HWKBD_CandUIProcessArgs">
+      <data name="Duration" inType="win:UInt32"/>
+      <data name="IMEType" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_TaskID:IMEInvokeCommand" value="TaskID:IMEInvokeCommand"/>
+    <string id="task_TaskID:IME_JPN_HWKBD_CandUIProcess" value="TaskID:IME_JPN_HWKBD_CandUIProcess"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

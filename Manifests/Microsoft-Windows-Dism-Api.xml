@@ -1,0 +1,204 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Dism-Api" guid="{75b0da21-8b50-42eb-9448-ec48b1729b57}" resourceFileName="Microsoft-Windows-Dism-Api" messageFileName="Microsoft-Windows-Dism-Api" symbol="MicrosoftWindowsDismApi" source="Xml" >
+    <keywords>
+     <keyword name="DismApiEvent" message="$(string.keyword_DismApiEvent)" mask="0x1"/>
+     <keyword name="DismApiCommandThreadEvent" message="$(string.keyword_DismApiCommandThreadEvent)" mask="0x2"/>
+     <keyword name="DismApiCommandObjectEvent" message="$(string.keyword_DismApiCommandObjectEvent)" mask="0x4"/>
+     <keyword name="DismApiCommandQueueEvent" message="$(string.keyword_DismApiCommandQueueEvent)" mask="0x8"/>
+     <keyword name="DismApiSessionTableEvent" message="$(string.keyword_DismApiSessionTableEvent)" mask="0x10"/>
+    </keywords>
+    <tasks>
+     <task name="DismInitialize" message="$(string.task_DismInitialize)" value="1"/>
+     <task name="DismShutdown" message="$(string.task_DismShutdown)" value="2"/>
+     <task name="DismOpenSession" message="$(string.task_DismOpenSession)" value="3"/>
+     <task name="DismCloseSession" message="$(string.task_DismCloseSession)" value="4"/>
+     <task name="EnqueueCommandObject" message="$(string.task_EnqueueCommandObject)" value="5"/>
+     <task name="DequeueCommandObject" message="$(string.task_DequeueCommandObject)" value="6"/>
+     <task name="DismMountImage" message="$(string.task_DismMountImage)" value="7"/>
+     <task name="DismUnmountImage" message="$(string.task_DismUnmountImage)" value="8"/>
+     <task name="DismSetFirstBootCommandLine" message="$(string.task_DismSetFirstBootCommandLine)" value="12"/>
+     <task name="DismRemountImage" message="$(string.task_DismRemountImage)" value="13"/>
+     <task name="DismCommitImage" message="$(string.task_DismCommitImage)" value="14"/>
+     <task name="DismGetImageInfo" message="$(string.task_DismGetImageInfo)" value="15"/>
+     <task name="DismGetMountedImageInfo" message="$(string.task_DismGetMountedImageInfo)" value="16"/>
+     <task name="DismCleanupMountpoints" message="$(string.task_DismCleanupMountpoints)" value="17"/>
+     <task name="DismAddPackage" message="$(string.task_DismAddPackage)" value="18"/>
+     <task name="DismRemovePackage" message="$(string.task_DismRemovePackage)" value="19"/>
+     <task name="DismEnableFeature" message="$(string.task_DismEnableFeature)" value="20"/>
+     <task name="DismDisableFeature" message="$(string.task_DismDisableFeature)" value="21"/>
+     <task name="DismGetPackages" message="$(string.task_DismGetPackages)" value="22"/>
+     <task name="DismGetPackageInfo" message="$(string.task_DismGetPackageInfo)" value="23"/>
+     <task name="DismGetFeatures" message="$(string.task_DismGetFeatures)" value="24"/>
+     <task name="DismGetFeatureInfo" message="$(string.task_DismGetFeatureInfo)" value="25"/>
+     <task name="DismGetFeatureParent" message="$(string.task_DismGetFeatureParent)" value="26"/>
+     <task name="DismApplyUnattend" message="$(string.task_DismApplyUnattend)" value="27"/>
+     <task name="DismAddDriver" message="$(string.task_DismAddDriver)" value="28"/>
+     <task name="DismRemoveDriver" message="$(string.task_DismRemoveDriver)" value="29"/>
+     <task name="DismGetDrivers" message="$(string.task_DismGetDrivers)" value="30"/>
+     <task name="DismGetDriverInfo" message="$(string.task_DismGetDriverInfo)" value="31"/>
+     <task name="DismCheckImageHealth" message="$(string.task_DismCheckImageHealth)" value="32"/>
+     <task name="DismRestoreImageHealth" message="$(string.task_DismRestoreImageHealth)" value="33"/>
+     <task name="DismSetEdition" message="$(string.task_DismSetEdition)" value="34"/>
+     <task name="DismSetProductKey" message="$(string.task_DismSetProductKey)" value="35"/>
+     <task name="DismGetCurrentEdition" message="$(string.task_DismGetCurrentEdition)" value="36"/>
+     <task name="DismGetTargetEditions" message="$(string.task_DismGetTargetEditions)" value="37"/>
+     <task name="DismGetFeaturesEx" message="$(string.task_DismGetFeaturesEx)" value="38"/>
+     <task name="DismAddProvisionedAppxPackage" message="$(string.task_DismAddProvisionedAppxPackage)" value="39"/>
+     <task name="DismRemoveProvisionedAppxPackage" message="$(string.task_DismRemoveProvisionedAppxPackage)" value="40"/>
+     <task name="DismGetProvisionedAppxPackages" message="$(string.task_DismGetProvisionedAppxPackages)" value="41"/>
+     <task name="DismExportDriver" message="$(string.task_DismExportDriver)" value="42"/>
+     <task name="DismOptimizeImage" message="$(string.task_DismOptimizeImage)" value="43"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="DismInitializeStart" version="0" task="DismInitialize" opcode="win:Start" level="win:Informational" keywords="DismApiEvent"/>
+     <event value="2" symbol="DismInitializeStop" version="0" task="DismInitialize" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent"/>
+     <event value="3" symbol="DismShutdownStart" version="0" task="DismShutdown" opcode="win:Start" level="win:Informational" keywords="DismApiEvent"/>
+     <event value="4" symbol="DismShutdownStop" version="0" task="DismShutdown" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent"/>
+     <event value="5" symbol="DismOpenSessionStart" version="0" task="DismOpenSession" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStartArgs"/>
+     <event value="6" symbol="DismOpenSessionStop" version="0" task="DismOpenSession" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStopArgs"/>
+     <event value="7" symbol="DismCloseSessionStart" version="0" task="DismCloseSession" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismCloseSessionStartArgs"/>
+     <event value="8" symbol="DismCloseSessionStop" version="0" task="DismCloseSession" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismCloseSessionStartArgs"/>
+     <event value="9" symbol="DismMountImageStart" version="0" task="DismMountImage" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStartArgs"/>
+     <event value="10" symbol="DismMountImageStop" version="0" task="DismMountImage" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStartArgs"/>
+     <event value="11" symbol="DismUnmountImageStart" version="0" task="DismUnmountImage" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStartArgs"/>
+     <event value="12" symbol="DismUnmountImageStop" version="0" task="DismUnmountImage" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStartArgs"/>
+     <event value="13" symbol="EnqueueCommandObjectStart" version="0" task="EnqueueCommandObject" opcode="win:Start" level="win:Informational" keywords="DismApiCommandThreadEvent DismApiCommandQueueEvent DismApiSessionTableEvent" template="DismCloseSessionStartArgs"/>
+     <event value="14" symbol="EnqueueCommandObjectStop" version="0" task="EnqueueCommandObject" opcode="win:Stop" level="win:Informational" keywords="DismApiCommandThreadEvent DismApiCommandQueueEvent DismApiSessionTableEvent" template="DismCloseSessionStartArgs"/>
+     <event value="15" symbol="DequeueCommandObjectStart" version="0" task="DequeueCommandObject" opcode="win:Start" level="win:Informational" keywords="DismApiCommandThreadEvent DismApiCommandQueueEvent DismApiSessionTableEvent" template="DismCloseSessionStartArgs"/>
+     <event value="16" symbol="DequeueCommandObjectStop" version="0" task="DequeueCommandObject" opcode="win:Stop" level="win:Informational" keywords="DismApiCommandThreadEvent DismApiCommandQueueEvent DismApiSessionTableEvent" template="DismCloseSessionStartArgs"/>
+     <event value="23" symbol="DismSetFirstBootCommandLineStart" version="0" task="DismSetFirstBootCommandLine" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismCloseSessionStartArgs"/>
+     <event value="24" symbol="DismSetFirstBootCommandLineStop" version="0" task="DismSetFirstBootCommandLine" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismCloseSessionStartArgs"/>
+     <event value="25" symbol="DismRemountImageStart" version="0" task="DismRemountImage" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStartArgs"/>
+     <event value="26" symbol="DismRemountImageStop" version="0" task="DismRemountImage" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStartArgs"/>
+     <event value="27" symbol="DismCommitImageStart" version="0" task="DismCommitImage" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismCloseSessionStartArgs"/>
+     <event value="28" symbol="DismCommitImageStop" version="0" task="DismCommitImage" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismCloseSessionStartArgs"/>
+     <event value="29" symbol="DismGetImageInfoStart" version="0" task="DismGetImageInfo" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStartArgs"/>
+     <event value="30" symbol="DismGetImageInfoStop" version="0" task="DismGetImageInfo" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStartArgs"/>
+     <event value="31" symbol="DismGetMountedImageInfoStart" version="0" task="DismGetMountedImageInfo" opcode="win:Start" level="win:Informational" keywords="DismApiEvent"/>
+     <event value="32" symbol="DismGetMountedImageInfoStop" version="0" task="DismGetMountedImageInfo" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent"/>
+     <event value="33" symbol="DismCleanupMountpointsStart" version="0" task="DismCleanupMountpoints" opcode="win:Start" level="win:Informational" keywords="DismApiEvent"/>
+     <event value="34" symbol="DismCleanupMountpointsStop" version="0" task="DismCleanupMountpoints" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent"/>
+     <event value="35" symbol="DismAddPackageStart" version="0" task="DismAddPackage" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStopArgs"/>
+     <event value="36" symbol="DismAddPackageStop" version="0" task="DismAddPackage" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStopArgs"/>
+     <event value="37" symbol="DismRemovePackageStart" version="0" task="DismRemovePackage" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStopArgs"/>
+     <event value="38" symbol="DismRemovePackageStop" version="0" task="DismRemovePackage" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStopArgs"/>
+     <event value="39" symbol="DismEnableFeatureStart" version="0" task="DismEnableFeature" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStopArgs"/>
+     <event value="40" symbol="DismEnableFeatureStop" version="0" task="DismEnableFeature" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStopArgs"/>
+     <event value="41" symbol="DismDisableFeatureStart" version="0" task="DismDisableFeature" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStopArgs"/>
+     <event value="42" symbol="DismDisableFeatureStop" version="0" task="DismDisableFeature" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStopArgs"/>
+     <event value="43" symbol="DismGetPackagesStart" version="0" task="DismGetPackages" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismCloseSessionStartArgs"/>
+     <event value="44" symbol="DismGetPackagesStop" version="0" task="DismGetPackages" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismCloseSessionStartArgs"/>
+     <event value="45" symbol="DismGetPackageInfoStart" version="0" task="DismGetPackageInfo" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStopArgs"/>
+     <event value="46" symbol="DismGetPackageInfoStop" version="0" task="DismGetPackageInfo" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStopArgs"/>
+     <event value="47" symbol="DismGetFeaturesStart" version="0" task="DismGetFeatures" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismCloseSessionStartArgs"/>
+     <event value="48" symbol="DismGetFeaturesStop" version="0" task="DismGetFeatures" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismCloseSessionStartArgs"/>
+     <event value="49" symbol="DismGetFeatureInfoStart" version="0" task="DismGetFeatureInfo" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStopArgs"/>
+     <event value="50" symbol="DismGetFeatureInfoStop" version="0" task="DismGetFeatureInfo" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStopArgs"/>
+     <event value="51" symbol="DismGetFeatureParentStart" version="0" task="DismGetFeatureParent" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStopArgs"/>
+     <event value="52" symbol="DismGetFeatureParentStop" version="0" task="DismGetFeatureParent" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStopArgs"/>
+     <event value="53" symbol="DismApplyUnattendStart" version="0" task="DismApplyUnattend" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStopArgs"/>
+     <event value="54" symbol="DismApplyUnattendStop" version="0" task="DismApplyUnattend" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStopArgs"/>
+     <event value="55" symbol="DismAddDriverStart" version="0" task="DismAddDriver" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStopArgs"/>
+     <event value="56" symbol="DismAddDriverStop" version="0" task="DismAddDriver" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStopArgs"/>
+     <event value="57" symbol="DismRemoveDriverStart" version="0" task="DismRemoveDriver" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStopArgs"/>
+     <event value="58" symbol="DismRemoveDriverStop" version="0" task="DismRemoveDriver" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStopArgs"/>
+     <event value="59" symbol="DismGetDriversStart" version="0" task="DismGetDrivers" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismCloseSessionStartArgs"/>
+     <event value="60" symbol="DismGetDriversStop" version="0" task="DismGetDrivers" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismCloseSessionStartArgs"/>
+     <event value="61" symbol="DismGetDriverInfoStart" version="0" task="DismGetDriverInfo" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStopArgs"/>
+     <event value="62" symbol="DismGetDriverInfoStop" version="0" task="DismGetDriverInfo" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStopArgs"/>
+     <event value="63" symbol="DismCheckImageHealthStart" version="0" task="DismCheckImageHealth" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismCloseSessionStartArgs"/>
+     <event value="64" symbol="DismCheckImageHealthStop" version="0" task="DismCheckImageHealth" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismCloseSessionStartArgs"/>
+     <event value="65" symbol="DismRestoreImageHealthStart" version="0" task="DismRestoreImageHealth" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismCloseSessionStartArgs"/>
+     <event value="66" symbol="DismRestoreImageHealthStop" version="0" task="DismRestoreImageHealth" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismCloseSessionStartArgs"/>
+     <event value="67" symbol="DismSetEditionStart" version="0" task="DismSetEdition" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismCloseSessionStartArgs"/>
+     <event value="68" symbol="DismSetEditionStop" version="0" task="DismSetEdition" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismCloseSessionStartArgs"/>
+     <event value="69" symbol="DismSetProductKeyStart" version="0" task="DismSetProductKey" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismCloseSessionStartArgs"/>
+     <event value="70" symbol="DismSetProductKeyStop" version="0" task="DismSetProductKey" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismCloseSessionStartArgs"/>
+     <event value="71" symbol="DismGetCurrentEditionStart" version="0" task="DismGetCurrentEdition" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismCloseSessionStartArgs"/>
+     <event value="72" symbol="DismGetCurrentEditionStop" version="0" task="DismGetCurrentEdition" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismCloseSessionStartArgs"/>
+     <event value="73" symbol="DismGetTargetEditionsStart" version="0" task="DismGetTargetEditions" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismCloseSessionStartArgs"/>
+     <event value="74" symbol="DismGetTargetEditionsStop" version="0" task="DismGetTargetEditions" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismCloseSessionStartArgs"/>
+     <event value="75" symbol="DismGetFeaturesExStart" version="0" task="DismGetFeaturesEx" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismCloseSessionStartArgs"/>
+     <event value="76" symbol="DismGetFeaturesExStop" version="0" task="DismGetFeaturesEx" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismCloseSessionStartArgs"/>
+     <event value="77" symbol="DismAddProvisionedAppxPackageStart" version="0" task="DismAddProvisionedAppxPackage" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStopArgs"/>
+     <event value="78" symbol="DismAddProvisionedAppxPackageStop" version="0" task="DismAddProvisionedAppxPackage" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStopArgs"/>
+     <event value="79" symbol="DismRemoveProvisionedAppxPackageStart" version="0" task="DismRemoveProvisionedAppxPackage" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStopArgs"/>
+     <event value="80" symbol="DismRemoveProvisionedAppxPackageStop" version="0" task="DismRemoveProvisionedAppxPackage" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStopArgs"/>
+     <event value="81" symbol="DismGetProvisionedAppxPackagesStart" version="0" task="DismGetProvisionedAppxPackages" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismCloseSessionStartArgs"/>
+     <event value="82" symbol="DismGetProvisionedAppxPackagesStop" version="0" task="DismGetProvisionedAppxPackages" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismCloseSessionStartArgs"/>
+     <event value="83" symbol="DismExportDriverStart" version="0" task="DismExportDriver" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismCloseSessionStartArgs"/>
+     <event value="84" symbol="DismExportDriverStop" version="0" task="DismExportDriver" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismCloseSessionStartArgs"/>
+     <event value="85" symbol="DismOptimizeImageStart" version="0" task="DismOptimizeImage" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismCloseSessionStartArgs"/>
+     <event value="86" symbol="DismOptimizeImageStop" version="0" task="DismOptimizeImage" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismCloseSessionStartArgs"/>
+     <event value="87" symbol="DismRemoveProvisionedAppxPackageStart87" version="0" task="DismRemoveProvisionedAppxPackage" opcode="win:Start" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStopArgs"/>
+     <event value="88" symbol="DismRemoveProvisionedAppxPackageStop88" version="0" task="DismRemoveProvisionedAppxPackage" opcode="win:Stop" level="win:Informational" keywords="DismApiEvent" template="DismOpenSessionStopArgs"/>
+    </events>
+    <templates>
+     <template tid="DismOpenSessionStartArgs">
+      <data name="String" inType="win:UnicodeString"/>
+     </template>
+     <template tid="DismOpenSessionStopArgs">
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="String" inType="win:UnicodeString"/>
+     </template>
+     <template tid="DismCloseSessionStartArgs">
+      <data name="SessionId" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_DismApiEvent" value="DismApiEvent"/>
+    <string id="keyword_DismApiCommandThreadEvent" value="DismApiCommandThreadEvent"/>
+    <string id="keyword_DismApiCommandObjectEvent" value="DismApiCommandObjectEvent"/>
+    <string id="keyword_DismApiCommandQueueEvent" value="DismApiCommandQueueEvent"/>
+    <string id="keyword_DismApiSessionTableEvent" value="DismApiSessionTableEvent"/>
+    <string id="task_DismInitialize" value="DismInitialize"/>
+    <string id="task_DismShutdown" value="DismShutdown"/>
+    <string id="task_DismOpenSession" value="DismOpenSession"/>
+    <string id="task_DismCloseSession" value="DismCloseSession"/>
+    <string id="task_EnqueueCommandObject" value="EnqueueCommandObject"/>
+    <string id="task_DequeueCommandObject" value="DequeueCommandObject"/>
+    <string id="task_DismMountImage" value="DismMountImage"/>
+    <string id="task_DismUnmountImage" value="DismUnmountImage"/>
+    <string id="task_DismSetFirstBootCommandLine" value="DismSetFirstBootCommandLine"/>
+    <string id="task_DismRemountImage" value="DismRemountImage"/>
+    <string id="task_DismCommitImage" value="DismCommitImage"/>
+    <string id="task_DismGetImageInfo" value="DismGetImageInfo"/>
+    <string id="task_DismGetMountedImageInfo" value="DismGetMountedImageInfo"/>
+    <string id="task_DismCleanupMountpoints" value="DismCleanupMountpoints"/>
+    <string id="task_DismAddPackage" value="DismAddPackage"/>
+    <string id="task_DismRemovePackage" value="DismRemovePackage"/>
+    <string id="task_DismEnableFeature" value="DismEnableFeature"/>
+    <string id="task_DismDisableFeature" value="DismDisableFeature"/>
+    <string id="task_DismGetPackages" value="DismGetPackages"/>
+    <string id="task_DismGetPackageInfo" value="DismGetPackageInfo"/>
+    <string id="task_DismGetFeatures" value="DismGetFeatures"/>
+    <string id="task_DismGetFeatureInfo" value="DismGetFeatureInfo"/>
+    <string id="task_DismGetFeatureParent" value="DismGetFeatureParent"/>
+    <string id="task_DismApplyUnattend" value="DismApplyUnattend"/>
+    <string id="task_DismAddDriver" value="DismAddDriver"/>
+    <string id="task_DismRemoveDriver" value="DismRemoveDriver"/>
+    <string id="task_DismGetDrivers" value="DismGetDrivers"/>
+    <string id="task_DismGetDriverInfo" value="DismGetDriverInfo"/>
+    <string id="task_DismCheckImageHealth" value="DismCheckImageHealth"/>
+    <string id="task_DismRestoreImageHealth" value="DismRestoreImageHealth"/>
+    <string id="task_DismSetEdition" value="DismSetEdition"/>
+    <string id="task_DismSetProductKey" value="DismSetProductKey"/>
+    <string id="task_DismGetCurrentEdition" value="DismGetCurrentEdition"/>
+    <string id="task_DismGetTargetEditions" value="DismGetTargetEditions"/>
+    <string id="task_DismGetFeaturesEx" value="DismGetFeaturesEx"/>
+    <string id="task_DismAddProvisionedAppxPackage" value="DismAddProvisionedAppxPackage"/>
+    <string id="task_DismRemoveProvisionedAppxPackage" value="DismRemoveProvisionedAppxPackage"/>
+    <string id="task_DismGetProvisionedAppxPackages" value="DismGetProvisionedAppxPackages"/>
+    <string id="task_DismExportDriver" value="DismExportDriver"/>
+    <string id="task_DismOptimizeImage" value="DismOptimizeImage"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

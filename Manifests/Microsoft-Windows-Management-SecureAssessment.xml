@@ -1,0 +1,68 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Management-SecureAssessment" guid="{a329cf81-57ec-46ed-ab7c-261a52b0754a}" resourceFileName="Microsoft-Windows-Management-SecureAssessment" messageFileName="Microsoft-Windows-Management-SecureAssessment" symbol="MicrosoftWindowsManagementSecureAssessment" source="Xml" >
+    <keywords>
+     <keyword name="SecureAssessment" message="$(string.keyword_SecureAssessment)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="Lockdown" message="$(string.task_Lockdown)" value="1"/>
+    </tasks>
+    <events>
+     <event value="100" symbol="task_0" version="0" task="task_0" level="win:Error" keywords="SecureAssessment" template="task_0Args"/>
+     <event value="101" symbol="task_0101" version="0" task="task_0" level="win:Informational" keywords="SecureAssessment" template="task_0101Args"/>
+     <event value="200" symbol="Lockdown" version="0" task="Lockdown" level="win:Informational" keywords="SecureAssessment" template="LockdownArgs"/>
+     <event value="201" symbol="Lockdown201" version="0" task="Lockdown" level="win:Informational" keywords="SecureAssessment" template="Lockdown201Args"/>
+     <event value="202" symbol="Lockdown202" version="0" task="Lockdown" level="win:Informational" keywords="SecureAssessment" template="Lockdown202Args"/>
+     <event value="203" symbol="Lockdown203" version="0" task="Lockdown" level="win:Error" keywords="SecureAssessment" template="Lockdown203Args"/>
+     <event value="204" symbol="Lockdown204" version="0" task="Lockdown" level="win:Informational" keywords="SecureAssessment" template="Lockdown202Args"/>
+     <event value="205" symbol="Lockdown205" version="0" task="Lockdown" level="win:Informational" keywords="SecureAssessment" template="Lockdown205Args"/>
+     <event value="206" symbol="Lockdown206" version="0" task="Lockdown" level="win:Informational" keywords="SecureAssessment" template="Lockdown206Args"/>
+     <event value="207" symbol="Lockdown207" version="0" task="Lockdown" level="win:Informational" keywords="SecureAssessment"/>
+     <event value="208" symbol="Lockdown208" version="0" task="Lockdown" level="win:Informational" keywords="SecureAssessment" template="Lockdown202Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="ErrorCode" inType="win:HexInt32"/>
+      <data name="Function" inType="win:AnsiString"/>
+      <data name="LineNumber" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0101Args">
+      <data name="ProcessName" inType="win:UnicodeString"/>
+      <data name="TerminationResult" inType="win:Boolean"/>
+     </template>
+     <template tid="LockdownArgs">
+      <data name="Enable" inType="win:Boolean"/>
+      <data name="CurrentlyEnabled" inType="win:Boolean"/>
+     </template>
+     <template tid="Lockdown201Args">
+      <data name="NewContextCreated" inType="win:Boolean"/>
+     </template>
+     <template tid="Lockdown202Args">
+      <data name="EnrollmentID" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Lockdown203Args">
+      <data name="ErrorCode" inType="win:HexInt32"/>
+     </template>
+     <template tid="Lockdown205Args">
+      <data name="EnrollmentID" inType="win:UnicodeString"/>
+      <data name="CallerID" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Lockdown206Args">
+      <data name="Enable" inType="win:Boolean"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_SecureAssessment" value="SecureAssessment"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_Lockdown" value="Lockdown"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,69 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-WiFiDisplay" guid="{712880e9-7813-41a3-8e4c-e4e0c4f6580a}" resourceFileName="Microsoft-Windows-WiFiDisplay" messageFileName="Microsoft-Windows-WiFiDisplay" symbol="MicrosoftWindowsWiFiDisplay" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="EnumerateCeremonies" message="$(string.task_EnumerateCeremonies)" value="1"/>
+     <task name="Pair" message="$(string.task_Pair)" value="2"/>
+     <task name="OpenSession" message="$(string.task_OpenSession)" value="3"/>
+     <task name="DHCP" message="$(string.task_DHCP)" value="4"/>
+     <task name="PairFail" message="$(string.task_PairFail)" value="5"/>
+     <task name="Discover" message="$(string.task_Discover)" value="6"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="EnumerateCeremonies" version="0" task="EnumerateCeremonies" level="win:Informational" template="EnumerateCeremoniesArgs"/>
+     <event value="2" symbol="EnumerateCeremonies2" version="0" task="EnumerateCeremonies" level="win:Informational" template="EnumerateCeremonies2Args"/>
+     <event value="3" symbol="Pair" version="0" task="Pair" level="win:Informational" template="EnumerateCeremoniesArgs"/>
+     <event value="4" symbol="Pair4" version="0" task="Pair" level="win:Informational" template="EnumerateCeremonies2Args"/>
+     <event value="5" symbol="OpenSession" version="0" task="OpenSession" level="win:Informational" template="OpenSessionArgs"/>
+     <event value="6" symbol="OpenSession6" version="0" task="OpenSession" level="win:Informational" template="OpenSession6Args"/>
+     <event value="7" symbol="DHCP" version="0" task="DHCP" level="win:Informational" template="OpenSessionArgs"/>
+     <event value="8" symbol="DHCP8" version="0" task="DHCP" level="win:Informational" template="OpenSession6Args"/>
+     <event value="9" symbol="PairFail" version="0" task="PairFail" level="win:Informational" template="OpenSession6Args"/>
+     <event value="10" symbol="Discover" version="0" task="Discover" level="win:Informational" template="DiscoverArgs"/>
+    </events>
+    <templates>
+     <template tid="EnumerateCeremoniesArgs">
+      <data name="AssociationKey" inType="win:UInt32"/>
+      <data name="LocalDeviceInformation" inType="win:UnicodeString"/>
+      <data name="RemoteDeviceInformation" inType="win:UnicodeString"/>
+     </template>
+     <template tid="EnumerateCeremonies2Args">
+      <data name="AssociationKey" inType="win:UInt32"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="LocalDeviceInformation" inType="win:UnicodeString"/>
+      <data name="RemoteDeviceInformation" inType="win:UnicodeString"/>
+     </template>
+     <template tid="OpenSessionArgs">
+      <data name="LocalDeviceInformation" inType="win:UnicodeString"/>
+      <data name="RemoteDeviceInformation" inType="win:UnicodeString"/>
+     </template>
+     <template tid="OpenSession6Args">
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="LocalDeviceInformation" inType="win:UnicodeString"/>
+      <data name="RemoteDeviceInformation" inType="win:UnicodeString"/>
+     </template>
+     <template tid="DiscoverArgs">
+      <data name="DiscoveryTime" inType="win:UInt32"/>
+      <data name="LocalDeviceInformation" inType="win:UnicodeString"/>
+      <data name="RemoteDeviceInformation" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_EnumerateCeremonies" value="EnumerateCeremonies"/>
+    <string id="task_Pair" value="Pair"/>
+    <string id="task_OpenSession" value="OpenSession"/>
+    <string id="task_DHCP" value="DHCP"/>
+    <string id="task_PairFail" value="PairFail"/>
+    <string id="task_Discover" value="Discover"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

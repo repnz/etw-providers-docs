@@ -1,0 +1,808 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Direct3D12" guid="{5d8087dd-3a9b-4f56-90df-49196cdc4f11}" resourceFileName="Microsoft-Windows-Direct3D12" messageFileName="Microsoft-Windows-Direct3D12" symbol="MicrosoftWindowsDirect3D12" source="Xml" >
+    <keywords>
+     <keyword name="Names" message="$(string.keyword_Names)" mask="0x1"/>
+     <keyword name="Devices" message="$(string.keyword_Devices)" mask="0x2"/>
+     <keyword name="Resources" message="$(string.keyword_Resources)" mask="0x4"/>
+     <keyword name="Markers" message="$(string.keyword_Markers)" mask="0x8"/>
+     <keyword name="RenderOperationMarkers" message="$(string.keyword_RenderOperationMarkers)" mask="0x10"/>
+     <keyword name="DriverCustomMarkers" message="$(string.keyword_DriverCustomMarkers)" mask="0x20"/>
+     <keyword name="BundleMarkers" message="$(string.keyword_BundleMarkers)" mask="0x40"/>
+     <keyword name="ObjectLifetime" message="$(string.keyword_ObjectLifetime)" mask="0x80"/>
+     <keyword name="JournalEntries" message="$(string.keyword_JournalEntries)" mask="0x100"/>
+    </keywords>
+    <tasks>
+     <task name="Name" message="$(string.task_Name)" value="1"/>
+     <task name="Device" message="$(string.task_Device)" value="2"/>
+     <task name="D3DSupplemental" message="$(string.task_D3DSupplemental)" value="11"/>
+     <task name="Marker" message="$(string.task_Marker)" value="20"/>
+     <task name="RuntimeMarker" message="$(string.task_RuntimeMarker)" value="21"/>
+     <task name="RuntimeDroppedCall" message="$(string.task_RuntimeDroppedCall)" value="22"/>
+     <task name="CustomDriverMarker" message="$(string.task_CustomDriverMarker)" value="23"/>
+     <task name="CommandQueue" message="$(string.task_CommandQueue)" value="24"/>
+     <task name="CommandList" message="$(string.task_CommandList)" value="25"/>
+     <task name="ExecuteCommandList" message="$(string.task_ExecuteCommandList)" value="26"/>
+     <task name="Fence" message="$(string.task_Fence)" value="27"/>
+     <task name="CommandAllocator" message="$(string.task_CommandAllocator)" value="28"/>
+     <task name="GraphicsPipelineState" message="$(string.task_GraphicsPipelineState)" value="29"/>
+     <task name="DescriptorHeap" message="$(string.task_DescriptorHeap)" value="30"/>
+     <task name="RootSignature" message="$(string.task_RootSignature)" value="31"/>
+     <task name="Heap" message="$(string.task_Heap)" value="32"/>
+     <task name="QueryHeap" message="$(string.task_QueryHeap)" value="33"/>
+     <task name="CommandSignature" message="$(string.task_CommandSignature)" value="34"/>
+     <task name="PipelineLibrary" message="$(string.task_PipelineLibrary)" value="35"/>
+     <task name="VideoDecoder" message="$(string.task_VideoDecoder)" value="36"/>
+     <task name="VideoProcessor" message="$(string.task_VideoProcessor)" value="37"/>
+     <task name="Resource" message="$(string.task_Resource)" value="38"/>
+     <task name="AllocationInfo" message="$(string.task_AllocationInfo)" value="39"/>
+     <task name="CommandAllocatorUnacquire" message="$(string.task_CommandAllocatorUnacquire)" value="40"/>
+     <task name="VideoDecoderHeap" message="$(string.task_VideoDecoderHeap)" value="41"/>
+     <task name="ExtendedFeatureVersion" message="$(string.task_ExtendedFeatureVersion)" value="42"/>
+     <task name="JournalEntry" message="$(string.task_JournalEntry)" value="43"/>
+     <task name="CommandPool" message="$(string.task_CommandPool)" value="44"/>
+     <task name="CommandRecorder" message="$(string.task_CommandRecorder)" value="45"/>
+     <task name="CommandRecorderAcquire" message="$(string.task_CommandRecorderAcquire)" value="46"/>
+     <task name="CommandRecorderUnacquire" message="$(string.task_CommandRecorderUnacquire)" value="47"/>
+     <task name="CreateHeapSharedHandle" message="$(string.task_CreateHeapSharedHandle)" value="48"/>
+     <task name="StateObjectPrototype" message="$(string.task_StateObjectPrototype)" value="49"/>
+     <task name="MetaCommand" message="$(string.task_MetaCommand)" value="50"/>
+     <task name="ProtectedResourceSession" message="$(string.task_ProtectedResourceSession)" value="51"/>
+    </tasks>
+    <maps>
+     <valueMap name="D3DFeatureLevel">
+      <map value="0x9100" message="$(string.map_D3DFeatureLevelD3D_FEATURE_LEVEL_9_1)"/>
+      <map value="0x9200" message="$(string.map_D3DFeatureLevelD3D_FEATURE_LEVEL_9_2)"/>
+      <map value="0x9300" message="$(string.map_D3DFeatureLevelD3D_FEATURE_LEVEL_9_3)"/>
+      <map value="0xa000" message="$(string.map_D3DFeatureLevelD3D_FEATURE_LEVEL_10_0)"/>
+      <map value="0xa100" message="$(string.map_D3DFeatureLevelD3D_FEATURE_LEVEL_10_1)"/>
+      <map value="0xb000" message="$(string.map_D3DFeatureLevelD3D_FEATURE_LEVEL_11_0)"/>
+     </valueMap>
+     <valueMap name="D3D12CommandListType">
+      <map value="0x0" message="$(string.map_D3D12CommandListTypeCommand List Type Direct)"/>
+      <map value="0x1" message="$(string.map_D3D12CommandListTypeCommand List Type Bundle)"/>
+      <map value="0x2" message="$(string.map_D3D12CommandListTypeCommand List Type Compute)"/>
+      <map value="0x3" message="$(string.map_D3D12CommandListTypeCommand List Type Copy)"/>
+      <map value="0x4" message="$(string.map_D3D12CommandListTypeCommand List Type Video)"/>
+     </valueMap>
+     <bitMap name="D3D12CommandQueueFlags">
+      <map value="0x1" message="$(string.map_D3D12CommandQueueFlagsD3D12_COMMAND_QUEUE_FLAG_DISABLE_GPU_TIMEOUT)"/>
+     </bitMap>
+     <bitMap name="D3D12DescriptorHeapFlags">
+      <map value="0x1" message="$(string.map_D3D12DescriptorHeapFlagsD3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE)"/>
+     </bitMap>
+     <valueMap name="D3D12DescriptorHeapType">
+      <map value="0x0" message="$(string.map_D3D12DescriptorHeapTypeD3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV)"/>
+      <map value="0x1" message="$(string.map_D3D12DescriptorHeapTypeD3D12_DESCRIPTOR_HEAP_TYPE_SAMPLER)"/>
+      <map value="0x2" message="$(string.map_D3D12DescriptorHeapTypeD3D12_DESCRIPTOR_HEAP_TYPE_RTV)"/>
+      <map value="0x3" message="$(string.map_D3D12DescriptorHeapTypeD3D12_DESCRIPTOR_HEAP_TYPE_DSV)"/>
+      <map value="0x4" message="$(string.map_D3D12DescriptorHeapTypeD3D12_DESCRIPTOR_HEAP_TYPE_NUM_TYPES)"/>
+     </valueMap>
+     <valueMap name="D3D12HeapType">
+      <map value="0x0" message="$(string.map_D3D12HeapTypeD3D12_HEAP_TYPE_UNKNOWN)"/>
+      <map value="0x1" message="$(string.map_D3D12HeapTypeD3D12_HEAP_TYPE_DEFAULT)"/>
+      <map value="0x2" message="$(string.map_D3D12HeapTypeD3D12_HEAP_TYPE_UPLOAD)"/>
+      <map value="0x3" message="$(string.map_D3D12HeapTypeD3D12_HEAP_TYPE_READBACK)"/>
+      <map value="0x4" message="$(string.map_D3D12HeapTypeD3D12_HEAP_TYPE_CUSTOM)"/>
+     </valueMap>
+     <valueMap name="D3D12MemoryPool">
+      <map value="0x0" message="$(string.map_D3D12MemoryPoolD3D12_MEMORY_POOL_UNKNOWN)"/>
+      <map value="0x1" message="$(string.map_D3D12MemoryPoolD3D12_MEMORY_POOL_L0)"/>
+      <map value="0x2" message="$(string.map_D3D12MemoryPoolD3D12_MEMORY_POOL_L1)"/>
+     </valueMap>
+     <valueMap name="D3D12CpuPageProperty">
+      <map value="0x0" message="$(string.map_D3D12CpuPagePropertyD3D12_CPU_PAGE_PROPERTY_UNKNOWN)"/>
+      <map value="0x1" message="$(string.map_D3D12CpuPagePropertyD3D12_CPU_PAGE_PROPERTY_NOT_AVAILABLE)"/>
+      <map value="0x2" message="$(string.map_D3D12CpuPagePropertyD3D12_CPU_PAGE_PROPERTY_WRITE_COMBINE)"/>
+      <map value="0x3" message="$(string.map_D3D12CpuPagePropertyD3D12_CPU_PAGE_PROPERTY_WRITE_BACK)"/>
+     </valueMap>
+     <bitMap name="D3D12HeapFlags">
+      <map value="0x1" message="$(string.map_D3D12HeapFlagsD3D12_HEAP_FLAG_SHARED)"/>
+      <map value="0x4" message="$(string.map_D3D12HeapFlagsD3D12_HEAP_FLAG_DENY_BUFFERS)"/>
+      <map value="0x8" message="$(string.map_D3D12HeapFlagsD3D12_HEAP_FLAG_ALLOW_DISPLAY)"/>
+      <map value="0x20" message="$(string.map_D3D12HeapFlagsD3D12_HEAP_FLAG_SHARED_CROSS_ADAPTER)"/>
+      <map value="0x40" message="$(string.map_D3D12HeapFlagsD3D12_HEAP_FLAG_DENY_RT_DS_TEXTURES)"/>
+      <map value="0x80" message="$(string.map_D3D12HeapFlagsD3D12_HEAP_FLAG_DENY_NON_RT_DS_TEXTURES)"/>
+      <map value="0x100" message="$(string.map_D3D12HeapFlagsD3D12_HEAP_FLAG_HARDWARE_PROTECTED)"/>
+      <map value="0x200" message="$(string.map_D3D12HeapFlagsD3D12_HEAP_FLAG_ALLOW_WRITE_WATCH)"/>
+      <map value="0x400" message="$(string.map_D3D12HeapFlagsD3D12_HEAP_FLAG_ALLOW_SHADER_ATOMICS)"/>
+     </bitMap>
+     <valueMap name="D3D12QueryHeapType">
+      <map value="0x0" message="$(string.map_D3D12QueryHeapTypeD3D12_QUERY_HEAP_TYPE_OCCLUSION)"/>
+      <map value="0x1" message="$(string.map_D3D12QueryHeapTypeD3D12_QUERY_HEAP_TYPE_TIMESTAMP)"/>
+      <map value="0x2" message="$(string.map_D3D12QueryHeapTypeD3D12_QUERY_HEAP_TYPE_PIPELINE_STATISTICS)"/>
+      <map value="0x3" message="$(string.map_D3D12QueryHeapTypeD3D12_QUERY_HEAP_TYPE_SO_STATISTICS)"/>
+      <map value="0x4" message="$(string.map_D3D12QueryHeapTypeD3D12_QUERY_HEAP_TYPE_VIDEO_DECODE_STATISTICS)"/>
+      <map value="0x5" message="$(string.map_D3D12QueryHeapTypeD3D12_QUERY_HEAP_TYPE_JPEG)"/>
+     </valueMap>
+     <valueMap name="D3D12FrameCodedInterlaceType">
+      <map value="0x0" message="$(string.map_D3D12FrameCodedInterlaceTypeD3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE_NONE)"/>
+      <map value="0x1" message="$(string.map_D3D12FrameCodedInterlaceTypeD3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE_FIELD_BASED)"/>
+     </valueMap>
+     <bitMap name="D3D12CommandListSupportFlags">
+      <map value="0x1" message="$(string.map_D3D12CommandListSupportFlagsD3D12_COMMAND_LIST_SUPPORT_FLAG_DIRECT)"/>
+      <map value="0x2" message="$(string.map_D3D12CommandListSupportFlagsD3D12_COMMAND_LIST_SUPPORT_FLAG_BUNDLE)"/>
+      <map value="0x4" message="$(string.map_D3D12CommandListSupportFlagsD3D12_COMMAND_LIST_SUPPORT_FLAG_COMPUTE)"/>
+      <map value="0x8" message="$(string.map_D3D12CommandListSupportFlagsD3D12_COMMAND_LIST_SUPPORT_FLAG_COPY)"/>
+      <map value="0x10" message="$(string.map_D3D12CommandListSupportFlagsD3D12_COMMAND_LIST_SUPPORT_FLAG_VIDEO_DECODE)"/>
+      <map value="0x20" message="$(string.map_D3D12CommandListSupportFlagsD3D12_COMMAND_LIST_SUPPORT_FLAG_VIDEO_PROCESS)"/>
+     </bitMap>
+     <bitMap name="D3D12ProtectedResourceSessionFlags">
+      <map value="0x0" message="$(string.map_D3D12ProtectedResourceSessionFlagsD3D12_PROTECTED_RESOURCE_SESSION_FLAG_NONE)"/>
+     </bitMap>
+     <valueMap name="D3D12ResourceDimension">
+      <map value="0x0" message="$(string.map_D3D12ResourceDimensionD3D12_RESOURCE_DIMENSION_UNKNOWN)"/>
+      <map value="0x1" message="$(string.map_D3D12ResourceDimensionD3D12_RESOURCE_DIMENSION_BUFFER)"/>
+      <map value="0x2" message="$(string.map_D3D12ResourceDimensionD3D12_RESOURCE_DIMENSION_TEXTURE1D)"/>
+      <map value="0x3" message="$(string.map_D3D12ResourceDimensionD3D12_RESOURCE_DIMENSION_TEXTURE2D)"/>
+      <map value="0x4" message="$(string.map_D3D12ResourceDimensionD3D12_RESOURCE_DIMENSION_TEXTURE3D)"/>
+     </valueMap>
+     <valueMap name="D3D12TextureLayout">
+      <map value="0x0" message="$(string.map_D3D12TextureLayoutD3D12_TEXTURE_LAYOUT_UNKNOWN)"/>
+      <map value="0x1" message="$(string.map_D3D12TextureLayoutD3D12_TEXTURE_LAYOUT_ROW_MAJOR)"/>
+      <map value="0x2" message="$(string.map_D3D12TextureLayoutD3D12_TEXTURE_LAYOUT_64KB_UNDEFINED_SWIZZLE)"/>
+      <map value="0x3" message="$(string.map_D3D12TextureLayoutD3D12_TEXTURE_LAYOUT_64KB_STANDARD_SWIZZLE)"/>
+     </valueMap>
+     <bitMap name="D3D12ResourceFlags">
+      <map value="0x1" message="$(string.map_D3D12ResourceFlagsD3D12_RESOURCE_FLAG_ALLOW_RENDER_TARGET)"/>
+      <map value="0x2" message="$(string.map_D3D12ResourceFlagsD3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL)"/>
+      <map value="0x4" message="$(string.map_D3D12ResourceFlagsD3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS)"/>
+      <map value="0x8" message="$(string.map_D3D12ResourceFlagsD3D12_RESOURCE_FLAG_DENY_SHADER_RESOURCE)"/>
+      <map value="0x10" message="$(string.map_D3D12ResourceFlagsD3D12_RESOURCE_FLAG_ALLOW_CROSS_ADAPTER)"/>
+      <map value="0x20" message="$(string.map_D3D12ResourceFlagsD3D12_RESOURCE_FLAG_ALLOW_SIMULTANEOUS_ACCESS)"/>
+      <map value="0x40" message="$(string.map_D3D12ResourceFlagsD3D12_RESOURCE_FLAG_VIDEO_DECODE_REFERENCE_ONLY)"/>
+     </bitMap>
+     <valueMap name="D3D12ResourceHeapType">
+      <map value="0x0" message="$(string.map_D3D12ResourceHeapTypeImmutable Heap: Placed Resource (many placed resources can be immutably joined with a fully created heap))"/>
+      <map value="0x1" message="$(string.map_D3D12ResourceHeapTypeImplicit Heap: Committed Resource)"/>
+      <map value="0x2" message="$(string.map_D3D12ResourceHeapTypeImplicit Resource: An API Heap.)"/>
+      <map value="0x3" message="$(string.map_D3D12ResourceHeapTypeReserved Resource: Page-mapped to one or more heaps, or nothing at all.)"/>
+      <map value="0x4" message="$(string.map_D3D12ResourceHeapTypeImmutable Resource: Placed texture on a reserved buffer which is page-mapped to one or more heaps, or nothing at all.)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="Name" version="0" task="Name" level="win:Always" keywords="Names" template="NameArgs"/>
+     <event value="2" symbol="NameDCStart" version="0" task="Name" opcode="win:DC_Start" level="win:Always" keywords="Names" template="NameDCStartArgs"/>
+     <event value="3" symbol="DeviceStart" version="0" task="Device" opcode="win:Start" level="win:Always" keywords="Devices ObjectLifetime" template="DeviceStartArgs"/>
+     <event value="4" symbol="DeviceStop" version="0" task="Device" opcode="win:Stop" level="win:Always" keywords="Devices ObjectLifetime" template="DeviceStopArgs"/>
+     <event value="5" symbol="DeviceDCStart" version="0" task="Device" opcode="win:DC_Start" level="win:Always" keywords="Devices ObjectLifetime" template="DeviceStopArgs"/>
+     <event value="19" symbol="Device" version="0" task="Device" level="win:Always" keywords="Devices" template="DeviceArgs"/>
+     <event value="26" symbol="D3DSupplemental" version="0" task="D3DSupplemental" level="win:Always" template="D3DSupplementalArgs"/>
+     <event value="35" symbol="Marker" version="0" task="Marker" level="win:Always" keywords="Markers" template="MarkerArgs"/>
+     <event value="36" symbol="MarkerStart" version="0" task="Marker" opcode="win:Start" level="win:Always" keywords="Markers" template="MarkerArgs"/>
+     <event value="37" symbol="MarkerStop" version="0" task="Marker" opcode="win:Stop" level="win:Always" keywords="Markers" template="MarkerStopArgs"/>
+     <event value="38" symbol="Marker38" version="0" task="Marker" level="win:Always" keywords="Markers" template="Marker38Args"/>
+     <event value="39" symbol="RuntimeMarker" version="0" task="RuntimeMarker" level="win:Always" keywords="RenderOperationMarkers" template="RuntimeMarkerArgs"/>
+     <event value="40" symbol="RuntimeDroppedCall" version="0" task="RuntimeDroppedCall" level="win:Always" keywords="RenderOperationMarkers" template="RuntimeDroppedCallArgs"/>
+     <event value="41" symbol="RuntimeMarker41" version="0" task="RuntimeMarker" level="win:Always" keywords="RenderOperationMarkers" template="RuntimeMarker41Args"/>
+     <event value="45" symbol="CustomDriverMarker" version="0" task="CustomDriverMarker" level="win:Always" keywords="DriverCustomMarkers" template="CustomDriverMarkerArgs"/>
+     <event value="47" symbol="CommandQueueStart" version="0" task="CommandQueue" opcode="win:Start" level="win:Always" keywords="Devices ObjectLifetime" template="CommandQueueStartArgs"/>
+     <event value="48" symbol="CommandQueueStop" version="0" task="CommandQueue" opcode="win:Stop" level="win:Always" keywords="Devices ObjectLifetime" template="CommandQueueStopArgs"/>
+     <event value="49" symbol="CommandQueueDCStart" version="0" task="CommandQueue" opcode="win:DC_Start" level="win:Always" keywords="Devices ObjectLifetime" template="CommandQueueStopArgs"/>
+     <event value="50" symbol="CommandListStart" version="0" task="CommandList" opcode="win:Start" level="win:Always" keywords="Devices ObjectLifetime" template="CommandListStartArgs"/>
+     <event value="51" symbol="CommandListStop" version="0" task="CommandList" opcode="win:Stop" level="win:Always" keywords="Devices ObjectLifetime" template="CommandListStartArgs"/>
+     <event value="52" symbol="CommandList" version="0" task="CommandList" level="win:Always" keywords="Devices" template="CommandListStartArgs"/>
+     <event value="53" symbol="ExecuteCommandListStart" version="0" task="ExecuteCommandList" opcode="win:Start" level="win:Always" keywords="Devices" template="ExecuteCommandListStartArgs"/>
+     <event value="54" symbol="ExecuteCommandListStop" version="0" task="ExecuteCommandList" opcode="win:Stop" level="win:Always" keywords="Devices" template="ExecuteCommandListStartArgs"/>
+     <event value="55" symbol="Name55" version="0" task="Name" level="win:Always" keywords="Names" template="Name55Args"/>
+     <event value="56" symbol="NameDCStart56" version="0" task="Name" opcode="win:DC_Start" level="win:Always" keywords="Names" template="NameDCStart56Args"/>
+     <event value="57" symbol="FenceStart" version="0" task="Fence" opcode="win:Start" level="win:Always" keywords="Resources ObjectLifetime" template="FenceStartArgs"/>
+     <event value="58" symbol="FenceStop" version="0" task="Fence" opcode="win:Stop" level="win:Always" keywords="Resources ObjectLifetime" template="FenceStartArgs"/>
+     <event value="59" symbol="FenceDCStart" version="0" task="Fence" opcode="win:DC_Start" level="win:Always" keywords="Resources ObjectLifetime" template="FenceStartArgs"/>
+     <event value="60" symbol="CommandAllocatorStart" version="0" task="CommandAllocator" opcode="win:Start" level="win:Always" keywords="Resources ObjectLifetime" template="CommandAllocatorStartArgs"/>
+     <event value="61" symbol="CommandAllocatorStop" version="0" task="CommandAllocator" opcode="win:Stop" level="win:Always" keywords="Resources ObjectLifetime" template="CommandAllocatorStartArgs"/>
+     <event value="62" symbol="CommandAllocatorDCStart" version="0" task="CommandAllocator" opcode="win:DC_Start" level="win:Always" keywords="Resources ObjectLifetime" template="CommandAllocatorStartArgs"/>
+     <event value="63" symbol="GraphicsPipelineStateStart" version="0" task="GraphicsPipelineState" opcode="win:Start" level="win:Always" keywords="Resources ObjectLifetime" template="GraphicsPipelineStateStartArgs"/>
+     <event value="64" symbol="GraphicsPipelineStateStop" version="0" task="GraphicsPipelineState" opcode="win:Stop" level="win:Always" keywords="Resources ObjectLifetime" template="GraphicsPipelineStateStartArgs"/>
+     <event value="65" symbol="GraphicsPipelineStateDCStart" version="0" task="GraphicsPipelineState" opcode="win:DC_Start" level="win:Always" keywords="Resources ObjectLifetime" template="GraphicsPipelineStateStartArgs"/>
+     <event value="66" symbol="DescriptorHeapStart" version="0" task="DescriptorHeap" opcode="win:Start" level="win:Always" keywords="Resources ObjectLifetime" template="DescriptorHeapStartArgs"/>
+     <event value="67" symbol="DescriptorHeapStop" version="0" task="DescriptorHeap" opcode="win:Stop" level="win:Always" keywords="Resources ObjectLifetime" template="DescriptorHeapStopArgs"/>
+     <event value="68" symbol="DescriptorHeapDCStart" version="0" task="DescriptorHeap" opcode="win:DC_Start" level="win:Always" keywords="Resources ObjectLifetime" template="DescriptorHeapDCStartArgs"/>
+     <event value="69" symbol="RootSignatureStart" version="0" task="RootSignature" opcode="win:Start" level="win:Always" keywords="Resources ObjectLifetime" template="RootSignatureStartArgs"/>
+     <event value="70" symbol="RootSignatureStop" version="0" task="RootSignature" opcode="win:Stop" level="win:Always" keywords="Resources ObjectLifetime" template="RootSignatureStartArgs"/>
+     <event value="71" symbol="RootSignatureDCStart" version="0" task="RootSignature" opcode="win:DC_Start" level="win:Always" keywords="Resources ObjectLifetime" template="RootSignatureStartArgs"/>
+     <event value="72" symbol="HeapStart" version="0" task="Heap" opcode="win:Start" level="win:Always" keywords="Resources ObjectLifetime" template="HeapStartArgs"/>
+     <event value="73" symbol="HeapStop" version="0" task="Heap" opcode="win:Stop" level="win:Always" keywords="Resources ObjectLifetime" template="HeapStopArgs"/>
+     <event value="74" symbol="HeapDCStart" version="0" task="Heap" opcode="win:DC_Start" level="win:Always" keywords="Resources ObjectLifetime" template="HeapDCStartArgs"/>
+     <event value="75" symbol="QueryHeapStart" version="0" task="QueryHeap" opcode="win:Start" level="win:Always" keywords="Resources ObjectLifetime" template="QueryHeapStartArgs"/>
+     <event value="76" symbol="QueryHeapStop" version="0" task="QueryHeap" opcode="win:Stop" level="win:Always" keywords="Resources ObjectLifetime" template="QueryHeapStopArgs"/>
+     <event value="77" symbol="QueryHeapDCStart" version="0" task="QueryHeap" opcode="win:DC_Start" level="win:Always" keywords="Resources ObjectLifetime" template="QueryHeapStopArgs"/>
+     <event value="78" symbol="CommandSignatureStart" version="0" task="CommandSignature" opcode="win:Start" level="win:Always" keywords="Resources ObjectLifetime" template="CommandSignatureStartArgs"/>
+     <event value="79" symbol="CommandSignatureStop" version="0" task="CommandSignature" opcode="win:Stop" level="win:Always" keywords="Resources ObjectLifetime" template="CommandSignatureStartArgs"/>
+     <event value="80" symbol="CommandSignatureDCStart" version="0" task="CommandSignature" opcode="win:DC_Start" level="win:Always" keywords="Resources ObjectLifetime" template="CommandSignatureStartArgs"/>
+     <event value="81" symbol="PipelineLibraryStart" version="0" task="PipelineLibrary" opcode="win:Start" level="win:Always" keywords="Resources ObjectLifetime" template="PipelineLibraryStartArgs"/>
+     <event value="82" symbol="PipelineLibraryStop" version="0" task="PipelineLibrary" opcode="win:Stop" level="win:Always" keywords="Resources ObjectLifetime" template="PipelineLibraryStartArgs"/>
+     <event value="83" symbol="PipelineLibraryDCStart" version="0" task="PipelineLibrary" opcode="win:DC_Start" level="win:Always" keywords="Resources ObjectLifetime" template="PipelineLibraryStartArgs"/>
+     <event value="84" symbol="VideoDecoderStart" version="0" task="VideoDecoder" opcode="win:Start" level="win:Always" keywords="Resources ObjectLifetime" template="VideoDecoderStartArgs"/>
+     <event value="85" symbol="VideoDecoderStop" version="0" task="VideoDecoder" opcode="win:Stop" level="win:Always" keywords="Resources ObjectLifetime" template="VideoDecoderStopArgs"/>
+     <event value="86" symbol="VideoDecoderDCStart" version="0" task="VideoDecoder" opcode="win:DC_Start" level="win:Always" keywords="Resources ObjectLifetime" template="VideoDecoderStopArgs"/>
+     <event value="87" symbol="VideoProcessorStart" version="0" task="VideoProcessor" opcode="win:Start" level="win:Always" keywords="Resources ObjectLifetime" template="VideoProcessorStartArgs"/>
+     <event value="88" symbol="VideoProcessorStop" version="0" task="VideoProcessor" opcode="win:Stop" level="win:Always" keywords="Resources ObjectLifetime" template="VideoProcessorStartArgs"/>
+     <event value="89" symbol="VideoProcessorDCStart" version="0" task="VideoProcessor" opcode="win:DC_Start" level="win:Always" keywords="Resources ObjectLifetime" template="VideoProcessorStartArgs"/>
+     <event value="90" symbol="CommandListDCStart" version="0" task="CommandList" opcode="win:DC_Start" level="win:Always" keywords="Resources ObjectLifetime" template="CommandListStartArgs"/>
+     <event value="91" symbol="ResourceStart_V1" version="1" task="Resource" opcode="win:Start" level="win:Always" keywords="Resources ObjectLifetime" template="ResourceStartArgs_V1"/>
+     <event value="92" symbol="ResourceStop_V1" version="1" task="Resource" opcode="win:Stop" level="win:Always" keywords="Resources ObjectLifetime" template="ResourceStopArgs_V1"/>
+     <event value="93" symbol="ResourceDCStart_V1" version="1" task="Resource" opcode="win:DC_Start" level="win:Always" keywords="Resources ObjectLifetime" template="ResourceDCStartArgs_V1"/>
+     <event value="94" symbol="AllocationInfo_V1" version="1" task="AllocationInfo" level="win:Always" keywords="Resources" template="AllocationInfoArgs_V1"/>
+     <event value="95" symbol="CommandAllocatorUnacquire" version="0" task="CommandAllocatorUnacquire" level="win:Always" keywords="Resources" template="CommandAllocatorUnacquireArgs"/>
+     <event value="96" symbol="VideoDecoderHeapStart" version="0" task="VideoDecoderHeap" opcode="win:Start" level="win:Always" keywords="Resources ObjectLifetime" template="VideoDecoderHeapStartArgs"/>
+     <event value="97" symbol="VideoDecoderHeapStop" version="0" task="VideoDecoderHeap" opcode="win:Stop" level="win:Always" keywords="Resources ObjectLifetime" template="VideoDecoderHeapStartArgs"/>
+     <event value="98" symbol="VideoDecoderHeapDCStart" version="0" task="VideoDecoderHeap" opcode="win:DC_Start" level="win:Always" keywords="Resources ObjectLifetime" template="VideoDecoderHeapStartArgs"/>
+     <event value="99" symbol="ExtendedFeatureVersion" version="0" task="ExtendedFeatureVersion" level="win:Always" keywords="Devices ObjectLifetime" template="ExtendedFeatureVersionArgs"/>
+     <event value="100" symbol="JournalEntry" version="0" task="JournalEntry" level="win:Always" keywords="Devices JournalEntries" template="JournalEntryArgs"/>
+     <event value="101" symbol="CommandPoolStart" version="0" task="CommandPool" opcode="win:Start" level="win:Always" keywords="Resources ObjectLifetime" template="CommandPoolStartArgs"/>
+     <event value="102" symbol="CommandPoolStop" version="0" task="CommandPool" opcode="win:Stop" level="win:Always" keywords="Resources ObjectLifetime" template="CommandPoolStartArgs"/>
+     <event value="103" symbol="CommandPoolDCStart" version="0" task="CommandPool" opcode="win:DC_Start" level="win:Always" keywords="Resources ObjectLifetime" template="CommandPoolStartArgs"/>
+     <event value="104" symbol="CommandRecorderStart" version="0" task="CommandRecorder" opcode="win:Start" level="win:Always" keywords="Resources ObjectLifetime" template="CommandRecorderStartArgs"/>
+     <event value="105" symbol="CommandRecorderStop" version="0" task="CommandRecorder" opcode="win:Stop" level="win:Always" keywords="Resources ObjectLifetime" template="CommandRecorderStopArgs"/>
+     <event value="106" symbol="CommandRecorderDCStart" version="0" task="CommandRecorder" opcode="win:DC_Start" level="win:Always" keywords="Resources ObjectLifetime" template="CommandRecorderStartArgs"/>
+     <event value="107" symbol="CommandRecorderAcquireStart" version="0" task="CommandRecorderAcquire" opcode="win:Start" level="win:Always" keywords="Resources" template="CommandRecorderAcquireStartArgs"/>
+     <event value="108" symbol="CommandRecorderUnacquireStop" version="0" task="CommandRecorderUnacquire" opcode="win:Stop" level="win:Always" keywords="Resources" template="CommandRecorderAcquireStartArgs"/>
+     <event value="109" symbol="CreateHeapSharedHandle" version="0" task="CreateHeapSharedHandle" level="win:Always" keywords="Resources" template="CreateHeapSharedHandleArgs"/>
+     <event value="110" symbol="StateObjectPrototypeStart" version="0" task="StateObjectPrototype" opcode="win:Start" level="win:Always" keywords="Resources ObjectLifetime" template="StateObjectPrototypeStartArgs"/>
+     <event value="111" symbol="StateObjectPrototypeStop" version="0" task="StateObjectPrototype" opcode="win:Stop" level="win:Always" keywords="Resources ObjectLifetime" template="StateObjectPrototypeStartArgs"/>
+     <event value="112" symbol="StateObjectPrototypeDCStart" version="0" task="StateObjectPrototype" opcode="win:DC_Start" level="win:Always" keywords="Resources ObjectLifetime" template="StateObjectPrototypeStartArgs"/>
+     <event value="113" symbol="MetaCommandStart" version="0" task="MetaCommand" opcode="win:Start" level="win:Always" keywords="Resources ObjectLifetime" template="MetaCommandStartArgs"/>
+     <event value="114" symbol="MetaCommandStop" version="0" task="MetaCommand" opcode="win:Stop" level="win:Always" keywords="Resources ObjectLifetime" template="MetaCommandStartArgs"/>
+     <event value="115" symbol="MetaCommandDCStart" version="0" task="MetaCommand" opcode="win:DC_Start" level="win:Always" keywords="Resources ObjectLifetime" template="MetaCommandStartArgs"/>
+     <event value="116" symbol="ProtectedResourceSessionStart" version="0" task="ProtectedResourceSession" opcode="win:Start" level="win:Always" keywords="Resources ObjectLifetime" template="ProtectedResourceSessionStartArgs"/>
+     <event value="117" symbol="ProtectedResourceSessionStop" version="0" task="ProtectedResourceSession" opcode="win:Stop" level="win:Always" keywords="Resources ObjectLifetime" template="ProtectedResourceSessionStopArgs"/>
+     <event value="118" symbol="ProtectedResourceSessionDCStart" version="0" task="ProtectedResourceSession" opcode="win:DC_Start" level="win:Always" keywords="Resources ObjectLifetime" template="ProtectedResourceSessionStopArgs"/>
+    </events>
+    <templates>
+     <template tid="NameArgs">
+      <data name="pObject" inType="win:Pointer"/>
+      <data name="CchOldDebugObjectName" inType="win:UInt32"/>
+      <data name="OldDebugObjectName" inType="win:AnsiString" length="CchOldDebugObjectName"/>
+      <data name="CchNewDebugObjectName" inType="win:UInt32"/>
+      <data name="NewDebugObjectName" inType="win:AnsiString" length="CchNewDebugObjectName"/>
+     </template>
+     <template tid="NameDCStartArgs">
+      <data name="pObject" inType="win:Pointer"/>
+      <data name="CchDebugObjectName" inType="win:UInt32"/>
+      <data name="DebugObjectName" inType="win:AnsiString" length="CchDebugObjectName"/>
+     </template>
+     <template tid="DeviceStartArgs">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="FeatureLevel" inType="win:UInt32" map="D3DFeatureLevel"/>
+      <data name="hKMAdapter" inType="win:UInt32"/>
+      <data name="hUMAdapter" inType="win:Pointer"/>
+      <data name="UMAdapterVersion" inType="win:UInt64"/>
+      <data name="hKMDevice" inType="win:UInt32"/>
+      <data name="UMDeviceVersion" inType="win:UInt64"/>
+     </template>
+     <template tid="DeviceStopArgs">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="FeatureLevel" inType="win:UInt32"/>
+      <data name="hKMAdapter" inType="win:UInt32"/>
+      <data name="hUMAdapter" inType="win:Pointer"/>
+      <data name="UMAdapterVersion" inType="win:UInt64"/>
+      <data name="hKMDevice" inType="win:UInt32"/>
+      <data name="UMDeviceVersion" inType="win:UInt64"/>
+     </template>
+     <template tid="DeviceArgs">
+      <data name="SemaphoreHandle" inType="win:Pointer"/>
+      <data name="AdjustValue" inType="win:UInt32"/>
+      <data name="PresentCount" inType="win:UInt32"/>
+     </template>
+     <template tid="D3DSupplementalArgs">
+      <data name="BufferSize" inType="win:UInt32"/>
+      <data name="Buffer" inType="win:Binary" length="BufferSize"/>
+     </template>
+     <template tid="MarkerArgs">
+      <data name="pID3D12CommandQueue" inType="win:Pointer"/>
+      <data name="Metadata" inType="win:UInt32"/>
+      <data name="DataSize" inType="win:UInt32"/>
+      <data name="Data" inType="win:UInt8" count="DataSize"/>
+     </template>
+     <template tid="MarkerStopArgs">
+      <data name="pID3D12CommandQueue" inType="win:Pointer"/>
+     </template>
+     <template tid="Marker38Args">
+      <data name="pID3D12CommandList" inType="win:Pointer"/>
+      <data name="APISequenceNumber" inType="win:UInt64"/>
+      <data name="Metadata" inType="win:UInt32"/>
+      <data name="DataSize" inType="win:UInt32"/>
+      <data name="Data" inType="win:UInt8" count="DataSize"/>
+     </template>
+     <template tid="RuntimeMarkerArgs">
+      <data name="CPUFrequency" inType="win:UInt64"/>
+      <data name="FirstAPISequenceNumber" inType="win:UInt64"/>
+      <data name="pID3D12CommandList" inType="win:Pointer"/>
+      <data name="CPUTimeHigh" inType="win:UInt32"/>
+      <data name="ThreadIDCount" inType="win:UInt8"/>
+      <data name="ThreadIDs" inType="win:UInt32" count="ThreadIDCount"/>
+      <data name="DataSize" inType="win:UInt32"/>
+      <data name="Data" inType="win:UInt8" count="DataSize"/>
+     </template>
+     <template tid="RuntimeDroppedCallArgs">
+      <data name="pID3D12DeviceContext" inType="win:Pointer"/>
+      <data name="Type" inType="win:UInt32"/>
+     </template>
+     <template tid="RuntimeMarker41Args">
+      <data name="pID3D12CommandQueue" inType="win:Pointer"/>
+      <data name="ContextCount" inType="win:UInt32"/>
+      <data name="Contexts" inType="win:UInt32" count="ContextCount"/>
+      <data name="LoopIteration" inType="win:UInt32"/>
+      <data name="SubmitCommandCBSequence" inType="win:UInt32"/>
+      <data name="FirstAPISequenceNumberHigh" inType="win:UInt32"/>
+      <data name="CompletedAPISequenceNumberSize" inType="win:UInt32"/>
+      <data name="CompletedAPISequenceNumber" inType="win:UInt32" count="CompletedAPISequenceNumberSize"/>
+     </template>
+     <template tid="CustomDriverMarkerArgs">
+      <data name="InsertionAPISequenceNumber" inType="win:UInt64"/>
+      <data name="pID3D12CommandList" inType="win:Pointer"/>
+      <data name="Index" inType="win:Int32"/>
+      <data name="MarkerDescription" inType="win:UnicodeString"/>
+     </template>
+     <template tid="CommandQueueStartArgs">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pCommandQueue" inType="win:Pointer"/>
+      <data name="type" inType="win:UInt32" map="D3D12CommandListType"/>
+      <data name="ContextCount" inType="win:UInt32"/>
+      <data name="UMDContexts" inType="win:UInt32" count="ContextCount"/>
+      <data name="Priority" inType="win:Int32"/>
+      <data name="Flags" inType="win:UInt32" map="D3D12CommandQueueFlags"/>
+      <data name="NodeMask" inType="win:UInt32"/>
+     </template>
+     <template tid="CommandQueueStopArgs">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pCommandQueue" inType="win:Pointer"/>
+      <data name="type" inType="win:UInt32"/>
+      <data name="ContextCount" inType="win:UInt32"/>
+      <data name="UMDContexts" inType="win:UInt32" count="ContextCount"/>
+      <data name="Priority" inType="win:Int32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="NodeMask" inType="win:UInt32"/>
+     </template>
+     <template tid="CommandListStartArgs">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pID3D12CommandList" inType="win:Pointer"/>
+      <data name="SequenceNumber" inType="win:UInt64"/>
+      <data name="type" inType="win:UInt32"/>
+     </template>
+     <template tid="ExecuteCommandListStartArgs">
+      <data name="pID3D12CommandQueue" inType="win:Pointer"/>
+      <data name="pID3D12CommandList" inType="win:Pointer"/>
+     </template>
+     <template tid="Name55Args">
+      <data name="pObject" inType="win:Pointer"/>
+      <data name="CchOldDebugObjectName" inType="win:UInt32"/>
+      <data name="OldDebugObjectName" inType="win:UnicodeString" length="CchOldDebugObjectName"/>
+      <data name="CchNewDebugObjectName" inType="win:UInt32"/>
+      <data name="NewDebugObjectName" inType="win:UnicodeString" length="CchNewDebugObjectName"/>
+     </template>
+     <template tid="NameDCStart56Args">
+      <data name="pObject" inType="win:Pointer"/>
+      <data name="CchDebugObjectName" inType="win:UInt32"/>
+      <data name="DebugObjectName" inType="win:UnicodeString" length="CchDebugObjectName"/>
+     </template>
+     <template tid="FenceStartArgs">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pID3D12Fence" inType="win:Pointer"/>
+      <data name="pDXGKFence" inType="win:Pointer"/>
+     </template>
+     <template tid="CommandAllocatorStartArgs">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pID3D12CommandAllocator" inType="win:Pointer"/>
+      <data name="type" inType="win:UInt32"/>
+     </template>
+     <template tid="GraphicsPipelineStateStartArgs">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pID3D12GraphicsPipelineState" inType="win:Pointer"/>
+     </template>
+     <template tid="DescriptorHeapStartArgs">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pID3D12DescriptorHeap" inType="win:Pointer"/>
+      <data name="Type" inType="win:UInt32"/>
+      <data name="NumDescriptors" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32" map="D3D12DescriptorHeapFlags"/>
+      <data name="NodeMask" inType="win:UInt32"/>
+     </template>
+     <template tid="DescriptorHeapStopArgs">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pID3D12DescriptorHeap" inType="win:Pointer"/>
+      <data name="Type" inType="win:UInt32"/>
+      <data name="NumDescriptors" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="NodeMask" inType="win:UInt32"/>
+     </template>
+     <template tid="DescriptorHeapDCStartArgs">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pID3D12DescriptorHeap" inType="win:Pointer"/>
+      <data name="Type" inType="win:UInt32" map="D3D12DescriptorHeapType"/>
+      <data name="NumDescriptors" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="NodeMask" inType="win:UInt32"/>
+     </template>
+     <template tid="RootSignatureStartArgs">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pID3D12RootSignature" inType="win:Pointer"/>
+      <data name="NodeMask" inType="win:UInt32"/>
+     </template>
+     <template tid="HeapStartArgs">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pID3D12Heap" inType="win:Pointer"/>
+      <data name="SizeInBytes" inType="win:UInt64"/>
+      <data name="Alignment" inType="win:UInt64"/>
+      <data name="Type" inType="win:UInt32" map="D3D12HeapType"/>
+      <data name="CPUPageProperty" inType="win:UInt32"/>
+      <data name="MemoryPoolPreference" inType="win:UInt32" map="D3D12MemoryPool"/>
+      <data name="CreationNodeMask" inType="win:UInt32"/>
+      <data name="VisibleNodeMask" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="pID3D12ConjoinedResource" inType="win:Pointer"/>
+      <data name="hKMAllocation" inType="win:UInt32"/>
+      <data name="hKMResource" inType="win:UInt32"/>
+     </template>
+     <template tid="HeapStopArgs">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pID3D12Heap" inType="win:Pointer"/>
+      <data name="SizeInBytes" inType="win:UInt64"/>
+      <data name="Alignment" inType="win:UInt64"/>
+      <data name="Type" inType="win:UInt32"/>
+      <data name="CPUPageProperty" inType="win:UInt32" map="D3D12CpuPageProperty"/>
+      <data name="MemoryPoolPreference" inType="win:UInt32"/>
+      <data name="CreationNodeMask" inType="win:UInt32"/>
+      <data name="VisibleNodeMask" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="pID3D12ConjoinedResource" inType="win:Pointer"/>
+      <data name="hKMAllocation" inType="win:UInt32"/>
+      <data name="hKMResource" inType="win:UInt32"/>
+     </template>
+     <template tid="HeapDCStartArgs">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pID3D12Heap" inType="win:Pointer"/>
+      <data name="SizeInBytes" inType="win:UInt64"/>
+      <data name="Alignment" inType="win:UInt64"/>
+      <data name="Type" inType="win:UInt32"/>
+      <data name="CPUPageProperty" inType="win:UInt32"/>
+      <data name="MemoryPoolPreference" inType="win:UInt32"/>
+      <data name="CreationNodeMask" inType="win:UInt32"/>
+      <data name="VisibleNodeMask" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32" map="D3D12HeapFlags"/>
+      <data name="pID3D12ConjoinedResource" inType="win:Pointer"/>
+      <data name="hKMAllocation" inType="win:UInt32"/>
+      <data name="hKMResource" inType="win:UInt32"/>
+     </template>
+     <template tid="QueryHeapStartArgs">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pID3D12QueryHeap" inType="win:Pointer"/>
+      <data name="Type" inType="win:UInt32" map="D3D12QueryHeapType"/>
+      <data name="Count" inType="win:UInt32"/>
+      <data name="NodeMask" inType="win:UInt32"/>
+     </template>
+     <template tid="QueryHeapStopArgs">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pID3D12QueryHeap" inType="win:Pointer"/>
+      <data name="Type" inType="win:UInt32"/>
+      <data name="Count" inType="win:UInt32"/>
+      <data name="NodeMask" inType="win:UInt32"/>
+     </template>
+     <template tid="CommandSignatureStartArgs">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pID3D12CommandSignature" inType="win:Pointer"/>
+      <data name="ByteStride" inType="win:UInt32"/>
+      <data name="NumArgumentDescs" inType="win:UInt32"/>
+      <data name="NodeMask" inType="win:UInt32"/>
+     </template>
+     <template tid="PipelineLibraryStartArgs">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pID3D12PipelineLibrary" inType="win:Pointer"/>
+     </template>
+     <template tid="VideoDecoderStartArgs">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pID3D12VideoDecoder" inType="win:Pointer"/>
+      <data name="NodeMask" inType="win:UInt32"/>
+      <data name="DecodeProfile" inType="win:GUID"/>
+      <data name="BitstreamEncryption" inType="win:UInt32"/>
+      <data name="InterlaceFormat" inType="win:UInt32" map="D3D12FrameCodedInterlaceType"/>
+     </template>
+     <template tid="VideoDecoderStopArgs">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pID3D12VideoDecoder" inType="win:Pointer"/>
+      <data name="NodeMask" inType="win:UInt32"/>
+      <data name="DecodeProfile" inType="win:GUID"/>
+      <data name="BitstreamEncryption" inType="win:UInt32"/>
+      <data name="InterlaceFormat" inType="win:UInt32"/>
+     </template>
+     <template tid="VideoProcessorStartArgs">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pID3D12VideoProcessor" inType="win:Pointer"/>
+      <data name="NodeMask" inType="win:UInt32"/>
+     </template>
+     <template tid="CommandAllocatorUnacquireArgs">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pID3D12CommandAllocator" inType="win:Pointer"/>
+      <data name="pID3D12CommandList" inType="win:Pointer"/>
+      <data name="m_hr" inType="win:Int32"/>
+     </template>
+     <template tid="VideoDecoderHeapStartArgs">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pID3D12VideoDecoderHeap" inType="win:Pointer"/>
+      <data name="NodeMask" inType="win:UInt32"/>
+      <data name="DecodeProfile" inType="win:GUID"/>
+      <data name="BitstreamEncryption" inType="win:UInt32"/>
+      <data name="InterlaceFormat" inType="win:UInt32"/>
+      <data name="DecodeWidth" inType="win:UInt32"/>
+      <data name="DecodeHeight" inType="win:UInt32"/>
+      <data name="MaxDecodePictureBufferCount" inType="win:UInt32"/>
+      <data name="FrameRate" inType="win:Float"/>
+      <data name="BitRate" inType="win:UInt32"/>
+     </template>
+     <template tid="ExtendedFeatureVersionArgs">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="NumExtendedFeatures" inType="win:UInt32"/>
+      <data name="pExtendedFeatures" inType="win:Int8" count="NumExtendedFeatures"/>
+     </template>
+     <template tid="JournalEntryArgs">
+      <data name="Index" inType="win:UInt32"/>
+      <data name="Code" inType="win:HexInt32"/>
+      <data name="ThreadId" inType="win:UInt32"/>
+      <data name="Message" inType="win:AnsiString"/>
+     </template>
+     <template tid="CommandPoolStartArgs">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pID3D12CommandPool" inType="win:Pointer"/>
+     </template>
+     <template tid="CommandRecorderStartArgs">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pID3D12CommandRecorder" inType="win:Pointer"/>
+      <data name="supportFlags" inType="win:UInt32"/>
+     </template>
+     <template tid="CommandRecorderStopArgs">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pID3D12CommandRecorder" inType="win:Pointer"/>
+      <data name="supportFlags" inType="win:UInt32" map="D3D12CommandListSupportFlags"/>
+     </template>
+     <template tid="CommandRecorderAcquireStartArgs">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pID3D12CommandRecorder" inType="win:Pointer"/>
+      <data name="pID3D12CommandList" inType="win:Pointer"/>
+      <data name="m_hr" inType="win:Int32"/>
+     </template>
+     <template tid="CreateHeapSharedHandleArgs">
+      <data name="hKMResource" inType="win:UInt32"/>
+      <data name="hUMSharedResource" inType="win:Pointer"/>
+      <data name="Name" inType="win:UnicodeString"/>
+     </template>
+     <template tid="StateObjectPrototypeStartArgs">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pID3D12StateObjectPrototype" inType="win:Pointer"/>
+     </template>
+     <template tid="MetaCommandStartArgs">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pID3D12MetaCommand" inType="win:Pointer"/>
+     </template>
+     <template tid="ProtectedResourceSessionStartArgs">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pID3D12ProtectedResourceSession" inType="win:Pointer"/>
+      <data name="NodeMask" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32" map="D3D12ProtectedResourceSessionFlags"/>
+     </template>
+     <template tid="ProtectedResourceSessionStopArgs">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pID3D12ProtectedResourceSession" inType="win:Pointer"/>
+      <data name="NodeMask" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+     </template>
+     <template tid="ResourceStartArgs_V1">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pID3D12Resource" inType="win:Pointer"/>
+      <data name="hUMResource" inType="win:Pointer"/>
+      <data name="Dimension" inType="win:UInt32" map="D3D12ResourceDimension"/>
+      <data name="Width" inType="win:UInt64"/>
+      <data name="Height" inType="win:UInt32"/>
+      <data name="Depth" inType="win:UInt32"/>
+      <data name="MipLevels" inType="win:UInt32"/>
+      <data name="ArraySize" inType="win:UInt32"/>
+      <data name="PlaneCount" inType="win:UInt32"/>
+      <data name="Format" inType="win:UInt32"/>
+      <data name="SampleCount" inType="win:UInt32"/>
+      <data name="SampleQuality" inType="win:UInt32"/>
+      <data name="Layout" inType="win:UInt32" map="D3D12TextureLayout"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="HeapType" inType="win:UInt32"/>
+      <data name="pHeap" inType="win:Pointer"/>
+      <data name="ImmutableHeapOffset" inType="win:UInt64"/>
+      <data name="PlacedAlignment" inType="win:UInt64"/>
+      <data name="PlacedSize" inType="win:UInt64"/>
+      <data name="NumTilesForResource" inType="win:UInt32"/>
+      <data name="NumPackedMips" inType="win:UInt32"/>
+      <data name="NumTilesForPackedMips" inType="win:UInt32"/>
+      <data name="pImmutableBuffer" inType="win:Pointer"/>
+      <data name="ImmutableBufferOffset" inType="win:UInt64"/>
+     </template>
+     <template tid="ResourceStopArgs_V1">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pID3D12Resource" inType="win:Pointer"/>
+      <data name="hUMResource" inType="win:Pointer"/>
+      <data name="Dimension" inType="win:UInt32"/>
+      <data name="Width" inType="win:UInt64"/>
+      <data name="Height" inType="win:UInt32"/>
+      <data name="Depth" inType="win:UInt32"/>
+      <data name="MipLevels" inType="win:UInt32"/>
+      <data name="ArraySize" inType="win:UInt32"/>
+      <data name="PlaneCount" inType="win:UInt32"/>
+      <data name="Format" inType="win:UInt32"/>
+      <data name="SampleCount" inType="win:UInt32"/>
+      <data name="SampleQuality" inType="win:UInt32"/>
+      <data name="Layout" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32" map="D3D12ResourceFlags"/>
+      <data name="HeapType" inType="win:UInt32"/>
+      <data name="pHeap" inType="win:Pointer"/>
+      <data name="ImmutableHeapOffset" inType="win:UInt64"/>
+      <data name="PlacedAlignment" inType="win:UInt64"/>
+      <data name="PlacedSize" inType="win:UInt64"/>
+      <data name="NumTilesForResource" inType="win:UInt32"/>
+      <data name="NumPackedMips" inType="win:UInt32"/>
+      <data name="NumTilesForPackedMips" inType="win:UInt32"/>
+      <data name="pImmutableBuffer" inType="win:Pointer"/>
+      <data name="ImmutableBufferOffset" inType="win:UInt64"/>
+     </template>
+     <template tid="ResourceDCStartArgs_V1">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pID3D12Resource" inType="win:Pointer"/>
+      <data name="hUMResource" inType="win:Pointer"/>
+      <data name="Dimension" inType="win:UInt32"/>
+      <data name="Width" inType="win:UInt64"/>
+      <data name="Height" inType="win:UInt32"/>
+      <data name="Depth" inType="win:UInt32"/>
+      <data name="MipLevels" inType="win:UInt32"/>
+      <data name="ArraySize" inType="win:UInt32"/>
+      <data name="PlaneCount" inType="win:UInt32"/>
+      <data name="Format" inType="win:UInt32"/>
+      <data name="SampleCount" inType="win:UInt32"/>
+      <data name="SampleQuality" inType="win:UInt32"/>
+      <data name="Layout" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="HeapType" inType="win:UInt32" map="D3D12ResourceHeapType"/>
+      <data name="pHeap" inType="win:Pointer"/>
+      <data name="ImmutableHeapOffset" inType="win:UInt64"/>
+      <data name="PlacedAlignment" inType="win:UInt64"/>
+      <data name="PlacedSize" inType="win:UInt64"/>
+      <data name="NumTilesForResource" inType="win:UInt32"/>
+      <data name="NumPackedMips" inType="win:UInt32"/>
+      <data name="NumTilesForPackedMips" inType="win:UInt32"/>
+      <data name="pImmutableBuffer" inType="win:Pointer"/>
+      <data name="ImmutableBufferOffset" inType="win:UInt64"/>
+     </template>
+     <template tid="AllocationInfoArgs_V1">
+      <data name="pID3D12Device" inType="win:Pointer"/>
+      <data name="pObject" inType="win:Pointer"/>
+      <data name="NumVirtualAddressInfos" inType="win:UInt32"/>
+      <data name="pVirtualAddressInfos" inType="win:UInt16" count="NumVirtualAddressInfos"/>
+      <data name="NumKMTInfos" inType="win:UInt32"/>
+      <data name="pKMTInfos" inType="win:Int64" count="NumKMTInfos"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Names" value="Names"/>
+    <string id="keyword_Devices" value="Devices"/>
+    <string id="keyword_Resources" value="Resources"/>
+    <string id="keyword_Markers" value="Markers"/>
+    <string id="keyword_RenderOperationMarkers" value="RenderOperationMarkers"/>
+    <string id="keyword_DriverCustomMarkers" value="DriverCustomMarkers"/>
+    <string id="keyword_BundleMarkers" value="BundleMarkers"/>
+    <string id="keyword_ObjectLifetime" value="ObjectLifetime"/>
+    <string id="keyword_JournalEntries" value="JournalEntries"/>
+    <string id="task_Name" value="Name"/>
+    <string id="task_Device" value="Device"/>
+    <string id="task_D3DSupplemental" value="D3DSupplemental"/>
+    <string id="task_Marker" value="Marker"/>
+    <string id="task_RuntimeMarker" value="RuntimeMarker"/>
+    <string id="task_RuntimeDroppedCall" value="RuntimeDroppedCall"/>
+    <string id="task_CustomDriverMarker" value="CustomDriverMarker"/>
+    <string id="task_CommandQueue" value="CommandQueue"/>
+    <string id="task_CommandList" value="CommandList"/>
+    <string id="task_ExecuteCommandList" value="ExecuteCommandList"/>
+    <string id="task_Fence" value="Fence"/>
+    <string id="task_CommandAllocator" value="CommandAllocator"/>
+    <string id="task_GraphicsPipelineState" value="GraphicsPipelineState"/>
+    <string id="task_DescriptorHeap" value="DescriptorHeap"/>
+    <string id="task_RootSignature" value="RootSignature"/>
+    <string id="task_Heap" value="Heap"/>
+    <string id="task_QueryHeap" value="QueryHeap"/>
+    <string id="task_CommandSignature" value="CommandSignature"/>
+    <string id="task_PipelineLibrary" value="PipelineLibrary"/>
+    <string id="task_VideoDecoder" value="VideoDecoder"/>
+    <string id="task_VideoProcessor" value="VideoProcessor"/>
+    <string id="task_Resource" value="Resource"/>
+    <string id="task_AllocationInfo" value="AllocationInfo"/>
+    <string id="task_CommandAllocatorUnacquire" value="CommandAllocatorUnacquire"/>
+    <string id="task_VideoDecoderHeap" value="VideoDecoderHeap"/>
+    <string id="task_ExtendedFeatureVersion" value="ExtendedFeatureVersion"/>
+    <string id="task_JournalEntry" value="JournalEntry"/>
+    <string id="task_CommandPool" value="CommandPool"/>
+    <string id="task_CommandRecorder" value="CommandRecorder"/>
+    <string id="task_CommandRecorderAcquire" value="CommandRecorderAcquire"/>
+    <string id="task_CommandRecorderUnacquire" value="CommandRecorderUnacquire"/>
+    <string id="task_CreateHeapSharedHandle" value="CreateHeapSharedHandle"/>
+    <string id="task_StateObjectPrototype" value="StateObjectPrototype"/>
+    <string id="task_MetaCommand" value="MetaCommand"/>
+    <string id="task_ProtectedResourceSession" value="ProtectedResourceSession"/>
+    <string id="map_D3DFeatureLevelD3D_FEATURE_LEVEL_9_1" value="D3D_FEATURE_LEVEL_9_1"/>
+    <string id="map_D3DFeatureLevelD3D_FEATURE_LEVEL_9_2" value="D3D_FEATURE_LEVEL_9_2"/>
+    <string id="map_D3DFeatureLevelD3D_FEATURE_LEVEL_9_3" value="D3D_FEATURE_LEVEL_9_3"/>
+    <string id="map_D3DFeatureLevelD3D_FEATURE_LEVEL_10_0" value="D3D_FEATURE_LEVEL_10_0"/>
+    <string id="map_D3DFeatureLevelD3D_FEATURE_LEVEL_10_1" value="D3D_FEATURE_LEVEL_10_1"/>
+    <string id="map_D3DFeatureLevelD3D_FEATURE_LEVEL_11_0" value="D3D_FEATURE_LEVEL_11_0"/>
+    <string id="map_D3D12CommandListTypeCommand List Type Direct" value="Command List Type Direct"/>
+    <string id="map_D3D12CommandListTypeCommand List Type Bundle" value="Command List Type Bundle"/>
+    <string id="map_D3D12CommandListTypeCommand List Type Compute" value="Command List Type Compute"/>
+    <string id="map_D3D12CommandListTypeCommand List Type Copy" value="Command List Type Copy"/>
+    <string id="map_D3D12CommandListTypeCommand List Type Video" value="Command List Type Video"/>
+    <string id="map_D3D12CommandQueueFlagsD3D12_COMMAND_QUEUE_FLAG_DISABLE_GPU_TIMEOUT" value="D3D12_COMMAND_QUEUE_FLAG_DISABLE_GPU_TIMEOUT"/>
+    <string id="map_D3D12DescriptorHeapFlagsD3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE" value="D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE"/>
+    <string id="map_D3D12DescriptorHeapTypeD3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV" value="D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV"/>
+    <string id="map_D3D12DescriptorHeapTypeD3D12_DESCRIPTOR_HEAP_TYPE_SAMPLER" value="D3D12_DESCRIPTOR_HEAP_TYPE_SAMPLER"/>
+    <string id="map_D3D12DescriptorHeapTypeD3D12_DESCRIPTOR_HEAP_TYPE_RTV" value="D3D12_DESCRIPTOR_HEAP_TYPE_RTV"/>
+    <string id="map_D3D12DescriptorHeapTypeD3D12_DESCRIPTOR_HEAP_TYPE_DSV" value="D3D12_DESCRIPTOR_HEAP_TYPE_DSV"/>
+    <string id="map_D3D12DescriptorHeapTypeD3D12_DESCRIPTOR_HEAP_TYPE_NUM_TYPES" value="D3D12_DESCRIPTOR_HEAP_TYPE_NUM_TYPES"/>
+    <string id="map_D3D12HeapTypeD3D12_HEAP_TYPE_UNKNOWN" value="D3D12_HEAP_TYPE_UNKNOWN"/>
+    <string id="map_D3D12HeapTypeD3D12_HEAP_TYPE_DEFAULT" value="D3D12_HEAP_TYPE_DEFAULT"/>
+    <string id="map_D3D12HeapTypeD3D12_HEAP_TYPE_UPLOAD" value="D3D12_HEAP_TYPE_UPLOAD"/>
+    <string id="map_D3D12HeapTypeD3D12_HEAP_TYPE_READBACK" value="D3D12_HEAP_TYPE_READBACK"/>
+    <string id="map_D3D12HeapTypeD3D12_HEAP_TYPE_CUSTOM" value="D3D12_HEAP_TYPE_CUSTOM"/>
+    <string id="map_D3D12MemoryPoolD3D12_MEMORY_POOL_UNKNOWN" value="D3D12_MEMORY_POOL_UNKNOWN"/>
+    <string id="map_D3D12MemoryPoolD3D12_MEMORY_POOL_L0" value="D3D12_MEMORY_POOL_L0"/>
+    <string id="map_D3D12MemoryPoolD3D12_MEMORY_POOL_L1" value="D3D12_MEMORY_POOL_L1"/>
+    <string id="map_D3D12CpuPagePropertyD3D12_CPU_PAGE_PROPERTY_UNKNOWN" value="D3D12_CPU_PAGE_PROPERTY_UNKNOWN"/>
+    <string id="map_D3D12CpuPagePropertyD3D12_CPU_PAGE_PROPERTY_NOT_AVAILABLE" value="D3D12_CPU_PAGE_PROPERTY_NOT_AVAILABLE"/>
+    <string id="map_D3D12CpuPagePropertyD3D12_CPU_PAGE_PROPERTY_WRITE_COMBINE" value="D3D12_CPU_PAGE_PROPERTY_WRITE_COMBINE"/>
+    <string id="map_D3D12CpuPagePropertyD3D12_CPU_PAGE_PROPERTY_WRITE_BACK" value="D3D12_CPU_PAGE_PROPERTY_WRITE_BACK"/>
+    <string id="map_D3D12HeapFlagsD3D12_HEAP_FLAG_SHARED" value="D3D12_HEAP_FLAG_SHARED"/>
+    <string id="map_D3D12HeapFlagsD3D12_HEAP_FLAG_DENY_BUFFERS" value="D3D12_HEAP_FLAG_DENY_BUFFERS"/>
+    <string id="map_D3D12HeapFlagsD3D12_HEAP_FLAG_ALLOW_DISPLAY" value="D3D12_HEAP_FLAG_ALLOW_DISPLAY"/>
+    <string id="map_D3D12HeapFlagsD3D12_HEAP_FLAG_SHARED_CROSS_ADAPTER" value="D3D12_HEAP_FLAG_SHARED_CROSS_ADAPTER"/>
+    <string id="map_D3D12HeapFlagsD3D12_HEAP_FLAG_DENY_RT_DS_TEXTURES" value="D3D12_HEAP_FLAG_DENY_RT_DS_TEXTURES"/>
+    <string id="map_D3D12HeapFlagsD3D12_HEAP_FLAG_DENY_NON_RT_DS_TEXTURES" value="D3D12_HEAP_FLAG_DENY_NON_RT_DS_TEXTURES"/>
+    <string id="map_D3D12HeapFlagsD3D12_HEAP_FLAG_HARDWARE_PROTECTED" value="D3D12_HEAP_FLAG_HARDWARE_PROTECTED"/>
+    <string id="map_D3D12HeapFlagsD3D12_HEAP_FLAG_ALLOW_WRITE_WATCH" value="D3D12_HEAP_FLAG_ALLOW_WRITE_WATCH"/>
+    <string id="map_D3D12HeapFlagsD3D12_HEAP_FLAG_ALLOW_SHADER_ATOMICS" value="D3D12_HEAP_FLAG_ALLOW_SHADER_ATOMICS"/>
+    <string id="map_D3D12QueryHeapTypeD3D12_QUERY_HEAP_TYPE_OCCLUSION" value="D3D12_QUERY_HEAP_TYPE_OCCLUSION"/>
+    <string id="map_D3D12QueryHeapTypeD3D12_QUERY_HEAP_TYPE_TIMESTAMP" value="D3D12_QUERY_HEAP_TYPE_TIMESTAMP"/>
+    <string id="map_D3D12QueryHeapTypeD3D12_QUERY_HEAP_TYPE_PIPELINE_STATISTICS" value="D3D12_QUERY_HEAP_TYPE_PIPELINE_STATISTICS"/>
+    <string id="map_D3D12QueryHeapTypeD3D12_QUERY_HEAP_TYPE_SO_STATISTICS" value="D3D12_QUERY_HEAP_TYPE_SO_STATISTICS"/>
+    <string id="map_D3D12QueryHeapTypeD3D12_QUERY_HEAP_TYPE_VIDEO_DECODE_STATISTICS" value="D3D12_QUERY_HEAP_TYPE_VIDEO_DECODE_STATISTICS"/>
+    <string id="map_D3D12QueryHeapTypeD3D12_QUERY_HEAP_TYPE_JPEG" value="D3D12_QUERY_HEAP_TYPE_JPEG"/>
+    <string id="map_D3D12FrameCodedInterlaceTypeD3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE_NONE" value="D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE_NONE"/>
+    <string id="map_D3D12FrameCodedInterlaceTypeD3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE_FIELD_BASED" value="D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE_FIELD_BASED"/>
+    <string id="map_D3D12CommandListSupportFlagsD3D12_COMMAND_LIST_SUPPORT_FLAG_DIRECT" value="D3D12_COMMAND_LIST_SUPPORT_FLAG_DIRECT"/>
+    <string id="map_D3D12CommandListSupportFlagsD3D12_COMMAND_LIST_SUPPORT_FLAG_BUNDLE" value="D3D12_COMMAND_LIST_SUPPORT_FLAG_BUNDLE"/>
+    <string id="map_D3D12CommandListSupportFlagsD3D12_COMMAND_LIST_SUPPORT_FLAG_COMPUTE" value="D3D12_COMMAND_LIST_SUPPORT_FLAG_COMPUTE"/>
+    <string id="map_D3D12CommandListSupportFlagsD3D12_COMMAND_LIST_SUPPORT_FLAG_COPY" value="D3D12_COMMAND_LIST_SUPPORT_FLAG_COPY"/>
+    <string id="map_D3D12CommandListSupportFlagsD3D12_COMMAND_LIST_SUPPORT_FLAG_VIDEO_DECODE" value="D3D12_COMMAND_LIST_SUPPORT_FLAG_VIDEO_DECODE"/>
+    <string id="map_D3D12CommandListSupportFlagsD3D12_COMMAND_LIST_SUPPORT_FLAG_VIDEO_PROCESS" value="D3D12_COMMAND_LIST_SUPPORT_FLAG_VIDEO_PROCESS"/>
+    <string id="map_D3D12ProtectedResourceSessionFlagsD3D12_PROTECTED_RESOURCE_SESSION_FLAG_NONE" value="D3D12_PROTECTED_RESOURCE_SESSION_FLAG_NONE"/>
+    <string id="map_D3D12ResourceDimensionD3D12_RESOURCE_DIMENSION_UNKNOWN" value="D3D12_RESOURCE_DIMENSION_UNKNOWN"/>
+    <string id="map_D3D12ResourceDimensionD3D12_RESOURCE_DIMENSION_BUFFER" value="D3D12_RESOURCE_DIMENSION_BUFFER"/>
+    <string id="map_D3D12ResourceDimensionD3D12_RESOURCE_DIMENSION_TEXTURE1D" value="D3D12_RESOURCE_DIMENSION_TEXTURE1D"/>
+    <string id="map_D3D12ResourceDimensionD3D12_RESOURCE_DIMENSION_TEXTURE2D" value="D3D12_RESOURCE_DIMENSION_TEXTURE2D"/>
+    <string id="map_D3D12ResourceDimensionD3D12_RESOURCE_DIMENSION_TEXTURE3D" value="D3D12_RESOURCE_DIMENSION_TEXTURE3D"/>
+    <string id="map_D3D12TextureLayoutD3D12_TEXTURE_LAYOUT_UNKNOWN" value="D3D12_TEXTURE_LAYOUT_UNKNOWN"/>
+    <string id="map_D3D12TextureLayoutD3D12_TEXTURE_LAYOUT_ROW_MAJOR" value="D3D12_TEXTURE_LAYOUT_ROW_MAJOR"/>
+    <string id="map_D3D12TextureLayoutD3D12_TEXTURE_LAYOUT_64KB_UNDEFINED_SWIZZLE" value="D3D12_TEXTURE_LAYOUT_64KB_UNDEFINED_SWIZZLE"/>
+    <string id="map_D3D12TextureLayoutD3D12_TEXTURE_LAYOUT_64KB_STANDARD_SWIZZLE" value="D3D12_TEXTURE_LAYOUT_64KB_STANDARD_SWIZZLE"/>
+    <string id="map_D3D12ResourceFlagsD3D12_RESOURCE_FLAG_ALLOW_RENDER_TARGET" value="D3D12_RESOURCE_FLAG_ALLOW_RENDER_TARGET"/>
+    <string id="map_D3D12ResourceFlagsD3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL" value="D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL"/>
+    <string id="map_D3D12ResourceFlagsD3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS" value="D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS"/>
+    <string id="map_D3D12ResourceFlagsD3D12_RESOURCE_FLAG_DENY_SHADER_RESOURCE" value="D3D12_RESOURCE_FLAG_DENY_SHADER_RESOURCE"/>
+    <string id="map_D3D12ResourceFlagsD3D12_RESOURCE_FLAG_ALLOW_CROSS_ADAPTER" value="D3D12_RESOURCE_FLAG_ALLOW_CROSS_ADAPTER"/>
+    <string id="map_D3D12ResourceFlagsD3D12_RESOURCE_FLAG_ALLOW_SIMULTANEOUS_ACCESS" value="D3D12_RESOURCE_FLAG_ALLOW_SIMULTANEOUS_ACCESS"/>
+    <string id="map_D3D12ResourceFlagsD3D12_RESOURCE_FLAG_VIDEO_DECODE_REFERENCE_ONLY" value="D3D12_RESOURCE_FLAG_VIDEO_DECODE_REFERENCE_ONLY"/>
+    <string id="map_D3D12ResourceHeapTypeImmutable Heap: Placed Resource (many placed resources can be immutably joined with a fully created heap)" value="Immutable Heap: Placed Resource (many placed resources can be immutably joined with a fully created heap)"/>
+    <string id="map_D3D12ResourceHeapTypeImplicit Heap: Committed Resource" value="Implicit Heap: Committed Resource"/>
+    <string id="map_D3D12ResourceHeapTypeImplicit Resource: An API Heap." value="Implicit Resource: An API Heap."/>
+    <string id="map_D3D12ResourceHeapTypeReserved Resource: Page-mapped to one or more heaps, or nothing at all." value="Reserved Resource: Page-mapped to one or more heaps, or nothing at all."/>
+    <string id="map_D3D12ResourceHeapTypeImmutable Resource: Placed texture on a reserved buffer which is page-mapped to one or more heaps, or nothing at all." value="Immutable Resource: Placed texture on a reserved buffer which is page-mapped to one or more heaps, or nothing at all."/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

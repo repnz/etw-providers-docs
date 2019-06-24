@@ -1,0 +1,31 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-WEPHOSTSVC" guid="{d5f7235b-48e2-4e9c-92fe-0e4950aba9e8}" resourceFileName="Microsoft-Windows-WEPHOSTSVC" messageFileName="Microsoft-Windows-WEPHOSTSVC" symbol="MicrosoftWindowsWEPHOSTSVC" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="TASK_SERVICE" message="$(string.task_TASK_SERVICE)" value="1"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="TASK_SERVICE" version="0" task="TASK_SERVICE" level="win:Critical" template="TASK_SERVICEArgs"/>
+     <event value="2" symbol="TASK_SERVICE2" version="0" task="TASK_SERVICE" level="win:Critical" template="TASK_SERVICEArgs"/>
+     <event value="300" symbol="TASK_SERVICEStart" version="0" task="TASK_SERVICE" opcode="win:Start" level="win:Informational"/>
+     <event value="301" symbol="TASK_SERVICEStop" version="0" task="TASK_SERVICE" opcode="win:Stop" level="win:Informational"/>
+    </events>
+    <templates>
+     <template tid="TASK_SERVICEArgs">
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_TASK_SERVICE" value="TASK_SERVICE"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

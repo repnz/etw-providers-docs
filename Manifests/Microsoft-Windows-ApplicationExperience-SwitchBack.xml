@@ -1,0 +1,57 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-ApplicationExperience-SwitchBack" guid="{17d6e590-f5fe-11dc-95ff-0800200c9a66}" resourceFileName="Microsoft-Windows-ApplicationExperience-SwitchBack" messageFileName="Microsoft-Windows-ApplicationExperience-SwitchBack" symbol="MicrosoftWindowsApplicationExperienceSwitchBack" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="AeSbCall" message="$(string.task_AeSbCall)" value="1"/>
+     <task name="AeSbImpl" message="$(string.task_AeSbImpl)" value="2"/>
+     <task name="AeSbContextUpdate" message="$(string.task_AeSbContextUpdate)" value="3"/>
+     <task name="AeSbContextReadRetry" message="$(string.task_AeSbContextReadRetry)" value="4"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="AeSbCall" version="0" task="AeSbCall" level="win:Informational" template="AeSbCallArgs"/>
+     <event value="2" symbol="AeSbImpl" version="0" task="AeSbImpl" level="win:Informational" template="AeSbImplArgs"/>
+     <event value="3" symbol="AeSbContextUpdate" version="0" task="AeSbContextUpdate" level="win:Informational" template="AeSbContextUpdateArgs"/>
+     <event value="4" symbol="AeSbContextReadRetry" version="0" task="AeSbContextReadRetry" level="win:Informational" template="AeSbContextReadRetryArgs"/>
+    </events>
+    <templates>
+     <template tid="AeSbCallArgs">
+      <data name="SwitchBranchGuid" inType="win:GUID"/>
+      <data name="SwitchBranchNameLength" inType="win:UInt16"/>
+      <data name="SwitchBranchName" inType="win:UnicodeString" length="SwitchBranchNameLength"/>
+      <data name="SwitchBranchDescriptionLength" inType="win:UInt16"/>
+      <data name="SwitchBranchDescription" inType="win:UnicodeString" length="SwitchBranchDescriptionLength"/>
+     </template>
+     <template tid="AeSbImplArgs">
+      <data name="SwitchBranchImplGuid" inType="win:GUID"/>
+      <data name="SwitchBranchImplNameLength" inType="win:UInt16"/>
+      <data name="SwitchBranchImplName" inType="win:UnicodeString" length="SwitchBranchImplNameLength"/>
+      <data name="SwitchBranchImplDescriptionLength" inType="win:UInt16"/>
+      <data name="SwitchBranchImplDescription" inType="win:UnicodeString" length="SwitchBranchImplDescriptionLength"/>
+     </template>
+     <template tid="AeSbContextUpdateArgs">
+      <data name="TargetContextGuid" inType="win:GUID"/>
+      <data name="TargetContextType" inType="win:UInt16"/>
+      <data name="ModuleNameLength" inType="win:UInt16"/>
+      <data name="ModuleName" inType="win:UnicodeString" length="ModuleNameLength"/>
+     </template>
+     <template tid="AeSbContextReadRetryArgs">
+      <data name="ContextUpdateCounter" inType="win:UInt64"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_AeSbCall" value="AeSbCall"/>
+    <string id="task_AeSbImpl" value="AeSbImpl"/>
+    <string id="task_AeSbContextUpdate" value="AeSbContextUpdate"/>
+    <string id="task_AeSbContextReadRetry" value="AeSbContextReadRetry"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,1025 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-WMP" guid="{f3f14ff3-7b80-4868-91d0-d77e497b025e}" resourceFileName="Microsoft-Windows-WMP" messageFileName="Microsoft-Windows-WMP" symbol="MicrosoftWindowsWMP" source="Xml" >
+    <keywords>
+     <keyword name="mediaplayer" message="$(string.keyword_mediaplayer)" mask="0x10000"/>
+     <keyword name="metadataplugin" message="$(string.keyword_metadataplugin)" mask="0x20000"/>
+     <keyword name="ramcache" message="$(string.keyword_ramcache)" mask="0x40000"/>
+     <keyword name="metadatalifecycle" message="$(string.keyword_metadatalifecycle)" mask="0x80000"/>
+     <keyword name="mls" message="$(string.keyword_mls)" mask="0x100000"/>
+    </keywords>
+    <tasks>
+     <task name="LEGACY_EVENT" message="$(string.task_LEGACY_EVENT)" value="1">
+>
+      <opcodes>
+       <opcode name="LOCAL_PLAY_BEGIN" message="$(string.opcode_LEGACY_EVENTLOCAL_PLAY_BEGIN)" value="11"/>
+       <opcode name="STREAMING_PLAY_BEGIN" message="$(string.opcode_LEGACY_EVENTSTREAMING_PLAY_BEGIN)" value="12"/>
+       <opcode name="MEDIA_OPEN" message="$(string.opcode_LEGACY_EVENTMEDIA_OPEN)" value="13"/>
+       <opcode name="PLAYLIST_OPEN_NOMEDIA" message="$(string.opcode_LEGACY_EVENTPLAYLIST_OPEN_NOMEDIA)" value="14"/>
+       <opcode name="PLAYING" message="$(string.opcode_LEGACY_EVENTPLAYING)" value="15"/>
+       <opcode name="ADD_FILES_LIBRARY_END" message="$(string.opcode_LEGACY_EVENTADD_FILES_LIBRARY_END)" value="16"/>
+       <opcode name="DELETESELECTED_END" message="$(string.opcode_LEGACY_EVENTDELETESELECTED_END)" value="17"/>
+       <opcode name="BEFORENAVIGATE2" message="$(string.opcode_LEGACY_EVENTBEFORENAVIGATE2)" value="18"/>
+       <opcode name="DOCUMENTCOMPLETE" message="$(string.opcode_LEGACY_EVENTDOCUMENTCOMPLETE)" value="19"/>
+       <opcode name="TRANSITIONING" message="$(string.opcode_LEGACY_EVENTTRANSITIONING)" value="20"/>
+       <opcode name="MEDIA_ENDED" message="$(string.opcode_LEGACY_EVENTMEDIA_ENDED)" value="21"/>
+       <opcode name="ERROR_DIALOG" message="$(string.opcode_LEGACY_EVENTERROR_DIALOG)" value="22"/>
+       <opcode name="EXCEPTION_THROWN" message="$(string.opcode_LEGACY_EVENTEXCEPTION_THROWN)" value="23"/>
+       <opcode name="APP_IDLE" message="$(string.opcode_LEGACY_EVENTAPP_IDLE)" value="24"/>
+       <opcode name="PLAYLIST_POPULATED" message="$(string.opcode_LEGACY_EVENTPLAYLIST_POPULATED)" value="25"/>
+       <opcode name="OCX_FIRST_PAINT" message="$(string.opcode_LEGACY_EVENTOCX_FIRST_PAINT)" value="26"/>
+       <opcode name="TREEVIEW_EXPANDED" message="$(string.opcode_LEGACY_EVENTTREEVIEW_EXPANDED)" value="27"/>
+       <opcode name="FULLSCREEN" message="$(string.opcode_LEGACY_EVENTFULLSCREEN)" value="28"/>
+       <opcode name="BULKEDITCOMPLETE" message="$(string.opcode_LEGACY_EVENTBULKEDITCOMPLETE)" value="29"/>
+       <opcode name="NODERENAMECOMPLETE" message="$(string.opcode_LEGACY_EVENTNODERENAMECOMPLETE)" value="30"/>
+       <opcode name="DROPCOMPLETE" message="$(string.opcode_LEGACY_EVENTDROPCOMPLETE)" value="31"/>
+       <opcode name="COLUMNSORTCOMPLETE" message="$(string.opcode_LEGACY_EVENTCOLUMNSORTCOMPLETE)" value="32"/>
+       <opcode name="OCXSETCLIENTSITE" message="$(string.opcode_LEGACY_EVENTOCXSETCLIENTSITE)" value="33"/>
+       <opcode name="OCXACTIVATED" message="$(string.opcode_LEGACY_EVENTOCXACTIVATED)" value="34"/>
+       <opcode name="DEVICEINDIVSETCLOCK" message="$(string.opcode_LEGACY_EVENTDEVICEINDIVSETCLOCK)" value="35"/>
+       <opcode name="SQM_UPLOAD_SIGNAL" message="$(string.opcode_LEGACY_EVENTSQM_UPLOAD_SIGNAL)" value="36"/>
+       <opcode name="PROC_START" message="$(string.opcode_LEGACY_EVENTPROC_START)" value="37"/>
+       <opcode name="PROC_END" message="$(string.opcode_LEGACY_EVENTPROC_END)" value="38"/>
+       <opcode name="DLL_START" message="$(string.opcode_LEGACY_EVENTDLL_START)" value="39"/>
+       <opcode name="DLL_END" message="$(string.opcode_LEGACY_EVENTDLL_END)" value="40"/>
+       <opcode name="HME_SERVICEADDED" message="$(string.opcode_LEGACY_EVENTHME_SERVICEADDED)" value="41"/>
+       <opcode name="PDA_DEVICE_DETECTED" message="$(string.opcode_LEGACY_EVENTPDA_DEVICE_DETECTED)" value="42"/>
+      </opcodes>
+     </task>
+     <task name="TASK_SWITCH" message="$(string.task_TASK_SWITCH)" value="2"/>
+     <task name="APP_NAVIGATE" message="$(string.task_APP_NAVIGATE)" value="3"/>
+     <task name="RIP" message="$(string.task_RIP)" value="4"/>
+     <task name="PDA_TRANSFER" message="$(string.task_PDA_TRANSFER)" value="5"/>
+     <task name="PDA_DISCOVERY" message="$(string.task_PDA_DISCOVERY)" value="6"/>
+     <task name="PDA_TRANSCODE" message="$(string.task_PDA_TRANSCODE)" value="7"/>
+     <task name="PDA_TRANSFER_FILE" message="$(string.task_PDA_TRANSFER_FILE)" value="8"/>
+     <task name="PDA_NEWSYNC" message="$(string.task_PDA_NEWSYNC)" value="9"/>
+     <task name="PDA_DEVICE_ENUMERATION" message="$(string.task_PDA_DEVICE_ENUMERATION)" value="10"/>
+     <task name="SEARCHFORMEDIA" message="$(string.task_SEARCHFORMEDIA)" value="11"/>
+     <task name="HME_INITIALDISCOVERY" message="$(string.task_HME_INITIALDISCOVERY)" value="12"/>
+     <task name="HME_EXECUTEQUERY" message="$(string.task_HME_EXECUTEQUERY)" value="13"/>
+     <task name="HME_BROWSE" message="$(string.task_HME_BROWSE)" value="14"/>
+     <task name="APP_LAUNCH" message="$(string.task_APP_LAUNCH)" value="15"/>
+     <task name="PARSE_CMD_LINE" message="$(string.task_PARSE_CMD_LINE)" value="16"/>
+     <task name="PROCESS_CMD_LINE" message="$(string.task_PROCESS_CMD_LINE)" value="17"/>
+     <task name="APPLY_SKIN" message="$(string.task_APPLY_SKIN)" value="18"/>
+     <task name="RESTORE_FROM_SKIN" message="$(string.task_RESTORE_FROM_SKIN)" value="19"/>
+     <task name="FULLSCREEN" message="$(string.task_FULLSCREEN)" value="20">
+>
+      <opcodes>
+       <opcode name="CLOSEBUTTON_CLICK" message="$(string.opcode_FULLSCREENCLOSEBUTTON_CLICK)" value="48"/>
+       <opcode name="EXITBUTTON_CLICK" message="$(string.opcode_FULLSCREENEXITBUTTON_CLICK)" value="49"/>
+      </opcodes>
+     </task>
+     <task name="TASKBAR" message="$(string.task_TASKBAR)" value="21"/>
+     <task name="MODE_SWITCHER" message="$(string.task_MODE_SWITCHER)" value="22"/>
+     <task name="DSHOWGRAPH_OPEN" message="$(string.task_DSHOWGRAPH_OPEN)" value="23"/>
+     <task name="FSDKGRAPH_OPEN" message="$(string.task_FSDKGRAPH_OPEN)" value="24"/>
+     <task name="MFGRAPH_OPEN" message="$(string.task_MFGRAPH_OPEN)" value="25"/>
+     <task name="CDBURN" message="$(string.task_CDBURN)" value="26">
+>
+      <opcodes>
+       <opcode name="Checkpoint_1" message="$(string.opcode_CDBURNCheckpoint_1)" value="43"/>
+       <opcode name="Checkpoint_2" message="$(string.opcode_CDBURNCheckpoint_2)" value="44"/>
+      </opcodes>
+     </task>
+     <task name="PLAYBACK" message="$(string.task_PLAYBACK)" value="27">
+>
+      <opcodes>
+       <opcode name="StateChange" message="$(string.opcode_PLAYBACKStateChange)" value="47"/>
+      </opcodes>
+     </task>
+     <task name="DDPRESET_NORMAL" message="$(string.task_DDPRESET_NORMAL)" value="29"/>
+     <task name="DDPRESET_LAPTOP" message="$(string.task_DDPRESET_LAPTOP)" value="30"/>
+     <task name="DDPRESET_THEATER" message="$(string.task_DDPRESET_THEATER)" value="31"/>
+     <task name="DISCMEDIACHANGE" message="$(string.task_DISCMEDIACHANGE)" value="32">
+>
+      <opcodes>
+       <opcode name="Added" message="$(string.opcode_DISCMEDIACHANGEAdded)" value="100"/>
+       <opcode name="Removed" message="$(string.opcode_DISCMEDIACHANGERemoved)" value="101"/>
+      </opcodes>
+     </task>
+     <task name="MAINFRAME_DESTROY" message="$(string.task_MAINFRAME_DESTROY)" value="33"/>
+     <task name="FULLSCREEN_LOADINGUI" message="$(string.task_FULLSCREEN_LOADINGUI)" value="34"/>
+     <task name="FULLSCREEN_LOADINGUI_FADE" message="$(string.task_FULLSCREEN_LOADINGUI_FADE)" value="35"/>
+     <task name="DVDGRAPH" message="$(string.task_DVDGRAPH)" value="615"/>
+     <task name="HOVERTRANSPORTS" message="$(string.task_HOVERTRANSPORTS)" value="616"/>
+     <task name="SKINEVENT" message="$(string.task_SKINEVENT)" value="617"/>
+     <task name="SKINPAINT" message="$(string.task_SKINPAINT)" value="618"/>
+     <task name="BASKET" message="$(string.task_BASKET)" value="619"/>
+     <task name="NAVIGATION" message="$(string.task_NAVIGATION)" value="620"/>
+     <task name="LISTVIEW" message="$(string.task_LISTVIEW)" value="621"/>
+     <task name="TREEVIEW" message="$(string.task_TREEVIEW)" value="622"/>
+     <task name="PLAYHISTORY" message="$(string.task_PLAYHISTORY)" value="623"/>
+     <task name="LIBRARYUX" message="$(string.task_LIBRARYUX)" value="624"/>
+     <task name="USAGELOGGER" message="$(string.task_USAGELOGGER)" value="625"/>
+     <task name="WORDWHEEL" message="$(string.task_WORDWHEEL)" value="626"/>
+     <task name="PLAYHISTORYCLICK" message="$(string.task_PLAYHISTORYCLICK)" value="627"/>
+     <task name="RME_CLIENT_RESOLVE_SERVER_URL_REQUEST" message="$(string.task_RME_CLIENT_RESOLVE_SERVER_URL_REQUEST)" value="640"/>
+     <task name="RME_CLIENT_RESOLVE_SERVER_URL_RESPONSE" message="$(string.task_RME_CLIENT_RESOLVE_SERVER_URL_RESPONSE)" value="641"/>
+     <task name="RME_CLIENT_LIBRARY_METADATA_REQUEST" message="$(string.task_RME_CLIENT_LIBRARY_METADATA_REQUEST)" value="642"/>
+     <task name="RME_CLIENT_LIBRARY_METADATA_RESPONSE" message="$(string.task_RME_CLIENT_LIBRARY_METADATA_RESPONSE)" value="643"/>
+     <task name="RME_CLIENT_ESTIMATE_BITRATE_BEGIN" message="$(string.task_RME_CLIENT_ESTIMATE_BITRATE_BEGIN)" value="644"/>
+     <task name="RME_CLIENT_ESTIMATE_BITRATE_END" message="$(string.task_RME_CLIENT_ESTIMATE_BITRATE_END)" value="645"/>
+     <task name="RME_CLIENT_ENUMERATE_LIBRARIES_REQUEST" message="$(string.task_RME_CLIENT_ENUMERATE_LIBRARIES_REQUEST)" value="646"/>
+     <task name="RME_CLIENT_ENUMERATE_LIBRARIES_RESPONSE" message="$(string.task_RME_CLIENT_ENUMERATE_LIBRARIES_RESPONSE)" value="647"/>
+     <task name="HME_SERVER_EXECUTE_QUERY" message="$(string.task_HME_SERVER_EXECUTE_QUERY)" value="648"/>
+     <task name="HME_RME_CLIENT_CONSUME_METADATA_RESPONSE_BEGIN" message="$(string.task_HME_RME_CLIENT_CONSUME_METADATA_RESPONSE_BEGIN)" value="649"/>
+     <task name="HME_RME_CLIENT_CONSUME_METADATA_RESPONSE_END" message="$(string.task_HME_RME_CLIENT_CONSUME_METADATA_RESPONSE_END)" value="650"/>
+     <task name="RME_CLIENT_CURRENT_BANDWIDTH_ESTIMATE" message="$(string.task_RME_CLIENT_CURRENT_BANDWIDTH_ESTIMATE)" value="651"/>
+     <task name="RME_CLIENT_CURRENT_BANDWIDTH" message="$(string.task_RME_CLIENT_CURRENT_BANDWIDTH)" value="652"/>
+     <task name="HME_SERVER_UPDATEOBJECT" message="$(string.task_HME_SERVER_UPDATEOBJECT)" value="655"/>
+     <task name="HME_CLIENT_UPDATE_METADATA" message="$(string.task_HME_CLIENT_UPDATE_METADATA)" value="656"/>
+     <task name="HME_SERVER_ONLINE_OFFLINE" message="$(string.task_HME_SERVER_ONLINE_OFFLINE)" value="657"/>
+     <task name="HME_SERVER_MAGIC_PACKET_SENT" message="$(string.task_HME_SERVER_MAGIC_PACKET_SENT)" value="658"/>
+     <task name="HME_SERVER_WAKEUP_FAILED" message="$(string.task_HME_SERVER_WAKEUP_FAILED)" value="659"/>
+     <task name="RME_CLIENT_LIVE_MACHINE_DISCOVERY" message="$(string.task_RME_CLIENT_LIVE_MACHINE_DISCOVERY)" value="660"/>
+     <task name="RME_CLIENT_ON_LIVE_MACHINE_DISCOVERY" message="$(string.task_RME_CLIENT_ON_LIVE_MACHINE_DISCOVERY)" value="661"/>
+     <task name="HME_EnableSharing" message="$(string.task_HME_EnableSharing)" value="662"/>
+     <task name="HME_UPnPDiscoveryBegin" message="$(string.task_HME_UPnPDiscoveryBegin)" value="663"/>
+     <task name="HME_UPnPDiscoveryInitialComplete" message="$(string.task_HME_UPnPDiscoveryInitialComplete)" value="664"/>
+     <task name="HME_UPnPDiscoveryEnd" message="$(string.task_HME_UPnPDiscoveryEnd)" value="665"/>
+     <task name="HME_UPnPDeviceAddedCallback" message="$(string.task_HME_UPnPDeviceAddedCallback)" value="666"/>
+     <task name="HME_UPnPDeviceRemovedCallback" message="$(string.task_HME_UPnPDeviceRemovedCallback)" value="667"/>
+     <task name="HME_InitCDSThread" message="$(string.task_HME_InitCDSThread)" value="668"/>
+     <task name="HME_InitCDS" message="$(string.task_HME_InitCDS)" value="669"/>
+     <task name="RME_CreateDeviceFinder" message="$(string.task_RME_CreateDeviceFinder)" value="670"/>
+     <task name="HME_ServiceAdded" message="$(string.task_HME_ServiceAdded)" value="671"/>
+     <task name="HME_CDSUPnPInitialize" message="$(string.task_HME_CDSUPnPInitialize)" value="672"/>
+     <task name="HME_ProviderAddToRAMCache" message="$(string.task_HME_ProviderAddToRAMCache)" value="673"/>
+     <task name="HME_ProviderShutdown" message="$(string.task_HME_ProviderShutdown)" value="674"/>
+     <task name="HME_ProviderUpdateMessage" message="$(string.task_HME_ProviderUpdateMessage)" value="675"/>
+     <task name="HME_SERVER_CONTAINER_UPDATE_IDS" message="$(string.task_HME_SERVER_CONTAINER_UPDATE_IDS)" value="676"/>
+     <task name="WMPSyncTranscodeManager" message="$(string.task_WMPSyncTranscodeManager)" value="700">
+>
+      <opcodes>
+       <opcode name="ThetranscodemanagerhasrolledovertotheDShowSource" message="$(string.opcode_WMPSyncTranscodeManagerThetranscodemanagerhasrolledovertotheDShowSource)" value="120"/>
+      </opcodes>
+     </task>
+     <task name="WMPSyncTranscodeMatrix" message="$(string.task_WMPSyncTranscodeMatrix)" value="701">
+>
+      <opcodes>
+       <opcode name="UsingtheMP4transcodematrix" message="$(string.opcode_WMPSyncTranscodeMatrixUsingtheMP4transcodematrix)" value="122"/>
+       <opcode name="UsingtheASFtranscodematrix" message="$(string.opcode_WMPSyncTranscodeMatrixUsingtheASFtranscodematrix)" value="123"/>
+       <opcode name="UsingtheMP3transcodematrix" message="$(string.opcode_WMPSyncTranscodeMatrixUsingtheMP3transcodematrix)" value="124"/>
+      </opcodes>
+     </task>
+     <task name="WMPSyncLicenseAcquisition" message="$(string.task_WMPSyncLicenseAcquisition)" value="702"/>
+     <task name="PLAYTOMENU_ENUMERATION" message="$(string.task_PLAYTOMENU_ENUMERATION)" value="703"/>
+     <task name="PLAYTOMENU_OPERATION" message="$(string.task_PLAYTOMENU_OPERATION)" value="704"/>
+     <task name="WMPDMR_AVTRANSPORT_ACTIONS" message="$(string.task_WMPDMR_AVTRANSPORT_ACTIONS)" value="705"/>
+     <task name="WMPDMR_CONNECTION_MANAGER_ACTIONS" message="$(string.task_WMPDMR_CONNECTION_MANAGER_ACTIONS)" value="706"/>
+     <task name="WMPDMR_RENDERING_CONTROL_ACTIONS" message="$(string.task_WMPDMR_RENDERING_CONTROL_ACTIONS)" value="707"/>
+     <task name="STREAMING_MENU_ACTIONS" message="$(string.task_STREAMING_MENU_ACTIONS)" value="710"/>
+     <task name="CONFIGURE_STREAMING_MENU_ACTION" message="$(string.task_CONFIGURE_STREAMING_MENU_ACTION)" value="711"/>
+     <task name="RECEIVE_MEDIA_MENU_ACTION" message="$(string.task_RECEIVE_MEDIA_MENU_ACTION)" value="712"/>
+     <task name="CONFIGURE_RME_MENU_ACTION" message="$(string.task_CONFIGURE_RME_MENU_ACTION)" value="713"/>
+     <task name="STREAMING_MENUITEM_RECEIVEMEDIA_CHECKSTATE" message="$(string.task_STREAMING_MENUITEM_RECEIVEMEDIA_CHECKSTATE)" value="714"/>
+     <task name="STREAMING_MENUITEM_RME_CHECKSTATE_ACTION" message="$(string.task_STREAMING_MENUITEM_RME_CHECKSTATE_ACTION)" value="715"/>
+     <task name="STREAMING_MENUITEM_AUTOALLOWDEVICES_CHECKSTATE" message="$(string.task_STREAMING_MENUITEM_AUTOALLOWDEVICES_CHECKSTATE)" value="716"/>
+     <task name="STREAMING_MENU_RENDER_ACTION" message="$(string.task_STREAMING_MENU_RENDER_ACTION)" value="717"/>
+     <task name="ALLOW_ALL_DEVICES_MENU_ACTION" message="$(string.task_ALLOW_ALL_DEVICES_MENU_ACTION)" value="718"/>
+     <task name="CONFIGURE_STREAMING_HG_MENU_ACTION" message="$(string.task_CONFIGURE_STREAMING_HG_MENU_ACTION)" value="719"/>
+     <task name="THUMBNAIL_TOOLBAR_ADD" message="$(string.task_THUMBNAIL_TOOLBAR_ADD)" value="800"/>
+     <task name="THUMBNAIL_TOOLBAR_BUTTON_CLICKED" message="$(string.task_THUMBNAIL_TOOLBAR_BUTTON_CLICKED)" value="801"/>
+     <task name="THUMBNAIL_TOOLTIP_CHANGED" message="$(string.task_THUMBNAIL_TOOLTIP_CHANGED)" value="802"/>
+     <task name="THUMBNAIL_BITMAPS_INVALIDATED" message="$(string.task_THUMBNAIL_BITMAPS_INVALIDATED)" value="803"/>
+     <task name="THUMBNAIL_BITMAP_UPDATE" message="$(string.task_THUMBNAIL_BITMAP_UPDATE)" value="804"/>
+     <task name="THUMBNAIL_LIVEPREVIEWBITMAP_UPDATE" message="$(string.task_THUMBNAIL_LIVEPREVIEWBITMAP_UPDATE)" value="805"/>
+     <task name="PLAYSINGLE_PH_RESOLVE" message="$(string.task_PLAYSINGLE_PH_RESOLVE)" value="850"/>
+     <task name="PLAYSINGLE_PH_BROWSECDS" message="$(string.task_PLAYSINGLE_PH_BROWSECDS)" value="851"/>
+     <task name="PLAYCONTAINER_CREATE_PLAYLIST" message="$(string.task_PLAYCONTAINER_CREATE_PLAYLIST)" value="852"/>
+     <task name="CDDVD_LAUNCH" message="$(string.task_CDDVD_LAUNCH)" value="860">
+>
+      <opcodes>
+       <opcode name="LOCAL_PLAY_BEGIN" message="$(string.opcode_CDDVD_LAUNCHLOCAL_PLAY_BEGIN)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="CDGRAPH" message="$(string.task_CDGRAPH)" value="1615"/>
+     <task name="SKINCLOSE" message="$(string.task_SKINCLOSE)" value="1619"/>
+     <task name="APPCLOSE" message="$(string.task_APPCLOSE)" value="1620"/>
+     <task name="GROVELER" message="$(string.task_GROVELER)" value="2000"/>
+     <task name="METADATAPLUGIN" message="$(string.task_METADATAPLUGIN)" value="2001"/>
+     <task name="RAMCACHE" message="$(string.task_RAMCACHE)" value="2002"/>
+     <task name="METADATALIFECYCLE" message="$(string.task_METADATALIFECYCLE)" value="2003"/>
+     <task name="METADATADOWNLOAD" message="$(string.task_METADATADOWNLOAD)" value="2004"/>
+     <task name="MLS" message="$(string.task_MLS)" value="2005"/>
+     <task name="PLAYLIST" message="$(string.task_PLAYLIST)" value="2050"/>
+     <task name="RADIO" message="$(string.task_RADIO)" value="2100">
+>
+      <opcodes>
+       <opcode name="Added" message="$(string.opcode_RADIOAdded)" value="100"/>
+       <opcode name="Removed" message="$(string.opcode_RADIORemoved)" value="101"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="1" symbol="LEGACY_EVENTMEDIA_OPEN" version="0" task="LEGACY_EVENT" opcode="MEDIA_OPEN" level="win:Informational" keywords="mediaplayer"/>
+     <event value="2" symbol="LEGACY_EVENTPLAYLIST_OPEN_NOMEDIA" version="0" task="LEGACY_EVENT" opcode="PLAYLIST_OPEN_NOMEDIA" level="win:Informational" keywords="mediaplayer"/>
+     <event value="3" symbol="LEGACY_EVENTPLAYING" version="0" task="LEGACY_EVENT" opcode="PLAYING" level="win:Informational" keywords="mediaplayer"/>
+     <event value="4" symbol="RIPStart" version="0" task="RIP" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="5" symbol="RIPStop" version="0" task="RIP" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="7" symbol="LEGACY_EVENTLOCAL_PLAY_BEGIN" version="0" task="LEGACY_EVENT" opcode="LOCAL_PLAY_BEGIN" level="win:Informational" keywords="mediaplayer"/>
+     <event value="8" symbol="LEGACY_EVENTSTREAMING_PLAY_BEGIN" version="0" task="LEGACY_EVENT" opcode="STREAMING_PLAY_BEGIN" level="win:Informational" keywords="mediaplayer"/>
+     <event value="9" symbol="PDA_TRANSFERStart" version="0" task="PDA_TRANSFER" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="10" symbol="PDA_TRANSFERStop" version="0" task="PDA_TRANSFER" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="11" symbol="LEGACY_EVENTADD_FILES_LIBRARY_END" version="0" task="LEGACY_EVENT" opcode="ADD_FILES_LIBRARY_END" level="win:Informational" keywords="mediaplayer"/>
+     <event value="12" symbol="SEARCHFORMEDIAStart" version="0" task="SEARCHFORMEDIA" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="13" symbol="SEARCHFORMEDIAStop" version="0" task="SEARCHFORMEDIA" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="14" symbol="LEGACY_EVENTDELETESELECTED_END" version="0" task="LEGACY_EVENT" opcode="DELETESELECTED_END" level="win:Informational" keywords="mediaplayer"/>
+     <event value="15" symbol="LEGACY_EVENTBEFORENAVIGATE2" version="0" task="LEGACY_EVENT" opcode="BEFORENAVIGATE2" level="win:Informational" keywords="mediaplayer"/>
+     <event value="16" symbol="LEGACY_EVENTDOCUMENTCOMPLETE" version="0" task="LEGACY_EVENT" opcode="DOCUMENTCOMPLETE" level="win:Informational" keywords="mediaplayer"/>
+     <event value="17" symbol="LEGACY_EVENTTRANSITIONING" version="0" task="LEGACY_EVENT" opcode="TRANSITIONING" level="win:Informational" keywords="mediaplayer"/>
+     <event value="18" symbol="LEGACY_EVENTMEDIA_ENDED" version="0" task="LEGACY_EVENT" opcode="MEDIA_ENDED" level="win:Informational" keywords="mediaplayer"/>
+     <event value="19" symbol="TASK_SWITCHStart" version="0" task="TASK_SWITCH" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="20" symbol="TASK_SWITCHStop" version="0" task="TASK_SWITCH" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="21" symbol="PDA_DISCOVERYStart" version="0" task="PDA_DISCOVERY" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="22" symbol="PDA_DISCOVERYStop" version="0" task="PDA_DISCOVERY" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="23" symbol="LEGACY_EVENTERROR_DIALOG" version="0" task="LEGACY_EVENT" opcode="ERROR_DIALOG" level="win:Informational" keywords="mediaplayer"/>
+     <event value="24" symbol="LEGACY_EVENTEXCEPTION_THROWN" version="0" task="LEGACY_EVENT" opcode="EXCEPTION_THROWN" level="win:Informational" keywords="mediaplayer"/>
+     <event value="25" symbol="LEGACY_EVENTAPP_IDLE" version="0" task="LEGACY_EVENT" opcode="APP_IDLE" level="win:Informational" keywords="mediaplayer"/>
+     <event value="26" symbol="LEGACY_EVENTPLAYLIST_POPULATED" version="0" task="LEGACY_EVENT" opcode="PLAYLIST_POPULATED" level="win:Informational" keywords="mediaplayer"/>
+     <event value="27" symbol="LEGACY_EVENTOCX_FIRST_PAINT" version="0" task="LEGACY_EVENT" opcode="OCX_FIRST_PAINT" level="win:Informational" keywords="mediaplayer"/>
+     <event value="28" symbol="LEGACY_EVENTTREEVIEW_EXPANDED" version="0" task="LEGACY_EVENT" opcode="TREEVIEW_EXPANDED" level="win:Informational" keywords="mediaplayer"/>
+     <event value="29" symbol="LEGACY_EVENTFULLSCREEN" version="0" task="LEGACY_EVENT" opcode="FULLSCREEN" level="win:Informational" keywords="mediaplayer"/>
+     <event value="30" symbol="LEGACY_EVENTBULKEDITCOMPLETE" version="0" task="LEGACY_EVENT" opcode="BULKEDITCOMPLETE" level="win:Informational" keywords="mediaplayer"/>
+     <event value="31" symbol="LEGACY_EVENTNODERENAMECOMPLETE" version="0" task="LEGACY_EVENT" opcode="NODERENAMECOMPLETE" level="win:Informational" keywords="mediaplayer"/>
+     <event value="32" symbol="LEGACY_EVENTDROPCOMPLETE" version="0" task="LEGACY_EVENT" opcode="DROPCOMPLETE" level="win:Informational" keywords="mediaplayer"/>
+     <event value="33" symbol="LEGACY_EVENTCOLUMNSORTCOMPLETE" version="0" task="LEGACY_EVENT" opcode="COLUMNSORTCOMPLETE" level="win:Informational" keywords="mediaplayer"/>
+     <event value="34" symbol="LEGACY_EVENTOCXSETCLIENTSITE" version="0" task="LEGACY_EVENT" opcode="OCXSETCLIENTSITE" level="win:Informational" keywords="mediaplayer"/>
+     <event value="35" symbol="LEGACY_EVENTOCXACTIVATED" version="0" task="LEGACY_EVENT" opcode="OCXACTIVATED" level="win:Informational" keywords="mediaplayer"/>
+     <event value="36" symbol="LEGACY_EVENTDEVICEINDIVSETCLOCK" version="0" task="LEGACY_EVENT" opcode="DEVICEINDIVSETCLOCK" level="win:Informational" keywords="mediaplayer"/>
+     <event value="37" symbol="PDA_TRANSCODEStart" version="0" task="PDA_TRANSCODE" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="38" symbol="PDA_TRANSCODEStop" version="0" task="PDA_TRANSCODE" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="39" symbol="PDA_TRANSFER_FILEStart" version="0" task="PDA_TRANSFER_FILE" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="40" symbol="PDA_TRANSFER_FILEStop" version="0" task="PDA_TRANSFER_FILE" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="41" symbol="PDA_NEWSYNCStart" version="0" task="PDA_NEWSYNC" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="42" symbol="PDA_NEWSYNCStop" version="0" task="PDA_NEWSYNC" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="43" symbol="APP_NAVIGATEStart" version="0" task="APP_NAVIGATE" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="44" symbol="APP_NAVIGATEStop" version="0" task="APP_NAVIGATE" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="45" symbol="LEGACY_EVENTSQM_UPLOAD_SIGNAL" version="0" task="LEGACY_EVENT" opcode="SQM_UPLOAD_SIGNAL" level="win:Informational" keywords="mediaplayer"/>
+     <event value="46" symbol="PDA_DEVICE_ENUMERATIONStart" version="0" task="PDA_DEVICE_ENUMERATION" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="47" symbol="PDA_DEVICE_ENUMERATIONStop" version="0" task="PDA_DEVICE_ENUMERATION" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="48" symbol="LEGACY_EVENTPROC_START" version="0" task="LEGACY_EVENT" opcode="PROC_START" level="win:Informational" keywords="mediaplayer"/>
+     <event value="49" symbol="LEGACY_EVENTPROC_END" version="0" task="LEGACY_EVENT" opcode="PROC_END" level="win:Informational" keywords="mediaplayer"/>
+     <event value="50" symbol="LEGACY_EVENTDLL_START" version="0" task="LEGACY_EVENT" opcode="DLL_START" level="win:Informational" keywords="mediaplayer"/>
+     <event value="51" symbol="LEGACY_EVENTDLL_END" version="0" task="LEGACY_EVENT" opcode="DLL_END" level="win:Informational" keywords="mediaplayer"/>
+     <event value="52" symbol="LEGACY_EVENTHME_SERVICEADDED" version="0" task="LEGACY_EVENT" opcode="HME_SERVICEADDED" level="win:Informational" keywords="mediaplayer"/>
+     <event value="53" symbol="HME_INITIALDISCOVERYStart" version="0" task="HME_INITIALDISCOVERY" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="54" symbol="HME_INITIALDISCOVERYStop" version="0" task="HME_INITIALDISCOVERY" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="55" symbol="HME_EXECUTEQUERYStart" version="0" task="HME_EXECUTEQUERY" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="56" symbol="HME_EXECUTEQUERYStop" version="0" task="HME_EXECUTEQUERY" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="57" symbol="HME_BROWSEStart" version="0" task="HME_BROWSE" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="58" symbol="HME_BROWSEStop" version="0" task="HME_BROWSE" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="59" symbol="LEGACY_EVENTPDA_DEVICE_DETECTED" version="0" task="LEGACY_EVENT" opcode="PDA_DEVICE_DETECTED" level="win:Informational" keywords="mediaplayer"/>
+     <event value="60" symbol="APP_LAUNCHStart" version="0" task="APP_LAUNCH" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="61" symbol="APP_LAUNCHStop" version="0" task="APP_LAUNCH" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="62" symbol="PARSE_CMD_LINEStart" version="0" task="PARSE_CMD_LINE" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="PARSE_CMD_LINEStartArgs"/>
+     <event value="63" symbol="PARSE_CMD_LINEStop" version="0" task="PARSE_CMD_LINE" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="PARSE_CMD_LINEStartArgs"/>
+     <event value="64" symbol="PROCESS_CMD_LINEStart" version="0" task="PROCESS_CMD_LINE" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="65" symbol="PROCESS_CMD_LINEStop" version="0" task="PROCESS_CMD_LINE" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="66" symbol="APPLY_SKINStart" version="0" task="APPLY_SKIN" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="APPLY_SKINStartArgs"/>
+     <event value="67" symbol="APPLY_SKINStop" version="0" task="APPLY_SKIN" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="APPLY_SKINStartArgs"/>
+     <event value="68" symbol="RESTORE_FROM_SKINStart" version="0" task="RESTORE_FROM_SKIN" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="69" symbol="RESTORE_FROM_SKINStop" version="0" task="RESTORE_FROM_SKIN" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="70" symbol="FULLSCREENStart" version="0" task="FULLSCREEN" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="71" symbol="FULLSCREENStop" version="0" task="FULLSCREEN" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="72" symbol="TASKBARStart" version="0" task="TASKBAR" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="73" symbol="TASKBARStop" version="0" task="TASKBAR" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="74" symbol="MODE_SWITCHER" version="0" task="MODE_SWITCHER" level="win:Informational" keywords="mediaplayer" template="MODE_SWITCHERArgs"/>
+     <event value="75" symbol="DSHOWGRAPH_OPEN" version="0" task="DSHOWGRAPH_OPEN" level="win:Informational" keywords="mediaplayer"/>
+     <event value="76" symbol="FSDKGRAPH_OPEN" version="0" task="FSDKGRAPH_OPEN" level="win:Informational" keywords="mediaplayer"/>
+     <event value="77" symbol="MFGRAPH_OPEN" version="0" task="MFGRAPH_OPEN" level="win:Informational" keywords="mediaplayer"/>
+     <event value="78" symbol="CDBURNStart" version="0" task="CDBURN" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="79" symbol="CDBURNStop" version="0" task="CDBURN" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="80" symbol="CDBURNCheckpoint_1" version="0" task="CDBURN" opcode="Checkpoint_1" level="win:Informational" keywords="mediaplayer"/>
+     <event value="81" symbol="CDBURNCheckpoint_2" version="0" task="CDBURN" opcode="Checkpoint_2" level="win:Informational" keywords="mediaplayer"/>
+     <event value="82" symbol="PLAYBACKStateChange" version="0" task="PLAYBACK" opcode="StateChange" level="win:Informational" keywords="mediaplayer" template="PLAYBACKStateChangeArgs"/>
+     <event value="83" symbol="FULLSCREENCLOSEBUTTON_CLICK" version="0" task="FULLSCREEN" opcode="CLOSEBUTTON_CLICK" level="win:Informational" keywords="mediaplayer"/>
+     <event value="84" symbol="DDPRESET_NORMAL" version="0" task="DDPRESET_NORMAL" level="win:Informational" keywords="mediaplayer" template="DDPRESET_NORMALArgs"/>
+     <event value="85" symbol="DDPRESET_LAPTOP" version="0" task="DDPRESET_LAPTOP" level="win:Informational" keywords="mediaplayer" template="DDPRESET_NORMALArgs"/>
+     <event value="86" symbol="DDPRESET_THEATER" version="0" task="DDPRESET_THEATER" level="win:Informational" keywords="mediaplayer" template="DDPRESET_NORMALArgs"/>
+     <event value="87" symbol="DISCMEDIACHANGEAdded" version="0" task="DISCMEDIACHANGE" opcode="Added" level="win:Informational" keywords="mediaplayer" template="DISCMEDIACHANGEAddedArgs"/>
+     <event value="88" symbol="DISCMEDIACHANGERemoved" version="0" task="DISCMEDIACHANGE" opcode="Removed" level="win:Informational" keywords="mediaplayer" template="DISCMEDIACHANGEAddedArgs"/>
+     <event value="89" symbol="DISCMEDIACHANGE" version="0" task="DISCMEDIACHANGE" level="win:Informational" keywords="mediaplayer" template="DISCMEDIACHANGEAddedArgs"/>
+     <event value="90" symbol="FULLSCREENEXITBUTTON_CLICK" version="0" task="FULLSCREEN" opcode="EXITBUTTON_CLICK" level="win:Informational" keywords="mediaplayer"/>
+     <event value="91" symbol="MAINFRAME_DESTROYStart" version="0" task="MAINFRAME_DESTROY" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="92" symbol="MAINFRAME_DESTROYStop" version="0" task="MAINFRAME_DESTROY" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="93" symbol="FULLSCREEN_LOADINGUIStart" version="0" task="FULLSCREEN_LOADINGUI" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="94" symbol="FULLSCREEN_LOADINGUIStop" version="0" task="FULLSCREEN_LOADINGUI" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="95" symbol="FULLSCREEN_LOADINGUI_FADEStart" version="0" task="FULLSCREEN_LOADINGUI_FADE" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="96" symbol="FULLSCREEN_LOADINGUI_FADEStop" version="0" task="FULLSCREEN_LOADINGUI_FADE" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="97" symbol="DVDGRAPH" version="0" task="DVDGRAPH" level="win:Informational" template="DVDGRAPHArgs"/>
+     <event value="99" symbol="GROVELER" version="0" task="GROVELER" level="win:Informational" keywords="mediaplayer" template="GROVELERArgs"/>
+     <event value="100" symbol="GROVELER100" version="0" task="GROVELER" level="win:Informational" keywords="mediaplayer" template="GROVELER100Args"/>
+     <event value="101" symbol="GROVELER101" version="0" task="GROVELER" level="win:Informational" keywords="mediaplayer" template="GROVELER100Args"/>
+     <event value="102" symbol="GROVELER102" version="0" task="GROVELER" level="win:Informational" keywords="mediaplayer" template="GROVELER100Args"/>
+     <event value="103" symbol="GROVELER103" version="0" task="GROVELER" level="win:Informational" keywords="mediaplayer" template="GROVELER100Args"/>
+     <event value="104" symbol="GROVELER104" version="0" task="GROVELER" level="win:Informational" keywords="mediaplayer" template="GROVELER100Args"/>
+     <event value="105" symbol="GROVELERStart" version="0" task="GROVELER" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="GROVELER100Args"/>
+     <event value="106" symbol="GROVELERStop" version="0" task="GROVELER" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="GROVELER100Args"/>
+     <event value="107" symbol="GROVELER107" version="0" task="GROVELER" level="win:Informational" keywords="mediaplayer" template="GROVELER100Args"/>
+     <event value="108" symbol="GROVELER108" version="0" task="GROVELER" level="win:Informational" keywords="mediaplayer" template="GROVELER100Args"/>
+     <event value="109" symbol="GROVELER109" version="0" task="GROVELER" level="win:Informational" keywords="mediaplayer"/>
+     <event value="110" symbol="GROVELER110" version="0" task="GROVELER" level="win:Informational" keywords="mediaplayer" template="GROVELER110Args"/>
+     <event value="149" symbol="METADATAPLUGIN" version="0" task="METADATAPLUGIN" level="win:Informational" keywords="metadataplugin" template="GROVELER110Args"/>
+     <event value="150" symbol="METADATAPLUGIN150" version="0" task="METADATAPLUGIN" level="win:Informational" keywords="metadataplugin" template="GROVELER100Args"/>
+     <event value="151" symbol="METADATAPLUGIN151" version="0" task="METADATAPLUGIN" level="win:Informational" keywords="metadataplugin" template="METADATAPLUGIN151Args"/>
+     <event value="152" symbol="METADATAPLUGIN152" version="0" task="METADATAPLUGIN" level="win:Informational" keywords="metadataplugin" template="METADATAPLUGIN151Args"/>
+     <event value="153" symbol="METADATAPLUGIN153" version="0" task="METADATAPLUGIN" level="win:Informational" keywords="metadataplugin" template="GROVELER100Args"/>
+     <event value="154" symbol="METADATAPLUGIN154" version="0" task="METADATAPLUGIN" level="win:Informational" keywords="metadataplugin" template="GROVELER100Args"/>
+     <event value="155" symbol="RAMCACHE" version="0" task="RAMCACHE" level="win:Informational" keywords="ramcache" template="METADATAPLUGIN151Args"/>
+     <event value="156" symbol="RAMCACHE156" version="0" task="RAMCACHE" level="win:Informational" keywords="ramcache" template="METADATAPLUGIN151Args"/>
+     <event value="157" symbol="RAMCACHEStart" version="0" task="RAMCACHE" opcode="win:Start" level="win:Informational" keywords="ramcache" template="RAMCACHEStartArgs"/>
+     <event value="158" symbol="RAMCACHEStop" version="0" task="RAMCACHE" opcode="win:Stop" level="win:Informational" keywords="ramcache" template="RAMCACHEStartArgs"/>
+     <event value="200" symbol="METADATALIFECYCLE" version="0" task="METADATALIFECYCLE" level="win:Informational" keywords="metadatalifecycle" template="GROVELER100Args"/>
+     <event value="201" symbol="METADATADOWNLOADStart" version="0" task="METADATADOWNLOAD" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="GROVELER100Args"/>
+     <event value="202" symbol="METADATADOWNLOADStop" version="0" task="METADATADOWNLOAD" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="GROVELER100Args"/>
+     <event value="205" symbol="MLS" version="0" task="MLS" level="win:Informational" keywords="mls" template="GROVELER100Args"/>
+     <event value="206" symbol="MLS206" version="0" task="MLS" level="win:Informational" keywords="mls" template="GROVELER110Args"/>
+     <event value="207" symbol="MLS207" version="0" task="MLS" level="win:Informational" keywords="mls" template="MLS207Args"/>
+     <event value="220" symbol="PLAYLISTStart" version="0" task="PLAYLIST" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="GROVELER100Args"/>
+     <event value="221" symbol="PLAYLISTStop" version="0" task="PLAYLIST" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="GROVELER100Args"/>
+     <event value="222" symbol="PLAYHISTORYCLICK" version="0" task="PLAYHISTORYCLICK" level="win:Informational" keywords="mediaplayer"/>
+     <event value="250" symbol="RADIO" version="0" task="RADIO" level="win:Informational" keywords="mediaplayer" template="GROVELER100Args"/>
+     <event value="251" symbol="RADIORemoved" version="0" task="RADIO" opcode="Removed" level="win:Informational" keywords="mediaplayer" template="GROVELER100Args"/>
+     <event value="252" symbol="RADIOAdded" version="0" task="RADIO" opcode="Added" level="win:Informational" keywords="mediaplayer" template="GROVELER100Args"/>
+     <event value="280" symbol="THUMBNAIL_TOOLBAR_ADDStart" version="0" task="THUMBNAIL_TOOLBAR_ADD" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="THUMBNAIL_TOOLBAR_ADDStartArgs"/>
+     <event value="281" symbol="THUMBNAIL_TOOLBAR_ADDStop" version="0" task="THUMBNAIL_TOOLBAR_ADD" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="THUMBNAIL_TOOLBAR_ADDStartArgs"/>
+     <event value="282" symbol="THUMBNAIL_TOOLBAR_BUTTON_CLICKEDStart" version="0" task="THUMBNAIL_TOOLBAR_BUTTON_CLICKED" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="THUMBNAIL_TOOLBAR_BUTTON_CLICKEDStartArgs"/>
+     <event value="283" symbol="THUMBNAIL_TOOLBAR_BUTTON_CLICKEDStop" version="0" task="THUMBNAIL_TOOLBAR_BUTTON_CLICKED" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="THUMBNAIL_TOOLBAR_BUTTON_CLICKEDStartArgs"/>
+     <event value="284" symbol="THUMBNAIL_TOOLTIP_CHANGED" version="0" task="THUMBNAIL_TOOLTIP_CHANGED" level="win:Informational" keywords="mediaplayer" template="THUMBNAIL_TOOLTIP_CHANGEDArgs"/>
+     <event value="285" symbol="THUMBNAIL_BITMAPS_INVALIDATED" version="0" task="THUMBNAIL_BITMAPS_INVALIDATED" level="win:Informational" keywords="mediaplayer"/>
+     <event value="286" symbol="THUMBNAIL_BITMAP_UPDATEStart" version="0" task="THUMBNAIL_BITMAP_UPDATE" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="287" symbol="THUMBNAIL_BITMAP_UPDATEStop" version="0" task="THUMBNAIL_BITMAP_UPDATE" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="288" symbol="THUMBNAIL_LIVEPREVIEWBITMAP_UPDATEStart" version="0" task="THUMBNAIL_LIVEPREVIEWBITMAP_UPDATE" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="289" symbol="THUMBNAIL_LIVEPREVIEWBITMAP_UPDATEStop" version="0" task="THUMBNAIL_LIVEPREVIEWBITMAP_UPDATE" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="300" symbol="SKINEVENT" version="0" task="SKINEVENT" level="win:Informational" keywords="mediaplayer" template="SKINEVENTArgs"/>
+     <event value="301" symbol="HOVERTRANSPORTSStart" version="0" task="HOVERTRANSPORTS" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="302" symbol="HOVERTRANSPORTSStop" version="0" task="HOVERTRANSPORTS" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="303" symbol="SKINPAINTStart" version="0" task="SKINPAINT" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="304" symbol="SKINPAINTStop" version="0" task="SKINPAINT" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="305" symbol="BASKETStart" version="0" task="BASKET" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="BASKETStartArgs"/>
+     <event value="306" symbol="BASKETStop" version="0" task="BASKET" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="BASKETStartArgs"/>
+     <event value="307" symbol="NAVIGATION" version="0" task="NAVIGATION" level="win:Informational" keywords="mediaplayer" template="DISCMEDIACHANGEAddedArgs"/>
+     <event value="308" symbol="LISTVIEW" version="0" task="LISTVIEW" level="win:Informational" keywords="mediaplayer" template="DISCMEDIACHANGEAddedArgs"/>
+     <event value="309" symbol="LISTVIEWStart" version="0" task="LISTVIEW" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="LISTVIEWStartArgs"/>
+     <event value="310" symbol="LISTVIEWStop" version="0" task="LISTVIEW" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="LISTVIEWStartArgs"/>
+     <event value="311" symbol="TREEVIEW" version="0" task="TREEVIEW" level="win:Informational" keywords="mediaplayer" template="DISCMEDIACHANGEAddedArgs"/>
+     <event value="312" symbol="PLAYHISTORY" version="0" task="PLAYHISTORY" level="win:Informational" keywords="mediaplayer" template="LISTVIEWStartArgs"/>
+     <event value="313" symbol="LIBRARYUX" version="0" task="LIBRARYUX" level="win:Informational" keywords="mediaplayer" template="LIBRARYUXArgs"/>
+     <event value="314" symbol="LIBRARYUX314" version="0" task="LIBRARYUX" level="win:Informational" keywords="mediaplayer" template="LIBRARYUX314Args"/>
+     <event value="315" symbol="USAGELOGGER" version="0" task="USAGELOGGER" level="win:Informational" keywords="mediaplayer" template="LIBRARYUX314Args"/>
+     <event value="316" symbol="WORDWHEELStart" version="0" task="WORDWHEEL" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="DISCMEDIACHANGEAddedArgs"/>
+     <event value="317" symbol="WORDWHEELStop" version="0" task="WORDWHEEL" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="BASKETStartArgs"/>
+     <event value="318" symbol="WORDWHEELStop318" version="0" task="WORDWHEEL" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="323" symbol="HME_SERVER_CONTAINER_UPDATE_IDSStart" version="0" task="HME_SERVER_CONTAINER_UPDATE_IDS" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="324" symbol="HME_SERVER_CONTAINER_UPDATE_IDSStop" version="0" task="HME_SERVER_CONTAINER_UPDATE_IDS" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="325" symbol="RME_CLIENT_ENUMERATE_LIBRARIES_REQUESTStart" version="0" task="RME_CLIENT_ENUMERATE_LIBRARIES_REQUEST" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="RME_CLIENT_ENUMERATE_LIBRARIES_REQUESTStartArgs"/>
+     <event value="326" symbol="RME_CLIENT_ENUMERATE_LIBRARIES_RESPONSEStop" version="0" task="RME_CLIENT_ENUMERATE_LIBRARIES_RESPONSE" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="RME_CLIENT_ENUMERATE_LIBRARIES_RESPONSEStopArgs"/>
+     <event value="327" symbol="RME_CLIENT_CURRENT_BANDWIDTH_ESTIMATEStart" version="0" task="RME_CLIENT_CURRENT_BANDWIDTH_ESTIMATE" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="RME_CLIENT_CURRENT_BANDWIDTH_ESTIMATEStartArgs"/>
+     <event value="328" symbol="RME_CLIENT_CURRENT_BANDWIDTHStart" version="0" task="RME_CLIENT_CURRENT_BANDWIDTH" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="RME_CLIENT_CURRENT_BANDWIDTH_ESTIMATEStartArgs"/>
+     <event value="350" symbol="RME_CLIENT_RESOLVE_SERVER_URL_REQUESTStart" version="0" task="RME_CLIENT_RESOLVE_SERVER_URL_REQUEST" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="RME_CLIENT_ENUMERATE_LIBRARIES_REQUESTStartArgs"/>
+     <event value="351" symbol="RME_CLIENT_RESOLVE_SERVER_URL_RESPONSEStop" version="0" task="RME_CLIENT_RESOLVE_SERVER_URL_RESPONSE" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="RME_CLIENT_ENUMERATE_LIBRARIES_RESPONSEStopArgs"/>
+     <event value="352" symbol="RME_CLIENT_LIBRARY_METADATA_REQUESTStart" version="0" task="RME_CLIENT_LIBRARY_METADATA_REQUEST" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="RME_CLIENT_ENUMERATE_LIBRARIES_REQUESTStartArgs"/>
+     <event value="353" symbol="RME_CLIENT_LIBRARY_METADATA_RESPONSEStop" version="0" task="RME_CLIENT_LIBRARY_METADATA_RESPONSE" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="RME_CLIENT_LIBRARY_METADATA_RESPONSEStopArgs"/>
+     <event value="354" symbol="RME_CLIENT_ESTIMATE_BITRATE_BEGINStart" version="0" task="RME_CLIENT_ESTIMATE_BITRATE_BEGIN" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="355" symbol="RME_CLIENT_ESTIMATE_BITRATE_ENDStop" version="0" task="RME_CLIENT_ESTIMATE_BITRATE_END" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="356" symbol="HME_SERVER_EXECUTE_QUERYStart" version="0" task="HME_SERVER_EXECUTE_QUERY" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="HME_SERVER_EXECUTE_QUERYStartArgs"/>
+     <event value="357" symbol="HME_SERVER_EXECUTE_QUERYStop" version="0" task="HME_SERVER_EXECUTE_QUERY" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="HME_SERVER_EXECUTE_QUERYStopArgs"/>
+     <event value="358" symbol="HME_RME_CLIENT_CONSUME_METADATA_RESPONSE_BEGINStart" version="0" task="HME_RME_CLIENT_CONSUME_METADATA_RESPONSE_BEGIN" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="HME_RME_CLIENT_CONSUME_METADATA_RESPONSE_BEGINStartArgs"/>
+     <event value="359" symbol="HME_RME_CLIENT_CONSUME_METADATA_RESPONSE_ENDStop" version="0" task="HME_RME_CLIENT_CONSUME_METADATA_RESPONSE_END" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="HME_RME_CLIENT_CONSUME_METADATA_RESPONSE_BEGINStartArgs"/>
+     <event value="360" symbol="HME_SERVER_UPDATEOBJECTStart" version="0" task="HME_SERVER_UPDATEOBJECT" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="HME_SERVER_UPDATEOBJECTStartArgs"/>
+     <event value="361" symbol="HME_SERVER_UPDATEOBJECTStop" version="0" task="HME_SERVER_UPDATEOBJECT" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="HME_SERVER_UPDATEOBJECTStopArgs"/>
+     <event value="362" symbol="HME_CLIENT_UPDATE_METADATAStart" version="0" task="HME_CLIENT_UPDATE_METADATA" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="HME_CLIENT_UPDATE_METADATAStartArgs"/>
+     <event value="363" symbol="HME_CLIENT_UPDATE_METADATAStop" version="0" task="HME_CLIENT_UPDATE_METADATA" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="HME_CLIENT_UPDATE_METADATAStopArgs"/>
+     <event value="364" symbol="HME_SERVER_ONLINE_OFFLINE" version="0" task="HME_SERVER_ONLINE_OFFLINE" level="win:Informational" keywords="mediaplayer" template="HME_SERVER_ONLINE_OFFLINEArgs"/>
+     <event value="365" symbol="HME_SERVER_MAGIC_PACKET_SENT" version="0" task="HME_SERVER_MAGIC_PACKET_SENT" level="win:Informational" keywords="mediaplayer" template="HME_RME_CLIENT_CONSUME_METADATA_RESPONSE_BEGINStartArgs"/>
+     <event value="366" symbol="HME_SERVER_WAKEUP_FAILED" version="0" task="HME_SERVER_WAKEUP_FAILED" level="win:Informational" keywords="mediaplayer" template="HME_RME_CLIENT_CONSUME_METADATA_RESPONSE_BEGINStartArgs"/>
+     <event value="367" symbol="RME_CLIENT_LIVE_MACHINE_DISCOVERYStart" version="0" task="RME_CLIENT_LIVE_MACHINE_DISCOVERY" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="HME_RME_CLIENT_CONSUME_METADATA_RESPONSE_BEGINStartArgs"/>
+     <event value="368" symbol="RME_CLIENT_LIVE_MACHINE_DISCOVERYStop" version="0" task="RME_CLIENT_LIVE_MACHINE_DISCOVERY" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="HME_RME_CLIENT_CONSUME_METADATA_RESPONSE_BEGINStartArgs"/>
+     <event value="369" symbol="RME_CLIENT_ON_LIVE_MACHINE_DISCOVERY" version="0" task="RME_CLIENT_ON_LIVE_MACHINE_DISCOVERY" level="win:Informational" keywords="mediaplayer" template="HME_SERVER_UPDATEOBJECTStartArgs"/>
+     <event value="370" symbol="HME_EnableSharingStart" version="0" task="HME_EnableSharing" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="HME_EnableSharingStartArgs"/>
+     <event value="371" symbol="HME_EnableSharingStop" version="0" task="HME_EnableSharing" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="HME_EnableSharingStartArgs"/>
+     <event value="372" symbol="HME_UPnPDiscoveryBeginStart" version="0" task="HME_UPnPDiscoveryBegin" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="HME_UPnPDiscoveryBeginStartArgs"/>
+     <event value="373" symbol="HME_UPnPDiscoveryBeginStop" version="0" task="HME_UPnPDiscoveryBegin" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="HME_UPnPDiscoveryBeginStartArgs"/>
+     <event value="374" symbol="HME_UPnPDiscoveryInitialComplete" version="0" task="HME_UPnPDiscoveryInitialComplete" level="win:Informational" keywords="mediaplayer" template="DDPRESET_NORMALArgs"/>
+     <event value="375" symbol="HME_UPnPDiscoveryEnd" version="0" task="HME_UPnPDiscoveryEnd" level="win:Informational" keywords="mediaplayer" template="DDPRESET_NORMALArgs"/>
+     <event value="376" symbol="HME_UPnPDeviceAddedCallbackStart" version="0" task="HME_UPnPDeviceAddedCallback" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="HME_UPnPDeviceAddedCallbackStartArgs"/>
+     <event value="377" symbol="HME_UPnPDeviceAddedCallback" version="0" task="HME_UPnPDeviceAddedCallback" level="win:Informational" keywords="mediaplayer" template="HME_UPnPDeviceAddedCallbackStartArgs"/>
+     <event value="378" symbol="HME_UPnPDeviceAddedCallback378" version="0" task="HME_UPnPDeviceAddedCallback" level="win:Informational" keywords="mediaplayer" template="HME_UPnPDeviceAddedCallbackStartArgs"/>
+     <event value="379" symbol="HME_UPnPDeviceAddedCallbackStop" version="0" task="HME_UPnPDeviceAddedCallback" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="HME_UPnPDeviceAddedCallbackStartArgs"/>
+     <event value="380" symbol="HME_UPnPDeviceRemovedCallbackStart" version="0" task="HME_UPnPDeviceRemovedCallback" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="HME_UPnPDeviceRemovedCallbackStartArgs"/>
+     <event value="381" symbol="HME_UPnPDeviceRemovedCallback" version="0" task="HME_UPnPDeviceRemovedCallback" level="win:Informational" keywords="mediaplayer" template="HME_UPnPDeviceRemovedCallbackArgs"/>
+     <event value="382" symbol="HME_UPnPDeviceRemovedCallbackStop" version="0" task="HME_UPnPDeviceRemovedCallback" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="HME_UPnPDeviceRemovedCallbackStartArgs"/>
+     <event value="383" symbol="HME_InitCDSThreadStart" version="0" task="HME_InitCDSThread" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="HME_InitCDSThreadStartArgs"/>
+     <event value="384" symbol="HME_InitCDSThreadStop" version="0" task="HME_InitCDSThread" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="HME_InitCDSThreadStartArgs"/>
+     <event value="385" symbol="HME_InitCDSStart" version="0" task="HME_InitCDS" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="HME_InitCDSStartArgs"/>
+     <event value="386" symbol="HME_InitCDSStop" version="0" task="HME_InitCDS" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="HME_InitCDSStopArgs"/>
+     <event value="387" symbol="RME_CreateDeviceFinderStart" version="0" task="RME_CreateDeviceFinder" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="388" symbol="RME_CreateDeviceFinderStop" version="0" task="RME_CreateDeviceFinder" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="RME_CreateDeviceFinderStopArgs"/>
+     <event value="389" symbol="HME_ServiceAddedStart" version="0" task="HME_ServiceAdded" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="HME_ServiceAddedStartArgs"/>
+     <event value="390" symbol="HME_ServiceAdded" version="0" task="HME_ServiceAdded" level="win:Informational" keywords="mediaplayer" template="HME_ServiceAddedArgs"/>
+     <event value="391" symbol="HME_ServiceAddedStop" version="0" task="HME_ServiceAdded" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="HME_ServiceAddedStartArgs"/>
+     <event value="392" symbol="HME_CDSUPnPInitializeStart" version="0" task="HME_CDSUPnPInitialize" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="HME_CDSUPnPInitializeStartArgs"/>
+     <event value="393" symbol="HME_CDSUPnPInitializeStop" version="0" task="HME_CDSUPnPInitialize" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="HME_CDSUPnPInitializeStopArgs"/>
+     <event value="394" symbol="HME_ProviderAddToRAMCacheStart" version="0" task="HME_ProviderAddToRAMCache" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="HME_ProviderAddToRAMCacheStartArgs"/>
+     <event value="395" symbol="HME_ProviderAddToRAMCacheStop" version="0" task="HME_ProviderAddToRAMCache" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="HME_ProviderAddToRAMCacheStartArgs"/>
+     <event value="396" symbol="HME_ProviderShutdownStart" version="0" task="HME_ProviderShutdown" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="HME_ProviderShutdownStartArgs"/>
+     <event value="397" symbol="HME_ProviderShutdownStop" version="0" task="HME_ProviderShutdown" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="HME_ProviderShutdownStartArgs"/>
+     <event value="398" symbol="HME_ProviderUpdateMessage" version="0" task="HME_ProviderUpdateMessage" level="win:Informational" keywords="mediaplayer" template="HME_ProviderUpdateMessageArgs"/>
+     <event value="400" symbol="WMPSyncTranscodeManagerStart" version="0" task="WMPSyncTranscodeManager" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="WMPSyncTranscodeManagerStartArgs"/>
+     <event value="401" symbol="WMPSyncTranscodeManagerThetranscodemanagerhasrolledovertotheDShowSource" version="0" task="WMPSyncTranscodeManager" opcode="ThetranscodemanagerhasrolledovertotheDShowSource" level="win:Informational" keywords="mediaplayer" template="WMPSyncTranscodeManagerStartArgs"/>
+     <event value="403" symbol="WMPSyncTranscodeManagerStop" version="0" task="WMPSyncTranscodeManager" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="WMPSyncTranscodeManagerStopArgs"/>
+     <event value="404" symbol="WMPSyncTranscodeMatrixUsingtheMP4transcodematrix" version="0" task="WMPSyncTranscodeMatrix" opcode="UsingtheMP4transcodematrix" level="win:Informational" keywords="mediaplayer"/>
+     <event value="405" symbol="WMPSyncTranscodeMatrixUsingtheASFtranscodematrix" version="0" task="WMPSyncTranscodeMatrix" opcode="UsingtheASFtranscodematrix" level="win:Informational" keywords="mediaplayer"/>
+     <event value="406" symbol="WMPSyncTranscodeMatrixStart" version="0" task="WMPSyncTranscodeMatrix" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="WMPSyncTranscodeMatrixStartArgs"/>
+     <event value="407" symbol="WMPSyncTranscodeMatrixStop" version="0" task="WMPSyncTranscodeMatrix" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="WMPSyncTranscodeMatrixStopArgs"/>
+     <event value="408" symbol="WMPSyncTranscodeMatrixStart408" version="0" task="WMPSyncTranscodeMatrix" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="MLS207Args"/>
+     <event value="409" symbol="WMPSyncTranscodeMatrixStop409" version="0" task="WMPSyncTranscodeMatrix" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="WMPSyncTranscodeMatrixStopArgs"/>
+     <event value="410" symbol="WMPSyncLicenseAcquisitionStart" version="0" task="WMPSyncLicenseAcquisition" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="MLS207Args"/>
+     <event value="411" symbol="WMPSyncLicenseAcquisitionStop" version="0" task="WMPSyncLicenseAcquisition" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="WMPSyncTranscodeMatrixStopArgs"/>
+     <event value="412" symbol="PLAYTOMENU_ENUMERATIONStart" version="0" task="PLAYTOMENU_ENUMERATION" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="413" symbol="PLAYTOMENU_ENUMERATIONStop" version="0" task="PLAYTOMENU_ENUMERATION" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="PLAYTOMENU_ENUMERATIONStopArgs"/>
+     <event value="414" symbol="PLAYTOMENU_OPERATIONStart" version="0" task="PLAYTOMENU_OPERATION" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="415" symbol="PLAYTOMENU_OPERATION" version="0" task="PLAYTOMENU_OPERATION" level="win:Informational" keywords="mediaplayer" template="PLAYTOMENU_OPERATIONArgs"/>
+     <event value="416" symbol="PLAYTOMENU_OPERATIONStop" version="0" task="PLAYTOMENU_OPERATION" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="PLAYTOMENU_OPERATIONStopArgs"/>
+     <event value="417" symbol="WMPDMR_AVTRANSPORT_ACTIONSStart" version="0" task="WMPDMR_AVTRANSPORT_ACTIONS" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="418" symbol="WMPDMR_AVTRANSPORT_ACTIONSStop" version="0" task="WMPDMR_AVTRANSPORT_ACTIONS" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="WMPDMR_AVTRANSPORT_ACTIONSStopArgs"/>
+     <event value="419" symbol="WMPDMR_AVTRANSPORT_ACTIONSStart419" version="0" task="WMPDMR_AVTRANSPORT_ACTIONS" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="WMPDMR_AVTRANSPORT_ACTIONSStart419Args"/>
+     <event value="420" symbol="WMPDMR_AVTRANSPORT_ACTIONSStop420" version="0" task="WMPDMR_AVTRANSPORT_ACTIONS" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="WMPDMR_AVTRANSPORT_ACTIONSStopArgs"/>
+     <event value="425" symbol="STREAMING_MENU_ACTIONSStart" version="0" task="STREAMING_MENU_ACTIONS" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="426" symbol="STREAMING_MENU_ACTIONSStop" version="0" task="STREAMING_MENU_ACTIONS" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="WMPDMR_AVTRANSPORT_ACTIONSStopArgs"/>
+     <event value="427" symbol="CONFIGURE_STREAMING_MENU_ACTIONStart" version="0" task="CONFIGURE_STREAMING_MENU_ACTION" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="428" symbol="CONFIGURE_STREAMING_MENU_ACTIONStop" version="0" task="CONFIGURE_STREAMING_MENU_ACTION" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="WMPDMR_AVTRANSPORT_ACTIONSStopArgs"/>
+     <event value="429" symbol="RECEIVE_MEDIA_MENU_ACTIONStart" version="0" task="RECEIVE_MEDIA_MENU_ACTION" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="430" symbol="RECEIVE_MEDIA_MENU_ACTIONStop" version="0" task="RECEIVE_MEDIA_MENU_ACTION" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="WMPDMR_AVTRANSPORT_ACTIONSStopArgs"/>
+     <event value="431" symbol="CONFIGURE_RME_MENU_ACTIONStart" version="0" task="CONFIGURE_RME_MENU_ACTION" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="432" symbol="CONFIGURE_RME_MENU_ACTIONStop" version="0" task="CONFIGURE_RME_MENU_ACTION" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="WMPDMR_AVTRANSPORT_ACTIONSStopArgs"/>
+     <event value="433" symbol="STREAMING_MENU_RENDER_ACTIONStart" version="0" task="STREAMING_MENU_RENDER_ACTION" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="434" symbol="STREAMING_MENU_RENDER_ACTIONStop" version="0" task="STREAMING_MENU_RENDER_ACTION" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="WMPDMR_AVTRANSPORT_ACTIONSStopArgs"/>
+     <event value="435" symbol="STREAMING_MENUITEM_RME_CHECKSTATE_ACTION" version="0" task="STREAMING_MENUITEM_RME_CHECKSTATE_ACTION" level="win:Informational" keywords="mediaplayer" template="STREAMING_MENUITEM_RME_CHECKSTATE_ACTIONArgs"/>
+     <event value="436" symbol="STREAMING_MENUITEM_RECEIVEMEDIA_CHECKSTATE" version="0" task="STREAMING_MENUITEM_RECEIVEMEDIA_CHECKSTATE" level="win:Informational" keywords="mediaplayer" template="STREAMING_MENUITEM_RME_CHECKSTATE_ACTIONArgs"/>
+     <event value="437" symbol="STREAMING_MENUITEM_AUTOALLOWDEVICES_CHECKSTATE" version="0" task="STREAMING_MENUITEM_AUTOALLOWDEVICES_CHECKSTATE" level="win:Informational" keywords="mediaplayer" template="STREAMING_MENUITEM_RME_CHECKSTATE_ACTIONArgs"/>
+     <event value="438" symbol="ALLOW_ALL_DEVICES_MENU_ACTIONStart" version="0" task="ALLOW_ALL_DEVICES_MENU_ACTION" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="439" symbol="ALLOW_ALL_DEVICES_MENU_ACTIONStop" version="0" task="ALLOW_ALL_DEVICES_MENU_ACTION" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="WMPDMR_AVTRANSPORT_ACTIONSStopArgs"/>
+     <event value="440" symbol="CONFIGURE_STREAMING_HG_MENU_ACTIONStart" version="0" task="CONFIGURE_STREAMING_HG_MENU_ACTION" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="441" symbol="CONFIGURE_STREAMING_HG_MENU_ACTIONStop" version="0" task="CONFIGURE_STREAMING_HG_MENU_ACTION" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="WMPDMR_AVTRANSPORT_ACTIONSStopArgs"/>
+     <event value="450" symbol="PLAYSINGLE_PH_RESOLVEStart" version="0" task="PLAYSINGLE_PH_RESOLVE" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="PLAYSINGLE_PH_RESOLVEStartArgs"/>
+     <event value="451" symbol="PLAYSINGLE_PH_RESOLVE" version="0" task="PLAYSINGLE_PH_RESOLVE" level="win:Informational" keywords="mediaplayer" template="PLAYSINGLE_PH_RESOLVEArgs"/>
+     <event value="452" symbol="PLAYSINGLE_PH_RESOLVEStop" version="0" task="PLAYSINGLE_PH_RESOLVE" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="PLAYSINGLE_PH_RESOLVEStopArgs"/>
+     <event value="453" symbol="PLAYSINGLE_PH_BROWSECDSStart" version="0" task="PLAYSINGLE_PH_BROWSECDS" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="PLAYSINGLE_PH_BROWSECDSStartArgs"/>
+     <event value="454" symbol="PLAYSINGLE_PH_BROWSECDS" version="0" task="PLAYSINGLE_PH_BROWSECDS" level="win:Informational" keywords="mediaplayer" template="PLAYSINGLE_PH_BROWSECDSArgs"/>
+     <event value="455" symbol="PLAYSINGLE_PH_BROWSECDSStop" version="0" task="PLAYSINGLE_PH_BROWSECDS" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="PLAYSINGLE_PH_BROWSECDSStartArgs"/>
+     <event value="456" symbol="PLAYCONTAINER_CREATE_PLAYLISTStart" version="0" task="PLAYCONTAINER_CREATE_PLAYLIST" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="PLAYCONTAINER_CREATE_PLAYLISTStartArgs"/>
+     <event value="457" symbol="PLAYCONTAINER_CREATE_PLAYLISTStop" version="0" task="PLAYCONTAINER_CREATE_PLAYLIST" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="PLAYCONTAINER_CREATE_PLAYLISTStopArgs"/>
+     <event value="460" symbol="WMPDMR_AVTRANSPORT_ACTIONSStart460" version="0" task="WMPDMR_AVTRANSPORT_ACTIONS" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="461" symbol="WMPDMR_AVTRANSPORT_ACTIONSStop461" version="0" task="WMPDMR_AVTRANSPORT_ACTIONS" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="WMPDMR_AVTRANSPORT_ACTIONSStopArgs"/>
+     <event value="462" symbol="WMPDMR_AVTRANSPORT_ACTIONSStart462" version="0" task="WMPDMR_AVTRANSPORT_ACTIONS" opcode="win:Start" level="win:Informational" keywords="mediaplayer" template="WMPDMR_AVTRANSPORT_ACTIONSStart462Args"/>
+     <event value="463" symbol="WMPDMR_AVTRANSPORT_ACTIONSStop463" version="0" task="WMPDMR_AVTRANSPORT_ACTIONS" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="WMPDMR_AVTRANSPORT_ACTIONSStop463Args"/>
+     <event value="464" symbol="WMPDMR_AVTRANSPORT_ACTIONSStart464" version="0" task="WMPDMR_AVTRANSPORT_ACTIONS" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="465" symbol="WMPDMR_AVTRANSPORT_ACTIONSStop465" version="0" task="WMPDMR_AVTRANSPORT_ACTIONS" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="WMPDMR_AVTRANSPORT_ACTIONSStopArgs"/>
+     <event value="466" symbol="WMPDMR_AVTRANSPORT_ACTIONSStart466" version="0" task="WMPDMR_AVTRANSPORT_ACTIONS" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="467" symbol="WMPDMR_AVTRANSPORT_ACTIONSStop467" version="0" task="WMPDMR_AVTRANSPORT_ACTIONS" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="WMPDMR_AVTRANSPORT_ACTIONSStopArgs"/>
+     <event value="468" symbol="WMPDMR_AVTRANSPORT_ACTIONSStart468" version="0" task="WMPDMR_AVTRANSPORT_ACTIONS" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="469" symbol="WMPDMR_AVTRANSPORT_ACTIONSStop469" version="0" task="WMPDMR_AVTRANSPORT_ACTIONS" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="WMPDMR_AVTRANSPORT_ACTIONSStopArgs"/>
+     <event value="470" symbol="WMPDMR_AVTRANSPORT_ACTIONSStart470" version="0" task="WMPDMR_AVTRANSPORT_ACTIONS" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="471" symbol="WMPDMR_AVTRANSPORT_ACTIONSStop471" version="0" task="WMPDMR_AVTRANSPORT_ACTIONS" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="WMPDMR_AVTRANSPORT_ACTIONSStopArgs"/>
+     <event value="472" symbol="WMPDMR_AVTRANSPORT_ACTIONSStart472" version="0" task="WMPDMR_AVTRANSPORT_ACTIONS" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="473" symbol="WMPDMR_AVTRANSPORT_ACTIONSStop473" version="0" task="WMPDMR_AVTRANSPORT_ACTIONS" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="WMPDMR_AVTRANSPORT_ACTIONSStopArgs"/>
+     <event value="474" symbol="WMPDMR_CONNECTION_MANAGER_ACTIONSStart" version="0" task="WMPDMR_CONNECTION_MANAGER_ACTIONS" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="475" symbol="WMPDMR_CONNECTION_MANAGER_ACTIONSStop" version="0" task="WMPDMR_CONNECTION_MANAGER_ACTIONS" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="WMPDMR_AVTRANSPORT_ACTIONSStopArgs"/>
+     <event value="476" symbol="WMPDMR_RENDERING_CONTROL_ACTIONSStart" version="0" task="WMPDMR_RENDERING_CONTROL_ACTIONS" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="477" symbol="WMPDMR_RENDERING_CONTROL_ACTIONSStop" version="0" task="WMPDMR_RENDERING_CONTROL_ACTIONS" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="WMPDMR_AVTRANSPORT_ACTIONSStopArgs"/>
+     <event value="478" symbol="WMPDMR_RENDERING_CONTROL_ACTIONSStart478" version="0" task="WMPDMR_RENDERING_CONTROL_ACTIONS" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="479" symbol="WMPDMR_RENDERING_CONTROL_ACTIONSStop479" version="0" task="WMPDMR_RENDERING_CONTROL_ACTIONS" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="WMPDMR_AVTRANSPORT_ACTIONSStopArgs"/>
+     <event value="480" symbol="WMPDMR_RENDERING_CONTROL_ACTIONSStart480" version="0" task="WMPDMR_RENDERING_CONTROL_ACTIONS" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="481" symbol="WMPDMR_RENDERING_CONTROL_ACTIONSStop481" version="0" task="WMPDMR_RENDERING_CONTROL_ACTIONS" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="WMPDMR_AVTRANSPORT_ACTIONSStopArgs"/>
+     <event value="482" symbol="WMPDMR_RENDERING_CONTROL_ACTIONSStart482" version="0" task="WMPDMR_RENDERING_CONTROL_ACTIONS" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="483" symbol="WMPDMR_RENDERING_CONTROL_ACTIONSStop483" version="0" task="WMPDMR_RENDERING_CONTROL_ACTIONS" opcode="win:Stop" level="win:Informational" keywords="mediaplayer" template="WMPDMR_AVTRANSPORT_ACTIONSStopArgs"/>
+     <event value="490" symbol="CDDVD_LAUNCHStart" version="0" task="CDDVD_LAUNCH" opcode="win:Start" level="win:Informational" template="CDDVD_LAUNCHStartArgs"/>
+     <event value="491" symbol="CDDVD_LAUNCHLOCAL_PLAY_BEGIN" version="0" task="CDDVD_LAUNCH" opcode="LOCAL_PLAY_BEGIN" level="win:Informational" template="CDDVD_LAUNCHStartArgs"/>
+     <event value="492" symbol="CDDVD_LAUNCHLOCAL_PLAY_BEGIN492" version="0" task="CDDVD_LAUNCH" opcode="LOCAL_PLAY_BEGIN" level="win:Informational" template="CDDVD_LAUNCHStartArgs"/>
+     <event value="493" symbol="CDDVD_LAUNCHStop" version="0" task="CDDVD_LAUNCH" opcode="win:Stop" level="win:Informational" template="CDDVD_LAUNCHStartArgs"/>
+     <event value="501" symbol="WMPSyncTranscodeMatrixUsingtheMP3transcodematrix" version="0" task="WMPSyncTranscodeMatrix" opcode="UsingtheMP3transcodematrix" level="win:Informational" keywords="mediaplayer"/>
+     <event value="1305" symbol="SKINCLOSEStart" version="0" task="SKINCLOSE" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="1306" symbol="SKINCLOSEStop" version="0" task="SKINCLOSE" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="1307" symbol="APPCLOSEStart" version="0" task="APPCLOSE" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="1308" symbol="APPCLOSEStop" version="0" task="APPCLOSE" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="1309" symbol="SKINPAINTStart1309" version="0" task="SKINPAINT" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="1310" symbol="SKINPAINTStop1310" version="0" task="SKINPAINT" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="1311" symbol="SKINPAINTStart1311" version="0" task="SKINPAINT" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="1312" symbol="SKINPAINTStop1312" version="0" task="SKINPAINT" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="1313" symbol="SKINPAINTStart1313" version="0" task="SKINPAINT" opcode="win:Start" level="win:Informational" keywords="mediaplayer"/>
+     <event value="1314" symbol="SKINPAINTStop1314" version="0" task="SKINPAINT" opcode="win:Stop" level="win:Informational" keywords="mediaplayer"/>
+     <event value="1615" symbol="CDGRAPH" version="0" task="CDGRAPH" level="win:Informational" template="DVDGRAPHArgs"/>
+    </events>
+    <templates>
+     <template tid="PARSE_CMD_LINEStartArgs">
+      <data name="CmdLine" inType="win:UnicodeString"/>
+     </template>
+     <template tid="APPLY_SKINStartArgs">
+      <data name="SkinPath" inType="win:UnicodeString"/>
+     </template>
+     <template tid="MODE_SWITCHERArgs">
+      <data name="ModeSwitcherOption" inType="win:UInt32"/>
+     </template>
+     <template tid="PLAYBACKStateChangeArgs">
+      <data name="EventType" inType="win:UnicodeString"/>
+      <data name="NewState" inType="win:UInt32"/>
+     </template>
+     <template tid="DDPRESET_NORMALArgs">
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="DISCMEDIACHANGEAddedArgs">
+      <data name="Value1" inType="win:UnicodeString"/>
+      <data name="Value2" inType="win:UnicodeString"/>
+     </template>
+     <template tid="DVDGRAPHArgs">
+      <data name="DeviceName" inType="win:UnicodeString"/>
+      <data name="PnPID" inType="win:UnicodeString"/>
+     </template>
+     <template tid="GROVELERArgs">
+      <data name="FilesFound" inType="win:UInt32"/>
+      <data name="FilesAdded" inType="win:UInt32"/>
+      <data name="FilesSkipped" inType="win:UInt32"/>
+      <data name="DirectoriesFound" inType="win:UInt32"/>
+      <data name="DirectoriesRemoved" inType="win:UInt32"/>
+      <data name="Levels" inType="win:UInt32"/>
+      <data name="ElapsedTime" inType="win:UInt32"/>
+     </template>
+     <template tid="GROVELER100Args">
+      <data name="Name" inType="win:UnicodeString"/>
+      <data name="Value" inType="win:UnicodeString"/>
+     </template>
+     <template tid="GROVELER110Args">
+      <data name="Name" inType="win:UnicodeString"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="METADATAPLUGIN151Args">
+      <data name="Name" inType="win:UnicodeString"/>
+      <data name="Value" inType="win:UnicodeString"/>
+      <data name="Index" inType="win:UInt32"/>
+     </template>
+     <template tid="RAMCACHEStartArgs">
+      <data name="Value" inType="win:UInt32"/>
+     </template>
+     <template tid="MLS207Args">
+      <data name="SourceFile" inType="win:UnicodeString"/>
+     </template>
+     <template tid="THUMBNAIL_TOOLBAR_ADDStartArgs">
+      <data name="ToolbarID" inType="win:UInt32"/>
+     </template>
+     <template tid="THUMBNAIL_TOOLBAR_BUTTON_CLICKEDStartArgs">
+      <data name="ButtonID" inType="win:UInt32"/>
+     </template>
+     <template tid="THUMBNAIL_TOOLTIP_CHANGEDArgs">
+      <data name="Tooltip" inType="win:UnicodeString"/>
+     </template>
+     <template tid="SKINEVENTArgs">
+      <data name="Category" inType="win:UnicodeString"/>
+      <data name="Skinformation" inType="win:UnicodeString"/>
+     </template>
+     <template tid="BASKETStartArgs">
+      <data name="Value1" inType="win:UnicodeString"/>
+      <data name="Value2" inType="win:UInt32"/>
+     </template>
+     <template tid="LISTVIEWStartArgs">
+      <data name="Int1" inType="win:UInt32"/>
+      <data name="Int2" inType="win:UInt32"/>
+     </template>
+     <template tid="LIBRARYUXArgs">
+      <data name="Value1" inType="win:UnicodeString"/>
+      <data name="Value2" inType="win:UInt32"/>
+      <data name="Value3" inType="win:UInt32"/>
+     </template>
+     <template tid="LIBRARYUX314Args">
+      <data name="Value1" inType="win:UnicodeString"/>
+      <data name="Value2" inType="win:UnicodeString"/>
+      <data name="Value3" inType="win:UnicodeString"/>
+     </template>
+     <template tid="RME_CLIENT_ENUMERATE_LIBRARIES_REQUESTStartArgs">
+      <data name="URL" inType="win:UnicodeString"/>
+     </template>
+     <template tid="RME_CLIENT_ENUMERATE_LIBRARIES_RESPONSEStopArgs">
+      <data name="URL" inType="win:UnicodeString"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="RME_CLIENT_CURRENT_BANDWIDTH_ESTIMATEStartArgs">
+      <data name="Bandwidth" inType="win:UInt32"/>
+     </template>
+     <template tid="RME_CLIENT_LIBRARY_METADATA_RESPONSEStopArgs">
+      <data name="Offset" inType="win:UInt32"/>
+      <data name="RequestedCount" inType="win:UInt32"/>
+      <data name="ResponseCount" inType="win:UInt32"/>
+      <data name="TotalCount" inType="win:UInt32"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="HME_SERVER_EXECUTE_QUERYStartArgs">
+      <data name="ContainerID" inType="win:UnicodeString"/>
+      <data name="Query" inType="win:UnicodeString"/>
+     </template>
+     <template tid="HME_SERVER_EXECUTE_QUERYStopArgs">
+      <data name="ContainerID" inType="win:UnicodeString"/>
+      <data name="Query" inType="win:UnicodeString"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="HME_RME_CLIENT_CONSUME_METADATA_RESPONSE_BEGINStartArgs">
+      <data name="ID" inType="win:UnicodeString"/>
+     </template>
+     <template tid="HME_SERVER_UPDATEOBJECTStartArgs">
+      <data name="DeviceID" inType="win:UnicodeString"/>
+      <data name="ObjectID" inType="win:UnicodeString"/>
+     </template>
+     <template tid="HME_SERVER_UPDATEOBJECTStopArgs">
+      <data name="DeviceID" inType="win:UnicodeString"/>
+      <data name="ObjectID" inType="win:UnicodeString"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="HME_CLIENT_UPDATE_METADATAStartArgs">
+      <data name="ID" inType="win:UnicodeString"/>
+      <data name="Item" inType="win:UInt32"/>
+      <data name="Atom" inType="win:UInt32"/>
+     </template>
+     <template tid="HME_CLIENT_UPDATE_METADATAStopArgs">
+      <data name="ID" inType="win:UnicodeString"/>
+      <data name="Item" inType="win:UInt32"/>
+      <data name="Atom" inType="win:UInt32"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="HME_SERVER_ONLINE_OFFLINEArgs">
+      <data name="ServerUDN" inType="win:UnicodeString"/>
+      <data name="Offline" inType="win:Boolean"/>
+     </template>
+     <template tid="HME_EnableSharingStartArgs">
+      <data name="IWMMediaLibrary" inType="win:Pointer"/>
+      <data name="EnableSharing" inType="win:Boolean"/>
+      <data name="UpdateACLs" inType="win:Boolean"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="HME_UPnPDiscoveryBeginStartArgs">
+      <data name="IgnoreUPnPDiscovery" inType="win:Boolean"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="HME_UPnPDeviceAddedCallbackStartArgs">
+      <data name="IUPnPDevice" inType="win:Pointer"/>
+      <data name="UDN" inType="win:UnicodeString"/>
+      <data name="FriendlyName" inType="win:UnicodeString"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="HME_UPnPDeviceRemovedCallbackStartArgs">
+      <data name="UDN" inType="win:UnicodeString"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="HME_UPnPDeviceRemovedCallbackArgs">
+      <data name="UDN" inType="win:UnicodeString"/>
+      <data name="IHMEService" inType="win:Pointer"/>
+     </template>
+     <template tid="HME_InitCDSThreadStartArgs">
+      <data name="UDN" inType="win:UnicodeString"/>
+      <data name="IUPnPDevice" inType="win:Pointer"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="HME_InitCDSStartArgs">
+      <data name="UDN" inType="win:UnicodeString"/>
+      <data name="IUPnPDevice" inType="win:Pointer"/>
+     </template>
+     <template tid="HME_InitCDSStopArgs">
+      <data name="UDN" inType="win:UnicodeString"/>
+      <data name="IUPnPDevice" inType="win:Pointer"/>
+      <data name="IHMEService" inType="win:Pointer"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="RME_CreateDeviceFinderStopArgs">
+      <data name="RMEDeviceFinder" inType="win:Pointer"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="HME_ServiceAddedStartArgs">
+      <data name="IHMEService" inType="win:Pointer"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="HME_ServiceAddedArgs">
+      <data name="IHMEService" inType="win:Pointer"/>
+      <data name="UDN" inType="win:UnicodeString"/>
+     </template>
+     <template tid="HME_CDSUPnPInitializeStartArgs">
+      <data name="IUPnPDevice" inType="win:Pointer"/>
+     </template>
+     <template tid="HME_CDSUPnPInitializeStopArgs">
+      <data name="IUPnPDevice" inType="win:Pointer"/>
+      <data name="UDN" inType="win:UnicodeString"/>
+      <data name="FriendlyName" inType="win:UnicodeString"/>
+      <data name="CDSVersion" inType="win:UInt32"/>
+      <data name="IsSearchable" inType="win:Boolean"/>
+      <data name="SupportsRME" inType="win:Boolean"/>
+      <data name="SupportsWakeOnLAN" inType="win:Boolean"/>
+      <data name="IHMEProvider" inType="win:Pointer"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="HME_ProviderAddToRAMCacheStartArgs">
+      <data name="CHMEProvider" inType="win:Pointer"/>
+      <data name="IHMECDS" inType="win:Pointer"/>
+      <data name="UDN" inType="win:UnicodeString"/>
+      <data name="RAMCacheId" inType="win:UInt32"/>
+      <data name="IsAuthorized" inType="win:Boolean"/>
+      <data name="FireEvent" inType="win:Boolean"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="HME_ProviderShutdownStartArgs">
+      <data name="CHMEProvider" inType="win:Pointer"/>
+      <data name="IHMECDS" inType="win:Pointer"/>
+      <data name="UDN" inType="win:UnicodeString"/>
+      <data name="RAMCacheId" inType="win:UInt32"/>
+      <data name="IsAuthorized" inType="win:Boolean"/>
+      <data name="IsZombie" inType="win:Boolean"/>
+      <data name="FireEvent" inType="win:Boolean"/>
+     </template>
+     <template tid="HME_ProviderUpdateMessageArgs">
+      <data name="RAMCacheId" inType="win:UInt32"/>
+      <data name="IsAdding" inType="win:Boolean"/>
+      <data name="FireEvent" inType="win:Boolean"/>
+     </template>
+     <template tid="WMPSyncTranscodeManagerStartArgs">
+      <data name="SourcePath" inType="win:UnicodeString"/>
+      <data name="TargetPath" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WMPSyncTranscodeManagerStopArgs">
+      <data name="SourcePath" inType="win:UnicodeString"/>
+      <data name="TargetPath" inType="win:UnicodeString"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="WMPSyncTranscodeMatrixStartArgs">
+      <data name="SourceFile" inType="win:UnicodeString"/>
+      <data name="IsDRM" inType="win:Boolean"/>
+     </template>
+     <template tid="WMPSyncTranscodeMatrixStopArgs">
+      <data name="SourceFile" inType="win:UnicodeString"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="PLAYTOMENU_ENUMERATIONStopArgs">
+      <data name="numberofDMRsFound" inType="win:UInt32"/>
+      <data name="result" inType="win:UInt32"/>
+      <data name="failureReason" inType="win:UInt32"/>
+     </template>
+     <template tid="PLAYTOMENU_OPERATIONArgs">
+      <data name="UDN" inType="win:UnicodeString"/>
+      <data name="result" inType="win:UInt32"/>
+     </template>
+     <template tid="PLAYTOMENU_OPERATIONStopArgs">
+      <data name="UDN" inType="win:UnicodeString"/>
+      <data name="result" inType="win:UInt32"/>
+      <data name="failureReason" inType="win:UInt32"/>
+     </template>
+     <template tid="WMPDMR_AVTRANSPORT_ACTIONSStopArgs">
+      <data name="result" inType="win:UInt32"/>
+     </template>
+     <template tid="WMPDMR_AVTRANSPORT_ACTIONSStart419Args">
+      <data name="URI" inType="win:UnicodeString"/>
+      <data name="URIMetadata" inType="win:UnicodeString"/>
+     </template>
+     <template tid="STREAMING_MENUITEM_RME_CHECKSTATE_ACTIONArgs">
+      <data name="IsChecked" inType="win:Boolean"/>
+     </template>
+     <template tid="PLAYSINGLE_PH_RESOLVEStartArgs">
+      <data name="ProtocolHandler" inType="win:Pointer"/>
+      <data name="URL" inType="win:UnicodeString"/>
+      <data name="IInternetProtocolSink" inType="win:Pointer"/>
+     </template>
+     <template tid="PLAYSINGLE_PH_RESOLVEArgs">
+      <data name="ProtocolHandler" inType="win:Pointer"/>
+      <data name="IInternetProtocolSink" inType="win:Pointer"/>
+      <data name="UDN" inType="win:UnicodeString"/>
+      <data name="ServiceID" inType="win:UnicodeString"/>
+      <data name="ObjectID" inType="win:UnicodeString"/>
+      <data name="IHMECDS" inType="win:Pointer"/>
+     </template>
+     <template tid="PLAYSINGLE_PH_RESOLVEStopArgs">
+      <data name="ProtocolHandler" inType="win:Pointer"/>
+      <data name="IInternetProtocolSink" inType="win:Pointer"/>
+      <data name="UDN" inType="win:UnicodeString"/>
+      <data name="ServiceID" inType="win:UnicodeString"/>
+      <data name="ObjectID" inType="win:UnicodeString"/>
+      <data name="HResult" inType="win:UInt32"/>
+     </template>
+     <template tid="PLAYSINGLE_PH_BROWSECDSStartArgs">
+      <data name="ProtocolHandler" inType="win:Pointer"/>
+      <data name="UDN" inType="win:UnicodeString"/>
+      <data name="ObjectID" inType="win:UnicodeString"/>
+      <data name="IHMECDS" inType="win:Pointer"/>
+      <data name="HResult" inType="win:UInt32"/>
+     </template>
+     <template tid="PLAYSINGLE_PH_BROWSECDSArgs">
+      <data name="ProtocolHandler" inType="win:Pointer"/>
+      <data name="UDN" inType="win:UnicodeString"/>
+      <data name="ObjectID" inType="win:UnicodeString"/>
+      <data name="ASX" inType="win:AnsiString"/>
+      <data name="HResult" inType="win:UInt32"/>
+     </template>
+     <template tid="PLAYCONTAINER_CREATE_PLAYLISTStartArgs">
+      <data name="PlaylistMgr" inType="win:Pointer"/>
+      <data name="URL" inType="win:UnicodeString"/>
+     </template>
+     <template tid="PLAYCONTAINER_CREATE_PLAYLISTStopArgs">
+      <data name="PlaylistMgr" inType="win:Pointer"/>
+      <data name="URL" inType="win:UnicodeString"/>
+      <data name="IWMPPlaylist" inType="win:Pointer"/>
+      <data name="HResult" inType="win:UInt32"/>
+     </template>
+     <template tid="WMPDMR_AVTRANSPORT_ACTIONSStart462Args">
+      <data name="instanceID" inType="win:UInt64"/>
+     </template>
+     <template tid="WMPDMR_AVTRANSPORT_ACTIONSStop463Args">
+      <data name="result" inType="win:UInt32"/>
+      <data name="instanceID" inType="win:UInt64"/>
+      <data name="Track" inType="win:Int64"/>
+      <data name="TrackDuration" inType="win:UnicodeString"/>
+      <data name="MetaData" inType="win:UnicodeString"/>
+      <data name="TrackURI" inType="win:UnicodeString"/>
+     </template>
+     <template tid="CDDVD_LAUNCHStartArgs">
+      <data name="Key" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_mediaplayer" value="mediaplayer"/>
+    <string id="keyword_metadataplugin" value="metadataplugin"/>
+    <string id="keyword_ramcache" value="ramcache"/>
+    <string id="keyword_metadatalifecycle" value="metadatalifecycle"/>
+    <string id="keyword_mls" value="mls"/>
+    <string id="task_LEGACY_EVENT" value="LEGACY_EVENT"/>
+    <string id="opcode_LEGACY_EVENTLOCAL_PLAY_BEGIN" value="LOCAL_PLAY_BEGIN"/>
+    <string id="opcode_LEGACY_EVENTSTREAMING_PLAY_BEGIN" value="STREAMING_PLAY_BEGIN"/>
+    <string id="opcode_LEGACY_EVENTMEDIA_OPEN" value="MEDIA_OPEN"/>
+    <string id="opcode_LEGACY_EVENTPLAYLIST_OPEN_NOMEDIA" value="PLAYLIST_OPEN_NOMEDIA"/>
+    <string id="opcode_LEGACY_EVENTPLAYING" value="PLAYING"/>
+    <string id="opcode_LEGACY_EVENTADD_FILES_LIBRARY_END" value="ADD_FILES_LIBRARY_END"/>
+    <string id="opcode_LEGACY_EVENTDELETESELECTED_END" value="DELETESELECTED_END"/>
+    <string id="opcode_LEGACY_EVENTBEFORENAVIGATE2" value="BEFORENAVIGATE2"/>
+    <string id="opcode_LEGACY_EVENTDOCUMENTCOMPLETE" value="DOCUMENTCOMPLETE"/>
+    <string id="opcode_LEGACY_EVENTTRANSITIONING" value="TRANSITIONING"/>
+    <string id="opcode_LEGACY_EVENTMEDIA_ENDED" value="MEDIA_ENDED"/>
+    <string id="opcode_LEGACY_EVENTERROR_DIALOG" value="ERROR_DIALOG"/>
+    <string id="opcode_LEGACY_EVENTEXCEPTION_THROWN" value="EXCEPTION_THROWN"/>
+    <string id="opcode_LEGACY_EVENTAPP_IDLE" value="APP_IDLE"/>
+    <string id="opcode_LEGACY_EVENTPLAYLIST_POPULATED" value="PLAYLIST_POPULATED"/>
+    <string id="opcode_LEGACY_EVENTOCX_FIRST_PAINT" value="OCX_FIRST_PAINT"/>
+    <string id="opcode_LEGACY_EVENTTREEVIEW_EXPANDED" value="TREEVIEW_EXPANDED"/>
+    <string id="opcode_LEGACY_EVENTFULLSCREEN" value="FULLSCREEN"/>
+    <string id="opcode_LEGACY_EVENTBULKEDITCOMPLETE" value="BULKEDITCOMPLETE"/>
+    <string id="opcode_LEGACY_EVENTNODERENAMECOMPLETE" value="NODERENAMECOMPLETE"/>
+    <string id="opcode_LEGACY_EVENTDROPCOMPLETE" value="DROPCOMPLETE"/>
+    <string id="opcode_LEGACY_EVENTCOLUMNSORTCOMPLETE" value="COLUMNSORTCOMPLETE"/>
+    <string id="opcode_LEGACY_EVENTOCXSETCLIENTSITE" value="OCXSETCLIENTSITE"/>
+    <string id="opcode_LEGACY_EVENTOCXACTIVATED" value="OCXACTIVATED"/>
+    <string id="opcode_LEGACY_EVENTDEVICEINDIVSETCLOCK" value="DEVICEINDIVSETCLOCK"/>
+    <string id="opcode_LEGACY_EVENTSQM_UPLOAD_SIGNAL" value="SQM_UPLOAD_SIGNAL"/>
+    <string id="opcode_LEGACY_EVENTPROC_START" value="PROC_START"/>
+    <string id="opcode_LEGACY_EVENTPROC_END" value="PROC_END"/>
+    <string id="opcode_LEGACY_EVENTDLL_START" value="DLL_START"/>
+    <string id="opcode_LEGACY_EVENTDLL_END" value="DLL_END"/>
+    <string id="opcode_LEGACY_EVENTHME_SERVICEADDED" value="HME_SERVICEADDED"/>
+    <string id="opcode_LEGACY_EVENTPDA_DEVICE_DETECTED" value="PDA_DEVICE_DETECTED"/>
+    <string id="task_TASK_SWITCH" value="TASK_SWITCH"/>
+    <string id="task_APP_NAVIGATE" value="APP_NAVIGATE"/>
+    <string id="task_RIP" value="RIP"/>
+    <string id="task_PDA_TRANSFER" value="PDA_TRANSFER"/>
+    <string id="task_PDA_DISCOVERY" value="PDA_DISCOVERY"/>
+    <string id="task_PDA_TRANSCODE" value="PDA_TRANSCODE"/>
+    <string id="task_PDA_TRANSFER_FILE" value="PDA_TRANSFER_FILE"/>
+    <string id="task_PDA_NEWSYNC" value="PDA_NEWSYNC"/>
+    <string id="task_PDA_DEVICE_ENUMERATION" value="PDA_DEVICE_ENUMERATION"/>
+    <string id="task_SEARCHFORMEDIA" value="SEARCHFORMEDIA"/>
+    <string id="task_HME_INITIALDISCOVERY" value="HME_INITIALDISCOVERY"/>
+    <string id="task_HME_EXECUTEQUERY" value="HME_EXECUTEQUERY"/>
+    <string id="task_HME_BROWSE" value="HME_BROWSE"/>
+    <string id="task_APP_LAUNCH" value="APP_LAUNCH"/>
+    <string id="task_PARSE_CMD_LINE" value="PARSE_CMD_LINE"/>
+    <string id="task_PROCESS_CMD_LINE" value="PROCESS_CMD_LINE"/>
+    <string id="task_APPLY_SKIN" value="APPLY_SKIN"/>
+    <string id="task_RESTORE_FROM_SKIN" value="RESTORE_FROM_SKIN"/>
+    <string id="task_FULLSCREEN" value="FULLSCREEN"/>
+    <string id="opcode_FULLSCREENCLOSEBUTTON_CLICK" value="CLOSEBUTTON_CLICK"/>
+    <string id="opcode_FULLSCREENEXITBUTTON_CLICK" value="EXITBUTTON_CLICK"/>
+    <string id="task_TASKBAR" value="TASKBAR"/>
+    <string id="task_MODE_SWITCHER" value="MODE_SWITCHER"/>
+    <string id="task_DSHOWGRAPH_OPEN" value="DSHOWGRAPH_OPEN"/>
+    <string id="task_FSDKGRAPH_OPEN" value="FSDKGRAPH_OPEN"/>
+    <string id="task_MFGRAPH_OPEN" value="MFGRAPH_OPEN"/>
+    <string id="task_CDBURN" value="CDBURN"/>
+    <string id="opcode_CDBURNCheckpoint_1" value="Checkpoint_1"/>
+    <string id="opcode_CDBURNCheckpoint_2" value="Checkpoint_2"/>
+    <string id="task_PLAYBACK" value="PLAYBACK"/>
+    <string id="opcode_PLAYBACKStateChange" value="StateChange"/>
+    <string id="task_DDPRESET_NORMAL" value="DDPRESET_NORMAL"/>
+    <string id="task_DDPRESET_LAPTOP" value="DDPRESET_LAPTOP"/>
+    <string id="task_DDPRESET_THEATER" value="DDPRESET_THEATER"/>
+    <string id="task_DISCMEDIACHANGE" value="DISCMEDIACHANGE"/>
+    <string id="opcode_DISCMEDIACHANGEAdded" value="Added"/>
+    <string id="opcode_DISCMEDIACHANGERemoved" value="Removed"/>
+    <string id="task_MAINFRAME_DESTROY" value="MAINFRAME_DESTROY"/>
+    <string id="task_FULLSCREEN_LOADINGUI" value="FULLSCREEN_LOADINGUI"/>
+    <string id="task_FULLSCREEN_LOADINGUI_FADE" value="FULLSCREEN_LOADINGUI_FADE"/>
+    <string id="task_DVDGRAPH" value="DVDGRAPH"/>
+    <string id="task_HOVERTRANSPORTS" value="HOVERTRANSPORTS"/>
+    <string id="task_SKINEVENT" value="SKINEVENT"/>
+    <string id="task_SKINPAINT" value="SKINPAINT"/>
+    <string id="task_BASKET" value="BASKET"/>
+    <string id="task_NAVIGATION" value="NAVIGATION"/>
+    <string id="task_LISTVIEW" value="LISTVIEW"/>
+    <string id="task_TREEVIEW" value="TREEVIEW"/>
+    <string id="task_PLAYHISTORY" value="PLAYHISTORY"/>
+    <string id="task_LIBRARYUX" value="LIBRARYUX"/>
+    <string id="task_USAGELOGGER" value="USAGELOGGER"/>
+    <string id="task_WORDWHEEL" value="WORDWHEEL"/>
+    <string id="task_PLAYHISTORYCLICK" value="PLAYHISTORYCLICK"/>
+    <string id="task_RME_CLIENT_RESOLVE_SERVER_URL_REQUEST" value="RME_CLIENT_RESOLVE_SERVER_URL_REQUEST"/>
+    <string id="task_RME_CLIENT_RESOLVE_SERVER_URL_RESPONSE" value="RME_CLIENT_RESOLVE_SERVER_URL_RESPONSE"/>
+    <string id="task_RME_CLIENT_LIBRARY_METADATA_REQUEST" value="RME_CLIENT_LIBRARY_METADATA_REQUEST"/>
+    <string id="task_RME_CLIENT_LIBRARY_METADATA_RESPONSE" value="RME_CLIENT_LIBRARY_METADATA_RESPONSE"/>
+    <string id="task_RME_CLIENT_ESTIMATE_BITRATE_BEGIN" value="RME_CLIENT_ESTIMATE_BITRATE_BEGIN"/>
+    <string id="task_RME_CLIENT_ESTIMATE_BITRATE_END" value="RME_CLIENT_ESTIMATE_BITRATE_END"/>
+    <string id="task_RME_CLIENT_ENUMERATE_LIBRARIES_REQUEST" value="RME_CLIENT_ENUMERATE_LIBRARIES_REQUEST"/>
+    <string id="task_RME_CLIENT_ENUMERATE_LIBRARIES_RESPONSE" value="RME_CLIENT_ENUMERATE_LIBRARIES_RESPONSE"/>
+    <string id="task_HME_SERVER_EXECUTE_QUERY" value="HME_SERVER_EXECUTE_QUERY"/>
+    <string id="task_HME_RME_CLIENT_CONSUME_METADATA_RESPONSE_BEGIN" value="HME_RME_CLIENT_CONSUME_METADATA_RESPONSE_BEGIN"/>
+    <string id="task_HME_RME_CLIENT_CONSUME_METADATA_RESPONSE_END" value="HME_RME_CLIENT_CONSUME_METADATA_RESPONSE_END"/>
+    <string id="task_RME_CLIENT_CURRENT_BANDWIDTH_ESTIMATE" value="RME_CLIENT_CURRENT_BANDWIDTH_ESTIMATE"/>
+    <string id="task_RME_CLIENT_CURRENT_BANDWIDTH" value="RME_CLIENT_CURRENT_BANDWIDTH"/>
+    <string id="task_HME_SERVER_UPDATEOBJECT" value="HME_SERVER_UPDATEOBJECT"/>
+    <string id="task_HME_CLIENT_UPDATE_METADATA" value="HME_CLIENT_UPDATE_METADATA"/>
+    <string id="task_HME_SERVER_ONLINE_OFFLINE" value="HME_SERVER_ONLINE_OFFLINE"/>
+    <string id="task_HME_SERVER_MAGIC_PACKET_SENT" value="HME_SERVER_MAGIC_PACKET_SENT"/>
+    <string id="task_HME_SERVER_WAKEUP_FAILED" value="HME_SERVER_WAKEUP_FAILED"/>
+    <string id="task_RME_CLIENT_LIVE_MACHINE_DISCOVERY" value="RME_CLIENT_LIVE_MACHINE_DISCOVERY"/>
+    <string id="task_RME_CLIENT_ON_LIVE_MACHINE_DISCOVERY" value="RME_CLIENT_ON_LIVE_MACHINE_DISCOVERY"/>
+    <string id="task_HME_EnableSharing" value="HME_EnableSharing"/>
+    <string id="task_HME_UPnPDiscoveryBegin" value="HME_UPnPDiscoveryBegin"/>
+    <string id="task_HME_UPnPDiscoveryInitialComplete" value="HME_UPnPDiscoveryInitialComplete"/>
+    <string id="task_HME_UPnPDiscoveryEnd" value="HME_UPnPDiscoveryEnd"/>
+    <string id="task_HME_UPnPDeviceAddedCallback" value="HME_UPnPDeviceAddedCallback"/>
+    <string id="task_HME_UPnPDeviceRemovedCallback" value="HME_UPnPDeviceRemovedCallback"/>
+    <string id="task_HME_InitCDSThread" value="HME_InitCDSThread"/>
+    <string id="task_HME_InitCDS" value="HME_InitCDS"/>
+    <string id="task_RME_CreateDeviceFinder" value="RME_CreateDeviceFinder"/>
+    <string id="task_HME_ServiceAdded" value="HME_ServiceAdded"/>
+    <string id="task_HME_CDSUPnPInitialize" value="HME_CDSUPnPInitialize"/>
+    <string id="task_HME_ProviderAddToRAMCache" value="HME_ProviderAddToRAMCache"/>
+    <string id="task_HME_ProviderShutdown" value="HME_ProviderShutdown"/>
+    <string id="task_HME_ProviderUpdateMessage" value="HME_ProviderUpdateMessage"/>
+    <string id="task_HME_SERVER_CONTAINER_UPDATE_IDS" value="HME_SERVER_CONTAINER_UPDATE_IDS"/>
+    <string id="task_WMPSyncTranscodeManager" value="WMPSyncTranscodeManager"/>
+    <string id="opcode_WMPSyncTranscodeManagerThetranscodemanagerhasrolledovertotheDShowSource" value="ThetranscodemanagerhasrolledovertotheDShowSource"/>
+    <string id="task_WMPSyncTranscodeMatrix" value="WMPSyncTranscodeMatrix"/>
+    <string id="opcode_WMPSyncTranscodeMatrixUsingtheMP4transcodematrix" value="UsingtheMP4transcodematrix"/>
+    <string id="opcode_WMPSyncTranscodeMatrixUsingtheASFtranscodematrix" value="UsingtheASFtranscodematrix"/>
+    <string id="opcode_WMPSyncTranscodeMatrixUsingtheMP3transcodematrix" value="UsingtheMP3transcodematrix"/>
+    <string id="task_WMPSyncLicenseAcquisition" value="WMPSyncLicenseAcquisition"/>
+    <string id="task_PLAYTOMENU_ENUMERATION" value="PLAYTOMENU_ENUMERATION"/>
+    <string id="task_PLAYTOMENU_OPERATION" value="PLAYTOMENU_OPERATION"/>
+    <string id="task_WMPDMR_AVTRANSPORT_ACTIONS" value="WMPDMR_AVTRANSPORT_ACTIONS"/>
+    <string id="task_WMPDMR_CONNECTION_MANAGER_ACTIONS" value="WMPDMR_CONNECTION_MANAGER_ACTIONS"/>
+    <string id="task_WMPDMR_RENDERING_CONTROL_ACTIONS" value="WMPDMR_RENDERING_CONTROL_ACTIONS"/>
+    <string id="task_STREAMING_MENU_ACTIONS" value="STREAMING_MENU_ACTIONS"/>
+    <string id="task_CONFIGURE_STREAMING_MENU_ACTION" value="CONFIGURE_STREAMING_MENU_ACTION"/>
+    <string id="task_RECEIVE_MEDIA_MENU_ACTION" value="RECEIVE_MEDIA_MENU_ACTION"/>
+    <string id="task_CONFIGURE_RME_MENU_ACTION" value="CONFIGURE_RME_MENU_ACTION"/>
+    <string id="task_STREAMING_MENUITEM_RECEIVEMEDIA_CHECKSTATE" value="STREAMING_MENUITEM_RECEIVEMEDIA_CHECKSTATE"/>
+    <string id="task_STREAMING_MENUITEM_RME_CHECKSTATE_ACTION" value="STREAMING_MENUITEM_RME_CHECKSTATE_ACTION"/>
+    <string id="task_STREAMING_MENUITEM_AUTOALLOWDEVICES_CHECKSTATE" value="STREAMING_MENUITEM_AUTOALLOWDEVICES_CHECKSTATE"/>
+    <string id="task_STREAMING_MENU_RENDER_ACTION" value="STREAMING_MENU_RENDER_ACTION"/>
+    <string id="task_ALLOW_ALL_DEVICES_MENU_ACTION" value="ALLOW_ALL_DEVICES_MENU_ACTION"/>
+    <string id="task_CONFIGURE_STREAMING_HG_MENU_ACTION" value="CONFIGURE_STREAMING_HG_MENU_ACTION"/>
+    <string id="task_THUMBNAIL_TOOLBAR_ADD" value="THUMBNAIL_TOOLBAR_ADD"/>
+    <string id="task_THUMBNAIL_TOOLBAR_BUTTON_CLICKED" value="THUMBNAIL_TOOLBAR_BUTTON_CLICKED"/>
+    <string id="task_THUMBNAIL_TOOLTIP_CHANGED" value="THUMBNAIL_TOOLTIP_CHANGED"/>
+    <string id="task_THUMBNAIL_BITMAPS_INVALIDATED" value="THUMBNAIL_BITMAPS_INVALIDATED"/>
+    <string id="task_THUMBNAIL_BITMAP_UPDATE" value="THUMBNAIL_BITMAP_UPDATE"/>
+    <string id="task_THUMBNAIL_LIVEPREVIEWBITMAP_UPDATE" value="THUMBNAIL_LIVEPREVIEWBITMAP_UPDATE"/>
+    <string id="task_PLAYSINGLE_PH_RESOLVE" value="PLAYSINGLE_PH_RESOLVE"/>
+    <string id="task_PLAYSINGLE_PH_BROWSECDS" value="PLAYSINGLE_PH_BROWSECDS"/>
+    <string id="task_PLAYCONTAINER_CREATE_PLAYLIST" value="PLAYCONTAINER_CREATE_PLAYLIST"/>
+    <string id="task_CDDVD_LAUNCH" value="CDDVD_LAUNCH"/>
+    <string id="opcode_CDDVD_LAUNCHLOCAL_PLAY_BEGIN" value="LOCAL_PLAY_BEGIN"/>
+    <string id="task_CDGRAPH" value="CDGRAPH"/>
+    <string id="task_SKINCLOSE" value="SKINCLOSE"/>
+    <string id="task_APPCLOSE" value="APPCLOSE"/>
+    <string id="task_GROVELER" value="GROVELER"/>
+    <string id="task_METADATAPLUGIN" value="METADATAPLUGIN"/>
+    <string id="task_RAMCACHE" value="RAMCACHE"/>
+    <string id="task_METADATALIFECYCLE" value="METADATALIFECYCLE"/>
+    <string id="task_METADATADOWNLOAD" value="METADATADOWNLOAD"/>
+    <string id="task_MLS" value="MLS"/>
+    <string id="task_PLAYLIST" value="PLAYLIST"/>
+    <string id="task_RADIO" value="RADIO"/>
+    <string id="opcode_RADIOAdded" value="Added"/>
+    <string id="opcode_RADIORemoved" value="Removed"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

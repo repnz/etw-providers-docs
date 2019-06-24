@@ -1,0 +1,63 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Storage-Tiering-IoHeat" guid="{990c55fc-2662-47f6-b7d7-eb3c027cb13f}" resourceFileName="Microsoft-Windows-Storage-Tiering-IoHeat" messageFileName="Microsoft-Windows-Storage-Tiering-IoHeat" symbol="MicrosoftWindowsStorageTieringIoHeat" source="Xml" >
+    <keywords>
+     <keyword name="STORAGE_TIERING_KEYWORD_INIT" message="$(string.keyword_STORAGE_TIERING_KEYWORD_INIT)" mask="0x10"/>
+     <keyword name="STORAGE_TIERING_KEYWORD_DATA" message="$(string.keyword_STORAGE_TIERING_KEYWORD_DATA)" mask="0x20"/>
+     <keyword name="STORAGE_TIERING_KEYWORD_READ" message="$(string.keyword_STORAGE_TIERING_KEYWORD_READ)" mask="0x40"/>
+     <keyword name="STORAGE_TIERING_KEYWORD_WRITE" message="$(string.keyword_STORAGE_TIERING_KEYWORD_WRITE)" mask="0x80"/>
+     <keyword name="STORAGE_TIERING_KEYWORD_DELETE" message="$(string.keyword_STORAGE_TIERING_KEYWORD_DELETE)" mask="0x100"/>
+     <keyword name="STORAGE_TIERING_KEYWORD_TIERMOVE" message="$(string.keyword_STORAGE_TIERING_KEYWORD_TIERMOVE)" mask="0x200"/>
+    </keywords>
+    <tasks>
+     <task name="HeatInit" message="$(string.task_HeatInit)" value="1"/>
+     <task name="MeasureHeat" message="$(string.task_MeasureHeat)" value="2"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="HeatInit" version="0" task="HeatInit" level="win:Informational" keywords="STORAGE_TIERING_KEYWORD_INIT" template="HeatInitArgs"/>
+     <event value="2" symbol="MeasureHeat" version="0" task="MeasureHeat" level="win:Informational" keywords="STORAGE_TIERING_KEYWORD_DATA STORAGE_TIERING_KEYWORD_READ" template="MeasureHeatArgs"/>
+     <event value="3" symbol="MeasureHeat3" version="0" task="MeasureHeat" level="win:Informational" keywords="STORAGE_TIERING_KEYWORD_DATA STORAGE_TIERING_KEYWORD_WRITE" template="MeasureHeatArgs"/>
+     <event value="4" symbol="MeasureHeat4" version="0" task="MeasureHeat" level="win:Informational" keywords="STORAGE_TIERING_KEYWORD_DATA STORAGE_TIERING_KEYWORD_DELETE" template="MeasureHeatArgs"/>
+     <event value="5" symbol="MeasureHeat5" version="0" task="MeasureHeat" level="win:Informational" keywords="STORAGE_TIERING_KEYWORD_DATA STORAGE_TIERING_KEYWORD_TIERMOVE" template="MeasureHeat5Args"/>
+    </events>
+    <templates>
+     <template tid="HeatInitArgs">
+      <data name="VolumeGuid" inType="win:GUID"/>
+      <data name="VolumeIdHash" inType="win:UInt32"/>
+     </template>
+     <template tid="MeasureHeatArgs">
+      <data name="FileIDLower" inType="win:UInt64"/>
+      <data name="FileIDUpper" inType="win:UInt64"/>
+      <data name="Offset" inType="win:UInt64"/>
+      <data name="Length" inType="win:UInt32"/>
+      <data name="VolumeIdHash" inType="win:UInt32"/>
+     </template>
+     <template tid="MeasureHeat5Args">
+      <data name="FileIDLower" inType="win:UInt64"/>
+      <data name="FileIDUpper" inType="win:UInt64"/>
+      <data name="Offset" inType="win:UInt64"/>
+      <data name="Length" inType="win:UInt32"/>
+      <data name="Source" inType="win:UInt32"/>
+      <data name="Destination" inType="win:UInt32"/>
+      <data name="VolumeIdHash" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_STORAGE_TIERING_KEYWORD_INIT" value="STORAGE_TIERING_KEYWORD_INIT"/>
+    <string id="keyword_STORAGE_TIERING_KEYWORD_DATA" value="STORAGE_TIERING_KEYWORD_DATA"/>
+    <string id="keyword_STORAGE_TIERING_KEYWORD_READ" value="STORAGE_TIERING_KEYWORD_READ"/>
+    <string id="keyword_STORAGE_TIERING_KEYWORD_WRITE" value="STORAGE_TIERING_KEYWORD_WRITE"/>
+    <string id="keyword_STORAGE_TIERING_KEYWORD_DELETE" value="STORAGE_TIERING_KEYWORD_DELETE"/>
+    <string id="keyword_STORAGE_TIERING_KEYWORD_TIERMOVE" value="STORAGE_TIERING_KEYWORD_TIERMOVE"/>
+    <string id="task_HeatInit" value="HeatInit"/>
+    <string id="task_MeasureHeat" value="MeasureHeat"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,102 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-WiFiHotspotService" guid="{814182fe-58f7-11e1-853c-78e7d1ca7337}" resourceFileName="Microsoft-Windows-WiFiHotspotService" messageFileName="Microsoft-Windows-WiFiHotspotService" symbol="MicrosoftWindowsWiFiHotspotService" source="Xml" >
+    <keywords>
+     <keyword name="Error" message="$(string.keyword_Error)" mask="0x1"/>
+     <keyword name="Performance" message="$(string.keyword_Performance)" mask="0x2"/>
+     <keyword name="APIs" message="$(string.keyword_APIs)" mask="0x4"/>
+     <keyword name="Status" message="$(string.keyword_Status)" mask="0x8"/>
+     <keyword name="Verbose" message="$(string.keyword_Verbose)" mask="0x10"/>
+     <keyword name="MyKeyword" message="$(string.keyword_MyKeyword)" mask="0x4000"/>
+     <keyword name="Memory" message="$(string.keyword_Memory)" mask="0x8000"/>
+    </keywords>
+    <tasks>
+     <task name="HotspotService" message="$(string.task_HotspotService)" value="1"/>
+     <task name="HotspotUtils" message="$(string.task_HotspotUtils)" value="2"/>
+    </tasks>
+    <events>
+     <event value="1000" symbol="HotspotServiceStart" version="0" task="HotspotService" opcode="win:Start" level="win:Informational" keywords="Performance"/>
+     <event value="1001" symbol="HotspotServiceStop" version="0" task="HotspotService" opcode="win:Stop" level="win:Informational" keywords="Performance"/>
+     <event value="1002" symbol="HotspotService" version="0" task="HotspotService" level="win:Informational" keywords="Performance"/>
+     <event value="1003" symbol="HotspotService1003" version="0" task="HotspotService" level="win:Informational" keywords="Error" template="HotspotService1003Args"/>
+     <event value="1004" symbol="HotspotService1004" version="0" task="HotspotService" level="win:Informational" keywords="Error" template="HotspotService1003Args"/>
+     <event value="1005" symbol="HotspotService1005" version="0" task="HotspotService" level="win:Informational" keywords="Performance" template="HotspotService1005Args"/>
+     <event value="1006" symbol="HotspotService1006" version="0" task="HotspotService" level="win:Informational" keywords="Error" template="HotspotService1003Args"/>
+     <event value="1007" symbol="HotspotService1007" version="0" task="HotspotService" level="win:Informational" keywords="Status" template="HotspotService1003Args"/>
+     <event value="1008" symbol="HotspotService1008" version="0" task="HotspotService" level="win:Informational" keywords="Error" template="HotspotService1003Args"/>
+     <event value="1009" symbol="HotspotService1009" version="0" task="HotspotService" level="win:Informational" keywords="Status" template="HotspotService1003Args"/>
+     <event value="1010" symbol="HotspotService1010" version="0" task="HotspotService" level="win:Informational" keywords="Error" template="HotspotService1003Args"/>
+     <event value="1011" symbol="HotspotService1011" version="0" task="HotspotService" level="win:Informational" keywords="Status" template="HotspotService1003Args"/>
+     <event value="1012" symbol="HotspotService1012" version="0" task="HotspotService" level="win:Informational" keywords="Error" template="HotspotService1003Args"/>
+     <event value="2000" symbol="HotspotService2000" version="0" task="HotspotService" level="win:Informational" keywords="Error" template="HotspotService2000Args"/>
+     <event value="3000" symbol="HotspotUtils" version="0" task="HotspotUtils" level="win:Informational" keywords="Error" template="HotspotUtilsArgs"/>
+     <event value="3001" symbol="HotspotUtils3001" version="0" task="HotspotUtils" level="win:Informational" keywords="Memory" template="HotspotUtils3001Args"/>
+     <event value="3002" symbol="HotspotUtils3002" version="0" task="HotspotUtils" level="win:Informational" keywords="Memory" template="HotspotUtils3002Args"/>
+     <event value="3003" symbol="HotspotUtils3003" version="0" task="HotspotUtils" level="win:Informational" keywords="Error" template="HotspotService1003Args"/>
+     <event value="3004" symbol="HotspotUtils3004" version="0" task="HotspotUtils" level="win:Informational" keywords="Error" template="HotspotService1003Args"/>
+     <event value="4000" symbol="HotspotService4000" version="0" task="HotspotService" level="win:Informational" keywords="Status" template="HotspotService4000Args"/>
+     <event value="4001" symbol="HotspotService4001" version="0" task="HotspotService" level="win:Informational" keywords="Status" template="HotspotService1003Args"/>
+     <event value="4002" symbol="HotspotService4002" version="0" task="HotspotService" level="win:Informational" keywords="Status" template="HotspotService1003Args"/>
+     <event value="4003" symbol="HotspotService4003" version="0" task="HotspotService" level="win:Informational" keywords="Status" template="HotspotService4003Args"/>
+     <event value="4004" symbol="HotspotService4004" version="0" task="HotspotService" level="win:Informational" keywords="Status" template="HotspotService1003Args"/>
+    </events>
+    <templates>
+     <template tid="HotspotService1003Args">
+      <data name="uString" inType="win:UnicodeString"/>
+      <data name="Dword" inType="win:UInt32"/>
+     </template>
+     <template tid="HotspotService1005Args">
+      <data name="Ptr1" inType="win:Pointer"/>
+      <data name="Ptr2" inType="win:Pointer"/>
+     </template>
+     <template tid="HotspotService2000Args">
+      <data name="uString1" inType="win:UnicodeString"/>
+      <data name="uString2" inType="win:UnicodeString"/>
+      <data name="Dword1" inType="win:UInt32"/>
+      <data name="Dword2" inType="win:UInt32"/>
+      <data name="Dword3" inType="win:UInt32"/>
+     </template>
+     <template tid="HotspotUtilsArgs">
+      <data name="Dword1" inType="win:UInt32"/>
+      <data name="Dword2" inType="win:UInt32"/>
+     </template>
+     <template tid="HotspotUtils3001Args">
+      <data name="Ptr" inType="win:Pointer"/>
+      <data name="Dword" inType="win:UInt32"/>
+     </template>
+     <template tid="HotspotUtils3002Args">
+      <data name="Ptr" inType="win:Pointer"/>
+     </template>
+     <template tid="HotspotService4000Args">
+      <data name="aString" inType="win:AnsiString"/>
+     </template>
+     <template tid="HotspotService4003Args">
+      <data name="Dword1" inType="win:UInt32"/>
+      <data name="Dword2" inType="win:UInt32"/>
+      <data name="aString1" inType="win:AnsiString"/>
+      <data name="Dword3" inType="win:UInt32"/>
+      <data name="Dword4" inType="win:UInt32"/>
+      <data name="Dword5" inType="win:UInt32"/>
+      <data name="uString1" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Error" value="Error"/>
+    <string id="keyword_Performance" value="Performance"/>
+    <string id="keyword_APIs" value="APIs"/>
+    <string id="keyword_Status" value="Status"/>
+    <string id="keyword_Verbose" value="Verbose"/>
+    <string id="keyword_MyKeyword" value="MyKeyword"/>
+    <string id="keyword_Memory" value="Memory"/>
+    <string id="task_HotspotService" value="HotspotService"/>
+    <string id="task_HotspotUtils" value="HotspotUtils"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

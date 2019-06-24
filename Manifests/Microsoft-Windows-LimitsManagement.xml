@@ -1,0 +1,157 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-LimitsManagement" guid="{73aa0094-facb-4aeb-bd1d-a7b98dd5c799}" resourceFileName="Microsoft-Windows-LimitsManagement" messageFileName="Microsoft-Windows-LimitsManagement" symbol="MicrosoftWindowsLimitsManagement" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="MonitorEnumerated" message="$(string.task_MonitorEnumerated)" value="1"/>
+     <task name="MonitorRundown" message="$(string.task_MonitorRundown)" value="2"/>
+     <task name="MonitorValueChange" message="$(string.task_MonitorValueChange)" value="3"/>
+     <task name="MonitorMitigatingChange" message="$(string.task_MonitorMitigatingChange)" value="4"/>
+     <task name="MonitorThresholdChange" message="$(string.task_MonitorThresholdChange)" value="5"/>
+     <task name="MonitorRemoved" message="$(string.task_MonitorRemoved)" value="6"/>
+     <task name="MitigationEvent" message="$(string.task_MitigationEvent)" value="7"/>
+     <task name="PolicyEnumerated" message="$(string.task_PolicyEnumerated)" value="8"/>
+     <task name="PolicyRundown" message="$(string.task_PolicyRundown)" value="9"/>
+     <task name="PolicyRemoved" message="$(string.task_PolicyRemoved)" value="10"/>
+     <task name="MitigationEnumerated" message="$(string.task_MitigationEnumerated)" value="11"/>
+     <task name="MitigationRundown" message="$(string.task_MitigationRundown)" value="12"/>
+     <task name="MitigationValueChange" message="$(string.task_MitigationValueChange)" value="13"/>
+     <task name="MitigationRemoved" message="$(string.task_MitigationRemoved)" value="14"/>
+    </tasks>
+    <maps>
+     <valueMap name="map_monitor_type">
+      <map value="0x0" message="$(string.map_map_monitor_typeTemperature)"/>
+      <map value="0x1" message="$(string.map_map_monitor_typeCurrent)"/>
+      <map value="0x2" message="$(string.map_map_monitor_typeVoltage)"/>
+      <map value="0x3" message="$(string.map_map_monitor_typePower)"/>
+      <map value="0xffffffff" message="$(string.map_map_monitor_typeUnspecified)"/>
+     </valueMap>
+     <valueMap name="map_mitigation_event_type">
+      <map value="0x0" message="$(string.map_map_mitigation_event_typeShutdown)"/>
+      <map value="0x1" message="$(string.map_map_mitigation_event_typeHibernate)"/>
+      <map value="0xffffffff" message="$(string.map_map_mitigation_event_typeUnspecified)"/>
+     </valueMap>
+     <valueMap name="map_mitigation_type">
+      <map value="0x0" message="$(string.map_map_mitigation_typePassive)"/>
+      <map value="0x1" message="$(string.map_map_mitigation_typeActive)"/>
+      <map value="0xffffffff" message="$(string.map_map_mitigation_typeUnspecified)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="MonitorEnumerated" version="0" task="MonitorEnumerated" level="win:Informational" template="MonitorEnumeratedArgs"/>
+     <event value="2" symbol="MonitorRundown" version="0" task="MonitorRundown" level="win:Informational" template="MonitorRundownArgs"/>
+     <event value="3" symbol="MonitorValueChange" version="0" task="MonitorValueChange" level="win:Informational" template="MonitorValueChangeArgs"/>
+     <event value="4" symbol="MonitorMitigatingChange" version="0" task="MonitorMitigatingChange" level="win:Informational" template="MonitorMitigatingChangeArgs"/>
+     <event value="5" symbol="MonitorThresholdChange" version="0" task="MonitorThresholdChange" level="win:Informational" template="MonitorThresholdChangeArgs"/>
+     <event value="6" symbol="MonitorRemoved" version="0" task="MonitorRemoved" level="win:Informational" template="MonitorRemovedArgs"/>
+     <event value="7" symbol="MitigationEvent" version="0" task="MitigationEvent" level="win:Informational" template="MitigationEventArgs"/>
+     <event value="8" symbol="PolicyEnumerated" version="0" task="PolicyEnumerated" level="win:Informational" template="PolicyEnumeratedArgs"/>
+     <event value="9" symbol="PolicyRundown" version="0" task="PolicyRundown" level="win:Informational" template="PolicyEnumeratedArgs"/>
+     <event value="10" symbol="PolicyRemoved" version="0" task="PolicyRemoved" level="win:Informational" template="MonitorRemovedArgs"/>
+     <event value="11" symbol="MitigationEnumerated" version="0" task="MitigationEnumerated" level="win:Informational" template="MitigationEnumeratedArgs"/>
+     <event value="12" symbol="MitigationRundown" version="0" task="MitigationRundown" level="win:Informational" template="MitigationRundownArgs"/>
+     <event value="13" symbol="MitigationValueChange" version="0" task="MitigationValueChange" level="win:Informational" template="MonitorValueChangeArgs"/>
+     <event value="14" symbol="MitigationRemoved" version="0" task="MitigationRemoved" level="win:Informational" template="MonitorRemovedArgs"/>
+    </events>
+    <templates>
+     <template tid="MonitorEnumeratedArgs">
+      <data name="Token" inType="win:UInt64"/>
+      <data name="Type" inType="win:UInt32" map="map_monitor_type"/>
+      <data name="LowerThreshold" inType="win:UInt32"/>
+      <data name="UpperThreshold" inType="win:UInt32"/>
+      <data name="Value" inType="win:UInt32"/>
+      <data name="Mitigating" inType="win:Boolean"/>
+      <data name="Name" inType="win:UnicodeString"/>
+     </template>
+     <template tid="MonitorRundownArgs">
+      <data name="Token" inType="win:UInt64"/>
+      <data name="Type" inType="win:UInt32"/>
+      <data name="LowerThreshold" inType="win:UInt32"/>
+      <data name="UpperThreshold" inType="win:UInt32"/>
+      <data name="Value" inType="win:UInt32"/>
+      <data name="Mitigating" inType="win:Boolean"/>
+      <data name="Name" inType="win:UnicodeString"/>
+     </template>
+     <template tid="MonitorValueChangeArgs">
+      <data name="Token" inType="win:UInt64"/>
+      <data name="Value" inType="win:UInt32"/>
+     </template>
+     <template tid="MonitorMitigatingChangeArgs">
+      <data name="Token" inType="win:UInt64"/>
+      <data name="Mitigating" inType="win:Boolean"/>
+     </template>
+     <template tid="MonitorThresholdChangeArgs">
+      <data name="Token" inType="win:UInt64"/>
+      <data name="LowerThreshold" inType="win:UInt32"/>
+      <data name="UpperThreshold" inType="win:UInt32"/>
+     </template>
+     <template tid="MonitorRemovedArgs">
+      <data name="Token" inType="win:UInt64"/>
+     </template>
+     <template tid="MitigationEventArgs">
+      <data name="Event" inType="win:UInt32" map="map_mitigation_event_type"/>
+      <data name="Type" inType="win:UInt32"/>
+      <data name="LowerThreshold" inType="win:UInt32"/>
+      <data name="UpperThreshold" inType="win:UInt32"/>
+      <data name="Value" inType="win:UInt32"/>
+      <data name="Initiator" inType="win:UnicodeString"/>
+     </template>
+     <template tid="PolicyEnumeratedArgs">
+      <data name="Token" inType="win:UInt64"/>
+      <data name="Name" inType="win:UnicodeString"/>
+      <data name="Parameters" inType="win:UnicodeString"/>
+     </template>
+     <template tid="MitigationEnumeratedArgs">
+      <data name="Token" inType="win:UInt64"/>
+      <data name="Type" inType="win:UInt32" map="map_mitigation_type"/>
+      <data name="DisengagedValue" inType="win:UInt32"/>
+      <data name="FullyEngagedValue" inType="win:UInt32"/>
+      <data name="Value" inType="win:UInt32"/>
+      <data name="Name" inType="win:UnicodeString"/>
+     </template>
+     <template tid="MitigationRundownArgs">
+      <data name="Token" inType="win:UInt64"/>
+      <data name="Type" inType="win:UInt32"/>
+      <data name="DisengagedValue" inType="win:UInt32"/>
+      <data name="FullyEngagedValue" inType="win:UInt32"/>
+      <data name="Value" inType="win:UInt32"/>
+      <data name="Name" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_MonitorEnumerated" value="MonitorEnumerated"/>
+    <string id="task_MonitorRundown" value="MonitorRundown"/>
+    <string id="task_MonitorValueChange" value="MonitorValueChange"/>
+    <string id="task_MonitorMitigatingChange" value="MonitorMitigatingChange"/>
+    <string id="task_MonitorThresholdChange" value="MonitorThresholdChange"/>
+    <string id="task_MonitorRemoved" value="MonitorRemoved"/>
+    <string id="task_MitigationEvent" value="MitigationEvent"/>
+    <string id="task_PolicyEnumerated" value="PolicyEnumerated"/>
+    <string id="task_PolicyRundown" value="PolicyRundown"/>
+    <string id="task_PolicyRemoved" value="PolicyRemoved"/>
+    <string id="task_MitigationEnumerated" value="MitigationEnumerated"/>
+    <string id="task_MitigationRundown" value="MitigationRundown"/>
+    <string id="task_MitigationValueChange" value="MitigationValueChange"/>
+    <string id="task_MitigationRemoved" value="MitigationRemoved"/>
+    <string id="map_map_monitor_typeTemperature" value="Temperature"/>
+    <string id="map_map_monitor_typeCurrent" value="Current"/>
+    <string id="map_map_monitor_typeVoltage" value="Voltage"/>
+    <string id="map_map_monitor_typePower" value="Power"/>
+    <string id="map_map_monitor_typeUnspecified" value="Unspecified"/>
+    <string id="map_map_mitigation_event_typeShutdown" value="Shutdown"/>
+    <string id="map_map_mitigation_event_typeHibernate" value="Hibernate"/>
+    <string id="map_map_mitigation_event_typeUnspecified" value="Unspecified"/>
+    <string id="map_map_mitigation_typePassive" value="Passive"/>
+    <string id="map_map_mitigation_typeActive" value="Active"/>
+    <string id="map_map_mitigation_typeUnspecified" value="Unspecified"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,75 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-D3D10Level9" guid="{7e7d3382-023c-43cb-95d2-6f0ca6d70381}" resourceFileName="Microsoft-Windows-D3D10Level9" messageFileName="Microsoft-Windows-D3D10Level9" symbol="MicrosoftWindowsD3D10Level9" source="Xml" >
+    <keywords>
+     <keyword name="Resources" message="$(string.keyword_Resources)" mask="0x1"/>
+     <keyword name="Devices" message="$(string.keyword_Devices)" mask="0x2"/>
+    </keywords>
+    <tasks>
+     <task name="UnderlyingResource" message="$(string.task_UnderlyingResource)" value="1"/>
+     <task name="UMD9CreateDevice" message="$(string.task_UMD9CreateDevice)" value="2"/>
+     <task name="UMD9PostCreateDevice" message="$(string.task_UMD9PostCreateDevice)" value="3"/>
+     <task name="UMD9ReOpenAdapter" message="$(string.task_UMD9ReOpenAdapter)" value="4"/>
+    </tasks>
+    <maps>
+     <valueMap name="D3D10Level9Usage">
+      <map value="0x0" message="$(string.map_D3D10Level9UsageRuntimeResource)"/>
+      <map value="0x1" message="$(string.map_D3D10Level9UsageTemporary)"/>
+      <map value="0x2" message="$(string.map_D3D10Level9UsageQuadVertices)"/>
+      <map value="0x3" message="$(string.map_D3D10Level9UsageQuadConstants)"/>
+      <map value="0x4" message="$(string.map_D3D10Level9UsageDummyTarget)"/>
+      <map value="0x5" message="$(string.map_D3D10Level9UsageScratch)"/>
+      <map value="0x6" message="$(string.map_D3D10Level9UsagePSGPBuffer)"/>
+      <map value="0x7" message="$(string.map_D3D10Level9UsageDeswizzle)"/>
+      <map value="0x8" message="$(string.map_D3D10Level9UsageVideoScratch)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="UnderlyingResourceStart" version="0" task="UnderlyingResource" opcode="win:Start" level="win:Always" keywords="Resources" template="UnderlyingResourceStartArgs"/>
+     <event value="2" symbol="UnderlyingResourceStop" version="0" task="UnderlyingResource" opcode="win:Stop" level="win:Always" keywords="Resources" template="UnderlyingResourceStopArgs"/>
+     <event value="3" symbol="UnderlyingResourceDCStart" version="0" task="UnderlyingResource" opcode="win:DC_Start" level="win:Always" keywords="Resources" template="UnderlyingResourceStopArgs"/>
+     <event value="4" symbol="UMD9CreateDeviceStart" version="0" task="UMD9CreateDevice" opcode="win:Start" level="win:Always" keywords="Devices"/>
+     <event value="5" symbol="UMD9CreateDeviceStop" version="0" task="UMD9CreateDevice" opcode="win:Stop" level="win:Always" keywords="Devices"/>
+     <event value="6" symbol="UMD9PostCreateDeviceStart" version="0" task="UMD9PostCreateDevice" opcode="win:Start" level="win:Always" keywords="Devices"/>
+     <event value="7" symbol="UMD9PostCreateDeviceStop" version="0" task="UMD9PostCreateDevice" opcode="win:Stop" level="win:Always" keywords="Devices"/>
+     <event value="8" symbol="UMD9ReOpenAdapterStart" version="0" task="UMD9ReOpenAdapter" opcode="win:Start" level="win:Always" keywords="Devices"/>
+     <event value="9" symbol="UMD9ReOpenAdapterStop" version="0" task="UMD9ReOpenAdapter" opcode="win:Stop" level="win:Always" keywords="Devices"/>
+    </events>
+    <templates>
+     <template tid="UnderlyingResourceStartArgs">
+      <data name="D3D10Level9Resource" inType="win:Pointer"/>
+      <data name="m_hDX9Resource" inType="win:Pointer"/>
+      <data name="Usage" inType="win:UInt32" map="D3D10Level9Usage"/>
+     </template>
+     <template tid="UnderlyingResourceStopArgs">
+      <data name="D3D10Level9Resource" inType="win:Pointer"/>
+      <data name="m_hDX9Resource" inType="win:Pointer"/>
+      <data name="Usage" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Resources" value="Resources"/>
+    <string id="keyword_Devices" value="Devices"/>
+    <string id="task_UnderlyingResource" value="UnderlyingResource"/>
+    <string id="task_UMD9CreateDevice" value="UMD9CreateDevice"/>
+    <string id="task_UMD9PostCreateDevice" value="UMD9PostCreateDevice"/>
+    <string id="task_UMD9ReOpenAdapter" value="UMD9ReOpenAdapter"/>
+    <string id="map_D3D10Level9UsageRuntimeResource" value="RuntimeResource"/>
+    <string id="map_D3D10Level9UsageTemporary" value="Temporary"/>
+    <string id="map_D3D10Level9UsageQuadVertices" value="QuadVertices"/>
+    <string id="map_D3D10Level9UsageQuadConstants" value="QuadConstants"/>
+    <string id="map_D3D10Level9UsageDummyTarget" value="DummyTarget"/>
+    <string id="map_D3D10Level9UsageScratch" value="Scratch"/>
+    <string id="map_D3D10Level9UsagePSGPBuffer" value="PSGPBuffer"/>
+    <string id="map_D3D10Level9UsageDeswizzle" value="Deswizzle"/>
+    <string id="map_D3D10Level9UsageVideoScratch" value="VideoScratch"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

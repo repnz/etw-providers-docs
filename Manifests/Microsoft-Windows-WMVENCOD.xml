@@ -1,0 +1,98 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-WMVENCOD" guid="{313b0545-bf9c-492e-9173-8de4863b8573}" resourceFileName="Microsoft-Windows-WMVENCOD" messageFileName="Microsoft-Windows-WMVENCOD" symbol="MicrosoftWindowsWMVENCOD" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="VC1ENC_ACCEPTINPUT" message="$(string.task_VC1ENC_ACCEPTINPUT)" value="1"/>
+     <task name="VC1ENC_PRODUCEOUTPUT" message="$(string.task_VC1ENC_PRODUCEOUTPUT)" value="2"/>
+     <task name="VC1ENC_SEQ_INFO" message="$(string.task_VC1ENC_SEQ_INFO)" value="3"/>
+     <task name="VC1ENC_FRAME_BUFFERLEVEL_INFO" message="$(string.task_VC1ENC_FRAME_BUFFERLEVEL_INFO)" value="4"/>
+     <task name="VC1ENC_FRAME_NOOFREENCODE_INFO" message="$(string.task_VC1ENC_FRAME_NOOFREENCODE_INFO)" value="5"/>
+     <task name="VC1ENC_FRAME_DROP_INFO" message="$(string.task_VC1ENC_FRAME_DROP_INFO)" value="6"/>
+     <task name="VC1ENC_FRAME_MODECOST_INFO" message="$(string.task_VC1ENC_FRAME_MODECOST_INFO)" value="7"/>
+     <task name="VC1ENC_FRAME_PTOI_INFO" message="$(string.task_VC1ENC_FRAME_PTOI_INFO)" value="8"/>
+     <task name="VC1ENC_ADAPTIVE_RESCHANGE" message="$(string.task_VC1ENC_ADAPTIVE_RESCHANGE)" value="9"/>
+     <task name="VC1ENC_ADAPTIVE_AVAILBANDWIDTH" message="$(string.task_VC1ENC_ADAPTIVE_AVAILBANDWIDTH)" value="10"/>
+     <task name="VC1ENC_ADAPTIVE_VIDEOBITRATE" message="$(string.task_VC1ENC_ADAPTIVE_VIDEOBITRATE)" value="11"/>
+    </tasks>
+    <events>
+     <event value="0" symbol="VC1ENC_ACCEPTINPUTStart" version="0" task="VC1ENC_ACCEPTINPUT" opcode="win:Start" level="win:Informational" template="VC1ENC_ACCEPTINPUTStartArgs"/>
+     <event value="1" symbol="VC1ENC_ACCEPTINPUTStop" version="0" task="VC1ENC_ACCEPTINPUT" opcode="win:Stop" level="win:Informational" template="VC1ENC_ACCEPTINPUTStartArgs"/>
+     <event value="2" symbol="VC1ENC_PRODUCEOUTPUTStart" version="0" task="VC1ENC_PRODUCEOUTPUT" opcode="win:Start" level="win:Informational" template="VC1ENC_ACCEPTINPUTStartArgs"/>
+     <event value="3" symbol="VC1ENC_PRODUCEOUTPUTStop" version="0" task="VC1ENC_PRODUCEOUTPUT" opcode="win:Stop" level="win:Informational" template="VC1ENC_ACCEPTINPUTStartArgs"/>
+     <event value="4" symbol="VC1ENC_SEQ_INFO" version="0" task="VC1ENC_SEQ_INFO" level="win:Verbose" template="VC1ENC_SEQ_INFOArgs"/>
+     <event value="5" symbol="VC1ENC_FRAME_BUFFERLEVEL_INFO" version="0" task="VC1ENC_FRAME_BUFFERLEVEL_INFO" level="win:Verbose" template="VC1ENC_FRAME_BUFFERLEVEL_INFOArgs"/>
+     <event value="6" symbol="VC1ENC_FRAME_NOOFREENCODE_INFO" version="0" task="VC1ENC_FRAME_NOOFREENCODE_INFO" level="win:Verbose" template="VC1ENC_FRAME_NOOFREENCODE_INFOArgs"/>
+     <event value="7" symbol="VC1ENC_FRAME_DROP_INFO" version="0" task="VC1ENC_FRAME_DROP_INFO" level="win:Verbose" template="VC1ENC_FRAME_DROP_INFOArgs"/>
+     <event value="8" symbol="VC1ENC_FRAME_MODECOST_INFO" version="0" task="VC1ENC_FRAME_MODECOST_INFO" level="win:Verbose" template="VC1ENC_FRAME_MODECOST_INFOArgs"/>
+     <event value="9" symbol="VC1ENC_FRAME_PTOI_INFO" version="0" task="VC1ENC_FRAME_PTOI_INFO" level="win:Verbose" template="VC1ENC_FRAME_DROP_INFOArgs"/>
+     <event value="10" symbol="VC1ENC_ADAPTIVE_RESCHANGE" version="0" task="VC1ENC_ADAPTIVE_RESCHANGE" level="win:Verbose" template="VC1ENC_ADAPTIVE_RESCHANGEArgs"/>
+     <event value="11" symbol="VC1ENC_ADAPTIVE_AVAILBANDWIDTH" version="0" task="VC1ENC_ADAPTIVE_AVAILBANDWIDTH" level="win:Verbose" template="VC1ENC_ADAPTIVE_AVAILBANDWIDTHArgs"/>
+     <event value="12" symbol="VC1ENC_ADAPTIVE_VIDEOBITRATE" version="0" task="VC1ENC_ADAPTIVE_VIDEOBITRATE" level="win:Verbose" template="VC1ENC_ADAPTIVE_AVAILBANDWIDTHArgs"/>
+    </events>
+    <templates>
+     <template tid="VC1ENC_ACCEPTINPUTStartArgs">
+      <data name="SampleTime" inType="win:Int64"/>
+      <data name="SamplePointer" inType="win:Pointer"/>
+      <data name="EncoderInstance" inType="win:Pointer"/>
+     </template>
+     <template tid="VC1ENC_SEQ_INFOArgs">
+      <data name="CodingMode" inType="win:Int32"/>
+      <data name="InterlaceCodingType" inType="win:UInt32"/>
+      <data name="EncoderInstance" inType="win:Pointer"/>
+     </template>
+     <template tid="VC1ENC_FRAME_BUFFERLEVEL_INFOArgs">
+      <data name="BufferLevelInfo" inType="win:Int32"/>
+      <data name="SampleTime" inType="win:Int64"/>
+      <data name="EncoderInstance" inType="win:Pointer"/>
+     </template>
+     <template tid="VC1ENC_FRAME_NOOFREENCODE_INFOArgs">
+      <data name="NumberOfReencode" inType="win:Int32"/>
+      <data name="SampleTime" inType="win:Int64"/>
+      <data name="EncoderInstance" inType="win:Pointer"/>
+     </template>
+     <template tid="VC1ENC_FRAME_DROP_INFOArgs">
+      <data name="SampleTime" inType="win:Int64"/>
+      <data name="EncoderInstance" inType="win:Pointer"/>
+     </template>
+     <template tid="VC1ENC_FRAME_MODECOST_INFOArgs">
+      <data name="MixedMVCost" inType="win:Double"/>
+      <data name="OneMVQPBicubicCost" inType="win:Double"/>
+      <data name="OneMVHPBicubicCost" inType="win:Double"/>
+      <data name="OneMVHPBilinearCost" inType="win:Double"/>
+      <data name="IntraCost" inType="win:Double"/>
+      <data name="SampleTime" inType="win:Int64"/>
+      <data name="EncoderInstance" inType="win:Pointer"/>
+     </template>
+     <template tid="VC1ENC_ADAPTIVE_RESCHANGEArgs">
+      <data name="Resolution" inType="win:UInt32"/>
+      <data name="EncoderInstance" inType="win:Pointer"/>
+     </template>
+     <template tid="VC1ENC_ADAPTIVE_AVAILBANDWIDTHArgs">
+      <data name="Bitrate" inType="win:UInt32"/>
+      <data name="EncoderInstance" inType="win:Pointer"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_VC1ENC_ACCEPTINPUT" value="VC1ENC_ACCEPTINPUT"/>
+    <string id="task_VC1ENC_PRODUCEOUTPUT" value="VC1ENC_PRODUCEOUTPUT"/>
+    <string id="task_VC1ENC_SEQ_INFO" value="VC1ENC_SEQ_INFO"/>
+    <string id="task_VC1ENC_FRAME_BUFFERLEVEL_INFO" value="VC1ENC_FRAME_BUFFERLEVEL_INFO"/>
+    <string id="task_VC1ENC_FRAME_NOOFREENCODE_INFO" value="VC1ENC_FRAME_NOOFREENCODE_INFO"/>
+    <string id="task_VC1ENC_FRAME_DROP_INFO" value="VC1ENC_FRAME_DROP_INFO"/>
+    <string id="task_VC1ENC_FRAME_MODECOST_INFO" value="VC1ENC_FRAME_MODECOST_INFO"/>
+    <string id="task_VC1ENC_FRAME_PTOI_INFO" value="VC1ENC_FRAME_PTOI_INFO"/>
+    <string id="task_VC1ENC_ADAPTIVE_RESCHANGE" value="VC1ENC_ADAPTIVE_RESCHANGE"/>
+    <string id="task_VC1ENC_ADAPTIVE_AVAILBANDWIDTH" value="VC1ENC_ADAPTIVE_AVAILBANDWIDTH"/>
+    <string id="task_VC1ENC_ADAPTIVE_VIDEOBITRATE" value="VC1ENC_ADAPTIVE_VIDEOBITRATE"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

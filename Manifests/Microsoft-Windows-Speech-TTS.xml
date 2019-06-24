@@ -1,0 +1,38 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Speech-TTS" guid="{74dcc47a-846e-4c98-9e2c-80043ed82b15}" resourceFileName="Microsoft-Windows-Speech-TTS" messageFileName="Microsoft-Windows-Speech-TTS" symbol="MicrosoftWindowsSpeechTTS" source="Xml" >
+    <keywords>
+     <keyword name="PerfInstrumentation" message="$(string.keyword_PerfInstrumentation)" mask="0x10000"/>
+     <keyword name="PerfDiagnostics" message="$(string.keyword_PerfDiagnostics)" mask="0x20000"/>
+    </keywords>
+    <tasks>
+     <task name="LoadVoice" message="$(string.task_LoadVoice)" value="1"/>
+     <task name="Speak" message="$(string.task_Speak)" value="3"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="LoadVoiceStart" version="0" task="LoadVoice" opcode="win:Start" level="win:Informational" keywords="PerfInstrumentation" template="LoadVoiceStartArgs"/>
+     <event value="2" symbol="LoadVoiceStop" version="0" task="LoadVoice" opcode="win:Stop" level="win:Informational" keywords="PerfInstrumentation" template="LoadVoiceStartArgs"/>
+     <event value="3" symbol="SpeakStart" version="0" task="Speak" opcode="win:Start" level="win:Informational" keywords="PerfInstrumentation" template="LoadVoiceStartArgs"/>
+     <event value="4" symbol="SpeakStop" version="0" task="Speak" opcode="win:Stop" level="win:Informational" keywords="PerfInstrumentation" template="LoadVoiceStartArgs"/>
+     <event value="5" symbol="Speak" version="0" task="Speak" level="win:Informational" keywords="PerfInstrumentation" template="LoadVoiceStartArgs"/>
+    </events>
+    <templates>
+     <template tid="LoadVoiceStartArgs">
+      <data name="Instance" inType="win:Pointer"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_PerfInstrumentation" value="PerfInstrumentation"/>
+    <string id="keyword_PerfDiagnostics" value="PerfDiagnostics"/>
+    <string id="task_LoadVoice" value="LoadVoice"/>
+    <string id="task_Speak" value="Speak"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,473 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Direct3D10" guid="{9b7e4c0f-342c-4106-a19f-4f2704f689f0}" resourceFileName="Microsoft-Windows-Direct3D10" messageFileName="Microsoft-Windows-Direct3D10" symbol="MicrosoftWindowsDirect3D10" source="Xml" >
+    <keywords>
+     <keyword name="Names" message="$(string.keyword_Names)" mask="0x1"/>
+     <keyword name="Devices" message="$(string.keyword_Devices)" mask="0x2"/>
+     <keyword name="Resources" message="$(string.keyword_Resources)" mask="0x4"/>
+    </keywords>
+    <tasks>
+     <task name="Name" message="$(string.task_Name)" value="1"/>
+     <task name="Device" message="$(string.task_Device)" value="2"/>
+     <task name="Buffer" message="$(string.task_Buffer)" value="4"/>
+     <task name="Texture1D" message="$(string.task_Texture1D)" value="5"/>
+     <task name="Texture2D" message="$(string.task_Texture2D)" value="6"/>
+     <task name="Texture3D" message="$(string.task_Texture3D)" value="7"/>
+    </tasks>
+    <maps>
+     <bitMap name="D3D10CreateDeviceFlags">
+      <map value="0x1" message="$(string.map_D3D10CreateDeviceFlagsD3D10_CREATE_DEVICE_SINGLETHREADED)"/>
+      <map value="0x2" message="$(string.map_D3D10CreateDeviceFlagsD3D10_CREATE_DEVICE_DEBUG)"/>
+      <map value="0x4" message="$(string.map_D3D10CreateDeviceFlagsD3D10_CREATE_DEVICE_SWITCH_TO_REF)"/>
+      <map value="0x8" message="$(string.map_D3D10CreateDeviceFlagsD3D10_CREATE_DEVICE_PREVENT_INTERNAL_THREADING_OPTIMIZATIONS)"/>
+      <map value="0x10" message="$(string.map_D3D10CreateDeviceFlagsD3D10_CREATE_DEVICE_ALLOW_NULL_FROM_MAP)"/>
+      <map value="0x20" message="$(string.map_D3D10CreateDeviceFlagsD3D10_CREATE_DEVICE_BGRA_SUPPORT)"/>
+      <map value="0x200" message="$(string.map_D3D10CreateDeviceFlagsD3D10_CREATE_DEVICE_STRICT_VALIDATION)"/>
+     </bitMap>
+     <bitMap name="D3D10DDICreateDeviceFlags">
+      <map value="0x1" message="$(string.map_D3D10DDICreateDeviceFlagsD3D10DDI_CREATEDEVICE_FLAG_DISABLE_EXTRA_THREAD_CREATION)"/>
+     </bitMap>
+     <valueMap name="D3D10Usage">
+      <map value="0x0" message="$(string.map_D3D10UsageD3D10_USAGE_DEFAULT)"/>
+      <map value="0x1" message="$(string.map_D3D10UsageD3D10_USAGE_IMMUTABLE)"/>
+      <map value="0x2" message="$(string.map_D3D10UsageD3D10_USAGE_DYNAMIC)"/>
+      <map value="0x3" message="$(string.map_D3D10UsageD3D10_USAGE_STAGING)"/>
+     </valueMap>
+     <bitMap name="D3D10BindFlags">
+      <map value="0x1" message="$(string.map_D3D10BindFlagsD3D10_BIND_VERTEX_BUFFER)"/>
+      <map value="0x2" message="$(string.map_D3D10BindFlagsD3D10_BIND_INDEX_BUFFER)"/>
+      <map value="0x4" message="$(string.map_D3D10BindFlagsD3D10_BIND_CONSTANT_BUFFER)"/>
+      <map value="0x8" message="$(string.map_D3D10BindFlagsD3D10_BIND_SHADER_RESOURCE)"/>
+      <map value="0x10" message="$(string.map_D3D10BindFlagsD3D10_BIND_STREAM_OUTPUT)"/>
+      <map value="0x20" message="$(string.map_D3D10BindFlagsD3D10_BIND_RENDER_TARGET)"/>
+      <map value="0x40" message="$(string.map_D3D10BindFlagsD3D10_BIND_DEPTH_STENCIL)"/>
+     </bitMap>
+     <bitMap name="D3D10CPUAccessFlags">
+      <map value="0x10000" message="$(string.map_D3D10CPUAccessFlagsD3D10_CPU_ACCESS_WRITE)"/>
+      <map value="0x20000" message="$(string.map_D3D10CPUAccessFlagsD3D10_CPU_ACCESS_READ)"/>
+     </bitMap>
+     <bitMap name="D3D10DDIResourceMiscFlags">
+      <map value="0x1" message="$(string.map_D3D10DDIResourceMiscFlagsD3D10_DDI_RESOURCE_AUTO_GEN_MIP_MAP)"/>
+      <map value="0x2" message="$(string.map_D3D10DDIResourceMiscFlagsD3D10_DDI_RESOURCE_MISC_SHARED)"/>
+      <map value="0x8" message="$(string.map_D3D10DDIResourceMiscFlagsD3D10_DDI_RESOURCE_MISC_DISCARD_ON_PRESENT)"/>
+      <map value="0x400" message="$(string.map_D3D10DDIResourceMiscFlagsD3D10_DDI_RESOURCE_MISC_REMOTE)"/>
+     </bitMap>
+     <valueMap name="D3D10ResourceDimension">
+      <map value="0x1" message="$(string.map_D3D10ResourceDimensionD3D10_RESOURCE_DIMENSION_BUFFER)"/>
+      <map value="0x2" message="$(string.map_D3D10ResourceDimensionD3D10_RESOURCE_DIMENSION_TEXTURE1D)"/>
+      <map value="0x3" message="$(string.map_D3D10ResourceDimensionD3D10_RESOURCE_DIMENSION_TEXTURE2D)"/>
+      <map value="0x4" message="$(string.map_D3D10ResourceDimensionD3D10_RESOURCE_DIMENSION_TEXTURE3D)"/>
+     </valueMap>
+     <bitMap name="D3D10ResourceMiscFlags">
+      <map value="0x1" message="$(string.map_D3D10ResourceMiscFlagsD3D10_RESOURCE_MISC_GENERATE_MIPS)"/>
+      <map value="0x2" message="$(string.map_D3D10ResourceMiscFlagsD3D10_RESOURCE_MISC_SHARED)"/>
+      <map value="0x4" message="$(string.map_D3D10ResourceMiscFlagsD3D10_RESOURCE_MISC_TEXTURECUBE)"/>
+      <map value="0x10" message="$(string.map_D3D10ResourceMiscFlagsD3D10_RESOURCE_MISC_SHARED_KEYEDMUTEX)"/>
+      <map value="0x20" message="$(string.map_D3D10ResourceMiscFlagsD3D10_RESOURCE_MISC_GDI_COMPATIBLE)"/>
+     </bitMap>
+     <valueMap name="DXGIFormat">
+      <map value="0x0" message="$(string.map_DXGIFormatDXGI_FORMAT_UNKNOWN)"/>
+      <map value="0x1" message="$(string.map_DXGIFormatDXGI_FORMAT_R32G32B32A32_TYPELESS)"/>
+      <map value="0x2" message="$(string.map_DXGIFormatDXGI_FORMAT_R32G32B32A32_FLOAT)"/>
+      <map value="0x3" message="$(string.map_DXGIFormatDXGI_FORMAT_R32G32B32A32_UINT)"/>
+      <map value="0x4" message="$(string.map_DXGIFormatDXGI_FORMAT_R32G32B32A32_SINT)"/>
+      <map value="0x5" message="$(string.map_DXGIFormatDXGI_FORMAT_R32G32B32_TYPELESS)"/>
+      <map value="0x6" message="$(string.map_DXGIFormatDXGI_FORMAT_R32G32B32_FLOAT)"/>
+      <map value="0x7" message="$(string.map_DXGIFormatDXGI_FORMAT_R32G32B32_UINT)"/>
+      <map value="0x8" message="$(string.map_DXGIFormatDXGI_FORMAT_R32G32B32_SINT)"/>
+      <map value="0x9" message="$(string.map_DXGIFormatDXGI_FORMAT_R16G16B16A16_TYPELESS)"/>
+      <map value="0xa" message="$(string.map_DXGIFormatDXGI_FORMAT_R16G16B16A16_FLOAT)"/>
+      <map value="0xb" message="$(string.map_DXGIFormatDXGI_FORMAT_R16G16B16A16_UNORM)"/>
+      <map value="0xc" message="$(string.map_DXGIFormatDXGI_FORMAT_R16G16B16A16_UINT)"/>
+      <map value="0xd" message="$(string.map_DXGIFormatDXGI_FORMAT_R16G16B16A16_SNORM)"/>
+      <map value="0xe" message="$(string.map_DXGIFormatDXGI_FORMAT_R16G16B16A16_SINT)"/>
+      <map value="0xf" message="$(string.map_DXGIFormatDXGI_FORMAT_R32G32_TYPELESS)"/>
+      <map value="0x10" message="$(string.map_DXGIFormatDXGI_FORMAT_R32G32_FLOAT)"/>
+      <map value="0x11" message="$(string.map_DXGIFormatDXGI_FORMAT_R32G32_UINT)"/>
+      <map value="0x12" message="$(string.map_DXGIFormatDXGI_FORMAT_R32G32_SINT)"/>
+      <map value="0x13" message="$(string.map_DXGIFormatDXGI_FORMAT_R32G8X24_TYPELESS)"/>
+      <map value="0x14" message="$(string.map_DXGIFormatDXGI_FORMAT_D32_FLOAT_S8X24_UINT)"/>
+      <map value="0x15" message="$(string.map_DXGIFormatDXGI_FORMAT_R32_FLOAT_X8X24_TYPELESS)"/>
+      <map value="0x16" message="$(string.map_DXGIFormatDXGI_FORMAT_X32_TYPELESS_G8X24_UINT)"/>
+      <map value="0x17" message="$(string.map_DXGIFormatDXGI_FORMAT_R10G10B10A2_TYPELESS)"/>
+      <map value="0x18" message="$(string.map_DXGIFormatDXGI_FORMAT_R10G10B10A2_UNORM)"/>
+      <map value="0x19" message="$(string.map_DXGIFormatDXGI_FORMAT_R10G10B10A2_UINT)"/>
+      <map value="0x1a" message="$(string.map_DXGIFormatDXGI_FORMAT_R11G11B10_FLOAT)"/>
+      <map value="0x1b" message="$(string.map_DXGIFormatDXGI_FORMAT_R8G8B8A8_TYPELESS)"/>
+      <map value="0x1c" message="$(string.map_DXGIFormatDXGI_FORMAT_R8G8B8A8_UNORM)"/>
+      <map value="0x1d" message="$(string.map_DXGIFormatDXGI_FORMAT_R8G8B8A8_UNORM_SRGB)"/>
+      <map value="0x1e" message="$(string.map_DXGIFormatDXGI_FORMAT_R8G8B8A8_UINT)"/>
+      <map value="0x1f" message="$(string.map_DXGIFormatDXGI_FORMAT_R8G8B8A8_SNORM)"/>
+      <map value="0x20" message="$(string.map_DXGIFormatDXGI_FORMAT_R8G8B8A8_SINT)"/>
+      <map value="0x21" message="$(string.map_DXGIFormatDXGI_FORMAT_R16G16_TYPELESS)"/>
+      <map value="0x22" message="$(string.map_DXGIFormatDXGI_FORMAT_R16G16_FLOAT)"/>
+      <map value="0x23" message="$(string.map_DXGIFormatDXGI_FORMAT_R16G16_UNORM)"/>
+      <map value="0x24" message="$(string.map_DXGIFormatDXGI_FORMAT_R16G16_UINT)"/>
+      <map value="0x25" message="$(string.map_DXGIFormatDXGI_FORMAT_R16G16_SNORM)"/>
+      <map value="0x26" message="$(string.map_DXGIFormatDXGI_FORMAT_R16G16_SINT)"/>
+      <map value="0x27" message="$(string.map_DXGIFormatDXGI_FORMAT_R32_TYPELESS)"/>
+      <map value="0x28" message="$(string.map_DXGIFormatDXGI_FORMAT_D32_FLOAT)"/>
+      <map value="0x29" message="$(string.map_DXGIFormatDXGI_FORMAT_R32_FLOAT)"/>
+      <map value="0x2a" message="$(string.map_DXGIFormatDXGI_FORMAT_R32_UINT)"/>
+      <map value="0x2b" message="$(string.map_DXGIFormatDXGI_FORMAT_R32_SINT)"/>
+      <map value="0x2c" message="$(string.map_DXGIFormatDXGI_FORMAT_R24G8_TYPELESS)"/>
+      <map value="0x2d" message="$(string.map_DXGIFormatDXGI_FORMAT_D24_UNORM_S8_UINT)"/>
+      <map value="0x2e" message="$(string.map_DXGIFormatDXGI_FORMAT_R24_UNORM_X8_TYPELESS)"/>
+      <map value="0x2f" message="$(string.map_DXGIFormatDXGI_FORMAT_X24_TYPELESS_G8_UINT)"/>
+      <map value="0x30" message="$(string.map_DXGIFormatDXGI_FORMAT_R8G8_TYPELESS)"/>
+      <map value="0x31" message="$(string.map_DXGIFormatDXGI_FORMAT_R8G8_UNORM)"/>
+      <map value="0x32" message="$(string.map_DXGIFormatDXGI_FORMAT_R8G8_UINT)"/>
+      <map value="0x33" message="$(string.map_DXGIFormatDXGI_FORMAT_R8G8_SNORM)"/>
+      <map value="0x34" message="$(string.map_DXGIFormatDXGI_FORMAT_R8G8_SINT)"/>
+      <map value="0x35" message="$(string.map_DXGIFormatDXGI_FORMAT_R16_TYPELESS)"/>
+      <map value="0x36" message="$(string.map_DXGIFormatDXGI_FORMAT_R16_FLOAT)"/>
+      <map value="0x37" message="$(string.map_DXGIFormatDXGI_FORMAT_D16_UNORM)"/>
+      <map value="0x38" message="$(string.map_DXGIFormatDXGI_FORMAT_R16_UNORM)"/>
+      <map value="0x39" message="$(string.map_DXGIFormatDXGI_FORMAT_R16_UINT)"/>
+      <map value="0x3a" message="$(string.map_DXGIFormatDXGI_FORMAT_R16_SNORM)"/>
+      <map value="0x3b" message="$(string.map_DXGIFormatDXGI_FORMAT_R16_SINT)"/>
+      <map value="0x3c" message="$(string.map_DXGIFormatDXGI_FORMAT_R8_TYPELESS)"/>
+      <map value="0x3d" message="$(string.map_DXGIFormatDXGI_FORMAT_R8_UNORM)"/>
+      <map value="0x3e" message="$(string.map_DXGIFormatDXGI_FORMAT_R8_UINT)"/>
+      <map value="0x3f" message="$(string.map_DXGIFormatDXGI_FORMAT_R8_SNORM)"/>
+      <map value="0x40" message="$(string.map_DXGIFormatDXGI_FORMAT_R8_SINT)"/>
+      <map value="0x41" message="$(string.map_DXGIFormatDXGI_FORMAT_A8_UNORM)"/>
+      <map value="0x42" message="$(string.map_DXGIFormatDXGI_FORMAT_R1_UNORM)"/>
+      <map value="0x43" message="$(string.map_DXGIFormatDXGI_FORMAT_R9G9B9E5_SHAREDEXP)"/>
+      <map value="0x44" message="$(string.map_DXGIFormatDXGI_FORMAT_R8G8_B8G8_UNORM)"/>
+      <map value="0x45" message="$(string.map_DXGIFormatDXGI_FORMAT_G8R8_G8B8_UNORM)"/>
+      <map value="0x46" message="$(string.map_DXGIFormatDXGI_FORMAT_BC1_TYPELESS)"/>
+      <map value="0x47" message="$(string.map_DXGIFormatDXGI_FORMAT_BC1_UNORM)"/>
+      <map value="0x48" message="$(string.map_DXGIFormatDXGI_FORMAT_BC1_UNORM_SRGB)"/>
+      <map value="0x49" message="$(string.map_DXGIFormatDXGI_FORMAT_BC2_TYPELESS)"/>
+      <map value="0x4a" message="$(string.map_DXGIFormatDXGI_FORMAT_BC2_UNORM)"/>
+      <map value="0x4b" message="$(string.map_DXGIFormatDXGI_FORMAT_BC2_UNORM_SRGB)"/>
+      <map value="0x4c" message="$(string.map_DXGIFormatDXGI_FORMAT_BC3_TYPELESS)"/>
+      <map value="0x4d" message="$(string.map_DXGIFormatDXGI_FORMAT_BC3_UNORM)"/>
+      <map value="0x4e" message="$(string.map_DXGIFormatDXGI_FORMAT_BC3_UNORM_SRGB)"/>
+      <map value="0x4f" message="$(string.map_DXGIFormatDXGI_FORMAT_BC4_TYPELESS)"/>
+      <map value="0x50" message="$(string.map_DXGIFormatDXGI_FORMAT_BC4_UNORM)"/>
+      <map value="0x51" message="$(string.map_DXGIFormatDXGI_FORMAT_BC4_SNORM)"/>
+      <map value="0x52" message="$(string.map_DXGIFormatDXGI_FORMAT_BC5_TYPELESS)"/>
+      <map value="0x53" message="$(string.map_DXGIFormatDXGI_FORMAT_BC5_UNORM)"/>
+      <map value="0x54" message="$(string.map_DXGIFormatDXGI_FORMAT_BC5_SNORM)"/>
+      <map value="0x55" message="$(string.map_DXGIFormatDXGI_FORMAT_B5G6R5_UNORM)"/>
+      <map value="0x56" message="$(string.map_DXGIFormatDXGI_FORMAT_B5G5R5A1_UNORM)"/>
+      <map value="0x57" message="$(string.map_DXGIFormatDXGI_FORMAT_B8G8R8A8_UNORM)"/>
+      <map value="0x58" message="$(string.map_DXGIFormatDXGI_FORMAT_B8G8R8X8_UNORM)"/>
+      <map value="0x59" message="$(string.map_DXGIFormatDXGI_FORMAT_R10G10B10_XR_BIAS_A2_UNORM)"/>
+      <map value="0x5a" message="$(string.map_DXGIFormatDXGI_FORMAT_B8G8R8A8_TYPELESS)"/>
+      <map value="0x5b" message="$(string.map_DXGIFormatDXGI_FORMAT_B8G8R8A8_UNORM_SRGB)"/>
+      <map value="0x5c" message="$(string.map_DXGIFormatDXGI_FORMAT_B8G8R8X8_TYPELESS)"/>
+      <map value="0x5d" message="$(string.map_DXGIFormatDXGI_FORMAT_B8G8R8X8_UNORM_SRGB)"/>
+      <map value="0x5e" message="$(string.map_DXGIFormatDXGI_FORMAT_BC6H_TYPELESS)"/>
+      <map value="0x5f" message="$(string.map_DXGIFormatDXGI_FORMAT_BC6H_UF16)"/>
+      <map value="0x60" message="$(string.map_DXGIFormatDXGI_FORMAT_BC6H_SF16)"/>
+      <map value="0x61" message="$(string.map_DXGIFormatDXGI_FORMAT_BC7_TYPELESS)"/>
+      <map value="0x62" message="$(string.map_DXGIFormatDXGI_FORMAT_BC7_UNORM)"/>
+      <map value="0x63" message="$(string.map_DXGIFormatDXGI_FORMAT_BC7_UNORM_SRGB)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="Name" version="0" task="Name" level="win:Always" keywords="Names" template="NameArgs"/>
+     <event value="2" symbol="NameDCStart" version="0" task="Name" opcode="win:DC_Start" level="win:Always" keywords="Names" template="NameDCStartArgs"/>
+     <event value="3" symbol="DeviceStart" version="0" task="Device" opcode="win:Start" level="win:Always" keywords="Devices" template="DeviceStartArgs"/>
+     <event value="4" symbol="DeviceStop" version="0" task="Device" opcode="win:Stop" level="win:Always" keywords="Devices" template="DeviceStopArgs"/>
+     <event value="5" symbol="DeviceDCStart" version="0" task="Device" opcode="win:DC_Start" level="win:Always" keywords="Devices" template="DeviceStopArgs"/>
+     <event value="6" symbol="BufferStart" version="0" task="Buffer" opcode="win:Start" level="win:Always" keywords="Resources" template="BufferStartArgs"/>
+     <event value="7" symbol="BufferStop" version="0" task="Buffer" opcode="win:Stop" level="win:Always" keywords="Resources" template="BufferStopArgs"/>
+     <event value="8" symbol="BufferDCStart" version="0" task="Buffer" opcode="win:DC_Start" level="win:Always" keywords="Resources" template="BufferDCStartArgs"/>
+     <event value="9" symbol="Texture1DStart" version="0" task="Texture1D" opcode="win:Start" level="win:Always" keywords="Resources" template="Texture1DStartArgs"/>
+     <event value="10" symbol="Texture1DStop" version="0" task="Texture1D" opcode="win:Stop" level="win:Always" keywords="Resources" template="BufferDCStartArgs"/>
+     <event value="11" symbol="Texture1DDCStart" version="0" task="Texture1D" opcode="win:DC_Start" level="win:Always" keywords="Resources" template="BufferDCStartArgs"/>
+     <event value="12" symbol="Texture2DStart" version="0" task="Texture2D" opcode="win:Start" level="win:Always" keywords="Resources" template="BufferDCStartArgs"/>
+     <event value="13" symbol="Texture2DStop" version="0" task="Texture2D" opcode="win:Stop" level="win:Always" keywords="Resources" template="BufferDCStartArgs"/>
+     <event value="14" symbol="Texture2DDCStart" version="0" task="Texture2D" opcode="win:DC_Start" level="win:Always" keywords="Resources" template="BufferDCStartArgs"/>
+     <event value="15" symbol="Texture3DStart" version="0" task="Texture3D" opcode="win:Start" level="win:Always" keywords="Resources" template="BufferDCStartArgs"/>
+     <event value="16" symbol="Texture3DStop" version="0" task="Texture3D" opcode="win:Stop" level="win:Always" keywords="Resources" template="BufferDCStartArgs"/>
+     <event value="17" symbol="Texture3DDCStart" version="0" task="Texture3D" opcode="win:DC_Start" level="win:Always" keywords="Resources" template="BufferDCStartArgs"/>
+     <event value="18" symbol="Texture2D" version="0" task="Texture2D" level="win:Always" keywords="Resources" template="Texture2DArgs"/>
+    </events>
+    <templates>
+     <template tid="NameArgs">
+      <data name="pObject" inType="win:Pointer"/>
+      <data name="CchOldDebugObjectName" inType="win:UInt32"/>
+      <data name="OldDebugObjectName" inType="win:AnsiString" length="CchOldDebugObjectName"/>
+      <data name="CchNewDebugObjectName" inType="win:UInt32"/>
+      <data name="NewDebugObjectName" inType="win:AnsiString" length="CchNewDebugObjectName"/>
+     </template>
+     <template tid="NameDCStartArgs">
+      <data name="pObject" inType="win:Pointer"/>
+      <data name="CchDebugObjectName" inType="win:UInt32"/>
+      <data name="DebugObjectName" inType="win:AnsiString" length="CchDebugObjectName"/>
+     </template>
+     <template tid="DeviceStartArgs">
+      <data name="pID3D10Device" inType="win:Pointer"/>
+      <data name="pIDXGIDevice" inType="win:Pointer"/>
+      <data name="pIDXGIAdapter" inType="win:Pointer"/>
+      <data name="CreationFlags" inType="win:UInt32" map="D3D10CreateDeviceFlags"/>
+      <data name="hKMAdapter" inType="win:UInt32"/>
+      <data name="hUMAdapter" inType="win:Pointer"/>
+      <data name="UMAdapterVersion" inType="win:UInt64"/>
+      <data name="hKMDevice" inType="win:UInt32"/>
+      <data name="hUMDevice" inType="win:Pointer"/>
+      <data name="UMDeviceVersion" inType="win:UInt64"/>
+      <data name="UMDeviceFlags" inType="win:UInt32" map="D3D10DDICreateDeviceFlags"/>
+     </template>
+     <template tid="DeviceStopArgs">
+      <data name="pID3D10Device" inType="win:Pointer"/>
+      <data name="pIDXGIDevice" inType="win:Pointer"/>
+      <data name="pIDXGIAdapter" inType="win:Pointer"/>
+      <data name="CreationFlags" inType="win:UInt32"/>
+      <data name="hKMAdapter" inType="win:UInt32"/>
+      <data name="hUMAdapter" inType="win:Pointer"/>
+      <data name="UMAdapterVersion" inType="win:UInt64"/>
+      <data name="hKMDevice" inType="win:UInt32"/>
+      <data name="hUMDevice" inType="win:Pointer"/>
+      <data name="UMDeviceVersion" inType="win:UInt64"/>
+      <data name="UMDeviceFlags" inType="win:UInt32"/>
+     </template>
+     <template tid="BufferStartArgs">
+      <data name="pID3D10Resource" inType="win:Pointer"/>
+      <data name="pIDXGISurface" inType="win:Pointer"/>
+      <data name="pID3D10Device" inType="win:Pointer"/>
+      <data name="Dimension" inType="win:UInt32"/>
+      <data name="Usage" inType="win:UInt32" map="D3D10Usage"/>
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+      <data name="Depth" inType="win:UInt32"/>
+      <data name="MipLevels" inType="win:UInt32"/>
+      <data name="ArraySize" inType="win:UInt32"/>
+      <data name="Format" inType="win:UInt32"/>
+      <data name="SampleCount" inType="win:UInt32"/>
+      <data name="SampleQuality" inType="win:UInt32"/>
+      <data name="BindFlags" inType="win:UInt32" map="D3D10BindFlags"/>
+      <data name="CPUAccessFlags" inType="win:UInt32" map="D3D10CPUAccessFlags"/>
+      <data name="MiscFlags" inType="win:UInt32"/>
+      <data name="hKMResource" inType="win:UInt32"/>
+      <data name="hUMResource" inType="win:Pointer"/>
+      <data name="UMResourceMiscFlags" inType="win:UInt32" map="D3D10DDIResourceMiscFlags"/>
+     </template>
+     <template tid="BufferStopArgs">
+      <data name="pID3D10Resource" inType="win:Pointer"/>
+      <data name="pIDXGISurface" inType="win:Pointer"/>
+      <data name="pID3D10Device" inType="win:Pointer"/>
+      <data name="Dimension" inType="win:UInt32" map="D3D10ResourceDimension"/>
+      <data name="Usage" inType="win:UInt32"/>
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+      <data name="Depth" inType="win:UInt32"/>
+      <data name="MipLevels" inType="win:UInt32"/>
+      <data name="ArraySize" inType="win:UInt32"/>
+      <data name="Format" inType="win:UInt32"/>
+      <data name="SampleCount" inType="win:UInt32"/>
+      <data name="SampleQuality" inType="win:UInt32"/>
+      <data name="BindFlags" inType="win:UInt32"/>
+      <data name="CPUAccessFlags" inType="win:UInt32"/>
+      <data name="MiscFlags" inType="win:UInt32" map="D3D10ResourceMiscFlags"/>
+      <data name="hKMResource" inType="win:UInt32"/>
+      <data name="hUMResource" inType="win:Pointer"/>
+      <data name="UMResourceMiscFlags" inType="win:UInt32"/>
+     </template>
+     <template tid="BufferDCStartArgs">
+      <data name="pID3D10Resource" inType="win:Pointer"/>
+      <data name="pIDXGISurface" inType="win:Pointer"/>
+      <data name="pID3D10Device" inType="win:Pointer"/>
+      <data name="Dimension" inType="win:UInt32"/>
+      <data name="Usage" inType="win:UInt32"/>
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+      <data name="Depth" inType="win:UInt32"/>
+      <data name="MipLevels" inType="win:UInt32"/>
+      <data name="ArraySize" inType="win:UInt32"/>
+      <data name="Format" inType="win:UInt32"/>
+      <data name="SampleCount" inType="win:UInt32"/>
+      <data name="SampleQuality" inType="win:UInt32"/>
+      <data name="BindFlags" inType="win:UInt32"/>
+      <data name="CPUAccessFlags" inType="win:UInt32"/>
+      <data name="MiscFlags" inType="win:UInt32"/>
+      <data name="hKMResource" inType="win:UInt32"/>
+      <data name="hUMResource" inType="win:Pointer"/>
+      <data name="UMResourceMiscFlags" inType="win:UInt32"/>
+     </template>
+     <template tid="Texture1DStartArgs">
+      <data name="pID3D10Resource" inType="win:Pointer"/>
+      <data name="pIDXGISurface" inType="win:Pointer"/>
+      <data name="pID3D10Device" inType="win:Pointer"/>
+      <data name="Dimension" inType="win:UInt32"/>
+      <data name="Usage" inType="win:UInt32"/>
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+      <data name="Depth" inType="win:UInt32"/>
+      <data name="MipLevels" inType="win:UInt32"/>
+      <data name="ArraySize" inType="win:UInt32"/>
+      <data name="Format" inType="win:UInt32" map="DXGIFormat"/>
+      <data name="SampleCount" inType="win:UInt32"/>
+      <data name="SampleQuality" inType="win:UInt32"/>
+      <data name="BindFlags" inType="win:UInt32"/>
+      <data name="CPUAccessFlags" inType="win:UInt32"/>
+      <data name="MiscFlags" inType="win:UInt32"/>
+      <data name="hKMResource" inType="win:UInt32"/>
+      <data name="hUMResource" inType="win:Pointer"/>
+      <data name="UMResourceMiscFlags" inType="win:UInt32"/>
+     </template>
+     <template tid="Texture2DArgs">
+      <data name="Resources" inType="win:UInt32"/>
+      <data name="pIDXGISurfaces" inType="win:Pointer" count="Resources"/>
+      <data name="hNewKMResources" inType="win:UInt32" count="Resources"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Names" value="Names"/>
+    <string id="keyword_Devices" value="Devices"/>
+    <string id="keyword_Resources" value="Resources"/>
+    <string id="task_Name" value="Name"/>
+    <string id="task_Device" value="Device"/>
+    <string id="task_Buffer" value="Buffer"/>
+    <string id="task_Texture1D" value="Texture1D"/>
+    <string id="task_Texture2D" value="Texture2D"/>
+    <string id="task_Texture3D" value="Texture3D"/>
+    <string id="map_D3D10CreateDeviceFlagsD3D10_CREATE_DEVICE_SINGLETHREADED" value="D3D10_CREATE_DEVICE_SINGLETHREADED"/>
+    <string id="map_D3D10CreateDeviceFlagsD3D10_CREATE_DEVICE_DEBUG" value="D3D10_CREATE_DEVICE_DEBUG"/>
+    <string id="map_D3D10CreateDeviceFlagsD3D10_CREATE_DEVICE_SWITCH_TO_REF" value="D3D10_CREATE_DEVICE_SWITCH_TO_REF"/>
+    <string id="map_D3D10CreateDeviceFlagsD3D10_CREATE_DEVICE_PREVENT_INTERNAL_THREADING_OPTIMIZATIONS" value="D3D10_CREATE_DEVICE_PREVENT_INTERNAL_THREADING_OPTIMIZATIONS"/>
+    <string id="map_D3D10CreateDeviceFlagsD3D10_CREATE_DEVICE_ALLOW_NULL_FROM_MAP" value="D3D10_CREATE_DEVICE_ALLOW_NULL_FROM_MAP"/>
+    <string id="map_D3D10CreateDeviceFlagsD3D10_CREATE_DEVICE_BGRA_SUPPORT" value="D3D10_CREATE_DEVICE_BGRA_SUPPORT"/>
+    <string id="map_D3D10CreateDeviceFlagsD3D10_CREATE_DEVICE_STRICT_VALIDATION" value="D3D10_CREATE_DEVICE_STRICT_VALIDATION"/>
+    <string id="map_D3D10DDICreateDeviceFlagsD3D10DDI_CREATEDEVICE_FLAG_DISABLE_EXTRA_THREAD_CREATION" value="D3D10DDI_CREATEDEVICE_FLAG_DISABLE_EXTRA_THREAD_CREATION"/>
+    <string id="map_D3D10UsageD3D10_USAGE_DEFAULT" value="D3D10_USAGE_DEFAULT"/>
+    <string id="map_D3D10UsageD3D10_USAGE_IMMUTABLE" value="D3D10_USAGE_IMMUTABLE"/>
+    <string id="map_D3D10UsageD3D10_USAGE_DYNAMIC" value="D3D10_USAGE_DYNAMIC"/>
+    <string id="map_D3D10UsageD3D10_USAGE_STAGING" value="D3D10_USAGE_STAGING"/>
+    <string id="map_D3D10BindFlagsD3D10_BIND_VERTEX_BUFFER" value="D3D10_BIND_VERTEX_BUFFER"/>
+    <string id="map_D3D10BindFlagsD3D10_BIND_INDEX_BUFFER" value="D3D10_BIND_INDEX_BUFFER"/>
+    <string id="map_D3D10BindFlagsD3D10_BIND_CONSTANT_BUFFER" value="D3D10_BIND_CONSTANT_BUFFER"/>
+    <string id="map_D3D10BindFlagsD3D10_BIND_SHADER_RESOURCE" value="D3D10_BIND_SHADER_RESOURCE"/>
+    <string id="map_D3D10BindFlagsD3D10_BIND_STREAM_OUTPUT" value="D3D10_BIND_STREAM_OUTPUT"/>
+    <string id="map_D3D10BindFlagsD3D10_BIND_RENDER_TARGET" value="D3D10_BIND_RENDER_TARGET"/>
+    <string id="map_D3D10BindFlagsD3D10_BIND_DEPTH_STENCIL" value="D3D10_BIND_DEPTH_STENCIL"/>
+    <string id="map_D3D10CPUAccessFlagsD3D10_CPU_ACCESS_WRITE" value="D3D10_CPU_ACCESS_WRITE"/>
+    <string id="map_D3D10CPUAccessFlagsD3D10_CPU_ACCESS_READ" value="D3D10_CPU_ACCESS_READ"/>
+    <string id="map_D3D10DDIResourceMiscFlagsD3D10_DDI_RESOURCE_AUTO_GEN_MIP_MAP" value="D3D10_DDI_RESOURCE_AUTO_GEN_MIP_MAP"/>
+    <string id="map_D3D10DDIResourceMiscFlagsD3D10_DDI_RESOURCE_MISC_SHARED" value="D3D10_DDI_RESOURCE_MISC_SHARED"/>
+    <string id="map_D3D10DDIResourceMiscFlagsD3D10_DDI_RESOURCE_MISC_DISCARD_ON_PRESENT" value="D3D10_DDI_RESOURCE_MISC_DISCARD_ON_PRESENT"/>
+    <string id="map_D3D10DDIResourceMiscFlagsD3D10_DDI_RESOURCE_MISC_REMOTE" value="D3D10_DDI_RESOURCE_MISC_REMOTE"/>
+    <string id="map_D3D10ResourceDimensionD3D10_RESOURCE_DIMENSION_BUFFER" value="D3D10_RESOURCE_DIMENSION_BUFFER"/>
+    <string id="map_D3D10ResourceDimensionD3D10_RESOURCE_DIMENSION_TEXTURE1D" value="D3D10_RESOURCE_DIMENSION_TEXTURE1D"/>
+    <string id="map_D3D10ResourceDimensionD3D10_RESOURCE_DIMENSION_TEXTURE2D" value="D3D10_RESOURCE_DIMENSION_TEXTURE2D"/>
+    <string id="map_D3D10ResourceDimensionD3D10_RESOURCE_DIMENSION_TEXTURE3D" value="D3D10_RESOURCE_DIMENSION_TEXTURE3D"/>
+    <string id="map_D3D10ResourceMiscFlagsD3D10_RESOURCE_MISC_GENERATE_MIPS" value="D3D10_RESOURCE_MISC_GENERATE_MIPS"/>
+    <string id="map_D3D10ResourceMiscFlagsD3D10_RESOURCE_MISC_SHARED" value="D3D10_RESOURCE_MISC_SHARED"/>
+    <string id="map_D3D10ResourceMiscFlagsD3D10_RESOURCE_MISC_TEXTURECUBE" value="D3D10_RESOURCE_MISC_TEXTURECUBE"/>
+    <string id="map_D3D10ResourceMiscFlagsD3D10_RESOURCE_MISC_SHARED_KEYEDMUTEX" value="D3D10_RESOURCE_MISC_SHARED_KEYEDMUTEX"/>
+    <string id="map_D3D10ResourceMiscFlagsD3D10_RESOURCE_MISC_GDI_COMPATIBLE" value="D3D10_RESOURCE_MISC_GDI_COMPATIBLE"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_UNKNOWN" value="DXGI_FORMAT_UNKNOWN"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R32G32B32A32_TYPELESS" value="DXGI_FORMAT_R32G32B32A32_TYPELESS"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R32G32B32A32_FLOAT" value="DXGI_FORMAT_R32G32B32A32_FLOAT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R32G32B32A32_UINT" value="DXGI_FORMAT_R32G32B32A32_UINT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R32G32B32A32_SINT" value="DXGI_FORMAT_R32G32B32A32_SINT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R32G32B32_TYPELESS" value="DXGI_FORMAT_R32G32B32_TYPELESS"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R32G32B32_FLOAT" value="DXGI_FORMAT_R32G32B32_FLOAT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R32G32B32_UINT" value="DXGI_FORMAT_R32G32B32_UINT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R32G32B32_SINT" value="DXGI_FORMAT_R32G32B32_SINT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R16G16B16A16_TYPELESS" value="DXGI_FORMAT_R16G16B16A16_TYPELESS"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R16G16B16A16_FLOAT" value="DXGI_FORMAT_R16G16B16A16_FLOAT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R16G16B16A16_UNORM" value="DXGI_FORMAT_R16G16B16A16_UNORM"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R16G16B16A16_UINT" value="DXGI_FORMAT_R16G16B16A16_UINT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R16G16B16A16_SNORM" value="DXGI_FORMAT_R16G16B16A16_SNORM"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R16G16B16A16_SINT" value="DXGI_FORMAT_R16G16B16A16_SINT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R32G32_TYPELESS" value="DXGI_FORMAT_R32G32_TYPELESS"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R32G32_FLOAT" value="DXGI_FORMAT_R32G32_FLOAT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R32G32_UINT" value="DXGI_FORMAT_R32G32_UINT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R32G32_SINT" value="DXGI_FORMAT_R32G32_SINT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R32G8X24_TYPELESS" value="DXGI_FORMAT_R32G8X24_TYPELESS"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_D32_FLOAT_S8X24_UINT" value="DXGI_FORMAT_D32_FLOAT_S8X24_UINT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R32_FLOAT_X8X24_TYPELESS" value="DXGI_FORMAT_R32_FLOAT_X8X24_TYPELESS"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_X32_TYPELESS_G8X24_UINT" value="DXGI_FORMAT_X32_TYPELESS_G8X24_UINT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R10G10B10A2_TYPELESS" value="DXGI_FORMAT_R10G10B10A2_TYPELESS"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R10G10B10A2_UNORM" value="DXGI_FORMAT_R10G10B10A2_UNORM"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R10G10B10A2_UINT" value="DXGI_FORMAT_R10G10B10A2_UINT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R11G11B10_FLOAT" value="DXGI_FORMAT_R11G11B10_FLOAT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R8G8B8A8_TYPELESS" value="DXGI_FORMAT_R8G8B8A8_TYPELESS"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R8G8B8A8_UNORM" value="DXGI_FORMAT_R8G8B8A8_UNORM"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R8G8B8A8_UNORM_SRGB" value="DXGI_FORMAT_R8G8B8A8_UNORM_SRGB"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R8G8B8A8_UINT" value="DXGI_FORMAT_R8G8B8A8_UINT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R8G8B8A8_SNORM" value="DXGI_FORMAT_R8G8B8A8_SNORM"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R8G8B8A8_SINT" value="DXGI_FORMAT_R8G8B8A8_SINT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R16G16_TYPELESS" value="DXGI_FORMAT_R16G16_TYPELESS"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R16G16_FLOAT" value="DXGI_FORMAT_R16G16_FLOAT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R16G16_UNORM" value="DXGI_FORMAT_R16G16_UNORM"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R16G16_UINT" value="DXGI_FORMAT_R16G16_UINT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R16G16_SNORM" value="DXGI_FORMAT_R16G16_SNORM"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R16G16_SINT" value="DXGI_FORMAT_R16G16_SINT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R32_TYPELESS" value="DXGI_FORMAT_R32_TYPELESS"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_D32_FLOAT" value="DXGI_FORMAT_D32_FLOAT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R32_FLOAT" value="DXGI_FORMAT_R32_FLOAT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R32_UINT" value="DXGI_FORMAT_R32_UINT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R32_SINT" value="DXGI_FORMAT_R32_SINT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R24G8_TYPELESS" value="DXGI_FORMAT_R24G8_TYPELESS"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_D24_UNORM_S8_UINT" value="DXGI_FORMAT_D24_UNORM_S8_UINT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R24_UNORM_X8_TYPELESS" value="DXGI_FORMAT_R24_UNORM_X8_TYPELESS"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_X24_TYPELESS_G8_UINT" value="DXGI_FORMAT_X24_TYPELESS_G8_UINT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R8G8_TYPELESS" value="DXGI_FORMAT_R8G8_TYPELESS"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R8G8_UNORM" value="DXGI_FORMAT_R8G8_UNORM"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R8G8_UINT" value="DXGI_FORMAT_R8G8_UINT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R8G8_SNORM" value="DXGI_FORMAT_R8G8_SNORM"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R8G8_SINT" value="DXGI_FORMAT_R8G8_SINT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R16_TYPELESS" value="DXGI_FORMAT_R16_TYPELESS"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R16_FLOAT" value="DXGI_FORMAT_R16_FLOAT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_D16_UNORM" value="DXGI_FORMAT_D16_UNORM"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R16_UNORM" value="DXGI_FORMAT_R16_UNORM"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R16_UINT" value="DXGI_FORMAT_R16_UINT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R16_SNORM" value="DXGI_FORMAT_R16_SNORM"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R16_SINT" value="DXGI_FORMAT_R16_SINT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R8_TYPELESS" value="DXGI_FORMAT_R8_TYPELESS"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R8_UNORM" value="DXGI_FORMAT_R8_UNORM"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R8_UINT" value="DXGI_FORMAT_R8_UINT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R8_SNORM" value="DXGI_FORMAT_R8_SNORM"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R8_SINT" value="DXGI_FORMAT_R8_SINT"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_A8_UNORM" value="DXGI_FORMAT_A8_UNORM"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R1_UNORM" value="DXGI_FORMAT_R1_UNORM"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R9G9B9E5_SHAREDEXP" value="DXGI_FORMAT_R9G9B9E5_SHAREDEXP"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R8G8_B8G8_UNORM" value="DXGI_FORMAT_R8G8_B8G8_UNORM"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_G8R8_G8B8_UNORM" value="DXGI_FORMAT_G8R8_G8B8_UNORM"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_BC1_TYPELESS" value="DXGI_FORMAT_BC1_TYPELESS"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_BC1_UNORM" value="DXGI_FORMAT_BC1_UNORM"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_BC1_UNORM_SRGB" value="DXGI_FORMAT_BC1_UNORM_SRGB"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_BC2_TYPELESS" value="DXGI_FORMAT_BC2_TYPELESS"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_BC2_UNORM" value="DXGI_FORMAT_BC2_UNORM"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_BC2_UNORM_SRGB" value="DXGI_FORMAT_BC2_UNORM_SRGB"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_BC3_TYPELESS" value="DXGI_FORMAT_BC3_TYPELESS"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_BC3_UNORM" value="DXGI_FORMAT_BC3_UNORM"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_BC3_UNORM_SRGB" value="DXGI_FORMAT_BC3_UNORM_SRGB"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_BC4_TYPELESS" value="DXGI_FORMAT_BC4_TYPELESS"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_BC4_UNORM" value="DXGI_FORMAT_BC4_UNORM"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_BC4_SNORM" value="DXGI_FORMAT_BC4_SNORM"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_BC5_TYPELESS" value="DXGI_FORMAT_BC5_TYPELESS"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_BC5_UNORM" value="DXGI_FORMAT_BC5_UNORM"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_BC5_SNORM" value="DXGI_FORMAT_BC5_SNORM"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_B5G6R5_UNORM" value="DXGI_FORMAT_B5G6R5_UNORM"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_B5G5R5A1_UNORM" value="DXGI_FORMAT_B5G5R5A1_UNORM"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_B8G8R8A8_UNORM" value="DXGI_FORMAT_B8G8R8A8_UNORM"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_B8G8R8X8_UNORM" value="DXGI_FORMAT_B8G8R8X8_UNORM"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_R10G10B10_XR_BIAS_A2_UNORM" value="DXGI_FORMAT_R10G10B10_XR_BIAS_A2_UNORM"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_B8G8R8A8_TYPELESS" value="DXGI_FORMAT_B8G8R8A8_TYPELESS"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_B8G8R8A8_UNORM_SRGB" value="DXGI_FORMAT_B8G8R8A8_UNORM_SRGB"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_B8G8R8X8_TYPELESS" value="DXGI_FORMAT_B8G8R8X8_TYPELESS"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_B8G8R8X8_UNORM_SRGB" value="DXGI_FORMAT_B8G8R8X8_UNORM_SRGB"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_BC6H_TYPELESS" value="DXGI_FORMAT_BC6H_TYPELESS"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_BC6H_UF16" value="DXGI_FORMAT_BC6H_UF16"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_BC6H_SF16" value="DXGI_FORMAT_BC6H_SF16"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_BC7_TYPELESS" value="DXGI_FORMAT_BC7_TYPELESS"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_BC7_UNORM" value="DXGI_FORMAT_BC7_UNORM"/>
+    <string id="map_DXGIFormatDXGI_FORMAT_BC7_UNORM_SRGB" value="DXGI_FORMAT_BC7_UNORM_SRGB"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

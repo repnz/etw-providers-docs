@@ -1,0 +1,106 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-WLAN-Driver" guid="{daa6a96b-f3e7-4d4d-a0d6-31a350e6a445}" resourceFileName="Microsoft-Windows-WLAN-Driver" messageFileName="Microsoft-Windows-WLAN-Driver" symbol="MicrosoftWindowsWLANDriver" source="Xml" >
+    <keywords>
+     <keyword name="DataPath" message="$(string.keyword_DataPath)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="DataTransmitReceive" message="$(string.task_DataTransmitReceive)" value="1">
+>
+      <opcodes>
+       <opcode name="Transmit" message="$(string.opcode_DataTransmitReceiveTransmit)" value="11"/>
+       <opcode name="Receive" message="$(string.opcode_DataTransmitReceiveReceive)" value="12"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="0" symbol="DataTransmitReceiveTransmit_V1" version="1" task="DataTransmitReceive" opcode="Transmit" level="win:Informational" keywords="DataPath" template="DataTransmitReceiveTransmitArgs_V1"/>
+     <event value="1" symbol="DataTransmitReceiveTransmit1_V1" version="1" task="DataTransmitReceive" opcode="Transmit" level="win:Informational" keywords="DataPath" template="DataTransmitReceiveTransmit1Args_V1"/>
+     <event value="2" symbol="DataTransmitReceiveTransmit2_V1" version="1" task="DataTransmitReceive" opcode="Transmit" level="win:Informational" keywords="DataPath" template="DataTransmitReceiveTransmit2Args_V1"/>
+     <event value="3" symbol="DataTransmitReceiveTransmit3_V1" version="1" task="DataTransmitReceive" opcode="Transmit" level="win:Informational" keywords="DataPath" template="DataTransmitReceiveTransmit3Args_V1"/>
+     <event value="4" symbol="DataTransmitReceive_V1" version="1" task="DataTransmitReceive" opcode="Receive" level="win:Informational" keywords="DataPath" template="DataTransmitReceiveArgs_V1"/>
+     <event value="5" symbol="DataTransmitReceive5_V1" version="1" task="DataTransmitReceive" opcode="Receive" level="win:Informational" keywords="DataPath" template="DataTransmitReceive5Args_V1"/>
+     <event value="6" symbol="DataTransmitReceive6_V1" version="1" task="DataTransmitReceive" opcode="Receive" level="win:Informational" keywords="DataPath" template="DataTransmitReceive6Args_V1"/>
+    </events>
+    <templates>
+     <template tid="DataTransmitReceiveTransmitArgs_V1">
+      <data name="FrameUniqueID" inType="win:UInt32"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="TID" inType="win:UInt8"/>
+      <data name="PeerID" inType="win:UInt32"/>
+      <data name="PayloadLength" inType="win:UInt16"/>
+      <data name="QueueLength" inType="win:UInt16"/>
+      <data name="QueueState" inType="win:Boolean"/>
+      <data name="CustomData1" inType="win:UInt32"/>
+      <data name="CustomData2" inType="win:UInt32"/>
+      <data name="CustomData3" inType="win:UInt32"/>
+     </template>
+     <template tid="DataTransmitReceiveTransmit1Args_V1">
+      <data name="FrameUniqueID" inType="win:UInt32"/>
+      <data name="QueueLength" inType="win:UInt16"/>
+      <data name="QueueState" inType="win:Boolean"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="CustomData1" inType="win:UInt32"/>
+      <data name="CustomData2" inType="win:UInt32"/>
+      <data name="CustomData3" inType="win:UInt32"/>
+     </template>
+     <template tid="DataTransmitReceiveTransmit2Args_V1">
+      <data name="FrameUniqueID" inType="win:UInt32"/>
+      <data name="SequenceNumber" inType="win:UInt16"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="RetryCount" inType="win:UInt16"/>
+      <data name="CustomData1" inType="win:UInt32"/>
+      <data name="CustomData2" inType="win:UInt32"/>
+      <data name="CustomData3" inType="win:UInt32"/>
+     </template>
+     <template tid="DataTransmitReceiveTransmit3Args_V1">
+      <data name="FrameUniqueID" inType="win:UInt32"/>
+      <data name="CustomData1" inType="win:UInt32"/>
+      <data name="CustomData2" inType="win:UInt32"/>
+      <data name="CustomData3" inType="win:UInt32"/>
+     </template>
+     <template tid="DataTransmitReceiveArgs_V1">
+      <data name="FrameUniqueID" inType="win:UInt32"/>
+      <data name="TID" inType="win:UInt8"/>
+      <data name="PeerID" inType="win:UInt32"/>
+      <data name="SequenceNumber" inType="win:UInt16"/>
+      <data name="PayloadLength" inType="win:UInt16"/>
+      <data name="QueueLength" inType="win:UInt16"/>
+      <data name="Retransmit" inType="win:Boolean"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="CustomData1" inType="win:UInt32"/>
+      <data name="CustomData2" inType="win:UInt32"/>
+      <data name="CustomData3" inType="win:UInt32"/>
+     </template>
+     <template tid="DataTransmitReceive5Args_V1">
+      <data name="FrameUniqueID" inType="win:UInt32"/>
+      <data name="PortNumber" inType="win:UInt32"/>
+      <data name="RxBacklog" inType="win:UInt16"/>
+      <data name="CustomData1" inType="win:UInt32"/>
+      <data name="CustomData2" inType="win:UInt32"/>
+      <data name="CustomData3" inType="win:UInt32"/>
+     </template>
+     <template tid="DataTransmitReceive6Args_V1">
+      <data name="FrameUniqueID" inType="win:UInt32"/>
+      <data name="QueueLength" inType="win:UInt16"/>
+      <data name="RxBacklog" inType="win:UInt16"/>
+      <data name="CustomData1" inType="win:UInt32"/>
+      <data name="CustomData2" inType="win:UInt32"/>
+      <data name="CustomData3" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_DataPath" value="DataPath"/>
+    <string id="task_DataTransmitReceive" value="DataTransmitReceive"/>
+    <string id="opcode_DataTransmitReceiveTransmit" value="Transmit"/>
+    <string id="opcode_DataTransmitReceiveReceive" value="Receive"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

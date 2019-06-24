@@ -1,0 +1,203 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Minstore" guid="{55b24b1d-dd9c-44c0-ba77-4f749f1b6976}" resourceFileName="Microsoft-Windows-Minstore" messageFileName="Microsoft-Windows-Minstore" symbol="MicrosoftWindowsMinstore" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="TreeUpdateTask" message="$(string.task_TreeUpdateTask)" value="1">
+>
+      <opcodes>
+       <opcode name="WriteB+tree" message="$(string.opcode_TreeUpdateTaskWriteB+tree)" value="15"/>
+       <opcode name="StartedwritingB+tree" message="$(string.opcode_TreeUpdateTaskStartedwritingB+tree)" value="20"/>
+       <opcode name="FinishedwritingB+tree" message="$(string.opcode_TreeUpdateTaskFinishedwritingB+tree)" value="21"/>
+      </opcodes>
+     </task>
+     <task name="TableEvent" message="$(string.task_TableEvent)" value="2">
+>
+      <opcodes>
+       <opcode name="BucketSplit" message="$(string.opcode_TableEventBucketSplit)" value="13"/>
+       <opcode name="BucketMerge" message="$(string.opcode_TableEventBucketMerge)" value="14"/>
+      </opcodes>
+     </task>
+     <task name="VolumeCheckpoint" message="$(string.task_VolumeCheckpoint)" value="3">
+>
+      <opcodes>
+       <opcode name="Checkpoint" message="$(string.opcode_VolumeCheckpointCheckpoint)" value="16"/>
+      </opcodes>
+     </task>
+     <task name="ForwardProgress" message="$(string.task_ForwardProgress)" value="4">
+>
+      <opcodes>
+       <opcode name="LFF:RedoLog" message="$(string.opcode_ForwardProgressLFF:RedoLog)" value="17"/>
+       <opcode name="LFF:ProtectedSpace" message="$(string.opcode_ForwardProgressLFF:ProtectedSpace)" value="18"/>
+       <opcode name="Logtailadvance" message="$(string.opcode_ForwardProgressLogtailadvance)" value="22"/>
+       <opcode name="Logpulselazywriter" message="$(string.opcode_ForwardProgressLogpulselazywriter)" value="24"/>
+      </opcodes>
+     </task>
+     <task name="Allocation" message="$(string.task_Allocation)" value="5">
+>
+      <opcodes>
+       <opcode name="Allocationrange" message="$(string.opcode_AllocationAllocationrange)" value="19"/>
+       <opcode name="Containermove" message="$(string.opcode_AllocationContainermove)" value="25"/>
+      </opcodes>
+     </task>
+     <task name="LogRedo" message="$(string.task_LogRedo)" value="6">
+>
+      <opcodes>
+       <opcode name="LogRedo" message="$(string.opcode_LogRedoLogRedo)" value="23"/>
+      </opcodes>
+     </task>
+     <task name="Contention" message="$(string.task_Contention)" value="50">
+>
+      <opcodes>
+       <opcode name="Bucketreadcollision" message="$(string.opcode_ContentionBucketreadcollision)" value="50"/>
+       <opcode name="Bucketlockcollision" message="$(string.opcode_ContentionBucketlockcollision)" value="51"/>
+       <opcode name="Bucketcowcollision" message="$(string.opcode_ContentionBucketcowcollision)" value="52"/>
+      </opcodes>
+     </task>
+     <task name="ErrorDetected" message="$(string.task_ErrorDetected)" value="100">
+>
+      <opcodes>
+       <opcode name="B+nodeCRCmismatch" message="$(string.opcode_ErrorDetectedB+nodeCRCmismatch)" value="100"/>
+       <opcode name="B+noderepairedviaredundantcopy" message="$(string.opcode_ErrorDetectedB+noderepairedviaredundantcopy)" value="101"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="1" symbol="TableEventBucketSplit_V1" version="1" task="TableEvent" opcode="BucketSplit" level="win:Informational" template="TableEventBucketSplitArgs_V1"/>
+     <event value="2" symbol="TableEventBucketMerge_V1" version="1" task="TableEvent" opcode="BucketMerge" level="win:Informational" template="TableEventBucketSplitArgs_V1"/>
+     <event value="10" symbol="TreeUpdateTaskWriteB+tree_V1" version="1" task="TreeUpdateTask" opcode="WriteB+tree" level="win:Informational" template="TreeUpdateTaskWriteB+treeArgs_V1"/>
+     <event value="11" symbol="VolumeCheckpoint_V1" version="1" task="VolumeCheckpoint" opcode="Checkpoint" level="win:Informational" template="TreeUpdateTaskWriteB+treeArgs_V1"/>
+     <event value="12" symbol="TreeUpdateTaskStartedwritingB+tree_V1" version="1" task="TreeUpdateTask" opcode="StartedwritingB+tree" level="win:Informational" template="TreeUpdateTaskWriteB+treeArgs_V1"/>
+     <event value="13" symbol="TreeUpdateTaskFinishedwritingB+tree_V1" version="1" task="TreeUpdateTask" opcode="FinishedwritingB+tree" level="win:Informational" template="TreeUpdateTaskWriteB+treeArgs_V1"/>
+     <event value="20" symbol="ForwardProgressLFF:RedoLog_V1" version="1" task="ForwardProgress" opcode="LFF:RedoLog" level="win:Informational" template="ForwardProgressLFF:RedoLogArgs_V1"/>
+     <event value="21" symbol="ForwardProgressLFF:ProtectedSpace_V1" version="1" task="ForwardProgress" opcode="LFF:ProtectedSpace" level="win:Informational" template="TreeUpdateTaskWriteB+treeArgs_V1"/>
+     <event value="22" symbol="AllocationAllocationrange_V1" version="1" task="Allocation" opcode="Allocationrange" level="win:Verbose" template="AllocationAllocationrangeArgs_V1"/>
+     <event value="23" symbol="ForwardProgressLogtailadvance_V1" version="1" task="ForwardProgress" opcode="Logtailadvance" level="win:Informational" template="ForwardProgressLFF:RedoLogArgs_V1"/>
+     <event value="24" symbol="ForwardProgressLogpulselazywriter_V1" version="1" task="ForwardProgress" opcode="Logpulselazywriter" level="win:Informational" template="ForwardProgressLFF:RedoLogArgs_V1"/>
+     <event value="25" symbol="AllocationContainermove_V1" version="1" task="Allocation" opcode="Containermove" level="win:Informational" template="AllocationContainermoveArgs_V1"/>
+     <event value="50" symbol="ContentionBucketreadcollision_V1" version="1" task="Contention" opcode="Bucketreadcollision" level="win:Informational" template="ContentionBucketreadcollisionArgs_V1"/>
+     <event value="51" symbol="ContentionBucketlockcollision_V1" version="1" task="Contention" opcode="Bucketlockcollision" level="win:Informational" template="ContentionBucketreadcollisionArgs_V1"/>
+     <event value="52" symbol="ContentionBucketcowcollision_V1" version="1" task="Contention" opcode="Bucketcowcollision" level="win:Informational" template="ContentionBucketreadcollisionArgs_V1"/>
+     <event value="100" symbol="ErrorDetectedB+nodeCRCmismatch_V1" version="1" task="ErrorDetected" opcode="B+nodeCRCmismatch" level="win:Informational" template="ErrorDetectedB+nodeCRCmismatchArgs_V1"/>
+     <event value="101" symbol="ErrorDetectedB+noderepairedviaredundantcopy_V1" version="1" task="ErrorDetected" opcode="B+noderepairedviaredundantcopy" level="win:Informational" template="ErrorDetectedB+noderepairedviaredundantcopyArgs_V1"/>
+     <event value="1000" symbol="TableEventBucketSplit1000_V2" version="2" task="TableEvent" opcode="BucketSplit" level="win:Informational" template="TableEventBucketSplitArgs_V1"/>
+     <event value="1002" symbol="TableEventBucketSplit1002_V2" version="2" task="TableEvent" opcode="BucketSplit" level="win:Informational" template="TableEventBucketSplitArgs_V1"/>
+     <event value="1003" symbol="TableEventBucketMerge1003_V2" version="2" task="TableEvent" opcode="BucketMerge" level="win:Informational" template="TableEventBucketSplitArgs_V1"/>
+     <event value="1004" symbol="TableEventBucketMerge1004_V2" version="2" task="TableEvent" opcode="BucketMerge" level="win:Informational" template="TableEventBucketSplitArgs_V1"/>
+     <event value="1005" symbol="TableEventBucketSplit1005_V2" version="2" task="TableEvent" opcode="BucketSplit" level="win:Informational" template="TableEventBucketSplitArgs_V1"/>
+     <event value="1006" symbol="TableEventBucketSplit1006_V2" version="2" task="TableEvent" opcode="BucketSplit" level="win:Informational" template="TableEventBucketSplitArgs_V1"/>
+     <event value="1007" symbol="TableEventBucketMerge1007_V2" version="2" task="TableEvent" opcode="BucketMerge" level="win:Informational" template="TableEventBucketSplitArgs_V1"/>
+     <event value="1008" symbol="TableEventBucketMerge1008_V2" version="2" task="TableEvent" opcode="BucketMerge" level="win:Informational" template="TableEventBucketSplitArgs_V1"/>
+     <event value="1011" symbol="LogRedo_V2" version="2" task="LogRedo" opcode="LogRedo" level="win:Informational" template="LogRedoArgs_V2"/>
+     <event value="1012" symbol="LogRedo1012_V2" version="2" task="LogRedo" opcode="LogRedo" level="win:Informational" template="LogRedoArgs_V2"/>
+     <event value="1013" symbol="LogRedo1013_V2" version="2" task="LogRedo" opcode="LogRedo" level="win:Informational" template="LogRedoArgs_V2"/>
+     <event value="1014" symbol="LogRedo1014_V2" version="2" task="LogRedo" opcode="LogRedo" level="win:Informational" template="LogRedoArgs_V2"/>
+     <event value="1015" symbol="LogRedo1015_V2" version="2" task="LogRedo" opcode="LogRedo" level="win:Informational" template="LogRedoArgs_V2"/>
+     <event value="1016" symbol="LogRedo1016_V2" version="2" task="LogRedo" opcode="LogRedo" level="win:Informational" template="LogRedoArgs_V2"/>
+     <event value="1017" symbol="LogRedo1017_V2" version="2" task="LogRedo" opcode="LogRedo" level="win:Informational" template="LogRedoArgs_V2"/>
+     <event value="1018" symbol="LogRedo1018_V2" version="2" task="LogRedo" opcode="LogRedo" level="win:Informational" template="LogRedoArgs_V2"/>
+     <event value="1019" symbol="LogRedo1019_V2" version="2" task="LogRedo" opcode="LogRedo" level="win:Informational" template="LogRedoArgs_V2"/>
+     <event value="1020" symbol="LogRedo1020_V2" version="2" task="LogRedo" opcode="LogRedo" level="win:Informational" template="LogRedoArgs_V2"/>
+    </events>
+    <templates>
+     <template tid="TableEventBucketSplitArgs_V1">
+      <data name="IdHigh" inType="win:HexInt64"/>
+      <data name="IdLow" inType="win:HexInt64"/>
+      <data name="TableType" inType="win:UInt32"/>
+     </template>
+     <template tid="TreeUpdateTaskWriteB+treeArgs_V1">
+      <data name="PageCount" inType="win:UInt32"/>
+      <data name="IdHigh" inType="win:HexInt64"/>
+      <data name="IdLow" inType="win:HexInt64"/>
+     </template>
+     <template tid="ForwardProgressLFF:RedoLogArgs_V1">
+      <data name="Pending" inType="win:UInt32"/>
+      <data name="Amount" inType="win:UInt32"/>
+      <data name="Lsn1" inType="win:HexInt64"/>
+      <data name="Lsn2" inType="win:HexInt64"/>
+      <data name="Lsn3" inType="win:HexInt64"/>
+     </template>
+     <template tid="AllocationAllocationrangeArgs_V1">
+      <data name="IsMetadata" inType="win:Boolean"/>
+      <data name="RequestedTier" inType="win:UInt32"/>
+      <data name="ActualTier" inType="win:UInt32"/>
+      <data name="RequestedStartOfRange" inType="win:UInt64"/>
+      <data name="RequestedCountOfRange" inType="win:UInt64"/>
+      <data name="AllocatedStartOfRange" inType="win:UInt64"/>
+      <data name="AllocatedCountOfRange" inType="win:UInt64"/>
+     </template>
+     <template tid="AllocationContainermoveArgs_V1">
+      <data name="SourceTier" inType="win:UInt32"/>
+      <data name="TargetTier" inType="win:UInt32"/>
+      <data name="SourceStartOfRange" inType="win:HexInt64"/>
+      <data name="SourceCountOfRange" inType="win:HexInt64"/>
+      <data name="TargetPhysicalOffset" inType="win:HexInt64"/>
+      <data name="SsdFillRatio" inType="win:UInt32"/>
+      <data name="HddFillRatio" inType="win:UInt32"/>
+      <data name="IsTargetReserved" inType="win:Boolean"/>
+      <data name="DestageAllocationCount" inType="win:HexInt64"/>
+      <data name="FailedSsdDestage" inType="win:Boolean"/>
+     </template>
+     <template tid="ContentionBucketreadcollisionArgs_V1">
+      <data name="IdHigh" inType="win:HexInt64"/>
+      <data name="IdLow" inType="win:HexInt64"/>
+      <data name="Lcn" inType="win:HexInt64"/>
+      <data name="Level" inType="win:HexInt32"/>
+     </template>
+     <template tid="ErrorDetectedB+nodeCRCmismatchArgs_V1">
+      <data name="IdHigh" inType="win:HexInt64"/>
+      <data name="IdLow" inType="win:HexInt64"/>
+      <data name="PageLcn" inType="win:HexInt64"/>
+      <data name="Lcn" inType="win:HexInt64"/>
+      <data name="PageVirtualClock" inType="win:HexInt64"/>
+      <data name="VolumeVirtualClock" inType="win:HexInt64"/>
+      <data name="Scrubbing" inType="win:Boolean"/>
+     </template>
+     <template tid="ErrorDetectedB+noderepairedviaredundantcopyArgs_V1">
+      <data name="Lcn" inType="win:HexInt64"/>
+      <data name="Scrubbing" inType="win:Boolean"/>
+     </template>
+     <template tid="LogRedoArgs_V2">
+      <data name="StartLsn" inType="win:HexInt64"/>
+      <data name="EndLsn" inType="win:HexInt64"/>
+      <data name="TransactionsRemaining" inType="win:UInt64"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_TreeUpdateTask" value="TreeUpdateTask"/>
+    <string id="opcode_TreeUpdateTaskWriteB+tree" value="WriteB+tree"/>
+    <string id="opcode_TreeUpdateTaskStartedwritingB+tree" value="StartedwritingB+tree"/>
+    <string id="opcode_TreeUpdateTaskFinishedwritingB+tree" value="FinishedwritingB+tree"/>
+    <string id="task_TableEvent" value="TableEvent"/>
+    <string id="opcode_TableEventBucketSplit" value="BucketSplit"/>
+    <string id="opcode_TableEventBucketMerge" value="BucketMerge"/>
+    <string id="task_VolumeCheckpoint" value="VolumeCheckpoint"/>
+    <string id="opcode_VolumeCheckpointCheckpoint" value="Checkpoint"/>
+    <string id="task_ForwardProgress" value="ForwardProgress"/>
+    <string id="opcode_ForwardProgressLFF:RedoLog" value="LFF:RedoLog"/>
+    <string id="opcode_ForwardProgressLFF:ProtectedSpace" value="LFF:ProtectedSpace"/>
+    <string id="opcode_ForwardProgressLogtailadvance" value="Logtailadvance"/>
+    <string id="opcode_ForwardProgressLogpulselazywriter" value="Logpulselazywriter"/>
+    <string id="task_Allocation" value="Allocation"/>
+    <string id="opcode_AllocationAllocationrange" value="Allocationrange"/>
+    <string id="opcode_AllocationContainermove" value="Containermove"/>
+    <string id="task_LogRedo" value="LogRedo"/>
+    <string id="opcode_LogRedoLogRedo" value="LogRedo"/>
+    <string id="task_Contention" value="Contention"/>
+    <string id="opcode_ContentionBucketreadcollision" value="Bucketreadcollision"/>
+    <string id="opcode_ContentionBucketlockcollision" value="Bucketlockcollision"/>
+    <string id="opcode_ContentionBucketcowcollision" value="Bucketcowcollision"/>
+    <string id="task_ErrorDetected" value="ErrorDetected"/>
+    <string id="opcode_ErrorDetectedB+nodeCRCmismatch" value="B+nodeCRCmismatch"/>
+    <string id="opcode_ErrorDetectedB+noderepairedviaredundantcopy" value="B+noderepairedviaredundantcopy"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

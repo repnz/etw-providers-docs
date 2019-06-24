@@ -1,0 +1,53 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-EnergyEfficiencyWizard" guid="{1a772f65-be1e-4fc6-96bb-248e03fa60f5}" resourceFileName="Microsoft-Windows-EnergyEfficiencyWizard" messageFileName="Microsoft-Windows-EnergyEfficiencyWizard" symbol="MicrosoftWindowsEnergyEfficiencyWizard" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="EnableProviders" message="$(string.task_EnableProviders)" value="1">
+>
+      <opcodes>
+       <opcode name="EtwProvider" message="$(string.opcode_EnableProvidersEtwProvider)" value="10"/>
+       <opcode name="NTKL" message="$(string.opcode_EnableProvidersNTKL)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="Trace" message="$(string.task_Trace)" value="2">
+>
+      <opcodes>
+       <opcode name="Start" message="$(string.opcode_TraceStart)" value="12"/>
+       <opcode name="Stop" message="$(string.opcode_TraceStop)" value="13"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="1" symbol="EnableProvidersNTKL" version="0" task="EnableProviders" opcode="NTKL" level="win:Informational" template="EnableProvidersNTKLArgs"/>
+     <event value="2" symbol="EnableProvidersEtwProvider" version="0" task="EnableProviders" opcode="EtwProvider" level="win:Informational" template="EnableProvidersEtwProviderArgs"/>
+     <event value="3" symbol="TraceStart" version="0" task="Trace" opcode="Start" level="win:Informational"/>
+     <event value="4" symbol="TraceStop" version="0" task="Trace" opcode="Stop" level="win:Informational"/>
+    </events>
+    <templates>
+     <template tid="EnableProvidersNTKLArgs">
+      <data name="KernelFlags" inType="win:UInt32"/>
+     </template>
+     <template tid="EnableProvidersEtwProviderArgs">
+      <data name="ProviderGUID" inType="win:GUID"/>
+      <data name="Rundown" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_EnableProviders" value="EnableProviders"/>
+    <string id="opcode_EnableProvidersEtwProvider" value="EtwProvider"/>
+    <string id="opcode_EnableProvidersNTKL" value="NTKL"/>
+    <string id="task_Trace" value="Trace"/>
+    <string id="opcode_TraceStart" value="Start"/>
+    <string id="opcode_TraceStop" value="Stop"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

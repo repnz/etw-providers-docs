@@ -1,0 +1,45 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-RPC-Proxy-LBS" guid="{272a979b-34b5-48ec-94f5-7225a59c85a0}" resourceFileName="Microsoft-Windows-RPC-Proxy-LBS" messageFileName="Microsoft-Windows-RPC-Proxy-LBS" symbol="MicrosoftWindowsRPCProxyLBS" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="Arbitration" message="$(string.task_Arbitration)" value="1"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="ArbitrationStart_V1" version="1" task="Arbitration" opcode="win:Start" level="win:Informational" template="ArbitrationStartArgs_V1"/>
+     <event value="2" symbol="task_0Stop_V1" version="1" task="task_0" opcode="win:Stop" level="win:Informational" template="task_0StopArgs_V1"/>
+     <event value="3" symbol="task_0Stop3_V1" version="1" task="task_0" opcode="win:Stop" level="win:Error" template="task_0Stop3Args_V1"/>
+     <event value="4" symbol="task_0Start_V1" version="1" task="task_0" opcode="win:Start" level="win:Informational" template="task_0StartArgs_V1"/>
+     <event value="5" symbol="task_0Stop5_V1" version="1" task="task_0" opcode="win:Stop" level="win:Informational" template="task_0StartArgs_V1"/>
+    </events>
+    <templates>
+     <template tid="ArbitrationStartArgs_V1">
+      <data name="UserName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0StopArgs_V1">
+      <data name="ServerName" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0Stop3Args_V1">
+      <data name="UserName" inType="win:UnicodeString"/>
+      <data name="ServerList" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0StartArgs_V1">
+      <data name="ServerName" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_Arbitration" value="Arbitration"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

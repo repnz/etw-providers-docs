@@ -1,0 +1,50 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-WinMDE" guid="{77549803-7bb1-418b-a98e-f2e22f35a873}" resourceFileName="Microsoft-Windows-WinMDE" messageFileName="Microsoft-Windows-WinMDE" symbol="MicrosoftWindowsWinMDE" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="HTTPListener" message="$(string.task_HTTPListener)" value="1"/>
+     <task name="NetStreamSink_SampleRequests" message="$(string.task_NetStreamSink_SampleRequests)" value="2"/>
+     <task name="RtspSink_SetWorkQueueTask" message="$(string.task_RtspSink_SetWorkQueueTask)" value="3"/>
+     <task name="RtspSink_ProcessSampleTask" message="$(string.task_RtspSink_ProcessSampleTask)" value="4"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="HTTPListenerStart" version="0" task="HTTPListener" opcode="win:Start" level="win:Informational" template="HTTPListenerStartArgs"/>
+     <event value="2" symbol="HTTPListenerStop" version="0" task="HTTPListener" opcode="win:Stop" level="win:Informational" template="HTTPListenerStartArgs"/>
+     <event value="3" symbol="HTTPListener" version="0" task="HTTPListener" level="win:Informational" template="HTTPListenerStartArgs"/>
+     <event value="4" symbol="HTTPListener4" version="0" task="HTTPListener" level="win:Informational" template="HTTPListener4Args"/>
+     <event value="5" symbol="NetStreamSink_SampleRequests" version="0" task="NetStreamSink_SampleRequests" level="win:Verbose" template="HTTPListener4Args"/>
+     <event value="6" symbol="RtspSink_SetWorkQueueTask" version="0" task="RtspSink_SetWorkQueueTask" level="win:Verbose" template="RtspSink_SetWorkQueueTaskArgs"/>
+     <event value="7" symbol="RtspSink_ProcessSampleTaskStart" version="0" task="RtspSink_ProcessSampleTask" opcode="win:Start" level="win:Verbose" template="HTTPListenerStartArgs"/>
+     <event value="8" symbol="RtspSink_ProcessSampleTaskStop" version="0" task="RtspSink_ProcessSampleTask" opcode="win:Stop" level="win:Verbose" template="HTTPListenerStartArgs"/>
+    </events>
+    <templates>
+     <template tid="HTTPListenerStartArgs">
+      <data name="Object" inType="win:Pointer"/>
+     </template>
+     <template tid="HTTPListener4Args">
+      <data name="Object" inType="win:Pointer"/>
+      <data name="Value" inType="win:UInt32"/>
+     </template>
+     <template tid="RtspSink_SetWorkQueueTaskArgs">
+      <data name="Object" inType="win:Pointer"/>
+      <data name="StreamIndex" inType="win:UInt32"/>
+      <data name="WorkQueueID" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_HTTPListener" value="HTTPListener"/>
+    <string id="task_NetStreamSink_SampleRequests" value="NetStreamSink_SampleRequests"/>
+    <string id="task_RtspSink_SetWorkQueueTask" value="RtspSink_SetWorkQueueTask"/>
+    <string id="task_RtspSink_ProcessSampleTask" value="RtspSink_ProcessSampleTask"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

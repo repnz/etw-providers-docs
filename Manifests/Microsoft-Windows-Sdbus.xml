@@ -1,0 +1,154 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Sdbus" guid="{fe28004e-b08f-4407-92b3-bad3a2c51708}" resourceFileName="Microsoft-Windows-Sdbus" messageFileName="Microsoft-Windows-Sdbus" symbol="MicrosoftWindowsSdbus" source="Xml" >
+    <keywords>
+     <keyword name="Interrupt" message="$(string.keyword_Interrupt)" mask="0x1"/>
+     <keyword name="Emmc" message="$(string.keyword_Emmc)" mask="0x2"/>
+     <keyword name="Sdio" message="$(string.keyword_Sdio)" mask="0x4"/>
+     <keyword name="Sd" message="$(string.keyword_Sd)" mask="0x8"/>
+     <keyword name="Perf" message="$(string.keyword_Perf)" mask="0x10"/>
+     <keyword name="Error" message="$(string.keyword_Error)" mask="0x20"/>
+     <keyword name="Dpc" message="$(string.keyword_Dpc)" mask="0x40"/>
+     <keyword name="Request" message="$(string.keyword_Request)" mask="0x80"/>
+    </keywords>
+    <tasks>
+     <task name="Interrupt" message="$(string.task_Interrupt)" value="1"/>
+     <task name="CallbackRoutine" message="$(string.task_CallbackRoutine)" value="2"/>
+     <task name="Retune" message="$(string.task_Retune)" value="3"/>
+     <task name="Error" message="$(string.task_Error)" value="4"/>
+     <task name="HPIIO" message="$(string.task_HPIIO)" value="5"/>
+     <task name="P_StateRequest" message="$(string.task_P_StateRequest)" value="6"/>
+     <task name="P_StateCompletion" message="$(string.task_P_StateCompletion)" value="7"/>
+     <task name="CommandIssued" message="$(string.task_CommandIssued)" value="8"/>
+     <task name="CommandCompleted" message="$(string.task_CommandCompleted)" value="9"/>
+     <task name="HPICMDIssued" message="$(string.task_HPICMDIssued)" value="10"/>
+     <task name="HPIWorkerProcess" message="$(string.task_HPIWorkerProcess)" value="12"/>
+     <task name="P_StateUtilization" message="$(string.task_P_StateUtilization)" value="13"/>
+     <task name="SdbusWorkerDpc" message="$(string.task_SdbusWorkerDpc)" value="14"/>
+     <task name="SdbusRequest" message="$(string.task_SdbusRequest)" value="15"/>
+    </tasks>
+    <events>
+     <event value="100" symbol="Interrupt" version="0" task="Interrupt" level="win:Informational" keywords="Interrupt" template="InterruptArgs"/>
+     <event value="101" symbol="CallbackRoutineStart" version="0" task="CallbackRoutine" opcode="win:Start" level="win:Informational" keywords="Sdio" template="CallbackRoutineStartArgs"/>
+     <event value="102" symbol="CallbackRoutineStop" version="0" task="CallbackRoutine" opcode="win:Stop" level="win:Informational" keywords="Sdio" template="CallbackRoutineStartArgs"/>
+     <event value="103" symbol="Retune" version="0" task="Retune" level="win:Informational" keywords="Emmc" template="RetuneArgs"/>
+     <event value="104" symbol="Error" version="0" task="Error" level="win:Informational" keywords="Emmc" template="ErrorArgs"/>
+     <event value="105" symbol="HPIIO" version="0" task="HPIIO" level="win:Informational" keywords="Emmc" template="HPIIOArgs"/>
+     <event value="106" symbol="P_StateRequest" version="0" task="P_StateRequest" level="win:Informational" keywords="Perf" template="P_StateRequestArgs"/>
+     <event value="107" symbol="P_StateCompletion" version="0" task="P_StateCompletion" level="win:Informational" keywords="Perf" template="P_StateCompletionArgs"/>
+     <event value="108" symbol="CommandIssued" version="0" task="CommandIssued" level="win:Informational" keywords="Perf" template="CommandIssuedArgs"/>
+     <event value="109" symbol="CommandCompleted" version="0" task="CommandCompleted" level="win:Informational" keywords="Perf" template="CommandIssuedArgs"/>
+     <event value="110" symbol="HPICMDIssued" version="0" task="HPICMDIssued" level="win:Informational" keywords="Emmc" template="HPICMDIssuedArgs"/>
+     <event value="111" symbol="HPICMDIssued111" version="0" task="HPICMDIssued" level="win:Informational" keywords="Emmc" template="HPICMDIssuedArgs"/>
+     <event value="112" symbol="HPIWorkerProcess" version="0" task="HPIWorkerProcess" level="win:Informational" keywords="Emmc" template="HPICMDIssuedArgs"/>
+     <event value="113" symbol="HPIWorkerProcess113" version="0" task="HPIWorkerProcess" level="win:Informational" keywords="Emmc" template="HPIWorkerProcess113Args"/>
+     <event value="114" symbol="P_StateUtilization" version="0" task="P_StateUtilization" level="win:Informational" keywords="Perf" template="P_StateUtilizationArgs"/>
+     <event value="115" symbol="SdbusWorkerDpc" version="0" task="SdbusWorkerDpc" level="win:Informational" keywords="Dpc" template="SdbusWorkerDpcArgs"/>
+     <event value="116" symbol="SdbusWorkerDpc116" version="0" task="SdbusWorkerDpc" level="win:Informational" keywords="Dpc" template="SdbusWorkerDpcArgs"/>
+     <event value="117" symbol="SdbusRequest" version="0" task="SdbusRequest" level="win:Informational" keywords="Request" template="SdbusRequestArgs"/>
+     <event value="118" symbol="SdbusRequest118" version="0" task="SdbusRequest" level="win:Informational" keywords="Request" template="SdbusRequestArgs"/>
+     <event value="119" symbol="CallbackRoutineStart119" version="0" task="CallbackRoutine" opcode="win:Start" level="win:Informational" keywords="Sdio" template="CallbackRoutineStartArgs"/>
+     <event value="120" symbol="InterruptStart" version="0" task="Interrupt" opcode="win:Start" level="win:Informational" keywords="Sdio"/>
+     <event value="121" symbol="InterruptStart121" version="0" task="Interrupt" opcode="win:Start" level="win:Informational" keywords="Sdio"/>
+     <event value="122" symbol="InterruptStart122" version="0" task="Interrupt" opcode="win:Start" level="win:Informational" keywords="Sdio"/>
+    </events>
+    <templates>
+     <template tid="InterruptArgs">
+      <data name="SDHostPhysicalAddress" inType="win:HexInt64"/>
+      <data name="EventMask" inType="win:HexInt32"/>
+     </template>
+     <template tid="CallbackRoutineStartArgs">
+      <data name="SDHostPhysicalAddress" inType="win:HexInt64"/>
+     </template>
+     <template tid="RetuneArgs">
+      <data name="SDHostPhysicalAddress" inType="win:HexInt64"/>
+      <data name="RetuneCount" inType="win:UInt64"/>
+     </template>
+     <template tid="ErrorArgs">
+      <data name="SDHostPhysicalAddress" inType="win:HexInt64"/>
+      <data name="ErrorCode" inType="win:HexInt32"/>
+      <data name="ErrorCount" inType="win:UInt32"/>
+     </template>
+     <template tid="HPIIOArgs">
+      <data name="SDHostPhysicalAddress" inType="win:HexInt64"/>
+      <data name="HpiIoCount" inType="win:UInt64"/>
+     </template>
+     <template tid="P_StateRequestArgs">
+      <data name="PoFxDeviceHandle" inType="win:HexInt64"/>
+      <data name="PStateRequested" inType="win:UInt32"/>
+      <data name="PStateRequestCount" inType="win:UInt64"/>
+     </template>
+     <template tid="P_StateCompletionArgs">
+      <data name="PoFxDeviceHandle" inType="win:HexInt64"/>
+      <data name="PStateCompleted" inType="win:UInt32"/>
+      <data name="PStateCompletionCount" inType="win:UInt64"/>
+     </template>
+     <template tid="CommandIssuedArgs">
+      <data name="SDHostPhysicalAddress" inType="win:HexInt64"/>
+      <data name="Command" inType="win:UInt8"/>
+      <data name="Argument" inType="win:HexInt64"/>
+      <data name="Size" inType="win:UInt64"/>
+     </template>
+     <template tid="HPICMDIssuedArgs">
+      <data name="Irp" inType="win:HexInt64"/>
+     </template>
+     <template tid="HPIWorkerProcess113Args">
+      <data name="Irp" inType="win:HexInt64"/>
+      <data name="HpiExitReason" inType="win:UInt32"/>
+     </template>
+     <template tid="P_StateUtilizationArgs">
+      <data name="PoFxDeviceHandle" inType="win:HexInt64"/>
+      <data name="PStateActivePercent" inType="win:UInt32"/>
+      <data name="PStateActiveDuration" inType="win:UInt32"/>
+      <data name="PStateSampleDuration" inType="win:UInt32"/>
+      <data name="PStateCurrentFrequency" inType="win:UInt32"/>
+      <data name="PStateRequestedFrequency" inType="win:UInt32"/>
+     </template>
+     <template tid="SdbusWorkerDpcArgs">
+      <data name="SDHostPhysicalAddress" inType="win:HexInt64"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="WorkPacketWorkerProcFunction" inType="win:UInt32"/>
+      <data name="WorkEngineCurrentState" inType="win:HexInt32"/>
+      <data name="WorkEngineFunctionPhase" inType="win:HexInt32"/>
+     </template>
+     <template tid="SdbusRequestArgs">
+      <data name="SDHostPhysicalAddress" inType="win:HexInt64"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="WorkEngineCommand" inType="win:HexInt32"/>
+      <data name="WorkEngineArgument" inType="win:HexInt32"/>
+      <data name="Status" inType="win:HexInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Interrupt" value="Interrupt"/>
+    <string id="keyword_Emmc" value="Emmc"/>
+    <string id="keyword_Sdio" value="Sdio"/>
+    <string id="keyword_Sd" value="Sd"/>
+    <string id="keyword_Perf" value="Perf"/>
+    <string id="keyword_Error" value="Error"/>
+    <string id="keyword_Dpc" value="Dpc"/>
+    <string id="keyword_Request" value="Request"/>
+    <string id="task_Interrupt" value="Interrupt"/>
+    <string id="task_CallbackRoutine" value="CallbackRoutine"/>
+    <string id="task_Retune" value="Retune"/>
+    <string id="task_Error" value="Error"/>
+    <string id="task_HPIIO" value="HPIIO"/>
+    <string id="task_P_StateRequest" value="P_StateRequest"/>
+    <string id="task_P_StateCompletion" value="P_StateCompletion"/>
+    <string id="task_CommandIssued" value="CommandIssued"/>
+    <string id="task_CommandCompleted" value="CommandCompleted"/>
+    <string id="task_HPICMDIssued" value="HPICMDIssued"/>
+    <string id="task_HPIWorkerProcess" value="HPIWorkerProcess"/>
+    <string id="task_P_StateUtilization" value="P_StateUtilization"/>
+    <string id="task_SdbusWorkerDpc" value="SdbusWorkerDpc"/>
+    <string id="task_SdbusRequest" value="SdbusRequest"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

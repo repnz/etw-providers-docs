@@ -1,0 +1,39 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-SendTo" guid="{35642cf5-da5e-410b-9d9c-a45f3638042b}" resourceFileName="Microsoft-Windows-SendTo" messageFileName="Microsoft-Windows-SendTo" symbol="MicrosoftWindowsSendTo" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="SendTo_DllLoaded" message="$(string.task_SendTo_DllLoaded)" value="1"/>
+     <task name="SendTo_DllUnloaded" message="$(string.task_SendTo_DllUnloaded)" value="2"/>
+     <task name="SendTo_Email" message="$(string.task_SendTo_Email)" value="3"/>
+     <task name="SendTo_EmailCancel" message="$(string.task_SendTo_EmailCancel)" value="4"/>
+     <task name="SendTo_PagesInitialized" message="$(string.task_SendTo_PagesInitialized)" value="5"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="SendTo_DllLoaded" version="0" task="SendTo_DllLoaded" level="win:Informational"/>
+     <event value="2" symbol="SendTo_DllUnloaded" version="0" task="SendTo_DllUnloaded" level="win:Informational"/>
+     <event value="3" symbol="SendTo_EmailStart" version="0" task="SendTo_Email" opcode="win:Start" level="win:Informational"/>
+     <event value="4" symbol="SendTo_EmailStop" version="0" task="SendTo_Email" opcode="win:Stop" level="win:Informational"/>
+     <event value="5" symbol="SendTo_EmailCancelStart" version="0" task="SendTo_EmailCancel" opcode="win:Start" level="win:Informational"/>
+     <event value="6" symbol="SendTo_EmailCancelStop" version="0" task="SendTo_EmailCancel" opcode="win:Stop" level="win:Informational"/>
+     <event value="7" symbol="SendTo_PagesInitialized" version="0" task="SendTo_PagesInitialized" level="win:Informational"/>
+    </events>
+    <templates>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_SendTo_DllLoaded" value="SendTo_DllLoaded"/>
+    <string id="task_SendTo_DllUnloaded" value="SendTo_DllUnloaded"/>
+    <string id="task_SendTo_Email" value="SendTo_Email"/>
+    <string id="task_SendTo_EmailCancel" value="SendTo_EmailCancel"/>
+    <string id="task_SendTo_PagesInitialized" value="SendTo_PagesInitialized"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

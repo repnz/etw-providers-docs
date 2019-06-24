@@ -1,0 +1,67 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-OOBE-FirstLogonAnim" guid="{2d4c0c5e-6704-493a-a44b-f5add4fc9283}" resourceFileName="Microsoft-Windows-OOBE-FirstLogonAnim" messageFileName="Microsoft-Windows-OOBE-FirstLogonAnim" symbol="MicrosoftWindowsOOBEFirstLogonAnim" source="Xml" >
+    <keywords>
+     <keyword name="FirstLogonAnim" message="$(string.keyword_FirstLogonAnim)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="StartResult" message="$(string.task_StartResult)" value="6004"/>
+     <task name="EndAnimationRequest" message="$(string.task_EndAnimationRequest)" value="6005"/>
+     <task name="Animation" message="$(string.task_Animation)" value="6041"/>
+     <task name="Navigation" message="$(string.task_Navigation)" value="6042"/>
+     <task name="WebPlatformCreate" message="$(string.task_WebPlatformCreate)" value="6043"/>
+     <task name="IntroAnimationRequest" message="$(string.task_IntroAnimationRequest)" value="6044"/>
+     <task name="ShowAnimationRequest" message="$(string.task_ShowAnimationRequest)" value="6045"/>
+    </tasks>
+    <events>
+     <event value="5004" symbol="StartResult" version="0" task="StartResult" level="win:Informational" keywords="FirstLogonAnim"/>
+     <event value="5005" symbol="EndAnimationRequest" version="0" task="EndAnimationRequest" level="win:Informational" keywords="FirstLogonAnim" template="EndAnimationRequestArgs"/>
+     <event value="5041" symbol="AnimationStart" version="0" task="Animation" opcode="win:Start" level="win:Informational" keywords="FirstLogonAnim" template="AnimationStartArgs"/>
+     <event value="5042" symbol="AnimationStop" version="0" task="Animation" opcode="win:Stop" level="win:Informational" keywords="FirstLogonAnim"/>
+     <event value="5043" symbol="NavigationStart" version="0" task="Navigation" opcode="win:Start" level="win:Informational" keywords="FirstLogonAnim"/>
+     <event value="5044" symbol="NavigationStop" version="0" task="Navigation" opcode="win:Stop" level="win:Informational" keywords="FirstLogonAnim"/>
+     <event value="5045" symbol="WebPlatformCreateStart" version="0" task="WebPlatformCreate" opcode="win:Start" level="win:Informational" keywords="FirstLogonAnim"/>
+     <event value="5046" symbol="WebPlatformCreateStop" version="0" task="WebPlatformCreate" opcode="win:Stop" level="win:Informational" keywords="FirstLogonAnim"/>
+     <event value="5047" symbol="IntroAnimationRequest" version="0" task="IntroAnimationRequest" level="win:Informational" keywords="FirstLogonAnim" template="IntroAnimationRequestArgs"/>
+     <event value="5048" symbol="ShowAnimationRequest" version="0" task="ShowAnimationRequest" level="win:Informational" keywords="FirstLogonAnim" template="ShowAnimationRequestArgs"/>
+    </events>
+    <templates>
+     <template tid="EndAnimationRequestArgs">
+      <data name="fZDP" inType="win:Boolean"/>
+     </template>
+     <template tid="AnimationStartArgs">
+      <data name="fOOBE" inType="win:Boolean"/>
+      <data name="fExistingUser" inType="win:Boolean"/>
+      <data name="fZDP" inType="win:Boolean"/>
+      <data name="fExplorer" inType="win:Boolean"/>
+     </template>
+     <template tid="IntroAnimationRequestArgs">
+      <data name="fExistingUser" inType="win:Boolean"/>
+      <data name="fPostZDP" inType="win:Boolean"/>
+     </template>
+     <template tid="ShowAnimationRequestArgs">
+      <data name="fExistingUserOrPostZDP" inType="win:Boolean"/>
+      <data name="fZDP" inType="win:Boolean"/>
+      <data name="fTouchDevice" inType="win:Boolean"/>
+      <data name="fMouseDevice" inType="win:Boolean"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_FirstLogonAnim" value="FirstLogonAnim"/>
+    <string id="task_StartResult" value="StartResult"/>
+    <string id="task_EndAnimationRequest" value="EndAnimationRequest"/>
+    <string id="task_Animation" value="Animation"/>
+    <string id="task_Navigation" value="Navigation"/>
+    <string id="task_WebPlatformCreate" value="WebPlatformCreate"/>
+    <string id="task_IntroAnimationRequest" value="IntroAnimationRequest"/>
+    <string id="task_ShowAnimationRequest" value="ShowAnimationRequest"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

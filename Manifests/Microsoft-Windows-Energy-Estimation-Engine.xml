@@ -1,0 +1,558 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Energy-Estimation-Engine" guid="{ddcc3826-a68a-4e0d-bcfd-9c06c27c6948}" resourceFileName="Microsoft-Windows-Energy-Estimation-Engine" messageFileName="Microsoft-Windows-Energy-Estimation-Engine" symbol="MicrosoftWindowsEnergyEstimationEngine" source="Xml" >
+    <keywords>
+     <keyword name="CodePath" message="$(string.keyword_CodePath)" mask="0x1"/>
+     <keyword name="SystemInformation" message="$(string.keyword_SystemInformation)" mask="0x2"/>
+     <keyword name="EnergyEstimation" message="$(string.keyword_EnergyEstimation)" mask="0x4"/>
+     <keyword name="ProcessTag" message="$(string.keyword_ProcessTag)" mask="0x8"/>
+     <keyword name="CommitEnergy" message="$(string.keyword_CommitEnergy)" mask="0x10"/>
+    </keywords>
+    <tasks>
+     <task name="InitializeProvider" message="$(string.task_InitializeProvider)" value="1"/>
+     <task name="UninitializeProvider" message="$(string.task_UninitializeProvider)" value="2"/>
+     <task name="QueryStats" message="$(string.task_QueryStats)" value="3">
+>
+      <opcodes>
+       <opcode name="EnergyEstimate" message="$(string.opcode_QueryStatsEnergyEstimate)" value="10"/>
+       <opcode name="CpuPowerInfo" message="$(string.opcode_QueryStatsCpuPowerInfo)" value="11"/>
+       <opcode name="ProcessInfo" message="$(string.opcode_QueryStatsProcessInfo)" value="12"/>
+       <opcode name="AppPerfInfo" message="$(string.opcode_QueryStatsAppPerfInfo)" value="13"/>
+       <opcode name="EnergyDelta" message="$(string.opcode_QueryStatsEnergyDelta)" value="14"/>
+       <opcode name="ResidualEnergy" message="$(string.opcode_QueryStatsResidualEnergy)" value="18"/>
+       <opcode name="BatteryState" message="$(string.opcode_QueryStatsBatteryState)" value="19"/>
+       <opcode name="MapProcessToApp" message="$(string.opcode_QueryStatsMapProcessToApp)" value="20"/>
+       <opcode name="AppForegroundTime" message="$(string.opcode_QueryStatsAppForegroundTime)" value="21"/>
+      </opcodes>
+     </task>
+     <task name="MergeStats" message="$(string.task_MergeStats)" value="4">
+>
+      <opcodes>
+       <opcode name="EnergyEstimate" message="$(string.opcode_MergeStatsEnergyEstimate)" value="10"/>
+      </opcodes>
+     </task>
+     <task name="IndexToAppId" message="$(string.task_IndexToAppId)" value="5"/>
+     <task name="IndexToUserId" message="$(string.task_IndexToUserId)" value="6"/>
+     <task name="QueryColumnInfo" message="$(string.task_QueryColumnInfo)" value="7"/>
+     <task name="FreeMemory" message="$(string.task_FreeMemory)" value="8"/>
+     <task name="DisplayEnergy" message="$(string.task_DisplayEnergy)" value="9">
+>
+      <opcodes>
+       <opcode name="MonitorPowerState" message="$(string.opcode_DisplayEnergyMonitorPowerState)" value="15"/>
+       <opcode name="PolicyBrightness" message="$(string.opcode_DisplayEnergyPolicyBrightness)" value="16"/>
+       <opcode name="ActualBrightness" message="$(string.opcode_DisplayEnergyActualBrightness)" value="17"/>
+      </opcodes>
+     </task>
+     <task name="AppInteractivityState" message="$(string.task_AppInteractivityState)" value="10"/>
+     <task name="AisResidencyDelta" message="$(string.task_AisResidencyDelta)" value="11"/>
+     <task name="EnergyNotification" message="$(string.task_EnergyNotification)" value="12">
+>
+      <opcodes>
+       <opcode name="EnergyNotification" message="$(string.opcode_EnergyNotificationEnergyNotification)" value="22"/>
+      </opcodes>
+     </task>
+     <task name="StandbyActivationTime" message="$(string.task_StandbyActivationTime)" value="13">
+>
+      <opcodes>
+       <opcode name="StandbyActivationTime" message="$(string.opcode_StandbyActivationTimeStandbyActivationTime)" value="23"/>
+      </opcodes>
+     </task>
+     <task name="StandbyDripsTime" message="$(string.task_StandbyDripsTime)" value="14">
+>
+      <opcodes>
+       <opcode name="StandbyDripsTime" message="$(string.opcode_StandbyDripsTimeStandbyDripsTime)" value="24"/>
+      </opcodes>
+     </task>
+     <task name="UnknownEnergy" message="$(string.task_UnknownEnergy)" value="15">
+>
+      <opcodes>
+       <opcode name="UnknownEnergy" message="$(string.opcode_UnknownEnergyUnknownEnergy)" value="25"/>
+      </opcodes>
+     </task>
+     <task name="CommittedStats" message="$(string.task_CommittedStats)" value="16">
+>
+      <opcodes>
+       <opcode name="EnergyEstimate" message="$(string.opcode_CommittedStatsEnergyEstimate)" value="10"/>
+      </opcodes>
+     </task>
+     <task name="ProcessTagEnergyEstimate" message="$(string.task_ProcessTagEnergyEstimate)" value="17"/>
+     <task name="RpcSetProcessTag" message="$(string.task_RpcSetProcessTag)" value="18"/>
+    </tasks>
+    <maps>
+     <valueMap name="mapSruProviderDataType">
+      <map value="0x0" message="$(string.map_mapSruProviderDataTypeColumnInfo)"/>
+      <map value="0x1" message="$(string.map_mapSruProviderDataTypeStatsList)"/>
+      <map value="0x2" message="$(string.map_mapSruProviderDataTypeAppId)"/>
+      <map value="0x3" message="$(string.map_mapSruProviderDataTypeUserId)"/>
+      <map value="0x4" message="$(string.map_mapSruProviderDataTypeRecordSet)"/>
+      <map value="0x5" message="$(string.map_mapSruProviderDataTypeLongTermColumnInfo)"/>
+     </valueMap>
+     <bitMap name="mapEnergyRecordFlags">
+      <map value="0x1" message="$(string.map_mapEnergyRecordFlagsMEASURED)"/>
+      <map value="0x2" message="$(string.map_mapEnergyRecordFlagsDC)"/>
+      <map value="0x4" message="$(string.map_mapEnergyRecordFlagsFOREGROUND)"/>
+      <map value="0x8" message="$(string.map_mapEnergyRecordFlagsSCREEN_ON)"/>
+      <map value="0x10" message="$(string.map_mapEnergyRecordFlagsBATTERYSAVER_ACTIVE)"/>
+     </bitMap>
+     <valueMap name="mapEnergyColumn">
+      <map value="0x0" message="$(string.map_mapEnergyColumnStates)"/>
+      <map value="0x1" message="$(string.map_mapEnergyColumnOther)"/>
+      <map value="0x2" message="$(string.map_mapEnergyColumnCPU)"/>
+      <map value="0x3" message="$(string.map_mapEnergyColumnSOC)"/>
+      <map value="0x4" message="$(string.map_mapEnergyColumnDisplay)"/>
+      <map value="0x5" message="$(string.map_mapEnergyColumnDisk)"/>
+      <map value="0x6" message="$(string.map_mapEnergyColumnNetwork)"/>
+     </valueMap>
+     <valueMap name="mapOnOffState">
+      <map value="0x0" message="$(string.map_mapOnOffStateOff)"/>
+      <map value="0x1" message="$(string.map_mapOnOffStateOn)"/>
+      <map value="0x2" message="$(string.map_mapOnOffStateUnknown)"/>
+     </valueMap>
+     <valueMap name="mapAppInteractivityState">
+      <map value="0x0" message="$(string.map_mapAppInteractivityStateNotUnique)"/>
+      <map value="0x1" message="$(string.map_mapAppInteractivityStateMinimized)"/>
+      <map value="0x2" message="$(string.map_mapAppInteractivityStateVisible)"/>
+      <map value="0x3" message="$(string.map_mapAppInteractivityStateFocus)"/>
+     </valueMap>
+     <valueMap name="mapProviderState">
+      <map value="0x0" message="$(string.map_mapProviderStateVoid)"/>
+      <map value="0x1" message="$(string.map_mapProviderStateInitializing)"/>
+      <map value="0x2" message="$(string.map_mapProviderStateWaitingForDeviceState)"/>
+      <map value="0x3" message="$(string.map_mapProviderStateReadyForQuery)"/>
+      <map value="0x4" message="$(string.map_mapProviderStateReadyForCommit)"/>
+      <map value="0x5" message="$(string.map_mapProviderStateUninitializing)"/>
+      <map value="0x6" message="$(string.map_mapProviderStateUninitialized)"/>
+     </valueMap>
+     <bitMap name="mapDeviceState">
+      <map value="0x1" message="$(string.map_mapDeviceStateDC)"/>
+      <map value="0x2" message="$(string.map_mapDeviceStateMonitorOn)"/>
+      <map value="0x4" message="$(string.map_mapDeviceStateEnergySaver)"/>
+      <map value="0x8" message="$(string.map_mapDeviceStateLPE)"/>
+      <map value="0x10" message="$(string.map_mapDeviceStateForeground)"/>
+     </bitMap>
+     <bitMap name="mapRecordMeasured">
+      <map value="0x1" message="$(string.map_mapRecordMeasuredMetadata)"/>
+      <map value="0x2" message="$(string.map_mapRecordMeasuredLoss)"/>
+      <map value="0x4" message="$(string.map_mapRecordMeasuredCPU)"/>
+      <map value="0x8" message="$(string.map_mapRecordMeasuredSOC)"/>
+      <map value="0x10" message="$(string.map_mapRecordMeasuredDisplay)"/>
+      <map value="0x20" message="$(string.map_mapRecordMeasuredDisk)"/>
+      <map value="0x40" message="$(string.map_mapRecordMeasuredNetwork)"/>
+      <map value="0x80" message="$(string.map_mapRecordMeasuredMBB)"/>
+      <map value="0x100" message="$(string.map_mapRecordMeasuredOther)"/>
+      <map value="0x200" message="$(string.map_mapRecordMeasuredInternal)"/>
+      <map value="0x400" message="$(string.map_mapRecordMeasuredEMI)"/>
+     </bitMap>
+    </maps>
+    <events>
+     <event value="1" symbol="InitializeProviderStart" version="0" task="InitializeProvider" opcode="win:Start" level="win:Informational" keywords="CodePath"/>
+     <event value="2" symbol="InitializeProviderStop" version="0" task="InitializeProvider" opcode="win:Stop" level="win:Informational" keywords="CodePath"/>
+     <event value="3" symbol="UninitializeProvider" version="0" task="UninitializeProvider" level="win:Informational" keywords="CodePath"/>
+     <event value="4" symbol="QueryStatsStart" version="0" task="QueryStats" opcode="win:Start" level="win:Informational" keywords="CodePath"/>
+     <event value="5" symbol="QueryStatsStop" version="0" task="QueryStats" opcode="win:Stop" level="win:Informational" keywords="CodePath"/>
+     <event value="6" symbol="MergeStatsStart" version="0" task="MergeStats" opcode="win:Start" level="win:Informational" keywords="CodePath"/>
+     <event value="7" symbol="MergeStatsStop" version="0" task="MergeStats" opcode="win:Stop" level="win:Informational" keywords="CodePath"/>
+     <event value="8" symbol="IndexToAppId" version="0" task="IndexToAppId" level="win:Informational" keywords="CodePath"/>
+     <event value="9" symbol="IndexToUserId" version="0" task="IndexToUserId" level="win:Informational" keywords="CodePath"/>
+     <event value="10" symbol="QueryColumnInfo" version="0" task="QueryColumnInfo" level="win:Informational" keywords="CodePath"/>
+     <event value="11" symbol="FreeMemory" version="0" task="FreeMemory" level="win:Informational" keywords="CodePath" template="FreeMemoryArgs"/>
+     <event value="12" symbol="QueryStatsEnergyEstimate" version="0" task="QueryStats" opcode="EnergyEstimate" level="win:Informational" keywords="EnergyEstimation" template="QueryStatsEnergyEstimateArgs"/>
+     <event value="13" symbol="MergeStatsEnergyEstimate" version="0" task="MergeStats" opcode="EnergyEstimate" level="win:Informational" keywords="EnergyEstimation" template="MergeStatsEnergyEstimateArgs"/>
+     <event value="14" symbol="QueryStatsCpuPowerInfo" version="0" task="QueryStats" opcode="CpuPowerInfo" level="win:Informational" keywords="SystemInformation" template="QueryStatsCpuPowerInfoArgs"/>
+     <event value="15" symbol="QueryStatsProcessInfo" version="0" task="QueryStats" opcode="ProcessInfo" level="win:Informational" keywords="SystemInformation" template="QueryStatsProcessInfoArgs"/>
+     <event value="16" symbol="QueryStatsAppPerfInfo" version="0" task="QueryStats" opcode="AppPerfInfo" level="win:Informational" keywords="SystemInformation" template="QueryStatsAppPerfInfoArgs"/>
+     <event value="17" symbol="QueryStatsEnergyDelta" version="0" task="QueryStats" opcode="EnergyDelta" level="win:Informational" keywords="EnergyEstimation" template="QueryStatsEnergyDeltaArgs"/>
+     <event value="18" symbol="QueryStatsEnergyDelta18" version="0" task="QueryStats" opcode="EnergyDelta" level="win:Informational" keywords="EnergyEstimation" template="QueryStatsEnergyDelta18Args"/>
+     <event value="19" symbol="DisplayEnergyMonitorPowerState" version="0" task="DisplayEnergy" opcode="MonitorPowerState" level="win:Informational" template="DisplayEnergyMonitorPowerStateArgs"/>
+     <event value="20" symbol="DisplayEnergyPolicyBrightness" version="0" task="DisplayEnergy" opcode="PolicyBrightness" level="win:Informational" template="DisplayEnergyPolicyBrightnessArgs"/>
+     <event value="21" symbol="DisplayEnergyActualBrightness" version="0" task="DisplayEnergy" opcode="ActualBrightness" level="win:Informational" template="DisplayEnergyPolicyBrightnessArgs"/>
+     <event value="22" symbol="QueryStatsResidualEnergy" version="0" task="QueryStats" opcode="ResidualEnergy" level="win:Informational" template="QueryStatsResidualEnergyArgs"/>
+     <event value="23" symbol="QueryStatsResidualEnergy23" version="0" task="QueryStats" opcode="ResidualEnergy" level="win:Informational" template="QueryStatsResidualEnergy23Args"/>
+     <event value="24" symbol="QueryStatsBatteryState" version="0" task="QueryStats" opcode="BatteryState" level="win:Informational" template="QueryStatsBatteryStateArgs"/>
+     <event value="25" symbol="QueryStatsMapProcessToApp" version="0" task="QueryStats" opcode="MapProcessToApp" level="win:Informational" template="QueryStatsMapProcessToAppArgs"/>
+     <event value="26" symbol="QueryStatsAppForegroundTime" version="0" task="QueryStats" opcode="AppForegroundTime" level="win:Informational" template="QueryStatsAppForegroundTimeArgs"/>
+     <event value="27" symbol="QueryStatsAppForegroundTime27" version="0" task="QueryStats" opcode="AppForegroundTime" level="win:Informational" template="QueryStatsAppForegroundTime27Args"/>
+     <event value="28" symbol="AppInteractivityState" version="0" task="AppInteractivityState" level="win:Informational" template="AppInteractivityStateArgs"/>
+     <event value="29" symbol="AppInteractivityState29" version="0" task="AppInteractivityState" level="win:Informational" template="AppInteractivityState29Args"/>
+     <event value="30" symbol="AisResidencyDelta" version="0" task="AisResidencyDelta" level="win:Informational" template="AisResidencyDeltaArgs"/>
+     <event value="31" symbol="AisResidencyDelta31" version="0" task="AisResidencyDelta" level="win:Informational" template="AisResidencyDelta31Args"/>
+     <event value="32" symbol="EnergyNotification" version="0" task="EnergyNotification" opcode="EnergyNotification" level="win:Informational" keywords="EnergyEstimation" template="EnergyNotificationArgs"/>
+     <event value="33" symbol="QueryStats" version="0" task="QueryStats" level="win:Informational" keywords="CodePath" template="QueryStatsArgs"/>
+     <event value="34" symbol="StandbyActivationTime" version="0" task="StandbyActivationTime" opcode="StandbyActivationTime" level="win:Informational" keywords="EnergyEstimation" template="StandbyActivationTimeArgs"/>
+     <event value="35" symbol="StandbyDripsTime" version="0" task="StandbyDripsTime" opcode="StandbyDripsTime" level="win:Informational" keywords="EnergyEstimation" template="StandbyDripsTimeArgs"/>
+     <event value="36" symbol="UnknownEnergy" version="0" task="UnknownEnergy" opcode="UnknownEnergy" level="win:Informational" keywords="EnergyEstimation" template="UnknownEnergyArgs"/>
+     <event value="37" symbol="QueryStatsEnergyEstimate37" version="0" task="QueryStats" opcode="EnergyEstimate" level="win:Informational" keywords="EnergyEstimation" template="QueryStatsEnergyEstimate37Args"/>
+     <event value="38" symbol="MergeStatsEnergyEstimate38" version="0" task="MergeStats" opcode="EnergyEstimate" level="win:Informational" keywords="EnergyEstimation" template="MergeStatsEnergyEstimate38Args"/>
+     <event value="39" symbol="CommittedStatsEnergyEstimate" version="0" task="CommittedStats" opcode="EnergyEstimate" level="win:Informational" keywords="CommitEnergy" template="CommittedStatsEnergyEstimateArgs"/>
+     <event value="40" symbol="ProcessTagEnergyEstimate_V1" version="1" task="ProcessTagEnergyEstimate" level="win:Informational" keywords="ProcessTag" template="ProcessTagEnergyEstimateArgs_V1"/>
+     <event value="41" symbol="RpcSetProcessTag" version="0" task="RpcSetProcessTag" level="win:Informational" keywords="ProcessTag" template="RpcSetProcessTagArgs"/>
+    </events>
+    <templates>
+     <template tid="FreeMemoryArgs">
+      <data name="DataType" inType="win:UInt32" map="mapSruProviderDataType"/>
+      <data name="Address" inType="win:Pointer"/>
+     </template>
+     <template tid="QueryStatsEnergyEstimateArgs">
+      <data name="AppName" inType="win:UnicodeString"/>
+      <data name="UserId" inType="win:UInt16"/>
+      <data name="CpuEnergy" inType="win:UInt64"/>
+      <data name="SocEnergy" inType="win:UInt64"/>
+      <data name="DisplayEnergy" inType="win:UInt64"/>
+      <data name="DiskEnergy" inType="win:UInt64"/>
+      <data name="NetworkEnergy" inType="win:UInt64"/>
+      <data name="MbbEnergy" inType="win:UInt64"/>
+      <data name="OtherEnergy" inType="win:UInt64"/>
+      <data name="RecordFlags" inType="win:UInt32" map="mapEnergyRecordFlags"/>
+     </template>
+     <template tid="MergeStatsEnergyEstimateArgs">
+      <data name="AppName" inType="win:UnicodeString"/>
+      <data name="UserId" inType="win:UInt16"/>
+      <data name="CpuEnergy" inType="win:UInt64"/>
+      <data name="SocEnergy" inType="win:UInt64"/>
+      <data name="DisplayEnergy" inType="win:UInt64"/>
+      <data name="DiskEnergy" inType="win:UInt64"/>
+      <data name="NetworkEnergy" inType="win:UInt64"/>
+      <data name="MbbEnergy" inType="win:UInt64"/>
+      <data name="OtherEnergy" inType="win:UInt64"/>
+      <data name="RecordFlags" inType="win:UInt32"/>
+     </template>
+     <template tid="QueryStatsCpuPowerInfoArgs">
+      <data name="CpuId" inType="win:UInt32"/>
+      <data name="CurrentFrequency" inType="win:UInt8"/>
+      <data name="LastBusyFrequency" inType="win:UInt8"/>
+      <data name="Energy" inType="win:UInt64"/>
+     </template>
+     <template tid="QueryStatsProcessInfoArgs">
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="UniqueProcessId" inType="win:UInt32"/>
+      <data name="ImageName" inType="win:UnicodeString"/>
+      <data name="NumberOfThreads" inType="win:UInt32"/>
+      <data name="CycleTime" inType="win:UInt64"/>
+      <data name="ReadOperationCount" inType="win:UInt64"/>
+      <data name="BytesRead" inType="win:UInt64"/>
+      <data name="WriteOperationCount" inType="win:UInt64"/>
+      <data name="BytesWritten" inType="win:UInt64"/>
+      <data name="DiskEnergy" inType="win:UInt64"/>
+      <data name="NetworkTailEnergy" inType="win:UInt64"/>
+      <data name="MBBTailEnergy" inType="win:UInt64"/>
+      <data name="NetworkTxRxBytes" inType="win:UInt64"/>
+      <data name="MBBTxRxBytes" inType="win:UInt64"/>
+      <data name="BucketCount" inType="win:UInt32"/>
+      <data name="BucketedCycles" inType="win:SID" count="BucketCount"/>
+      <data name="WindowInformation" inType="win:UInt32"/>
+      <data name="ForegroundReportTimestamp" inType="win:UInt64"/>
+      <data name="ForegroundTime" inType="win:UInt64"/>
+     </template>
+     <template tid="QueryStatsAppPerfInfoArgs">
+      <data name="UniqueApplicationId" inType="win:UInt64"/>
+      <data name="PackageFullName" inType="win:UnicodeString"/>
+      <data name="ForegroundCycleTime" inType="win:UInt64"/>
+      <data name="BackgroundCycleTime" inType="win:UInt64"/>
+      <data name="ForegroundActiveTime" inType="win:UInt64"/>
+      <data name="ForegroundBytesRead" inType="win:UInt64"/>
+      <data name="ForegroundBytesWritten" inType="win:UInt64"/>
+      <data name="BackgroundBytesRead" inType="win:UInt64"/>
+      <data name="BackgroundBytesWritten" inType="win:UInt64"/>
+      <data name="BucketCount" inType="win:UInt32"/>
+      <data name="ForegroundCycles" inType="win:CountedUtf16String" count="BucketCount"/>
+      <data name="ForegroundDiskEnergy" inType="win:UInt64"/>
+      <data name="ForegroundNetworkTailEnergy" inType="win:UInt64"/>
+      <data name="ForegroundMBBTailEnergy" inType="win:UInt64"/>
+      <data name="ForegroundNetworkTxRxBytes" inType="win:UInt64"/>
+      <data name="ForegroundMBBTxRxBytes" inType="win:UInt64"/>
+      <data name="BackgroundCycles" inType="win:25" count="BucketCount"/>
+      <data name="BackgroundDiskEnergy" inType="win:UInt64"/>
+      <data name="BackgroundNetworkTailEnergy" inType="win:UInt64"/>
+      <data name="BackgroundMBBTailEnergy" inType="win:UInt64"/>
+      <data name="BackgroundNetworkTxRxBytes" inType="win:UInt64"/>
+      <data name="BackgroundMBBTxRxBytes" inType="win:UInt64"/>
+     </template>
+     <template tid="QueryStatsEnergyDeltaArgs">
+      <data name="Component" inType="win:UInt32" map="mapEnergyColumn"/>
+      <data name="EnergyDelta" inType="win:UInt64"/>
+     </template>
+     <template tid="QueryStatsEnergyDelta18Args">
+      <data name="Component" inType="win:UInt32"/>
+      <data name="EnergyDelta" inType="win:UInt64"/>
+     </template>
+     <template tid="DisplayEnergyMonitorPowerStateArgs">
+      <data name="PreviousState" inType="win:UInt8" map="mapOnOffState"/>
+      <data name="CurrentState" inType="win:UInt8"/>
+     </template>
+     <template tid="DisplayEnergyPolicyBrightnessArgs">
+      <data name="PreviousValue" inType="win:UInt8"/>
+      <data name="CurrentValue" inType="win:UInt8"/>
+     </template>
+     <template tid="QueryStatsResidualEnergyArgs">
+      <data name="BatteryDrain" inType="win:UInt64"/>
+      <data name="EstimatedEnergy" inType="win:UInt64"/>
+      <data name="ResidualEnergy" inType="win:Int64"/>
+     </template>
+     <template tid="QueryStatsResidualEnergy23Args">
+      <data name="AgeInSec" inType="win:UInt16"/>
+      <data name="AdjustedEnergy" inType="win:UInt64"/>
+      <data name="ResidualEnergy" inType="win:Int64"/>
+     </template>
+     <template tid="QueryStatsBatteryStateArgs">
+      <data name="StateFlags" inType="win:UInt32"/>
+      <data name="MaxCapacity" inType="win:UInt32"/>
+      <data name="RemainingCapacity" inType="win:UInt32"/>
+      <data name="Rate" inType="win:UInt32"/>
+      <data name="EstimatedTime" inType="win:UInt32"/>
+     </template>
+     <template tid="QueryStatsMapProcessToAppArgs">
+      <data name="UniqueApplicationId" inType="win:UInt64"/>
+      <data name="PackageFullName" inType="win:UnicodeString"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="UniqueProcessId" inType="win:UInt32"/>
+      <data name="ImageName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="QueryStatsAppForegroundTimeArgs">
+      <data name="UniqueApplicationId" inType="win:UInt64"/>
+      <data name="ForegroundTime" inType="win:UInt64"/>
+     </template>
+     <template tid="QueryStatsAppForegroundTime27Args">
+      <data name="UniqueApplicationId" inType="win:UInt64"/>
+      <data name="ForegroundTimeDelta" inType="win:UInt64"/>
+     </template>
+     <template tid="AppInteractivityStateArgs">
+      <data name="UniqueProcessId" inType="win:UInt32"/>
+      <data name="InteractivityState" inType="win:UInt32" map="mapAppInteractivityState"/>
+     </template>
+     <template tid="AppInteractivityState29Args">
+      <data name="UniqueApplicationId" inType="win:UInt64"/>
+      <data name="InteractivityState" inType="win:UInt32"/>
+     </template>
+     <template tid="AisResidencyDeltaArgs">
+      <data name="UniqueProcessId" inType="win:UInt32"/>
+      <data name="FcousTime" inType="win:UInt64"/>
+      <data name="VisibleTime" inType="win:UInt64"/>
+      <data name="MinimizedTime" inType="win:UInt64"/>
+      <data name="DirtyGenerated" inType="win:UInt32"/>
+      <data name="DirtyPropagated" inType="win:UInt32"/>
+      <data name="CompositorRendered" inType="win:UInt32"/>
+     </template>
+     <template tid="AisResidencyDelta31Args">
+      <data name="UniqueApplicationId" inType="win:UInt64"/>
+      <data name="FcousTime" inType="win:UInt64"/>
+      <data name="VisibleTime" inType="win:UInt64"/>
+      <data name="MinimizedTime" inType="win:UInt64"/>
+      <data name="DirtyGenerated" inType="win:UInt32"/>
+      <data name="DirtyPropagated" inType="win:UInt32"/>
+      <data name="CompositorRendered" inType="win:UInt32"/>
+     </template>
+     <template tid="EnergyNotificationArgs">
+      <data name="AppName" inType="win:UnicodeString"/>
+      <data name="UserId" inType="win:UInt16"/>
+      <data name="Cookie" inType="win:UInt32"/>
+      <data name="BackgroundScreenOffmJ" inType="win:UInt32"/>
+      <data name="BackgroundScreenOnmJ" inType="win:UInt32"/>
+      <data name="ForegroundScreenOffmJ" inType="win:UInt32"/>
+      <data name="ForegroundScreenOnmJ" inType="win:UInt32"/>
+     </template>
+     <template tid="QueryStatsArgs">
+      <data name="SruWorkItemType" inType="win:UInt32"/>
+      <data name="ProviderState" inType="win:UInt32" map="mapProviderState"/>
+      <data name="DeviceState" inType="win:UInt32" map="mapDeviceState"/>
+     </template>
+     <template tid="StandbyActivationTimeArgs">
+      <data name="PdcClientId" inType="win:UInt16"/>
+      <data name="LastSnapValue" inType="win:UInt64"/>
+      <data name="CurrSnapValue" inType="win:UInt64"/>
+      <data name="Delta" inType="win:UInt64"/>
+     </template>
+     <template tid="StandbyDripsTimeArgs">
+      <data name="LastStandbyTotal" inType="win:UInt64"/>
+      <data name="CurrStandbyTotal" inType="win:UInt64"/>
+      <data name="DeltaStandbyTotal" inType="win:UInt64"/>
+      <data name="LastDripsTotal" inType="win:UInt64"/>
+      <data name="CurrDripsTotal" inType="win:UInt64"/>
+      <data name="DeltaDripsTotal" inType="win:UInt64"/>
+      <data name="LastActivationTotal" inType="win:UInt64"/>
+      <data name="CurrActivationTotal" inType="win:UInt64"/>
+      <data name="DeltaActivationTotal" inType="win:UInt64"/>
+     </template>
+     <template tid="UnknownEnergyArgs">
+      <data name="TotalDuration" inType="win:UInt64"/>
+      <data name="StandbyDuration" inType="win:UInt64"/>
+      <data name="NonDripsDuration" inType="win:UInt64"/>
+      <data name="PdcDuration" inType="win:UInt64"/>
+      <data name="BIDuration" inType="win:UInt64"/>
+      <data name="TargetedBIEnergy" inType="win:UInt64"/>
+      <data name="ActualBIEnergy" inType="win:UInt64"/>
+      <data name="UnknownEnergy" inType="win:UInt64"/>
+      <data name="ScaleFactor" inType="win:UInt64"/>
+      <data name="Policy" inType="win:UInt32"/>
+      <data name="DripsPowerFloorMilliWatts" inType="win:UInt32"/>
+      <data name="NonDripsPenaltyMilliWatts" inType="win:UInt32"/>
+     </template>
+     <template tid="QueryStatsEnergyEstimate37Args">
+      <data name="AppName" inType="win:UnicodeString"/>
+      <data name="UserId" inType="win:UInt16"/>
+      <data name="CpuEnergy" inType="win:UInt64"/>
+      <data name="SocEnergy" inType="win:UInt64"/>
+      <data name="DisplayEnergy" inType="win:UInt64"/>
+      <data name="DiskEnergy" inType="win:UInt64"/>
+      <data name="NetworkEnergy" inType="win:UInt64"/>
+      <data name="MbbEnergy" inType="win:UInt64"/>
+      <data name="LossEnergy" inType="win:UInt64"/>
+      <data name="OtherEnergy" inType="win:UInt64"/>
+      <data name="EmiEnergy" inType="win:UInt64"/>
+      <data name="ForInternalUse" inType="win:UInt64"/>
+      <data name="TimeInMSec" inType="win:UInt32"/>
+      <data name="RecordFlags" inType="win:UInt32"/>
+      <data name="RecordMeasured" inType="win:UInt32"/>
+      <data name="InteractivityState" inType="win:UInt32"/>
+      <data name="Committed" inType="win:UInt32"/>
+     </template>
+     <template tid="MergeStatsEnergyEstimate38Args">
+      <data name="AppName" inType="win:UnicodeString"/>
+      <data name="UserId" inType="win:UInt16"/>
+      <data name="CpuEnergy" inType="win:UInt64"/>
+      <data name="SocEnergy" inType="win:UInt64"/>
+      <data name="DisplayEnergy" inType="win:UInt64"/>
+      <data name="DiskEnergy" inType="win:UInt64"/>
+      <data name="NetworkEnergy" inType="win:UInt64"/>
+      <data name="MbbEnergy" inType="win:UInt64"/>
+      <data name="LossEnergy" inType="win:UInt64"/>
+      <data name="OtherEnergy" inType="win:UInt64"/>
+      <data name="EmiEnergy" inType="win:UInt64"/>
+      <data name="ForInternalUse" inType="win:UInt64"/>
+      <data name="TimeInMSec" inType="win:UInt32"/>
+      <data name="RecordFlags" inType="win:UInt32"/>
+      <data name="RecordMeasured" inType="win:UInt32" map="mapRecordMeasured"/>
+      <data name="InteractivityState" inType="win:UInt32"/>
+      <data name="Committed" inType="win:UInt32"/>
+     </template>
+     <template tid="CommittedStatsEnergyEstimateArgs">
+      <data name="AppName" inType="win:UnicodeString"/>
+      <data name="UserId" inType="win:UInt16"/>
+      <data name="LossEnergy" inType="win:UInt64"/>
+      <data name="UnknownEnergy" inType="win:UInt64"/>
+      <data name="RecordFlags" inType="win:UInt32"/>
+      <data name="InteractivityState" inType="win:UInt32"/>
+     </template>
+     <template tid="RpcSetProcessTagArgs">
+      <data name="ProcessId" inType="win:UInt32"/>
+      <data name="CreateTime" inType="win:UInt64"/>
+      <data name="Tag" inType="win:UnicodeString"/>
+      <data name="DiskEnergy" inType="win:UInt64"/>
+      <data name="NetworkTailEnergy" inType="win:UInt64"/>
+      <data name="MBBTailEnergy" inType="win:UInt64"/>
+      <data name="NetworkTxRxBytes" inType="win:UInt64"/>
+      <data name="MBBTxRxBytes" inType="win:UInt64"/>
+      <data name="BucketCount" inType="win:UInt32"/>
+      <data name="BucketedCycles" inType="win:Float" count="BucketCount"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="ProcessTagEnergyEstimateArgs_V1">
+      <data name="AppName" inType="win:UnicodeString"/>
+      <data name="Tag" inType="win:UnicodeString"/>
+      <data name="CpuEnergy" inType="win:UInt64"/>
+      <data name="DiskEnergy" inType="win:UInt64"/>
+      <data name="NetworkEnergy" inType="win:UInt64"/>
+      <data name="MbbEnergy" inType="win:UInt64"/>
+      <data name="Time" inType="win:UInt32"/>
+      <data name="RecordFlags" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_CodePath" value="CodePath"/>
+    <string id="keyword_SystemInformation" value="SystemInformation"/>
+    <string id="keyword_EnergyEstimation" value="EnergyEstimation"/>
+    <string id="keyword_ProcessTag" value="ProcessTag"/>
+    <string id="keyword_CommitEnergy" value="CommitEnergy"/>
+    <string id="task_InitializeProvider" value="InitializeProvider"/>
+    <string id="task_UninitializeProvider" value="UninitializeProvider"/>
+    <string id="task_QueryStats" value="QueryStats"/>
+    <string id="opcode_QueryStatsEnergyEstimate" value="EnergyEstimate"/>
+    <string id="opcode_QueryStatsCpuPowerInfo" value="CpuPowerInfo"/>
+    <string id="opcode_QueryStatsProcessInfo" value="ProcessInfo"/>
+    <string id="opcode_QueryStatsAppPerfInfo" value="AppPerfInfo"/>
+    <string id="opcode_QueryStatsEnergyDelta" value="EnergyDelta"/>
+    <string id="opcode_QueryStatsResidualEnergy" value="ResidualEnergy"/>
+    <string id="opcode_QueryStatsBatteryState" value="BatteryState"/>
+    <string id="opcode_QueryStatsMapProcessToApp" value="MapProcessToApp"/>
+    <string id="opcode_QueryStatsAppForegroundTime" value="AppForegroundTime"/>
+    <string id="task_MergeStats" value="MergeStats"/>
+    <string id="opcode_MergeStatsEnergyEstimate" value="EnergyEstimate"/>
+    <string id="task_IndexToAppId" value="IndexToAppId"/>
+    <string id="task_IndexToUserId" value="IndexToUserId"/>
+    <string id="task_QueryColumnInfo" value="QueryColumnInfo"/>
+    <string id="task_FreeMemory" value="FreeMemory"/>
+    <string id="task_DisplayEnergy" value="DisplayEnergy"/>
+    <string id="opcode_DisplayEnergyMonitorPowerState" value="MonitorPowerState"/>
+    <string id="opcode_DisplayEnergyPolicyBrightness" value="PolicyBrightness"/>
+    <string id="opcode_DisplayEnergyActualBrightness" value="ActualBrightness"/>
+    <string id="task_AppInteractivityState" value="AppInteractivityState"/>
+    <string id="task_AisResidencyDelta" value="AisResidencyDelta"/>
+    <string id="task_EnergyNotification" value="EnergyNotification"/>
+    <string id="opcode_EnergyNotificationEnergyNotification" value="EnergyNotification"/>
+    <string id="task_StandbyActivationTime" value="StandbyActivationTime"/>
+    <string id="opcode_StandbyActivationTimeStandbyActivationTime" value="StandbyActivationTime"/>
+    <string id="task_StandbyDripsTime" value="StandbyDripsTime"/>
+    <string id="opcode_StandbyDripsTimeStandbyDripsTime" value="StandbyDripsTime"/>
+    <string id="task_UnknownEnergy" value="UnknownEnergy"/>
+    <string id="opcode_UnknownEnergyUnknownEnergy" value="UnknownEnergy"/>
+    <string id="task_CommittedStats" value="CommittedStats"/>
+    <string id="opcode_CommittedStatsEnergyEstimate" value="EnergyEstimate"/>
+    <string id="task_ProcessTagEnergyEstimate" value="ProcessTagEnergyEstimate"/>
+    <string id="task_RpcSetProcessTag" value="RpcSetProcessTag"/>
+    <string id="map_mapSruProviderDataTypeColumnInfo" value="ColumnInfo"/>
+    <string id="map_mapSruProviderDataTypeStatsList" value="StatsList"/>
+    <string id="map_mapSruProviderDataTypeAppId" value="AppId"/>
+    <string id="map_mapSruProviderDataTypeUserId" value="UserId"/>
+    <string id="map_mapSruProviderDataTypeRecordSet" value="RecordSet"/>
+    <string id="map_mapSruProviderDataTypeLongTermColumnInfo" value="LongTermColumnInfo"/>
+    <string id="map_mapEnergyRecordFlagsMEASURED" value="MEASURED"/>
+    <string id="map_mapEnergyRecordFlagsDC" value="DC"/>
+    <string id="map_mapEnergyRecordFlagsFOREGROUND" value="FOREGROUND"/>
+    <string id="map_mapEnergyRecordFlagsSCREEN_ON" value="SCREEN_ON"/>
+    <string id="map_mapEnergyRecordFlagsBATTERYSAVER_ACTIVE" value="BATTERYSAVER_ACTIVE"/>
+    <string id="map_mapEnergyColumnStates" value="States"/>
+    <string id="map_mapEnergyColumnOther" value="Other"/>
+    <string id="map_mapEnergyColumnCPU" value="CPU"/>
+    <string id="map_mapEnergyColumnSOC" value="SOC"/>
+    <string id="map_mapEnergyColumnDisplay" value="Display"/>
+    <string id="map_mapEnergyColumnDisk" value="Disk"/>
+    <string id="map_mapEnergyColumnNetwork" value="Network"/>
+    <string id="map_mapOnOffStateOff" value="Off"/>
+    <string id="map_mapOnOffStateOn" value="On"/>
+    <string id="map_mapOnOffStateUnknown" value="Unknown"/>
+    <string id="map_mapAppInteractivityStateNotUnique" value="NotUnique"/>
+    <string id="map_mapAppInteractivityStateMinimized" value="Minimized"/>
+    <string id="map_mapAppInteractivityStateVisible" value="Visible"/>
+    <string id="map_mapAppInteractivityStateFocus" value="Focus"/>
+    <string id="map_mapProviderStateVoid" value="Void"/>
+    <string id="map_mapProviderStateInitializing" value="Initializing"/>
+    <string id="map_mapProviderStateWaitingForDeviceState" value="WaitingForDeviceState"/>
+    <string id="map_mapProviderStateReadyForQuery" value="ReadyForQuery"/>
+    <string id="map_mapProviderStateReadyForCommit" value="ReadyForCommit"/>
+    <string id="map_mapProviderStateUninitializing" value="Uninitializing"/>
+    <string id="map_mapProviderStateUninitialized" value="Uninitialized"/>
+    <string id="map_mapDeviceStateDC" value="DC"/>
+    <string id="map_mapDeviceStateMonitorOn" value="MonitorOn"/>
+    <string id="map_mapDeviceStateEnergySaver" value="EnergySaver"/>
+    <string id="map_mapDeviceStateLPE" value="LPE"/>
+    <string id="map_mapDeviceStateForeground" value="Foreground"/>
+    <string id="map_mapRecordMeasuredMetadata" value="Metadata"/>
+    <string id="map_mapRecordMeasuredLoss" value="Loss"/>
+    <string id="map_mapRecordMeasuredCPU" value="CPU"/>
+    <string id="map_mapRecordMeasuredSOC" value="SOC"/>
+    <string id="map_mapRecordMeasuredDisplay" value="Display"/>
+    <string id="map_mapRecordMeasuredDisk" value="Disk"/>
+    <string id="map_mapRecordMeasuredNetwork" value="Network"/>
+    <string id="map_mapRecordMeasuredMBB" value="MBB"/>
+    <string id="map_mapRecordMeasuredOther" value="Other"/>
+    <string id="map_mapRecordMeasuredInternal" value="Internal"/>
+    <string id="map_mapRecordMeasuredEMI" value="EMI"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

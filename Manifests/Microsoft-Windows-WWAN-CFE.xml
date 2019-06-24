@@ -1,0 +1,71 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-WWAN-CFE" guid="{71c993b8-1e28-4543-9886-fb219b63fdb3}" resourceFileName="Microsoft-Windows-WWAN-CFE" messageFileName="Microsoft-Windows-WWAN-CFE" symbol="MicrosoftWindowsWWANCFE" source="Xml" >
+    <keywords>
+     <keyword name="Wwan_Performance" message="$(string.keyword_Wwan_Performance)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="Subscription_Page" message="$(string.task_Subscription_Page)" value="1"/>
+     <task name="Roaming_Settings_Page" message="$(string.task_Roaming_Settings_Page)" value="2"/>
+     <task name="Connecting_Page" message="$(string.task_Connecting_Page)" value="3"/>
+     <task name="Launch_Browser" message="$(string.task_Launch_Browser)" value="4"/>
+     <task name="Launch_MBAE" message="$(string.task_Launch_MBAE)" value="5"/>
+     <task name="L2_Connect_Duration" message="$(string.task_L2_Connect_Duration)" value="6"/>
+     <task name="CreateProfile_UserInput_Duration" message="$(string.task_CreateProfile_UserInput_Duration)" value="7"/>
+     <task name="Task_SetHomeProvider" message="$(string.task_Task_SetHomeProvider)" value="8"/>
+     <task name="Task_WwanApnDatabaseParsingDuration" message="$(string.task_Task_WwanApnDatabaseParsingDuration)" value="9"/>
+     <task name="WWAN_CFE_FAIL" message="$(string.task_WWAN_CFE_FAIL)" value="10"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="Subscription_Page" version="0" task="Subscription_Page" level="win:Informational" keywords="Wwan_Performance"/>
+     <event value="2" symbol="Roaming_Settings_Page" version="0" task="Roaming_Settings_Page" level="win:Informational" keywords="Wwan_Performance"/>
+     <event value="3" symbol="Connecting_Page" version="0" task="Connecting_Page" level="win:Informational" keywords="Wwan_Performance"/>
+     <event value="4" symbol="Launch_Browser" version="0" task="Launch_Browser" level="win:Informational" keywords="Wwan_Performance"/>
+     <event value="5" symbol="Launch_MBAE" version="0" task="Launch_MBAE" level="win:Informational" keywords="Wwan_Performance"/>
+     <event value="6" symbol="L2_Connect_DurationStart" version="0" task="L2_Connect_Duration" opcode="win:Start" level="win:Informational"/>
+     <event value="7" symbol="L2_Connect_DurationStop" version="0" task="L2_Connect_Duration" opcode="win:Stop" level="win:Informational"/>
+     <event value="8" symbol="CreateProfile_UserInput_DurationStart" version="0" task="CreateProfile_UserInput_Duration" opcode="win:Start" level="win:Informational" keywords="Wwan_Performance"/>
+     <event value="9" symbol="CreateProfile_UserInput_DurationStop" version="0" task="CreateProfile_UserInput_Duration" opcode="win:Stop" level="win:Informational" keywords="Wwan_Performance"/>
+     <event value="10" symbol="Task_SetHomeProviderStart" version="0" task="Task_SetHomeProvider" opcode="win:Start" level="win:Informational"/>
+     <event value="11" symbol="Task_SetHomeProviderStop" version="0" task="Task_SetHomeProvider" opcode="win:Stop" level="win:Informational"/>
+     <event value="12" symbol="Task_SetHomeProviderStop12" version="0" task="Task_SetHomeProvider" opcode="win:Stop" level="win:Error" template="Task_SetHomeProviderStop12Args"/>
+     <event value="13" symbol="Task_SetHomeProviderStop13" version="0" task="Task_SetHomeProvider" opcode="win:Stop" level="win:Error"/>
+     <event value="14" symbol="Task_WwanApnDatabaseParsingDurationStart" version="0" task="Task_WwanApnDatabaseParsingDuration" opcode="win:Start" level="win:Informational"/>
+     <event value="15" symbol="Task_WwanApnDatabaseParsingDurationStop" version="0" task="Task_WwanApnDatabaseParsingDuration" opcode="win:Stop" level="win:Informational" template="Task_WwanApnDatabaseParsingDurationStopArgs"/>
+     <event value="16" symbol="L2_Connect_DurationStop16" version="0" task="L2_Connect_Duration" opcode="win:Stop" level="win:Informational" template="Task_SetHomeProviderStop12Args"/>
+     <event value="17" symbol="L2_Connect_DurationStop17" version="0" task="L2_Connect_Duration" opcode="win:Stop" level="win:Informational"/>
+     <event value="18" symbol="WWAN_CFE_FAIL" version="0" task="WWAN_CFE_FAIL" level="win:Informational" keywords="Wwan_Performance"/>
+    </events>
+    <templates>
+     <template tid="Task_SetHomeProviderStop12Args">
+      <data name="Manufacture" inType="win:UnicodeString"/>
+      <data name="Model" inType="win:UnicodeString"/>
+      <data name="FirmwareVersion" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:HexInt32"/>
+     </template>
+     <template tid="Task_WwanApnDatabaseParsingDurationStopArgs">
+      <data name="ProviderName" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Wwan_Performance" value="Wwan_Performance"/>
+    <string id="task_Subscription_Page" value="Subscription_Page"/>
+    <string id="task_Roaming_Settings_Page" value="Roaming_Settings_Page"/>
+    <string id="task_Connecting_Page" value="Connecting_Page"/>
+    <string id="task_Launch_Browser" value="Launch_Browser"/>
+    <string id="task_Launch_MBAE" value="Launch_MBAE"/>
+    <string id="task_L2_Connect_Duration" value="L2_Connect_Duration"/>
+    <string id="task_CreateProfile_UserInput_Duration" value="CreateProfile_UserInput_Duration"/>
+    <string id="task_Task_SetHomeProvider" value="Task_SetHomeProvider"/>
+    <string id="task_Task_WwanApnDatabaseParsingDuration" value="Task_WwanApnDatabaseParsingDuration"/>
+    <string id="task_WWAN_CFE_FAIL" value="WWAN_CFE_FAIL"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

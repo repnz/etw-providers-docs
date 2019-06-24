@@ -1,0 +1,36 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-GPIOButtons" guid="{e13ff11e-e989-4838-a9fa-38a4d13914cf}" resourceFileName="Microsoft-Windows-GPIOButtons" messageFileName="Microsoft-Windows-GPIOButtons" symbol="MicrosoftWindowsGPIOButtons" source="Xml" >
+    <keywords>
+     <keyword name="keyword_400000000000" message="$(string.keyword_keyword_400000000000)" mask="0x400000000000"/>
+    </keywords>
+    <tasks>
+     <task name="ConvertibleState" message="$(string.task_ConvertibleState)" value="1"/>
+     <task name="DockState" message="$(string.task_DockState)" value="2"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="ConvertibleState" version="0" task="ConvertibleState" level="win:Informational" keywords="keyword_400000000000" template="ConvertibleStateArgs"/>
+     <event value="2" symbol="DockState" version="0" task="DockState" level="win:Informational" keywords="keyword_400000000000" template="DockStateArgs"/>
+    </events>
+    <templates>
+     <template tid="ConvertibleStateArgs">
+      <data name="ConvertibleState" inType="win:UInt32"/>
+     </template>
+     <template tid="DockStateArgs">
+      <data name="DockState" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_keyword_400000000000" value="keyword_400000000000"/>
+    <string id="task_ConvertibleState" value="ConvertibleState"/>
+    <string id="task_DockState" value="DockState"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

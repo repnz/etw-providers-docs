@@ -1,0 +1,93 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Photo-Image-Codec" guid="{be3a31ea-aa6c-4196-9dcc-9ca13a49e09f}" resourceFileName="Microsoft-Windows-Photo-Image-Codec" messageFileName="Microsoft-Windows-Photo-Image-Codec" symbol="MicrosoftWindowsPhotoImageCodec" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="WMPHOTO_Decoder_FrameParamsSource_Info" message="$(string.task_WMPHOTO_Decoder_FrameParamsSource_Info)" value="1"/>
+     <task name="WMPHOTO_Encoder_FrameParams_Info" message="$(string.task_WMPHOTO_Encoder_FrameParams_Info)" value="2"/>
+     <task name="WMPHOTO_Decoder_FrameParamsTransform_Info" message="$(string.task_WMPHOTO_Decoder_FrameParamsTransform_Info)" value="3"/>
+     <task name="WMPHOTO_Transcoder_TranscodeParams_Info" message="$(string.task_WMPHOTO_Transcoder_TranscodeParams_Info)" value="4"/>
+     <task name="WMPHOTO_Encoder_EncodeThumbnail_Info" message="$(string.task_WMPHOTO_Encoder_EncodeThumbnail_Info)" value="5"/>
+     <task name="WMPHOTO_Decoder_ReducedResolution_Info" message="$(string.task_WMPHOTO_Decoder_ReducedResolution_Info)" value="6"/>
+     <task name="WMPHOTO_Decoder_DecoderFrameCopyPixelsCore" message="$(string.task_WMPHOTO_Decoder_DecoderFrameCopyPixelsCore)" value="7"/>
+     <task name="WMPHOTO_Decoder_DecoderFrameDecodeImage" message="$(string.task_WMPHOTO_Decoder_DecoderFrameDecodeImage)" value="8"/>
+     <task name="WMPHOTO_Encoder_EncoderFrameEncodeFrame" message="$(string.task_WMPHOTO_Encoder_EncoderFrameEncodeFrame)" value="9"/>
+     <task name="WMPHOTO_Encoder_EncoderFrameEncodeStream" message="$(string.task_WMPHOTO_Encoder_EncoderFrameEncodeStream)" value="10"/>
+    </tasks>
+    <events>
+     <event value="0" symbol="WMPHOTO_Decoder_DecoderFrameCopyPixelsCoreStart" version="0" task="WMPHOTO_Decoder_DecoderFrameCopyPixelsCore" opcode="win:Start" level="win:Informational"/>
+     <event value="1" symbol="WMPHOTO_Decoder_DecoderFrameCopyPixelsCoreStop" version="0" task="WMPHOTO_Decoder_DecoderFrameCopyPixelsCore" opcode="win:Stop" level="win:Informational"/>
+     <event value="2" symbol="WMPHOTO_Decoder_DecoderFrameDecodeImageStart" version="0" task="WMPHOTO_Decoder_DecoderFrameDecodeImage" opcode="win:Start" level="win:Informational"/>
+     <event value="3" symbol="WMPHOTO_Decoder_DecoderFrameDecodeImageStop" version="0" task="WMPHOTO_Decoder_DecoderFrameDecodeImage" opcode="win:Stop" level="win:Informational"/>
+     <event value="4" symbol="WMPHOTO_Encoder_EncoderFrameEncodeFrameStart" version="0" task="WMPHOTO_Encoder_EncoderFrameEncodeFrame" opcode="win:Start" level="win:Informational"/>
+     <event value="5" symbol="WMPHOTO_Encoder_EncoderFrameEncodeFrameStop" version="0" task="WMPHOTO_Encoder_EncoderFrameEncodeFrame" opcode="win:Stop" level="win:Informational"/>
+     <event value="6" symbol="WMPHOTO_Encoder_EncoderFrameEncodeStreamStart" version="0" task="WMPHOTO_Encoder_EncoderFrameEncodeStream" opcode="win:Start" level="win:Informational"/>
+     <event value="7" symbol="WMPHOTO_Encoder_EncoderFrameEncodeStreamStop" version="0" task="WMPHOTO_Encoder_EncoderFrameEncodeStream" opcode="win:Stop" level="win:Informational"/>
+     <event value="8" symbol="WMPHOTO_Decoder_ReducedResolution_Info" version="0" task="WMPHOTO_Decoder_ReducedResolution_Info" level="win:Verbose" template="WMPHOTO_Decoder_ReducedResolution_InfoArgs"/>
+     <event value="9" symbol="WMPHOTO_Encoder_EncodeThumbnail_Info" version="0" task="WMPHOTO_Encoder_EncodeThumbnail_Info" level="win:Verbose"/>
+     <event value="10" symbol="WMPHOTO_Decoder_FrameParamsSource_Info" version="0" task="WMPHOTO_Decoder_FrameParamsSource_Info" level="win:Verbose" template="WMPHOTO_Decoder_FrameParamsSource_InfoArgs"/>
+     <event value="11" symbol="WMPHOTO_Decoder_FrameParamsTransform_Info" version="0" task="WMPHOTO_Decoder_FrameParamsTransform_Info" level="win:Verbose" template="WMPHOTO_Decoder_FrameParamsTransform_InfoArgs"/>
+     <event value="12" symbol="WMPHOTO_Encoder_FrameParams_Info" version="0" task="WMPHOTO_Encoder_FrameParams_Info" level="win:Verbose" template="WMPHOTO_Encoder_FrameParams_InfoArgs"/>
+     <event value="13" symbol="WMPHOTO_Transcoder_TranscodeParams_Info" version="0" task="WMPHOTO_Transcoder_TranscodeParams_Info" level="win:Verbose" template="WMPHOTO_Transcoder_TranscodeParams_InfoArgs"/>
+    </events>
+    <templates>
+     <template tid="WMPHOTO_Decoder_ReducedResolution_InfoArgs">
+      <data name="Ratio" inType="win:UInt32"/>
+     </template>
+     <template tid="WMPHOTO_Decoder_FrameParamsSource_InfoArgs">
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+      <data name="Orientation" inType="win:UInt8"/>
+     </template>
+     <template tid="WMPHOTO_Decoder_FrameParamsTransform_InfoArgs">
+      <data name="ROIWidth" inType="win:Int32"/>
+      <data name="ROIHeight" inType="win:Int32"/>
+      <data name="ROIX" inType="win:Int32"/>
+      <data name="ROIY" inType="win:Int32"/>
+      <data name="OutWidth" inType="win:UInt32"/>
+      <data name="OutHeight" inType="win:UInt32"/>
+      <data name="Orientation" inType="win:UInt8"/>
+     </template>
+     <template tid="WMPHOTO_Encoder_FrameParams_InfoArgs">
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+      <data name="Subband" inType="win:UInt8"/>
+      <data name="BitStreamFormat" inType="win:UInt8"/>
+      <data name="Orientation" inType="win:UInt8"/>
+      <data name="IgnoreOverlap" inType="win:UInt8"/>
+      <data name="DiscardAlpha" inType="win:UInt8"/>
+     </template>
+     <template tid="WMPHOTO_Transcoder_TranscodeParams_InfoArgs">
+      <data name="ROIWidth" inType="win:Int32"/>
+      <data name="ROIHeight" inType="win:Int32"/>
+      <data name="ROIX" inType="win:Int32"/>
+      <data name="ROIY" inType="win:Int32"/>
+      <data name="Subband" inType="win:UInt8"/>
+      <data name="BitStreamFormat" inType="win:UInt8"/>
+      <data name="Orientation" inType="win:UInt8"/>
+      <data name="IgnoreOverlap" inType="win:UInt8"/>
+      <data name="DiscardAlpha" inType="win:UInt8"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_WMPHOTO_Decoder_FrameParamsSource_Info" value="WMPHOTO_Decoder_FrameParamsSource_Info"/>
+    <string id="task_WMPHOTO_Encoder_FrameParams_Info" value="WMPHOTO_Encoder_FrameParams_Info"/>
+    <string id="task_WMPHOTO_Decoder_FrameParamsTransform_Info" value="WMPHOTO_Decoder_FrameParamsTransform_Info"/>
+    <string id="task_WMPHOTO_Transcoder_TranscodeParams_Info" value="WMPHOTO_Transcoder_TranscodeParams_Info"/>
+    <string id="task_WMPHOTO_Encoder_EncodeThumbnail_Info" value="WMPHOTO_Encoder_EncodeThumbnail_Info"/>
+    <string id="task_WMPHOTO_Decoder_ReducedResolution_Info" value="WMPHOTO_Decoder_ReducedResolution_Info"/>
+    <string id="task_WMPHOTO_Decoder_DecoderFrameCopyPixelsCore" value="WMPHOTO_Decoder_DecoderFrameCopyPixelsCore"/>
+    <string id="task_WMPHOTO_Decoder_DecoderFrameDecodeImage" value="WMPHOTO_Decoder_DecoderFrameDecodeImage"/>
+    <string id="task_WMPHOTO_Encoder_EncoderFrameEncodeFrame" value="WMPHOTO_Encoder_EncoderFrameEncodeFrame"/>
+    <string id="task_WMPHOTO_Encoder_EncoderFrameEncodeStream" value="WMPHOTO_Encoder_EncoderFrameEncodeStream"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

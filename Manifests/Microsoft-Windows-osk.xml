@@ -1,0 +1,64 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-osk" guid="{4f768be8-9c69-4bbc-87fc-95291d3f9d0c}" resourceFileName="Microsoft-Windows-osk" messageFileName="Microsoft-Windows-osk" symbol="MicrosoftWindowsosk" source="Xml" >
+    <keywords>
+     <keyword name="PerfInstrumentation" message="$(string.keyword_PerfInstrumentation)" mask="0x10000"/>
+     <keyword name="PerfDiagnostics" message="$(string.keyword_PerfDiagnostics)" mask="0x20000"/>
+    </keywords>
+    <tasks>
+     <task name="LaunchApp" message="$(string.task_LaunchApp)" value="1"/>
+     <task name="LaunchOptionsDlg" message="$(string.task_LaunchOptionsDlg)" value="3"/>
+     <task name="SwitchMode" message="$(string.task_SwitchMode)" value="5"/>
+     <task name="ShowPredictions" message="$(string.task_ShowPredictions)" value="7"/>
+     <task name="ScanStateTransition" message="$(string.task_ScanStateTransition)" value="9"/>
+     <task name="ScanTargetTransition" message="$(string.task_ScanTargetTransition)" value="11"/>
+     <task name="KeyActivation" message="$(string.task_KeyActivation)" value="13"/>
+     <task name="SetNumpadVisibility" message="$(string.task_SetNumpadVisibility)" value="15"/>
+     <task name="SetDockedState" message="$(string.task_SetDockedState)" value="17"/>
+     <task name="SetOSKFadeState" message="$(string.task_SetOSKFadeState)" value="19"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="LaunchAppStart" version="0" task="LaunchApp" opcode="win:Start" level="win:Informational" keywords="PerfInstrumentation"/>
+     <event value="2" symbol="LaunchAppStop" version="0" task="LaunchApp" opcode="win:Stop" level="win:Informational" keywords="PerfInstrumentation"/>
+     <event value="3" symbol="LaunchOptionsDlgStart" version="0" task="LaunchOptionsDlg" opcode="win:Start" level="win:Informational" keywords="PerfInstrumentation"/>
+     <event value="4" symbol="LaunchOptionsDlgStop" version="0" task="LaunchOptionsDlg" opcode="win:Stop" level="win:Informational" keywords="PerfInstrumentation"/>
+     <event value="5" symbol="SwitchModeStart" version="0" task="SwitchMode" opcode="win:Start" level="win:Informational" keywords="PerfInstrumentation"/>
+     <event value="6" symbol="SwitchModeStop" version="0" task="SwitchMode" opcode="win:Stop" level="win:Informational" keywords="PerfInstrumentation"/>
+     <event value="7" symbol="ShowPredictionsStart" version="0" task="ShowPredictions" opcode="win:Start" level="win:Informational" keywords="PerfInstrumentation"/>
+     <event value="8" symbol="ShowPredictionsStop" version="0" task="ShowPredictions" opcode="win:Stop" level="win:Informational" keywords="PerfInstrumentation"/>
+     <event value="9" symbol="ScanStateTransitionStart" version="0" task="ScanStateTransition" opcode="win:Start" level="win:Informational" keywords="PerfInstrumentation" template="ScanStateTransitionStartArgs"/>
+     <event value="10" symbol="ScanStateTransitionStop" version="0" task="ScanStateTransition" opcode="win:Stop" level="win:Informational" keywords="PerfInstrumentation"/>
+     <event value="11" symbol="ScanTargetTransition" version="0" task="ScanTargetTransition" level="win:Informational" keywords="PerfInstrumentation"/>
+     <event value="13" symbol="KeyActivation" version="0" task="KeyActivation" level="win:Informational" keywords="PerfInstrumentation" template="ScanStateTransitionStartArgs"/>
+     <event value="15" symbol="SetNumpadVisibility" version="0" task="SetNumpadVisibility" level="win:Informational" keywords="PerfInstrumentation" template="ScanStateTransitionStartArgs"/>
+     <event value="17" symbol="SetDockedState" version="0" task="SetDockedState" level="win:Informational" keywords="PerfInstrumentation" template="ScanStateTransitionStartArgs"/>
+     <event value="19" symbol="SetOSKFadeState" version="0" task="SetOSKFadeState" level="win:Informational" keywords="PerfInstrumentation" template="ScanStateTransitionStartArgs"/>
+    </events>
+    <templates>
+     <template tid="ScanStateTransitionStartArgs">
+      <data name="tcid" inType="win:Int32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_PerfInstrumentation" value="PerfInstrumentation"/>
+    <string id="keyword_PerfDiagnostics" value="PerfDiagnostics"/>
+    <string id="task_LaunchApp" value="LaunchApp"/>
+    <string id="task_LaunchOptionsDlg" value="LaunchOptionsDlg"/>
+    <string id="task_SwitchMode" value="SwitchMode"/>
+    <string id="task_ShowPredictions" value="ShowPredictions"/>
+    <string id="task_ScanStateTransition" value="ScanStateTransition"/>
+    <string id="task_ScanTargetTransition" value="ScanTargetTransition"/>
+    <string id="task_KeyActivation" value="KeyActivation"/>
+    <string id="task_SetNumpadVisibility" value="SetNumpadVisibility"/>
+    <string id="task_SetDockedState" value="SetDockedState"/>
+    <string id="task_SetOSKFadeState" value="SetOSKFadeState"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

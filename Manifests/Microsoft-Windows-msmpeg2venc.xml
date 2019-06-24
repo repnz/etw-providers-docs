@@ -1,0 +1,104 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-msmpeg2venc" guid="{d17b213a-c505-49c9-98cc-734253ef65d4}" resourceFileName="Microsoft-Windows-msmpeg2venc" messageFileName="Microsoft-Windows-msmpeg2venc" symbol="MicrosoftWindowsmsmpeg2venc" source="Xml" >
+    <keywords>
+     <keyword name="keyword_400000000000" message="$(string.keyword_keyword_400000000000)" mask="0x400000000000"/>
+     <keyword name="keyword_800000000000" message="$(string.keyword_keyword_800000000000)" mask="0x800000000000"/>
+    </keywords>
+    <tasks>
+     <task name="Configurationoftheencoder" message="$(string.task_Configurationoftheencoder)" value="1"/>
+     <task name="Taskdonebythevideoencoder" message="$(string.task_Taskdonebythevideoencoder)" value="2">
+>
+      <opcodes>
+       <opcode name="Receive" message="$(string.opcode_TaskdonebythevideoencoderReceive)" value="240"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <maps>
+     <bitMap name="MFTProcessInputFlags">
+      <map value="0x1" message="$(string.map_MFTProcessInputFlagsInput Data Buffer Placeholder - Do not use)"/>
+     </bitMap>
+     <valueMap name="EncoderCodingMode">
+      <map value="0x0" message="$(string.map_EncoderCodingModeConstant Bit Rate)"/>
+      <map value="0x1" message="$(string.map_EncoderCodingModeVariable Bit Rate - Peak Constrained)"/>
+      <map value="0x2" message="$(string.map_EncoderCodingModeVariable Bit Rate - Quality Based)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="0" symbol="TaskdonebythevideoencoderStart" version="0" task="Taskdonebythevideoencoder" opcode="win:Start" level="win:Verbose" keywords="keyword_800000000000" template="TaskdonebythevideoencoderStartArgs"/>
+     <event value="1" symbol="TaskdonebythevideoencoderStop" version="0" task="Taskdonebythevideoencoder" opcode="win:Stop" level="win:Verbose" keywords="keyword_800000000000" template="TaskdonebythevideoencoderStopArgs"/>
+     <event value="2" symbol="TaskdonebythevideoencoderStart2" version="0" task="Taskdonebythevideoencoder" opcode="win:Start" level="win:Verbose" keywords="keyword_400000000000" template="TaskdonebythevideoencoderStart2Args"/>
+     <event value="3" symbol="ConfigurationoftheencoderStop" version="0" task="Configurationoftheencoder" opcode="win:Stop" level="win:Verbose" keywords="keyword_400000000000" template="TaskdonebythevideoencoderStopArgs"/>
+     <event value="4" symbol="TaskdonebythevideoencoderStart4" version="0" task="Taskdonebythevideoencoder" opcode="win:Start" level="win:Verbose" keywords="keyword_400000000000" template="TaskdonebythevideoencoderStart4Args"/>
+     <event value="5" symbol="TaskdonebythevideoencoderStop5" version="0" task="Taskdonebythevideoencoder" opcode="win:Stop" level="win:Verbose" keywords="keyword_400000000000" template="TaskdonebythevideoencoderStopArgs"/>
+     <event value="6" symbol="Configurationoftheencoder" version="0" task="Configurationoftheencoder" level="win:Informational" keywords="keyword_400000000000" template="ConfigurationoftheencoderArgs"/>
+     <event value="7" symbol="TaskdonebythevideoencoderStart7" version="0" task="Taskdonebythevideoencoder" opcode="win:Start" level="win:Verbose" keywords="keyword_800000000000" template="TaskdonebythevideoencoderStart7Args"/>
+     <event value="8" symbol="TaskdonebythevideoencoderStop8" version="0" task="Taskdonebythevideoencoder" opcode="win:Stop" level="win:Verbose" keywords="keyword_800000000000" template="TaskdonebythevideoencoderStopArgs"/>
+     <event value="9" symbol="Taskdonebythevideoencoder" version="0" task="Taskdonebythevideoencoder" level="win:Informational" keywords="keyword_800000000000" template="TaskdonebythevideoencoderArgs"/>
+     <event value="10" symbol="TaskdonebythevideoencoderSend" version="0" task="Taskdonebythevideoencoder" opcode="win:Send" level="win:Informational" keywords="keyword_800000000000"/>
+     <event value="11" symbol="TaskdonebythevideoencoderReceive" version="0" task="Taskdonebythevideoencoder" opcode="Receive" level="win:Informational" keywords="keyword_800000000000" template="TaskdonebythevideoencoderReceiveArgs"/>
+     <event value="12" symbol="Configurationoftheencoder12" version="0" task="Configurationoftheencoder" level="win:Informational" keywords="keyword_400000000000" template="Configurationoftheencoder12Args"/>
+    </events>
+    <templates>
+     <template tid="TaskdonebythevideoencoderStartArgs">
+      <data name="InputStreamID" inType="win:UInt64"/>
+      <data name="pSample" inType="win:Pointer"/>
+      <data name="dwFlags" inType="win:UInt32" map="MFTProcessInputFlags"/>
+     </template>
+     <template tid="TaskdonebythevideoencoderStopArgs">
+      <data name="hr" inType="win:Int32"/>
+     </template>
+     <template tid="TaskdonebythevideoencoderStart2Args">
+      <data name="InputStreamID" inType="win:UInt64"/>
+      <data name="pEvent" inType="win:Pointer"/>
+     </template>
+     <template tid="TaskdonebythevideoencoderStart4Args">
+      <data name="MessageType" inType="win:UInt32"/>
+      <data name="Param" inType="win:Pointer"/>
+     </template>
+     <template tid="ConfigurationoftheencoderArgs">
+      <data name="OldBitrate" inType="win:UInt64"/>
+      <data name="NewBitrate" inType="win:UInt64"/>
+     </template>
+     <template tid="TaskdonebythevideoencoderStart7Args">
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="OutputBufferCount" inType="win:UInt64"/>
+      <data name="pOutputSamples" inType="win:Pointer"/>
+      <data name="pdwStatus" inType="win:Pointer"/>
+     </template>
+     <template tid="TaskdonebythevideoencoderArgs">
+      <data name="pSample" inType="win:Pointer"/>
+      <data name="cSampleLength" inType="win:UInt64"/>
+     </template>
+     <template tid="TaskdonebythevideoencoderReceiveArgs">
+      <data name="pSample" inType="win:Pointer"/>
+      <data name="cSampleLength" inType="win:UInt64"/>
+      <data name="bEndOfEncoding" inType="win:Boolean"/>
+     </template>
+     <template tid="Configurationoftheencoder12Args">
+      <data name="CodingMode" inType="win:UInt32" map="EncoderCodingMode"/>
+      <data name="Bitrate" inType="win:UInt64"/>
+      <data name="Complexity" inType="win:UInt64"/>
+      <data name="pEncoder" inType="win:Pointer"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_keyword_400000000000" value="keyword_400000000000"/>
+    <string id="keyword_keyword_800000000000" value="keyword_800000000000"/>
+    <string id="task_Configurationoftheencoder" value="Configurationoftheencoder"/>
+    <string id="task_Taskdonebythevideoencoder" value="Taskdonebythevideoencoder"/>
+    <string id="opcode_TaskdonebythevideoencoderReceive" value="Receive"/>
+    <string id="map_MFTProcessInputFlagsInput Data Buffer Placeholder - Do not use" value="Input Data Buffer Placeholder - Do not use"/>
+    <string id="map_EncoderCodingModeConstant Bit Rate" value="Constant Bit Rate"/>
+    <string id="map_EncoderCodingModeVariable Bit Rate - Peak Constrained" value="Variable Bit Rate - Peak Constrained"/>
+    <string id="map_EncoderCodingModeVariable Bit Rate - Quality Based" value="Variable Bit Rate - Quality Based"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

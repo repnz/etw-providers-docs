@@ -1,0 +1,36 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-IPNAT" guid="{a67075c2-3e39-4109-b6cd-6d750058a732}" resourceFileName="Microsoft-Windows-IPNAT" messageFileName="Microsoft-Windows-IPNAT" symbol="MicrosoftWindowsIPNAT" source="Xml" >
+    <keywords>
+     <keyword name="KeywordDebugTrace" message="$(string.keyword_KeywordDebugTrace)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="DebugTrace" message="$(string.task_DebugTrace)" value="1001">
+>
+      <opcodes>
+       <opcode name="DebugTrace" message="$(string.opcode_DebugTraceDebugTrace)" value="10"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="2001" symbol="DebugTrace" version="0" task="DebugTrace" opcode="DebugTrace" level="win:Informational" keywords="KeywordDebugTrace" template="DebugTraceArgs"/>
+    </events>
+    <templates>
+     <template tid="DebugTraceArgs">
+      <data name="_DebugString" inType="win:AnsiString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_KeywordDebugTrace" value="KeywordDebugTrace"/>
+    <string id="task_DebugTrace" value="DebugTrace"/>
+    <string id="opcode_DebugTraceDebugTrace" value="DebugTrace"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

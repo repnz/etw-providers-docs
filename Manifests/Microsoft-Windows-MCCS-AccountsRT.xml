@@ -1,0 +1,39 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-MCCS-AccountsRT" guid="{dd2743c6-1722-4674-9f6f-c80044c4232e}" resourceFileName="Microsoft-Windows-MCCS-AccountsRT" messageFileName="Microsoft-Windows-MCCS-AccountsRT" symbol="MicrosoftWindowsMCCSAccountsRT" source="Xml" >
+    <keywords>
+     <keyword name="Error" message="$(string.keyword_Error)" mask="0x1"/>
+     <keyword name="Performance" message="$(string.keyword_Performance)" mask="0x2"/>
+     <keyword name="Warning" message="$(string.keyword_Warning)" mask="0x4000000000"/>
+     <keyword name="StateTransition" message="$(string.keyword_StateTransition)" mask="0x8000000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="task_0" version="0" task="task_0" level="win:Error" keywords="Error" template="task_0Args"/>
+     <event value="2" symbol="task_02" version="0" task="task_0" level="win:Warning" keywords="Warning" template="task_0Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="P1_HResult" inType="win:Int32"/>
+      <data name="P2_String" inType="win:AnsiString"/>
+      <data name="P3_UInt32" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Error" value="Error"/>
+    <string id="keyword_Performance" value="Performance"/>
+    <string id="keyword_Warning" value="Warning"/>
+    <string id="keyword_StateTransition" value="StateTransition"/>
+    <string id="task_task_0" value="task_0"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

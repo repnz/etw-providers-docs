@@ -1,0 +1,32 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-StorageManagement-WSP-Health" guid="{b1f01d1a-ae3a-4940-81ee-ddccbad380ef}" resourceFileName="Microsoft-Windows-StorageManagement-WSP-Health" messageFileName="Microsoft-Windows-StorageManagement-WSP-Health" symbol="MicrosoftWindowsStorageManagementWSPHealth" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="Health" message="$(string.task_Health)" value="1"/>
+    </tasks>
+    <events>
+     <event value="8448" symbol="Health" version="0" task="Health" level="win:Critical" template="HealthArgs"/>
+     <event value="8449" symbol="Health8449" version="0" task="Health" level="win:Error" template="HealthArgs"/>
+     <event value="8450" symbol="Health8450" version="0" task="Health" level="win:Warning" template="HealthArgs"/>
+     <event value="8451" symbol="Health8451" version="0" task="Health" level="win:Informational" template="HealthArgs"/>
+     <event value="8452" symbol="Health8452" version="0" task="Health" level="win:Verbose" template="HealthArgs"/>
+    </events>
+    <templates>
+     <template tid="HealthArgs">
+      <data name="Parameter1" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_Health" value="Health"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,43 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Data-Pdf" guid="{b97561fe-b27a-4c48-aa3e-7d3addc105b1}" resourceFileName="Microsoft-Windows-Data-Pdf" messageFileName="Microsoft-Windows-Data-Pdf" symbol="MicrosoftWindowsDataPdf" source="Xml" >
+    <keywords>
+     <keyword name="Windows.Data.Pdf" message="$(string.keyword_Windows.Data.Pdf)" mask="0x10000"/>
+    </keywords>
+    <tasks>
+     <task name="LoadPage" message="$(string.task_LoadPage)" value="1"/>
+     <task name="RenderPage" message="$(string.task_RenderPage)" value="3"/>
+     <task name="EncodePageRendering" message="$(string.task_EncodePageRendering)" value="4"/>
+     <task name="LoadDocument" message="$(string.task_LoadDocument)" value="5"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="LoadPageStart" version="0" task="LoadPage" opcode="win:Start" level="win:Informational" keywords="Windows.Data.Pdf" template="LoadPageStartArgs"/>
+     <event value="2" symbol="LoadPageStop" version="0" task="LoadPage" opcode="win:Stop" level="win:Informational" keywords="Windows.Data.Pdf" template="LoadPageStartArgs"/>
+     <event value="5" symbol="RenderPageStart" version="0" task="RenderPage" opcode="win:Start" level="win:Informational" keywords="Windows.Data.Pdf" template="LoadPageStartArgs"/>
+     <event value="6" symbol="RenderPageStop" version="0" task="RenderPage" opcode="win:Stop" level="win:Informational" keywords="Windows.Data.Pdf" template="LoadPageStartArgs"/>
+     <event value="7" symbol="EncodePageRenderingStart" version="0" task="EncodePageRendering" opcode="win:Start" level="win:Informational" keywords="Windows.Data.Pdf" template="LoadPageStartArgs"/>
+     <event value="8" symbol="EncodePageRenderingStop" version="0" task="EncodePageRendering" opcode="win:Stop" level="win:Informational" keywords="Windows.Data.Pdf" template="LoadPageStartArgs"/>
+     <event value="9" symbol="LoadDocumentStart" version="0" task="LoadDocument" opcode="win:Start" level="win:Informational" keywords="Windows.Data.Pdf"/>
+     <event value="10" symbol="LoadDocumentStop" version="0" task="LoadDocument" opcode="win:Stop" level="win:Informational" keywords="Windows.Data.Pdf"/>
+    </events>
+    <templates>
+     <template tid="LoadPageStartArgs">
+      <data name="UInt32Param" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Windows.Data.Pdf" value="Windows.Data.Pdf"/>
+    <string id="task_LoadPage" value="LoadPage"/>
+    <string id="task_RenderPage" value="RenderPage"/>
+    <string id="task_EncodePageRendering" value="EncodePageRendering"/>
+    <string id="task_LoadDocument" value="LoadDocument"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

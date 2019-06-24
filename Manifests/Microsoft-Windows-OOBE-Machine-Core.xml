@@ -1,0 +1,40 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-OOBE-Machine-Core" guid="{ec276cde-2a17-473c-a010-2ff78d5426d2}" resourceFileName="Microsoft-Windows-OOBE-Machine-Core" messageFileName="Microsoft-Windows-OOBE-Machine-Core" symbol="MicrosoftWindowsOOBEMachineCore" source="Xml" >
+    <keywords>
+     <keyword name="msoobe" message="$(string.keyword_msoobe)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="ServiceStartResult" message="$(string.task_ServiceStartResult)" value="6004"/>
+     <task name="MandatoryTasks" message="$(string.task_MandatoryTasks)" value="6041"/>
+     <task name="Finalize" message="$(string.task_Finalize)" value="6042"/>
+    </tasks>
+    <events>
+     <event value="5004" symbol="ServiceStartResult" version="0" task="ServiceStartResult" level="win:Informational" keywords="msoobe" template="ServiceStartResultArgs"/>
+     <event value="5041" symbol="MandatoryTasksStart" version="0" task="MandatoryTasks" opcode="win:Start" level="win:Informational" keywords="msoobe"/>
+     <event value="5042" symbol="MandatoryTasksStop" version="0" task="MandatoryTasks" opcode="win:Stop" level="win:Informational" keywords="msoobe"/>
+     <event value="5043" symbol="FinalizeStart" version="0" task="Finalize" opcode="win:Start" level="win:Informational" keywords="msoobe"/>
+     <event value="5044" symbol="FinalizeStop" version="0" task="Finalize" opcode="win:Stop" level="win:Informational" keywords="msoobe"/>
+    </events>
+    <templates>
+     <template tid="ServiceStartResultArgs">
+      <data name="Service" inType="win:UnicodeString"/>
+      <data name="DWORD" inType="win:UInt32"/>
+      <data name="Started" inType="win:Boolean"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_msoobe" value="msoobe"/>
+    <string id="task_ServiceStartResult" value="ServiceStartResult"/>
+    <string id="task_MandatoryTasks" value="MandatoryTasks"/>
+    <string id="task_Finalize" value="Finalize"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

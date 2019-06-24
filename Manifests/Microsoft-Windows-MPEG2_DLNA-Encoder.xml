@@ -1,0 +1,116 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-MPEG2_DLNA-Encoder" guid="{86efff39-2bdd-4efd-bd0b-853d71b2a9dc}" resourceFileName="Microsoft-Windows-MPEG2_DLNA-Encoder" messageFileName="Microsoft-Windows-MPEG2_DLNA-Encoder" symbol="MicrosoftWindowsMPEG2_DLNAEncoder" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="MPEG_2Encode/MuxforDLNA" message="$(string.task_MPEG_2Encode/MuxforDLNA)" value="42"/>
+     <task name="AudioEncodeSessionConfig" message="$(string.task_AudioEncodeSessionConfig)" value="43"/>
+     <task name="AudioEncodeSession" message="$(string.task_AudioEncodeSession)" value="44"/>
+     <task name="AudioEncodeTask" message="$(string.task_AudioEncodeTask)" value="45"/>
+     <task name="VideoEncodeSessionConfig" message="$(string.task_VideoEncodeSessionConfig)" value="46"/>
+     <task name="VideoEncodeSession" message="$(string.task_VideoEncodeSession)" value="47"/>
+     <task name="VideoEncodeTask" message="$(string.task_VideoEncodeTask)" value="48"/>
+     <task name="MuxSessionConfig" message="$(string.task_MuxSessionConfig)" value="49"/>
+     <task name="MuxSession" message="$(string.task_MuxSession)" value="50"/>
+    </tasks>
+    <maps>
+     <valueMap name="AudioInputFormat">
+      <map value="0x0" message="$(string.map_AudioInputFormat(two channels mode)"/>
+      <map value="0x1" message="$(string.map_AudioInputFormat1/0 mono mode)"/>
+      <map value="0x2" message="$(string.map_AudioInputFormat2/0 stereo mode)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="0" symbol="MPEG_2Encode/MuxforDLNAStart" version="0" task="MPEG_2Encode/MuxforDLNA" opcode="win:Start" level="win:Informational" template="MPEG_2Encode/MuxforDLNAStartArgs"/>
+     <event value="1" symbol="MPEG_2Encode/MuxforDLNAStop" version="0" task="MPEG_2Encode/MuxforDLNA" opcode="win:Stop" level="win:Informational" template="MPEG_2Encode/MuxforDLNAStopArgs"/>
+     <event value="2" symbol="MPEG_2Encode/MuxforDLNA" version="0" task="MPEG_2Encode/MuxforDLNA" level="win:Error" template="MPEG_2Encode/MuxforDLNAArgs"/>
+     <event value="3" symbol="MPEG_2Encode/MuxforDLNA3" version="0" task="MPEG_2Encode/MuxforDLNA" level="win:Verbose" template="MPEG_2Encode/MuxforDLNA3Args"/>
+     <event value="4" symbol="MPEG_2Encode/MuxforDLNA4" version="0" task="MPEG_2Encode/MuxforDLNA" level="win:Verbose" template="MPEG_2Encode/MuxforDLNA4Args"/>
+     <event value="5" symbol="MPEG_2Encode/MuxforDLNA5" version="0" task="MPEG_2Encode/MuxforDLNA" level="win:Verbose" template="MPEG_2Encode/MuxforDLNA5Args"/>
+     <event value="6" symbol="MPEG_2Encode/MuxforDLNA6" version="0" task="MPEG_2Encode/MuxforDLNA" level="win:Verbose"/>
+     <event value="7" symbol="AudioEncodeSessionConfig" version="0" task="AudioEncodeSessionConfig" level="win:Informational" template="AudioEncodeSessionConfigArgs"/>
+     <event value="8" symbol="AudioEncodeSessionStart" version="0" task="AudioEncodeSession" opcode="win:Start" level="win:Informational"/>
+     <event value="9" symbol="AudioEncodeSessionStop" version="0" task="AudioEncodeSession" opcode="win:Stop" level="win:Informational"/>
+     <event value="10" symbol="AudioEncodeTaskStart" version="0" task="AudioEncodeTask" opcode="win:Start" level="win:Verbose"/>
+     <event value="11" symbol="AudioEncodeTaskStop" version="0" task="AudioEncodeTask" opcode="win:Stop" level="win:Verbose"/>
+     <event value="12" symbol="VideoEncodeSessionConfig" version="0" task="VideoEncodeSessionConfig" level="win:Informational" template="VideoEncodeSessionConfigArgs"/>
+     <event value="13" symbol="VideoEncodeSessionStart" version="0" task="VideoEncodeSession" opcode="win:Start" level="win:Informational"/>
+     <event value="14" symbol="VideoEncodeSessionStop" version="0" task="VideoEncodeSession" opcode="win:Stop" level="win:Informational"/>
+     <event value="15" symbol="VideoEncodeTaskStart" version="0" task="VideoEncodeTask" opcode="win:Start" level="win:Verbose"/>
+     <event value="16" symbol="VideoEncodeTaskStop" version="0" task="VideoEncodeTask" opcode="win:Stop" level="win:Verbose"/>
+     <event value="17" symbol="MuxSessionConfig" version="0" task="MuxSessionConfig" level="win:Informational" template="MuxSessionConfigArgs"/>
+     <event value="18" symbol="MuxSessionStart" version="0" task="MuxSession" opcode="win:Start" level="win:Informational"/>
+     <event value="19" symbol="MuxSessionStop" version="0" task="MuxSession" opcode="win:Stop" level="win:Informational"/>
+    </events>
+    <templates>
+     <template tid="MPEG_2Encode/MuxforDLNAStartArgs">
+      <data name="Region" inType="win:UnicodeString"/>
+      <data name="VideoX" inType="win:UInt32"/>
+      <data name="VideoY" inType="win:UInt32"/>
+      <data name="AudioChannels" inType="win:UInt32"/>
+      <data name="VideoBitRate" inType="win:UInt32"/>
+      <data name="AudioBitRate" inType="win:UInt32"/>
+      <data name="SeekOffsetMs" inType="win:Int64"/>
+     </template>
+     <template tid="MPEG_2Encode/MuxforDLNAStopArgs">
+      <data name="TotalBytesEncoded" inType="win:UInt64"/>
+      <data name="VideoFramesReceived" inType="win:UInt64"/>
+      <data name="VideoFramesEncoded" inType="win:UInt64"/>
+      <data name="AudioBytesReceived" inType="win:UInt64"/>
+      <data name="AudioFramesEncoded" inType="win:UInt64"/>
+     </template>
+     <template tid="MPEG_2Encode/MuxforDLNAArgs">
+      <data name="hr" inType="win:Int32"/>
+     </template>
+     <template tid="MPEG_2Encode/MuxforDLNA3Args">
+      <data name="Timestamp" inType="win:Int64"/>
+      <data name="ID" inType="win:UInt32"/>
+     </template>
+     <template tid="MPEG_2Encode/MuxforDLNA4Args">
+      <data name="InputID" inType="win:UInt32"/>
+      <data name="InputTimestamp" inType="win:Int64"/>
+      <data name="TargetTimestamp" inType="win:Int64"/>
+     </template>
+     <template tid="MPEG_2Encode/MuxforDLNA5Args">
+      <data name="Timestamp" inType="win:Int64"/>
+      <data name="Bytes" inType="win:UInt32"/>
+     </template>
+     <template tid="AudioEncodeSessionConfigArgs">
+      <data name="MaxBitRate" inType="win:UInt32"/>
+      <data name="SampleRate" inType="win:Int32"/>
+      <data name="InputFormat" inType="win:UInt8" map="AudioInputFormat"/>
+     </template>
+     <template tid="VideoEncodeSessionConfigArgs">
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:Int32"/>
+      <data name="Progressive" inType="win:UInt8"/>
+      <data name="MaxBitRate" inType="win:Int32"/>
+     </template>
+     <template tid="MuxSessionConfigArgs">
+      <data name="MuxFormat" inType="win:UInt8"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_MPEG_2Encode/MuxforDLNA" value="MPEG_2Encode/MuxforDLNA"/>
+    <string id="task_AudioEncodeSessionConfig" value="AudioEncodeSessionConfig"/>
+    <string id="task_AudioEncodeSession" value="AudioEncodeSession"/>
+    <string id="task_AudioEncodeTask" value="AudioEncodeTask"/>
+    <string id="task_VideoEncodeSessionConfig" value="VideoEncodeSessionConfig"/>
+    <string id="task_VideoEncodeSession" value="VideoEncodeSession"/>
+    <string id="task_VideoEncodeTask" value="VideoEncodeTask"/>
+    <string id="task_MuxSessionConfig" value="MuxSessionConfig"/>
+    <string id="task_MuxSession" value="MuxSession"/>
+    <string id="map_AudioInputFormat(two channels mode" value="(two channels mode"/>
+    <string id="map_AudioInputFormat1/0 mono mode" value="1/0 mono mode"/>
+    <string id="map_AudioInputFormat2/0 stereo mode" value="2/0 stereo mode"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

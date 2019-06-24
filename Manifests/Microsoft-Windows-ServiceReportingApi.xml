@@ -1,0 +1,39 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-ServiceReportingApi" guid="{606a6a38-70ec-4309-b3a3-82ff86f73329}" resourceFileName="Microsoft-Windows-ServiceReportingApi" messageFileName="Microsoft-Windows-ServiceReportingApi" symbol="MicrosoftWindowsServiceReportingApi" source="Xml" >
+    <keywords>
+     <keyword name="SVCAPI_BASELINE_KEYWORD_DEBUG" message="$(string.keyword_SVCAPI_BASELINE_KEYWORD_DEBUG)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="Debugtask" message="$(string.task_Debugtask)" value="1">
+>
+      <opcodes>
+       <opcode name="Debugmessage" message="$(string.opcode_DebugtaskDebugmessage)" value="10"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="1" symbol="DebugtaskDebugmessage" version="0" task="Debugtask" opcode="Debugmessage" level="win:Error" keywords="SVCAPI_BASELINE_KEYWORD_DEBUG" template="DebugtaskDebugmessageArgs"/>
+    </events>
+    <templates>
+     <template tid="DebugtaskDebugmessageArgs">
+      <data name="FileName" inType="win:UnicodeString"/>
+      <data name="FunctionName" inType="win:UnicodeString"/>
+      <data name="LineNumber" inType="win:Int32"/>
+      <data name="DebugMessage" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_SVCAPI_BASELINE_KEYWORD_DEBUG" value="SVCAPI_BASELINE_KEYWORD_DEBUG"/>
+    <string id="task_Debugtask" value="Debugtask"/>
+    <string id="opcode_DebugtaskDebugmessage" value="Debugmessage"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

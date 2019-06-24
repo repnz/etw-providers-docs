@@ -1,0 +1,316 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Direct3DShaderCache" guid="{2d4ebca6-ea64-453f-a292-ae2ea0ee513b}" resourceFileName="Microsoft-Windows-Direct3DShaderCache" messageFileName="Microsoft-Windows-Direct3DShaderCache" symbol="MicrosoftWindowsDirect3DShaderCache" source="Xml" >
+    <keywords>
+     <keyword name="Objects" message="$(string.keyword_Objects)" mask="0x1"/>
+     <keyword name="APIs" message="$(string.keyword_APIs)" mask="0x2"/>
+     <keyword name="Events" message="$(string.keyword_Events)" mask="0x4"/>
+     <keyword name="Profiling" message="$(string.keyword_Profiling)" mask="0x8"/>
+     <keyword name="keyword_400000000000" message="$(string.keyword_keyword_400000000000)" mask="0x400000000000"/>
+    </keywords>
+    <tasks>
+     <task name="ShaderCache" message="$(string.task_ShaderCache)" value="1"/>
+     <task name="CreateShaderCache" message="$(string.task_CreateShaderCache)" value="2"/>
+     <task name="DestroyShaderCache" message="$(string.task_DestroyShaderCache)" value="3"/>
+     <task name="FindValue" message="$(string.task_FindValue)" value="4"/>
+     <task name="AddValue" message="$(string.task_AddValue)" value="5"/>
+     <task name="FreeFoundValue" message="$(string.task_FreeFoundValue)" value="6"/>
+     <task name="Flush" message="$(string.task_Flush)" value="7"/>
+     <task name="UWPSuspend" message="$(string.task_UWPSuspend)" value="51"/>
+     <task name="L1Full" message="$(string.task_L1Full)" value="52"/>
+     <task name="L1Add" message="$(string.task_L1Add)" value="53"/>
+     <task name="L1Trim" message="$(string.task_L1Trim)" value="54"/>
+     <task name="L1Free" message="$(string.task_L1Free)" value="55"/>
+     <task name="L1Clear" message="$(string.task_L1Clear)" value="56"/>
+     <task name="InitIndexFile" message="$(string.task_InitIndexFile)" value="57"/>
+     <task name="ClearIndexFile" message="$(string.task_ClearIndexFile)" value="58"/>
+     <task name="FileError" message="$(string.task_FileError)" value="59"/>
+     <task name="DoubleAdd" message="$(string.task_DoubleAdd)" value="60"/>
+     <task name="CRCFailure" message="$(string.task_CRCFailure)" value="61"/>
+     <task name="GuardFileError" message="$(string.task_GuardFileError)" value="62"/>
+     <task name="L2Full" message="$(string.task_L2Full)" value="63"/>
+     <task name="L2WriteQueueFull" message="$(string.task_L2WriteQueueFull)" value="64"/>
+     <task name="L2WriteQueueAdd" message="$(string.task_L2WriteQueueAdd)" value="65"/>
+     <task name="L2WriteQueueTooSmall" message="$(string.task_L2WriteQueueTooSmall)" value="66"/>
+     <task name="L2ReadLock" message="$(string.task_L2ReadLock)" value="67"/>
+     <task name="L2ReadUnlock" message="$(string.task_L2ReadUnlock)" value="68"/>
+     <task name="HashCollision" message="$(string.task_HashCollision)" value="69"/>
+     <task name="IndexFileGrow" message="$(string.task_IndexFileGrow)" value="70"/>
+     <task name="FileWrite" message="$(string.task_FileWrite)" value="201"/>
+     <task name="FileRead" message="$(string.task_FileRead)" value="202"/>
+     <task name="StatisticsTelemetry" message="$(string.task_StatisticsTelemetry)" value="1001"/>
+    </tasks>
+    <maps>
+     <valueMap name="ShaderCacheType">
+      <map value="0x0" message="$(string.map_ShaderCacheTypeInMemory)"/>
+      <map value="0x1" message="$(string.map_ShaderCacheTypeLocalDisk)"/>
+      <map value="0x2" message="$(string.map_ShaderCacheTypeRemote)"/>
+      <map value="0x3" message="$(string.map_ShaderCacheTypeUWPLocalWin32Remote)"/>
+      <map value="0x4" message="$(string.map_ShaderCacheTypeUWPLocalWin32InMemory)"/>
+     </valueMap>
+     <bitMap name="ShaderCacheFlags">
+      <map value="0x1" message="$(string.map_ShaderCacheFlagsReadOnly)"/>
+      <map value="0x2" message="$(string.map_ShaderCacheFlagsCollisionAware)"/>
+      <map value="0x4" message="$(string.map_ShaderCacheFlagsTempStorage)"/>
+     </bitMap>
+     <valueMap name="FileCreateDisposition">
+      <map value="0x1" message="$(string.map_FileCreateDispositionCREATE_NEW)"/>
+      <map value="0x2" message="$(string.map_FileCreateDispositionCREATE_ALWAYS)"/>
+      <map value="0x3" message="$(string.map_FileCreateDispositionOPEN_EXISTING)"/>
+      <map value="0x4" message="$(string.map_FileCreateDispositionOPEN_ALWAYS)"/>
+      <map value="0x5" message="$(string.map_FileCreateDispositionTRUNCATE_EXISTING)"/>
+     </valueMap>
+     <valueMap name="FileType">
+      <map value="0x0" message="$(string.map_FileTypeLock File)"/>
+      <map value="0x1" message="$(string.map_FileTypeIndex File)"/>
+      <map value="0x2" message="$(string.map_FileTypeValue File)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="ShaderCacheStart" version="0" task="ShaderCache" opcode="win:Start" level="win:Always" keywords="Objects" template="ShaderCacheStartArgs"/>
+     <event value="2" symbol="ShaderCacheStop" version="0" task="ShaderCache" opcode="win:Stop" level="win:Always" keywords="Objects" template="ShaderCacheStopArgs"/>
+     <event value="3" symbol="ShaderCacheDCStart" version="0" task="ShaderCache" opcode="win:DC_Start" level="win:Always" keywords="Objects" template="ShaderCacheStopArgs"/>
+     <event value="4" symbol="CreateShaderCacheStart" version="0" task="CreateShaderCache" opcode="win:Start" level="win:Always" keywords="APIs Profiling" template="CreateShaderCacheStartArgs"/>
+     <event value="5" symbol="CreateShaderCacheStop" version="0" task="CreateShaderCache" opcode="win:Stop" level="win:Always" keywords="APIs Profiling" template="CreateShaderCacheStopArgs"/>
+     <event value="6" symbol="DestroyShaderCacheStart" version="0" task="DestroyShaderCache" opcode="win:Start" level="win:Always" keywords="APIs Profiling" template="DestroyShaderCacheStartArgs"/>
+     <event value="7" symbol="DestroyShaderCacheStop" version="0" task="DestroyShaderCache" opcode="win:Stop" level="win:Always" keywords="APIs Profiling"/>
+     <event value="8" symbol="FindValueStart" version="0" task="FindValue" opcode="win:Start" level="win:Always" keywords="APIs Profiling" template="FindValueStartArgs"/>
+     <event value="9" symbol="FindValueStop" version="0" task="FindValue" opcode="win:Stop" level="win:Always" keywords="APIs Profiling" template="FindValueStopArgs"/>
+     <event value="10" symbol="AddValueStart" version="0" task="AddValue" opcode="win:Start" level="win:Always" keywords="APIs Profiling" template="AddValueStartArgs"/>
+     <event value="11" symbol="AddValueStop" version="0" task="AddValue" opcode="win:Stop" level="win:Always" keywords="APIs Profiling" template="AddValueStopArgs"/>
+     <event value="12" symbol="FreeFoundValueStart" version="0" task="FreeFoundValue" opcode="win:Start" level="win:Always" keywords="APIs Profiling" template="FreeFoundValueStartArgs"/>
+     <event value="13" symbol="FreeFoundValueStop" version="0" task="FreeFoundValue" opcode="win:Stop" level="win:Always" keywords="APIs Profiling"/>
+     <event value="14" symbol="FlushStart" version="0" task="Flush" opcode="win:Start" level="win:Always" keywords="APIs Profiling" template="DestroyShaderCacheStartArgs"/>
+     <event value="15" symbol="FlushStop" version="0" task="Flush" opcode="win:Stop" level="win:Always" keywords="APIs Profiling" template="AddValueStopArgs"/>
+     <event value="101" symbol="UWPSuspend" version="0" task="UWPSuspend" level="win:Informational" keywords="Events Profiling"/>
+     <event value="102" symbol="L1Full" version="0" task="L1Full" level="win:Warning" keywords="Events" template="L1FullArgs"/>
+     <event value="103" symbol="L1AddStart" version="0" task="L1Add" opcode="win:Start" level="win:Informational" keywords="Events" template="L1AddStartArgs"/>
+     <event value="104" symbol="L1AddStop" version="0" task="L1Add" opcode="win:Stop" level="win:Verbose" keywords="Events" template="L1AddStopArgs"/>
+     <event value="105" symbol="L1TrimStart" version="0" task="L1Trim" opcode="win:Start" level="win:Informational" keywords="Events" template="L1AddStopArgs"/>
+     <event value="106" symbol="L1TrimStop" version="0" task="L1Trim" opcode="win:Stop" level="win:Informational" keywords="Events" template="L1FullArgs"/>
+     <event value="107" symbol="L1Free" version="0" task="L1Free" level="win:Verbose" keywords="Events" template="L1AddStartArgs"/>
+     <event value="108" symbol="L1Clear" version="0" task="L1Clear" level="win:Informational" keywords="Events" template="L1FullArgs"/>
+     <event value="109" symbol="IndexFileGrow" version="0" task="IndexFileGrow" level="win:Informational" keywords="Events" template="IndexFileGrowArgs"/>
+     <event value="110" symbol="InitIndexFile" version="0" task="InitIndexFile" level="win:Warning" keywords="Events" template="InitIndexFileArgs"/>
+     <event value="111" symbol="ClearIndexFile" version="0" task="ClearIndexFile" level="win:Informational" keywords="Events"/>
+     <event value="112" symbol="FileError" version="0" task="FileError" level="win:Error" keywords="Events" template="FileErrorArgs"/>
+     <event value="113" symbol="DoubleAdd" version="0" task="DoubleAdd" level="win:Error" keywords="Events"/>
+     <event value="114" symbol="DoubleAdd114" version="0" task="DoubleAdd" level="win:Error" keywords="Events"/>
+     <event value="115" symbol="L1Full115" version="0" task="L1Full" level="win:Error" keywords="Events"/>
+     <event value="116" symbol="CRCFailure" version="0" task="CRCFailure" level="win:Critical" keywords="Events"/>
+     <event value="117" symbol="CRCFailure117" version="0" task="CRCFailure" level="win:Critical" keywords="Events"/>
+     <event value="118" symbol="GuardFileError" version="0" task="GuardFileError" level="win:Error" keywords="Events"/>
+     <event value="119" symbol="GuardFileError119" version="0" task="GuardFileError" level="win:Warning" keywords="Events"/>
+     <event value="120" symbol="L2Full" version="0" task="L2Full" level="win:Error" keywords="Events" template="L2FullArgs"/>
+     <event value="121" symbol="L2WriteQueueFull" version="0" task="L2WriteQueueFull" level="win:Informational" keywords="Events" template="L2WriteQueueFullArgs"/>
+     <event value="122" symbol="L2WriteQueueAdd" version="0" task="L2WriteQueueAdd" level="win:Informational" keywords="Events" template="L2WriteQueueFullArgs"/>
+     <event value="123" symbol="L2WriteQueueTooSmall" version="0" task="L2WriteQueueTooSmall" level="win:Warning" keywords="Events" template="L2WriteQueueFullArgs"/>
+     <event value="124" symbol="L2ReadLock" version="0" task="L2ReadLock" level="win:Informational" keywords="Events" template="L2ReadLockArgs"/>
+     <event value="125" symbol="L2ReadUnlock" version="0" task="L2ReadUnlock" level="win:Informational" keywords="Events" template="L2ReadLockArgs"/>
+     <event value="126" symbol="HashCollision" version="0" task="HashCollision" level="win:Critical" keywords="Events"/>
+     <event value="501" symbol="FileWriteStart" version="0" task="FileWrite" opcode="win:Start" level="win:Informational" keywords="Profiling" template="FileWriteStartArgs"/>
+     <event value="502" symbol="FileWriteStop" version="0" task="FileWrite" opcode="win:Stop" level="win:Informational" keywords="Profiling" template="FileWriteStartArgs"/>
+     <event value="503" symbol="FileReadStart" version="0" task="FileRead" opcode="win:Start" level="win:Informational" keywords="Profiling" template="FileWriteStartArgs"/>
+     <event value="504" symbol="FileReadStop" version="0" task="FileRead" opcode="win:Stop" level="win:Informational" keywords="Profiling" template="FileWriteStartArgs"/>
+     <event value="2001" symbol="StatisticsTelemetry_V1" version="1" task="StatisticsTelemetry" level="win:Informational" keywords="Events keyword_400000000000" template="StatisticsTelemetryArgs_V1"/>
+    </events>
+    <templates>
+     <template tid="ShaderCacheStartArgs">
+      <data name="Cache" inType="win:Pointer"/>
+      <data name="Type" inType="win:UInt32" map="ShaderCacheType"/>
+      <data name="Flags" inType="win:UInt32" map="ShaderCacheFlags"/>
+     </template>
+     <template tid="ShaderCacheStopArgs">
+      <data name="Cache" inType="win:Pointer"/>
+      <data name="Type" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+     </template>
+     <template tid="CreateShaderCacheStartArgs">
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="GUID" inType="win:GUID"/>
+      <data name="Filename" inType="win:UnicodeString"/>
+      <data name="FileCreateDisposition" inType="win:UInt32"/>
+      <data name="Mode" inType="win:UInt32"/>
+      <data name="MaximumInMemoryCacheSizeBytes" inType="win:UInt32"/>
+      <data name="MaximumInMemoryCacheEntries" inType="win:UInt32"/>
+      <data name="MaximumWriteQueueBytes" inType="win:UInt32"/>
+      <data name="MaximumWriteQueueNumEntries" inType="win:UInt32"/>
+      <data name="MaximumValueFileSizeBytes" inType="win:UInt32"/>
+     </template>
+     <template tid="CreateShaderCacheStopArgs">
+      <data name="Return" inType="win:Int32"/>
+      <data name="Cache" inType="win:Pointer"/>
+     </template>
+     <template tid="DestroyShaderCacheStartArgs">
+      <data name="Cache" inType="win:Pointer"/>
+     </template>
+     <template tid="FindValueStartArgs">
+      <data name="Cache" inType="win:Pointer"/>
+      <data name="NumKeyParts" inType="win:UInt32"/>
+      <data name="KeyParts" inType="win:UInt8" count="NumKeyParts"/>
+      <data name="PrecomputedHash" inType="win:Binary"/>
+     </template>
+     <template tid="FindValueStopArgs">
+      <data name="Return" inType="win:Int32"/>
+      <data name="FoundValue" inType="win:Pointer"/>
+      <data name="FoundValueSize" inType="win:UInt32"/>
+     </template>
+     <template tid="AddValueStartArgs">
+      <data name="Cache" inType="win:Pointer"/>
+      <data name="NumKeyParts" inType="win:UInt32"/>
+      <data name="KeyParts" inType="win:UInt16" count="NumKeyParts"/>
+      <data name="PrecomputedHash" inType="win:Binary"/>
+      <data name="Value" inType="win:Pointer"/>
+      <data name="ValueSize" inType="win:UInt32"/>
+     </template>
+     <template tid="AddValueStopArgs">
+      <data name="Return" inType="win:Int32"/>
+     </template>
+     <template tid="FreeFoundValueStartArgs">
+      <data name="Value" inType="win:Pointer"/>
+      <data name="ValueSize" inType="win:UInt32"/>
+     </template>
+     <template tid="L1FullArgs">
+      <data name="NumEntries" inType="win:UInt32"/>
+      <data name="CurrentMemoryUsage" inType="win:UInt64"/>
+      <data name="MemoryBudget" inType="win:UInt64"/>
+     </template>
+     <template tid="L1AddStartArgs">
+      <data name="NumEntries" inType="win:UInt32"/>
+      <data name="CurrentMemoryUsage" inType="win:UInt64"/>
+      <data name="DeltaSize" inType="win:UInt32"/>
+     </template>
+     <template tid="L1AddStopArgs">
+      <data name="NumEntries" inType="win:UInt32"/>
+      <data name="CurrentMemoryUsage" inType="win:UInt64"/>
+     </template>
+     <template tid="IndexFileGrowArgs">
+      <data name="TotalPages" inType="win:UInt32"/>
+      <data name="TotalSize" inType="win:UInt64"/>
+     </template>
+     <template tid="InitIndexFileArgs">
+      <data name="Filename" inType="win:UnicodeString"/>
+      <data name="FileCreateDisposition" inType="win:UInt32" map="FileCreateDisposition"/>
+     </template>
+     <template tid="FileErrorArgs">
+      <data name="LastError" inType="win:UInt32"/>
+      <data name="FileType" inType="win:UInt32" map="FileType"/>
+      <data name="FileOp" inType="win:UInt32"/>
+     </template>
+     <template tid="L2FullArgs">
+      <data name="CurrentFileSize" inType="win:UInt64"/>
+      <data name="CurrentWriteQueueSize" inType="win:UInt64"/>
+      <data name="MaximimFileSize" inType="win:UInt64"/>
+      <data name="NewValueSize" inType="win:UInt32"/>
+     </template>
+     <template tid="L2WriteQueueFullArgs">
+      <data name="CurrentFileSize" inType="win:UInt64"/>
+      <data name="CurrentWriteQueueSize" inType="win:UInt64"/>
+      <data name="MaximimWriteQueueSize" inType="win:UInt64"/>
+      <data name="NewValueSize" inType="win:UInt32"/>
+     </template>
+     <template tid="L2ReadLockArgs">
+      <data name="NumMappedValues" inType="win:UInt32"/>
+      <data name="MappedMemoryUsage" inType="win:UInt64"/>
+     </template>
+     <template tid="FileWriteStartArgs">
+      <data name="FileType" inType="win:UInt32"/>
+      <data name="NumBytes" inType="win:UInt64"/>
+     </template>
+     <template tid="StatisticsTelemetryArgs_V1">
+      <data name="UTCReplace_AppSessionGuid" inType="win:Boolean"/>
+      <data name="Filename" inType="win:UnicodeString"/>
+      <data name="NumLookups" inType="win:UInt32"/>
+      <data name="NumCacheHits" inType="win:UInt32"/>
+      <data name="NumL1Hits" inType="win:UInt32"/>
+      <data name="NumL1HitsInCacheFromAdd" inType="win:UInt32"/>
+      <data name="NumAddRequests" inType="win:UInt32"/>
+      <data name="NumFailedAdds" inType="win:UInt32"/>
+      <data name="FailedAddTotalSize" inType="win:UInt64"/>
+      <data name="MaxInMemoryEntries" inType="win:UInt32"/>
+      <data name="MaxInMemorySize" inType="win:UInt32"/>
+      <data name="NumDiskEntries" inType="win:UInt32"/>
+      <data name="IndexFileSize" inType="win:UInt64"/>
+      <data name="ValueFileSize" inType="win:UInt64"/>
+      <data name="CompressedValueFileSize" inType="win:UInt64"/>
+      <data name="HadCRCFailure" inType="win:Boolean"/>
+      <data name="NumHashCollisions" inType="win:UInt32"/>
+      <data name="TotalKeySize" inType="win:UInt64"/>
+      <data name="TotalValueSize" inType="win:UInt64"/>
+      <data name="AverageKeySize" inType="win:Double"/>
+      <data name="AverageValueSize" inType="win:Double"/>
+      <data name="MaxKeySize" inType="win:UInt32"/>
+      <data name="MaxValueSize" inType="win:UInt32"/>
+      <data name="TotalFindTime" inType="win:Double"/>
+      <data name="TotalAddTime" inType="win:Double"/>
+      <data name="AverageFindTime" inType="win:Double"/>
+      <data name="AverageAddTime" inType="win:Double"/>
+      <data name="MaxFindTime" inType="win:Double"/>
+      <data name="MaxAddTime" inType="win:Double"/>
+      <data name="InitializationTime" inType="win:Double"/>
+      <data name="DesiredOpen" inType="win:Boolean"/>
+      <data name="SuccessfulOpen" inType="win:Boolean"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Objects" value="Objects"/>
+    <string id="keyword_APIs" value="APIs"/>
+    <string id="keyword_Events" value="Events"/>
+    <string id="keyword_Profiling" value="Profiling"/>
+    <string id="keyword_keyword_400000000000" value="keyword_400000000000"/>
+    <string id="task_ShaderCache" value="ShaderCache"/>
+    <string id="task_CreateShaderCache" value="CreateShaderCache"/>
+    <string id="task_DestroyShaderCache" value="DestroyShaderCache"/>
+    <string id="task_FindValue" value="FindValue"/>
+    <string id="task_AddValue" value="AddValue"/>
+    <string id="task_FreeFoundValue" value="FreeFoundValue"/>
+    <string id="task_Flush" value="Flush"/>
+    <string id="task_UWPSuspend" value="UWPSuspend"/>
+    <string id="task_L1Full" value="L1Full"/>
+    <string id="task_L1Add" value="L1Add"/>
+    <string id="task_L1Trim" value="L1Trim"/>
+    <string id="task_L1Free" value="L1Free"/>
+    <string id="task_L1Clear" value="L1Clear"/>
+    <string id="task_InitIndexFile" value="InitIndexFile"/>
+    <string id="task_ClearIndexFile" value="ClearIndexFile"/>
+    <string id="task_FileError" value="FileError"/>
+    <string id="task_DoubleAdd" value="DoubleAdd"/>
+    <string id="task_CRCFailure" value="CRCFailure"/>
+    <string id="task_GuardFileError" value="GuardFileError"/>
+    <string id="task_L2Full" value="L2Full"/>
+    <string id="task_L2WriteQueueFull" value="L2WriteQueueFull"/>
+    <string id="task_L2WriteQueueAdd" value="L2WriteQueueAdd"/>
+    <string id="task_L2WriteQueueTooSmall" value="L2WriteQueueTooSmall"/>
+    <string id="task_L2ReadLock" value="L2ReadLock"/>
+    <string id="task_L2ReadUnlock" value="L2ReadUnlock"/>
+    <string id="task_HashCollision" value="HashCollision"/>
+    <string id="task_IndexFileGrow" value="IndexFileGrow"/>
+    <string id="task_FileWrite" value="FileWrite"/>
+    <string id="task_FileRead" value="FileRead"/>
+    <string id="task_StatisticsTelemetry" value="StatisticsTelemetry"/>
+    <string id="map_ShaderCacheTypeInMemory" value="InMemory"/>
+    <string id="map_ShaderCacheTypeLocalDisk" value="LocalDisk"/>
+    <string id="map_ShaderCacheTypeRemote" value="Remote"/>
+    <string id="map_ShaderCacheTypeUWPLocalWin32Remote" value="UWPLocalWin32Remote"/>
+    <string id="map_ShaderCacheTypeUWPLocalWin32InMemory" value="UWPLocalWin32InMemory"/>
+    <string id="map_ShaderCacheFlagsReadOnly" value="ReadOnly"/>
+    <string id="map_ShaderCacheFlagsCollisionAware" value="CollisionAware"/>
+    <string id="map_ShaderCacheFlagsTempStorage" value="TempStorage"/>
+    <string id="map_FileCreateDispositionCREATE_NEW" value="CREATE_NEW"/>
+    <string id="map_FileCreateDispositionCREATE_ALWAYS" value="CREATE_ALWAYS"/>
+    <string id="map_FileCreateDispositionOPEN_EXISTING" value="OPEN_EXISTING"/>
+    <string id="map_FileCreateDispositionOPEN_ALWAYS" value="OPEN_ALWAYS"/>
+    <string id="map_FileCreateDispositionTRUNCATE_EXISTING" value="TRUNCATE_EXISTING"/>
+    <string id="map_FileTypeLock File" value="Lock File"/>
+    <string id="map_FileTypeIndex File" value="Index File"/>
+    <string id="map_FileTypeValue File" value="Value File"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,685 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Runtime-Networking-BackgroundTransfer" guid="{b9d5b35d-bbb8-4625-9450-f71a5d414f4f}" resourceFileName="Microsoft-Windows-Runtime-Networking-BackgroundTransfer" messageFileName="Microsoft-Windows-Runtime-Networking-BackgroundTransfer" symbol="MicrosoftWindowsRuntimeNetworkingBackgroundTransfer" source="Xml" >
+    <keywords>
+     <keyword name="keywords.KW_ALL" message="$(string.keyword_keywords.KW_ALL)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="BackgroundTransfer" message="$(string.task_BackgroundTransfer)" value="1"/>
+     <task name="BackgroundTransferOperation" message="$(string.task_BackgroundTransferOperation)" value="2"/>
+    </tasks>
+    <maps>
+     <valueMap name="TransferTypeMap">
+      <map value="0x1" message="$(string.map_TransferTypeMapDownload)"/>
+      <map value="0x2" message="$(string.map_TransferTypeMapUpload)"/>
+     </valueMap>
+     <valueMap name="CostPolicyMap">
+      <map value="0x1" message="$(string.map_CostPolicyMapDefault)"/>
+      <map value="0x2" message="$(string.map_CostPolicyMapUnrestrictedOnly)"/>
+      <map value="0x3" message="$(string.map_CostPolicyMapAlways)"/>
+     </valueMap>
+     <valueMap name="LocationIdMap">
+      <map value="0x2710" message="$(string.map_LocationIdMapCommon)"/>
+      <map value="0x2774" message="$(string.map_LocationIdMapInitialize background transfer helper)"/>
+      <map value="0x2775" message="$(string.map_LocationIdMapGet background execution broker instance)"/>
+      <map value="0x27d8" message="$(string.map_LocationIdMapSave credentials)"/>
+      <map value="0x27d9" message="$(string.map_LocationIdMapLoad credentials)"/>
+      <map value="0x27da" message="$(string.map_LocationIdMapDelete credentials)"/>
+      <map value="0x283c" message="$(string.map_LocationIdMapInstantiate WinVault schema creator)"/>
+      <map value="0x283d" message="$(string.map_LocationIdMapOpen WinVault for schema creation)"/>
+      <map value="0x283e" message="$(string.map_LocationIdMapCreate WinVault schema for background transfer operations)"/>
+      <map value="0x283f" message="$(string.map_LocationIdMapUnexpected background transfer credential type)"/>
+      <map value="0x2840" message="$(string.map_LocationIdMapOpen WinVault)"/>
+      <map value="0x28a0" message="$(string.map_LocationIdMapInitialize cache container)"/>
+      <map value="0x2904" message="$(string.map_LocationIdMapForm cache entry name)"/>
+      <map value="0x2905" message="$(string.map_LocationIdMapSave app entry)"/>
+      <map value="0x2906" message="$(string.map_LocationIdMapLoad app entry)"/>
+      <map value="0x2907" message="$(string.map_LocationIdMapEnumerate first app entry)"/>
+      <map value="0x2908" message="$(string.map_LocationIdMapEnumerate next app entry)"/>
+      <map value="0x2909" message="$(string.map_LocationIdMapClose app entry enumeration)"/>
+      <map value="0x290a" message="$(string.map_LocationIdMapSave host entry)"/>
+      <map value="0x290b" message="$(string.map_LocationIdMapLoad host entry)"/>
+      <map value="0x290c" message="$(string.map_LocationIdMapDelete host entry)"/>
+      <map value="0x290d" message="$(string.map_LocationIdMapDelete app entry)"/>
+      <map value="0x290e" message="$(string.map_LocationIdMapSave system entry)"/>
+      <map value="0x290f" message="$(string.map_LocationIdMapLoad system entry)"/>
+      <map value="0x2910" message="$(string.map_LocationIdMapSave system host entry)"/>
+      <map value="0x2911" message="$(string.map_LocationIdMapLoad system host entry)"/>
+      <map value="0x2912" message="$(string.map_LocationIdMapSave system partial trust entry)"/>
+      <map value="0x2913" message="$(string.map_LocationIdMapLoad system partial trust entry)"/>
+      <map value="0x2914" message="$(string.map_LocationIdMapCreate installation marker file)"/>
+      <map value="0x2915" message="$(string.map_LocationIdMapOpen installation marker file)"/>
+      <map value="0x2916" message="$(string.map_LocationIdMapUpgraded Win8 app entry)"/>
+      <map value="0x2917" message="$(string.map_LocationIdMapSave system app entry)"/>
+      <map value="0x2918" message="$(string.map_LocationIdMapLoad system app entry)"/>
+      <map value="0x2919" message="$(string.map_LocationIdMapUpgraded Win8 system entry)"/>
+      <map value="0x291a" message="$(string.map_LocationIdMapSave group entry)"/>
+      <map value="0x291b" message="$(string.map_LocationIdMapLoad group entry)"/>
+      <map value="0x291c" message="$(string.map_LocationIdMapOnly up to 50 groups can be configured. Limit reached.)"/>
+      <map value="0x291d" message="$(string.map_LocationIdMapForm notification cache entry name)"/>
+      <map value="0x291e" message="$(string.map_LocationIdMapSave notification entry)"/>
+      <map value="0x291f" message="$(string.map_LocationIdMapLoad notification entry)"/>
+      <map value="0x2920" message="$(string.map_LocationIdMapDelete notification entry)"/>
+      <map value="0x2921" message="$(string.map_LocationIdMapSave completion group entry)"/>
+      <map value="0x2922" message="$(string.map_LocationIdMapLoad completion group entry)"/>
+      <map value="0x2923" message="$(string.map_LocationIdMapDelete completion group entry)"/>
+      <map value="0x2924" message="$(string.map_LocationIdMapEnumerate first completion group entry)"/>
+      <map value="0x2925" message="$(string.map_LocationIdMapEnumerate next completion group entry)"/>
+      <map value="0x2926" message="$(string.map_LocationIdMapEnable started)"/>
+      <map value="0x2927" message="$(string.map_LocationIdMapCompletion group trigger details: Initialize)"/>
+      <map value="0x2928" message="$(string.map_LocationIdMapCompletion group trigger details: Load operations)"/>
+      <map value="0x2929" message="$(string.map_LocationIdMapGet current completion group id downloads)"/>
+      <map value="0x292a" message="$(string.map_LocationIdMapGet current completion group id uploads)"/>
+      <map value="0x292b" message="$(string.map_LocationIdMapEnable completed)"/>
+      <map value="0x292c" message="$(string.map_LocationIdMapNever enabled)"/>
+      <map value="0x292d" message="$(string.map_LocationIdMapCreate completion group trigger)"/>
+      <map value="0x292e" message="$(string.map_LocationIdMapNot enabled yet)"/>
+      <map value="0x292f" message="$(string.map_LocationIdMapCopy operation)"/>
+      <map value="0x2930" message="$(string.map_LocationIdMapCleanup started)"/>
+      <map value="0x2931" message="$(string.map_LocationIdMapCleanup completed)"/>
+      <map value="0x2932" message="$(string.map_LocationIdMapGet request file from store)"/>
+      <map value="0x2933" message="$(string.map_LocationIdMapGet response file from store)"/>
+      <map value="0x2934" message="$(string.map_LocationIdMapGet temp response file from store)"/>
+      <map value="0x2968" message="$(string.map_LocationIdMapGenerate metadata file name)"/>
+      <map value="0x2969" message="$(string.map_LocationIdMapSave app entry data)"/>
+      <map value="0x296a" message="$(string.map_LocationIdMapLoad app entry data)"/>
+      <map value="0x296b" message="$(string.map_LocationIdMapSave host entry data)"/>
+      <map value="0x296c" message="$(string.map_LocationIdMapLoad host entry data)"/>
+      <map value="0x296d" message="$(string.map_LocationIdMapDelete metadata files)"/>
+      <map value="0x296e" message="$(string.map_LocationIdMapCopy app entry data)"/>
+      <map value="0x296f" message="$(string.map_LocationIdMapCopy host entry data)"/>
+      <map value="0x29cd" message="$(string.map_LocationIdMapBroker Framework: register network-change event)"/>
+      <map value="0x29ce" message="$(string.map_LocationIdMapBroker Framework: register immediate event)"/>
+      <map value="0x29cf" message="$(string.map_LocationIdMapBroker Framework: signal immediate event)"/>
+      <map value="0x29d0" message="$(string.map_LocationIdMapBroker Framework: delete event)"/>
+      <map value="0x29d1" message="$(string.map_LocationIdMapBroker Framework: get work manager)"/>
+      <map value="0x29d2" message="$(string.map_LocationIdMapBroker Framework: associate task with event)"/>
+      <map value="0x29d5" message="$(string.map_LocationIdMapBroker Framework: get registered tasks)"/>
+      <map value="0x29d8" message="$(string.map_LocationIdMapBroker Framework: get cost-free byte count)"/>
+      <map value="0x29d9" message="$(string.map_LocationIdMapBroker Framework: get Internet connectivity status)"/>
+      <map value="0x29da" message="$(string.map_LocationIdMapBroker Framework: get Internet profile)"/>
+      <map value="0x29db" message="$(string.map_LocationIdMapBroker Framework: register unconstrained immediate event)"/>
+      <map value="0x29dc" message="$(string.map_LocationIdMapBroker Framework: retrieve current network cost)"/>
+      <map value="0x29dd" message="$(string.map_LocationIdMapUpgraded WinBlue app entry)"/>
+      <map value="0x4e20" message="$(string.map_LocationIdMapApp side)"/>
+      <map value="0x4e21" message="$(string.map_LocationIdMapFailed to retrieve file from path)"/>
+      <map value="0x4e22" message="$(string.map_LocationIdMapThe app has a modal dialog open. Use active window as parent.)"/>
+      <map value="0x4e23" message="$(string.map_LocationIdMapOpen result file)"/>
+      <map value="0x4e24" message="$(string.map_LocationIdMapRead from result file)"/>
+      <map value="0x4e25" message="$(string.map_LocationIdMapInitialize group collection)"/>
+      <map value="0x4e26" message="$(string.map_LocationIdMapNotification information created)"/>
+      <map value="0x4e27" message="$(string.map_LocationIdMapInitialize app state change registration)"/>
+      <map value="0x4e28" message="$(string.map_LocationIdMapApp moved to the foreground)"/>
+      <map value="0x4e84" message="$(string.map_LocationIdMapInitialize operation from store)"/>
+      <map value="0x4e85" message="$(string.map_LocationIdMapSave app state in store)"/>
+      <map value="0x4e86" message="$(string.map_LocationIdMapLoad task state from store)"/>
+      <map value="0x4e87" message="$(string.map_LocationIdMapClean up operation from store)"/>
+      <map value="0x4e88" message="$(string.map_LocationIdMapSignal immediate event for updating operation state)"/>
+      <map value="0x4e89" message="$(string.map_LocationIdMapUsing default immediate event)"/>
+      <map value="0x4e8a" message="$(string.map_LocationIdMapUsing unconstrained immediate event)"/>
+      <map value="0x4e8b" message="$(string.map_LocationIdMapRetrieving credentials for URI)"/>
+      <map value="0x4f4c" message="$(string.map_LocationIdMapSchedule task)"/>
+      <map value="0x4fb0" message="$(string.map_LocationIdMapQueue progress notification)"/>
+      <map value="0x4fb2" message="$(string.map_LocationIdMapInitialize response object)"/>
+      <map value="0x5079" message="$(string.map_LocationIdMapLoad operation instance)"/>
+      <map value="0x507a" message="$(string.map_LocationIdMapInitialize operation instance)"/>
+      <map value="0x507b" message="$(string.map_LocationIdMapInitialize Share contract)"/>
+      <map value="0x50dc" message="$(string.map_LocationIdMapSetup task events)"/>
+      <map value="0x50dd" message="$(string.map_LocationIdMapComplete task)"/>
+      <map value="0x50de" message="$(string.map_LocationIdMapClean up task)"/>
+      <map value="0x5140" message="$(string.map_LocationIdMapSet file location changing)"/>
+      <map value="0x5141" message="$(string.map_LocationIdMapSet file location changed)"/>
+      <map value="0x5142" message="$(string.map_LocationIdMapCreate Read Operation succeed)"/>
+      <map value="0x5143" message="$(string.map_LocationIdMapApp getting file completion invoked)"/>
+      <map value="0x5144" message="$(string.map_LocationIdMapInputStream's readasync is called)"/>
+      <map value="0x5145" message="$(string.map_LocationIdMapGet Current file location)"/>
+      <map value="0x5146" message="$(string.map_LocationIdMapGet Current file size)"/>
+      <map value="0x5147" message="$(string.map_LocationIdMapGet current file location exits early because of existing error)"/>
+      <map value="0x5148" message="$(string.map_LocationIdMapGet current file size exits early because of existing error)"/>
+      <map value="0x5149" message="$(string.map_LocationIdMapGetFileFromPathOperation completion callback invoked)"/>
+      <map value="0x514a" message="$(string.map_LocationIdMapFile location changed completion failed)"/>
+      <map value="0x514b" message="$(string.map_LocationIdMapFile Size changed completion failed)"/>
+      <map value="0x514c" message="$(string.map_LocationIdMapGetFileFromPathOperation started an operation)"/>
+      <map value="0x514d" message="$(string.map_LocationIdMapDone firing all progress notification, will soon fire completion)"/>
+      <map value="0x514e" message="$(string.map_LocationIdMapResult Stream close is called with a final file)"/>
+      <map value="0x514f" message="$(string.map_LocationIdMapResult Stream close is called without a final file)"/>
+      <map value="0x5150" message="$(string.map_LocationIdMapSet file is called)"/>
+      <map value="0x7530" message="$(string.map_LocationIdMapBackgroundTransfer host side)"/>
+      <map value="0x7531" message="$(string.map_LocationIdMapBackgroundTransferHost.exe: COM initialization)"/>
+      <map value="0x7532" message="$(string.map_LocationIdMapBackgroundTransferHost.exe: Get app factory)"/>
+      <map value="0x7533" message="$(string.map_LocationIdMapBackgroundTransferHost.exe: Make background transfer worker factory)"/>
+      <map value="0x7534" message="$(string.map_LocationIdMapBackgroundTransferHost.exe: Running)"/>
+      <map value="0x7535" message="$(string.map_LocationIdMapBackgroundTransferHost.exe: Stopped)"/>
+      <map value="0x7536" message="$(string.map_LocationIdMapBackgroundTransferHost.exe: Network status change task instantiation)"/>
+      <map value="0x7537" message="$(string.map_LocationIdMapBackgroundTransferHost.exe: Background transfer task instantiation)"/>
+      <map value="0x7538" message="$(string.map_LocationIdMapBackgroundTransferHost.exe: Unknown task)"/>
+      <map value="0x7594" message="$(string.map_LocationIdMapSetup network change notifications)"/>
+      <map value="0x7596" message="$(string.map_LocationIdMapClean up network change notifications)"/>
+      <map value="0x75f8" message="$(string.map_LocationIdMapGet operation state instance)"/>
+      <map value="0x75f9" message="$(string.map_LocationIdMapFailed to signal operation complete to Share contract)"/>
+      <map value="0x75fa" message="$(string.map_LocationIdMapNon-restartable operation aborted during pause)"/>
+      <map value="0x75fb" message="$(string.map_LocationIdMapFailed to signal operation start to Share contract)"/>
+      <map value="0x75fc" message="$(string.map_LocationIdMapError while moving response file to destination path)"/>
+      <map value="0x75fd" message="$(string.map_LocationIdMapProcessing notifications for operation)"/>
+      <map value="0x75fe" message="$(string.map_LocationIdMapShow toast)"/>
+      <map value="0x75ff" message="$(string.map_LocationIdMapUpdate tile)"/>
+      <map value="0x7600" message="$(string.map_LocationIdMapDownloading to application data directory)"/>
+      <map value="0x7601" message="$(string.map_LocationIdMapDownloading to destination file directory)"/>
+      <map value="0x7602" message="$(string.map_LocationIdMapMove response file to destination completed)"/>
+      <map value="0x7603" message="$(string.map_LocationIdMapMove file to download api directory)"/>
+      <map value="0x7604" message="$(string.map_LocationIdMapMove file to destination directory)"/>
+      <map value="0x7605" message="$(string.map_LocationIdMapWorkItem sending progress)"/>
+      <map value="0x765c" message="$(string.map_LocationIdMapGet task)"/>
+      <map value="0x765d" message="$(string.map_LocationIdMapGet operation ID)"/>
+      <map value="0x765f" message="$(string.map_LocationIdMapStart processing task)"/>
+      <map value="0x7660" message="$(string.map_LocationIdMapStop processing task)"/>
+      <map value="0x7661" message="$(string.map_LocationIdMapOperation paused by app)"/>
+      <map value="0x7662" message="$(string.map_LocationIdMapDownload file could not be moved to app temp directory during pause)"/>
+      <map value="0x7663" message="$(string.map_LocationIdMapOperation already closed/cancelled by app)"/>
+      <map value="0x7664" message="$(string.map_LocationIdMapStart data transfer)"/>
+      <map value="0x7665" message="$(string.map_LocationIdMapOperation paused due to lack of Internet connectivity)"/>
+      <map value="0x7666" message="$(string.map_LocationIdMapOperation paused due to cost)"/>
+      <map value="0x7667" message="$(string.map_LocationIdMapOperation cancelled)"/>
+      <map value="0x7668" message="$(string.map_LocationIdMapOperation completed)"/>
+      <map value="0x7669" message="$(string.map_LocationIdMapGenerate response ID)"/>
+      <map value="0x766a" message="$(string.map_LocationIdMapUnable to set task as inactive)"/>
+      <map value="0x766b" message="$(string.map_LocationIdMapUnable to abort operation)"/>
+      <map value="0x766c" message="$(string.map_LocationIdMapScheduled on high priority slot)"/>
+      <map value="0x766d" message="$(string.map_LocationIdMapSwitching to new internet connection profile)"/>
+      <map value="0x766e" message="$(string.map_LocationIdMapProcessing new internet connection profile)"/>
+      <map value="0x766f" message="$(string.map_LocationIdMapLoad and signal all completion groups)"/>
+      <map value="0x7670" message="$(string.map_LocationIdMapCleaning of orphaned AppEntry copy)"/>
+      <map value="0x76c3" message="$(string.map_LocationIdMapNetwork status change notification)"/>
+      <map value="0x76c4" message="$(string.map_LocationIdMapSignal immediate event for activating operation)"/>
+      <map value="0x76c5" message="$(string.map_LocationIdMapSignal immediate event for retrying operation)"/>
+      <map value="0x76c6" message="$(string.map_LocationIdMapSignal immediate event for updating operation due to system event)"/>
+      <map value="0x7724" message="$(string.map_LocationIdMapCancellation signal due to user logging off)"/>
+      <map value="0x7725" message="$(string.map_LocationIdMapCancellation signal due to servicing update)"/>
+      <map value="0x7726" message="$(string.map_LocationIdMapCancellation signal due to abort)"/>
+      <map value="0x7727" message="$(string.map_LocationIdMapCancellation signal due to task termination)"/>
+      <map value="0x7728" message="$(string.map_LocationIdMapCancellation signal due to unknown reason)"/>
+      <map value="0x7729" message="$(string.map_LocationIdMapCancellation signal due to idle task)"/>
+      <map value="0x772a" message="$(string.map_LocationIdMapCancellation signal due to uninstall)"/>
+      <map value="0x772b" message="$(string.map_LocationIdMapCancellation signal due to condition loss)"/>
+      <map value="0x772c" message="$(string.map_LocationIdMapCancellation signal due to System Policy)"/>
+      <map value="0x7788" message="$(string.map_LocationIdMapCore transfer: capture parameters)"/>
+      <map value="0x7789" message="$(string.map_LocationIdMapCore transfer: begin)"/>
+      <map value="0x778a" message="$(string.map_LocationIdMapCore transfer: end)"/>
+      <map value="0x778b" message="$(string.map_LocationIdMapCore transfer: start binding)"/>
+      <map value="0x778c" message="$(string.map_LocationIdMapCore transfer: stop binding)"/>
+      <map value="0x778d" message="$(string.map_LocationIdMapCore transfer: handle response)"/>
+      <map value="0x778e" message="$(string.map_LocationIdMapCore transfer: handle authentication)"/>
+      <map value="0x778f" message="$(string.map_LocationIdMapCore transfer: get download file size)"/>
+      <map value="0x7790" message="$(string.map_LocationIdMapCore transfer: open download file for write)"/>
+      <map value="0x7791" message="$(string.map_LocationIdMapCore transfer: read from incoming data stream)"/>
+      <map value="0x7792" message="$(string.map_LocationIdMapCore transfer: write incoming data to download file)"/>
+      <map value="0x7793" message="$(string.map_LocationIdMapCore transfer: check if download file is moveable)"/>
+      <map value="0x7794" message="$(string.map_LocationIdMapCore transfer: stop binding (canceled))"/>
+      <map value="0x7795" message="$(string.map_LocationIdMapCore transfer: using download mode)"/>
+      <map value="0x7796" message="$(string.map_LocationIdMapCore transfer: operation is resumable)"/>
+      <map value="0x7797" message="$(string.map_LocationIdMapCore transfer: waiting for WinInet handle close)"/>
+      <map value="0x7798" message="$(string.map_LocationIdMapCore transfer: write handle requested)"/>
+      <map value="0x7799" message="$(string.map_LocationIdMapCore transfer: check FAT32 limit)"/>
+      <map value="0x779a" message="$(string.map_LocationIdMapRedirecting to url:....)"/>
+     </valueMap>
+     <valueMap name="PowerPolicyMap">
+      <map value="0x0" message="$(string.map_PowerPolicyMapPowerSaving)"/>
+      <map value="0x1" message="$(string.map_PowerPolicyMapUnconstrained)"/>
+     </valueMap>
+     <valueMap name="PriorityMap">
+      <map value="0x0" message="$(string.map_PriorityMapDefault)"/>
+      <map value="0x1" message="$(string.map_PriorityMapHigh)"/>
+     </valueMap>
+     <valueMap name="GroupTransferBehaviorMap">
+      <map value="0x0" message="$(string.map_GroupTransferBehaviorMapParallel)"/>
+      <map value="0x1" message="$(string.map_GroupTransferBehaviorMapSerialized)"/>
+     </valueMap>
+     <valueMap name="NotificationTypeMap">
+      <map value="0x0" message="$(string.map_NotificationTypeMapSuccess)"/>
+      <map value="0x1" message="$(string.map_NotificationTypeMapFailure)"/>
+     </valueMap>
+     <valueMap name="SebiSyncActivationStatusMap">
+      <map value="0x0" message="$(string.map_SebiSyncActivationStatusMapSyncActivationAllowed)"/>
+      <map value="0x1" message="$(string.map_SebiSyncActivationStatusMapSyncActivationCurrentlyRunning)"/>
+      <map value="0x2" message="$(string.map_SebiSyncActivationStatusMapSyncActivationDisabledByPolicy)"/>
+      <map value="0x3" message="$(string.map_SebiSyncActivationStatusMapSyncActivationUnknownError)"/>
+      <map value="0x4" message="$(string.map_SebiSyncActivationStatusMapSyncActivationMaximum)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="BackgroundTransferOperationStart" version="0" task="BackgroundTransferOperation" opcode="win:Start" level="win:Informational" keywords="keywords.KW_ALL" template="BackgroundTransferOperationStartArgs"/>
+     <event value="2" symbol="BackgroundTransferOperation" version="0" task="BackgroundTransferOperation" level="win:Informational" keywords="keywords.KW_ALL" template="BackgroundTransferOperationArgs"/>
+     <event value="3" symbol="BackgroundTransferOperationStop" version="0" task="BackgroundTransferOperation" opcode="win:Stop" level="win:Informational" keywords="keywords.KW_ALL" template="BackgroundTransferOperationStopArgs"/>
+     <event value="4" symbol="BackgroundTransferOperation4" version="0" task="BackgroundTransferOperation" level="win:Error" keywords="keywords.KW_ALL" template="BackgroundTransferOperation4Args"/>
+     <event value="5" symbol="BackgroundTransfer" version="0" task="BackgroundTransfer" level="win:Error" keywords="keywords.KW_ALL" template="BackgroundTransferArgs"/>
+     <event value="6" symbol="BackgroundTransferOperation6" version="0" task="BackgroundTransferOperation" level="win:Informational" keywords="keywords.KW_ALL" template="BackgroundTransferOperation6Args"/>
+     <event value="7" symbol="BackgroundTransfer7" version="0" task="BackgroundTransfer" level="win:Informational" keywords="keywords.KW_ALL" template="BackgroundTransfer7Args"/>
+     <event value="8" symbol="BackgroundTransferOperation8" version="0" task="BackgroundTransferOperation" level="win:Error" keywords="keywords.KW_ALL" template="BackgroundTransferOperation8Args"/>
+     <event value="9" symbol="BackgroundTransferOperation9" version="0" task="BackgroundTransferOperation" level="win:Informational" keywords="keywords.KW_ALL" template="BackgroundTransferOperation9Args"/>
+     <event value="10" symbol="BackgroundTransfer10" version="0" task="BackgroundTransfer" level="win:Informational" keywords="keywords.KW_ALL" template="BackgroundTransfer10Args"/>
+     <event value="11" symbol="BackgroundTransfer11" version="0" task="BackgroundTransfer" level="win:Informational" keywords="keywords.KW_ALL" template="BackgroundTransfer11Args"/>
+     <event value="12" symbol="BackgroundTransfer12" version="0" task="BackgroundTransfer" level="win:Error" keywords="keywords.KW_ALL" template="BackgroundTransfer12Args"/>
+     <event value="13" symbol="BackgroundTransferOperation13" version="0" task="BackgroundTransferOperation" level="win:Informational" keywords="keywords.KW_ALL" template="BackgroundTransferOperation13Args"/>
+     <event value="14" symbol="BackgroundTransferOperation14" version="0" task="BackgroundTransferOperation" level="win:Informational" keywords="keywords.KW_ALL" template="BackgroundTransferOperation14Args"/>
+     <event value="15" symbol="BackgroundTransfer15" version="0" task="BackgroundTransfer" level="win:Informational" keywords="keywords.KW_ALL" template="BackgroundTransfer15Args"/>
+     <event value="16" symbol="BackgroundTransferOperation16" version="0" task="BackgroundTransferOperation" level="win:Informational" keywords="keywords.KW_ALL" template="BackgroundTransferOperation16Args"/>
+     <event value="17" symbol="BackgroundTransfer17" version="0" task="BackgroundTransfer" level="win:Error" keywords="keywords.KW_ALL" template="BackgroundTransfer17Args"/>
+     <event value="18" symbol="BackgroundTransfer18" version="0" task="BackgroundTransfer" level="win:Informational" keywords="keywords.KW_ALL" template="BackgroundTransfer18Args"/>
+     <event value="19" symbol="BackgroundTransfer19" version="0" task="BackgroundTransfer" level="win:Informational" keywords="keywords.KW_ALL" template="BackgroundTransfer19Args"/>
+     <event value="20" symbol="BackgroundTransfer20" version="0" task="BackgroundTransfer" level="win:Error" keywords="keywords.KW_ALL" template="BackgroundTransfer20Args"/>
+     <event value="21" symbol="BackgroundTransferOperation21" version="0" task="BackgroundTransferOperation" level="win:Informational" keywords="keywords.KW_ALL" template="BackgroundTransferOperation21Args"/>
+     <event value="22" symbol="BackgroundTransfer22" version="0" task="BackgroundTransfer" level="win:Informational" keywords="keywords.KW_ALL" template="BackgroundTransfer22Args"/>
+     <event value="23" symbol="BackgroundTransferOperation23" version="0" task="BackgroundTransferOperation" level="win:Informational" keywords="keywords.KW_ALL" template="BackgroundTransferOperation23Args"/>
+     <event value="24" symbol="BackgroundTransfer24" version="0" task="BackgroundTransfer" level="win:Error" keywords="keywords.KW_ALL" template="BackgroundTransfer24Args"/>
+     <event value="25" symbol="BackgroundTransfer25" version="0" task="BackgroundTransfer" level="win:Informational" keywords="keywords.KW_ALL" template="BackgroundTransfer25Args"/>
+     <event value="26" symbol="BackgroundTransfer26" version="0" task="BackgroundTransfer" level="win:Informational" keywords="keywords.KW_ALL" template="BackgroundTransfer26Args"/>
+     <event value="27" symbol="BackgroundTransfer27" version="0" task="BackgroundTransfer" level="win:Error" keywords="keywords.KW_ALL" template="BackgroundTransfer27Args"/>
+     <event value="28" symbol="BackgroundTransfer28" version="0" task="BackgroundTransfer" level="win:Informational" keywords="keywords.KW_ALL" template="BackgroundTransfer28Args"/>
+     <event value="30" symbol="BackgroundTransfer30" version="0" task="BackgroundTransfer" level="win:Error" keywords="keywords.KW_ALL" template="BackgroundTransfer30Args"/>
+     <event value="31" symbol="BackgroundTransferOperation31" version="0" task="BackgroundTransferOperation" level="win:Informational" keywords="keywords.KW_ALL" template="BackgroundTransferOperation31Args"/>
+     <event value="32" symbol="BackgroundTransfer32" version="0" task="BackgroundTransfer" level="win:Informational" keywords="keywords.KW_ALL" template="BackgroundTransfer32Args"/>
+     <event value="33" symbol="BackgroundTransferOperation33" version="0" task="BackgroundTransferOperation" level="win:Informational" keywords="keywords.KW_ALL" template="BackgroundTransferOperation33Args"/>
+     <event value="34" symbol="BackgroundTransferOperation34" version="0" task="BackgroundTransferOperation" level="win:Informational" keywords="keywords.KW_ALL" template="BackgroundTransferOperation34Args"/>
+    </events>
+    <templates>
+     <template tid="BackgroundTransferOperationStartArgs">
+      <data name="OperationId" inType="win:GUID"/>
+      <data name="TransferType" inType="win:UInt32" map="TransferTypeMap"/>
+      <data name="Method" inType="win:UnicodeString"/>
+      <data name="URI" inType="win:UnicodeString"/>
+      <data name="CostPolicy" inType="win:UInt32"/>
+      <data name="Group" inType="win:UnicodeString"/>
+      <data name="CompletionGroupId" inType="win:GUID"/>
+     </template>
+     <template tid="BackgroundTransferOperationArgs">
+      <data name="OperationId" inType="win:GUID"/>
+      <data name="TransferType" inType="win:UInt32"/>
+      <data name="Method" inType="win:UnicodeString"/>
+      <data name="URI" inType="win:UnicodeString"/>
+      <data name="CostPolicy" inType="win:UInt32" map="CostPolicyMap"/>
+      <data name="Group" inType="win:UnicodeString"/>
+      <data name="CompletionGroupId" inType="win:GUID"/>
+     </template>
+     <template tid="BackgroundTransferOperationStopArgs">
+      <data name="OperationId" inType="win:GUID"/>
+      <data name="TransferType" inType="win:UInt32"/>
+      <data name="Result" inType="win:HexInt32"/>
+     </template>
+     <template tid="BackgroundTransferOperation4Args">
+      <data name="OperationId" inType="win:GUID"/>
+      <data name="LocationId" inType="win:UInt32"/>
+      <data name="Error" inType="win:HexInt32"/>
+     </template>
+     <template tid="BackgroundTransferArgs">
+      <data name="LocationId" inType="win:UInt32" map="LocationIdMap"/>
+      <data name="Error" inType="win:HexInt32"/>
+     </template>
+     <template tid="BackgroundTransferOperation6Args">
+      <data name="OperationId" inType="win:GUID"/>
+      <data name="LocationId" inType="win:UInt32"/>
+     </template>
+     <template tid="BackgroundTransfer7Args">
+      <data name="LocationId" inType="win:UInt32"/>
+     </template>
+     <template tid="BackgroundTransferOperation8Args">
+      <data name="WorkItemId" inType="win:GUID"/>
+      <data name="OperationId" inType="win:GUID"/>
+      <data name="LocationId" inType="win:UInt32"/>
+      <data name="Error" inType="win:HexInt32"/>
+     </template>
+     <template tid="BackgroundTransferOperation9Args">
+      <data name="WorkItemId" inType="win:GUID"/>
+      <data name="OperationId" inType="win:GUID"/>
+      <data name="LocationId" inType="win:UInt32"/>
+     </template>
+     <template tid="BackgroundTransfer10Args">
+      <data name="ProcessId" inType="win:UInt32"/>
+      <data name="PowerPolicyValue" inType="win:UInt32" map="PowerPolicyMap"/>
+      <data name="PromptLogicValue" inType="win:UInt32"/>
+     </template>
+     <template tid="BackgroundTransfer11Args">
+      <data name="ProcessId" inType="win:UInt32"/>
+     </template>
+     <template tid="BackgroundTransfer12Args">
+      <data name="ProcessId" inType="win:UInt32"/>
+      <data name="Error" inType="win:HexInt32"/>
+     </template>
+     <template tid="BackgroundTransferOperation13Args">
+      <data name="OperationId" inType="win:GUID"/>
+      <data name="CostPolicy" inType="win:UInt32"/>
+     </template>
+     <template tid="BackgroundTransferOperation14Args">
+      <data name="OperationId" inType="win:GUID"/>
+      <data name="Priority" inType="win:UInt32" map="PriorityMap"/>
+     </template>
+     <template tid="BackgroundTransfer15Args">
+      <data name="IsInternetAvailable" inType="win:Boolean"/>
+      <data name="CostType" inType="win:UInt32"/>
+      <data name="IsRoaming" inType="win:Boolean"/>
+      <data name="IsOverDataLimit" inType="win:Boolean"/>
+      <data name="DataLimitMegabytes" inType="win:UInt32"/>
+      <data name="UsedMegabytes" inType="win:UInt32"/>
+     </template>
+     <template tid="BackgroundTransferOperation16Args">
+      <data name="OperationId" inType="win:GUID"/>
+      <data name="IsResume" inType="win:Boolean"/>
+     </template>
+     <template tid="BackgroundTransfer17Args">
+      <data name="GroupName" inType="win:UnicodeString"/>
+      <data name="LocationId" inType="win:UInt32"/>
+      <data name="Error" inType="win:HexInt32"/>
+     </template>
+     <template tid="BackgroundTransfer18Args">
+      <data name="GroupName" inType="win:UnicodeString"/>
+      <data name="Behavior" inType="win:UInt32" map="GroupTransferBehaviorMap"/>
+     </template>
+     <template tid="BackgroundTransfer19Args">
+      <data name="NotificationId" inType="win:GUID"/>
+      <data name="LocationId" inType="win:UInt32"/>
+     </template>
+     <template tid="BackgroundTransfer20Args">
+      <data name="NotificationId" inType="win:GUID"/>
+      <data name="LocationId" inType="win:UInt32"/>
+      <data name="Error" inType="win:HexInt32"/>
+     </template>
+     <template tid="BackgroundTransferOperation21Args">
+      <data name="OperationId" inType="win:GUID"/>
+      <data name="NotificationId" inType="win:GUID"/>
+     </template>
+     <template tid="BackgroundTransfer22Args">
+      <data name="NotificationId" inType="win:GUID"/>
+      <data name="LocationId" inType="win:UInt32"/>
+      <data name="NotificationType" inType="win:UInt32" map="NotificationTypeMap"/>
+      <data name="NotificationInformationAvailable" inType="win:Boolean"/>
+     </template>
+     <template tid="BackgroundTransferOperation23Args">
+      <data name="OperationId" inType="win:GUID"/>
+      <data name="ElapsedTimeInSeconds" inType="win:UInt32"/>
+      <data name="TotalBytesRemaining" inType="win:UInt64"/>
+      <data name="TransferSpeedInBytesPerSeconds" inType="win:UInt64"/>
+      <data name="EtaInSeconds" inType="win:UInt64"/>
+     </template>
+     <template tid="BackgroundTransfer24Args">
+      <data name="CompletionGroupId" inType="win:GUID"/>
+      <data name="LocationId" inType="win:UInt32"/>
+      <data name="Error" inType="win:HexInt32"/>
+     </template>
+     <template tid="BackgroundTransfer25Args">
+      <data name="CompletionGroupId" inType="win:GUID"/>
+      <data name="LocationId" inType="win:UInt32"/>
+     </template>
+     <template tid="BackgroundTransfer26Args">
+      <data name="CompletionGroupId" inType="win:GUID"/>
+      <data name="TriggerId" inType="win:GUID"/>
+      <data name="Error" inType="win:HexInt32"/>
+      <data name="ActivationStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="BackgroundTransfer27Args">
+      <data name="CompletionGroupId" inType="win:GUID"/>
+      <data name="TriggerId" inType="win:GUID"/>
+      <data name="Error" inType="win:HexInt32"/>
+      <data name="ActivationStatus" inType="win:UInt32" map="SebiSyncActivationStatusMap"/>
+     </template>
+     <template tid="BackgroundTransfer28Args">
+      <data name="CompletionGroupId" inType="win:GUID"/>
+      <data name="TriggerId" inType="win:GUID"/>
+     </template>
+     <template tid="BackgroundTransfer30Args">
+      <data name="CompletionGroupId" inType="win:GUID"/>
+      <data name="TriggerId" inType="win:GUID"/>
+      <data name="Error" inType="win:HexInt32"/>
+     </template>
+     <template tid="BackgroundTransferOperation31Args">
+      <data name="OldOperationId" inType="win:GUID"/>
+      <data name="NewOperationId" inType="win:GUID"/>
+     </template>
+     <template tid="BackgroundTransfer32Args">
+      <data name="CompletionGroupId" inType="win:GUID"/>
+      <data name="RunningOperationsCount" inType="win:UInt32"/>
+      <data name="CopiedOperationsCount" inType="win:UInt32"/>
+     </template>
+     <template tid="BackgroundTransferOperation33Args">
+      <data name="OperationId" inType="win:GUID"/>
+      <data name="LocationId" inType="win:UInt32"/>
+      <data name="Path" inType="win:UnicodeString"/>
+     </template>
+     <template tid="BackgroundTransferOperation34Args">
+      <data name="WorkItemId" inType="win:GUID"/>
+      <data name="OperationId" inType="win:GUID"/>
+      <data name="Progress" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_keywords.KW_ALL" value="keywords.KW_ALL"/>
+    <string id="task_BackgroundTransfer" value="BackgroundTransfer"/>
+    <string id="task_BackgroundTransferOperation" value="BackgroundTransferOperation"/>
+    <string id="map_TransferTypeMapDownload" value="Download"/>
+    <string id="map_TransferTypeMapUpload" value="Upload"/>
+    <string id="map_CostPolicyMapDefault" value="Default"/>
+    <string id="map_CostPolicyMapUnrestrictedOnly" value="UnrestrictedOnly"/>
+    <string id="map_CostPolicyMapAlways" value="Always"/>
+    <string id="map_LocationIdMapCommon" value="Common"/>
+    <string id="map_LocationIdMapInitialize background transfer helper" value="Initialize background transfer helper"/>
+    <string id="map_LocationIdMapGet background execution broker instance" value="Get background execution broker instance"/>
+    <string id="map_LocationIdMapSave credentials" value="Save credentials"/>
+    <string id="map_LocationIdMapLoad credentials" value="Load credentials"/>
+    <string id="map_LocationIdMapDelete credentials" value="Delete credentials"/>
+    <string id="map_LocationIdMapInstantiate WinVault schema creator" value="Instantiate WinVault schema creator"/>
+    <string id="map_LocationIdMapOpen WinVault for schema creation" value="Open WinVault for schema creation"/>
+    <string id="map_LocationIdMapCreate WinVault schema for background transfer operations" value="Create WinVault schema for background transfer operations"/>
+    <string id="map_LocationIdMapUnexpected background transfer credential type" value="Unexpected background transfer credential type"/>
+    <string id="map_LocationIdMapOpen WinVault" value="Open WinVault"/>
+    <string id="map_LocationIdMapInitialize cache container" value="Initialize cache container"/>
+    <string id="map_LocationIdMapForm cache entry name" value="Form cache entry name"/>
+    <string id="map_LocationIdMapSave app entry" value="Save app entry"/>
+    <string id="map_LocationIdMapLoad app entry" value="Load app entry"/>
+    <string id="map_LocationIdMapEnumerate first app entry" value="Enumerate first app entry"/>
+    <string id="map_LocationIdMapEnumerate next app entry" value="Enumerate next app entry"/>
+    <string id="map_LocationIdMapClose app entry enumeration" value="Close app entry enumeration"/>
+    <string id="map_LocationIdMapSave host entry" value="Save host entry"/>
+    <string id="map_LocationIdMapLoad host entry" value="Load host entry"/>
+    <string id="map_LocationIdMapDelete host entry" value="Delete host entry"/>
+    <string id="map_LocationIdMapDelete app entry" value="Delete app entry"/>
+    <string id="map_LocationIdMapSave system entry" value="Save system entry"/>
+    <string id="map_LocationIdMapLoad system entry" value="Load system entry"/>
+    <string id="map_LocationIdMapSave system host entry" value="Save system host entry"/>
+    <string id="map_LocationIdMapLoad system host entry" value="Load system host entry"/>
+    <string id="map_LocationIdMapSave system partial trust entry" value="Save system partial trust entry"/>
+    <string id="map_LocationIdMapLoad system partial trust entry" value="Load system partial trust entry"/>
+    <string id="map_LocationIdMapCreate installation marker file" value="Create installation marker file"/>
+    <string id="map_LocationIdMapOpen installation marker file" value="Open installation marker file"/>
+    <string id="map_LocationIdMapUpgraded Win8 app entry" value="Upgraded Win8 app entry"/>
+    <string id="map_LocationIdMapSave system app entry" value="Save system app entry"/>
+    <string id="map_LocationIdMapLoad system app entry" value="Load system app entry"/>
+    <string id="map_LocationIdMapUpgraded Win8 system entry" value="Upgraded Win8 system entry"/>
+    <string id="map_LocationIdMapSave group entry" value="Save group entry"/>
+    <string id="map_LocationIdMapLoad group entry" value="Load group entry"/>
+    <string id="map_LocationIdMapOnly up to 50 groups can be configured. Limit reached." value="Only up to 50 groups can be configured. Limit reached."/>
+    <string id="map_LocationIdMapForm notification cache entry name" value="Form notification cache entry name"/>
+    <string id="map_LocationIdMapSave notification entry" value="Save notification entry"/>
+    <string id="map_LocationIdMapLoad notification entry" value="Load notification entry"/>
+    <string id="map_LocationIdMapDelete notification entry" value="Delete notification entry"/>
+    <string id="map_LocationIdMapSave completion group entry" value="Save completion group entry"/>
+    <string id="map_LocationIdMapLoad completion group entry" value="Load completion group entry"/>
+    <string id="map_LocationIdMapDelete completion group entry" value="Delete completion group entry"/>
+    <string id="map_LocationIdMapEnumerate first completion group entry" value="Enumerate first completion group entry"/>
+    <string id="map_LocationIdMapEnumerate next completion group entry" value="Enumerate next completion group entry"/>
+    <string id="map_LocationIdMapEnable started" value="Enable started"/>
+    <string id="map_LocationIdMapCompletion group trigger details: Initialize" value="Completion group trigger details: Initialize"/>
+    <string id="map_LocationIdMapCompletion group trigger details: Load operations" value="Completion group trigger details: Load operations"/>
+    <string id="map_LocationIdMapGet current completion group id downloads" value="Get current completion group id downloads"/>
+    <string id="map_LocationIdMapGet current completion group id uploads" value="Get current completion group id uploads"/>
+    <string id="map_LocationIdMapEnable completed" value="Enable completed"/>
+    <string id="map_LocationIdMapNever enabled" value="Never enabled"/>
+    <string id="map_LocationIdMapCreate completion group trigger" value="Create completion group trigger"/>
+    <string id="map_LocationIdMapNot enabled yet" value="Not enabled yet"/>
+    <string id="map_LocationIdMapCopy operation" value="Copy operation"/>
+    <string id="map_LocationIdMapCleanup started" value="Cleanup started"/>
+    <string id="map_LocationIdMapCleanup completed" value="Cleanup completed"/>
+    <string id="map_LocationIdMapGet request file from store" value="Get request file from store"/>
+    <string id="map_LocationIdMapGet response file from store" value="Get response file from store"/>
+    <string id="map_LocationIdMapGet temp response file from store" value="Get temp response file from store"/>
+    <string id="map_LocationIdMapGenerate metadata file name" value="Generate metadata file name"/>
+    <string id="map_LocationIdMapSave app entry data" value="Save app entry data"/>
+    <string id="map_LocationIdMapLoad app entry data" value="Load app entry data"/>
+    <string id="map_LocationIdMapSave host entry data" value="Save host entry data"/>
+    <string id="map_LocationIdMapLoad host entry data" value="Load host entry data"/>
+    <string id="map_LocationIdMapDelete metadata files" value="Delete metadata files"/>
+    <string id="map_LocationIdMapCopy app entry data" value="Copy app entry data"/>
+    <string id="map_LocationIdMapCopy host entry data" value="Copy host entry data"/>
+    <string id="map_LocationIdMapBroker Framework: register network-change event" value="Broker Framework: register network-change event"/>
+    <string id="map_LocationIdMapBroker Framework: register immediate event" value="Broker Framework: register immediate event"/>
+    <string id="map_LocationIdMapBroker Framework: signal immediate event" value="Broker Framework: signal immediate event"/>
+    <string id="map_LocationIdMapBroker Framework: delete event" value="Broker Framework: delete event"/>
+    <string id="map_LocationIdMapBroker Framework: get work manager" value="Broker Framework: get work manager"/>
+    <string id="map_LocationIdMapBroker Framework: associate task with event" value="Broker Framework: associate task with event"/>
+    <string id="map_LocationIdMapBroker Framework: get registered tasks" value="Broker Framework: get registered tasks"/>
+    <string id="map_LocationIdMapBroker Framework: get cost-free byte count" value="Broker Framework: get cost-free byte count"/>
+    <string id="map_LocationIdMapBroker Framework: get Internet connectivity status" value="Broker Framework: get Internet connectivity status"/>
+    <string id="map_LocationIdMapBroker Framework: get Internet profile" value="Broker Framework: get Internet profile"/>
+    <string id="map_LocationIdMapBroker Framework: register unconstrained immediate event" value="Broker Framework: register unconstrained immediate event"/>
+    <string id="map_LocationIdMapBroker Framework: retrieve current network cost" value="Broker Framework: retrieve current network cost"/>
+    <string id="map_LocationIdMapUpgraded WinBlue app entry" value="Upgraded WinBlue app entry"/>
+    <string id="map_LocationIdMapApp side" value="App side"/>
+    <string id="map_LocationIdMapFailed to retrieve file from path" value="Failed to retrieve file from path"/>
+    <string id="map_LocationIdMapThe app has a modal dialog open. Use active window as parent." value="The app has a modal dialog open. Use active window as parent."/>
+    <string id="map_LocationIdMapOpen result file" value="Open result file"/>
+    <string id="map_LocationIdMapRead from result file" value="Read from result file"/>
+    <string id="map_LocationIdMapInitialize group collection" value="Initialize group collection"/>
+    <string id="map_LocationIdMapNotification information created" value="Notification information created"/>
+    <string id="map_LocationIdMapInitialize app state change registration" value="Initialize app state change registration"/>
+    <string id="map_LocationIdMapApp moved to the foreground" value="App moved to the foreground"/>
+    <string id="map_LocationIdMapInitialize operation from store" value="Initialize operation from store"/>
+    <string id="map_LocationIdMapSave app state in store" value="Save app state in store"/>
+    <string id="map_LocationIdMapLoad task state from store" value="Load task state from store"/>
+    <string id="map_LocationIdMapClean up operation from store" value="Clean up operation from store"/>
+    <string id="map_LocationIdMapSignal immediate event for updating operation state" value="Signal immediate event for updating operation state"/>
+    <string id="map_LocationIdMapUsing default immediate event" value="Using default immediate event"/>
+    <string id="map_LocationIdMapUsing unconstrained immediate event" value="Using unconstrained immediate event"/>
+    <string id="map_LocationIdMapRetrieving credentials for URI" value="Retrieving credentials for URI"/>
+    <string id="map_LocationIdMapSchedule task" value="Schedule task"/>
+    <string id="map_LocationIdMapQueue progress notification" value="Queue progress notification"/>
+    <string id="map_LocationIdMapInitialize response object" value="Initialize response object"/>
+    <string id="map_LocationIdMapLoad operation instance" value="Load operation instance"/>
+    <string id="map_LocationIdMapInitialize operation instance" value="Initialize operation instance"/>
+    <string id="map_LocationIdMapInitialize Share contract" value="Initialize Share contract"/>
+    <string id="map_LocationIdMapSetup task events" value="Setup task events"/>
+    <string id="map_LocationIdMapComplete task" value="Complete task"/>
+    <string id="map_LocationIdMapClean up task" value="Clean up task"/>
+    <string id="map_LocationIdMapSet file location changing" value="Set file location changing"/>
+    <string id="map_LocationIdMapSet file location changed" value="Set file location changed"/>
+    <string id="map_LocationIdMapCreate Read Operation succeed" value="Create Read Operation succeed"/>
+    <string id="map_LocationIdMapApp getting file completion invoked" value="App getting file completion invoked"/>
+    <string id="map_LocationIdMapInputStream's readasync is called" value="InputStream's readasync is called"/>
+    <string id="map_LocationIdMapGet Current file location" value="Get Current file location"/>
+    <string id="map_LocationIdMapGet Current file size" value="Get Current file size"/>
+    <string id="map_LocationIdMapGet current file location exits early because of existing error" value="Get current file location exits early because of existing error"/>
+    <string id="map_LocationIdMapGet current file size exits early because of existing error" value="Get current file size exits early because of existing error"/>
+    <string id="map_LocationIdMapGetFileFromPathOperation completion callback invoked" value="GetFileFromPathOperation completion callback invoked"/>
+    <string id="map_LocationIdMapFile location changed completion failed" value="File location changed completion failed"/>
+    <string id="map_LocationIdMapFile Size changed completion failed" value="File Size changed completion failed"/>
+    <string id="map_LocationIdMapGetFileFromPathOperation started an operation" value="GetFileFromPathOperation started an operation"/>
+    <string id="map_LocationIdMapDone firing all progress notification, will soon fire completion" value="Done firing all progress notification, will soon fire completion"/>
+    <string id="map_LocationIdMapResult Stream close is called with a final file" value="Result Stream close is called with a final file"/>
+    <string id="map_LocationIdMapResult Stream close is called without a final file" value="Result Stream close is called without a final file"/>
+    <string id="map_LocationIdMapSet file is called" value="Set file is called"/>
+    <string id="map_LocationIdMapBackgroundTransfer host side" value="BackgroundTransfer host side"/>
+    <string id="map_LocationIdMapBackgroundTransferHost.exe: COM initialization" value="BackgroundTransferHost.exe: COM initialization"/>
+    <string id="map_LocationIdMapBackgroundTransferHost.exe: Get app factory" value="BackgroundTransferHost.exe: Get app factory"/>
+    <string id="map_LocationIdMapBackgroundTransferHost.exe: Make background transfer worker factory" value="BackgroundTransferHost.exe: Make background transfer worker factory"/>
+    <string id="map_LocationIdMapBackgroundTransferHost.exe: Running" value="BackgroundTransferHost.exe: Running"/>
+    <string id="map_LocationIdMapBackgroundTransferHost.exe: Stopped" value="BackgroundTransferHost.exe: Stopped"/>
+    <string id="map_LocationIdMapBackgroundTransferHost.exe: Network status change task instantiation" value="BackgroundTransferHost.exe: Network status change task instantiation"/>
+    <string id="map_LocationIdMapBackgroundTransferHost.exe: Background transfer task instantiation" value="BackgroundTransferHost.exe: Background transfer task instantiation"/>
+    <string id="map_LocationIdMapBackgroundTransferHost.exe: Unknown task" value="BackgroundTransferHost.exe: Unknown task"/>
+    <string id="map_LocationIdMapSetup network change notifications" value="Setup network change notifications"/>
+    <string id="map_LocationIdMapClean up network change notifications" value="Clean up network change notifications"/>
+    <string id="map_LocationIdMapGet operation state instance" value="Get operation state instance"/>
+    <string id="map_LocationIdMapFailed to signal operation complete to Share contract" value="Failed to signal operation complete to Share contract"/>
+    <string id="map_LocationIdMapNon-restartable operation aborted during pause" value="Non-restartable operation aborted during pause"/>
+    <string id="map_LocationIdMapFailed to signal operation start to Share contract" value="Failed to signal operation start to Share contract"/>
+    <string id="map_LocationIdMapError while moving response file to destination path" value="Error while moving response file to destination path"/>
+    <string id="map_LocationIdMapProcessing notifications for operation" value="Processing notifications for operation"/>
+    <string id="map_LocationIdMapShow toast" value="Show toast"/>
+    <string id="map_LocationIdMapUpdate tile" value="Update tile"/>
+    <string id="map_LocationIdMapDownloading to application data directory" value="Downloading to application data directory"/>
+    <string id="map_LocationIdMapDownloading to destination file directory" value="Downloading to destination file directory"/>
+    <string id="map_LocationIdMapMove response file to destination completed" value="Move response file to destination completed"/>
+    <string id="map_LocationIdMapMove file to download api directory" value="Move file to download api directory"/>
+    <string id="map_LocationIdMapMove file to destination directory" value="Move file to destination directory"/>
+    <string id="map_LocationIdMapWorkItem sending progress" value="WorkItem sending progress"/>
+    <string id="map_LocationIdMapGet task" value="Get task"/>
+    <string id="map_LocationIdMapGet operation ID" value="Get operation ID"/>
+    <string id="map_LocationIdMapStart processing task" value="Start processing task"/>
+    <string id="map_LocationIdMapStop processing task" value="Stop processing task"/>
+    <string id="map_LocationIdMapOperation paused by app" value="Operation paused by app"/>
+    <string id="map_LocationIdMapDownload file could not be moved to app temp directory during pause" value="Download file could not be moved to app temp directory during pause"/>
+    <string id="map_LocationIdMapOperation already closed/cancelled by app" value="Operation already closed/cancelled by app"/>
+    <string id="map_LocationIdMapStart data transfer" value="Start data transfer"/>
+    <string id="map_LocationIdMapOperation paused due to lack of Internet connectivity" value="Operation paused due to lack of Internet connectivity"/>
+    <string id="map_LocationIdMapOperation paused due to cost" value="Operation paused due to cost"/>
+    <string id="map_LocationIdMapOperation cancelled" value="Operation cancelled"/>
+    <string id="map_LocationIdMapOperation completed" value="Operation completed"/>
+    <string id="map_LocationIdMapGenerate response ID" value="Generate response ID"/>
+    <string id="map_LocationIdMapUnable to set task as inactive" value="Unable to set task as inactive"/>
+    <string id="map_LocationIdMapUnable to abort operation" value="Unable to abort operation"/>
+    <string id="map_LocationIdMapScheduled on high priority slot" value="Scheduled on high priority slot"/>
+    <string id="map_LocationIdMapSwitching to new internet connection profile" value="Switching to new internet connection profile"/>
+    <string id="map_LocationIdMapProcessing new internet connection profile" value="Processing new internet connection profile"/>
+    <string id="map_LocationIdMapLoad and signal all completion groups" value="Load and signal all completion groups"/>
+    <string id="map_LocationIdMapCleaning of orphaned AppEntry copy" value="Cleaning of orphaned AppEntry copy"/>
+    <string id="map_LocationIdMapNetwork status change notification" value="Network status change notification"/>
+    <string id="map_LocationIdMapSignal immediate event for activating operation" value="Signal immediate event for activating operation"/>
+    <string id="map_LocationIdMapSignal immediate event for retrying operation" value="Signal immediate event for retrying operation"/>
+    <string id="map_LocationIdMapSignal immediate event for updating operation due to system event" value="Signal immediate event for updating operation due to system event"/>
+    <string id="map_LocationIdMapCancellation signal due to user logging off" value="Cancellation signal due to user logging off"/>
+    <string id="map_LocationIdMapCancellation signal due to servicing update" value="Cancellation signal due to servicing update"/>
+    <string id="map_LocationIdMapCancellation signal due to abort" value="Cancellation signal due to abort"/>
+    <string id="map_LocationIdMapCancellation signal due to task termination" value="Cancellation signal due to task termination"/>
+    <string id="map_LocationIdMapCancellation signal due to unknown reason" value="Cancellation signal due to unknown reason"/>
+    <string id="map_LocationIdMapCancellation signal due to idle task" value="Cancellation signal due to idle task"/>
+    <string id="map_LocationIdMapCancellation signal due to uninstall" value="Cancellation signal due to uninstall"/>
+    <string id="map_LocationIdMapCancellation signal due to condition loss" value="Cancellation signal due to condition loss"/>
+    <string id="map_LocationIdMapCancellation signal due to System Policy" value="Cancellation signal due to System Policy"/>
+    <string id="map_LocationIdMapCore transfer: capture parameters" value="Core transfer: capture parameters"/>
+    <string id="map_LocationIdMapCore transfer: begin" value="Core transfer: begin"/>
+    <string id="map_LocationIdMapCore transfer: end" value="Core transfer: end"/>
+    <string id="map_LocationIdMapCore transfer: start binding" value="Core transfer: start binding"/>
+    <string id="map_LocationIdMapCore transfer: stop binding" value="Core transfer: stop binding"/>
+    <string id="map_LocationIdMapCore transfer: handle response" value="Core transfer: handle response"/>
+    <string id="map_LocationIdMapCore transfer: handle authentication" value="Core transfer: handle authentication"/>
+    <string id="map_LocationIdMapCore transfer: get download file size" value="Core transfer: get download file size"/>
+    <string id="map_LocationIdMapCore transfer: open download file for write" value="Core transfer: open download file for write"/>
+    <string id="map_LocationIdMapCore transfer: read from incoming data stream" value="Core transfer: read from incoming data stream"/>
+    <string id="map_LocationIdMapCore transfer: write incoming data to download file" value="Core transfer: write incoming data to download file"/>
+    <string id="map_LocationIdMapCore transfer: check if download file is moveable" value="Core transfer: check if download file is moveable"/>
+    <string id="map_LocationIdMapCore transfer: stop binding (canceled)" value="Core transfer: stop binding (canceled)"/>
+    <string id="map_LocationIdMapCore transfer: using download mode" value="Core transfer: using download mode"/>
+    <string id="map_LocationIdMapCore transfer: operation is resumable" value="Core transfer: operation is resumable"/>
+    <string id="map_LocationIdMapCore transfer: waiting for WinInet handle close" value="Core transfer: waiting for WinInet handle close"/>
+    <string id="map_LocationIdMapCore transfer: write handle requested" value="Core transfer: write handle requested"/>
+    <string id="map_LocationIdMapCore transfer: check FAT32 limit" value="Core transfer: check FAT32 limit"/>
+    <string id="map_LocationIdMapRedirecting to url:...." value="Redirecting to url:...."/>
+    <string id="map_PowerPolicyMapPowerSaving" value="PowerSaving"/>
+    <string id="map_PowerPolicyMapUnconstrained" value="Unconstrained"/>
+    <string id="map_PriorityMapDefault" value="Default"/>
+    <string id="map_PriorityMapHigh" value="High"/>
+    <string id="map_GroupTransferBehaviorMapParallel" value="Parallel"/>
+    <string id="map_GroupTransferBehaviorMapSerialized" value="Serialized"/>
+    <string id="map_NotificationTypeMapSuccess" value="Success"/>
+    <string id="map_NotificationTypeMapFailure" value="Failure"/>
+    <string id="map_SebiSyncActivationStatusMapSyncActivationAllowed" value="SyncActivationAllowed"/>
+    <string id="map_SebiSyncActivationStatusMapSyncActivationCurrentlyRunning" value="SyncActivationCurrentlyRunning"/>
+    <string id="map_SebiSyncActivationStatusMapSyncActivationDisabledByPolicy" value="SyncActivationDisabledByPolicy"/>
+    <string id="map_SebiSyncActivationStatusMapSyncActivationUnknownError" value="SyncActivationUnknownError"/>
+    <string id="map_SebiSyncActivationStatusMapSyncActivationMaximum" value="SyncActivationMaximum"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

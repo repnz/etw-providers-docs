@@ -1,0 +1,40 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Dism-Cli" guid="{2f959466-24d4-4972-8729-0d5e3539ebc3}" resourceFileName="Microsoft-Windows-Dism-Cli" messageFileName="Microsoft-Windows-Dism-Cli" symbol="MicrosoftWindowsDismCli" source="Xml" >
+    <keywords>
+     <keyword name="DismCliEvent" message="$(string.keyword_DismCliEvent)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="DismCliCloseSession" message="$(string.task_DismCliCloseSession)" value="1"/>
+     <task name="DismCliLoadDism" message="$(string.task_DismCliLoadDism)" value="2"/>
+     <task name="DismCliExecuteCmdLine" message="$(string.task_DismCliExecuteCmdLine)" value="3"/>
+     <task name="DismCliLoadImageSession" message="$(string.task_DismCliLoadImageSession)" value="4"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="DismCliCloseSessionStart" version="0" task="DismCliCloseSession" opcode="win:Start" level="win:Informational" keywords="DismCliEvent"/>
+     <event value="2" symbol="DismCliCloseSessionStop" version="0" task="DismCliCloseSession" opcode="win:Stop" level="win:Informational" keywords="DismCliEvent"/>
+     <event value="3" symbol="DismCliLoadDismStart" version="0" task="DismCliLoadDism" opcode="win:Start" level="win:Informational" keywords="DismCliEvent"/>
+     <event value="4" symbol="DismCliLoadDismStop" version="0" task="DismCliLoadDism" opcode="win:Stop" level="win:Informational" keywords="DismCliEvent"/>
+     <event value="5" symbol="DismCliExecuteCmdLineStart" version="0" task="DismCliExecuteCmdLine" opcode="win:Start" level="win:Informational" keywords="DismCliEvent"/>
+     <event value="6" symbol="DismCliExecuteCmdLineStop" version="0" task="DismCliExecuteCmdLine" opcode="win:Stop" level="win:Informational" keywords="DismCliEvent"/>
+     <event value="7" symbol="DismCliLoadImageSessionStart" version="0" task="DismCliLoadImageSession" opcode="win:Start" level="win:Informational" keywords="DismCliEvent"/>
+     <event value="8" symbol="DismCliLoadImageSessionStop" version="0" task="DismCliLoadImageSession" opcode="win:Stop" level="win:Informational" keywords="DismCliEvent"/>
+    </events>
+    <templates>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_DismCliEvent" value="DismCliEvent"/>
+    <string id="task_DismCliCloseSession" value="DismCliCloseSession"/>
+    <string id="task_DismCliLoadDism" value="DismCliLoadDism"/>
+    <string id="task_DismCliExecuteCmdLine" value="DismCliExecuteCmdLine"/>
+    <string id="task_DismCliLoadImageSession" value="DismCliLoadImageSession"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

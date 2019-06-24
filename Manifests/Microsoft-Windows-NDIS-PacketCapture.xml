@@ -1,0 +1,273 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-NDIS-PacketCapture" guid="{2ed6006e-4729-4609-b423-3ee7bcd678ef}" resourceFileName="Microsoft-Windows-NDIS-PacketCapture" messageFileName="Microsoft-Windows-NDIS-PacketCapture" symbol="MicrosoftWindowsNDISPacketCapture" source="Xml" >
+    <keywords>
+     <keyword name="Ethernet802.3" message="$(string.keyword_Ethernet802.3)" mask="0x1"/>
+     <keyword name="WirelessWAN" message="$(string.keyword_WirelessWAN)" mask="0x200"/>
+     <keyword name="Tunnel" message="$(string.keyword_Tunnel)" mask="0x8000"/>
+     <keyword name="Native802.11" message="$(string.keyword_Native802.11)" mask="0x10000"/>
+     <keyword name="VMSwitch" message="$(string.keyword_VMSwitch)" mask="0x1000000"/>
+     <keyword name="PacketTruncated" message="$(string.keyword_PacketTruncated)" mask="0x2000000"/>
+     <keyword name="PacketStart" message="$(string.keyword_PacketStart)" mask="0x40000000"/>
+     <keyword name="PacketEnd" message="$(string.keyword_PacketEnd)" mask="0x80000000"/>
+     <keyword name="ut:SendPath" message="$(string.keyword_ut:SendPath)" mask="0x100000000"/>
+     <keyword name="ut:ReceivePath" message="$(string.keyword_ut:ReceivePath)" mask="0x200000000"/>
+     <keyword name="ut:L3ConnectPath" message="$(string.keyword_ut:L3ConnectPath)" mask="0x400000000"/>
+     <keyword name="ut:L2ConnectPath" message="$(string.keyword_ut:L2ConnectPath)" mask="0x800000000"/>
+     <keyword name="ut:ClosePath" message="$(string.keyword_ut:ClosePath)" mask="0x1000000000"/>
+     <keyword name="ut:Authentication" message="$(string.keyword_ut:Authentication)" mask="0x2000000000"/>
+     <keyword name="ut:Configuration" message="$(string.keyword_ut:Configuration)" mask="0x4000000000"/>
+     <keyword name="ut:Global" message="$(string.keyword_ut:Global)" mask="0x8000000000"/>
+     <keyword name="keyword_20000000000" message="$(string.keyword_keyword_20000000000)" mask="0x20000000000"/>
+     <keyword name="keyword_40000000000" message="$(string.keyword_keyword_40000000000)" mask="0x40000000000"/>
+     <keyword name="keyword_200000000000" message="$(string.keyword_keyword_200000000000)" mask="0x200000000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="DriverLoad" message="$(string.task_DriverLoad)" value="1">
+>
+      <opcodes>
+       <opcode name="LoadingState" message="$(string.opcode_DriverLoadLoadingState)" value="21"/>
+      </opcodes>
+     </task>
+     <task name="LayerLoad" message="$(string.task_LayerLoad)" value="3">
+>
+      <opcodes>
+       <opcode name="LoadingState" message="$(string.opcode_LayerLoadLoadingState)" value="21"/>
+      </opcodes>
+     </task>
+     <task name="Rules" message="$(string.task_Rules)" value="5">
+>
+      <opcodes>
+       <opcode name="LoadingState" message="$(string.opcode_RulesLoadingState)" value="21"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <maps>
+     <valueMap name="RuleIdMap">
+      <map value="0x2" message="$(string.map_RuleIdMapFrameControl)"/>
+      <map value="0x3" message="$(string.map_RuleIdMapMultiLayer)"/>
+      <map value="0x4" message="$(string.map_RuleIdMapInterfaceIndex)"/>
+      <map value="0x6" message="$(string.map_RuleIdMapEtherType)"/>
+      <map value="0x7" message="$(string.map_RuleIdMapSource MAC Address)"/>
+      <map value="0x8" message="$(string.map_RuleIdMapDestination MAC Address)"/>
+      <map value="0x9" message="$(string.map_RuleIdMapAny MAC Address)"/>
+      <map value="0xa" message="$(string.map_RuleIdMapSource IPv4 Address)"/>
+      <map value="0xb" message="$(string.map_RuleIdMapDestination IPv4 Address)"/>
+      <map value="0xc" message="$(string.map_RuleIdMapAny IPv4 Address)"/>
+      <map value="0xd" message="$(string.map_RuleIdMapSource IPv6 Address)"/>
+      <map value="0xe" message="$(string.map_RuleIdMapDestination IPv6 Address)"/>
+      <map value="0xf" message="$(string.map_RuleIdMapAny IPv6 Address)"/>
+      <map value="0x10" message="$(string.map_RuleIdMapIP Protocol)"/>
+      <map value="0x11" message="$(string.map_RuleIdMapPacket Truncate Bytes)"/>
+      <map value="0x12" message="$(string.map_RuleIdMapCustom MAC Offset)"/>
+      <map value="0x13" message="$(string.map_RuleIdMapCustom IP Offset)"/>
+     </valueMap>
+     <valueMap name="DirectiveMap">
+      <map value="0x0" message="$(string.map_DirectiveMapOFF)"/>
+      <map value="0x1" message="$(string.map_DirectiveMapLTE)"/>
+      <map value="0x2" message="$(string.map_DirectiveMapGTE)"/>
+      <map value="0x3" message="$(string.map_DirectiveMapEQU)"/>
+      <map value="0x4" message="$(string.map_DirectiveMapMASK)"/>
+      <map value="0x5" message="$(string.map_DirectiveMapLIST)"/>
+      <map value="0x6" message="$(string.map_DirectiveMapRANGE)"/>
+      <map value="0x83" message="$(string.map_DirectiveMapNEQ)"/>
+      <map value="0x84" message="$(string.map_DirectiveMapNMASK)"/>
+      <map value="0x85" message="$(string.map_DirectiveMapNLIST)"/>
+      <map value="0x86" message="$(string.map_DirectiveMapNRANGE)"/>
+     </valueMap>
+     <valueMap name="ut:OpcodeMap">
+      <map value="0x1" message="$(string.map_ut:OpcodeMapStart State)"/>
+      <map value="0x2" message="$(string.map_ut:OpcodeMapEnd State)"/>
+      <map value="0x15" message="$(string.map_ut:OpcodeMapLoading State)"/>
+      <map value="0x16" message="$(string.map_ut:OpcodeMapUnloading State)"/>
+     </valueMap>
+     <valueMap name="mapCaptureSource">
+      <map value="0x0" message="$(string.map_mapCaptureSourceUndefined)"/>
+      <map value="0x1" message="$(string.map_mapCaptureSourceNDIS)"/>
+      <map value="0x2" message="$(string.map_mapCaptureSourceVM-Switch)"/>
+      <map value="0x3" message="$(string.map_mapCaptureSourceTest)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1001" symbol="task_0" version="0" task="task_0" level="win:Informational" keywords="keyword_20000000000 keyword_40000000000" template="task_0Args"/>
+     <event value="1002" symbol="task_01002" version="0" task="task_0" level="win:Informational" keywords="keyword_40000000000" template="task_01002Args"/>
+     <event value="1003" symbol="task_01003" version="0" task="task_0" level="win:Informational" keywords="VMSwitch keyword_40000000000" template="task_01003Args"/>
+     <event value="1011" symbol="Rules" version="0" task="Rules" level="win:Informational" keywords="ut:Configuration ut:Global" template="RulesArgs"/>
+     <event value="1012" symbol="task_01012" version="0" task="task_0" level="win:Verbose" keywords="ut:Global" template="task_01012Args"/>
+     <event value="1013" symbol="task_01013" version="0" task="task_0" level="win:Verbose" keywords="ut:Global" template="task_01012Args"/>
+     <event value="1014" symbol="task_01014" version="0" task="task_0" level="win:Verbose" keywords="ut:Global" template="task_01014Args"/>
+     <event value="1015" symbol="task_01015" version="0" task="task_0" level="win:Verbose" keywords="ut:Global" template="task_01014Args"/>
+     <event value="1016" symbol="Rules1016" version="0" task="Rules" level="win:Informational" keywords="ut:Configuration ut:Global" template="Rules1016Args"/>
+     <event value="2001" symbol="DriverLoadLoadingState" version="0" task="DriverLoad" opcode="LoadingState" level="win:Error" keywords="ut:Global" template="DriverLoadLoadingStateArgs"/>
+     <event value="2002" symbol="LayerLoadLoadingState" version="0" task="LayerLoad" opcode="LoadingState" level="win:Error" keywords="ut:Global" template="DriverLoadLoadingStateArgs"/>
+     <event value="2003" symbol="RulesLoadingState" version="0" task="Rules" opcode="LoadingState" level="win:Error" keywords="ut:Global" template="RulesLoadingStateArgs"/>
+     <event value="3001" symbol="LayerLoadLoadingState3001" version="0" task="LayerLoad" opcode="LoadingState" level="win:Verbose" keywords="ut:Global keyword_200000000000" template="LayerLoadLoadingState3001Args"/>
+     <event value="3002" symbol="LayerLoadLoadingState3002" version="0" task="LayerLoad" opcode="LoadingState" level="win:Verbose" keywords="ut:Global keyword_200000000000" template="LayerLoadLoadingState3002Args"/>
+     <event value="5000" symbol="task_0Start" version="0" task="task_0" opcode="win:Start" level="win:Verbose" keywords="keyword_200000000000"/>
+     <event value="5001" symbol="task_0Stop" version="0" task="task_0" opcode="win:Stop" level="win:Verbose" keywords="keyword_200000000000"/>
+     <event value="5002" symbol="task_0Start5002" version="0" task="task_0" opcode="win:Start" level="win:Verbose" keywords="keyword_200000000000"/>
+     <event value="5003" symbol="task_0Stop5003" version="0" task="task_0" opcode="win:Stop" level="win:Verbose" keywords="keyword_200000000000"/>
+     <event value="5100" symbol="task_05100" version="0" task="task_0" level="win:Informational" template="task_05100Args"/>
+     <event value="5101" symbol="task_05101" version="0" task="task_0" level="win:Informational" template="task_05101Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="MiniportIfIndex" inType="win:UInt32"/>
+      <data name="LowerIfIndex" inType="win:UInt32"/>
+      <data name="FragmentSize" inType="win:UInt32"/>
+      <data name="Fragment" inType="win:Binary" length="FragmentSize"/>
+     </template>
+     <template tid="task_01002Args">
+      <data name="MiniportIfIndex" inType="win:UInt32"/>
+      <data name="LowerIfIndex" inType="win:UInt32"/>
+      <data name="MetadataSize" inType="win:UInt32"/>
+      <data name="Metadata" inType="win:Binary" length="MetadataSize"/>
+     </template>
+     <template tid="task_01003Args">
+      <data name="MiniportIfIndex" inType="win:UInt32"/>
+      <data name="LowerIfIndex" inType="win:UInt32"/>
+      <data name="SourcePortId" inType="win:UInt32"/>
+      <data name="SourcePortName" inType="win:UnicodeString"/>
+      <data name="SourceNicName" inType="win:UnicodeString"/>
+      <data name="SourceNicType" inType="win:UnicodeString"/>
+      <data name="DestinationCount" inType="win:UInt32"/>
+      <data name="Destination" inType="win:Double" count="DestinationCount"/>
+      <data name="FragmentSize" inType="win:UInt32"/>
+      <data name="Fragment" inType="win:Binary" length="FragmentSize"/>
+      <data name="OOBDataSize" inType="win:UInt32"/>
+      <data name="OOBData" inType="win:Binary" length="OOBDataSize"/>
+     </template>
+     <template tid="RulesArgs">
+      <data name="RulesCount" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01012Args">
+      <data name="FriendlyName" inType="win:UnicodeString"/>
+      <data name="UniqueName" inType="win:UnicodeString"/>
+      <data name="ServiceName" inType="win:UnicodeString"/>
+      <data name="Version" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_01014Args">
+      <data name="MiniportIfIndex" inType="win:UInt32"/>
+      <data name="LowerIfIndex" inType="win:UInt32"/>
+      <data name="MediaType" inType="win:UInt32"/>
+      <data name="ReferenceContext" inType="win:UInt32"/>
+     </template>
+     <template tid="Rules1016Args">
+      <data name="RuleId" inType="win:UInt8" map="RuleIdMap"/>
+      <data name="Directive" inType="win:UInt8" map="DirectiveMap"/>
+      <data name="Length" inType="win:UInt16"/>
+      <data name="Value" inType="win:Binary" length="Length"/>
+     </template>
+     <template tid="DriverLoadLoadingStateArgs">
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Context" inType="win:UInt32"/>
+     </template>
+     <template tid="RulesLoadingStateArgs">
+      <data name="RuleId" inType="win:UInt8"/>
+      <data name="Directive" inType="win:UInt8"/>
+      <data name="Length" inType="win:UInt16"/>
+      <data name="Value" inType="win:Binary" length="Length"/>
+     </template>
+     <template tid="LayerLoadLoadingState3001Args">
+      <data name="PreviousState" inType="win:UInt8" map="ut:OpcodeMap"/>
+      <data name="NextState" inType="win:UInt8"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Context" inType="win:UInt32"/>
+     </template>
+     <template tid="LayerLoadLoadingState3002Args">
+      <data name="PreviousState" inType="win:UInt8"/>
+      <data name="NextState" inType="win:UInt8"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Context" inType="win:UInt32"/>
+     </template>
+     <template tid="task_05100Args">
+      <data name="SourceId" inType="win:UInt8" map="mapCaptureSource"/>
+      <data name="RundownId" inType="win:UInt32"/>
+      <data name="Param1" inType="win:UInt64"/>
+      <data name="Param2" inType="win:UInt64"/>
+      <data name="ParamStr" inType="win:UnicodeString"/>
+      <data name="Description" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_05101Args">
+      <data name="SourceId" inType="win:UInt8"/>
+      <data name="SourceName" inType="win:UnicodeString"/>
+      <data name="IfIndex" inType="win:UInt32"/>
+      <data name="LayerCount" inType="win:UInt16"/>
+      <data name="LayerInfo" inType="win:Int16" count="LayerCount"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Ethernet802.3" value="Ethernet802.3"/>
+    <string id="keyword_WirelessWAN" value="WirelessWAN"/>
+    <string id="keyword_Tunnel" value="Tunnel"/>
+    <string id="keyword_Native802.11" value="Native802.11"/>
+    <string id="keyword_VMSwitch" value="VMSwitch"/>
+    <string id="keyword_PacketTruncated" value="PacketTruncated"/>
+    <string id="keyword_PacketStart" value="PacketStart"/>
+    <string id="keyword_PacketEnd" value="PacketEnd"/>
+    <string id="keyword_ut:SendPath" value="ut:SendPath"/>
+    <string id="keyword_ut:ReceivePath" value="ut:ReceivePath"/>
+    <string id="keyword_ut:L3ConnectPath" value="ut:L3ConnectPath"/>
+    <string id="keyword_ut:L2ConnectPath" value="ut:L2ConnectPath"/>
+    <string id="keyword_ut:ClosePath" value="ut:ClosePath"/>
+    <string id="keyword_ut:Authentication" value="ut:Authentication"/>
+    <string id="keyword_ut:Configuration" value="ut:Configuration"/>
+    <string id="keyword_ut:Global" value="ut:Global"/>
+    <string id="keyword_keyword_20000000000" value="keyword_20000000000"/>
+    <string id="keyword_keyword_40000000000" value="keyword_40000000000"/>
+    <string id="keyword_keyword_200000000000" value="keyword_200000000000"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_DriverLoad" value="DriverLoad"/>
+    <string id="opcode_DriverLoadLoadingState" value="LoadingState"/>
+    <string id="task_LayerLoad" value="LayerLoad"/>
+    <string id="opcode_LayerLoadLoadingState" value="LoadingState"/>
+    <string id="task_Rules" value="Rules"/>
+    <string id="opcode_RulesLoadingState" value="LoadingState"/>
+    <string id="map_RuleIdMapFrameControl" value="FrameControl"/>
+    <string id="map_RuleIdMapMultiLayer" value="MultiLayer"/>
+    <string id="map_RuleIdMapInterfaceIndex" value="InterfaceIndex"/>
+    <string id="map_RuleIdMapEtherType" value="EtherType"/>
+    <string id="map_RuleIdMapSource MAC Address" value="Source MAC Address"/>
+    <string id="map_RuleIdMapDestination MAC Address" value="Destination MAC Address"/>
+    <string id="map_RuleIdMapAny MAC Address" value="Any MAC Address"/>
+    <string id="map_RuleIdMapSource IPv4 Address" value="Source IPv4 Address"/>
+    <string id="map_RuleIdMapDestination IPv4 Address" value="Destination IPv4 Address"/>
+    <string id="map_RuleIdMapAny IPv4 Address" value="Any IPv4 Address"/>
+    <string id="map_RuleIdMapSource IPv6 Address" value="Source IPv6 Address"/>
+    <string id="map_RuleIdMapDestination IPv6 Address" value="Destination IPv6 Address"/>
+    <string id="map_RuleIdMapAny IPv6 Address" value="Any IPv6 Address"/>
+    <string id="map_RuleIdMapIP Protocol" value="IP Protocol"/>
+    <string id="map_RuleIdMapPacket Truncate Bytes" value="Packet Truncate Bytes"/>
+    <string id="map_RuleIdMapCustom MAC Offset" value="Custom MAC Offset"/>
+    <string id="map_RuleIdMapCustom IP Offset" value="Custom IP Offset"/>
+    <string id="map_DirectiveMapOFF" value="OFF"/>
+    <string id="map_DirectiveMapLTE" value="LTE"/>
+    <string id="map_DirectiveMapGTE" value="GTE"/>
+    <string id="map_DirectiveMapEQU" value="EQU"/>
+    <string id="map_DirectiveMapMASK" value="MASK"/>
+    <string id="map_DirectiveMapLIST" value="LIST"/>
+    <string id="map_DirectiveMapRANGE" value="RANGE"/>
+    <string id="map_DirectiveMapNEQ" value="NEQ"/>
+    <string id="map_DirectiveMapNMASK" value="NMASK"/>
+    <string id="map_DirectiveMapNLIST" value="NLIST"/>
+    <string id="map_DirectiveMapNRANGE" value="NRANGE"/>
+    <string id="map_ut:OpcodeMapStart State" value="Start State"/>
+    <string id="map_ut:OpcodeMapEnd State" value="End State"/>
+    <string id="map_ut:OpcodeMapLoading State" value="Loading State"/>
+    <string id="map_ut:OpcodeMapUnloading State" value="Unloading State"/>
+    <string id="map_mapCaptureSourceUndefined" value="Undefined"/>
+    <string id="map_mapCaptureSourceNDIS" value="NDIS"/>
+    <string id="map_mapCaptureSourceVM-Switch" value="VM-Switch"/>
+    <string id="map_mapCaptureSourceTest" value="Test"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

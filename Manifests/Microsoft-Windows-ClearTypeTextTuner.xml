@@ -1,0 +1,34 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-ClearTypeTextTuner" guid="{0a88862d-20a3-4c1f-b76f-162c55adbf93}" resourceFileName="Microsoft-Windows-ClearTypeTextTuner" messageFileName="Microsoft-Windows-ClearTypeTextTuner" symbol="MicrosoftWindowsClearTypeTextTuner" source="Xml" >
+    <keywords>
+     <keyword name="PerfInstrumentation" message="$(string.keyword_PerfInstrumentation)" mask="0x10000"/>
+     <keyword name="PerfDiagnostics" message="$(string.keyword_PerfDiagnostics)" mask="0x20000"/>
+    </keywords>
+    <tasks>
+     <task name="ClearTypeTextTuner_LaunchApp" message="$(string.task_ClearTypeTextTuner_LaunchApp)" value="1"/>
+     <task name="ClearTypeTextTuner_ApplyChanges" message="$(string.task_ClearTypeTextTuner_ApplyChanges)" value="3"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="ClearTypeTextTuner_LaunchAppStart" version="0" task="ClearTypeTextTuner_LaunchApp" opcode="win:Start" level="win:Informational" keywords="PerfInstrumentation"/>
+     <event value="2" symbol="ClearTypeTextTuner_LaunchAppStop" version="0" task="ClearTypeTextTuner_LaunchApp" opcode="win:Stop" level="win:Informational" keywords="PerfInstrumentation"/>
+     <event value="3" symbol="ClearTypeTextTuner_ApplyChangesStart" version="0" task="ClearTypeTextTuner_ApplyChanges" opcode="win:Start" level="win:Informational" keywords="PerfInstrumentation"/>
+     <event value="4" symbol="ClearTypeTextTuner_ApplyChangesStop" version="0" task="ClearTypeTextTuner_ApplyChanges" opcode="win:Stop" level="win:Informational" keywords="PerfInstrumentation"/>
+    </events>
+    <templates>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_PerfInstrumentation" value="PerfInstrumentation"/>
+    <string id="keyword_PerfDiagnostics" value="PerfDiagnostics"/>
+    <string id="task_ClearTypeTextTuner_LaunchApp" value="ClearTypeTextTuner_LaunchApp"/>
+    <string id="task_ClearTypeTextTuner_ApplyChanges" value="ClearTypeTextTuner_ApplyChanges"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

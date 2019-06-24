@@ -1,0 +1,81 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Shell-Search-UriHandler" guid="{606c6fe0-a9dc-4a9d-bdea-830aff6716e7}" resourceFileName="Microsoft-Windows-Shell-Search-UriHandler" messageFileName="Microsoft-Windows-Shell-Search-UriHandler" symbol="MicrosoftWindowsShellSearchUriHandler" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="Invocation" message="$(string.task_Invocation)" value="100"/>
+     <task name="Parse" message="$(string.task_Parse)" value="200"/>
+     <task name="ParseParameter" message="$(string.task_ParseParameter)" value="300"/>
+     <task name="SearchInvocation" message="$(string.task_SearchInvocation)" value="400"/>
+    </tasks>
+    <events>
+     <event value="101" symbol="InvocationStart" version="0" task="Invocation" opcode="win:Start" level="win:Informational" template="InvocationStartArgs"/>
+     <event value="102" symbol="InvocationStop" version="0" task="Invocation" opcode="win:Stop" level="win:Informational" template="InvocationStopArgs"/>
+     <event value="201" symbol="ParseStart" version="0" task="Parse" opcode="win:Start" level="win:Informational" template="InvocationStartArgs"/>
+     <event value="202" symbol="Parse" version="0" task="Parse" level="win:Informational" template="ParseArgs"/>
+     <event value="203" symbol="Parse203" version="0" task="Parse" level="win:Informational" template="Parse203Args"/>
+     <event value="204" symbol="ParseStop" version="0" task="Parse" opcode="win:Stop" level="win:Informational" template="InvocationStopArgs"/>
+     <event value="301" symbol="ParseParameterStart" version="0" task="ParseParameter" opcode="win:Start" level="win:Informational" template="ParseParameterStartArgs"/>
+     <event value="302" symbol="ParseParameter" version="0" task="ParseParameter" level="win:Informational" template="ParseParameterArgs"/>
+     <event value="303" symbol="ParseParameter303" version="0" task="ParseParameter" level="win:Informational" template="ParseParameterArgs"/>
+     <event value="304" symbol="ParseParameter304" version="0" task="ParseParameter" level="win:Informational" template="ParseParameter304Args"/>
+     <event value="305" symbol="ParseParameter305" version="0" task="ParseParameter" level="win:Informational" template="ParseParameter305Args"/>
+     <event value="306" symbol="ParseParameterStop" version="0" task="ParseParameter" opcode="win:Stop" level="win:Informational" template="ParseParameterStopArgs"/>
+     <event value="401" symbol="SearchInvocationStart" version="0" task="SearchInvocation" opcode="win:Start" level="win:Informational"/>
+     <event value="402" symbol="SearchInvocationStop" version="0" task="SearchInvocation" opcode="win:Stop" level="win:Informational" template="SearchInvocationStopArgs"/>
+    </events>
+    <templates>
+     <template tid="InvocationStartArgs">
+      <data name="Uri" inType="win:UnicodeString"/>
+     </template>
+     <template tid="InvocationStopArgs">
+      <data name="Uri" inType="win:UnicodeString"/>
+      <data name="Result" inType="win:UInt32"/>
+     </template>
+     <template tid="ParseArgs">
+      <data name="Scheme" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Parse203Args">
+      <data name="SearchView" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ParseParameterStartArgs">
+      <data name="Parameter" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ParseParameterArgs">
+      <data name="Parameter" inType="win:UnicodeString"/>
+      <data name="ParameterValue" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ParseParameter304Args">
+      <data name="Parameter" inType="win:UnicodeString"/>
+      <data name="Value" inType="win:UnicodeString"/>
+      <data name="Result" inType="win:UInt32"/>
+     </template>
+     <template tid="ParseParameter305Args">
+      <data name="Parameter" inType="win:UnicodeString"/>
+      <data name="OldValue" inType="win:UnicodeString"/>
+      <data name="NewValue" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ParseParameterStopArgs">
+      <data name="Parameter" inType="win:UnicodeString"/>
+      <data name="Result" inType="win:UInt32"/>
+     </template>
+     <template tid="SearchInvocationStopArgs">
+      <data name="Result" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_Invocation" value="Invocation"/>
+    <string id="task_Parse" value="Parse"/>
+    <string id="task_ParseParameter" value="ParseParameter"/>
+    <string id="task_SearchInvocation" value="SearchInvocation"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

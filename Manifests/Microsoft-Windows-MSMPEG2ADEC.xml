@@ -1,0 +1,76 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-MSMPEG2ADEC" guid="{51311de3-d55e-454a-9c58-43dc7b4c01d2}" resourceFileName="Microsoft-Windows-MSMPEG2ADEC" messageFileName="Microsoft-Windows-MSMPEG2ADEC" symbol="MicrosoftWindowsMSMPEG2ADEC" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="OUTPUT_SAMPLE_DELIVERED" message="$(string.task_OUTPUT_SAMPLE_DELIVERED)" value="1"/>
+     <task name="DECODE" message="$(string.task_DECODE)" value="2"/>
+     <task name="AUD_MEDIATYPE_CHANGE" message="$(string.task_AUD_MEDIATYPE_CHANGE)" value="3"/>
+     <task name="AUD_BINDING_BLOB_TYPE" message="$(string.task_AUD_BINDING_BLOB_TYPE)" value="4"/>
+     <task name="PLAYBACK" message="$(string.task_PLAYBACK)" value="5"/>
+     <task name="GETOUTPUT" message="$(string.task_GETOUTPUT)" value="6"/>
+     <task name="AUD_DUALMONO_CHANGE" message="$(string.task_AUD_DUALMONO_CHANGE)" value="7"/>
+     <task name="AUD_DOLBY_MODE_CHANGE" message="$(string.task_AUD_DOLBY_MODE_CHANGE)" value="8"/>
+     <task name="AUD_DOLBY_CUTBOOST_CHANGE" message="$(string.task_AUD_DOLBY_CUTBOOST_CHANGE)" value="9"/>
+     <task name="AUD_LEQ_CHANGE" message="$(string.task_AUD_LEQ_CHANGE)" value="10"/>
+     <task name="AUDDECODE_FRAME_ERROR" message="$(string.task_AUDDECODE_FRAME_ERROR)" value="11"/>
+     <task name="AUD_RESYNC" message="$(string.task_AUD_RESYNC)" value="12"/>
+     <task name="AUD_CODECTYPE_CHANGE" message="$(string.task_AUD_CODECTYPE_CHANGE)" value="13"/>
+    </tasks>
+    <events>
+     <event value="0" symbol="OUTPUT_SAMPLE_DELIVERED" version="0" task="OUTPUT_SAMPLE_DELIVERED" level="win:Informational"/>
+     <event value="1" symbol="DECODEStart" version="0" task="DECODE" opcode="win:Start" level="win:Informational"/>
+     <event value="2" symbol="DECODEStop" version="0" task="DECODE" opcode="win:Stop" level="win:Informational"/>
+     <event value="3" symbol="AUD_MEDIATYPE_CHANGE" version="0" task="AUD_MEDIATYPE_CHANGE" level="win:Informational" template="AUD_MEDIATYPE_CHANGEArgs"/>
+     <event value="4" symbol="AUD_BINDING_BLOB_TYPE" version="0" task="AUD_BINDING_BLOB_TYPE" level="win:Informational" template="AUD_BINDING_BLOB_TYPEArgs"/>
+     <event value="5" symbol="PLAYBACKStart" version="0" task="PLAYBACK" opcode="win:Start" level="win:Informational"/>
+     <event value="6" symbol="PLAYBACKStop" version="0" task="PLAYBACK" opcode="win:Stop" level="win:Informational"/>
+     <event value="7" symbol="GETOUTPUTStart" version="0" task="GETOUTPUT" opcode="win:Start" level="win:Informational"/>
+     <event value="8" symbol="GETOUTPUTStop" version="0" task="GETOUTPUT" opcode="win:Stop" level="win:Informational"/>
+     <event value="9" symbol="GETOUTPUT" version="0" task="GETOUTPUT" level="win:Error"/>
+     <event value="10" symbol="AUD_DUALMONO_CHANGE" version="0" task="AUD_DUALMONO_CHANGE" level="win:Informational" template="AUD_DUALMONO_CHANGEArgs"/>
+     <event value="11" symbol="AUD_DOLBY_MODE_CHANGE" version="0" task="AUD_DOLBY_MODE_CHANGE" level="win:Informational" template="AUD_DUALMONO_CHANGEArgs"/>
+     <event value="12" symbol="AUD_DOLBY_CUTBOOST_CHANGE" version="0" task="AUD_DOLBY_CUTBOOST_CHANGE" level="win:Informational" template="AUD_DUALMONO_CHANGEArgs"/>
+     <event value="13" symbol="AUD_LEQ_CHANGE" version="0" task="AUD_LEQ_CHANGE" level="win:Informational" template="AUD_DUALMONO_CHANGEArgs"/>
+     <event value="14" symbol="AUDDECODE_FRAME_ERROR" version="0" task="AUDDECODE_FRAME_ERROR" level="win:Error" template="AUD_DUALMONO_CHANGEArgs"/>
+     <event value="15" symbol="AUD_RESYNC" version="0" task="AUD_RESYNC" level="win:Warning" template="AUD_DUALMONO_CHANGEArgs"/>
+     <event value="16" symbol="AUD_CODECTYPE_CHANGE" version="0" task="AUD_CODECTYPE_CHANGE" level="win:Informational" template="AUD_DUALMONO_CHANGEArgs"/>
+    </events>
+    <templates>
+     <template tid="AUD_MEDIATYPE_CHANGEArgs">
+      <data name="srcSamplingRate" inType="win:UInt32"/>
+      <data name="AudioMode" inType="win:Int8"/>
+     </template>
+     <template tid="AUD_BINDING_BLOB_TYPEArgs">
+      <data name="BlobVer" inType="win:UInt32"/>
+      <data name="LicensorIndex" inType="win:UInt32"/>
+     </template>
+     <template tid="AUD_DUALMONO_CHANGEArgs">
+      <data name="dwordarg" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_OUTPUT_SAMPLE_DELIVERED" value="OUTPUT_SAMPLE_DELIVERED"/>
+    <string id="task_DECODE" value="DECODE"/>
+    <string id="task_AUD_MEDIATYPE_CHANGE" value="AUD_MEDIATYPE_CHANGE"/>
+    <string id="task_AUD_BINDING_BLOB_TYPE" value="AUD_BINDING_BLOB_TYPE"/>
+    <string id="task_PLAYBACK" value="PLAYBACK"/>
+    <string id="task_GETOUTPUT" value="GETOUTPUT"/>
+    <string id="task_AUD_DUALMONO_CHANGE" value="AUD_DUALMONO_CHANGE"/>
+    <string id="task_AUD_DOLBY_MODE_CHANGE" value="AUD_DOLBY_MODE_CHANGE"/>
+    <string id="task_AUD_DOLBY_CUTBOOST_CHANGE" value="AUD_DOLBY_CUTBOOST_CHANGE"/>
+    <string id="task_AUD_LEQ_CHANGE" value="AUD_LEQ_CHANGE"/>
+    <string id="task_AUDDECODE_FRAME_ERROR" value="AUDDECODE_FRAME_ERROR"/>
+    <string id="task_AUD_RESYNC" value="AUD_RESYNC"/>
+    <string id="task_AUD_CODECTYPE_CHANGE" value="AUD_CODECTYPE_CHANGE"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

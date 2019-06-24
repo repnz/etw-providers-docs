@@ -1,0 +1,44 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Graphics-Printing3D" guid="{be967569-e3c8-425b-ad0e-4f2c790b1848}" resourceFileName="Microsoft-Windows-Graphics-Printing3D" messageFileName="Microsoft-Windows-Graphics-Printing3D" symbol="MicrosoftWindowsGraphicsPrinting3D" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="PrintDXGIPreviewTarget_DrawPage" message="$(string.task_PrintDXGIPreviewTarget_DrawPage)" value="1"/>
+     <task name="PrintTask_EnsureDocumentSource" message="$(string.task_PrintTask_EnsureDocumentSource)" value="2"/>
+     <task name="PrintTask_BindPrinter" message="$(string.task_PrintTask_BindPrinter)" value="3"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="PrintDXGIPreviewTarget_DrawPageStart" version="0" task="PrintDXGIPreviewTarget_DrawPage" opcode="win:Start" level="win:Informational"/>
+     <event value="2" symbol="PrintDXGIPreviewTarget_DrawPageStop" version="0" task="PrintDXGIPreviewTarget_DrawPage" opcode="win:Stop" level="win:Informational" template="PrintDXGIPreviewTarget_DrawPageStopArgs"/>
+     <event value="3" symbol="PrintTask_EnsureDocumentSourceStart" version="0" task="PrintTask_EnsureDocumentSource" opcode="win:Start" level="win:Informational"/>
+     <event value="4" symbol="PrintTask_EnsureDocumentSourceStop" version="0" task="PrintTask_EnsureDocumentSource" opcode="win:Stop" level="win:Informational" template="PrintDXGIPreviewTarget_DrawPageStopArgs"/>
+     <event value="5" symbol="PrintTask_BindPrinterStart" version="0" task="PrintTask_BindPrinter" opcode="win:Start" level="win:Informational" template="PrintTask_BindPrinterStartArgs"/>
+     <event value="6" symbol="PrintTask_BindPrinterStop" version="0" task="PrintTask_BindPrinter" opcode="win:Stop" level="win:Informational" template="PrintTask_BindPrinterStopArgs"/>
+    </events>
+    <templates>
+     <template tid="PrintDXGIPreviewTarget_DrawPageStopArgs">
+      <data name="HResult" inType="win:UInt32"/>
+     </template>
+     <template tid="PrintTask_BindPrinterStartArgs">
+      <data name="Name" inType="win:UnicodeString"/>
+     </template>
+     <template tid="PrintTask_BindPrinterStopArgs">
+      <data name="HResult" inType="win:UInt32"/>
+      <data name="Name" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_PrintDXGIPreviewTarget_DrawPage" value="PrintDXGIPreviewTarget_DrawPage"/>
+    <string id="task_PrintTask_EnsureDocumentSource" value="PrintTask_EnsureDocumentSource"/>
+    <string id="task_PrintTask_BindPrinter" value="PrintTask_BindPrinter"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

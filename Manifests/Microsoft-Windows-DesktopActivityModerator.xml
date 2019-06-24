@@ -1,0 +1,134 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-DesktopActivityModerator" guid="{32dd13df-9c0b-4c3b-b854-ee76c050f5f4}" resourceFileName="Microsoft-Windows-DesktopActivityModerator" messageFileName="Microsoft-Windows-DesktopActivityModerator" symbol="MicrosoftWindowsDesktopActivityModerator" source="Xml" >
+    <keywords>
+     <keyword name="StartStopDriver" message="$(string.keyword_StartStopDriver)" mask="0x1"/>
+     <keyword name="Control" message="$(string.keyword_Control)" mask="0x2"/>
+     <keyword name="ProcessActivity" message="$(string.keyword_ProcessActivity)" mask="0x4"/>
+     <keyword name="Policy" message="$(string.keyword_Policy)" mask="0x8"/>
+     <keyword name="Pdc" message="$(string.keyword_Pdc)" mask="0x10"/>
+     <keyword name="IoTracking" message="$(string.keyword_IoTracking)" mask="0x20"/>
+     <keyword name="PerfTrackContext" message="$(string.keyword_PerfTrackContext)" mask="0x40"/>
+    </keywords>
+    <tasks>
+     <task name="StartDriver" message="$(string.task_StartDriver)" value="1"/>
+     <task name="StopDriver" message="$(string.task_StopDriver)" value="2"/>
+     <task name="SuspendResume" message="$(string.task_SuspendResume)" value="3"/>
+     <task name="Throttle" message="$(string.task_Throttle)" value="4"/>
+     <task name="ResiliencyEngage" message="$(string.task_ResiliencyEngage)" value="5"/>
+     <task name="ProcessActivity" message="$(string.task_ProcessActivity)" value="6"/>
+     <task name="ProcessExempt" message="$(string.task_ProcessExempt)" value="7"/>
+     <task name="PolicyReload" message="$(string.task_PolicyReload)" value="8"/>
+     <task name="PdcCallback" message="$(string.task_PdcCallback)" value="9"/>
+     <task name="PdcAcknowledge" message="$(string.task_PdcAcknowledge)" value="10"/>
+     <task name="IoTrackingPerfTrack" message="$(string.task_IoTrackingPerfTrack)" value="11"/>
+     <task name="IoTrackingCallback" message="$(string.task_IoTrackingCallback)" value="12"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="StartDriverStart" version="0" task="StartDriver" opcode="win:Start" level="win:Informational" keywords="StartStopDriver"/>
+     <event value="4" symbol="StartDriver" version="0" task="StartDriver" level="win:Informational" keywords="StartStopDriver"/>
+     <event value="9" symbol="StartDriverStop" version="0" task="StartDriver" opcode="win:Stop" level="win:Informational" keywords="StartStopDriver" template="StartDriverStopArgs"/>
+     <event value="11" symbol="StopDriverStart" version="0" task="StopDriver" opcode="win:Start" level="win:Informational" keywords="StartStopDriver"/>
+     <event value="19" symbol="StopDriverStop" version="0" task="StopDriver" opcode="win:Stop" level="win:Informational" keywords="StartStopDriver"/>
+     <event value="21" symbol="SuspendResumeStart" version="0" task="SuspendResume" opcode="win:Start" level="win:Informational" keywords="Control" template="SuspendResumeStartArgs"/>
+     <event value="22" symbol="SuspendResumeStop" version="0" task="SuspendResume" opcode="win:Stop" level="win:Informational" keywords="Control" template="SuspendResumeStartArgs"/>
+     <event value="23" symbol="ThrottleStart" version="0" task="Throttle" opcode="win:Start" level="win:Informational" keywords="Control" template="SuspendResumeStartArgs"/>
+     <event value="24" symbol="ThrottleStop" version="0" task="Throttle" opcode="win:Stop" level="win:Informational" keywords="Control" template="SuspendResumeStartArgs"/>
+     <event value="25" symbol="ResiliencyEngageStart" version="0" task="ResiliencyEngage" opcode="win:Start" level="win:Informational" keywords="Control" template="ResiliencyEngageStartArgs"/>
+     <event value="26" symbol="ResiliencyEngageStop" version="0" task="ResiliencyEngage" opcode="win:Stop" level="win:Informational" keywords="Control" template="ResiliencyEngageStartArgs"/>
+     <event value="31" symbol="ProcessActivityStart" version="0" task="ProcessActivity" opcode="win:Start" level="win:Informational" keywords="ProcessActivity" template="ProcessActivityStartArgs"/>
+     <event value="32" symbol="ProcessActivityStop" version="0" task="ProcessActivity" opcode="win:Stop" level="win:Informational" keywords="ProcessActivity" template="ProcessActivityStopArgs"/>
+     <event value="41" symbol="ProcessExempt" version="0" task="ProcessExempt" level="win:Informational" keywords="Policy" template="ProcessExemptArgs"/>
+     <event value="42" symbol="PolicyReload" version="0" task="PolicyReload" level="win:Informational" keywords="Policy" template="PolicyReloadArgs"/>
+     <event value="51" symbol="PdcCallback" version="0" task="PdcCallback" level="win:Informational" keywords="Pdc" template="PdcCallbackArgs"/>
+     <event value="52" symbol="PdcCallback52" version="0" task="PdcCallback" level="win:Informational" keywords="Pdc" template="PdcCallback52Args"/>
+     <event value="53" symbol="PdcCallback53" version="0" task="PdcCallback" level="win:Informational" keywords="Pdc" template="PdcCallback53Args"/>
+     <event value="54" symbol="PdcAcknowledge" version="0" task="PdcAcknowledge" level="win:Informational" keywords="Pdc"/>
+     <event value="60" symbol="IoTrackingPerfTrack" version="0" task="IoTrackingPerfTrack" level="win:Informational" keywords="IoTracking" template="IoTrackingPerfTrackArgs"/>
+     <event value="61" symbol="IoTrackingCallback" version="0" task="IoTrackingCallback" level="win:Verbose" keywords="IoTracking" template="IoTrackingCallbackArgs"/>
+    </events>
+    <templates>
+     <template tid="StartDriverStopArgs">
+      <data name="NTSTATUS" inType="win:UInt32"/>
+     </template>
+     <template tid="SuspendResumeStartArgs">
+      <data name="SuspendFlag" inType="win:Boolean"/>
+     </template>
+     <template tid="ResiliencyEngageStartArgs">
+      <data name="ActiveFlag" inType="win:Boolean"/>
+     </template>
+     <template tid="ProcessActivityStartArgs">
+      <data name="ProcessId" inType="win:UInt32"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="ImageFileNameLength" inType="win:UInt16"/>
+      <data name="ImageFileName" inType="win:UnicodeString" length="ImageFileNameLength"/>
+      <data name="CommandLineLength" inType="win:UInt16"/>
+      <data name="CommandLine" inType="win:UnicodeString" length="CommandLineLength"/>
+     </template>
+     <template tid="ProcessActivityStopArgs">
+      <data name="ProcessId" inType="win:UInt32"/>
+      <data name="SessionId" inType="win:UInt32"/>
+     </template>
+     <template tid="ProcessExemptArgs">
+      <data name="ProcessId" inType="win:UInt32"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="ExemptGroup" inType="win:UInt32"/>
+      <data name="Modern" inType="win:Boolean"/>
+     </template>
+     <template tid="PolicyReloadArgs">
+      <data name="PolicyRecords" inType="win:UInt32"/>
+     </template>
+     <template tid="PdcCallbackArgs">
+      <data name="State" inType="win:UInt32"/>
+      <data name="NTSTATUS" inType="win:UInt32"/>
+      <data name="WorkItemQueued" inType="win:Boolean"/>
+     </template>
+     <template tid="PdcCallback52Args">
+      <data name="ClientState" inType="win:UInt32"/>
+     </template>
+     <template tid="PdcCallback53Args">
+      <data name="Flags" inType="win:UInt32"/>
+     </template>
+     <template tid="IoTrackingPerfTrackArgs">
+      <data name="DeviceBucket" inType="win:UInt32"/>
+      <data name="ElapsedTimeMs" inType="win:UInt32"/>
+      <data name="FastIoCount" inType="win:UInt32"/>
+      <data name="SlowIoCount" inType="win:UInt32"/>
+     </template>
+     <template tid="IoTrackingCallbackArgs">
+      <data name="DeviceType" inType="win:UInt16"/>
+      <data name="DeviceBucket" inType="win:UInt32"/>
+      <data name="ElapsedTime" inType="win:UInt64"/>
+      <data name="SlowIo" inType="win:Boolean"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_StartStopDriver" value="StartStopDriver"/>
+    <string id="keyword_Control" value="Control"/>
+    <string id="keyword_ProcessActivity" value="ProcessActivity"/>
+    <string id="keyword_Policy" value="Policy"/>
+    <string id="keyword_Pdc" value="Pdc"/>
+    <string id="keyword_IoTracking" value="IoTracking"/>
+    <string id="keyword_PerfTrackContext" value="PerfTrackContext"/>
+    <string id="task_StartDriver" value="StartDriver"/>
+    <string id="task_StopDriver" value="StopDriver"/>
+    <string id="task_SuspendResume" value="SuspendResume"/>
+    <string id="task_Throttle" value="Throttle"/>
+    <string id="task_ResiliencyEngage" value="ResiliencyEngage"/>
+    <string id="task_ProcessActivity" value="ProcessActivity"/>
+    <string id="task_ProcessExempt" value="ProcessExempt"/>
+    <string id="task_PolicyReload" value="PolicyReload"/>
+    <string id="task_PdcCallback" value="PdcCallback"/>
+    <string id="task_PdcAcknowledge" value="PdcAcknowledge"/>
+    <string id="task_IoTrackingPerfTrack" value="IoTrackingPerfTrack"/>
+    <string id="task_IoTrackingCallback" value="IoTrackingCallback"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,179 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-NFC-ClassExtension" guid="{85c070e6-f9ae-481f-aacb-bc550bfd35a1}" resourceFileName="Microsoft-Windows-NFC-ClassExtension" messageFileName="Microsoft-Windows-NFC-ClassExtension" symbol="MicrosoftWindowsNFCClassExtension" source="Xml" >
+    <keywords>
+     <keyword name="Payload" message="$(string.keyword_Payload)" mask="0x1"/>
+     <keyword name="NCI" message="$(string.keyword_NCI)" mask="0x2"/>
+     <keyword name="NFP" message="$(string.keyword_NFP)" mask="0x4"/>
+     <keyword name="Power" message="$(string.keyword_Power)" mask="0x8"/>
+     <keyword name="RF" message="$(string.keyword_RF)" mask="0x10"/>
+     <keyword name="Device" message="$(string.keyword_Device)" mask="0x20"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="IOCTL_NFP_GET_NEXT_SUBSCRIBED_MESSAGE" message="$(string.task_IOCTL_NFP_GET_NEXT_SUBSCRIBED_MESSAGE)" value="1"/>
+     <task name="IOCTL_NFP_GET_NEXT_TRANSMITTED_MESSAGE" message="$(string.task_IOCTL_NFP_GET_NEXT_TRANSMITTED_MESSAGE)" value="2"/>
+     <task name="RFinterfaceinitialization." message="$(string.task_RFinterfaceinitialization.)" value="3"/>
+     <task name="RFfirmwaredownload." message="$(string.task_RFfirmwaredownload.)" value="4"/>
+     <task name="RFNDEFtagread." message="$(string.task_RFNDEFtagread.)" value="5"/>
+     <task name="RFNDEFtagwrite." message="$(string.task_RFNDEFtagwrite.)" value="6"/>
+    </tasks>
+    <maps>
+     <valueMap name="ClientRoleMap">
+      <map value="0x1" message="$(string.map_ClientRoleMapRoleConfiguration)"/>
+      <map value="0x2" message="$(string.map_ClientRoleMapRoleSubscription)"/>
+      <map value="0x3" message="$(string.map_ClientRoleMapRolePublication)"/>
+      <map value="0x4" message="$(string.map_ClientRoleMapRoleSmartCard)"/>
+      <map value="0x5" message="$(string.map_ClientRoleMapRoleSecureElementEvent)"/>
+      <map value="0x6" message="$(string.map_ClientRoleMapRoleSecureElementManager)"/>
+     </valueMap>
+     <valueMap name="RfArrivalDepartureEventMap">
+      <map value="0x0" message="$(string.map_RfArrivalDepartureEventMapTagArrival)"/>
+      <map value="0x1" message="$(string.map_RfArrivalDepartureEventMapTagWritableArrival)"/>
+      <map value="0x2" message="$(string.map_RfArrivalDepartureEventMapTagDeparture)"/>
+      <map value="0x3" message="$(string.map_RfArrivalDepartureEventMapP2PArrival)"/>
+      <map value="0x4" message="$(string.map_RfArrivalDepartureEventMapP2PDeparture)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="task_0_V1" version="1" task="task_0" level="win:Verbose" keywords="Payload NCI" template="task_0Args_V1"/>
+     <event value="2" symbol="task_02_V1" version="1" task="task_0" level="win:Verbose" keywords="Payload NCI" template="task_0Args_V1"/>
+     <event value="3" symbol="task_03_V1" version="1" task="task_0" level="win:Informational" keywords="NCI" template="task_03Args_V1"/>
+     <event value="4" symbol="task_04_V1" version="1" task="task_0" level="win:Informational" keywords="NCI" template="task_03Args_V1"/>
+     <event value="101" symbol="task_0101_V1" version="1" task="task_0" level="win:Informational" keywords="NFP" template="task_0101Args_V1"/>
+     <event value="102" symbol="task_0102_V1" version="1" task="task_0" level="win:Informational" keywords="NFP" template="task_0102Args_V1"/>
+     <event value="103" symbol="task_0103_V1" version="1" task="task_0" level="win:Informational" keywords="NFP" template="task_0103Args_V1"/>
+     <event value="104" symbol="IOCTL_NFP_GET_NEXT_SUBSCRIBED_MESSAGEStart_V1" version="1" task="IOCTL_NFP_GET_NEXT_SUBSCRIBED_MESSAGE" opcode="win:Start" level="win:Informational" keywords="NFP" template="IOCTL_NFP_GET_NEXT_SUBSCRIBED_MESSAGEStartArgs_V1"/>
+     <event value="105" symbol="IOCTL_NFP_GET_NEXT_SUBSCRIBED_MESSAGEStop_V1" version="1" task="IOCTL_NFP_GET_NEXT_SUBSCRIBED_MESSAGE" opcode="win:Stop" level="win:Informational" keywords="NFP" template="IOCTL_NFP_GET_NEXT_SUBSCRIBED_MESSAGEStopArgs_V1"/>
+     <event value="106" symbol="IOCTL_NFP_GET_NEXT_TRANSMITTED_MESSAGEStart_V1" version="1" task="IOCTL_NFP_GET_NEXT_TRANSMITTED_MESSAGE" opcode="win:Start" level="win:Informational" keywords="NFP" template="IOCTL_NFP_GET_NEXT_SUBSCRIBED_MESSAGEStartArgs_V1"/>
+     <event value="107" symbol="IOCTL_NFP_GET_NEXT_TRANSMITTED_MESSAGEStop_V1" version="1" task="IOCTL_NFP_GET_NEXT_TRANSMITTED_MESSAGE" opcode="win:Stop" level="win:Informational" keywords="NFP" template="IOCTL_NFP_GET_NEXT_TRANSMITTED_MESSAGEStopArgs_V1"/>
+     <event value="201" symbol="task_0201_V1" version="1" task="task_0" level="win:Informational" keywords="Power" template="task_0201Args_V1"/>
+     <event value="301" symbol="RFinterfaceinitialization.Start_V1" version="1" task="RFinterfaceinitialization." opcode="win:Start" level="win:Informational" keywords="RF"/>
+     <event value="302" symbol="RFinterfaceinitialization.Stop_V1" version="1" task="RFinterfaceinitialization." opcode="win:Stop" level="win:Informational" keywords="RF" template="RFinterfaceinitialization.StopArgs_V1"/>
+     <event value="303" symbol="task_0303_V1" version="1" task="task_0" level="win:Informational" keywords="RF" template="task_0303Args_V1"/>
+     <event value="304" symbol="RFfirmwaredownload.Start_V1" version="1" task="RFfirmwaredownload." opcode="win:Start" level="win:Informational" keywords="RF" template="RFfirmwaredownload.StartArgs_V1"/>
+     <event value="305" symbol="RFfirmwaredownload.Stop_V1" version="1" task="RFfirmwaredownload." opcode="win:Stop" level="win:Informational" keywords="RF" template="RFinterfaceinitialization.StopArgs_V1"/>
+     <event value="306" symbol="task_0306_V1" version="1" task="task_0" level="win:Informational" keywords="RF" template="task_0306Args_V1"/>
+     <event value="307" symbol="RFNDEFtagread.Start_V1" version="1" task="RFNDEFtagread." opcode="win:Start" level="win:Informational" keywords="RF"/>
+     <event value="308" symbol="RFNDEFtagread.Stop_V1" version="1" task="RFNDEFtagread." opcode="win:Stop" level="win:Informational" keywords="RF" template="RFNDEFtagread.StopArgs_V1"/>
+     <event value="309" symbol="RFNDEFtagwrite.Start_V1" version="1" task="RFNDEFtagwrite." opcode="win:Start" level="win:Informational" keywords="RF" template="RFNDEFtagwrite.StartArgs_V1"/>
+     <event value="310" symbol="RFNDEFtagwrite.Stop_V1" version="1" task="RFNDEFtagwrite." opcode="win:Stop" level="win:Informational" keywords="RF" template="RFinterfaceinitialization.StopArgs_V1"/>
+     <event value="401" symbol="task_0401_V1" version="1" task="task_0" level="win:Informational" keywords="Device" template="task_0401Args_V1"/>
+     <event value="402" symbol="task_0402_V1" version="1" task="task_0" level="win:Informational" keywords="Device" template="task_0402Args_V1"/>
+    </events>
+    <templates>
+     <template tid="task_0Args_V1">
+      <data name="MessageType" inType="win:UInt8"/>
+      <data name="PacketBoundaryFlag" inType="win:UInt8"/>
+      <data name="PacketSize" inType="win:UInt16"/>
+      <data name="RawPacket" inType="win:UInt8" count="PacketSize"/>
+     </template>
+     <template tid="task_03Args_V1">
+      <data name="MessageType" inType="win:UInt8"/>
+      <data name="PacketBoundaryFlag" inType="win:UInt8"/>
+      <data name="PacketSize" inType="win:UInt16"/>
+     </template>
+     <template tid="task_0101Args_V1">
+      <data name="FileObject" inType="win:Pointer"/>
+      <data name="Role" inType="win:UInt32" map="ClientRoleMap"/>
+      <data name="Type" inType="win:AnsiString"/>
+      <data name="TranslationType" inType="win:Int32"/>
+      <data name="TNF" inType="win:UInt8"/>
+     </template>
+     <template tid="task_0102Args_V1">
+      <data name="FileObject" inType="win:Pointer"/>
+      <data name="Role" inType="win:UInt32"/>
+      <data name="Type" inType="win:AnsiString"/>
+      <data name="TranslationType" inType="win:Int32"/>
+      <data name="TNF" inType="win:UInt8"/>
+     </template>
+     <template tid="task_0103Args_V1">
+      <data name="FileObject" inType="win:Pointer"/>
+      <data name="PayloadSize" inType="win:UInt64"/>
+     </template>
+     <template tid="IOCTL_NFP_GET_NEXT_SUBSCRIBED_MESSAGEStartArgs_V1">
+      <data name="FileObject" inType="win:Pointer"/>
+     </template>
+     <template tid="IOCTL_NFP_GET_NEXT_SUBSCRIBED_MESSAGEStopArgs_V1">
+      <data name="FileObject" inType="win:Pointer"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="Information" inType="win:UInt64"/>
+     </template>
+     <template tid="IOCTL_NFP_GET_NEXT_TRANSMITTED_MESSAGEStopArgs_V1">
+      <data name="FileObject" inType="win:Pointer"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0201Args_V1">
+      <data name="RadioIsOn" inType="win:Boolean"/>
+     </template>
+     <template tid="RFinterfaceinitialization.StopArgs_V1">
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0303Args_V1">
+      <data name="Version" inType="win:UInt32"/>
+     </template>
+     <template tid="RFfirmwaredownload.StartArgs_V1">
+      <data name="FirmwareFile" inType="win:UnicodeString"/>
+      <data name="Force" inType="win:Boolean"/>
+     </template>
+     <template tid="task_0306Args_V1">
+      <data name="RfArrivalDepartureEvent" inType="win:UInt32" map="RfArrivalDepartureEventMap"/>
+     </template>
+     <template tid="RFNDEFtagread.StopArgs_V1">
+      <data name="Status" inType="win:UInt32"/>
+      <data name="Length" inType="win:UInt16"/>
+     </template>
+     <template tid="RFNDEFtagwrite.StartArgs_V1">
+      <data name="Length" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0401Args_V1">
+      <data name="IdleTimeout" inType="win:UInt32"/>
+      <data name="PollDevInfo" inType="win:UInt32"/>
+      <data name="NfcIp_Mode" inType="win:UInt8"/>
+      <data name="Duration" inType="win:UInt32"/>
+      <data name="LLCP_MIU" inType="win:UInt16"/>
+      <data name="LLCP_LTO" inType="win:UInt8"/>
+      <data name="LLCP_RecvWindowSize" inType="win:UInt8"/>
+     </template>
+     <template tid="task_0402Args_V1">
+      <data name="NfcRadioTurnedOff" inType="win:Boolean"/>
+      <data name="NfcRadioFlightMode" inType="win:Boolean"/>
+      <data name="SERadioTurnedOff" inType="win:Boolean"/>
+      <data name="SERadioFlightMode" inType="win:Boolean"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Payload" value="Payload"/>
+    <string id="keyword_NCI" value="NCI"/>
+    <string id="keyword_NFP" value="NFP"/>
+    <string id="keyword_Power" value="Power"/>
+    <string id="keyword_RF" value="RF"/>
+    <string id="keyword_Device" value="Device"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_IOCTL_NFP_GET_NEXT_SUBSCRIBED_MESSAGE" value="IOCTL_NFP_GET_NEXT_SUBSCRIBED_MESSAGE"/>
+    <string id="task_IOCTL_NFP_GET_NEXT_TRANSMITTED_MESSAGE" value="IOCTL_NFP_GET_NEXT_TRANSMITTED_MESSAGE"/>
+    <string id="task_RFinterfaceinitialization." value="RFinterfaceinitialization."/>
+    <string id="task_RFfirmwaredownload." value="RFfirmwaredownload."/>
+    <string id="task_RFNDEFtagread." value="RFNDEFtagread."/>
+    <string id="task_RFNDEFtagwrite." value="RFNDEFtagwrite."/>
+    <string id="map_ClientRoleMapRoleConfiguration" value="RoleConfiguration"/>
+    <string id="map_ClientRoleMapRoleSubscription" value="RoleSubscription"/>
+    <string id="map_ClientRoleMapRolePublication" value="RolePublication"/>
+    <string id="map_ClientRoleMapRoleSmartCard" value="RoleSmartCard"/>
+    <string id="map_ClientRoleMapRoleSecureElementEvent" value="RoleSecureElementEvent"/>
+    <string id="map_ClientRoleMapRoleSecureElementManager" value="RoleSecureElementManager"/>
+    <string id="map_RfArrivalDepartureEventMapTagArrival" value="TagArrival"/>
+    <string id="map_RfArrivalDepartureEventMapTagWritableArrival" value="TagWritableArrival"/>
+    <string id="map_RfArrivalDepartureEventMapTagDeparture" value="TagDeparture"/>
+    <string id="map_RfArrivalDepartureEventMapP2PArrival" value="P2PArrival"/>
+    <string id="map_RfArrivalDepartureEventMapP2PDeparture" value="P2PDeparture"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

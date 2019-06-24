@@ -1,0 +1,79 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-DDisplay" guid="{75051c9d-2833-4a29-8923-046db7a432ca}" resourceFileName="Microsoft-Windows-DDisplay" messageFileName="Microsoft-Windows-DDisplay" symbol="MicrosoftWindowsDDisplay" source="Xml" >
+    <keywords>
+     <keyword name="Objects" message="$(string.keyword_Objects)" mask="0x1"/>
+     <keyword name="Events" message="$(string.keyword_Events)" mask="0x2"/>
+    </keywords>
+    <tasks>
+     <task name="Adapter" message="$(string.task_Adapter)" value="3"/>
+     <task name="FindClosestMatchingMode" message="$(string.task_FindClosestMatchingMode)" value="8"/>
+    </tasks>
+    <maps>
+     <valueMap name="DDisplayScanlineOrdering">
+      <map value="0x0" message="$(string.map_DDisplayScanlineOrderingDDisplay_MODE_SCANLINE_ORDER_UNSPECIFIED)"/>
+      <map value="0x1" message="$(string.map_DDisplayScanlineOrderingDDisplay_MODE_SCANLINE_ORDER_PROGRESSIVE)"/>
+      <map value="0x2" message="$(string.map_DDisplayScanlineOrderingDDisplay_MODE_SCANLINE_ORDER_UPPER_FIELD_FIRST)"/>
+      <map value="0x3" message="$(string.map_DDisplayScanlineOrderingDDisplay_MODE_SCANLINE_ORDER_LOWER_FIELD_FIRST)"/>
+     </valueMap>
+     <valueMap name="DDisplayScaling">
+      <map value="0x0" message="$(string.map_DDisplayScalingDDisplay_MODE_SCALING_UNSPECIFIED)"/>
+      <map value="0x1" message="$(string.map_DDisplayScalingDDisplay_MODE_SCALING_CENTERED)"/>
+      <map value="0x2" message="$(string.map_DDisplayScalingDDisplay_MODE_SCALING_STRETCHED)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="AdapterStart" version="0" task="Adapter" opcode="win:Start" level="win:Always" keywords="Objects" template="AdapterStartArgs"/>
+     <event value="2" symbol="AdapterStop" version="0" task="Adapter" opcode="win:Stop" level="win:Always" keywords="Objects" template="AdapterStartArgs"/>
+     <event value="3" symbol="FindClosestMatchingModeStart" version="0" task="FindClosestMatchingMode" opcode="win:Start" level="win:Always" keywords="Events" template="FindClosestMatchingModeStartArgs"/>
+     <event value="4" symbol="FindClosestMatchingModeStop" version="0" task="FindClosestMatchingMode" opcode="win:Stop" level="win:Always" keywords="Events" template="FindClosestMatchingModeStopArgs"/>
+    </events>
+    <templates>
+     <template tid="AdapterStartArgs">
+      <data name="pIDDisplayController" inType="win:Pointer"/>
+      <data name="KMTAdapterHandle" inType="win:UInt32"/>
+     </template>
+     <template tid="FindClosestMatchingModeStartArgs">
+      <data name="pIDDisplayOutput" inType="win:Pointer"/>
+      <data name="WidthToMatch" inType="win:UInt32"/>
+      <data name="HeightToMatch" inType="win:UInt32"/>
+      <data name="RefreshNumeratorToMatch" inType="win:UInt32"/>
+      <data name="RefreshDenominatorToMatch" inType="win:UInt32"/>
+      <data name="FormatToMatch" inType="win:UInt32"/>
+      <data name="ScanlineOrderingToMatch" inType="win:UInt32" map="DDisplayScanlineOrdering"/>
+      <data name="ScalingToMatch" inType="win:UInt32" map="DDisplayScaling"/>
+     </template>
+     <template tid="FindClosestMatchingModeStopArgs">
+      <data name="pIDDisplayOutput" inType="win:Pointer"/>
+      <data name="ReturnValue" inType="win:UInt32"/>
+      <data name="WidthResult" inType="win:UInt32"/>
+      <data name="HeightResult" inType="win:UInt32"/>
+      <data name="RefreshNumeratorResult" inType="win:UInt32"/>
+      <data name="RefreshDenominatorResult" inType="win:UInt32"/>
+      <data name="FormatResult" inType="win:UInt32"/>
+      <data name="ScanlineOrderingResult" inType="win:UInt32"/>
+      <data name="ScalingResult" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Objects" value="Objects"/>
+    <string id="keyword_Events" value="Events"/>
+    <string id="task_Adapter" value="Adapter"/>
+    <string id="task_FindClosestMatchingMode" value="FindClosestMatchingMode"/>
+    <string id="map_DDisplayScanlineOrderingDDisplay_MODE_SCANLINE_ORDER_UNSPECIFIED" value="DDisplay_MODE_SCANLINE_ORDER_UNSPECIFIED"/>
+    <string id="map_DDisplayScanlineOrderingDDisplay_MODE_SCANLINE_ORDER_PROGRESSIVE" value="DDisplay_MODE_SCANLINE_ORDER_PROGRESSIVE"/>
+    <string id="map_DDisplayScanlineOrderingDDisplay_MODE_SCANLINE_ORDER_UPPER_FIELD_FIRST" value="DDisplay_MODE_SCANLINE_ORDER_UPPER_FIELD_FIRST"/>
+    <string id="map_DDisplayScanlineOrderingDDisplay_MODE_SCANLINE_ORDER_LOWER_FIELD_FIRST" value="DDisplay_MODE_SCANLINE_ORDER_LOWER_FIELD_FIRST"/>
+    <string id="map_DDisplayScalingDDisplay_MODE_SCALING_UNSPECIFIED" value="DDisplay_MODE_SCALING_UNSPECIFIED"/>
+    <string id="map_DDisplayScalingDDisplay_MODE_SCALING_CENTERED" value="DDisplay_MODE_SCALING_CENTERED"/>
+    <string id="map_DDisplayScalingDDisplay_MODE_SCALING_STRETCHED" value="DDisplay_MODE_SCALING_STRETCHED"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>
