@@ -16,4 +16,4 @@ Moreover, in a quest to find more interesting ETW providers, I started reversing
 
 Currently reverse engineered providers:
 
-- Microsoft-Windows-Kernel-Audit-API-Calls (Win10)
+- [/Manifests-Win10-1734/Microsoft-Windows-Kernel-Audit-API-Calls](/Manifest-Win10-1734/Microsoft-Windows-Kernel-Audit-API-Calls.xml)
