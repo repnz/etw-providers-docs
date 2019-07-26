@@ -1,8 +1,8 @@
 # ETW Providers Docs
 
-Windows 7 - [/Manifests-Win7-7600](/Manifest-Win7-7600)
+Windows 7 - [/Manifests-Win7-7600](/Manifests-Win7-7600)
 
-Windows 10 - [/Manifests-Win10-1734](/Manifest-Win10-1734)
+Windows 10 - [/Manifests-Win10-1734](/Manifests-Win10-1734)
 
 Windows provides the ETW framework for event tracing. The ETW framework comes with many built-in ETW providers, but
 most of them are not documented very well. 
@@ -16,4 +16,4 @@ Moreover, in a quest to find more interesting ETW providers, I started reversing
 
 Currently reverse engineered providers:
 
-- [/Manifests-Win10-1734/Microsoft-Windows-Kernel-Audit-API-Calls](/Manifest-Win10-1734/Microsoft-Windows-Kernel-Audit-API-Calls.xml)
+- [/Manifests-Win10-1734/Microsoft-Windows-Kernel-Audit-API-Calls](/Manifests-Win10-1734/Microsoft-Windows-Kernel-Audit-API-Calls.xml)
