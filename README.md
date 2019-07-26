@@ -11,3 +11,9 @@ Using tdh.h API provider information can be dumped. For manifest based providers
 (https://github.com/Kae7in/perfview/blob/444fd391db9b8275846e2a5bbb8ec1d6e73a5dad/src/PerfView/Extensibility.cs#L2523) 
 (this is not the original manifest, because manifests are compiled) For non-manifest based providers, currently only keywords are dumped. But theoretically you can register to the provider and just cache
 all the results from all the events (in this case the event must be raised for it to be documented)
+
+Moreover, in a quest to find more interesting ETW providers, I started reversing specific ETW providers and document the manifests.
+
+Currently reverse engineered providers:
+
+- Microsoft-Windows-Kernel-Audit-API-Calls (Win10)
