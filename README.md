@@ -19,4 +19,4 @@ Some manifests were found in open source Microsoft repositories:
 Currently reverse engineered providers:
 
 - [/Manifests-Win10-17134/Microsoft-Windows-Kernel-Audit-API-Calls](/Manifests-Win10-17134/Microsoft-Windows-Kernel-Audit-API-Calls.xml) - reverse engineered from ntoskrnl symbols
--  [/Manifests-Win10-17134/Microsoft-Windows-Kernel-General](/Manifests-Win10-17134/Microsoft-Windows-Kernel-Audit-API-Calls.xml) - reverse engineered from ntoskrnl symbols
+-  [/Manifests-Win10-17134/Microsoft-Windows-Kernel-General](/Manifests-Win10-17134/Microsoft-Windows-Kernel-Audit-API-Calls.xml) - found in microsoft open source repo
