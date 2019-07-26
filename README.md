@@ -13,7 +13,10 @@ Using tdh.h API provider information can be dumped. For manifest based providers
 all the results from all the events (in this case the event must be raised for it to be documented)
 
 Moreover, in a quest to find more interesting ETW providers, I started reversing specific ETW providers and document the manifests.
+Some manifests were found in open source Microsoft repositories:
+- [https://github.com/microsoft/Tx/tree/master/Manifests](https://github.com/microsoft/Tx/tree/master/Manifests)
 
 Currently reverse engineered providers:
 
-- [/Manifests-Win10-17134/Microsoft-Windows-Kernel-Audit-API-Calls](/Manifests-Win10-17134/Microsoft-Windows-Kernel-Audit-API-Calls.xml)
+- [/Manifests-Win10-17134/Microsoft-Windows-Kernel-Audit-API-Calls](/Manifests-Win10-17134/Microsoft-Windows-Kernel-Audit-API-Calls.xml) - reverse engineered from ntoskrnl symbols
+-  [/Manifests-Win10-17134/Microsoft-Windows-Kernel-General](/Manifests-Win10-17134/Microsoft-Windows-Kernel-Audit-API-Calls.xml) - reverse engineered from ntoskrnl symbols
