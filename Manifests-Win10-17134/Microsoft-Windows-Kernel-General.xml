@@ -1,6 +1,7 @@
 <instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
  <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
   <events>
+  
    <provider name="Microsoft-Windows-Kernel-General" guid="{a68ca8b7-004f-d7b6-a698-07e2de0f1f5d}" resourceFileName="Microsoft-Windows-Kernel-General" messageFileName="Microsoft-Windows-Kernel-General" symbol="MicrosoftWindowsKernelGeneral" source="Xml" >
     <keywords>
      <keyword name="KERNEL_GENERAL_KEYWORD_TIME" message="$(string.keyword_KERNEL_GENERAL_KEYWORD_TIME)" mask="0x10"/>
@@ -25,7 +26,7 @@
      </valueMap>
     </maps>
     <events>
-     <event value="1" symbol="task_0" version="0" task="task_0" level="win:Informational" keywords="KERNEL_GENERAL_KEYWORD_TIME" template="task_0Args"/>
+     <event value="1" symbol="KernelSystemTimeChangeWithReason" version="0" task="task_0" level="win:Informational" keywords="KERNEL_GENERAL_KEYWORD_TIME" template="KernelSystemTimeChangeWithReasonArgs"/>
      <event value="1" symbol="SystemTimeChange_V1" version="1" task="SystemTimeChange" level="win:Informational" keywords="KERNEL_GENERAL_KEYWORD_TIME" template="SystemTimeChangeArgs_V1"/>
      <event value="2" symbol="task_02" version="0" task="task_0" level="win:Informational"/>
      <event value="3" symbol="task_03" version="0" task="task_0" level="win:Informational"/>
@@ -35,7 +36,9 @@
      <event value="11" symbol="task_011" version="0" task="task_0" level="win:Informational" template="task_011Args"/>
      <event value="12" symbol="SystemStart" version="0" task="SystemStart" level="win:Informational" keywords="BootPerformance" template="SystemStartArgs"/>
      <event value="13" symbol="SystemStop" version="0" task="SystemStop" level="win:Informational" keywords="BootPerformance" template="SystemStopArgs"/>
-     <event value="14" symbol="task_014" version="0" task="task_0" level="win:Error" keywords="KERNEL_GENERAL_SECURITY_ACCESSCHECK" template="task_014Args"/>
+
+     <!-- Logged inside  SeLogAccessFailure, only access failure-->
+     <event value="14" symbol="AccessCheckLog" version="0" task="task_0" level="win:Error" keywords="KERNEL_GENERAL_SECURITY_ACCESSCHECK" template="AccessCheckLogArgs"/>
      <event value="15" symbol="task_015" version="0" task="task_0" level="win:Informational" template="task_015Args"/>
      <event value="16" symbol="task_016" version="0" task="task_0" level="win:Informational" template="task_016Args"/>
      <event value="17" symbol="task_017" version="0" task="task_0" level="win:Informational" keywords="KERNEL_GENERAL_TOKEN_SID_MANAGEMENT" template="task_017Args"/>
@@ -43,7 +46,7 @@
      <event value="19" symbol="BootPerformanceData" version="0" task="BootPerformanceData" level="win:Informational" keywords="BootPerformance" template="BootPerformanceDataArgs"/>
     </events>
     <templates>
-     <template tid="task_0Args">
+     <template tid="KernelSystemTimeChangeWithReasonArgs">
       <data name="NewTime" inType="win:FILETIME"/>
       <data name="OldTime" inType="win:FILETIME"/>
      </template>
@@ -72,7 +75,7 @@
      <template tid="SystemStopArgs">
       <data name="StopTime" inType="win:FILETIME"/>
      </template>
-     <template tid="task_014Args">
+     <template tid="AccessCheckLogArgs">
       <data name="Mode" inType="win:UnicodeString"/>
       <data name="ObjectType" inType="win:UnicodeString"/>
       <data name="ObjectName" inType="win:UnicodeString"/>
@@ -153,6 +156,140 @@
     </templates>
    </provider>
   </events>
+
+  <!-- This is the original version of the manifest -->
+  <provider guid="{A68CA8B7-004F-D7B6-A698-07E2DE0F1F5D}" message="$(string.KernelGeneralProviderName)" messageFileName="%SystemRoot%\system32\advapi32.dll" name="Microsoft-Windows-Kernel-General" resourceFileName="%SystemRoot%\system32\advapi32.dll" symbol="KernelProvGuid">
+    <channels>
+        <importChannel chid="KERNEL_GENERAL_CHANNEL_SYSTEM" name="System" />
+    </channels>
+    <keywords>
+        <keyword mask="0x10" message="$(string.KERNEL_GENERAL_KEYWORD_TIME.KeywordMessage)" name="KERNEL_GENERAL_KEYWORD_TIME" symbol="KERNEL_GENERAL_KEYWORD_TIME" />
+        <keyword mask="0x20" name="KERNEL_GENERAL_SECURITY_ACCESSCHECK" symbol="KERNEL_GENERAL_SECURITY_ACCESSCHECK" />
+    </keywords>
+    <maps>
+        <valueMap name="Ex:SystemTimeChange.ReasonMap">
+            <map message="$(string.KernelSystemTimeChange.Reason.Initialize.EventMessage)" value="0" />
+            <map message="$(string.KernelSystemTimeChange.Reason.Application.EventMessage)" value="1" />
+            <map message="$(string.KernelSystemTimeChange.Reason.Hardware.EventMessage)" value="2" />
+            <map message="$(string.KernelSystemTimeChange.Reason.TimeZone.EventMessage)" value="3" />
+        </valueMap>
+    </maps>
+    <templates>
+        <template tid="tid_SystemTimeChange">
+            <data inType="win:FILETIME" name="NewTime" outType="xs:dateTime" />
+            <data inType="win:FILETIME" name="OldTime" outType="xs:dateTime" />
+        </template>
+        <template tid="tid_SystemTimeChangeWithReason">
+            <data inType="win:FILETIME" name="NewTime" outType="xs:dateTime" />
+            <data inType="win:FILETIME" name="OldTime" outType="xs:dateTime" />
+            <data inType="win:UInt32" map="Ex:SystemTimeChange.ReasonMap" name="Reason" />
+        </template>
+        <template tid="tid_LicensingCacheInfo" />
+        <template tid="tid_RegSelfHealEvent">
+            <data inType="win:HexInt32" name="FinalStatus" />
+            <data inType="win:UInt16" name="ExtraStringLength" />
+            <data inType="win:UnicodeString" length="ExtraStringLength" name="ExtraString" />
+        </template>
+        <template tid="tid_RegFlushIOFailureEvent">
+            <data inType="win:HexInt32" name="FinalStatus" />
+            <data inType="win:UInt16" name="ExtraStringLength" />
+            <data inType="win:UnicodeString" length="ExtraStringLength" name="ExtraString" />
+        </template>
+        <template tid="tid_InitTxR">
+            <data inType="win:UInt16" name="ExtraStringLength" />
+            <data inType="win:UnicodeString" length="ExtraStringLength" name="ExtraString" />
+            <data inType="win:GUID" name="TmId" outType="xs:GUID" />
+            <data inType="win:GUID" name="RmId" outType="xs:GUID" />
+            <data inType="win:HexInt32" name="Status" />
+            <data inType="win:UInt32" name="InternalCode" />
+        </template>
+        <template tid="tid_RegReorganizeEvent">
+            <data inType="win:UInt16" name="HiveNameLength" />
+            <data inType="win:UnicodeString" length="HiveNameLength" name="HiveName" />
+            <data inType="win:UInt32" name="OriginalSize" />
+            <data inType="win:UInt32" name="NewSize" />
+        </template>
+        <template tid="tid_RegClearAccessEvent">
+            <data inType="win:UInt16" name="HiveNameLength" />
+            <data inType="win:UnicodeString" length="HiveNameLength" name="HiveName" />
+            <data inType="win:UInt32" name="KeysUpdated" />
+            <data inType="win:UInt32" name="DirtyPages" />
+        </template>
+        <template tid="tid_SystemStart">
+            <data inType="win:UInt32" name="MajorVersion" outType="xs:unsignedInt" />
+            <data inType="win:UInt32" name="MinorVersion" outType="xs:unsignedInt" />
+            <data inType="win:UInt32" name="BuildVersion" outType="xs:unsignedInt" />
+            <data inType="win:UInt32" name="QfeVersion" outType="xs:unsignedInt" />
+            <data inType="win:UInt16" name="ServiceVersion" outType="xs:unsignedShort" />
+            <data inType="win:UInt32" name="BootMode" outType="xs:unsignedInt" />
+            <data inType="win:FILETIME" name="StartTime" outType="xs:dateTime" />
+        </template>
+        <template tid="tid_SystemStop">
+            <data inType="win:FILETIME" name="StopTime" outType="xs:dateTime" />
+        </template>
+        <template tid="tid_AccessCheckLog">
+            <data inType="win:UnicodeString" name="Mode" />
+            <data inType="win:UnicodeString" name="ObjectType" />
+            <data inType="win:UnicodeString" name="ObjectName" />
+            <data inType="win:UnicodeString" name="ProcessName" />
+            <data inType="win:UnicodeString" name="ObjectCreatorProcessName" />
+            <data inType="win:HexInt32" name="AccessMask" />
+            <data inType="win:UInt32" name="TokenType" />
+            <data inType="win:UInt32" name="ImpersonationLevel" />
+            <data inType="win:UInt32" name="SessionId" />
+            <data inType="win:UInt32" name="LowBoxNumber" />
+            <data inType="win:UInt32" name="TokenGroupsCount" />
+            <struct count="TokenGroupsCount" name="TokenGroups">
+                <data inType="win:HexInt32" name="GroupAttributes" />
+                <data inType="win:SID" name="GroupSid" />
+            </struct>
+            <data inType="win:UInt32" name="TokenPackageCount" />
+            <struct count="TokenPackageCount" name="TokenPackage">
+                <data inType="win:SID" name="PackageSid" />
+            </struct>
+            <data inType="win:UInt32" name="TokenCapabilityCount" />
+            <struct count="TokenCapabilityCount" name="TokenCapabilities">
+                <data inType="win:HexInt32" name="CapabilityAttributes" />
+                <data inType="win:SID" name="CapabilitySid" />
+            </struct>
+            <data inType="win:UInt8" name="SecurityDescriptorRevision" />
+            <data inType="win:UInt16" name="SecurityDescriptorControl" outType="win:HexInt16" />
+            <data inType="win:SID" name="SecurityDescriptorOwner" />
+            <data inType="win:SID" name="SecurityDescriptorGroup" />
+            <data inType="win:UInt8" name="DaclRevision" />
+            <data inType="win:UInt16" name="DaclAceCount" />
+            <struct count="DaclAceCount" name="DaclAce">
+                <data inType="win:UInt32" name="AceType" />
+                <data inType="win:HexInt32" name="AceFlags" />
+                <data inType="win:HexInt32" name="AccessMask" />
+                <data inType="win:SID" name="Sid" />
+            </struct>
+            <data inType="win:UInt8" name="SaclRevision" />
+            <data inType="win:UInt16" name="SaclAceCount" />
+            <struct count="SaclAceCount" name="SaclAce">
+                <data inType="win:UInt32" name="AceType" />
+                <data inType="win:HexInt32" name="AceFlags" />
+                <data inType="win:HexInt32" name="AccessMask" />
+                <data inType="win:SID" name="Sid" />
+            </struct>
+        </template>
+    </templates>
+    <events>
+        <event channel="KERNEL_GENERAL_CHANNEL_SYSTEM" keywords="KERNEL_GENERAL_KEYWORD_TIME" level="win:Informational" message="$(string.KernelSystemTimeChange.EventMessage)" opcode="win:Info" symbol="KernelSystemTimeChange" template="tid_SystemTimeChange" value="1" />
+        <event channel="KERNEL_GENERAL_CHANNEL_SYSTEM" keywords="KERNEL_GENERAL_KEYWORD_TIME" level="win:Informational" message="$(string.KernelSystemTimeChangeWithReason.EventMessage)" opcode="win:Info" symbol="KernelSystemTimeChangeWithReason" template="tid_SystemTimeChangeWithReason" value="1" version="1" />
+        <event channel="KERNEL_GENERAL_CHANNEL_SYSTEM" level="win:Informational" message="$(string.KernelLicensingCacheCorrupt.EventMessage)" opcode="win:Info" symbol="KernelLicensingCacheCorrupt" template="tid_LicensingCacheInfo" value="2" />
+        <event channel="KERNEL_GENERAL_CHANNEL_SYSTEM" level="win:Informational" message="$(string.KernelLicensingCacheCorruptionFixed.EventMessage)" opcode="win:Info" symbol="KernelLicensingCacheCorruptionFixed" template="tid_LicensingCacheInfo" value="3" />
+        <event channel="KERNEL_GENERAL_CHANNEL_SYSTEM" level="win:Informational" message="$(string.KernelLicensingCacheExpired.EventMessage)" opcode="win:Info" symbol="KernelLicensingCacheExpired" template="tid_LicensingCacheInfo" value="4" />
+        <event channel="KERNEL_GENERAL_CHANNEL_SYSTEM" level="win:Error" message="$(string.REG_EVENT_SELFHEAL.EventMessage)" symbol="REG_EVENT_SELFHEAL" template="tid_RegSelfHealEvent" value="5" />
+        <event channel="KERNEL_GENERAL_CHANNEL_SYSTEM" level="win:Error" message="$(string.REG_EVENT_FLUSH_IO_FAIL.EventMessage)" symbol="REG_EVENT_FLUSH_IO_FAIL" template="tid_RegFlushIOFailureEvent" value="6" />
+        <event channel="KERNEL_GENERAL_CHANNEL_SYSTEM" level="win:Informational" message="$(string.REG_EVENT_TXR_INIT.EventMessage)" opcode="win:Info" symbol="REG_EVENT_TXR_INIT" template="tid_InitTxR" value="11" />
+        <event channel="KERNEL_GENERAL_CHANNEL_SYSTEM" level="win:Informational" message="$(string.KERNEL_GENERAL_START.EventMessage)" opcode="win:Info" symbol="KernelSystemStart" template="tid_SystemStart" value="12" />
+        <event channel="KERNEL_GENERAL_CHANNEL_SYSTEM" level="win:Informational" message="$(string.KERNEL_GENERAL_STOP.EventMessage)" opcode="win:Info" symbol="KernelSystemStop" template="tid_SystemStop" value="13" />
+        <event keywords="KERNEL_GENERAL_SECURITY_ACCESSCHECK" level="win:Error" symbol="AccessCheckLog" template="tid_AccessCheckLog" value="14" />
+        <event channel="KERNEL_GENERAL_CHANNEL_SYSTEM" level="win:Informational" message="$(string.REG_EVENT_REORGANIZE.EventMessage)" opcode="win:Info" symbol="REG_EVENT_REORGANIZE" template="tid_RegReorganizeEvent" value="15" />
+        <event channel="KERNEL_GENERAL_CHANNEL_SYSTEM" level="win:Informational" message="$(string.REG_EVENT_CLEAR_ACCESS.EventMessage)" opcode="win:Info" symbol="REG_EVENT_CLEAR_ACCESS" template="tid_RegClearAccessEvent" value="16" />
+    </events>
+</provider>
  </instrumentation>
  <localization>
   <resources culture="en-US">
