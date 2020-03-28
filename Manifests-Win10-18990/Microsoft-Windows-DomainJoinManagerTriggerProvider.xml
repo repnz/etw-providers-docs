@@ -1,0 +1,41 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-DomainJoinManagerTriggerProvider" guid="{5b004607-1087-4f16-b10e-979685a8d131}" resourceFileName="Microsoft-Windows-DomainJoinManagerTriggerProvider" messageFileName="Microsoft-Windows-DomainJoinManagerTriggerProvider" symbol="MicrosoftWindowsDomainJoinManagerTriggerProvider" source="Xml" >
+    <keywords>
+     <keyword name="Keyword_DomainJoinEvent" message="$(string.keyword_Keyword_DomainJoinEvent)" mask="0x1"/>
+     <keyword name="Keyword_DomainUnjoinEvent" message="$(string.keyword_Keyword_DomainUnjoinEvent)" mask="0x2"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0">
+>
+      <opcodes>
+       <opcode name="Opcode_DomainJoinEvent" message="$(string.opcode_task_0Opcode_DomainJoinEvent)" value="100"/>
+       <opcode name="Opcode_DomainUnjoinEvent" message="$(string.opcode_task_0Opcode_DomainUnjoinEvent)" value="101"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="1" symbol="task_0Opcode_DomainJoinEvent" version="0" task="task_0" opcode="Opcode_DomainJoinEvent" level="win:Informational" keywords="Keyword_DomainJoinEvent" template="task_0Opcode_DomainJoinEventArgs"/>
+     <event value="2" symbol="task_0Opcode_DomainUnjoinEvent" version="0" task="task_0" opcode="Opcode_DomainUnjoinEvent" level="win:Informational" keywords="Keyword_DomainUnjoinEvent" template="task_0Opcode_DomainJoinEventArgs"/>
+    </events>
+    <templates>
+     <template tid="task_0Opcode_DomainJoinEventArgs">
+      <data name="DomainMembershipChangeGuid" inType="win:GUID"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Keyword_DomainJoinEvent" value="Keyword_DomainJoinEvent"/>
+    <string id="keyword_Keyword_DomainUnjoinEvent" value="Keyword_DomainUnjoinEvent"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="opcode_task_0Opcode_DomainJoinEvent" value="Opcode_DomainJoinEvent"/>
+    <string id="opcode_task_0Opcode_DomainUnjoinEvent" value="Opcode_DomainUnjoinEvent"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

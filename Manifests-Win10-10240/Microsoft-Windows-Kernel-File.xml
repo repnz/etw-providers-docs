@@ -1,0 +1,231 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Kernel-File" guid="{edd08927-9cc4-4e65-b970-c2560fb5c289}" resourceFileName="Microsoft-Windows-Kernel-File" messageFileName="Microsoft-Windows-Kernel-File" symbol="MicrosoftWindowsKernelFile" source="Xml" >
+    <keywords>
+     <keyword name="KERNEL_FILE_KEYWORD_FILENAME" message="$(string.keyword_KERNEL_FILE_KEYWORD_FILENAME)" mask="0x10"/>
+     <keyword name="KERNEL_FILE_KEYWORD_FILEIO" message="$(string.keyword_KERNEL_FILE_KEYWORD_FILEIO)" mask="0x20"/>
+     <keyword name="KERNEL_FILE_KEYWORD_OP_END" message="$(string.keyword_KERNEL_FILE_KEYWORD_OP_END)" mask="0x40"/>
+     <keyword name="KERNEL_FILE_KEYWORD_CREATE" message="$(string.keyword_KERNEL_FILE_KEYWORD_CREATE)" mask="0x80"/>
+     <keyword name="KERNEL_FILE_KEYWORD_READ" message="$(string.keyword_KERNEL_FILE_KEYWORD_READ)" mask="0x100"/>
+     <keyword name="KERNEL_FILE_KEYWORD_WRITE" message="$(string.keyword_KERNEL_FILE_KEYWORD_WRITE)" mask="0x200"/>
+     <keyword name="KERNEL_FILE_KEYWORD_DELETE_PATH" message="$(string.keyword_KERNEL_FILE_KEYWORD_DELETE_PATH)" mask="0x400"/>
+     <keyword name="KERNEL_FILE_KEYWORD_RENAME_SETLINK_PATH" message="$(string.keyword_KERNEL_FILE_KEYWORD_RENAME_SETLINK_PATH)" mask="0x800"/>
+     <keyword name="KERNEL_FILE_KEYWORD_CREATE_NEW_FILE" message="$(string.keyword_KERNEL_FILE_KEYWORD_CREATE_NEW_FILE)" mask="0x1000"/>
+    </keywords>
+    <tasks>
+     <task name="NameCreate" message="$(string.task_NameCreate)" value="10"/>
+     <task name="NameDelete" message="$(string.task_NameDelete)" value="11"/>
+     <task name="Create" message="$(string.task_Create)" value="12"/>
+     <task name="Cleanup" message="$(string.task_Cleanup)" value="13"/>
+     <task name="Close" message="$(string.task_Close)" value="14"/>
+     <task name="Read" message="$(string.task_Read)" value="15"/>
+     <task name="Write" message="$(string.task_Write)" value="16"/>
+     <task name="SetInformation" message="$(string.task_SetInformation)" value="17"/>
+     <task name="SetDelete" message="$(string.task_SetDelete)" value="18"/>
+     <task name="Rename" message="$(string.task_Rename)" value="19"/>
+     <task name="DirEnum" message="$(string.task_DirEnum)" value="20"/>
+     <task name="Flush" message="$(string.task_Flush)" value="21"/>
+     <task name="QueryInformation" message="$(string.task_QueryInformation)" value="22"/>
+     <task name="FSCTL" message="$(string.task_FSCTL)" value="23"/>
+     <task name="OperationEnd" message="$(string.task_OperationEnd)" value="24"/>
+     <task name="DirNotify" message="$(string.task_DirNotify)" value="25"/>
+     <task name="DeletePath" message="$(string.task_DeletePath)" value="26"/>
+     <task name="RenamePath" message="$(string.task_RenamePath)" value="27"/>
+     <task name="SetLinkPath" message="$(string.task_SetLinkPath)" value="28"/>
+     <task name="CreateNewFile" message="$(string.task_CreateNewFile)" value="30"/>
+    </tasks>
+    <events>
+     <event value="10" symbol="NameCreate" version="0" task="NameCreate" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_FILENAME" template="NameCreateArgs"/>
+     <event value="11" symbol="NameDelete" version="0" task="NameDelete" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_FILENAME" template="NameCreateArgs"/>
+     <event value="12" symbol="Create" version="0" task="Create" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_FILEIO KERNEL_FILE_KEYWORD_CREATE" template="CreateArgs"/>
+     <event value="12" symbol="Create_V1" version="1" task="Create" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_FILEIO KERNEL_FILE_KEYWORD_CREATE" template="CreateArgs_V1"/>
+     <event value="13" symbol="Cleanup" version="0" task="Cleanup" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_FILEIO" template="CleanupArgs"/>
+     <event value="13" symbol="Cleanup_V1" version="1" task="Cleanup" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_FILEIO" template="CleanupArgs_V1"/>
+     <event value="14" symbol="Close" version="0" task="Close" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_FILEIO" template="CleanupArgs"/>
+     <event value="14" symbol="Close_V1" version="1" task="Close" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_FILEIO" template="CleanupArgs_V1"/>
+     <event value="15" symbol="Read" version="0" task="Read" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_FILEIO KERNEL_FILE_KEYWORD_READ" template="ReadArgs"/>
+     <event value="15" symbol="Read_V1" version="1" task="Read" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_FILEIO KERNEL_FILE_KEYWORD_READ" template="ReadArgs_V1"/>
+     <event value="16" symbol="Write" version="0" task="Write" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_FILEIO KERNEL_FILE_KEYWORD_WRITE" template="ReadArgs"/>
+     <event value="16" symbol="Write_V1" version="1" task="Write" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_FILEIO KERNEL_FILE_KEYWORD_WRITE" template="ReadArgs_V1"/>
+     <event value="17" symbol="SetInformation" version="0" task="SetInformation" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_FILEIO" template="SetInformationArgs"/>
+     <event value="17" symbol="SetInformation_V1" version="1" task="SetInformation" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_FILEIO" template="SetInformationArgs_V1"/>
+     <event value="18" symbol="SetDelete" version="0" task="SetDelete" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_FILEIO" template="SetInformationArgs"/>
+     <event value="18" symbol="SetDelete_V1" version="1" task="SetDelete" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_FILEIO" template="SetInformationArgs_V1"/>
+     <event value="19" symbol="Rename" version="0" task="Rename" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_FILEIO" template="SetInformationArgs"/>
+     <event value="19" symbol="Rename_V1" version="1" task="Rename" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_FILEIO" template="SetInformationArgs_V1"/>
+     <event value="20" symbol="DirEnum" version="0" task="DirEnum" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_FILEIO" template="DirEnumArgs"/>
+     <event value="20" symbol="DirEnum_V1" version="1" task="DirEnum" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_FILEIO" template="DirEnumArgs_V1"/>
+     <event value="21" symbol="Flush" version="0" task="Flush" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_FILEIO" template="CleanupArgs"/>
+     <event value="21" symbol="Flush_V1" version="1" task="Flush" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_FILEIO" template="CleanupArgs_V1"/>
+     <event value="22" symbol="QueryInformation" version="0" task="QueryInformation" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_FILEIO" template="SetInformationArgs"/>
+     <event value="22" symbol="QueryInformation_V1" version="1" task="QueryInformation" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_FILEIO" template="SetInformationArgs_V1"/>
+     <event value="23" symbol="FSCTL" version="0" task="FSCTL" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_FILEIO" template="SetInformationArgs"/>
+     <event value="23" symbol="FSCTL_V1" version="1" task="FSCTL" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_FILEIO" template="SetInformationArgs_V1"/>
+     <event value="24" symbol="OperationEnd" version="0" task="OperationEnd" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_FILEIO KERNEL_FILE_KEYWORD_OP_END" template="OperationEndArgs"/>
+     <event value="25" symbol="DirNotify" version="0" task="DirNotify" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_FILEIO" template="DirEnumArgs"/>
+     <event value="25" symbol="DirNotify_V1" version="1" task="DirNotify" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_FILEIO" template="DirEnumArgs_V1"/>
+     <event value="26" symbol="DeletePath" version="0" task="DeletePath" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_DELETE_PATH" template="DeletePathArgs"/>
+     <event value="26" symbol="DeletePath_V1" version="1" task="DeletePath" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_DELETE_PATH" template="DeletePathArgs_V1"/>
+     <event value="27" symbol="RenamePath" version="0" task="RenamePath" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_RENAME_SETLINK_PATH" template="DeletePathArgs"/>
+     <event value="27" symbol="RenamePath_V1" version="1" task="RenamePath" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_RENAME_SETLINK_PATH" template="DeletePathArgs_V1"/>
+     <event value="28" symbol="SetLinkPath" version="0" task="SetLinkPath" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_RENAME_SETLINK_PATH" template="DeletePathArgs"/>
+     <event value="28" symbol="SetLinkPath_V1" version="1" task="SetLinkPath" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_RENAME_SETLINK_PATH" template="DeletePathArgs_V1"/>
+     <event value="29" symbol="Rename29" version="0" task="Rename" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_FILEIO" template="SetInformationArgs"/>
+     <event value="29" symbol="Rename29_V1" version="1" task="Rename" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_FILEIO" template="SetInformationArgs_V1"/>
+     <event value="30" symbol="CreateNewFile" version="0" task="CreateNewFile" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_CREATE_NEW_FILE" template="CreateArgs"/>
+     <event value="30" symbol="CreateNewFile_V1" version="1" task="CreateNewFile" level="win:Informational" keywords="KERNEL_FILE_KEYWORD_CREATE_NEW_FILE" template="CreateArgs_V1"/>
+    </events>
+    <templates>
+     <template tid="NameCreateArgs">
+      <data name="FileKey" inType="win:Pointer"/>
+      <data name="FileName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="CreateArgs">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="ThreadId" inType="win:Pointer"/>
+      <data name="FileObject" inType="win:Pointer"/>
+      <data name="CreateOptions" inType="win:UInt32"/>
+      <data name="CreateAttributes" inType="win:UInt32"/>
+      <data name="ShareAccess" inType="win:UInt32"/>
+      <data name="FileName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="CleanupArgs">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="ThreadId" inType="win:Pointer"/>
+      <data name="FileObject" inType="win:Pointer"/>
+      <data name="FileKey" inType="win:Pointer"/>
+     </template>
+     <template tid="ReadArgs">
+      <data name="ByteOffset" inType="win:UInt64"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="ThreadId" inType="win:Pointer"/>
+      <data name="FileObject" inType="win:Pointer"/>
+      <data name="FileKey" inType="win:Pointer"/>
+      <data name="IOSize" inType="win:UInt32"/>
+      <data name="IOFlags" inType="win:UInt32"/>
+     </template>
+     <template tid="SetInformationArgs">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="ThreadId" inType="win:Pointer"/>
+      <data name="FileObject" inType="win:Pointer"/>
+      <data name="FileKey" inType="win:Pointer"/>
+      <data name="ExtraInformation" inType="win:Pointer"/>
+      <data name="InfoClass" inType="win:UInt32"/>
+     </template>
+     <template tid="DirEnumArgs">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="ThreadId" inType="win:Pointer"/>
+      <data name="FileObject" inType="win:Pointer"/>
+      <data name="FileKey" inType="win:Pointer"/>
+      <data name="Length" inType="win:UInt32"/>
+      <data name="InfoClass" inType="win:UInt32"/>
+      <data name="FileIndex" inType="win:UInt32"/>
+      <data name="FileName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="OperationEndArgs">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="ExtraInformation" inType="win:Pointer"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="DeletePathArgs">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="ThreadId" inType="win:Pointer"/>
+      <data name="FileObject" inType="win:Pointer"/>
+      <data name="FileKey" inType="win:Pointer"/>
+      <data name="ExtraInformation" inType="win:Pointer"/>
+      <data name="InfoClass" inType="win:UInt32"/>
+      <data name="FilePath" inType="win:UnicodeString"/>
+     </template>
+     <template tid="CreateArgs_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="FileObject" inType="win:Pointer"/>
+      <data name="IssuingThreadId" inType="win:UInt32"/>
+      <data name="CreateOptions" inType="win:UInt32"/>
+      <data name="CreateAttributes" inType="win:UInt32"/>
+      <data name="ShareAccess" inType="win:UInt32"/>
+      <data name="FileName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="CleanupArgs_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="FileObject" inType="win:Pointer"/>
+      <data name="FileKey" inType="win:Pointer"/>
+      <data name="IssuingThreadId" inType="win:UInt32"/>
+     </template>
+     <template tid="ReadArgs_V1">
+      <data name="ByteOffset" inType="win:UInt64"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="FileObject" inType="win:Pointer"/>
+      <data name="FileKey" inType="win:Pointer"/>
+      <data name="IssuingThreadId" inType="win:UInt32"/>
+      <data name="IOSize" inType="win:UInt32"/>
+      <data name="IOFlags" inType="win:UInt32"/>
+      <data name="ExtraFlags" inType="win:UInt32"/>
+     </template>
+     <template tid="SetInformationArgs_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="FileObject" inType="win:Pointer"/>
+      <data name="FileKey" inType="win:Pointer"/>
+      <data name="ExtraInformation" inType="win:Pointer"/>
+      <data name="IssuingThreadId" inType="win:UInt32"/>
+      <data name="InfoClass" inType="win:UInt32"/>
+     </template>
+     <template tid="DirEnumArgs_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="FileObject" inType="win:Pointer"/>
+      <data name="FileKey" inType="win:Pointer"/>
+      <data name="IssuingThreadId" inType="win:UInt32"/>
+      <data name="Length" inType="win:UInt32"/>
+      <data name="InfoClass" inType="win:UInt32"/>
+      <data name="FileIndex" inType="win:UInt32"/>
+      <data name="FileName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="DeletePathArgs_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="FileObject" inType="win:Pointer"/>
+      <data name="FileKey" inType="win:Pointer"/>
+      <data name="ExtraInformation" inType="win:Pointer"/>
+      <data name="IssuingThreadId" inType="win:UInt32"/>
+      <data name="InfoClass" inType="win:UInt32"/>
+      <data name="FilePath" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_KERNEL_FILE_KEYWORD_FILENAME" value="KERNEL_FILE_KEYWORD_FILENAME"/>
+    <string id="keyword_KERNEL_FILE_KEYWORD_FILEIO" value="KERNEL_FILE_KEYWORD_FILEIO"/>
+    <string id="keyword_KERNEL_FILE_KEYWORD_OP_END" value="KERNEL_FILE_KEYWORD_OP_END"/>
+    <string id="keyword_KERNEL_FILE_KEYWORD_CREATE" value="KERNEL_FILE_KEYWORD_CREATE"/>
+    <string id="keyword_KERNEL_FILE_KEYWORD_READ" value="KERNEL_FILE_KEYWORD_READ"/>
+    <string id="keyword_KERNEL_FILE_KEYWORD_WRITE" value="KERNEL_FILE_KEYWORD_WRITE"/>
+    <string id="keyword_KERNEL_FILE_KEYWORD_DELETE_PATH" value="KERNEL_FILE_KEYWORD_DELETE_PATH"/>
+    <string id="keyword_KERNEL_FILE_KEYWORD_RENAME_SETLINK_PATH" value="KERNEL_FILE_KEYWORD_RENAME_SETLINK_PATH"/>
+    <string id="keyword_KERNEL_FILE_KEYWORD_CREATE_NEW_FILE" value="KERNEL_FILE_KEYWORD_CREATE_NEW_FILE"/>
+    <string id="task_NameCreate" value="NameCreate"/>
+    <string id="task_NameDelete" value="NameDelete"/>
+    <string id="task_Create" value="Create"/>
+    <string id="task_Cleanup" value="Cleanup"/>
+    <string id="task_Close" value="Close"/>
+    <string id="task_Read" value="Read"/>
+    <string id="task_Write" value="Write"/>
+    <string id="task_SetInformation" value="SetInformation"/>
+    <string id="task_SetDelete" value="SetDelete"/>
+    <string id="task_Rename" value="Rename"/>
+    <string id="task_DirEnum" value="DirEnum"/>
+    <string id="task_Flush" value="Flush"/>
+    <string id="task_QueryInformation" value="QueryInformation"/>
+    <string id="task_FSCTL" value="FSCTL"/>
+    <string id="task_OperationEnd" value="OperationEnd"/>
+    <string id="task_DirNotify" value="DirNotify"/>
+    <string id="task_DeletePath" value="DeletePath"/>
+    <string id="task_RenamePath" value="RenamePath"/>
+    <string id="task_SetLinkPath" value="SetLinkPath"/>
+    <string id="task_CreateNewFile" value="CreateNewFile"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

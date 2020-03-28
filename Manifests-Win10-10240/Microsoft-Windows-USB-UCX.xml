@@ -1,0 +1,580 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-USB-UCX" guid="{36da592d-e43a-4e28-af6f-4bc57c5a11e8}" resourceFileName="Microsoft-Windows-USB-UCX" messageFileName="Microsoft-Windows-USB-UCX" symbol="MicrosoftWindowsUSBUCX" source="Xml" >
+    <keywords>
+     <keyword name="Default" message="$(string.keyword_Default)" mask="0x1"/>
+     <keyword name="USBError" message="$(string.keyword_USBError)" mask="0x2"/>
+     <keyword name="IRP" message="$(string.keyword_IRP)" mask="0x4"/>
+     <keyword name="Power" message="$(string.keyword_Power)" mask="0x8"/>
+     <keyword name="PnP" message="$(string.keyword_PnP)" mask="0x10"/>
+     <keyword name="Performance" message="$(string.keyword_Performance)" mask="0x20"/>
+     <keyword name="HeadersBusTrace" message="$(string.keyword_HeadersBusTrace)" mask="0x40"/>
+     <keyword name="PartialDataBusTrace" message="$(string.keyword_PartialDataBusTrace)" mask="0x80"/>
+     <keyword name="FullDataBusTrace" message="$(string.keyword_FullDataBusTrace)" mask="0x100"/>
+     <keyword name="StateMachine" message="$(string.keyword_StateMachine)" mask="0x200"/>
+     <keyword name="Enumeration" message="$(string.keyword_Enumeration)" mask="0x400"/>
+     <keyword name="VerifyDriver" message="$(string.keyword_VerifyDriver)" mask="0x800"/>
+     <keyword name="HWVerifyHost" message="$(string.keyword_HWVerifyHost)" mask="0x1000"/>
+     <keyword name="HWVerifyHub" message="$(string.keyword_HWVerifyHub)" mask="0x2000"/>
+     <keyword name="HWVerifyDevice" message="$(string.keyword_HWVerifyDevice)" mask="0x4000"/>
+     <keyword name="Rundown" message="$(string.keyword_Rundown)" mask="0x8000"/>
+     <keyword name="Device" message="$(string.keyword_Device)" mask="0x10000"/>
+     <keyword name="Hub" message="$(string.keyword_Hub)" mask="0x20000"/>
+     <keyword name="Compat" message="$(string.keyword_Compat)" mask="0x40000"/>
+     <keyword name="ControllerCommand" message="$(string.keyword_ControllerCommand)" mask="0x80000"/>
+     <keyword name="keyword_400000000000" message="$(string.keyword_keyword_400000000000)" mask="0x400000000000"/>
+    </keywords>
+    <tasks>
+     <task name="UCXDriverRundown" message="$(string.task_UCXDriverRundown)" value="1"/>
+     <task name="UCXControlerRundown" message="$(string.task_UCXControlerRundown)" value="2">
+>
+      <opcodes>
+       <opcode name="Information" message="$(string.opcode_UCXControlerRundownInformation)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="UCXRootHubRundown" message="$(string.task_UCXRootHubRundown)" value="3">
+>
+      <opcodes>
+       <opcode name="Information" message="$(string.opcode_UCXRootHubRundownInformation)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="UCXDeviceRundown" message="$(string.task_UCXDeviceRundown)" value="4">
+>
+      <opcodes>
+       <opcode name="Information" message="$(string.opcode_UCXDeviceRundownInformation)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="UCXEndpointRundown" message="$(string.task_UCXEndpointRundown)" value="5">
+>
+      <opcodes>
+       <opcode name="Information" message="$(string.opcode_UCXEndpointRundownInformation)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="UCXStaticStreamRundown" message="$(string.task_UCXStaticStreamRundown)" value="6">
+>
+      <opcodes>
+       <opcode name="Information" message="$(string.opcode_UCXStaticStreamRundownInformation)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="UCXControllerCreate" message="$(string.task_UCXControllerCreate)" value="7">
+>
+      <opcodes>
+       <opcode name="Information" message="$(string.opcode_UCXControllerCreateInformation)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="UCXControllerDelete" message="$(string.task_UCXControllerDelete)" value="8">
+>
+      <opcodes>
+       <opcode name="Information" message="$(string.opcode_UCXControllerDeleteInformation)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="UCXRootHubCreate" message="$(string.task_UCXRootHubCreate)" value="9">
+>
+      <opcodes>
+       <opcode name="Information" message="$(string.opcode_UCXRootHubCreateInformation)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="UCXRootHubDelete" message="$(string.task_UCXRootHubDelete)" value="10">
+>
+      <opcodes>
+       <opcode name="Information" message="$(string.opcode_UCXRootHubDeleteInformation)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="UCXRootHubPrepareHardware" message="$(string.task_UCXRootHubPrepareHardware)" value="11">
+>
+      <opcodes>
+       <opcode name="Information" message="$(string.opcode_UCXRootHubPrepareHardwareInformation)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="UCXRootHubReleaseHardware" message="$(string.task_UCXRootHubReleaseHardware)" value="12">
+>
+      <opcodes>
+       <opcode name="Information" message="$(string.opcode_UCXRootHubReleaseHardwareInformation)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="UCXDeviceCreate" message="$(string.task_UCXDeviceCreate)" value="13">
+>
+      <opcodes>
+       <opcode name="Information" message="$(string.opcode_UCXDeviceCreateInformation)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="UCXDeviceDelete" message="$(string.task_UCXDeviceDelete)" value="14">
+>
+      <opcodes>
+       <opcode name="Information" message="$(string.opcode_UCXDeviceDeleteInformation)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="UCXEndpointCreate" message="$(string.task_UCXEndpointCreate)" value="15">
+>
+      <opcodes>
+       <opcode name="Information" message="$(string.opcode_UCXEndpointCreateInformation)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="UCXEndpointDelete" message="$(string.task_UCXEndpointDelete)" value="16">
+>
+      <opcodes>
+       <opcode name="Information" message="$(string.opcode_UCXEndpointDeleteInformation)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="UCXStaticStreamCreate" message="$(string.task_UCXStaticStreamCreate)" value="17">
+>
+      <opcodes>
+       <opcode name="Information" message="$(string.opcode_UCXStaticStreamCreateInformation)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="UCXStaticStreamDelete" message="$(string.task_UCXStaticStreamDelete)" value="18">
+>
+      <opcodes>
+       <opcode name="Information" message="$(string.opcode_UCXStaticStreamDeleteInformation)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="URB_FUNCTION_CONTROL_TRANSFER" message="$(string.task_URB_FUNCTION_CONTROL_TRANSFER)" value="19"/>
+     <task name="URB_FUNCTION_CONTROL_TRANSFER_EX" message="$(string.task_URB_FUNCTION_CONTROL_TRANSFER_EX)" value="20"/>
+     <task name="URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFER" message="$(string.task_URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFER)" value="21"/>
+     <task name="URB_FUNCTION_ISOCH_TRANSFER" message="$(string.task_URB_FUNCTION_ISOCH_TRANSFER)" value="22"/>
+     <task name="URB_FUNCTION_GET_DESCRIPTOR_FROM_DEVICE" message="$(string.task_URB_FUNCTION_GET_DESCRIPTOR_FROM_DEVICE)" value="23"/>
+     <task name="URB_FUNCTION_GET_DESCRIPTOR_FROM_INTERFACE" message="$(string.task_URB_FUNCTION_GET_DESCRIPTOR_FROM_INTERFACE)" value="24"/>
+     <task name="URB_FUNCTION_GET_DESCRIPTOR_FROM_ENDPOINT" message="$(string.task_URB_FUNCTION_GET_DESCRIPTOR_FROM_ENDPOINT)" value="25"/>
+     <task name="URB_FUNCTION_SET_DESCRIPTOR_TO_DEVICE" message="$(string.task_URB_FUNCTION_SET_DESCRIPTOR_TO_DEVICE)" value="26"/>
+     <task name="URB_FUNCTION_SET_DESCRIPTOR_TO_INTERFACE" message="$(string.task_URB_FUNCTION_SET_DESCRIPTOR_TO_INTERFACE)" value="27"/>
+     <task name="URB_FUNCTION_SET_DESCRIPTOR_TO_ENDPOINT" message="$(string.task_URB_FUNCTION_SET_DESCRIPTOR_TO_ENDPOINT)" value="28"/>
+     <task name="URB_FUNCTION_SET_FEATURE_TO_DEVICE" message="$(string.task_URB_FUNCTION_SET_FEATURE_TO_DEVICE)" value="29"/>
+     <task name="URB_FUNCTION_SET_FEATURE_TO_INTERFACE" message="$(string.task_URB_FUNCTION_SET_FEATURE_TO_INTERFACE)" value="30"/>
+     <task name="URB_FUNCTION_SET_FEATURE_TO_ENDPOINT" message="$(string.task_URB_FUNCTION_SET_FEATURE_TO_ENDPOINT)" value="31"/>
+     <task name="URB_FUNCTION_SET_FEATURE_TO_OTHER" message="$(string.task_URB_FUNCTION_SET_FEATURE_TO_OTHER)" value="32"/>
+     <task name="URB_FUNCTION_CLEAR_FEATURE_TO_DEVICE" message="$(string.task_URB_FUNCTION_CLEAR_FEATURE_TO_DEVICE)" value="33"/>
+     <task name="URB_FUNCTION_CLEAR_FEATURE_TO_INTERFACE" message="$(string.task_URB_FUNCTION_CLEAR_FEATURE_TO_INTERFACE)" value="34"/>
+     <task name="URB_FUNCTION_CLEAR_FEATURE_TO_ENDPOINT" message="$(string.task_URB_FUNCTION_CLEAR_FEATURE_TO_ENDPOINT)" value="35"/>
+     <task name="URB_FUNCTION_CLEAR_FEATURE_TO_OTHER" message="$(string.task_URB_FUNCTION_CLEAR_FEATURE_TO_OTHER)" value="36"/>
+     <task name="URB_FUNCTION_GET_STATUS_FROM_DEVICE" message="$(string.task_URB_FUNCTION_GET_STATUS_FROM_DEVICE)" value="37"/>
+     <task name="URB_FUNCTION_GET_STATUS_FROM_INTERFACE" message="$(string.task_URB_FUNCTION_GET_STATUS_FROM_INTERFACE)" value="38"/>
+     <task name="URB_FUNCTION_GET_STATUS_FROM_ENDPOINT" message="$(string.task_URB_FUNCTION_GET_STATUS_FROM_ENDPOINT)" value="39"/>
+     <task name="URB_FUNCTION_GET_STATUS_FROM_OTHER" message="$(string.task_URB_FUNCTION_GET_STATUS_FROM_OTHER)" value="40"/>
+     <task name="URB_FUNCTION_CLASS_DEVICE" message="$(string.task_URB_FUNCTION_CLASS_DEVICE)" value="41"/>
+     <task name="URB_FUNCTION_CLASS_INTERFACE" message="$(string.task_URB_FUNCTION_CLASS_INTERFACE)" value="42"/>
+     <task name="URB_FUNCTION_CLASS_ENDPOINT" message="$(string.task_URB_FUNCTION_CLASS_ENDPOINT)" value="43"/>
+     <task name="URB_FUNCTION_CLASS_OTHER" message="$(string.task_URB_FUNCTION_CLASS_OTHER)" value="44"/>
+     <task name="URB_FUNCTION_VENDOR_DEVICE" message="$(string.task_URB_FUNCTION_VENDOR_DEVICE)" value="45"/>
+     <task name="URB_FUNCTION_VENDOR_INTERFACE" message="$(string.task_URB_FUNCTION_VENDOR_INTERFACE)" value="46"/>
+     <task name="URB_FUNCTION_VENDOR_ENDPOINT" message="$(string.task_URB_FUNCTION_VENDOR_ENDPOINT)" value="47"/>
+     <task name="URB_FUNCTION_VENDOR_OTHER" message="$(string.task_URB_FUNCTION_VENDOR_OTHER)" value="48"/>
+     <task name="URB_FUNCTION_GET_CONFIGURATION" message="$(string.task_URB_FUNCTION_GET_CONFIGURATION)" value="49"/>
+     <task name="URB_FUNCTION_GET_INTERFACE" message="$(string.task_URB_FUNCTION_GET_INTERFACE)" value="50"/>
+     <task name="URB_FUNCTION_GET_MS_FEATURE_DESCRIPTOR" message="$(string.task_URB_FUNCTION_GET_MS_FEATURE_DESCRIPTOR)" value="51"/>
+     <task name="ENDPOINT_STATE_MACHINE_TRANSITION" message="$(string.task_ENDPOINT_STATE_MACHINE_TRANSITION)" value="52">
+>
+      <opcodes>
+       <opcode name="Information" message="$(string.opcode_ENDPOINT_STATE_MACHINE_TRANSITIONInformation)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="ENDPOINT_STATE_MACHINE_EVENT" message="$(string.task_ENDPOINT_STATE_MACHINE_EVENT)" value="53">
+>
+      <opcodes>
+       <opcode name="Information" message="$(string.opcode_ENDPOINT_STATE_MACHINE_EVENTInformation)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="CONTROLLER_STATE_MACHINE_TRANSITION" message="$(string.task_CONTROLLER_STATE_MACHINE_TRANSITION)" value="54">
+>
+      <opcodes>
+       <opcode name="Information" message="$(string.opcode_CONTROLLER_STATE_MACHINE_TRANSITIONInformation)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="CONTROLLER_STATE_MACHINE_EVENT" message="$(string.task_CONTROLLER_STATE_MACHINE_EVENT)" value="55">
+>
+      <opcodes>
+       <opcode name="Information" message="$(string.opcode_CONTROLLER_STATE_MACHINE_EVENTInformation)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="UCXRootHubInitiatingWake" message="$(string.task_UCXRootHubInitiatingWake)" value="56">
+>
+      <opcodes>
+       <opcode name="Information" message="$(string.opcode_UCXRootHubInitiatingWakeInformation)" value="12"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <maps>
+     <valueMap name="MapParentBusType">
+      <map value="0x1" message="$(string.map_MapParentBusTypeParentBusTypePci)"/>
+      <map value="0x2" message="$(string.map_MapParentBusTypeParentBusTypeAcpi)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="UCXDriverRundownStart" version="0" task="UCXDriverRundown" opcode="win:Start" level="win:Informational" keywords="Default Rundown"/>
+     <event value="2" symbol="UCXDriverRundownStop" version="0" task="UCXDriverRundown" opcode="win:Stop" level="win:Informational" keywords="Default Rundown"/>
+     <event value="3" symbol="UCXControlerRundownInformation" version="0" task="UCXControlerRundown" opcode="Information" level="win:Informational" keywords="Default Rundown" template="UCXControlerRundownInformationArgs"/>
+     <event value="4" symbol="UCXRootHubRundownInformation" version="0" task="UCXRootHubRundown" opcode="Information" level="win:Informational" keywords="Default Rundown" template="UCXRootHubRundownInformationArgs"/>
+     <event value="5" symbol="UCXDeviceRundownInformation" version="0" task="UCXDeviceRundown" opcode="Information" level="win:Informational" keywords="Default Rundown" template="UCXDeviceRundownInformationArgs"/>
+     <event value="6" symbol="UCXEndpointRundownInformation" version="0" task="UCXEndpointRundown" opcode="Information" level="win:Informational" keywords="Default Rundown" template="UCXEndpointRundownInformationArgs"/>
+     <event value="7" symbol="UCXStaticStreamRundownInformation" version="0" task="UCXStaticStreamRundown" opcode="Information" level="win:Informational" keywords="Default Rundown" template="UCXStaticStreamRundownInformationArgs"/>
+     <event value="8" symbol="UCXControllerCreateInformation" version="0" task="UCXControllerCreate" opcode="Information" level="win:Informational" keywords="Default keyword_400000000000" template="UCXControllerCreateInformationArgs"/>
+     <event value="9" symbol="UCXControllerDeleteInformation" version="0" task="UCXControllerDelete" opcode="Information" level="win:Informational" keywords="Default keyword_400000000000" template="UCXControllerCreateInformationArgs"/>
+     <event value="10" symbol="UCXRootHubCreateInformation" version="0" task="UCXRootHubCreate" opcode="Information" level="win:Informational" keywords="Default keyword_400000000000" template="UCXRootHubRundownInformationArgs"/>
+     <event value="11" symbol="UCXRootHubDeleteInformation" version="0" task="UCXRootHubDelete" opcode="Information" level="win:Informational" keywords="Default keyword_400000000000" template="UCXRootHubRundownInformationArgs"/>
+     <event value="12" symbol="UCXRootHubPrepareHardwareInformation" version="0" task="UCXRootHubPrepareHardware" opcode="Information" level="win:Informational" keywords="Default" template="UCXRootHubRundownInformationArgs"/>
+     <event value="13" symbol="UCXRootHubReleaseHardwareInformation" version="0" task="UCXRootHubReleaseHardware" opcode="Information" level="win:Informational" keywords="Default" template="UCXRootHubRundownInformationArgs"/>
+     <event value="14" symbol="UCXDeviceCreateInformation" version="0" task="UCXDeviceCreate" opcode="Information" level="win:Informational" keywords="Default keyword_400000000000" template="UCXDeviceRundownInformationArgs"/>
+     <event value="15" symbol="UCXDeviceDeleteInformation" version="0" task="UCXDeviceDelete" opcode="Information" level="win:Informational" keywords="Default keyword_400000000000" template="UCXDeviceRundownInformationArgs"/>
+     <event value="16" symbol="UCXEndpointCreateInformation" version="0" task="UCXEndpointCreate" opcode="Information" level="win:Informational" keywords="Default" template="UCXEndpointRundownInformationArgs"/>
+     <event value="17" symbol="UCXEndpointDeleteInformation" version="0" task="UCXEndpointDelete" opcode="Information" level="win:Informational" keywords="Default" template="UCXEndpointRundownInformationArgs"/>
+     <event value="18" symbol="UCXStaticStreamCreateInformation" version="0" task="UCXStaticStreamCreate" opcode="Information" level="win:Informational" keywords="Default" template="UCXStaticStreamRundownInformationArgs"/>
+     <event value="19" symbol="UCXStaticStreamDeleteInformation" version="0" task="UCXStaticStreamDelete" opcode="Information" level="win:Informational" keywords="Default" template="UCXStaticStreamRundownInformationArgs"/>
+     <event value="20" symbol="URB_FUNCTION_CONTROL_TRANSFERStart" version="0" task="URB_FUNCTION_CONTROL_TRANSFER" opcode="win:Start" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_CONTROL_TRANSFERStartArgs"/>
+     <event value="21" symbol="URB_FUNCTION_CONTROL_TRANSFERStop" version="0" task="URB_FUNCTION_CONTROL_TRANSFER" opcode="win:Stop" level="win:Informational" keywords="HeadersBusTrace" template="URB_FUNCTION_CONTROL_TRANSFERStopArgs"/>
+     <event value="22" symbol="URB_FUNCTION_CONTROL_TRANSFERStop22" version="0" task="URB_FUNCTION_CONTROL_TRANSFER" opcode="win:Stop" level="win:Informational" keywords="PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_CONTROL_TRANSFERStop22Args"/>
+     <event value="23" symbol="URB_FUNCTION_CONTROL_TRANSFER_EXStart" version="0" task="URB_FUNCTION_CONTROL_TRANSFER_EX" opcode="win:Start" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_CONTROL_TRANSFER_EXStartArgs"/>
+     <event value="24" symbol="URB_FUNCTION_CONTROL_TRANSFER_EXStop" version="0" task="URB_FUNCTION_CONTROL_TRANSFER_EX" opcode="win:Stop" level="win:Informational" keywords="HeadersBusTrace" template="URB_FUNCTION_CONTROL_TRANSFER_EXStopArgs"/>
+     <event value="25" symbol="URB_FUNCTION_CONTROL_TRANSFER_EXStop25" version="0" task="URB_FUNCTION_CONTROL_TRANSFER_EX" opcode="win:Stop" level="win:Informational" keywords="PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_CONTROL_TRANSFER_EXStop25Args"/>
+     <event value="26" symbol="URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFERStart" version="0" task="URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFER" opcode="win:Start" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFERStartArgs"/>
+     <event value="27" symbol="URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFERStop" version="0" task="URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFER" opcode="win:Stop" level="win:Informational" keywords="HeadersBusTrace" template="URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFERStopArgs"/>
+     <event value="28" symbol="URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFERStop28" version="0" task="URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFER" opcode="win:Stop" level="win:Informational" keywords="PartialDataBusTrace" template="URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFERStop28Args"/>
+     <event value="29" symbol="URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFERStop29" version="0" task="URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFER" opcode="win:Stop" level="win:Informational" keywords="FullDataBusTrace" template="URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFERStop28Args"/>
+     <event value="30" symbol="URB_FUNCTION_ISOCH_TRANSFERStart" version="0" task="URB_FUNCTION_ISOCH_TRANSFER" opcode="win:Start" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_ISOCH_TRANSFERStartArgs"/>
+     <event value="31" symbol="URB_FUNCTION_ISOCH_TRANSFERStop" version="0" task="URB_FUNCTION_ISOCH_TRANSFER" opcode="win:Stop" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_ISOCH_TRANSFERStopArgs"/>
+     <event value="32" symbol="URB_FUNCTION_ISOCH_TRANSFERStop32" version="0" task="URB_FUNCTION_ISOCH_TRANSFER" opcode="win:Stop" level="win:Informational" keywords="PartialDataBusTrace" template="URB_FUNCTION_ISOCH_TRANSFERStop32Args"/>
+     <event value="33" symbol="URB_FUNCTION_ISOCH_TRANSFERStop33" version="0" task="URB_FUNCTION_ISOCH_TRANSFER" opcode="win:Stop" level="win:Informational" keywords="FullDataBusTrace" template="URB_FUNCTION_ISOCH_TRANSFERStop32Args"/>
+     <event value="34" symbol="URB_FUNCTION_GET_DESCRIPTOR_FROM_DEVICEStart" version="0" task="URB_FUNCTION_GET_DESCRIPTOR_FROM_DEVICE" opcode="win:Start" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_CONTROL_TRANSFERStartArgs"/>
+     <event value="35" symbol="URB_FUNCTION_GET_DESCRIPTOR_FROM_INTERFACEStart" version="0" task="URB_FUNCTION_GET_DESCRIPTOR_FROM_INTERFACE" opcode="win:Start" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_CONTROL_TRANSFERStartArgs"/>
+     <event value="36" symbol="URB_FUNCTION_GET_DESCRIPTOR_FROM_ENDPOINTStart" version="0" task="URB_FUNCTION_GET_DESCRIPTOR_FROM_ENDPOINT" opcode="win:Start" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_CONTROL_TRANSFERStartArgs"/>
+     <event value="37" symbol="URB_FUNCTION_SET_DESCRIPTOR_TO_DEVICEStart" version="0" task="URB_FUNCTION_SET_DESCRIPTOR_TO_DEVICE" opcode="win:Start" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_CONTROL_TRANSFERStartArgs"/>
+     <event value="38" symbol="URB_FUNCTION_SET_DESCRIPTOR_TO_INTERFACEStart" version="0" task="URB_FUNCTION_SET_DESCRIPTOR_TO_INTERFACE" opcode="win:Start" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_CONTROL_TRANSFERStartArgs"/>
+     <event value="39" symbol="URB_FUNCTION_SET_DESCRIPTOR_TO_ENDPOINTStart" version="0" task="URB_FUNCTION_SET_DESCRIPTOR_TO_ENDPOINT" opcode="win:Start" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_CONTROL_TRANSFERStartArgs"/>
+     <event value="40" symbol="URB_FUNCTION_SET_FEATURE_TO_DEVICEStart" version="0" task="URB_FUNCTION_SET_FEATURE_TO_DEVICE" opcode="win:Start" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_CONTROL_TRANSFERStartArgs"/>
+     <event value="41" symbol="URB_FUNCTION_SET_FEATURE_TO_INTERFACEStart" version="0" task="URB_FUNCTION_SET_FEATURE_TO_INTERFACE" opcode="win:Start" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_CONTROL_TRANSFERStartArgs"/>
+     <event value="42" symbol="URB_FUNCTION_SET_FEATURE_TO_ENDPOINTStart" version="0" task="URB_FUNCTION_SET_FEATURE_TO_ENDPOINT" opcode="win:Start" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_CONTROL_TRANSFERStartArgs"/>
+     <event value="43" symbol="URB_FUNCTION_SET_FEATURE_TO_OTHERStart" version="0" task="URB_FUNCTION_SET_FEATURE_TO_OTHER" opcode="win:Start" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_CONTROL_TRANSFERStartArgs"/>
+     <event value="44" symbol="URB_FUNCTION_CLEAR_FEATURE_TO_DEVICEStart" version="0" task="URB_FUNCTION_CLEAR_FEATURE_TO_DEVICE" opcode="win:Start" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_CONTROL_TRANSFERStartArgs"/>
+     <event value="45" symbol="URB_FUNCTION_CLEAR_FEATURE_TO_INTERFACEStart" version="0" task="URB_FUNCTION_CLEAR_FEATURE_TO_INTERFACE" opcode="win:Start" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_CONTROL_TRANSFERStartArgs"/>
+     <event value="46" symbol="URB_FUNCTION_CLEAR_FEATURE_TO_ENDPOINTStart" version="0" task="URB_FUNCTION_CLEAR_FEATURE_TO_ENDPOINT" opcode="win:Start" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_CONTROL_TRANSFERStartArgs"/>
+     <event value="47" symbol="URB_FUNCTION_CLEAR_FEATURE_TO_OTHERStart" version="0" task="URB_FUNCTION_CLEAR_FEATURE_TO_OTHER" opcode="win:Start" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_CONTROL_TRANSFERStartArgs"/>
+     <event value="48" symbol="URB_FUNCTION_GET_STATUS_FROM_DEVICEStart" version="0" task="URB_FUNCTION_GET_STATUS_FROM_DEVICE" opcode="win:Start" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_CONTROL_TRANSFERStartArgs"/>
+     <event value="49" symbol="URB_FUNCTION_GET_STATUS_FROM_INTERFACEStart" version="0" task="URB_FUNCTION_GET_STATUS_FROM_INTERFACE" opcode="win:Start" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_CONTROL_TRANSFERStartArgs"/>
+     <event value="50" symbol="URB_FUNCTION_GET_STATUS_FROM_ENDPOINTStart" version="0" task="URB_FUNCTION_GET_STATUS_FROM_ENDPOINT" opcode="win:Start" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_CONTROL_TRANSFERStartArgs"/>
+     <event value="51" symbol="URB_FUNCTION_GET_STATUS_FROM_OTHERStart" version="0" task="URB_FUNCTION_GET_STATUS_FROM_OTHER" opcode="win:Start" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_CONTROL_TRANSFERStartArgs"/>
+     <event value="52" symbol="URB_FUNCTION_CLASS_DEVICEStart" version="0" task="URB_FUNCTION_CLASS_DEVICE" opcode="win:Start" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_CONTROL_TRANSFERStartArgs"/>
+     <event value="53" symbol="URB_FUNCTION_CLASS_INTERFACEStart" version="0" task="URB_FUNCTION_CLASS_INTERFACE" opcode="win:Start" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_CONTROL_TRANSFERStartArgs"/>
+     <event value="54" symbol="URB_FUNCTION_CLASS_ENDPOINTStart" version="0" task="URB_FUNCTION_CLASS_ENDPOINT" opcode="win:Start" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_CONTROL_TRANSFERStartArgs"/>
+     <event value="55" symbol="URB_FUNCTION_CLASS_OTHERStart" version="0" task="URB_FUNCTION_CLASS_OTHER" opcode="win:Start" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_CONTROL_TRANSFERStartArgs"/>
+     <event value="56" symbol="URB_FUNCTION_VENDOR_DEVICEStart" version="0" task="URB_FUNCTION_VENDOR_DEVICE" opcode="win:Start" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_CONTROL_TRANSFERStartArgs"/>
+     <event value="57" symbol="URB_FUNCTION_VENDOR_INTERFACEStart" version="0" task="URB_FUNCTION_VENDOR_INTERFACE" opcode="win:Start" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_CONTROL_TRANSFERStartArgs"/>
+     <event value="58" symbol="URB_FUNCTION_VENDOR_ENDPOINTStart" version="0" task="URB_FUNCTION_VENDOR_ENDPOINT" opcode="win:Start" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_CONTROL_TRANSFERStartArgs"/>
+     <event value="59" symbol="URB_FUNCTION_VENDOR_OTHERStart" version="0" task="URB_FUNCTION_VENDOR_OTHER" opcode="win:Start" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_CONTROL_TRANSFERStartArgs"/>
+     <event value="60" symbol="URB_FUNCTION_GET_CONFIGURATIONStart" version="0" task="URB_FUNCTION_GET_CONFIGURATION" opcode="win:Start" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_CONTROL_TRANSFERStartArgs"/>
+     <event value="61" symbol="URB_FUNCTION_GET_INTERFACEStart" version="0" task="URB_FUNCTION_GET_INTERFACE" opcode="win:Start" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_CONTROL_TRANSFERStartArgs"/>
+     <event value="62" symbol="URB_FUNCTION_GET_MS_FEATURE_DESCRIPTORStart" version="0" task="URB_FUNCTION_GET_MS_FEATURE_DESCRIPTOR" opcode="win:Start" level="win:Informational" keywords="HeadersBusTrace PartialDataBusTrace FullDataBusTrace" template="URB_FUNCTION_CONTROL_TRANSFERStartArgs"/>
+     <event value="63" symbol="ENDPOINT_STATE_MACHINE_TRANSITIONInformation" version="0" task="ENDPOINT_STATE_MACHINE_TRANSITION" opcode="Information" level="win:Informational" keywords="StateMachine" template="ENDPOINT_STATE_MACHINE_TRANSITIONInformationArgs"/>
+     <event value="64" symbol="ENDPOINT_STATE_MACHINE_EVENTInformation" version="0" task="ENDPOINT_STATE_MACHINE_EVENT" opcode="Information" level="win:Informational" keywords="StateMachine" template="ENDPOINT_STATE_MACHINE_EVENTInformationArgs"/>
+     <event value="65" symbol="UCXEndpointRundownInformation65" version="0" task="UCXEndpointRundown" opcode="Information" level="win:Informational" keywords="StateMachine Rundown" template="ENDPOINT_STATE_MACHINE_TRANSITIONInformationArgs"/>
+     <event value="66" symbol="UCXEndpointRundownInformation66" version="0" task="UCXEndpointRundown" opcode="Information" level="win:Informational" keywords="StateMachine Rundown" template="ENDPOINT_STATE_MACHINE_EVENTInformationArgs"/>
+     <event value="67" symbol="CONTROLLER_STATE_MACHINE_TRANSITIONInformation" version="0" task="CONTROLLER_STATE_MACHINE_TRANSITION" opcode="Information" level="win:Informational" keywords="StateMachine" template="CONTROLLER_STATE_MACHINE_TRANSITIONInformationArgs"/>
+     <event value="68" symbol="CONTROLLER_STATE_MACHINE_EVENTInformation" version="0" task="CONTROLLER_STATE_MACHINE_EVENT" opcode="Information" level="win:Informational" keywords="StateMachine" template="CONTROLLER_STATE_MACHINE_EVENTInformationArgs"/>
+     <event value="69" symbol="UCXControlerRundownInformation69" version="0" task="UCXControlerRundown" opcode="Information" level="win:Informational" keywords="StateMachine Rundown" template="CONTROLLER_STATE_MACHINE_TRANSITIONInformationArgs"/>
+     <event value="70" symbol="UCXControlerRundownInformation70" version="0" task="UCXControlerRundown" opcode="Information" level="win:Informational" keywords="StateMachine Rundown" template="CONTROLLER_STATE_MACHINE_EVENTInformationArgs"/>
+     <event value="71" symbol="UCXRootHubInitiatingWakeInformation" version="0" task="UCXRootHubInitiatingWake" opcode="Information" level="win:Informational" keywords="Default" template="UCXRootHubRundownInformationArgs"/>
+    </events>
+    <templates>
+     <template tid="UCXControlerRundownInformationArgs">
+      <data name="fid_UcxController" inType="win:Pointer"/>
+      <data name="fid_ParentBusType" inType="win:UInt32" map="MapParentBusType"/>
+      <data name="fid_PciBus" inType="win:UInt32"/>
+      <data name="fid_PciDevice" inType="win:UInt32"/>
+      <data name="fid_PciFunction" inType="win:UInt32"/>
+      <data name="fid_PciVendorId" inType="win:UInt32"/>
+      <data name="fid_PciDeviceId" inType="win:UInt32"/>
+      <data name="fid_PciRevisionId" inType="win:UInt32"/>
+      <data name="fid_AcpiVendorId" inType="win:AnsiString"/>
+      <data name="fid_AcpiDeviceId" inType="win:AnsiString"/>
+      <data name="fid_AcpiRevisionId" inType="win:AnsiString"/>
+      <data name="fid_DeviceInterfacePath" inType="win:UnicodeString"/>
+     </template>
+     <template tid="UCXRootHubRundownInformationArgs">
+      <data name="fid_UcxController" inType="win:Pointer"/>
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_DeviceInterfacePath" inType="win:UnicodeString"/>
+     </template>
+     <template tid="UCXDeviceRundownInformationArgs">
+      <data name="fid_UcxController" inType="win:Pointer"/>
+      <data name="fid_HubDevice" inType="win:Pointer"/>
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="DeviceSpeed" inType="win:UInt32"/>
+      <data name="PortPathDepth" inType="win:UInt32"/>
+      <data name="PortPath" inType="win:UInt32"/>
+     </template>
+     <template tid="UCXEndpointRundownInformationArgs">
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_Endpoint" inType="win:Pointer"/>
+      <data name="fid_PipeHandle" inType="win:Pointer"/>
+      <data name="fid_UCX_Endpoint_Descriptor" inType="win:UInt8"/>
+     </template>
+     <template tid="UCXStaticStreamRundownInformationArgs">
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_EndpointPipeHandle" inType="win:Pointer"/>
+      <data name="fid_StreamID" inType="win:UInt32"/>
+      <data name="fid_StreamPipeHandle" inType="win:Pointer"/>
+     </template>
+     <template tid="UCXControllerCreateInformationArgs">
+      <data name="fid_UcxController" inType="win:Pointer"/>
+      <data name="fid_ParentBusType" inType="win:UInt32"/>
+      <data name="fid_PciBus" inType="win:UInt32"/>
+      <data name="fid_PciDevice" inType="win:UInt32"/>
+      <data name="fid_PciFunction" inType="win:UInt32"/>
+      <data name="fid_PciVendorId" inType="win:UInt32"/>
+      <data name="fid_PciDeviceId" inType="win:UInt32"/>
+      <data name="fid_PciRevisionId" inType="win:UInt32"/>
+      <data name="fid_AcpiVendorId" inType="win:AnsiString"/>
+      <data name="fid_AcpiDeviceId" inType="win:AnsiString"/>
+      <data name="fid_AcpiRevisionId" inType="win:AnsiString"/>
+      <data name="fid_DeviceInterfacePath" inType="win:UnicodeString"/>
+     </template>
+     <template tid="URB_FUNCTION_CONTROL_TRANSFERStartArgs">
+      <data name="fid_UcxController" inType="win:Pointer"/>
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_PipeHandle" inType="win:Pointer"/>
+      <data name="fid_IRP_Ptr" inType="win:Pointer"/>
+      <data name="fid_URB_Ptr" inType="win:Pointer"/>
+      <data name="fid_UCX_URB_CONTROL_TRANSFER" inType="win:UInt16"/>
+     </template>
+     <template tid="URB_FUNCTION_CONTROL_TRANSFERStopArgs">
+      <data name="fid_UcxController" inType="win:Pointer"/>
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_PipeHandle" inType="win:Pointer"/>
+      <data name="fid_IRP_Ptr" inType="win:Pointer"/>
+      <data name="fid_URB_Ptr" inType="win:Pointer"/>
+      <data name="fid_UCX_URB_CONTROL_TRANSFER" inType="win:Int32"/>
+      <data name="fid_IRP_NtStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="URB_FUNCTION_CONTROL_TRANSFERStop22Args">
+      <data name="fid_UcxController" inType="win:Pointer"/>
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_PipeHandle" inType="win:Pointer"/>
+      <data name="fid_IRP_Ptr" inType="win:Pointer"/>
+      <data name="fid_URB_Ptr" inType="win:Pointer"/>
+      <data name="fid_UCX_URB_CONTROL_TRANSFER" inType="win:Int64"/>
+      <data name="fid_IRP_NtStatus" inType="win:UInt32"/>
+      <data name="fid_URB_TransferDataLength" inType="win:UInt16"/>
+      <data name="fid_URB_TransferData" inType="win:UInt8" count="fid_URB_TransferDataLength"/>
+     </template>
+     <template tid="URB_FUNCTION_CONTROL_TRANSFER_EXStartArgs">
+      <data name="fid_UcxController" inType="win:Pointer"/>
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_PipeHandle" inType="win:Pointer"/>
+      <data name="fid_IRP_Ptr" inType="win:Pointer"/>
+      <data name="fid_URB_Ptr" inType="win:Pointer"/>
+      <data name="fid_UCX_URB_CONTROL_TRANSFER_EX" inType="win:UInt16"/>
+     </template>
+     <template tid="URB_FUNCTION_CONTROL_TRANSFER_EXStopArgs">
+      <data name="fid_UcxController" inType="win:Pointer"/>
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_PipeHandle" inType="win:Pointer"/>
+      <data name="fid_IRP_Ptr" inType="win:Pointer"/>
+      <data name="fid_URB_Ptr" inType="win:Pointer"/>
+      <data name="fid_UCX_URB_CONTROL_TRANSFER_EX" inType="win:Int32"/>
+      <data name="fid_IRP_NtStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="URB_FUNCTION_CONTROL_TRANSFER_EXStop25Args">
+      <data name="fid_UcxController" inType="win:Pointer"/>
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_PipeHandle" inType="win:Pointer"/>
+      <data name="fid_IRP_Ptr" inType="win:Pointer"/>
+      <data name="fid_URB_Ptr" inType="win:Pointer"/>
+      <data name="fid_UCX_URB_CONTROL_TRANSFER_EX" inType="win:Int64"/>
+      <data name="fid_IRP_NtStatus" inType="win:UInt32"/>
+      <data name="fid_URB_TransferDataLength" inType="win:UInt16"/>
+      <data name="fid_URB_TransferData" inType="win:UInt8" count="fid_URB_TransferDataLength"/>
+     </template>
+     <template tid="URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFERStartArgs">
+      <data name="fid_UcxController" inType="win:Pointer"/>
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_PipeHandle" inType="win:Pointer"/>
+      <data name="fid_IRP_Ptr" inType="win:Pointer"/>
+      <data name="fid_URB_Ptr" inType="win:Pointer"/>
+      <data name="fid_UCX_URB_BULK_OR_INTERRUPT_TRANSFER" inType="win:UInt16"/>
+     </template>
+     <template tid="URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFERStopArgs">
+      <data name="fid_UcxController" inType="win:Pointer"/>
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_PipeHandle" inType="win:Pointer"/>
+      <data name="fid_IRP_Ptr" inType="win:Pointer"/>
+      <data name="fid_URB_Ptr" inType="win:Pointer"/>
+      <data name="fid_UCX_URB_BULK_OR_INTERRUPT_TRANSFER" inType="win:Int32"/>
+      <data name="fid_IRP_NtStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFERStop28Args">
+      <data name="fid_UcxController" inType="win:Pointer"/>
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_PipeHandle" inType="win:Pointer"/>
+      <data name="fid_IRP_Ptr" inType="win:Pointer"/>
+      <data name="fid_URB_Ptr" inType="win:Pointer"/>
+      <data name="fid_UCX_URB_BULK_OR_INTERRUPT_TRANSFER" inType="win:Int64"/>
+      <data name="fid_IRP_NtStatus" inType="win:UInt32"/>
+      <data name="fid_URB_TransferDataLength" inType="win:UInt16"/>
+      <data name="fid_URB_TransferData" inType="win:UInt8" count="fid_URB_TransferDataLength"/>
+     </template>
+     <template tid="URB_FUNCTION_ISOCH_TRANSFERStartArgs">
+      <data name="fid_UcxController" inType="win:Pointer"/>
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_PipeHandle" inType="win:Pointer"/>
+      <data name="fid_IRP_Ptr" inType="win:Pointer"/>
+      <data name="fid_URB_Ptr" inType="win:Pointer"/>
+      <data name="fid_UCX_URB_NumberOfPackets" inType="win:UInt16"/>
+      <data name="fid_UCX_URB_ISOCH_TRANSFER" inType="win:UInt32"/>
+      <data name="fid_UCX_URB_ISO_PACKETS" inType="win:CountedMbcsString" count="fid_UCX_URB_NumberOfPackets"/>
+     </template>
+     <template tid="URB_FUNCTION_ISOCH_TRANSFERStopArgs">
+      <data name="fid_UcxController" inType="win:Pointer"/>
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_PipeHandle" inType="win:Pointer"/>
+      <data name="fid_IRP_Ptr" inType="win:Pointer"/>
+      <data name="fid_URB_Ptr" inType="win:Pointer"/>
+      <data name="fid_UCX_URB_NumberOfPackets" inType="win:UInt16"/>
+      <data name="fid_UCX_URB_ISOCH_TRANSFER" inType="win:Int64"/>
+      <data name="fid_UCX_URB_ISO_PACKETS" inType="win:Struct" count="fid_UCX_URB_NumberOfPackets"/>
+      <data name="fid_IRP_NtStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="URB_FUNCTION_ISOCH_TRANSFERStop32Args">
+      <data name="fid_UcxController" inType="win:Pointer"/>
+      <data name="fid_UsbDevice" inType="win:Pointer"/>
+      <data name="fid_PipeHandle" inType="win:Pointer"/>
+      <data name="fid_IRP_Ptr" inType="win:Pointer"/>
+      <data name="fid_URB_Ptr" inType="win:Pointer"/>
+      <data name="fid_UCX_URB_NumberOfPackets" inType="win:UInt16"/>
+      <data name="fid_UCX_URB_ISOCH_TRANSFER" inType="win:Float"/>
+      <data name="fid_UCX_URB_ISO_PACKETS" inType="win:26" count="fid_UCX_URB_NumberOfPackets"/>
+      <data name="fid_IRP_NtStatus" inType="win:UInt32"/>
+      <data name="fid_URB_TransferDataLength" inType="win:UInt16"/>
+      <data name="fid_URB_TransferData" inType="win:UInt8" count="fid_URB_TransferDataLength"/>
+     </template>
+     <template tid="ENDPOINT_STATE_MACHINE_TRANSITIONInformationArgs">
+      <data name="fid_Endpoint" inType="win:Pointer"/>
+      <data name="fid_URB_PipeHandle" inType="win:Pointer"/>
+      <data name="fid_State" inType="win:UInt32"/>
+      <data name="fid_Event" inType="win:UInt32"/>
+     </template>
+     <template tid="ENDPOINT_STATE_MACHINE_EVENTInformationArgs">
+      <data name="fid_Endpoint" inType="win:Pointer"/>
+      <data name="fid_URB_PipeHandle" inType="win:Pointer"/>
+      <data name="fid_Event" inType="win:UInt32"/>
+     </template>
+     <template tid="CONTROLLER_STATE_MACHINE_TRANSITIONInformationArgs">
+      <data name="fid_UcxController" inType="win:Pointer"/>
+      <data name="fid_SmEngineContext" inType="win:Pointer"/>
+      <data name="fid_State" inType="win:UInt32"/>
+      <data name="fid_Event" inType="win:UInt32"/>
+     </template>
+     <template tid="CONTROLLER_STATE_MACHINE_EVENTInformationArgs">
+      <data name="fid_UcxController" inType="win:Pointer"/>
+      <data name="fid_SmEngineContext" inType="win:Pointer"/>
+      <data name="fid_Event" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Default" value="Default"/>
+    <string id="keyword_USBError" value="USBError"/>
+    <string id="keyword_IRP" value="IRP"/>
+    <string id="keyword_Power" value="Power"/>
+    <string id="keyword_PnP" value="PnP"/>
+    <string id="keyword_Performance" value="Performance"/>
+    <string id="keyword_HeadersBusTrace" value="HeadersBusTrace"/>
+    <string id="keyword_PartialDataBusTrace" value="PartialDataBusTrace"/>
+    <string id="keyword_FullDataBusTrace" value="FullDataBusTrace"/>
+    <string id="keyword_StateMachine" value="StateMachine"/>
+    <string id="keyword_Enumeration" value="Enumeration"/>
+    <string id="keyword_VerifyDriver" value="VerifyDriver"/>
+    <string id="keyword_HWVerifyHost" value="HWVerifyHost"/>
+    <string id="keyword_HWVerifyHub" value="HWVerifyHub"/>
+    <string id="keyword_HWVerifyDevice" value="HWVerifyDevice"/>
+    <string id="keyword_Rundown" value="Rundown"/>
+    <string id="keyword_Device" value="Device"/>
+    <string id="keyword_Hub" value="Hub"/>
+    <string id="keyword_Compat" value="Compat"/>
+    <string id="keyword_ControllerCommand" value="ControllerCommand"/>
+    <string id="keyword_keyword_400000000000" value="keyword_400000000000"/>
+    <string id="task_UCXDriverRundown" value="UCXDriverRundown"/>
+    <string id="task_UCXControlerRundown" value="UCXControlerRundown"/>
+    <string id="opcode_UCXControlerRundownInformation" value="Information"/>
+    <string id="task_UCXRootHubRundown" value="UCXRootHubRundown"/>
+    <string id="opcode_UCXRootHubRundownInformation" value="Information"/>
+    <string id="task_UCXDeviceRundown" value="UCXDeviceRundown"/>
+    <string id="opcode_UCXDeviceRundownInformation" value="Information"/>
+    <string id="task_UCXEndpointRundown" value="UCXEndpointRundown"/>
+    <string id="opcode_UCXEndpointRundownInformation" value="Information"/>
+    <string id="task_UCXStaticStreamRundown" value="UCXStaticStreamRundown"/>
+    <string id="opcode_UCXStaticStreamRundownInformation" value="Information"/>
+    <string id="task_UCXControllerCreate" value="UCXControllerCreate"/>
+    <string id="opcode_UCXControllerCreateInformation" value="Information"/>
+    <string id="task_UCXControllerDelete" value="UCXControllerDelete"/>
+    <string id="opcode_UCXControllerDeleteInformation" value="Information"/>
+    <string id="task_UCXRootHubCreate" value="UCXRootHubCreate"/>
+    <string id="opcode_UCXRootHubCreateInformation" value="Information"/>
+    <string id="task_UCXRootHubDelete" value="UCXRootHubDelete"/>
+    <string id="opcode_UCXRootHubDeleteInformation" value="Information"/>
+    <string id="task_UCXRootHubPrepareHardware" value="UCXRootHubPrepareHardware"/>
+    <string id="opcode_UCXRootHubPrepareHardwareInformation" value="Information"/>
+    <string id="task_UCXRootHubReleaseHardware" value="UCXRootHubReleaseHardware"/>
+    <string id="opcode_UCXRootHubReleaseHardwareInformation" value="Information"/>
+    <string id="task_UCXDeviceCreate" value="UCXDeviceCreate"/>
+    <string id="opcode_UCXDeviceCreateInformation" value="Information"/>
+    <string id="task_UCXDeviceDelete" value="UCXDeviceDelete"/>
+    <string id="opcode_UCXDeviceDeleteInformation" value="Information"/>
+    <string id="task_UCXEndpointCreate" value="UCXEndpointCreate"/>
+    <string id="opcode_UCXEndpointCreateInformation" value="Information"/>
+    <string id="task_UCXEndpointDelete" value="UCXEndpointDelete"/>
+    <string id="opcode_UCXEndpointDeleteInformation" value="Information"/>
+    <string id="task_UCXStaticStreamCreate" value="UCXStaticStreamCreate"/>
+    <string id="opcode_UCXStaticStreamCreateInformation" value="Information"/>
+    <string id="task_UCXStaticStreamDelete" value="UCXStaticStreamDelete"/>
+    <string id="opcode_UCXStaticStreamDeleteInformation" value="Information"/>
+    <string id="task_URB_FUNCTION_CONTROL_TRANSFER" value="URB_FUNCTION_CONTROL_TRANSFER"/>
+    <string id="task_URB_FUNCTION_CONTROL_TRANSFER_EX" value="URB_FUNCTION_CONTROL_TRANSFER_EX"/>
+    <string id="task_URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFER" value="URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFER"/>
+    <string id="task_URB_FUNCTION_ISOCH_TRANSFER" value="URB_FUNCTION_ISOCH_TRANSFER"/>
+    <string id="task_URB_FUNCTION_GET_DESCRIPTOR_FROM_DEVICE" value="URB_FUNCTION_GET_DESCRIPTOR_FROM_DEVICE"/>
+    <string id="task_URB_FUNCTION_GET_DESCRIPTOR_FROM_INTERFACE" value="URB_FUNCTION_GET_DESCRIPTOR_FROM_INTERFACE"/>
+    <string id="task_URB_FUNCTION_GET_DESCRIPTOR_FROM_ENDPOINT" value="URB_FUNCTION_GET_DESCRIPTOR_FROM_ENDPOINT"/>
+    <string id="task_URB_FUNCTION_SET_DESCRIPTOR_TO_DEVICE" value="URB_FUNCTION_SET_DESCRIPTOR_TO_DEVICE"/>
+    <string id="task_URB_FUNCTION_SET_DESCRIPTOR_TO_INTERFACE" value="URB_FUNCTION_SET_DESCRIPTOR_TO_INTERFACE"/>
+    <string id="task_URB_FUNCTION_SET_DESCRIPTOR_TO_ENDPOINT" value="URB_FUNCTION_SET_DESCRIPTOR_TO_ENDPOINT"/>
+    <string id="task_URB_FUNCTION_SET_FEATURE_TO_DEVICE" value="URB_FUNCTION_SET_FEATURE_TO_DEVICE"/>
+    <string id="task_URB_FUNCTION_SET_FEATURE_TO_INTERFACE" value="URB_FUNCTION_SET_FEATURE_TO_INTERFACE"/>
+    <string id="task_URB_FUNCTION_SET_FEATURE_TO_ENDPOINT" value="URB_FUNCTION_SET_FEATURE_TO_ENDPOINT"/>
+    <string id="task_URB_FUNCTION_SET_FEATURE_TO_OTHER" value="URB_FUNCTION_SET_FEATURE_TO_OTHER"/>
+    <string id="task_URB_FUNCTION_CLEAR_FEATURE_TO_DEVICE" value="URB_FUNCTION_CLEAR_FEATURE_TO_DEVICE"/>
+    <string id="task_URB_FUNCTION_CLEAR_FEATURE_TO_INTERFACE" value="URB_FUNCTION_CLEAR_FEATURE_TO_INTERFACE"/>
+    <string id="task_URB_FUNCTION_CLEAR_FEATURE_TO_ENDPOINT" value="URB_FUNCTION_CLEAR_FEATURE_TO_ENDPOINT"/>
+    <string id="task_URB_FUNCTION_CLEAR_FEATURE_TO_OTHER" value="URB_FUNCTION_CLEAR_FEATURE_TO_OTHER"/>
+    <string id="task_URB_FUNCTION_GET_STATUS_FROM_DEVICE" value="URB_FUNCTION_GET_STATUS_FROM_DEVICE"/>
+    <string id="task_URB_FUNCTION_GET_STATUS_FROM_INTERFACE" value="URB_FUNCTION_GET_STATUS_FROM_INTERFACE"/>
+    <string id="task_URB_FUNCTION_GET_STATUS_FROM_ENDPOINT" value="URB_FUNCTION_GET_STATUS_FROM_ENDPOINT"/>
+    <string id="task_URB_FUNCTION_GET_STATUS_FROM_OTHER" value="URB_FUNCTION_GET_STATUS_FROM_OTHER"/>
+    <string id="task_URB_FUNCTION_CLASS_DEVICE" value="URB_FUNCTION_CLASS_DEVICE"/>
+    <string id="task_URB_FUNCTION_CLASS_INTERFACE" value="URB_FUNCTION_CLASS_INTERFACE"/>
+    <string id="task_URB_FUNCTION_CLASS_ENDPOINT" value="URB_FUNCTION_CLASS_ENDPOINT"/>
+    <string id="task_URB_FUNCTION_CLASS_OTHER" value="URB_FUNCTION_CLASS_OTHER"/>
+    <string id="task_URB_FUNCTION_VENDOR_DEVICE" value="URB_FUNCTION_VENDOR_DEVICE"/>
+    <string id="task_URB_FUNCTION_VENDOR_INTERFACE" value="URB_FUNCTION_VENDOR_INTERFACE"/>
+    <string id="task_URB_FUNCTION_VENDOR_ENDPOINT" value="URB_FUNCTION_VENDOR_ENDPOINT"/>
+    <string id="task_URB_FUNCTION_VENDOR_OTHER" value="URB_FUNCTION_VENDOR_OTHER"/>
+    <string id="task_URB_FUNCTION_GET_CONFIGURATION" value="URB_FUNCTION_GET_CONFIGURATION"/>
+    <string id="task_URB_FUNCTION_GET_INTERFACE" value="URB_FUNCTION_GET_INTERFACE"/>
+    <string id="task_URB_FUNCTION_GET_MS_FEATURE_DESCRIPTOR" value="URB_FUNCTION_GET_MS_FEATURE_DESCRIPTOR"/>
+    <string id="task_ENDPOINT_STATE_MACHINE_TRANSITION" value="ENDPOINT_STATE_MACHINE_TRANSITION"/>
+    <string id="opcode_ENDPOINT_STATE_MACHINE_TRANSITIONInformation" value="Information"/>
+    <string id="task_ENDPOINT_STATE_MACHINE_EVENT" value="ENDPOINT_STATE_MACHINE_EVENT"/>
+    <string id="opcode_ENDPOINT_STATE_MACHINE_EVENTInformation" value="Information"/>
+    <string id="task_CONTROLLER_STATE_MACHINE_TRANSITION" value="CONTROLLER_STATE_MACHINE_TRANSITION"/>
+    <string id="opcode_CONTROLLER_STATE_MACHINE_TRANSITIONInformation" value="Information"/>
+    <string id="task_CONTROLLER_STATE_MACHINE_EVENT" value="CONTROLLER_STATE_MACHINE_EVENT"/>
+    <string id="opcode_CONTROLLER_STATE_MACHINE_EVENTInformation" value="Information"/>
+    <string id="task_UCXRootHubInitiatingWake" value="UCXRootHubInitiatingWake"/>
+    <string id="opcode_UCXRootHubInitiatingWakeInformation" value="Information"/>
+    <string id="map_MapParentBusTypeParentBusTypePci" value="ParentBusTypePci"/>
+    <string id="map_MapParentBusTypeParentBusTypeAcpi" value="ParentBusTypeAcpi"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

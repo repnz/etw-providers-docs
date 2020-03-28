@@ -1,0 +1,597 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-WinQuic" guid="{2bcfefe5-5026-536b-1686-b249cb49cae3}" resourceFileName="Microsoft-Windows-WinQuic" messageFileName="Microsoft-Windows-WinQuic" symbol="MicrosoftWindowsWinQuic" source="Xml" >
+    <keywords>
+     <keyword name="ut:Registration" message="$(string.keyword_ut:Registration)" mask="0x1"/>
+     <keyword name="ut:Session" message="$(string.keyword_ut:Session)" mask="0x2"/>
+     <keyword name="ut:Listener" message="$(string.keyword_ut:Listener)" mask="0x4"/>
+     <keyword name="ut:Worker" message="$(string.keyword_ut:Worker)" mask="0x8"/>
+     <keyword name="ut:Binding" message="$(string.keyword_ut:Binding)" mask="0x10"/>
+     <keyword name="ut:Connection" message="$(string.keyword_ut:Connection)" mask="0x20"/>
+     <keyword name="ut:Stream" message="$(string.keyword_ut:Stream)" mask="0x40"/>
+     <keyword name="ut:UDP" message="$(string.keyword_ut:UDP)" mask="0x80"/>
+     <keyword name="ut:Packet" message="$(string.keyword_ut:Packet)" mask="0x100"/>
+     <keyword name="ut:TLS" message="$(string.keyword_ut:TLS)" mask="0x200"/>
+     <keyword name="ut:Platform" message="$(string.keyword_ut:Platform)" mask="0x400"/>
+     <keyword name="ut:Scheduling" message="$(string.keyword_ut:Scheduling)" mask="0x20000000"/>
+     <keyword name="ut:DataFlow" message="$(string.keyword_ut:DataFlow)" mask="0x40000000"/>
+     <keyword name="ut:LowVolume" message="$(string.keyword_ut:LowVolume)" mask="0x80000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <maps>
+     <valueMap name="map_QUIC_SCHEDULE_STATE">
+      <map value="0x0" message="$(string.map_map_QUIC_SCHEDULE_STATEIDLE)"/>
+      <map value="0x1" message="$(string.map_map_QUIC_SCHEDULE_STATEQUEUED)"/>
+      <map value="0x2" message="$(string.map_map_QUIC_SCHEDULE_STATEPROCESSING)"/>
+     </valueMap>
+     <valueMap name="map_QUIC_CONN_TIMER_TYPE">
+      <map value="0x0" message="$(string.map_map_QUIC_CONN_TIMER_TYPETIMER.PACING)"/>
+      <map value="0x1" message="$(string.map_map_QUIC_CONN_TIMER_TYPETIMER.ACK_DELAY)"/>
+      <map value="0x2" message="$(string.map_map_QUIC_CONN_TIMER_TYPETIMER.LOSS_DETECTION)"/>
+      <map value="0x3" message="$(string.map_map_QUIC_CONN_TIMER_TYPETIMER.KEEP_ALIVE)"/>
+      <map value="0x4" message="$(string.map_map_QUIC_CONN_TIMER_TYPETIMER.IDLE)"/>
+      <map value="0x5" message="$(string.map_map_QUIC_CONN_TIMER_TYPETIMER.SHUTDOWN)"/>
+     </valueMap>
+     <valueMap name="map_QUIC_LOSS_TIMER_TYPE">
+      <map value="0x0" message="$(string.map_map_QUIC_LOSS_TIMER_TYPECRYPTO)"/>
+      <map value="0x1" message="$(string.map_map_QUIC_LOSS_TIMER_TYPERACK)"/>
+      <map value="0x2" message="$(string.map_map_QUIC_LOSS_TIMER_TYPEPROBE)"/>
+     </valueMap>
+     <valueMap name="map_QUIC_TRACE_PACKET_TYPE">
+      <map value="0x0" message="$(string.map_map_QUIC_TRACE_PACKET_TYPEVERSION_NEGOTIATION)"/>
+      <map value="0x1" message="$(string.map_map_QUIC_TRACE_PACKET_TYPEINITIAL)"/>
+      <map value="0x2" message="$(string.map_map_QUIC_TRACE_PACKET_TYPEZERO_RTT)"/>
+      <map value="0x3" message="$(string.map_map_QUIC_TRACE_PACKET_TYPEHANDSHAKE)"/>
+      <map value="0x4" message="$(string.map_map_QUIC_TRACE_PACKET_TYPERETRY)"/>
+      <map value="0x5" message="$(string.map_map_QUIC_TRACE_PACKET_TYPEONE_RTT)"/>
+     </valueMap>
+     <valueMap name="map_QUIC_TRACE_PACKET_LOSS_REASON">
+      <map value="0x0" message="$(string.map_map_QUIC_TRACE_PACKET_LOSS_REASONRACK)"/>
+      <map value="0x1" message="$(string.map_map_QUIC_TRACE_PACKET_LOSS_REASONFACK)"/>
+     </valueMap>
+     <valueMap name="map_QUIC_STREAM_RECV_STATE">
+      <map value="0x0" message="$(string.map_map_QUIC_STREAM_RECV_STATEDISABLED)"/>
+      <map value="0x1" message="$(string.map_map_QUIC_STREAM_RECV_STATESTARTED)"/>
+      <map value="0x2" message="$(string.map_map_QUIC_STREAM_RECV_STATEPAUSED)"/>
+      <map value="0x3" message="$(string.map_map_QUIC_STREAM_RECV_STATESTOPPED)"/>
+      <map value="0x4" message="$(string.map_map_QUIC_STREAM_RECV_STATERESET)"/>
+      <map value="0x5" message="$(string.map_map_QUIC_STREAM_RECV_STATEFIN)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="task_0" version="0" task="task_0" level="win:Informational" keywords="ut:LowVolume" template="task_0Args"/>
+     <event value="2" symbol="task_02" version="0" task="task_0" level="win:Informational" keywords="ut:LowVolume"/>
+     <event value="3" symbol="task_03" version="0" task="task_0" level="win:Informational" keywords="ut:LowVolume"/>
+     <event value="4" symbol="task_04" version="0" task="task_0" level="win:Informational" keywords="ut:LowVolume"/>
+     <event value="5" symbol="task_05" version="0" task="task_0" level="win:Informational" keywords="ut:LowVolume"/>
+     <event value="6" symbol="task_06" version="0" task="task_0" level="win:Warning" keywords="ut:LowVolume" template="task_06Args"/>
+     <event value="7" symbol="task_07" version="0" task="task_0" level="win:Informational" keywords="ut:LowVolume" template="task_0Args"/>
+     <event value="8" symbol="task_08" version="0" task="task_0" level="win:Error" keywords="ut:LowVolume" template="task_08Args"/>
+     <event value="9" symbol="task_09" version="0" task="task_0" level="win:Error" keywords="ut:LowVolume" template="task_09Args"/>
+     <event value="10" symbol="task_010" version="0" task="task_0" level="win:Error" keywords="ut:LowVolume" template="task_010Args"/>
+     <event value="1024" symbol="task_01024" version="0" task="task_0" level="win:Informational" keywords="ut:Registration ut:LowVolume" template="task_01024Args"/>
+     <event value="1025" symbol="task_01025" version="0" task="task_0" level="win:Informational" keywords="ut:Registration ut:LowVolume" template="task_01025Args"/>
+     <event value="1026" symbol="task_01026" version="0" task="task_0" level="win:Informational" keywords="ut:Registration ut:LowVolume" template="task_01025Args"/>
+     <event value="1027" symbol="task_01027" version="0" task="task_0" level="win:Informational" keywords="ut:Registration ut:LowVolume" template="task_01024Args"/>
+     <event value="1028" symbol="task_01028" version="0" task="task_0" level="win:Error" keywords="ut:Registration ut:LowVolume" template="task_01028Args"/>
+     <event value="1029" symbol="task_01029" version="0" task="task_0" level="win:Error" keywords="ut:Registration ut:LowVolume" template="task_01029Args"/>
+     <event value="2048" symbol="task_02048" version="0" task="task_0" level="win:Informational" keywords="ut:Worker ut:LowVolume" template="task_02048Args"/>
+     <event value="2049" symbol="task_02049" version="0" task="task_0" level="win:Informational" keywords="ut:Worker ut:LowVolume" template="task_02049Args"/>
+     <event value="2050" symbol="task_02050" version="0" task="task_0" level="win:Informational" keywords="ut:Worker ut:LowVolume" template="task_02049Args"/>
+     <event value="2051" symbol="task_02051" version="0" task="task_0" level="win:Verbose" keywords="ut:Worker ut:Scheduling ut:LowVolume" template="task_02051Args"/>
+     <event value="2052" symbol="task_02052" version="0" task="task_0" level="win:Verbose" keywords="ut:Worker ut:Scheduling ut:LowVolume" template="task_02052Args"/>
+     <event value="2053" symbol="task_02053" version="0" task="task_0" level="win:Informational" keywords="ut:Worker ut:LowVolume" template="task_02049Args"/>
+     <event value="2054" symbol="task_02054" version="0" task="task_0" level="win:Informational" keywords="ut:Worker ut:LowVolume" template="task_02049Args"/>
+     <event value="2055" symbol="task_02055" version="0" task="task_0" level="win:Error" keywords="ut:Worker ut:LowVolume" template="task_02055Args"/>
+     <event value="2056" symbol="task_02056" version="0" task="task_0" level="win:Error" keywords="ut:Worker ut:LowVolume" template="task_02056Args"/>
+     <event value="3072" symbol="task_03072" version="0" task="task_0" level="win:Informational" keywords="ut:Session ut:LowVolume" template="task_03072Args"/>
+     <event value="3073" symbol="task_03073" version="0" task="task_0" level="win:Informational" keywords="ut:Session ut:LowVolume" template="task_03073Args"/>
+     <event value="3074" symbol="task_03074" version="0" task="task_0" level="win:Informational" keywords="ut:Session ut:LowVolume" template="task_03073Args"/>
+     <event value="3075" symbol="task_03075" version="0" task="task_0" level="win:Informational" keywords="ut:Session ut:LowVolume" template="task_03075Args"/>
+     <event value="3076" symbol="task_03076" version="0" task="task_0" level="win:Informational" keywords="ut:Session ut:LowVolume" template="task_03072Args"/>
+     <event value="3077" symbol="task_03077" version="0" task="task_0" level="win:Error" keywords="ut:Session ut:LowVolume" template="task_03077Args"/>
+     <event value="3078" symbol="task_03078" version="0" task="task_0" level="win:Error" keywords="ut:Session ut:LowVolume" template="task_03078Args"/>
+     <event value="4096" symbol="task_04096" version="0" task="task_0" level="win:Informational" keywords="ut:Listener ut:LowVolume" template="task_04096Args"/>
+     <event value="4097" symbol="task_04097" version="0" task="task_0" level="win:Informational" keywords="ut:Listener ut:LowVolume" template="task_04097Args"/>
+     <event value="4098" symbol="task_04098" version="0" task="task_0" level="win:Informational" keywords="ut:Listener ut:LowVolume" template="task_04098Args"/>
+     <event value="4099" symbol="task_04099" version="0" task="task_0" level="win:Informational" keywords="ut:Listener ut:LowVolume" template="task_04097Args"/>
+     <event value="4100" symbol="task_04100" version="0" task="task_0" level="win:Informational" keywords="ut:Listener ut:LowVolume" template="task_04096Args"/>
+     <event value="4101" symbol="task_04101" version="0" task="task_0" level="win:Error" keywords="ut:Listener ut:LowVolume" template="task_04101Args"/>
+     <event value="4102" symbol="task_04102" version="0" task="task_0" level="win:Error" keywords="ut:Listener ut:LowVolume" template="task_04102Args"/>
+     <event value="5120" symbol="task_05120" version="0" task="task_0" level="win:Informational" keywords="ut:Connection ut:LowVolume" template="task_05120Args"/>
+     <event value="5121" symbol="task_05121" version="0" task="task_0" level="win:Informational" keywords="ut:Connection ut:LowVolume" template="task_05121Args"/>
+     <event value="5122" symbol="task_05122" version="0" task="task_0" level="win:Informational" keywords="ut:Connection ut:LowVolume" template="task_05121Args"/>
+     <event value="5123" symbol="task_05123" version="0" task="task_0" level="win:Informational" keywords="ut:Connection ut:Scheduling" template="task_05123Args"/>
+     <event value="5124" symbol="task_05124" version="0" task="task_0" level="win:Verbose" keywords="ut:Connection ut:Scheduling" template="task_05124Args"/>
+     <event value="5125" symbol="task_05125" version="0" task="task_0" level="win:Verbose" keywords="ut:Connection ut:Scheduling" template="task_05124Args"/>
+     <event value="5126" symbol="task_05126" version="0" task="task_0" level="win:Verbose" keywords="ut:Connection ut:Scheduling" template="task_05126Args"/>
+     <event value="5127" symbol="task_05127" version="0" task="task_0" level="win:Informational" keywords="ut:Connection ut:LowVolume" template="task_05127Args"/>
+     <event value="5128" symbol="task_05128" version="0" task="task_0" level="win:Informational" keywords="ut:Connection ut:LowVolume" template="task_05127Args"/>
+     <event value="5129" symbol="task_05129" version="0" task="task_0" level="win:Informational" keywords="ut:Connection ut:LowVolume" template="task_05127Args"/>
+     <event value="5130" symbol="task_05130" version="0" task="task_0" level="win:Informational" keywords="ut:Connection ut:LowVolume" template="task_05127Args"/>
+     <event value="5131" symbol="task_05131" version="0" task="task_0" level="win:Informational" keywords="ut:Connection ut:Scheduling ut:LowVolume" template="task_05131Args"/>
+     <event value="5132" symbol="task_05132" version="0" task="task_0" level="win:Informational" keywords="ut:Connection ut:LowVolume" template="task_05121Args"/>
+     <event value="5133" symbol="task_05133" version="0" task="task_0" level="win:Informational" keywords="ut:Connection ut:LowVolume" template="task_05133Args"/>
+     <event value="5134" symbol="task_05134" version="0" task="task_0" level="win:Informational" keywords="ut:Connection ut:LowVolume" template="task_05133Args"/>
+     <event value="5135" symbol="task_05135" version="0" task="task_0" level="win:Informational" keywords="ut:Connection ut:LowVolume" template="task_05135Args"/>
+     <event value="5136" symbol="task_05136" version="0" task="task_0" level="win:Informational" keywords="ut:Connection ut:LowVolume" template="task_05136Args"/>
+     <event value="5137" symbol="task_05137" version="0" task="task_0" level="win:Informational" keywords="ut:Connection ut:LowVolume" template="task_05121Args"/>
+     <event value="5138" symbol="task_05138" version="0" task="task_0" level="win:Informational" keywords="ut:Connection ut:LowVolume" template="task_05121Args"/>
+     <event value="5139" symbol="task_05139" version="0" task="task_0" level="win:Informational" keywords="ut:Connection ut:LowVolume" template="task_05139Args"/>
+     <event value="5140" symbol="task_05140" version="0" task="task_0" level="win:Verbose" keywords="ut:Connection ut:DataFlow" template="task_05140Args"/>
+     <event value="5141" symbol="task_05141" version="0" task="task_0" level="win:Informational" keywords="ut:Connection ut:DataFlow" template="task_05141Args"/>
+     <event value="5142" symbol="task_05142" version="0" task="task_0" level="win:Verbose" keywords="ut:Connection ut:DataFlow" template="task_05142Args"/>
+     <event value="5143" symbol="task_05143" version="0" task="task_0" level="win:Verbose" keywords="ut:Connection ut:DataFlow" template="task_05143Args"/>
+     <event value="5144" symbol="task_05144" version="0" task="task_0" level="win:Verbose" keywords="ut:Connection ut:DataFlow" template="task_05121Args"/>
+     <event value="5145" symbol="task_05145" version="0" task="task_0" level="win:Informational" keywords="ut:Connection ut:DataFlow ut:LowVolume" template="task_05121Args"/>
+     <event value="5146" symbol="task_05146" version="0" task="task_0" level="win:Informational" keywords="ut:Connection ut:DataFlow" template="task_05121Args"/>
+     <event value="5147" symbol="task_05147" version="0" task="task_0" level="win:Informational" keywords="ut:Connection ut:LowVolume" template="task_05120Args"/>
+     <event value="5148" symbol="task_05148" version="0" task="task_0" level="win:Informational" keywords="ut:Connection ut:LowVolume" template="task_05148Args"/>
+     <event value="5149" symbol="task_05149" version="0" task="task_0" level="win:Informational" keywords="ut:Connection ut:LowVolume" template="task_05148Args"/>
+     <event value="5150" symbol="task_05150" version="0" task="task_0" level="win:Informational" keywords="ut:Connection ut:LowVolume" template="task_05148Args"/>
+     <event value="5151" symbol="task_05151" version="0" task="task_0" level="win:Informational" keywords="ut:Connection ut:LowVolume" template="task_05148Args"/>
+     <event value="5152" symbol="task_05152" version="0" task="task_0" level="win:Informational" keywords="ut:Connection" template="task_05152Args"/>
+     <event value="5153" symbol="task_05153" version="0" task="task_0" level="win:Informational" keywords="ut:Connection" template="task_05121Args"/>
+     <event value="5154" symbol="task_05154" version="0" task="task_0" level="win:Informational" keywords="ut:Connection ut:Packet" template="task_05154Args"/>
+     <event value="5155" symbol="task_05155" version="0" task="task_0" level="win:Informational" keywords="ut:Connection ut:Packet" template="task_05155Args"/>
+     <event value="5156" symbol="task_05156" version="0" task="task_0" level="win:Error" keywords="ut:Connection ut:LowVolume" template="task_05156Args"/>
+     <event value="5157" symbol="task_05157" version="0" task="task_0" level="win:Error" keywords="ut:Connection ut:LowVolume" template="task_05157Args"/>
+     <event value="5158" symbol="task_05158" version="0" task="task_0" level="win:Informational" keywords="ut:Connection ut:LowVolume" template="task_05121Args"/>
+     <event value="5159" symbol="task_05159" version="0" task="task_0" level="win:Informational" keywords="ut:Connection ut:LowVolume" template="task_05159Args"/>
+     <event value="5160" symbol="task_05160" version="0" task="task_0" level="win:Informational" keywords="ut:Connection ut:LowVolume" template="task_05160Args"/>
+     <event value="5161" symbol="task_05161" version="0" task="task_0" level="win:Informational" keywords="ut:Connection ut:LowVolume" template="task_05161Args"/>
+     <event value="5162" symbol="task_05162" version="0" task="task_0" level="win:Verbose" keywords="ut:Connection ut:LowVolume" template="task_05162Args"/>
+     <event value="5163" symbol="task_05163" version="0" task="task_0" level="win:Verbose" keywords="ut:Connection ut:LowVolume" template="task_05162Args"/>
+     <event value="5164" symbol="task_05164" version="0" task="task_0" level="win:Verbose" keywords="ut:Connection ut:Packet" template="task_05164Args"/>
+     <event value="5165" symbol="task_05165" version="0" task="task_0" level="win:Verbose" keywords="ut:Connection ut:Packet" template="task_05165Args"/>
+     <event value="5166" symbol="task_05166" version="0" task="task_0" level="win:Verbose" keywords="ut:Connection ut:Packet" template="task_05166Args"/>
+     <event value="5167" symbol="task_05167" version="0" task="task_0" level="win:Verbose" keywords="ut:Connection ut:Packet" template="task_05167Args"/>
+     <event value="6144" symbol="task_06144" version="0" task="task_0" level="win:Informational" keywords="ut:Stream ut:LowVolume" template="task_06144Args"/>
+     <event value="6145" symbol="task_06145" version="0" task="task_0" level="win:Informational" keywords="ut:Stream ut:LowVolume" template="task_06145Args"/>
+     <event value="6146" symbol="task_06146" version="0" task="task_0" level="win:Informational" keywords="ut:Stream ut:DataFlow" template="task_06146Args"/>
+     <event value="6147" symbol="task_06147" version="0" task="task_0" level="win:Informational" keywords="ut:Stream ut:LowVolume" template="task_06144Args"/>
+     <event value="6148" symbol="task_06148" version="0" task="task_0" level="win:Informational" keywords="ut:Stream ut:LowVolume" template="task_06148Args"/>
+     <event value="6149" symbol="task_06149" version="0" task="task_0" level="win:Informational" keywords="ut:Stream ut:LowVolume" template="task_06149Args"/>
+     <event value="6150" symbol="task_06150" version="0" task="task_0" level="win:Error" keywords="ut:Stream ut:LowVolume" template="task_06150Args"/>
+     <event value="6151" symbol="task_06151" version="0" task="task_0" level="win:Error" keywords="ut:Stream ut:LowVolume" template="task_06151Args"/>
+     <event value="7168" symbol="task_07168" version="0" task="task_0" level="win:Informational" keywords="ut:Binding ut:LowVolume" template="task_07168Args"/>
+     <event value="7169" symbol="task_07169" version="0" task="task_0" level="win:Informational" keywords="ut:Binding ut:LowVolume" template="task_07168Args"/>
+     <event value="7170" symbol="task_07170" version="0" task="task_0" level="win:Informational" keywords="ut:Binding ut:LowVolume" template="task_07170Args"/>
+     <event value="7171" symbol="task_07171" version="0" task="task_0" level="win:Informational" keywords="ut:Binding ut:LowVolume" template="task_07170Args"/>
+     <event value="7172" symbol="task_07172" version="0" task="task_0" level="win:Informational" keywords="ut:Binding ut:Packet" template="task_05154Args"/>
+     <event value="7173" symbol="task_07173" version="0" task="task_0" level="win:Informational" keywords="ut:Binding ut:Packet" template="task_05155Args"/>
+     <event value="7174" symbol="task_07174" version="0" task="task_0" level="win:Error" keywords="ut:Binding ut:LowVolume" template="task_07174Args"/>
+     <event value="7175" symbol="task_07175" version="0" task="task_0" level="win:Error" keywords="ut:Binding ut:LowVolume" template="task_07175Args"/>
+     <event value="7176" symbol="task_07176" version="0" task="task_0" level="win:Verbose" keywords="ut:Binding ut:Scheduling" template="task_07176Args"/>
+     <event value="8192" symbol="task_08192" version="0" task="task_0" level="win:Error" keywords="ut:TLS ut:LowVolume" template="task_05156Args"/>
+     <event value="8193" symbol="task_08193" version="0" task="task_0" level="win:Error" keywords="ut:TLS ut:LowVolume" template="task_05157Args"/>
+     <event value="9215" symbol="task_09215" version="0" task="task_0" level="win:Verbose" keywords="ut:TLS" template="task_09215Args"/>
+     <event value="9216" symbol="task_09216" version="0" task="task_0" level="win:Verbose" keywords="ut:UDP ut:DataFlow" template="task_09216Args"/>
+     <event value="9217" symbol="task_09217" version="0" task="task_0" level="win:Verbose" keywords="ut:UDP ut:DataFlow" template="task_09217Args"/>
+     <event value="9218" symbol="task_09218" version="0" task="task_0" level="win:Verbose" keywords="ut:UDP ut:DataFlow" template="task_09218Args"/>
+     <event value="9219" symbol="task_09219" version="0" task="task_0" level="win:Error" keywords="ut:UDP ut:LowVolume" template="task_09219Args"/>
+     <event value="9220" symbol="task_09220" version="0" task="task_0" level="win:Error" keywords="ut:UDP ut:LowVolume" template="task_09220Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="PartitionCount" inType="win:UInt32"/>
+      <data name="DatapathFeatures" inType="win:UInt32"/>
+     </template>
+     <template tid="task_06Args">
+      <data name="Desc" inType="win:AnsiString"/>
+      <data name="ByteCount" inType="win:UInt64"/>
+     </template>
+     <template tid="task_08Args">
+      <data name="ErrStr" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_09Args">
+      <data name="Status" inType="win:UInt32"/>
+      <data name="ErrStr" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_010Args">
+      <data name="Line" inType="win:UInt32"/>
+      <data name="File" inType="win:AnsiString"/>
+      <data name="Expression" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_01024Args">
+      <data name="Registration" inType="win:Pointer"/>
+      <data name="AppName" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_01025Args">
+      <data name="Registration" inType="win:Pointer"/>
+     </template>
+     <template tid="task_01028Args">
+      <data name="Registration" inType="win:Pointer"/>
+      <data name="ErrStr" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_01029Args">
+      <data name="Registration" inType="win:Pointer"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="ErrStr" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_02048Args">
+      <data name="Worker" inType="win:Pointer"/>
+      <data name="IdealProcessor" inType="win:UInt8"/>
+      <data name="Owner" inType="win:Pointer"/>
+     </template>
+     <template tid="task_02049Args">
+      <data name="Worker" inType="win:Pointer"/>
+     </template>
+     <template tid="task_02051Args">
+      <data name="Worker" inType="win:Pointer"/>
+      <data name="IsActive" inType="win:UInt8"/>
+      <data name="Arg" inType="win:UInt32"/>
+     </template>
+     <template tid="task_02052Args">
+      <data name="Worker" inType="win:Pointer"/>
+      <data name="QueueDelay" inType="win:UInt32"/>
+     </template>
+     <template tid="task_02055Args">
+      <data name="Worker" inType="win:Pointer"/>
+      <data name="ErrStr" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_02056Args">
+      <data name="Worker" inType="win:Pointer"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="ErrStr" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_03072Args">
+      <data name="Session" inType="win:Pointer"/>
+      <data name="Registration" inType="win:Pointer"/>
+      <data name="AppName" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_03073Args">
+      <data name="Session" inType="win:Pointer"/>
+     </template>
+     <template tid="task_03075Args">
+      <data name="Session" inType="win:Pointer"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="ErrorCode" inType="win:UInt64"/>
+     </template>
+     <template tid="task_03077Args">
+      <data name="Session" inType="win:Pointer"/>
+      <data name="ErrStr" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_03078Args">
+      <data name="Session" inType="win:Pointer"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="ErrStr" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_04096Args">
+      <data name="Listener" inType="win:Pointer"/>
+      <data name="Session" inType="win:Pointer"/>
+     </template>
+     <template tid="task_04097Args">
+      <data name="Listener" inType="win:Pointer"/>
+     </template>
+     <template tid="task_04098Args">
+      <data name="Listener" inType="win:Pointer"/>
+      <data name="Binding" inType="win:Pointer"/>
+      <data name="AddrLength" inType="win:UInt8"/>
+      <data name="Addr" inType="win:Binary" length="AddrLength"/>
+     </template>
+     <template tid="task_04101Args">
+      <data name="Listener" inType="win:Pointer"/>
+      <data name="ErrStr" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_04102Args">
+      <data name="Listener" inType="win:Pointer"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="ErrStr" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_05120Args">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="IsServer" inType="win:UInt32"/>
+      <data name="CorrelationId" inType="win:UInt64"/>
+     </template>
+     <template tid="task_05121Args">
+      <data name="Connection" inType="win:Pointer"/>
+     </template>
+     <template tid="task_05123Args">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="State" inType="win:UInt32" map="map_QUIC_SCHEDULE_STATE"/>
+     </template>
+     <template tid="task_05124Args">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="Type" inType="win:UInt32"/>
+     </template>
+     <template tid="task_05126Args">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="Type" inType="win:UInt32" map="map_QUIC_CONN_TIMER_TYPE"/>
+     </template>
+     <template tid="task_05127Args">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="AddrLength" inType="win:UInt8"/>
+      <data name="Addr" inType="win:Binary" length="AddrLength"/>
+     </template>
+     <template tid="task_05131Args">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="Worker" inType="win:Pointer"/>
+     </template>
+     <template tid="task_05133Args">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="Session" inType="win:Pointer"/>
+     </template>
+     <template tid="task_05135Args">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="ErrorCode" inType="win:UInt64"/>
+      <data name="IsRemoteShutdown" inType="win:UInt8"/>
+      <data name="IsQuicStatus" inType="win:UInt8"/>
+     </template>
+     <template tid="task_05136Args">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="ErrorCode" inType="win:UInt64"/>
+      <data name="IsRemoteShutdown" inType="win:UInt8"/>
+     </template>
+     <template tid="task_05139Args">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="Value" inType="win:UInt32"/>
+     </template>
+     <template tid="task_05140Args">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="BytesSent" inType="win:UInt64"/>
+      <data name="BytesInFlight" inType="win:UInt32"/>
+      <data name="BytesInFlightMax" inType="win:UInt32"/>
+      <data name="CongestionWindow" inType="win:UInt32"/>
+      <data name="SlowStartThreshold" inType="win:UInt32"/>
+      <data name="ConnectionFlowControl" inType="win:UInt64"/>
+      <data name="StreamFlowControl" inType="win:UInt64"/>
+      <data name="IdealBytes" inType="win:UInt64"/>
+      <data name="PostedBytes" inType="win:UInt64"/>
+      <data name="SmoothedRtt" inType="win:UInt32"/>
+      <data name="StreamSendWindow" inType="win:UInt64"/>
+     </template>
+     <template tid="task_05141Args">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="ReasonFlags" inType="win:UInt8"/>
+     </template>
+     <template tid="task_05142Args">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="BytesReceived" inType="win:UInt64"/>
+     </template>
+     <template tid="task_05143Args">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="SlowStartThreshold" inType="win:UInt32"/>
+      <data name="K" inType="win:UInt32"/>
+      <data name="WindowMax" inType="win:UInt32"/>
+      <data name="WindowLastMax" inType="win:UInt32"/>
+     </template>
+     <template tid="task_05148Args">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="CidLength" inType="win:UInt8"/>
+      <data name="Cid" inType="win:Binary" length="CidLength"/>
+     </template>
+     <template tid="task_05152Args">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="Type" inType="win:UInt8" map="map_QUIC_LOSS_TIMER_TYPE"/>
+      <data name="DelayMs" inType="win:UInt32"/>
+      <data name="ProbeCount" inType="win:UInt16"/>
+     </template>
+     <template tid="task_05154Args">
+      <data name="Owner" inType="win:Pointer"/>
+      <data name="PktNum" inType="win:UInt64"/>
+      <data name="LocalAddrLength" inType="win:UInt8"/>
+      <data name="RemoteAddrLength" inType="win:UInt8"/>
+      <data name="LocalAddr" inType="win:Binary" length="LocalAddrLength"/>
+      <data name="RemoteAddr" inType="win:Binary" length="RemoteAddrLength"/>
+      <data name="Reason" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_05155Args">
+      <data name="Owner" inType="win:Pointer"/>
+      <data name="PktNum" inType="win:UInt64"/>
+      <data name="Value" inType="win:UInt64"/>
+      <data name="LocalAddrLength" inType="win:UInt8"/>
+      <data name="RemoteAddrLength" inType="win:UInt8"/>
+      <data name="LocalAddr" inType="win:Binary" length="LocalAddrLength"/>
+      <data name="RemoteAddr" inType="win:Binary" length="RemoteAddrLength"/>
+      <data name="Reason" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_05156Args">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="ErrStr" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_05157Args">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="ErrStr" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_05159Args">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="IsLocallyInitiated" inType="win:UInt8"/>
+     </template>
+     <template tid="task_05160Args">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="LifeTimeUs" inType="win:UInt64"/>
+      <data name="SendTotalPackets" inType="win:UInt64"/>
+      <data name="SendSuspectedLostPackets" inType="win:UInt64"/>
+      <data name="SendSpuriousLostPackets" inType="win:UInt64"/>
+      <data name="RecvTotalPackets" inType="win:UInt64"/>
+      <data name="RecvReorderedPackets" inType="win:UInt64"/>
+      <data name="RecvDroppedPackets" inType="win:UInt64"/>
+      <data name="RecvDuplicatePackets" inType="win:UInt64"/>
+      <data name="RecvDecryptionFailures" inType="win:UInt64"/>
+      <data name="CongestionCount" inType="win:UInt32"/>
+      <data name="PersistentCongestionCount" inType="win:UInt32"/>
+      <data name="SendTotalBytes" inType="win:UInt64"/>
+      <data name="RecvTotalBytes" inType="win:UInt64"/>
+      <data name="SmoothedRtt" inType="win:UInt32"/>
+     </template>
+     <template tid="task_05161Args">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="Value" inType="win:UInt8"/>
+     </template>
+     <template tid="task_05162Args">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="NewValue" inType="win:UInt8"/>
+     </template>
+     <template tid="task_05164Args">
+      <data name="Owner" inType="win:Pointer"/>
+      <data name="Number" inType="win:UInt64"/>
+      <data name="Type" inType="win:UInt8"/>
+      <data name="Length" inType="win:UInt16"/>
+     </template>
+     <template tid="task_05165Args">
+      <data name="Owner" inType="win:Pointer"/>
+      <data name="Number" inType="win:UInt64"/>
+      <data name="Type" inType="win:UInt8" map="map_QUIC_TRACE_PACKET_TYPE"/>
+      <data name="Length" inType="win:UInt16"/>
+     </template>
+     <template tid="task_05166Args">
+      <data name="Owner" inType="win:Pointer"/>
+      <data name="Number" inType="win:UInt64"/>
+      <data name="Type" inType="win:UInt8"/>
+      <data name="Reason" inType="win:UInt8" map="map_QUIC_TRACE_PACKET_LOSS_REASON"/>
+     </template>
+     <template tid="task_05167Args">
+      <data name="Owner" inType="win:Pointer"/>
+      <data name="Number" inType="win:UInt64"/>
+      <data name="Type" inType="win:UInt8"/>
+     </template>
+     <template tid="task_06144Args">
+      <data name="Stream" inType="win:Pointer"/>
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="ID" inType="win:UInt64"/>
+      <data name="IsLocalOwned" inType="win:UInt8"/>
+     </template>
+     <template tid="task_06145Args">
+      <data name="Stream" inType="win:Pointer"/>
+     </template>
+     <template tid="task_06146Args">
+      <data name="Stream" inType="win:Pointer"/>
+      <data name="ReasonFlags" inType="win:UInt8"/>
+     </template>
+     <template tid="task_06148Args">
+      <data name="Stream" inType="win:Pointer"/>
+      <data name="State" inType="win:UInt8"/>
+     </template>
+     <template tid="task_06149Args">
+      <data name="Stream" inType="win:Pointer"/>
+      <data name="State" inType="win:UInt8" map="map_QUIC_STREAM_RECV_STATE"/>
+     </template>
+     <template tid="task_06150Args">
+      <data name="Stream" inType="win:Pointer"/>
+      <data name="ErrStr" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_06151Args">
+      <data name="Stream" inType="win:Pointer"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="ErrStr" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_07168Args">
+      <data name="Binding" inType="win:Pointer"/>
+      <data name="DatapathBinding" inType="win:Pointer"/>
+      <data name="LocalAddrLength" inType="win:UInt8"/>
+      <data name="RemoteAddrLength" inType="win:UInt8"/>
+      <data name="LocalAddr" inType="win:Binary" length="LocalAddrLength"/>
+      <data name="RemoteAddr" inType="win:Binary" length="RemoteAddrLength"/>
+     </template>
+     <template tid="task_07170Args">
+      <data name="Binding" inType="win:Pointer"/>
+     </template>
+     <template tid="task_07174Args">
+      <data name="Binding" inType="win:Pointer"/>
+      <data name="ErrStr" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_07175Args">
+      <data name="Binding" inType="win:Pointer"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="ErrStr" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_07176Args">
+      <data name="Binding" inType="win:Pointer"/>
+      <data name="Type" inType="win:UInt32"/>
+     </template>
+     <template tid="task_09215Args">
+      <data name="Message" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_09216Args">
+      <data name="UdpBinding" inType="win:Pointer"/>
+      <data name="TotalSize" inType="win:UInt32"/>
+      <data name="BufferCount" inType="win:UInt8"/>
+      <data name="SegmentSize" inType="win:UInt16"/>
+      <data name="RemoteAddrLength" inType="win:UInt8"/>
+      <data name="RemoteAddr" inType="win:Binary" length="RemoteAddrLength"/>
+     </template>
+     <template tid="task_09217Args">
+      <data name="UdpBinding" inType="win:Pointer"/>
+      <data name="TotalSize" inType="win:UInt32"/>
+      <data name="BufferCount" inType="win:UInt8"/>
+      <data name="SegmentSize" inType="win:UInt16"/>
+      <data name="RemoteAddrLength" inType="win:UInt8"/>
+      <data name="LocalAddrLength" inType="win:UInt8"/>
+      <data name="RemoteAddr" inType="win:Binary" length="RemoteAddrLength"/>
+      <data name="LocalAddr" inType="win:Binary" length="LocalAddrLength"/>
+     </template>
+     <template tid="task_09218Args">
+      <data name="UdpBinding" inType="win:Pointer"/>
+      <data name="TotalSize" inType="win:UInt32"/>
+      <data name="SegmentSize" inType="win:UInt16"/>
+      <data name="LocalAddrLength" inType="win:UInt8"/>
+      <data name="RemoteAddrLength" inType="win:UInt8"/>
+      <data name="LocalAddr" inType="win:Binary" length="LocalAddrLength"/>
+      <data name="RemoteAddr" inType="win:Binary" length="RemoteAddrLength"/>
+     </template>
+     <template tid="task_09219Args">
+      <data name="UdpBinding" inType="win:Pointer"/>
+      <data name="ErrStr" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_09220Args">
+      <data name="UdpBinding" inType="win:Pointer"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="ErrStr" inType="win:AnsiString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_ut:Registration" value="ut:Registration"/>
+    <string id="keyword_ut:Session" value="ut:Session"/>
+    <string id="keyword_ut:Listener" value="ut:Listener"/>
+    <string id="keyword_ut:Worker" value="ut:Worker"/>
+    <string id="keyword_ut:Binding" value="ut:Binding"/>
+    <string id="keyword_ut:Connection" value="ut:Connection"/>
+    <string id="keyword_ut:Stream" value="ut:Stream"/>
+    <string id="keyword_ut:UDP" value="ut:UDP"/>
+    <string id="keyword_ut:Packet" value="ut:Packet"/>
+    <string id="keyword_ut:TLS" value="ut:TLS"/>
+    <string id="keyword_ut:Platform" value="ut:Platform"/>
+    <string id="keyword_ut:Scheduling" value="ut:Scheduling"/>
+    <string id="keyword_ut:DataFlow" value="ut:DataFlow"/>
+    <string id="keyword_ut:LowVolume" value="ut:LowVolume"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="map_map_QUIC_SCHEDULE_STATEIDLE" value="IDLE"/>
+    <string id="map_map_QUIC_SCHEDULE_STATEQUEUED" value="QUEUED"/>
+    <string id="map_map_QUIC_SCHEDULE_STATEPROCESSING" value="PROCESSING"/>
+    <string id="map_map_QUIC_CONN_TIMER_TYPETIMER.PACING" value="TIMER.PACING"/>
+    <string id="map_map_QUIC_CONN_TIMER_TYPETIMER.ACK_DELAY" value="TIMER.ACK_DELAY"/>
+    <string id="map_map_QUIC_CONN_TIMER_TYPETIMER.LOSS_DETECTION" value="TIMER.LOSS_DETECTION"/>
+    <string id="map_map_QUIC_CONN_TIMER_TYPETIMER.KEEP_ALIVE" value="TIMER.KEEP_ALIVE"/>
+    <string id="map_map_QUIC_CONN_TIMER_TYPETIMER.IDLE" value="TIMER.IDLE"/>
+    <string id="map_map_QUIC_CONN_TIMER_TYPETIMER.SHUTDOWN" value="TIMER.SHUTDOWN"/>
+    <string id="map_map_QUIC_LOSS_TIMER_TYPECRYPTO" value="CRYPTO"/>
+    <string id="map_map_QUIC_LOSS_TIMER_TYPERACK" value="RACK"/>
+    <string id="map_map_QUIC_LOSS_TIMER_TYPEPROBE" value="PROBE"/>
+    <string id="map_map_QUIC_TRACE_PACKET_TYPEVERSION_NEGOTIATION" value="VERSION_NEGOTIATION"/>
+    <string id="map_map_QUIC_TRACE_PACKET_TYPEINITIAL" value="INITIAL"/>
+    <string id="map_map_QUIC_TRACE_PACKET_TYPEZERO_RTT" value="ZERO_RTT"/>
+    <string id="map_map_QUIC_TRACE_PACKET_TYPEHANDSHAKE" value="HANDSHAKE"/>
+    <string id="map_map_QUIC_TRACE_PACKET_TYPERETRY" value="RETRY"/>
+    <string id="map_map_QUIC_TRACE_PACKET_TYPEONE_RTT" value="ONE_RTT"/>
+    <string id="map_map_QUIC_TRACE_PACKET_LOSS_REASONRACK" value="RACK"/>
+    <string id="map_map_QUIC_TRACE_PACKET_LOSS_REASONFACK" value="FACK"/>
+    <string id="map_map_QUIC_STREAM_RECV_STATEDISABLED" value="DISABLED"/>
+    <string id="map_map_QUIC_STREAM_RECV_STATESTARTED" value="STARTED"/>
+    <string id="map_map_QUIC_STREAM_RECV_STATEPAUSED" value="PAUSED"/>
+    <string id="map_map_QUIC_STREAM_RECV_STATESTOPPED" value="STOPPED"/>
+    <string id="map_map_QUIC_STREAM_RECV_STATERESET" value="RESET"/>
+    <string id="map_map_QUIC_STREAM_RECV_STATEFIN" value="FIN"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,64 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Kernel-AppCompat" guid="{16a1adc1-9b7f-4cd9-94b3-d8296ab1b130}" resourceFileName="Microsoft-Windows-Kernel-AppCompat" messageFileName="Microsoft-Windows-Kernel-AppCompat" symbol="MicrosoftWindowsKernelAppCompat" source="Xml" >
+    <keywords>
+     <keyword name="RegWrpAccessDenied" message="$(string.keyword_RegWrpAccessDenied)" mask="0x8"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="CompatCacheInit" message="$(string.task_CompatCacheInit)" value="1"/>
+     <task name="CompatCacheQuery" message="$(string.task_CompatCacheQuery)" value="2"/>
+     <task name="CompatCdbQuery" message="$(string.task_CompatCdbQuery)" value="3"/>
+     <task name="CompatMapQuirks" message="$(string.task_CompatMapQuirks)" value="4"/>
+     <task name="CompatCacheUpdate" message="$(string.task_CompatCacheUpdate)" value="5"/>
+     <task name="CompatUserModeQuery" message="$(string.task_CompatUserModeQuery)" value="6"/>
+     <task name="CompatSdbQuery" message="$(string.task_CompatSdbQuery)" value="7"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="task_0" version="0" task="task_0" level="win:Informational" keywords="RegWrpAccessDenied" template="task_0Args"/>
+     <event value="2" symbol="CompatCacheInitStart" version="0" task="CompatCacheInit" opcode="win:Start" level="win:Informational"/>
+     <event value="3" symbol="CompatCacheInitStop" version="0" task="CompatCacheInit" opcode="win:Stop" level="win:Informational" template="CompatCacheInitStopArgs"/>
+     <event value="4" symbol="CompatCacheUpdateStart" version="0" task="CompatCacheUpdate" opcode="win:Start" level="win:Informational"/>
+     <event value="5" symbol="CompatCacheUpdateStop" version="0" task="CompatCacheUpdate" opcode="win:Stop" level="win:Informational" template="CompatCacheInitStopArgs"/>
+     <event value="6" symbol="CompatCacheQueryStart" version="0" task="CompatCacheQuery" opcode="win:Start" level="win:Informational"/>
+     <event value="7" symbol="CompatCacheQueryStop" version="0" task="CompatCacheQuery" opcode="win:Stop" level="win:Informational" template="CompatCacheInitStopArgs"/>
+     <event value="8" symbol="CompatCdbQueryStart" version="0" task="CompatCdbQuery" opcode="win:Start" level="win:Informational"/>
+     <event value="9" symbol="CompatCdbQueryStop" version="0" task="CompatCdbQuery" opcode="win:Stop" level="win:Informational" template="CompatCacheInitStopArgs"/>
+     <event value="10" symbol="CompatMapQuirksStart" version="0" task="CompatMapQuirks" opcode="win:Start" level="win:Informational"/>
+     <event value="11" symbol="CompatMapQuirksStop" version="0" task="CompatMapQuirks" opcode="win:Stop" level="win:Informational" template="CompatCacheInitStopArgs"/>
+     <event value="12" symbol="CompatUserModeQueryStart" version="0" task="CompatUserModeQuery" opcode="win:Start" level="win:Informational"/>
+     <event value="13" symbol="CompatUserModeQueryStop" version="0" task="CompatUserModeQuery" opcode="win:Stop" level="win:Informational" template="CompatCacheInitStopArgs"/>
+     <event value="14" symbol="CompatSdbQueryStart" version="0" task="CompatSdbQuery" opcode="win:Start" level="win:Informational"/>
+     <event value="15" symbol="CompatSdbQueryStop" version="0" task="CompatSdbQuery" opcode="win:Stop" level="win:Informational" template="CompatCacheInitStopArgs"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="ExecutablePathLength" inType="win:UInt16"/>
+      <data name="ExecutablePath" inType="win:UnicodeString" length="ExecutablePathLength"/>
+      <data name="RegistryPathLength" inType="win:UInt16"/>
+      <data name="RegistryPath" inType="win:UnicodeString" length="RegistryPathLength"/>
+     </template>
+     <template tid="CompatCacheInitStopArgs">
+      <data name="StatusCode" inType="win:HexInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_RegWrpAccessDenied" value="RegWrpAccessDenied"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_CompatCacheInit" value="CompatCacheInit"/>
+    <string id="task_CompatCacheQuery" value="CompatCacheQuery"/>
+    <string id="task_CompatCdbQuery" value="CompatCdbQuery"/>
+    <string id="task_CompatMapQuirks" value="CompatMapQuirks"/>
+    <string id="task_CompatCacheUpdate" value="CompatCacheUpdate"/>
+    <string id="task_CompatUserModeQuery" value="CompatUserModeQuery"/>
+    <string id="task_CompatSdbQuery" value="CompatSdbQuery"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,1544 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Kernel-Boot" guid="{15ca44ff-4d7a-4baa-bba5-0998955e531e}" resourceFileName="Microsoft-Windows-Kernel-Boot" messageFileName="Microsoft-Windows-Kernel-Boot" symbol="MicrosoftWindowsKernelBoot" source="Xml" >
+    <keywords>
+     <keyword name="SoftRestart" message="$(string.keyword_SoftRestart)" mask="0x1"/>
+     <keyword name="MemoryPreservation" message="$(string.keyword_MemoryPreservation)" mask="0x2"/>
+     <keyword name="MemoryBlockRundown" message="$(string.keyword_MemoryBlockRundown)" mask="0x4"/>
+     <keyword name="PhysicalMemory" message="$(string.keyword_PhysicalMemory)" mask="0x8"/>
+     <keyword name="MemoryMapRundown" message="$(string.keyword_MemoryMapRundown)" mask="0x10"/>
+     <keyword name="MemoryPartitions" message="$(string.keyword_MemoryPartitions)" mask="0x20"/>
+     <keyword name="EfiVariables" message="$(string.keyword_EfiVariables)" mask="0x40"/>
+     <keyword name="keyword_80000000000" message="$(string.keyword_keyword_80000000000)" mask="0x80000000000"/>
+     <keyword name="keyword_200000000000" message="$(string.keyword_keyword_200000000000)" mask="0x200000000000"/>
+     <keyword name="keyword_400000000000" message="$(string.keyword_keyword_400000000000)" mask="0x400000000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="InitializeLibrary" message="$(string.task_InitializeLibrary)" value="1"/>
+     <task name="PrepareTarget" message="$(string.task_PrepareTarget)" value="2"/>
+     <task name="RebuildKernelMemoryMap" message="$(string.task_RebuildKernelMemoryMap)" value="3"/>
+     <task name="FatalError" message="$(string.task_FatalError)" value="4"/>
+     <task name="PersistMemory" message="$(string.task_PersistMemory)" value="5"/>
+     <task name="ClaimPersistedMemory" message="$(string.task_ClaimPersistedMemory)" value="6"/>
+     <task name="FreePersistedMemory" message="$(string.task_FreePersistedMemory)" value="7"/>
+     <task name="CleanupPageDatabase" message="$(string.task_CleanupPageDatabase)" value="8"/>
+     <task name="CancelBoot" message="$(string.task_CancelBoot)" value="9"/>
+     <task name="AttachPersistentPageDatabase" message="$(string.task_AttachPersistentPageDatabase)" value="10"/>
+     <task name="MemoryBlockRundown" message="$(string.task_MemoryBlockRundown)" value="11"/>
+     <task name="BuildKernelMemoryMap" message="$(string.task_BuildKernelMemoryMap)" value="12"/>
+     <task name="GetMemoryMap" message="$(string.task_GetMemoryMap)" value="13"/>
+     <task name="AllocatePhysicalPagesForMdl" message="$(string.task_AllocatePhysicalPagesForMdl)" value="14"/>
+     <task name="ExecuteTransition" message="$(string.task_ExecuteTransition)" value="15"/>
+     <task name="DisconnectHypervisor" message="$(string.task_DisconnectHypervisor)" value="16"/>
+     <task name="MemoryMapRundown" message="$(string.task_MemoryMapRundown)" value="17"/>
+     <task name="PhysicalPageAllocationFailure" message="$(string.task_PhysicalPageAllocationFailure)" value="18"/>
+     <task name="BootManager" message="$(string.task_BootManager)" value="19"/>
+     <task name="PreBoot" message="$(string.task_PreBoot)" value="20"/>
+     <task name="FirmwareBootData" message="$(string.task_FirmwareBootData)" value="21"/>
+     <task name="LoadDrivers" message="$(string.task_LoadDrivers)" value="22"/>
+     <task name="LoadHive" message="$(string.task_LoadHive)" value="23"/>
+     <task name="BootApplicationExecution" message="$(string.task_BootApplicationExecution)" value="24"/>
+     <task name="WaitForPartitionsRestored" message="$(string.task_WaitForPartitionsRestored)" value="25"/>
+     <task name="MemoryPartitionRestore" message="$(string.task_MemoryPartitionRestore)" value="26"/>
+     <task name="PersistMemoryPartition" message="$(string.task_PersistMemoryPartition)" value="27"/>
+     <task name="RegisterLoader" message="$(string.task_RegisterLoader)" value="28"/>
+     <task name="SiPolicyFailure" message="$(string.task_SiPolicyFailure)" value="29"/>
+     <task name="BootTotalIo" message="$(string.task_BootTotalIo)" value="30"/>
+     <task name="DirtyBootShutdown" message="$(string.task_DirtyBootShutdown)" value="31"/>
+     <task name="BootMenuPolicy" message="$(string.task_BootMenuPolicy)" value="32"/>
+     <task name="BootType" message="$(string.task_BootType)" value="33"/>
+     <task name="MemoryPartitionsRestored" message="$(string.task_MemoryPartitionsRestored)" value="34"/>
+     <task name="QueryStatistics" message="$(string.task_QueryStatistics)" value="35"/>
+     <task name="ConnectSecureLoader" message="$(string.task_ConnectSecureLoader)" value="36"/>
+     <task name="BootFileAccess" message="$(string.task_BootFileAccess)" value="37"/>
+     <task name="RetrieveDriverListTime" message="$(string.task_RetrieveDriverListTime)" value="38"/>
+     <task name="FreePersistedMemoryBlock" message="$(string.task_FreePersistedMemoryBlock)" value="39"/>
+     <task name="PrepareNotification" message="$(string.task_PrepareNotification)" value="40"/>
+     <task name="PartitionInitialAddMemory" message="$(string.task_PartitionInitialAddMemory)" value="41"/>
+     <task name="ImageHashCheck" message="$(string.task_ImageHashCheck)" value="42"/>
+     <task name="ImageIntegrityCheck" message="$(string.task_ImageIntegrityCheck)" value="43"/>
+     <task name="BootPolicyMigration" message="$(string.task_BootPolicyMigration)" value="44"/>
+     <task name="RemoveEnclavePages" message="$(string.task_RemoveEnclavePages)" value="45"/>
+     <task name="EnumerateEnclavePages" message="$(string.task_EnumerateEnclavePages)" value="46"/>
+     <task name="GetSystemBootDevice" message="$(string.task_GetSystemBootDevice)" value="47"/>
+     <task name="NormalizeBootOptionList" message="$(string.task_NormalizeBootOptionList)" value="48"/>
+     <task name="CreateLibraryParameters" message="$(string.task_CreateLibraryParameters)" value="49"/>
+     <task name="CreateDevices" message="$(string.task_CreateDevices)" value="50"/>
+     <task name="SoftRestartHostCapability" message="$(string.task_SoftRestartHostCapability)" value="51"/>
+     <task name="CancelNotification" message="$(string.task_CancelNotification)" value="52"/>
+     <task name="BootDiag" message="$(string.task_BootDiag)" value="53"/>
+     <task name="ImageLoadFailure" message="$(string.task_ImageLoadFailure)" value="54"/>
+     <task name="FirmwareResolution" message="$(string.task_FirmwareResolution)" value="55"/>
+     <task name="BootEnvResolution" message="$(string.task_BootEnvResolution)" value="56"/>
+     <task name="BootmgrEntryCount" message="$(string.task_BootmgrEntryCount)" value="57"/>
+     <task name="UserInputTime" message="$(string.task_UserInputTime)" value="58"/>
+     <task name="VsmIdkProvisioningStatus" message="$(string.task_VsmIdkProvisioningStatus)" value="59"/>
+     <task name="BootAppLoadTime" message="$(string.task_BootAppLoadTime)" value="60"/>
+     <task name="PrepareTargetFailure" message="$(string.task_PrepareTargetFailure)" value="61"/>
+     <task name="VsmPolicyEnablement" message="$(string.task_VsmPolicyEnablement)" value="62"/>
+     <task name="InitializeMeasurementContext" message="$(string.task_InitializeMeasurementContext)" value="63">
+>
+      <opcodes>
+       <opcode name="InitializationFailure" message="$(string.opcode_InitializeMeasurementContextInitializationFailure)" value="11"/>
+       <opcode name="MeasurementsDisabled" message="$(string.opcode_InitializeMeasurementContextMeasurementsDisabled)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="KsrMeasurement" message="$(string.task_KsrMeasurement)" value="64"/>
+     <task name="TpmMeasurement" message="$(string.task_TpmMeasurement)" value="65"/>
+     <task name="CloseMeasurementLog" message="$(string.task_CloseMeasurementLog)" value="66"/>
+     <task name="CommitPendingEvents" message="$(string.task_CommitPendingEvents)" value="67"/>
+     <task name="CapTpmPcr" message="$(string.task_CapTpmPcr)" value="68"/>
+     <task name="TpmCommandResponse" message="$(string.task_TpmCommandResponse)" value="69"/>
+     <task name="TpmSubmitError" message="$(string.task_TpmSubmitError)" value="70"/>
+     <task name="TpmBitLockerUsage" message="$(string.task_TpmBitLockerUsage)" value="71"/>
+     <task name="EfiVariableAccess" message="$(string.task_EfiVariableAccess)" value="72">
+>
+      <opcodes>
+       <opcode name="GetEfiVariable" message="$(string.opcode_EfiVariableAccessGetEfiVariable)" value="11"/>
+       <opcode name="SetEfiVariable" message="$(string.opcode_EfiVariableAccessSetEfiVariable)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="GetFirmwareInformation" message="$(string.task_GetFirmwareInformation)" value="73"/>
+     <task name="VerifyBootEntry" message="$(string.task_VerifyBootEntry)" value="74"/>
+     <task name="InvalidNfitTable" message="$(string.task_InvalidNfitTable)" value="75"/>
+     <task name="MeasuredLaunch" message="$(string.task_MeasuredLaunch)" value="76">
+>
+      <opcodes>
+       <opcode name="TxtLaunchPrepared" message="$(string.opcode_MeasuredLaunchTxtLaunchPrepared)" value="11"/>
+       <opcode name="PreviousTxtError" message="$(string.opcode_MeasuredLaunchPreviousTxtError)" value="12"/>
+       <opcode name="InvalidTxtSinitRange" message="$(string.opcode_MeasuredLaunchInvalidTxtSinitRange)" value="13"/>
+       <opcode name="InvalidTxtHeapRange" message="$(string.opcode_MeasuredLaunchInvalidTxtHeapRange)" value="14"/>
+       <opcode name="MleLoadFailure" message="$(string.opcode_MeasuredLaunchMleLoadFailure)" value="15"/>
+       <opcode name="MissingRsdpTable" message="$(string.opcode_MeasuredLaunchMissingRsdpTable)" value="16"/>
+       <opcode name="NoSinitAcm" message="$(string.opcode_MeasuredLaunchNoSinitAcm)" value="17"/>
+       <opcode name="ComputePmrRangesFailure" message="$(string.opcode_MeasuredLaunchComputePmrRangesFailure)" value="18"/>
+       <opcode name="InvalidTxtHeapBiosDataSize" message="$(string.opcode_MeasuredLaunchInvalidTxtHeapBiosDataSize)" value="19"/>
+       <opcode name="MleHeaderTooOld" message="$(string.opcode_MeasuredLaunchMleHeaderTooOld)" value="20"/>
+       <opcode name="SinitPerformance" message="$(string.opcode_MeasuredLaunchSinitPerformance)" value="21"/>
+       <opcode name="PrepareLcpFailure" message="$(string.opcode_MeasuredLaunchPrepareLcpFailure)" value="22"/>
+       <opcode name="TxtRejectedFirmwareAcm" message="$(string.opcode_MeasuredLaunchTxtRejectedFirmwareAcm)" value="23"/>
+       <opcode name="TxtInformation" message="$(string.opcode_MeasuredLaunchTxtInformation)" value="24"/>
+       <opcode name="TxtNotSupported" message="$(string.opcode_MeasuredLaunchTxtNotSupported)" value="25"/>
+       <opcode name="DrtmDriversNotSupportVbs" message="$(string.opcode_MeasuredLaunchDrtmDriversNotSupportVbs)" value="26"/>
+       <opcode name="PpamFailure" message="$(string.opcode_MeasuredLaunchPpamFailure)" value="27"/>
+       <opcode name="SmmLevelCheck" message="$(string.opcode_MeasuredLaunchSmmLevelCheck)" value="28"/>
+      </opcodes>
+     </task>
+     <task name="EFICapsuleCreation" message="$(string.task_EFICapsuleCreation)" value="77"/>
+     <task name="BootSI" message="$(string.task_BootSI)" value="78">
+>
+      <opcodes>
+       <opcode name="InitStatus" message="$(string.opcode_BootSIInitStatus)" value="11"/>
+       <opcode name="EnterInsecureState" message="$(string.opcode_BootSIEnterInsecureState)" value="12"/>
+       <opcode name="DrtmSvnCheck" message="$(string.opcode_BootSIDrtmSvnCheck)" value="13"/>
+      </opcodes>
+     </task>
+     <task name="FileOpen" message="$(string.task_FileOpen)" value="79">
+>
+      <opcodes>
+       <opcode name="OpenFailure" message="$(string.opcode_FileOpenOpenFailure)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="VsmPolicyFailure" message="$(string.task_VsmPolicyFailure)" value="80"/>
+     <task name="VsmLKeyProvisioningStatus" message="$(string.task_VsmLKeyProvisioningStatus)" value="81"/>
+     <task name="SecureBootVariableUsage" message="$(string.task_SecureBootVariableUsage)" value="82"/>
+     <task name="MiniFilterStartFailure" message="$(string.task_MiniFilterStartFailure)" value="83"/>
+     <task name="FileModification" message="$(string.task_FileModification)" value="84"/>
+     <task name="RegistryModification" message="$(string.task_RegistryModification)" value="85"/>
+     <task name="SoftReboot" message="$(string.task_SoftReboot)" value="86"/>
+     <task name="RegisterFilter" message="$(string.task_RegisterFilter)" value="87"/>
+     <task name="BootDebugger" message="$(string.task_BootDebugger)" value="88">
+>
+      <opcodes>
+       <opcode name="BdEnabled" message="$(string.opcode_BootDebuggerBdEnabled)" value="11"/>
+       <opcode name="BdInitFailure" message="$(string.opcode_BootDebuggerBdInitFailure)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="IoSpaceMemory" message="$(string.task_IoSpaceMemory)" value="89">
+>
+      <opcodes>
+       <opcode name="Allocation" message="$(string.opcode_IoSpaceMemoryAllocation)" value="11"/>
+       <opcode name="AllocationFailure" message="$(string.opcode_IoSpaceMemoryAllocationFailure)" value="12"/>
+       <opcode name="EnumerateFailure" message="$(string.opcode_IoSpaceMemoryEnumerateFailure)" value="13"/>
+      </opcodes>
+     </task>
+     <task name="FinalizeMemoryMap" message="$(string.task_FinalizeMemoryMap)" value="90"/>
+     <task name="RegisterHvloaderPersistenceInterface" message="$(string.task_RegisterHvloaderPersistenceInterface)" value="91"/>
+     <task name="LoadHvloaderForPersistence" message="$(string.task_LoadHvloaderForPersistence)" value="92"/>
+     <task name="VsmBootNoSecretsMode" message="$(string.task_VsmBootNoSecretsMode)" value="93"/>
+     <task name="BootMenuTimerCanceled" message="$(string.task_BootMenuTimerCanceled)" value="94"/>
+     <task name="BadMemoryPages" message="$(string.task_BadMemoryPages)" value="95">
+>
+      <opcodes>
+       <opcode name="ListInitializationFailure" message="$(string.opcode_BadMemoryPagesListInitializationFailure)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="KernelDebugger" message="$(string.task_KernelDebugger)" value="96">
+>
+      <opcodes>
+       <opcode name="KdEnabled" message="$(string.opcode_KernelDebuggerKdEnabled)" value="11"/>
+       <opcode name="KdInitFailure" message="$(string.opcode_KernelDebuggerKdInitFailure)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="MemoryPartitionFreeUnusedMemory" message="$(string.task_MemoryPartitionFreeUnusedMemory)" value="97"/>
+     <task name="MemoryPartitionRestoreStats" message="$(string.task_MemoryPartitionRestoreStats)" value="98"/>
+     <task name="BootTpm" message="$(string.task_BootTpm)" value="99">
+>
+      <opcodes>
+       <opcode name="TpmInit" message="$(string.opcode_BootTpmTpmInit)" value="11"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <maps>
+     <valueMap name="BootDiagMessageMap">
+      <map value="0x0" message="$(string.map_BootDiagMessageMapBL_LOG_INFO_NONE: Info none)"/>
+      <map value="0x100000" message="$(string.map_BootDiagMessageMapBL_LOG_INFO_BLI_IO_INITED: IO initialized in boot library initialization.)"/>
+      <map value="0x100001" message="$(string.map_BootDiagMessageMapBL_LOG_INFO_BLI_FINISHED: Finished in boot library initialization.)"/>
+      <map value="0x200000" message="$(string.map_BootDiagMessageMapBL_LOG_INFO_BM_BL_INITED: The boot library has been initialized for bootmgr.)"/>
+      <map value="0x200001" message="$(string.map_BootDiagMessageMapBL_LOG_INFO_BM_GET_BOOT_SEQ: Getting boot sequence in bootmgr.)"/>
+      <map value="0x200002" message="$(string.map_BootDiagMessageMapBL_LOG_INFO_BM_LAUNCH_ENTRY: Launching boot entry in bootmgr.)"/>
+      <map value="0x300000" message="$(string.map_BootDiagMessageMapBL_LOG_INFO_OSL_PREPARE_ENTERED: Reached prepare target within osloader.)"/>
+      <map value="0x300001" message="$(string.map_BootDiagMessageMapBL_LOG_INFO_OSL_OPEN_DEVICE: Preparing to open OS device in osloader.)"/>
+      <map value="0x300002" message="$(string.map_BootDiagMessageMapBL_LOG_INFO_OSL_LAUNCH_HYPERV: Preparing to launch hyper-v if specified within osloader.)"/>
+      <map value="0x300003" message="$(string.map_BootDiagMessageMapBL_LOG_INFO_OSL_LOAD_MODULES: Preparing to load OS modules within osloader.)"/>
+      <map value="0x300004" message="$(string.map_BootDiagMessageMapBL_LOG_INFO_OSL_KERNEL_SETUP: Setting up kernel within osloader.)"/>
+      <map value="0x300005" message="$(string.map_BootDiagMessageMapBL_LOG_INFO_OSL_PRELOAD_HYPERV: Preloading hyper-v if specified within osloader.)"/>
+      <map value="0x300006" message="$(string.map_BootDiagMessageMapBL_LOG_INFO_OSL_BOOT_CANCELLED: Boot was cancelled.)"/>
+      <map value="0x500000" message="$(string.map_BootDiagMessageMapBL_LOG_INFO_TCB_LAUNCH_HYPERV: Preparing to launch hyper-v.)"/>
+      <map value="0x40000000" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR: Generic Error)"/>
+      <map value="0x40100000" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BLI_NET_INIT: BlNetInitialize failed in BL initialization.)"/>
+      <map value="0x40100001" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BLI_UTL_INIT: BlUtlInitialize failed in BL initialization.)"/>
+      <map value="0x40100002" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BLI_SEC_BOOT_INIT: BlSecureBootInitialize failed in BL initialization.)"/>
+      <map value="0x40100003" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BLI_PDATA_INIT: BlpPdInitialize failed in BL initialization.)"/>
+      <map value="0x40100004" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BLI_RES_INIT: BlpResourceInitialize failed in BL initialization.)"/>
+      <map value="0x40100005" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BLI_SEC_LAUNCH_INIT: BlpTcbLaunchInitialize failed in BL initialization.)"/>
+      <map value="0x40200000" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BM_INIT_MACH_POL: BmSecureBootInitializeMachinePolicy failed in bootmgr.)"/>
+      <map value="0x40200001" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BM_FW_REG_SYSINT: BmFwRegisterSystemIntegrityPolicies failed in bootmgr.)"/>
+      <map value="0x40200002" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BM_RES_FIND_HTML: BlResourceFindHtml failed to find BOOTMGR.XSL in bootmgr.)"/>
+      <map value="0x40200003" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BM_XMI_INIT: BlXmiInitialize failed in bootmgr.)"/>
+      <map value="0x40200004" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BM_OPEN_DATA_STORE: BmOpenDataStore failed in bootmgr.)"/>
+      <map value="0x40200005" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BM_SELF_INT_CHK: BmpSelfIntegrityCheck failed in bootmgr.)"/>
+      <map value="0x40200006" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BM_FW_REG_REV_LIST: BmFwRegisterRevocationList failed in bootmgr.)"/>
+      <map value="0x40200007" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BM_RESUME_HIBER: BmResumeFromHibernate failed in bootmgr.)"/>
+      <map value="0x40200008" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BM_PURGE_OPT_START_SEQ: BL_ERROR_BM_PURGE_OPT_START_SEQ failed in bootmgr.)"/>
+      <map value="0x40200009" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BM_PURGE_OPT_BOOT_SEQ: BmPurgeOption failed for BCDE_BOOTMGR_TYPE_BOOT_SEQUENCE in bootmgr.)"/>
+      <map value="0x4020000a" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BM_REOPEN_DATA_STORE: BmOpenDataStore failed on reopen in bootmgr.)"/>
+      <map value="0x4020000b" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BM_UPDATE_APP_OPTS: BmpUpdateApplicationOptions failed in bootmgr.)"/>
+      <map value="0x4020000c" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BM_LAUNCH_BOOT_ENTRY: BmpLaunchBootEntry failed in bootmgr.)"/>
+      <map value="0x4020000d" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BM_CREATE_DEVICES: BmpCreateDevices failed in bootmgr.)"/>
+      <map value="0x4020000e" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BM_LAUNCH_FLIGHT_BM: BmFwLaunchFlightedBootmgr failed in bootmgr.)"/>
+      <map value="0x4020000f" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BM_FE_BOOTAPP_LD: Fatal error: failure to load boot app in bootmgr.)"/>
+      <map value="0x40200010" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BM_FE_CONFIG_DATA: Fatal error: failure attempting to read boot config file in bootmgr.)"/>
+      <map value="0x40200011" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BM_FE_NO_VALID_OS_ENTRY: Fatal error: no valid os entires found in bootmgr.)"/>
+      <map value="0x40200012" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BM_FE_NO_VALID_PXE_ENTRY: Fatal error: no valid entries found from PXE server in bootmgr.)"/>
+      <map value="0x40200013" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BM_FE_FAILURE_STATUS: Fatal error: failure status in bootmgr.)"/>
+      <map value="0x40200014" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BM_FE_BOOT_DEVICE: Fatal error: boot device inaccessible in bootmgr.)"/>
+      <map value="0x40200015" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BM_FE_RAMDISK_MEM: Fatal error: ramdisk device creation had insufficient memory in bootmgr.)"/>
+      <map value="0x40200016" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BM_FE_INVALID_BCD_STORE: Fatal error: BCD is invalid in bootmgr.)"/>
+      <map value="0x40200017" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BM_FE_INVALID_BCD_ENTRY: Fatal error: Invalid BCD entry in bootmgr.)"/>
+      <map value="0x40200018" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BM_FE_NO_SECUREBOOT_POL: Fatal error: Default Secure Boot policy not found in bootmgr.)"/>
+      <map value="0x40200019" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BM_FE_NO_PAE_SUPPORT: Fatal error: CPU does not support PAE in bootmgr.)"/>
+      <map value="0x4020001a" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BM_FE_UNSEAL_NOT_POS: Fatal error: Cannot unseal sensitive data in bootmgr.)"/>
+      <map value="0x4020001b" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_BM_FE_GENERIC: Fatal error: Generic failure in bootmgr.)"/>
+      <map value="0x40300001" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_REM_INTERN_APP_OPTS: OslpRemoveInternalApplicationOptions failed in osloader.)"/>
+      <map value="0x40300002" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_GET_APP_OPT_DEVICE: BlGetApplicationOptionDevice failed for BCDE_OSLOADER_TYPE_OS_DEVICE in osloader.)"/>
+      <map value="0x40300003" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_GET_SYSTEM_ROOT: Failed to get SystemRoot in osloader.)"/>
+      <map value="0x40300004" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_FORCED_FAIL: OslpCheckForcedFailure failed implying a forced failure in osloader.)"/>
+      <map value="0x40300005" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_DISABLE_VGA: BlAppendApplicationOptionBoolean for BCDE_OSLOADER_TYPE_DISABLE_VGA_MODE failed in osloader.)"/>
+      <map value="0x40300006" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_OPEN_OS_DEVICE: BlDeviceOpen failed for os device in osloader.)"/>
+      <map value="0x40300007" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_LOAD_SYS_HIVE: OslpLoadSystemHive failed in osloader.)"/>
+      <map value="0x40300008" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_CREATE_OS_LD_OPTS: AhCreateLoadOptionsString failed in osloader.)"/>
+      <map value="0x40300009" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_DISPLAY_INIT: OslDisplayInitialize failed in osloader.)"/>
+      <map value="0x4030000a" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_PROCESS_SI_POLICY: OslpProcessSIPolicy failed in osloader.)"/>
+      <map value="0x4030000b" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_DISP_ADV_OPT: OslDisplayAdvancedOptionsProcess failed in osloader.)"/>
+      <map value="0x4030000c" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_ARCH_HV_SETUP: OslArchHypervisorSetup failed in osloader.)"/>
+      <map value="0x4030000d" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_ARCH_HYPERCALL_SETUP: OslArchHypercallSetup failed in osloader.)"/>
+      <map value="0x4030000e" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_INIT_RESUME_CONTEXT: OslInitializeResumeContext failed in osloader.)"/>
+      <map value="0x4030000f" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_INIT_LDR_BLOCK: OslInitializeLoaderBlock failed in osloader.)"/>
+      <map value="0x40300010" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_PROC_INIT_MACH_CONFIG: OslpProcessInitialMachineConfiguration failed in osloader.)"/>
+      <map value="0x40300011" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_ENUM_DISKS: OslEnumerateDisks failed for the loader block in osloader.)"/>
+      <map value="0x40300012" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_REINIT_SYS_HIVE: OslpReinitializeSystemHive failed in osloader.)"/>
+      <map value="0x40300013" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_INIT_CODE_INT: OslInitializeCodeIntegrity failed in osloader.)"/>
+      <map value="0x40300014" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_INIT_CODE_INT_LD_BLOCK: OslBuildCodeIntegrityLoaderBlock failed in osloader.)"/>
+      <map value="0x40300015" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_SECURE_BOOT_VARS: OslFwProtectSecureBootVariables failed in osloader.)"/>
+      <map value="0x40300016" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_LD_MODULES: OslpLoadAllModules failed in osloader.)"/>
+      <map value="0x40300017" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_LD_FW_DRIVERS: OslFwLoadFirmwareDrivers failed in osloader.)"/>
+      <map value="0x40300018" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_VSM_CHK_ENCRYPT_KEY: BlVsmCheckSystemPolicy failed for master sncrupt key provisioning in osloader.)"/>
+      <map value="0x40300019" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_VSM_PHASE_0: Fatal VSM Phase 0 initializatin failure in osloader.)"/>
+      <map value="0x4030001a" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_SET_SEIL_SIGN_POL: OslSetSeILSigningPolicy failed in osloader.)"/>
+      <map value="0x4030001b" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_CMS_PROV_IDK: BlVsmCheckSystemPolicy failed during VSM Idendity key work in osloader.)"/>
+      <map value="0x4030001c" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_ARCH_KERNEL_SETUP_0: OslArchKernelSetup failed for 0 in osloader.)"/>
+      <map value="0x4030001d" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_FW_KERNEL_SETUP: OslFwKernelSetup failed for 0 in osloader.)"/>
+      <map value="0x4030001e" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_PROC_EV_STORE: OslpProcessEVStore failed in osloader.)"/>
+      <map value="0x4030001f" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_COPY_BOOT_OPTS: BlCopyBootOptions failed in osloader.)"/>
+      <map value="0x40300020" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_FVE_SEC_BOOT_REST_ONE: BlFveSecureBootRestrictToOne failed in osloader.)"/>
+      <map value="0x40300021" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_NET_UNDI_CLOSE: BlNetUndiClose failed in osloader.)"/>
+      <map value="0x40300022" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_PROC_APP_PDATA: OslProcessApplicationPersistentData failed in osloader.)"/>
+      <map value="0x40300023" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_BLD_MEM_CACHE_REQ_LIST: OslFwBuildMemoryCachingRequirementsList failed in osloader.)"/>
+      <map value="0x40300024" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_BLD_RT_MEM_MAP: OslFwBuildRuntimeMemoryMap failed in osloader.)"/>
+      <map value="0x40300025" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_VSM_SETUP_1: OslVsmSetup failed for 1 in osloader.)"/>
+      <map value="0x40300026" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_BLD_KERNEL_MEM_MAP: BlTraceBuildKernelMemoryMapStop failed in osloader.)"/>
+      <map value="0x40300027" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_ARCH_KERNEL_SETUP_1: OslArchKernelSetup failed for 1 in osloader.)"/>
+      <map value="0x40300028" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_SET_VSM_POL_SYS_HIVE: OslSetVsmPolicy failed in osloader.)"/>
+      <map value="0x40300029" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_ENUM_ENCLAVE_PAGES: OslEnumerateEnclavePageRegions failed in osloader.)"/>
+      <map value="0x4030002a" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_GATHER_ENTROPY: OslGatherEntropy failed in osloader.)"/>
+      <map value="0x4030002b" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_VSM_SETUP_0: OslVsmSetup failed for 0 in osloader.)"/>
+      <map value="0x4030002c" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_VSM_CANNOT_BE_DISABLED_BY_KSR: VSM must not be disabled through KSR)"/>
+      <map value="0x4030002d" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_VSM_PHASE0_ALLOCATE_PAGES_FAILED)"/>
+      <map value="0x4030002e" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_VSM_PHASE0_LOAD_MODULES_FAILED)"/>
+      <map value="0x4030002f" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_VSM_PHASE0_LOAD_CIDATA_FAILED)"/>
+      <map value="0x40300030" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_VSM_PHASE0_COPY_VSM_KEYS_FAILED)"/>
+      <map value="0x40300031" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_VSM_PHASE0_COPY_ACPI_TABLES_FAILED)"/>
+      <map value="0x40300032" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_VSM_PHASE0_ARCH_SETUP_FAILED)"/>
+      <map value="0x40300033" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_VSM_PHASE0_BUILD_PAGE_TABLES_FAILED)"/>
+      <map value="0x40300034" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_BUILD_BSD_LOCATION_FAILED: OslpBuildBsdLogLocation failed in osloader.)"/>
+      <map value="0x40300035" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_GET_APP_OPT_DEVICE_OSDATA: BlGetApplicationOptionDevice failed for BCDE_OSLOADER_TYPE_OS_DATA_DEVICE in osloader.)"/>
+      <map value="0x40300036" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_OPEN_OSDATA_DEVICE: BlDeviceOpen failed for osdata device in osloader.)"/>
+      <map value="0x40300037" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_ENUMERATE_PERSISTENT_MEMORY: OslEnumeratePersistentMemory failed in osloader.)"/>
+      <map value="0x40300038" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_HVCI_CANNOT_BE_ENABLED_BY_KSR: HVCI must not be enabled through KSR)"/>
+      <map value="0x40300039" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_PROCESS_PRESERVED_MEMORY: Error while processing preserved memory.)"/>
+      <map value="0x4030003a" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_LOAD_DEVICES_HIVE: OslpLoadDevicesHive failed in osloader.)"/>
+      <map value="0x4030003b" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_LOAD_OSBOOT_HIVE: OslpLoadOsBootHive failed in osloader.)"/>
+      <map value="0x4030003c" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_LOAD_DRIVER_STORES: OslpLoadDriverStoreNodes failed in osloader.)"/>
+      <map value="0x4030003d" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_CMS_PROV_HBK: BlVsmCheckSystemPolicy failed during VSM Hibernation key work in osloader.)"/>
+      <map value="0x4030003e" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_ALLOC_LDR_BLOCK: OslAllocateLoaderBlock failed in osloader.)"/>
+      <map value="0x4030003f" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_ARCH_TCB_LAUNCH_0: OslTcbLaunch(0) failed in osloader.)"/>
+      <map value="0x40300040" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_HVCI_CANNOT_BE_DISABLED_BY_KSR: HVCI must not be disabled through KSR)"/>
+      <map value="0x40300041" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_GET_APP_OPT_DEVICE_BSP: BlGetApplicationOptionDevice failed for BCDE_OSLOADER_TYPE_BSP_DEVICE in osloader.)"/>
+      <map value="0x40300042" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_OPEN_BSP_DEVICE: BlDeviceOpen failed for bsp device in osloader.)"/>
+      <map value="0x40400000" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_KSR_KSEG0: InitializeRebootAddressRange failed in SK extension.)"/>
+      <map value="0x40400001" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_KSR_OUT_OF_MEMORY: Memory allocation failed in SK KSR extension.)"/>
+      <map value="0x40400002" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_KSR_IMAGE_VALIDATION: Image validation failed in SK KSR extension.)"/>
+      <map value="0x40400003" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_KSR_IMAGE_RELOCATION: Image relocation failed in SK KSR extension.)"/>
+      <map value="0x40400004" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_KSR_BIND_IMPORT: Failed to bind imports to image in SK KSR extension.)"/>
+      <map value="0x40400005" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_KSR_LOADER_ENTRY_POINT: SK loader entry point returned failure.)"/>
+      <map value="0x40500000" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_TCB_SI_POLICY_CHECK: Failed to validate and measure SI policy.)"/>
+      <map value="0x40500001" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_TCB_LOAD_TCBLOADER: Failed to load tcbloader.dll.)"/>
+      <map value="0x40500002" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_TCB_LOAD: Failed to perform load action.)"/>
+      <map value="0x40500003" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_TCB_RESUME: Failed to perform resume action.)"/>
+      <map value="0x40500004" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_TCB_INVALID_ATTRIBUTES: Invalid tcblaunch application attributes.)"/>
+      <map value="0x40500005" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_TCB_REGISTER_EVENT_HANDLER: Failed to register launch notificaiton handler.)"/>
+      <map value="0x40500006" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_TCB_OPEN_DEVICE: Failed to open application device.)"/>
+      <map value="0x40500007" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_TCB_GET_DEVICE: Failed to query application device.)"/>
+      <map value="0x40500008" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_GET_SYSTEM_ROOT: Failed to get SystemRoot value.)"/>
+      <map value="0x40500009" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_PROCESS_BOOTSTAT_DATA: Failed to process bootstat data.)"/>
+      <map value="0x4050000a" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_VIRT_SETUP_0: Failed to perform virtual setup phase 0.)"/>
+      <map value="0x4050000b" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_VIRT_SETUP_1: Failed to perform virtual setup phase 1.)"/>
+      <map value="0x4050000c" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_PRELOAD_SI_POLICY: Failed to preload SI policies from OS volume.)"/>
+      <map value="0x4050000d" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_OSL_ARCH_TCB_LAUNCH_1: OslTcbLaunch(1) failed in osloader.)"/>
+      <map value="0x4050000e" message="$(string.map_BootDiagMessageMapERROR_TCB_PLATORM_INIT: Failed to initialize TCB platform.)"/>
+      <map value="0x40600001" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_RES_OPEN_HIBERFILE: Failed to open the hiberfile.)"/>
+      <map value="0x40600002" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_RES_INIT_DISPLAY: Failed to initialize display.)"/>
+      <map value="0x40600003" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_RES_INVALID_PAGEFILE: Page file is invalide for hibernate resume.)"/>
+      <map value="0x40600004" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_RES_HW_CHANGE: Hardware or firmware settings have changes since hibernate.)"/>
+      <map value="0x40600005" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_RES_INVALID_HIBERFILE: Hiberfile is invalid.)"/>
+      <map value="0x40600006" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_RES_GET_CONTEXT_FAILED: Failed to get the resume context.)"/>
+      <map value="0x40600007" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_RES_INVALID_MEM_MAP: The memory map has changed since associated cold boot.)"/>
+      <map value="0x40600008" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_RES_FIRMWARE_PHASE_0: Failed phase 0 of firmware setup for resume.)"/>
+      <map value="0x40600009" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_RES_USB_HANDOFF: Failed setup for legacy usb handoff.)"/>
+      <map value="0x4060000a" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_RES_SMBIOS: Failed to get SMBIOS data.)"/>
+      <map value="0x4060000b" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_RES_TCB_ALLOCATE: Failed to allocate space for TCB resume.)"/>
+      <map value="0x4060000c" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_RES_TCB_PREPARE: Failed to prepare TCB data.)"/>
+      <map value="0x4060000d" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_RES_INIT_PREALLOCATION: Failed to initialize the preallocation.)"/>
+      <map value="0x4060000e" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_RES_INIT_TRANSITION_SPACE: Failed to intialize transition space.)"/>
+      <map value="0x4060000f" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_RES_INIT_PAGE_ALLOCATOR: Failed to initialize the free page allocator.)"/>
+      <map value="0x40600010" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_RES_RELOC_PROC_CONTEXT: Failed to relocate the processor context page.)"/>
+      <map value="0x40600011" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_RES_LOAD_SECURE_DATA: Failed to load secure data from the hiberfile.)"/>
+      <map value="0x40600012" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_RES_RESTORE_IMAGE: Failed to restore image from the hiberfile.)"/>
+      <map value="0x40600013" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_RES_SECURE_DECRYPT_0: Failed phase 0 of secure data decryption.)"/>
+      <map value="0x40600014" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_RES_FVE_RESTRICT: Failed to restrict bitlocker to resuming OS.)"/>
+      <map value="0x40600015" message="$(string.map_BootDiagMessageMapBL_LOG_ERROR_RES_TCB_PREP_DATA: Failed to prepare data for TCB resume.)"/>
+     </valueMap>
+     <valueMap name="TxtStatusMap">
+      <map value="0x0" message="$(string.map_TxtStatusMapNone)"/>
+      <map value="0x1" message="$(string.map_TxtStatusMapProcessor is not supported.)"/>
+      <map value="0x2" message="$(string.map_TxtStatusMapVMX is not supported.)"/>
+      <map value="0x3" message="$(string.map_TxtStatusMapSMX is not supported.)"/>
+      <map value="0x4" message="$(string.map_TxtStatusMapTXT is disabled by the BIOS in MSR_FEATURE_CONTROL.)"/>
+      <map value="0x5" message="$(string.map_TxtStatusMapRequired GETSEC[CAPABILITIES] are not available.)"/>
+      <map value="0x6" message="$(string.map_TxtStatusMapTPM 2.0 is not available.)"/>
+      <map value="0x7" message="$(string.map_TxtStatusMapMemory Attributes Table (MAT) not available.)"/>
+      <map value="0x8" message="$(string.map_TxtStatusMapNo SINIT ACM module type found at the SINIT base address.)"/>
+      <map value="0x9" message="$(string.map_TxtStatusMapThe ACM UUID does not match well known value.)"/>
+      <map value="0xa" message="$(string.map_TxtStatusMapThe ACM client/server flags do not match the bios data.)"/>
+      <map value="0xb" message="$(string.map_TxtStatusMapThe ACM debug flag does not match platform.)"/>
+      <map value="0xc" message="$(string.map_TxtStatusMapThe ACM does not support the chipset.)"/>
+      <map value="0xd" message="$(string.map_TxtStatusMapThe ACM does not support the processor.)"/>
+      <map value="0xe" message="$(string.map_TxtStatusMapA more up to date ACM is available on the system.)"/>
+      <map value="0xf" message="$(string.map_TxtStatusMapNo compatible ACM found on the system.)"/>
+      <map value="0x10" message="$(string.map_TxtStatusMapThe system does not support DMA remapping in the DMAR table.)"/>
+      <map value="0x11" message="$(string.map_TxtStatusMapTPM does not meet provisioning requirements.)"/>
+      <map value="0x12" message="$(string.map_TxtStatusMapSystem does not meet required configuration to validate SMM.)"/>
+      <map value="0x13" message="$(string.map_TxtStatusMapA VMX failure was encountered.)"/>
+      <map value="0x14" message="$(string.map_TxtStatusMapCall to retrieve SMM information failed.)"/>
+      <map value="0x15" message="$(string.map_TxtStatusMapSMM has access to OS memory regions.)"/>
+      <map value="0x16" message="$(string.map_TxtStatusMapSMM signature is missing or corrupt.)"/>
+      <map value="0x17" message="$(string.map_TxtStatusMapSMM signature check failed.)"/>
+      <map value="0x18" message="$(string.map_TxtStatusMapSMM has access to a MSR that is not allowed by policy level.)"/>
+      <map value="0x19" message="$(string.map_TxtStatusMapSMM has access to an IO port that is not allowed by policy level.)"/>
+      <map value="0x1a" message="$(string.map_TxtStatusMapSMM has access to IOMMU structures.)"/>
+     </valueMap>
+     <valueMap name="DebuggerStatusMap">
+      <map value="0x0" message="$(string.map_DebuggerStatusMapNone.)"/>
+      <map value="0x1" message="$(string.map_DebuggerStatusMapFailed to reserve scratch VA.)"/>
+      <map value="0x2" message="$(string.map_DebuggerStatusMapFailed to get connection parameters.)"/>
+      <map value="0x3" message="$(string.map_DebuggerStatusMapDebugging blocked by BitLocker.)"/>
+      <map value="0x4" message="$(string.map_DebuggerStatusMapFailed to initialize debug device descriptor.)"/>
+      <map value="0x5" message="$(string.map_DebuggerStatusMapFailed to setup debugging device.)"/>
+      <map value="0x6" message="$(string.map_DebuggerStatusMapFailed to initialize debug transport.)"/>
+      <map value="0x7" message="$(string.map_DebuggerStatusMapFailed to setup debug traps.)"/>
+      <map value="0x8" message="$(string.map_DebuggerStatusMapFailed to load debugger transport module.)"/>
+      <map value="0x9" message="$(string.map_DebuggerStatusMapFailed to allocate scratch buffer.)"/>
+      <map value="0xa" message="$(string.map_DebuggerStatusMapFailed to get debugger transport extension name.)"/>
+     </valueMap>
+     <bitMap name="VsmPolicyMap">
+      <map value="0x0" message="$(string.map_VsmPolicyMapNone)"/>
+      <map value="0x1" message="$(string.map_VsmPolicyMapVBS Enabled)"/>
+      <map value="0x2" message="$(string.map_VsmPolicyMapVSM Required)"/>
+      <map value="0x4" message="$(string.map_VsmPolicyMapSecure Boot)"/>
+      <map value="0x8" message="$(string.map_VsmPolicyMapIommu Protection)"/>
+      <map value="0x10" message="$(string.map_VsmPolicyMapMmio Nx)"/>
+      <map value="0x20" message="$(string.map_VsmPolicyMapStrong MSR Filtering)"/>
+      <map value="0x40" message="$(string.map_VsmPolicyMapMandatory)"/>
+      <map value="0x80" message="$(string.map_VsmPolicyMapHvci)"/>
+      <map value="0x100" message="$(string.map_VsmPolicyMapHvci Strict)"/>
+      <map value="0x200" message="$(string.map_VsmPolicyMapBoot Chain Signer Soft Enforced)"/>
+      <map value="0x400" message="$(string.map_VsmPolicyMapBoot Chain Signer Hard Enforced)"/>
+      <map value="0x2000" message="$(string.map_VsmPolicyMapMeasured Launch)"/>
+     </bitMap>
+    </maps>
+    <events>
+     <event value="1" symbol="FirmwareResolution" version="0" task="FirmwareResolution" level="win:Informational" template="FirmwareResolutionArgs"/>
+     <event value="2" symbol="BootEnvResolution" version="0" task="BootEnvResolution" level="win:Informational" template="FirmwareResolutionArgs"/>
+     <event value="3" symbol="task_0" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+     <event value="4" symbol="BootFileAccess" version="0" task="BootFileAccess" level="win:Informational" template="BootFileAccessArgs"/>
+     <event value="5" symbol="BootTotalIo" version="0" task="BootTotalIo" level="win:Informational" keywords="keyword_200000000000" template="BootTotalIoArgs"/>
+     <event value="6" symbol="ImageIntegrityCheck" version="0" task="ImageIntegrityCheck" level="win:Error" keywords="keyword_80000000000 keyword_200000000000" template="ImageIntegrityCheckArgs"/>
+     <event value="7" symbol="BootManager" version="0" task="BootManager" level="win:Informational" keywords="keyword_200000000000" template="BootManagerArgs"/>
+     <event value="8" symbol="ImageHashCheck" version="0" task="ImageHashCheck" level="win:Warning" keywords="keyword_80000000000 keyword_200000000000" template="ImageHashCheckArgs"/>
+     <event value="9" symbol="task_09" version="0" task="task_0" level="win:Warning" keywords="keyword_200000000000" template="task_09Args"/>
+     <event value="10" symbol="task_010" version="0" task="task_0" level="win:Error" keywords="keyword_200000000000" template="task_010Args"/>
+     <event value="11" symbol="PreBoot" version="0" task="PreBoot" level="win:Informational" template="PreBootArgs"/>
+     <event value="12" symbol="SecureBootVariableUsage" version="0" task="SecureBootVariableUsage" level="win:Informational" template="SecureBootVariableUsageArgs"/>
+     <event value="13" symbol="task_013" version="0" task="task_0" level="win:Warning" keywords="keyword_200000000000" template="task_013Args"/>
+     <event value="14" symbol="task_014" version="0" task="task_0" level="win:Informational" template="task_014Args"/>
+     <event value="15" symbol="task_015" version="0" task="task_0" level="win:Informational" template="task_014Args"/>
+     <event value="16" symbol="task_016" version="0" task="task_0" level="win:Error" template="task_016Args"/>
+     <event value="16" symbol="task_016_V1" version="1" task="task_0" level="win:Error" keywords="keyword_80000000000" template="task_016Args_V1"/>
+     <event value="17" symbol="task_017" version="0" task="task_0" level="win:Informational"/>
+     <event value="18" symbol="BootmgrEntryCount" version="0" task="BootmgrEntryCount" level="win:Informational" template="BootmgrEntryCountArgs"/>
+     <event value="19" symbol="task_019" version="0" task="task_0" level="win:Informational" template="task_019Args"/>
+     <event value="20" symbol="DirtyBootShutdown" version="0" task="DirtyBootShutdown" level="win:Informational" template="DirtyBootShutdownArgs"/>
+     <event value="20" symbol="DirtyBootShutdown_V1" version="1" task="DirtyBootShutdown" level="win:Informational" template="DirtyBootShutdownArgs_V1"/>
+     <event value="21" symbol="task_021" version="0" task="task_0" level="win:Informational" template="task_021Args"/>
+     <event value="22" symbol="task_022" version="0" task="task_0" level="win:Informational"/>
+     <event value="23" symbol="task_023" version="0" task="task_0" level="win:Informational"/>
+     <event value="24" symbol="task_024" version="0" task="task_0" level="win:Informational"/>
+     <event value="25" symbol="BootMenuPolicy" version="0" task="BootMenuPolicy" level="win:Informational" template="BootMenuPolicyArgs"/>
+     <event value="26" symbol="task_026" version="0" task="task_0" level="win:Informational" keywords="keyword_80000000000"/>
+     <event value="27" symbol="BootType" version="0" task="BootType" level="win:Informational" template="BootTypeArgs"/>
+     <event value="27" symbol="BootType_V1" version="1" task="BootType" level="win:Informational" template="BootTypeArgs_V1"/>
+     <event value="28" symbol="task_028" version="0" task="task_0" level="win:Informational" template="task_028Args"/>
+     <event value="29" symbol="task_029" version="0" task="task_0" level="win:Error" template="task_016Args"/>
+     <event value="29" symbol="task_029_V1" version="1" task="task_0" level="win:Error" keywords="keyword_80000000000" template="task_016Args_V1"/>
+     <event value="30" symbol="FirmwareBootData" version="0" task="FirmwareBootData" level="win:Informational" template="FirmwareBootDataArgs"/>
+     <event value="31" symbol="task_031" version="0" task="task_0" level="win:Informational" template="task_014Args"/>
+     <event value="32" symbol="UserInputTime" version="0" task="UserInputTime" level="win:Informational" template="UserInputTimeArgs"/>
+     <event value="33" symbol="task_033" version="0" task="task_0" level="win:Error" keywords="keyword_80000000000 keyword_200000000000" template="task_033Args"/>
+     <event value="34" symbol="task_034" version="0" task="task_0" level="win:Error" keywords="keyword_80000000000 keyword_200000000000" template="task_034Args"/>
+     <event value="35" symbol="task_035" version="0" task="task_0" level="win:Error" keywords="keyword_80000000000 keyword_200000000000" template="task_035Args"/>
+     <event value="36" symbol="task_036" version="0" task="task_0" level="win:Informational" template="task_036Args"/>
+     <event value="37" symbol="task_037" version="0" task="task_0" level="win:Error" keywords="keyword_80000000000 keyword_200000000000" template="task_033Args"/>
+     <event value="38" symbol="ImageLoadFailure" version="0" task="ImageLoadFailure" level="win:Error" keywords="keyword_80000000000 keyword_200000000000" template="task_033Args"/>
+     <event value="39" symbol="task_039" version="0" task="task_0" level="win:Error" keywords="keyword_200000000000" template="task_039Args"/>
+     <event value="40" symbol="task_040" version="0" task="task_0" level="win:Error" keywords="keyword_200000000000" template="task_014Args"/>
+     <event value="41" symbol="task_041" version="0" task="task_0" level="win:Error" keywords="keyword_200000000000" template="task_014Args"/>
+     <event value="42" symbol="task_042" version="0" task="task_0" level="win:Error" keywords="keyword_80000000000 keyword_200000000000" template="task_042Args"/>
+     <event value="43" symbol="task_043" version="0" task="task_0" level="win:Error" keywords="keyword_80000000000 keyword_200000000000" template="task_043Args"/>
+     <event value="44" symbol="task_044" version="0" task="task_0" level="win:Error" keywords="keyword_80000000000" template="task_044Args"/>
+     <event value="45" symbol="VsmIdkProvisioningStatus" version="0" task="VsmIdkProvisioningStatus" level="win:Informational" template="task_044Args"/>
+     <event value="46" symbol="RetrieveDriverListTime" version="0" task="RetrieveDriverListTime" level="win:Informational" template="RetrieveDriverListTimeArgs"/>
+     <event value="47" symbol="LoadDrivers" version="0" task="LoadDrivers" level="win:Informational" template="LoadDriversArgs"/>
+     <event value="48" symbol="LoadHive" version="0" task="LoadHive" level="win:Informational" template="LoadHiveArgs"/>
+     <event value="49" symbol="SiPolicyFailure" version="0" task="SiPolicyFailure" level="win:Error" template="SiPolicyFailureArgs"/>
+     <event value="50" symbol="VsmLKeyProvisioningStatus" version="0" task="VsmLKeyProvisioningStatus" level="win:Error" template="VsmLKeyProvisioningStatusArgs"/>
+     <event value="51" symbol="VsmLKeyProvisioningStatus51" version="0" task="VsmLKeyProvisioningStatus" level="win:Informational" template="VsmLKeyProvisioningStatusArgs"/>
+     <event value="52" symbol="BootAppLoadTime" version="0" task="BootAppLoadTime" level="win:Informational" template="BootAppLoadTimeArgs"/>
+     <event value="53" symbol="BootApplicationExecution" version="0" task="BootApplicationExecution" level="win:Informational" template="BootApplicationExecutionArgs"/>
+     <event value="54" symbol="task_054" version="0" task="task_0" level="win:Error" template="task_054Args"/>
+     <event value="55" symbol="PrepareTargetFailure" version="0" task="PrepareTargetFailure" level="win:Error" template="PrepareTargetFailureArgs"/>
+     <event value="56" symbol="task_056" version="0" task="task_0" level="win:Error" keywords="keyword_80000000000" template="task_014Args"/>
+     <event value="57" symbol="task_057" version="0" task="task_0" level="win:Error" template="task_057Args"/>
+     <event value="58" symbol="task_058" version="0" task="task_0" level="win:Informational" template="task_058Args"/>
+     <event value="59" symbol="task_059" version="0" task="task_0" level="win:Error" template="task_059Args"/>
+     <event value="60" symbol="InvalidNfitTable" version="0" task="InvalidNfitTable" level="win:Warning"/>
+     <event value="61" symbol="MeasuredLaunchTxtLaunchPrepared" version="0" task="MeasuredLaunch" opcode="TxtLaunchPrepared" level="win:Informational" keywords="keyword_80000000000" template="MeasuredLaunchTxtLaunchPreparedArgs"/>
+     <event value="62" symbol="MeasuredLaunchPreviousTxtError" version="0" task="MeasuredLaunch" opcode="PreviousTxtError" level="win:Error" keywords="keyword_80000000000" template="MeasuredLaunchPreviousTxtErrorArgs"/>
+     <event value="63" symbol="MeasuredLaunchInvalidTxtSinitRange" version="0" task="MeasuredLaunch" opcode="InvalidTxtSinitRange" level="win:Error" keywords="keyword_80000000000" template="MeasuredLaunchInvalidTxtSinitRangeArgs"/>
+     <event value="64" symbol="MeasuredLaunchInvalidTxtHeapRange" version="0" task="MeasuredLaunch" opcode="InvalidTxtHeapRange" level="win:Error" keywords="keyword_80000000000" template="MeasuredLaunchInvalidTxtSinitRangeArgs"/>
+     <event value="65" symbol="MeasuredLaunchMleLoadFailure" version="0" task="MeasuredLaunch" opcode="MleLoadFailure" level="win:Error" keywords="keyword_80000000000" template="task_014Args"/>
+     <event value="66" symbol="MeasuredLaunchMissingRsdpTable" version="0" task="MeasuredLaunch" opcode="MissingRsdpTable" level="win:Error" keywords="keyword_80000000000" template="task_014Args"/>
+     <event value="67" symbol="MeasuredLaunchNoSinitAcm" version="0" task="MeasuredLaunch" opcode="NoSinitAcm" level="win:Error" keywords="keyword_80000000000" template="task_014Args"/>
+     <event value="68" symbol="MeasuredLaunchInvalidTxtHeapBiosDataSize" version="0" task="MeasuredLaunch" opcode="InvalidTxtHeapBiosDataSize" level="win:Error" keywords="keyword_80000000000" template="MeasuredLaunchInvalidTxtHeapBiosDataSizeArgs"/>
+     <event value="69" symbol="MeasuredLaunchMleHeaderTooOld" version="0" task="MeasuredLaunch" opcode="MleHeaderTooOld" level="win:Error" keywords="keyword_80000000000" template="MeasuredLaunchMleHeaderTooOldArgs"/>
+     <event value="70" symbol="MeasuredLaunchComputePmrRangesFailure" version="0" task="MeasuredLaunch" opcode="ComputePmrRangesFailure" level="win:Error" keywords="keyword_80000000000" template="task_014Args"/>
+     <event value="71" symbol="FileOpenOpenFailure" version="0" task="FileOpen" opcode="OpenFailure" level="win:Warning" template="FileOpenOpenFailureArgs"/>
+     <event value="72" symbol="MeasuredLaunchPrepareLcpFailure" version="0" task="MeasuredLaunch" opcode="PrepareLcpFailure" level="win:Error" keywords="keyword_80000000000" template="task_014Args"/>
+     <event value="73" symbol="MeasuredLaunchTxtRejectedFirmwareAcm" version="0" task="MeasuredLaunch" opcode="TxtRejectedFirmwareAcm" level="win:Informational" template="MeasuredLaunchTxtRejectedFirmwareAcmArgs"/>
+     <event value="74" symbol="VsmLKeyProvisioningStatus74" version="0" task="VsmLKeyProvisioningStatus" level="win:Error" template="VsmLKeyProvisioningStatus74Args"/>
+     <event value="75" symbol="VsmLKeyProvisioningStatus75" version="0" task="VsmLKeyProvisioningStatus" level="win:Informational" template="VsmLKeyProvisioningStatus74Args"/>
+     <event value="76" symbol="BootDebuggerBdEnabled" version="0" task="BootDebugger" opcode="BdEnabled" level="win:Informational"/>
+     <event value="77" symbol="BootDebuggerBdInitFailure" version="0" task="BootDebugger" opcode="BdInitFailure" level="win:Warning" template="BootDebuggerBdInitFailureArgs"/>
+     <event value="78" symbol="KernelDebuggerKdInitFailure" version="0" task="KernelDebugger" opcode="KdInitFailure" level="win:Warning" template="KernelDebuggerKdInitFailureArgs"/>
+     <event value="79" symbol="KernelDebuggerKdEnabled" version="0" task="KernelDebugger" opcode="KdEnabled" level="win:Informational"/>
+     <event value="100" symbol="InitializeLibraryStart" version="0" task="InitializeLibrary" opcode="win:Start" level="win:Informational" keywords="SoftRestart"/>
+     <event value="100" symbol="InitializeLibraryStart_V1" version="1" task="InitializeLibrary" opcode="win:Start" level="win:Informational" keywords="SoftRestart" template="InitializeLibraryStartArgs_V1"/>
+     <event value="101" symbol="InitializeLibraryStop" version="0" task="InitializeLibrary" opcode="win:Stop" level="win:Informational" keywords="SoftRestart" template="task_014Args"/>
+     <event value="102" symbol="PrepareTargetStart" version="0" task="PrepareTarget" opcode="win:Start" level="win:Informational" keywords="SoftRestart"/>
+     <event value="102" symbol="PrepareTargetStart_V1" version="1" task="PrepareTarget" opcode="win:Start" level="win:Informational" keywords="SoftRestart" template="PrepareTargetStartArgs_V1"/>
+     <event value="102" symbol="PrepareTargetStart_V2" version="2" task="PrepareTarget" opcode="win:Start" level="win:Informational" keywords="SoftRestart" template="PrepareTargetStartArgs_V2"/>
+     <event value="103" symbol="PrepareTargetStop" version="0" task="PrepareTarget" opcode="win:Stop" level="win:Informational" keywords="SoftRestart" template="task_014Args"/>
+     <event value="104" symbol="RebuildKernelMemoryMapStart" version="0" task="RebuildKernelMemoryMap" opcode="win:Start" level="win:Informational" keywords="SoftRestart" template="RebuildKernelMemoryMapStartArgs"/>
+     <event value="105" symbol="RebuildKernelMemoryMapStop" version="0" task="RebuildKernelMemoryMap" opcode="win:Stop" level="win:Informational" keywords="SoftRestart" template="task_014Args"/>
+     <event value="106" symbol="PersistMemoryStart" version="0" task="PersistMemory" opcode="win:Start" level="win:Informational" keywords="MemoryPreservation" template="PersistMemoryStartArgs"/>
+     <event value="107" symbol="PersistMemoryStop" version="0" task="PersistMemory" opcode="win:Stop" level="win:Informational" keywords="MemoryPreservation" template="PersistMemoryStopArgs"/>
+     <event value="108" symbol="FatalError" version="0" task="FatalError" level="win:Error" keywords="SoftRestart MemoryPreservation" template="task_014Args"/>
+     <event value="109" symbol="CleanupPageDatabaseStart" version="0" task="CleanupPageDatabase" opcode="win:Start" level="win:Informational" keywords="SoftRestart MemoryPreservation" template="CleanupPageDatabaseStartArgs"/>
+     <event value="110" symbol="CleanupPageDatabaseStop" version="0" task="CleanupPageDatabase" opcode="win:Stop" level="win:Informational" keywords="SoftRestart MemoryPreservation" template="task_014Args"/>
+     <event value="111" symbol="FreePersistedMemoryStart" version="0" task="FreePersistedMemory" opcode="win:Start" level="win:Informational" keywords="MemoryPreservation" template="FreePersistedMemoryStartArgs"/>
+     <event value="112" symbol="FreePersistedMemoryStop" version="0" task="FreePersistedMemory" opcode="win:Stop" level="win:Informational" keywords="MemoryPreservation" template="task_014Args"/>
+     <event value="113" symbol="ClaimPersistedMemoryStart" version="0" task="ClaimPersistedMemory" opcode="win:Start" level="win:Informational" keywords="MemoryPreservation" template="ClaimPersistedMemoryStartArgs"/>
+     <event value="114" symbol="ClaimPersistedMemoryStop" version="0" task="ClaimPersistedMemory" opcode="win:Stop" level="win:Informational" keywords="MemoryPreservation" template="ClaimPersistedMemoryStopArgs"/>
+     <event value="115" symbol="CancelBootStart" version="0" task="CancelBoot" opcode="win:Start" level="win:Warning" keywords="SoftRestart" template="CleanupPageDatabaseStartArgs"/>
+     <event value="116" symbol="CancelBootStop" version="0" task="CancelBoot" opcode="win:Stop" level="win:Warning" keywords="SoftRestart" template="task_014Args"/>
+     <event value="117" symbol="AttachPersistentPageDatabaseStart" version="0" task="AttachPersistentPageDatabase" opcode="win:Start" level="win:Informational" keywords="SoftRestart MemoryPreservation"/>
+     <event value="118" symbol="AttachPersistentPageDatabaseStop" version="0" task="AttachPersistentPageDatabase" opcode="win:Stop" level="win:Informational" keywords="SoftRestart MemoryPreservation" template="task_014Args"/>
+     <event value="119" symbol="MemoryBlockRundown" version="0" task="MemoryBlockRundown" level="win:Informational" keywords="MemoryBlockRundown" template="MemoryBlockRundownArgs"/>
+     <event value="120" symbol="BuildKernelMemoryMapStart" version="0" task="BuildKernelMemoryMap" opcode="win:Start" level="win:Informational" keywords="SoftRestart"/>
+     <event value="121" symbol="BuildKernelMemoryMapStop" version="0" task="BuildKernelMemoryMap" opcode="win:Stop" level="win:Informational" keywords="SoftRestart" template="task_014Args"/>
+     <event value="122" symbol="GetMemoryMapStart" version="0" task="GetMemoryMap" opcode="win:Start" level="win:Informational" keywords="SoftRestart" template="GetMemoryMapStartArgs"/>
+     <event value="123" symbol="GetMemoryMapStop" version="0" task="GetMemoryMap" opcode="win:Stop" level="win:Informational" keywords="SoftRestart" template="GetMemoryMapStopArgs"/>
+     <event value="124" symbol="VsmPolicyFailure" version="0" task="VsmPolicyFailure" level="win:Error" keywords="keyword_80000000000 keyword_400000000000" template="VsmPolicyFailureArgs"/>
+     <event value="126" symbol="AllocatePhysicalPagesForMdlStart" version="0" task="AllocatePhysicalPagesForMdl" opcode="win:Start" level="win:Informational" keywords="SoftRestart PhysicalMemory" template="AllocatePhysicalPagesForMdlStartArgs"/>
+     <event value="127" symbol="AllocatePhysicalPagesForMdlStop" version="0" task="AllocatePhysicalPagesForMdl" opcode="win:Stop" level="win:Informational" keywords="SoftRestart PhysicalMemory" template="AllocatePhysicalPagesForMdlStopArgs"/>
+     <event value="128" symbol="ExecuteTransitionStart" version="0" task="ExecuteTransition" opcode="win:Start" level="win:Informational" keywords="SoftRestart" template="ExecuteTransitionStartArgs"/>
+     <event value="129" symbol="DisconnectHypervisorStart" version="0" task="DisconnectHypervisor" opcode="win:Start" level="win:Informational" keywords="SoftRestart"/>
+     <event value="130" symbol="MemoryMapRundown" version="0" task="MemoryMapRundown" level="win:Informational" keywords="MemoryMapRundown" template="MemoryMapRundownArgs"/>
+     <event value="131" symbol="MemoryMapRundownStart" version="0" task="MemoryMapRundown" opcode="win:Start" level="win:Informational" keywords="MemoryMapRundown"/>
+     <event value="132" symbol="MemoryMapRundownStop" version="0" task="MemoryMapRundown" opcode="win:Stop" level="win:Informational" keywords="MemoryMapRundown" template="MemoryMapRundownStopArgs"/>
+     <event value="133" symbol="PhysicalPageAllocationFailure" version="0" task="PhysicalPageAllocationFailure" level="win:Error" keywords="SoftRestart PhysicalMemory" template="PhysicalPageAllocationFailureArgs"/>
+     <event value="133" symbol="PhysicalPageAllocationFailure_V1" version="1" task="PhysicalPageAllocationFailure" level="win:Error" keywords="SoftRestart PhysicalMemory" template="PhysicalPageAllocationFailureArgs_V1"/>
+     <event value="134" symbol="WaitForPartitionsRestoredStart" version="0" task="WaitForPartitionsRestored" opcode="win:Start" level="win:Informational" keywords="SoftRestart"/>
+     <event value="135" symbol="WaitForPartitionsRestoredStop" version="0" task="WaitForPartitionsRestored" opcode="win:Stop" level="win:Informational" keywords="SoftRestart"/>
+     <event value="136" symbol="CleanupPageDatabase" version="0" task="CleanupPageDatabase" level="win:Error" keywords="SoftRestart MemoryPreservation" template="CleanupPageDatabaseArgs"/>
+     <event value="136" symbol="CleanupPageDatabase_V1" version="1" task="CleanupPageDatabase" level="win:Error" keywords="SoftRestart MemoryPreservation" template="CleanupPageDatabaseArgs_V1"/>
+     <event value="137" symbol="MemoryPartitionRestoreStart" version="0" task="MemoryPartitionRestore" opcode="win:Start" level="win:Informational" keywords="SoftRestart MemoryPreservation" template="MemoryPartitionRestoreStartArgs"/>
+     <event value="138" symbol="MemoryPartitionRestoreStop" version="0" task="MemoryPartitionRestore" opcode="win:Stop" level="win:Informational" keywords="SoftRestart MemoryPreservation" template="MemoryPartitionRestoreStopArgs"/>
+     <event value="138" symbol="MemoryPartitionRestoreStop_V1" version="1" task="MemoryPartitionRestore" opcode="win:Stop" level="win:Informational" keywords="SoftRestart MemoryPreservation" template="MemoryPartitionRestoreStopArgs_V1"/>
+     <event value="139" symbol="MemoryPartitionRestore" version="0" task="MemoryPartitionRestore" level="win:Error" keywords="SoftRestart MemoryPreservation" template="MemoryPartitionRestoreArgs"/>
+     <event value="140" symbol="PersistMemoryPartitionStart" version="0" task="PersistMemoryPartition" opcode="win:Start" level="win:Informational" keywords="SoftRestart MemoryPreservation" template="PersistMemoryPartitionStartArgs"/>
+     <event value="141" symbol="PersistMemoryPartitionStop" version="0" task="PersistMemoryPartition" opcode="win:Stop" level="win:Informational" keywords="SoftRestart MemoryPreservation" template="PersistMemoryPartitionStopArgs"/>
+     <event value="141" symbol="PersistMemoryPartitionStop_V1" version="1" task="PersistMemoryPartition" opcode="win:Stop" level="win:Informational" keywords="SoftRestart MemoryPreservation" template="PersistMemoryPartitionStopArgs_V1"/>
+     <event value="142" symbol="RegisterLoader" version="0" task="RegisterLoader" level="win:Error" keywords="SoftRestart" template="RegisterLoaderArgs"/>
+     <event value="143" symbol="MemoryPartitionsRestored" version="0" task="MemoryPartitionsRestored" level="win:Informational" keywords="SoftRestart MemoryPreservation" template="task_014Args"/>
+     <event value="144" symbol="QueryStatisticsStart" version="0" task="QueryStatistics" opcode="win:Start" level="win:Informational" keywords="SoftRestart"/>
+     <event value="145" symbol="QueryStatisticsStop" version="0" task="QueryStatistics" opcode="win:Stop" level="win:Informational" keywords="SoftRestart" template="task_014Args"/>
+     <event value="146" symbol="ConnectSecureLoader" version="0" task="ConnectSecureLoader" level="win:Error" keywords="SoftRestart" template="task_014Args"/>
+     <event value="147" symbol="FreePersistedMemoryBlockStart" version="0" task="FreePersistedMemoryBlock" opcode="win:Start" level="win:Informational" keywords="MemoryPreservation" template="FreePersistedMemoryBlockStartArgs"/>
+     <event value="148" symbol="FreePersistedMemoryBlockStop" version="0" task="FreePersistedMemoryBlock" opcode="win:Stop" level="win:Informational" keywords="MemoryPreservation" template="task_014Args"/>
+     <event value="149" symbol="PrepareNotificationStart" version="0" task="PrepareNotification" opcode="win:Start" level="win:Informational" keywords="SoftRestart"/>
+     <event value="150" symbol="PrepareNotificationStop" version="0" task="PrepareNotification" opcode="win:Stop" level="win:Informational" keywords="SoftRestart" template="task_014Args"/>
+     <event value="151" symbol="PartitionInitialAddMemoryStart" version="0" task="PartitionInitialAddMemory" opcode="win:Start" level="win:Informational" keywords="MemoryPartitions" template="PartitionInitialAddMemoryStartArgs"/>
+     <event value="151" symbol="PartitionInitialAddMemoryStart_V1" version="1" task="PartitionInitialAddMemory" opcode="win:Start" level="win:Informational" keywords="MemoryPartitions" template="PartitionInitialAddMemoryStartArgs_V1"/>
+     <event value="152" symbol="PartitionInitialAddMemoryStop" version="0" task="PartitionInitialAddMemory" opcode="win:Stop" level="win:Informational" keywords="MemoryPartitions" template="task_014Args"/>
+     <event value="153" symbol="VsmPolicyEnablement" version="0" task="VsmPolicyEnablement" level="win:Informational" template="VsmPolicyEnablementArgs"/>
+     <event value="154" symbol="BootPolicyMigration" version="0" task="BootPolicyMigration" level="win:Informational" template="task_014Args"/>
+     <event value="155" symbol="BootPolicyMigration155" version="0" task="BootPolicyMigration" level="win:Warning" template="task_014Args"/>
+     <event value="156" symbol="task_0156" version="0" task="task_0" level="win:Warning" template="task_0156Args"/>
+     <event value="157" symbol="BootDiag" version="0" task="BootDiag" level="win:Informational" keywords="keyword_80000000000" template="BootDiagArgs"/>
+     <event value="158" symbol="BootDiag158" version="0" task="BootDiag" level="win:Error" keywords="keyword_80000000000" template="BootDiagArgs"/>
+     <event value="159" symbol="RemoveEnclavePagesStart" version="0" task="RemoveEnclavePages" opcode="win:Start" level="win:Informational" keywords="MemoryPreservation" template="RemoveEnclavePagesStartArgs"/>
+     <event value="160" symbol="CancelNotificationStart" version="0" task="CancelNotification" opcode="win:Start" level="win:Informational" keywords="SoftRestart" template="task_014Args"/>
+     <event value="161" symbol="CancelNotificationStop" version="0" task="CancelNotification" opcode="win:Stop" level="win:Informational" keywords="SoftRestart" template="task_014Args"/>
+     <event value="162" symbol="GetSystemBootDevice" version="0" task="GetSystemBootDevice" level="win:Error" keywords="SoftRestart" template="task_014Args"/>
+     <event value="163" symbol="NormalizeBootOptionList" version="0" task="NormalizeBootOptionList" level="win:Error" keywords="SoftRestart" template="task_014Args"/>
+     <event value="164" symbol="CreateLibraryParameters" version="0" task="CreateLibraryParameters" level="win:Error" keywords="SoftRestart" template="task_014Args"/>
+     <event value="165" symbol="InitializeLibrary" version="0" task="InitializeLibrary" level="win:Error" keywords="SoftRestart" template="task_014Args"/>
+     <event value="166" symbol="CreateDevices" version="0" task="CreateDevices" level="win:Error" keywords="SoftRestart" template="task_014Args"/>
+     <event value="167" symbol="SoftRestartHostCapability" version="0" task="SoftRestartHostCapability" level="win:Error" keywords="SoftRestart" template="task_014Args"/>
+     <event value="168" symbol="EnumerateEnclavePages" version="0" task="EnumerateEnclavePages" level="win:Error" keywords="SoftRestart" template="task_014Args"/>
+     <event value="169" symbol="InitializeMeasurementContext" version="0" task="InitializeMeasurementContext" level="win:Error" keywords="SoftRestart" template="task_014Args"/>
+     <event value="169" symbol="InitializeMeasurementContextInitializationFailure_V1" version="1" task="InitializeMeasurementContext" opcode="InitializationFailure" level="win:Error" keywords="SoftRestart" template="InitializeMeasurementContextInitializationFailureArgs_V1"/>
+     <event value="170" symbol="KsrMeasurement" version="0" task="KsrMeasurement" level="win:Error" keywords="SoftRestart" template="task_014Args"/>
+     <event value="171" symbol="TpmMeasurement" version="0" task="TpmMeasurement" level="win:Error" keywords="SoftRestart" template="task_014Args"/>
+     <event value="172" symbol="CloseMeasurementLog" version="0" task="CloseMeasurementLog" level="win:Error" keywords="SoftRestart" template="task_014Args"/>
+     <event value="173" symbol="CommitPendingEvents" version="0" task="CommitPendingEvents" level="win:Error" keywords="SoftRestart" template="task_014Args"/>
+     <event value="174" symbol="CapTpmPcr" version="0" task="CapTpmPcr" level="win:Error" keywords="SoftRestart" template="task_014Args"/>
+     <event value="175" symbol="CapTpmPcr175" version="0" task="CapTpmPcr" level="win:Error" keywords="SoftRestart" template="task_014Args"/>
+     <event value="176" symbol="InitializeLibrary176" version="0" task="InitializeLibrary" level="win:Error" keywords="SoftRestart" template="task_014Args"/>
+     <event value="177" symbol="EfiVariableAccessGetEfiVariable" version="0" task="EfiVariableAccess" opcode="GetEfiVariable" level="win:Informational" keywords="EfiVariables" template="EfiVariableAccessGetEfiVariableArgs"/>
+     <event value="178" symbol="EfiVariableAccessSetEfiVariable" version="0" task="EfiVariableAccess" opcode="SetEfiVariable" level="win:Informational" keywords="EfiVariables" template="EfiVariableAccessGetEfiVariableArgs"/>
+     <event value="179" symbol="GetFirmwareInformation" version="0" task="GetFirmwareInformation" level="win:Error" keywords="SoftRestart" template="task_014Args"/>
+     <event value="180" symbol="VerifyBootEntry" version="0" task="VerifyBootEntry" level="win:Error" keywords="SoftRestart" template="task_014Args"/>
+     <event value="181" symbol="RegisterFilter" version="0" task="RegisterFilter" level="win:Warning" keywords="SoftRestart" template="task_014Args"/>
+     <event value="182" symbol="IoSpaceMemoryEnumerateFailure" version="0" task="IoSpaceMemory" opcode="EnumerateFailure" level="win:Error" keywords="SoftRestart" template="task_014Args"/>
+     <event value="183" symbol="BadMemoryPagesListInitializationFailure" version="0" task="BadMemoryPages" opcode="ListInitializationFailure" level="win:Error" keywords="SoftRestart" template="task_014Args"/>
+     <event value="184" symbol="InitializeMeasurementContextMeasurementsDisabled" version="0" task="InitializeMeasurementContext" opcode="MeasurementsDisabled" level="win:Warning" keywords="SoftRestart" template="InitializeMeasurementContextMeasurementsDisabledArgs"/>
+     <event value="200" symbol="TpmCommandResponse" version="0" task="TpmCommandResponse" level="win:Informational" template="TpmCommandResponseArgs"/>
+     <event value="201" symbol="TpmCommandResponse201" version="0" task="TpmCommandResponse" level="win:Informational" template="TpmCommandResponse201Args"/>
+     <event value="202" symbol="TpmSubmitError" version="0" task="TpmSubmitError" level="win:Error" keywords="keyword_80000000000" template="TpmSubmitErrorArgs"/>
+     <event value="203" symbol="TpmSubmitError203" version="0" task="TpmSubmitError" level="win:Error" keywords="keyword_80000000000" template="TpmSubmitError203Args"/>
+     <event value="204" symbol="TpmBitLockerUsage" version="0" task="TpmBitLockerUsage" level="win:Error" template="TpmBitLockerUsageArgs"/>
+     <event value="205" symbol="EFICapsuleCreationStart" version="0" task="EFICapsuleCreation" opcode="win:Start" level="win:Informational" keywords="SoftRestart"/>
+     <event value="206" symbol="EFICapsuleCreationStop" version="0" task="EFICapsuleCreation" opcode="win:Stop" level="win:Informational" keywords="SoftRestart" template="task_014Args"/>
+     <event value="207" symbol="BootSIInitStatus" version="0" task="BootSI" opcode="InitStatus" level="win:Informational" template="BootSIInitStatusArgs"/>
+     <event value="208" symbol="BootSIEnterInsecureState" version="0" task="BootSI" opcode="EnterInsecureState" level="win:Error" keywords="keyword_80000000000" template="BootSIEnterInsecureStateArgs"/>
+     <event value="209" symbol="BootSIDrtmSvnCheck" version="0" task="BootSI" opcode="DrtmSvnCheck" level="win:Error" template="BootSIDrtmSvnCheckArgs"/>
+     <event value="210" symbol="MeasuredLaunchSinitPerformance" version="0" task="MeasuredLaunch" opcode="SinitPerformance" level="win:Informational" template="MeasuredLaunchSinitPerformanceArgs"/>
+     <event value="211" symbol="MiniFilterStartFailure" version="0" task="MiniFilterStartFailure" level="win:Error" keywords="SoftRestart" template="task_014Args"/>
+     <event value="212" symbol="FileModification" version="0" task="FileModification" level="win:Informational" keywords="SoftRestart" template="FileModificationArgs"/>
+     <event value="213" symbol="RegistryModification" version="0" task="RegistryModification" level="win:Informational" keywords="SoftRestart" template="FileModificationArgs"/>
+     <event value="214" symbol="SoftRebootStart" version="0" task="SoftReboot" opcode="win:Start" level="win:Informational" keywords="SoftRestart" template="SoftRebootStartArgs"/>
+     <event value="215" symbol="SoftRebootStop" version="0" task="SoftReboot" opcode="win:Stop" level="win:Informational" keywords="SoftRestart" template="task_014Args"/>
+     <event value="216" symbol="SoftRebootStart216" version="0" task="SoftReboot" opcode="win:Start" level="win:Informational" keywords="SoftRestart"/>
+     <event value="217" symbol="SoftRebootStop217" version="0" task="SoftReboot" opcode="win:Stop" level="win:Informational" keywords="SoftRestart" template="task_014Args"/>
+     <event value="218" symbol="SoftReboot" version="0" task="SoftReboot" level="win:Error" keywords="SoftRestart MemoryPreservation" template="SoftRebootArgs"/>
+     <event value="219" symbol="MeasuredLaunchTxtInformation" version="0" task="MeasuredLaunch" opcode="TxtInformation" level="win:Informational" template="MeasuredLaunchTxtInformationArgs"/>
+     <event value="220" symbol="MeasuredLaunchTxtNotSupported" version="0" task="MeasuredLaunch" opcode="TxtNotSupported" level="win:Informational" template="MeasuredLaunchTxtNotSupportedArgs"/>
+     <event value="221" symbol="MeasuredLaunchDrtmDriversNotSupportVbs" version="0" task="MeasuredLaunch" opcode="DrtmDriversNotSupportVbs" level="win:Error"/>
+     <event value="222" symbol="MeasuredLaunchPpamFailure" version="0" task="MeasuredLaunch" opcode="PpamFailure" level="win:Error" template="MeasuredLaunchPpamFailureArgs"/>
+     <event value="223" symbol="IoSpaceMemoryAllocationFailure" version="0" task="IoSpaceMemory" opcode="AllocationFailure" level="win:Error" template="IoSpaceMemoryAllocationFailureArgs"/>
+     <event value="224" symbol="IoSpaceMemoryAllocation" version="0" task="IoSpaceMemory" opcode="Allocation" level="win:Informational" template="IoSpaceMemoryAllocationArgs"/>
+     <event value="225" symbol="VsmBootNoSecretsMode" version="0" task="VsmBootNoSecretsMode" level="win:Informational"/>
+     <event value="226" symbol="FinalizeMemoryMapStart" version="0" task="FinalizeMemoryMap" opcode="win:Start" level="win:Informational" keywords="SoftRestart"/>
+     <event value="227" symbol="FinalizeMemoryMapStop" version="0" task="FinalizeMemoryMap" opcode="win:Stop" level="win:Informational" keywords="SoftRestart"/>
+     <event value="228" symbol="FinalizeMemoryMapStop228" version="0" task="FinalizeMemoryMap" opcode="win:Stop" level="win:Error" keywords="SoftRestart" template="task_014Args"/>
+     <event value="229" symbol="RegisterHvloaderPersistenceInterface" version="0" task="RegisterHvloaderPersistenceInterface" level="win:Error" keywords="SoftRestart" template="task_014Args"/>
+     <event value="230" symbol="LoadHvloaderForPersistence" version="0" task="LoadHvloaderForPersistence" level="win:Error" keywords="SoftRestart" template="task_014Args"/>
+     <event value="231" symbol="BootMenuTimerCanceled" version="0" task="BootMenuTimerCanceled" level="win:Informational" keywords="keyword_80000000000" template="BootMenuTimerCanceledArgs"/>
+     <event value="232" symbol="MemoryPartitionFreeUnusedMemoryStart" version="0" task="MemoryPartitionFreeUnusedMemory" opcode="win:Start" level="win:Informational" keywords="SoftRestart MemoryPreservation"/>
+     <event value="233" symbol="MemoryPartitionFreeUnusedMemoryStop" version="0" task="MemoryPartitionFreeUnusedMemory" opcode="win:Stop" level="win:Informational" keywords="SoftRestart MemoryPreservation"/>
+     <event value="234" symbol="MemoryPartitionRestoreStats" version="0" task="MemoryPartitionRestoreStats" level="win:Informational" keywords="SoftRestart MemoryPreservation" template="MemoryPartitionRestoreStatsArgs"/>
+     <event value="235" symbol="BootTpmTpmInit" version="0" task="BootTpm" opcode="TpmInit" level="win:Error" keywords="keyword_80000000000" template="BootTpmTpmInitArgs"/>
+     <event value="236" symbol="MeasuredLaunchSmmLevelCheck" version="0" task="MeasuredLaunch" opcode="SmmLevelCheck" level="win:Informational" template="MeasuredLaunchSmmLevelCheckArgs"/>
+    </events>
+    <templates>
+     <template tid="FirmwareResolutionArgs">
+      <data name="Width" inType="win:UInt32"/>
+      <data name="Height" inType="win:UInt32"/>
+      <data name="BitsPerPixel" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0Args">
+      <data name="BytesPerMs" inType="win:UInt32"/>
+     </template>
+     <template tid="BootFileAccessArgs">
+      <data name="DeviceID" inType="win:UInt32"/>
+      <data name="FileName" inType="win:UnicodeString"/>
+      <data name="BytesRead" inType="win:UInt64"/>
+      <data name="BytesWritten" inType="win:UInt64"/>
+     </template>
+     <template tid="BootTotalIoArgs">
+      <data name="ApplicationGuid" inType="win:GUID"/>
+      <data name="BytesRead" inType="win:UInt64"/>
+      <data name="BytesWritten" inType="win:UInt64"/>
+     </template>
+     <template tid="ImageIntegrityCheckArgs">
+      <data name="ImageName" inType="win:UnicodeString"/>
+      <data name="ImageFlags" inType="win:UInt32"/>
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="ErrorIgnored" inType="win:UInt32"/>
+     </template>
+     <template tid="BootManagerArgs">
+      <data name="BootmgrTime" inType="win:UInt64"/>
+     </template>
+     <template tid="ImageHashCheckArgs">
+      <data name="ImageName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_09Args">
+      <data name="DriveNumber" inType="win:UInt32"/>
+     </template>
+     <template tid="task_010Args">
+      <data name="FwStartPage" inType="win:UInt64"/>
+      <data name="FwPageCount" inType="win:UInt64"/>
+      <data name="FwMemoryType" inType="win:UInt32"/>
+      <data name="FwMemoryAttributes" inType="win:UInt32"/>
+      <data name="BlStartPage" inType="win:UInt64"/>
+      <data name="BlPageCount" inType="win:UInt64"/>
+      <data name="BlMemoryType" inType="win:UInt32"/>
+      <data name="BlMemoryAttributes" inType="win:UInt32"/>
+     </template>
+     <template tid="PreBootArgs">
+      <data name="PreBootMgrTime" inType="win:UInt64"/>
+     </template>
+     <template tid="SecureBootVariableUsageArgs">
+      <data name="UefiVariableName" inType="win:UnicodeString"/>
+      <data name="Size" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_013Args">
+      <data name="ApplicationGuid" inType="win:GUID"/>
+      <data name="Element" inType="win:UInt32"/>
+     </template>
+     <template tid="task_014Args">
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_016Args">
+      <data name="FailureStatus" inType="win:UInt64"/>
+      <data name="FailureMsgId" inType="win:UInt64"/>
+     </template>
+     <template tid="BootmgrEntryCountArgs">
+      <data name="EntryCount" inType="win:UInt32"/>
+     </template>
+     <template tid="task_019Args">
+      <data name="ToolsCount" inType="win:UInt32"/>
+     </template>
+     <template tid="DirtyBootShutdownArgs">
+      <data name="LastShutdownGood" inType="win:Boolean"/>
+      <data name="LastBootGood" inType="win:Boolean"/>
+     </template>
+     <template tid="task_021Args">
+      <data name="OptionSelected" inType="win:UInt32"/>
+     </template>
+     <template tid="BootMenuPolicyArgs">
+      <data name="BootMenuPolicy" inType="win:UInt32"/>
+     </template>
+     <template tid="BootTypeArgs">
+      <data name="BootType" inType="win:UInt32"/>
+     </template>
+     <template tid="task_028Args">
+      <data name="SqmType" inType="win:UInt32"/>
+      <data name="SqmSessionGuid" inType="win:GUID"/>
+      <data name="SqmID" inType="win:UInt32"/>
+      <data name="SqmStreamRowLength" inType="win:UInt32"/>
+      <data name="SqmStreamRow" inType="win:Int16" count="SqmStreamRowLength"/>
+     </template>
+     <template tid="FirmwareBootDataArgs">
+      <data name="ResetEndStart" inType="win:UInt64"/>
+      <data name="LoadOSImageStart" inType="win:UInt64"/>
+      <data name="StartOSImageStart" inType="win:UInt64"/>
+      <data name="ExitBootServicesEntry" inType="win:UInt64"/>
+      <data name="ExitBootServicesExit" inType="win:UInt64"/>
+     </template>
+     <template tid="UserInputTimeArgs">
+      <data name="BitlockerUserInputTime" inType="win:UInt64"/>
+     </template>
+     <template tid="task_033Args">
+      <data name="ImageName" inType="win:UnicodeString"/>
+      <data name="ImageLoadStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="task_034Args">
+      <data name="PeImageName" inType="win:UnicodeString"/>
+      <data name="PeImageLoadStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="task_035Args">
+      <data name="UpdateCapsuleStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="task_036Args">
+      <data name="DeviceFlags" inType="win:UInt32"/>
+      <data name="PcrBitmap" inType="win:UInt32"/>
+      <data name="UpdateSupportedStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="task_039Args">
+      <data name="HiveName" inType="win:UnicodeString"/>
+      <data name="HiveLoadStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="task_042Args">
+      <data name="Path" inType="win:UnicodeString"/>
+      <data name="FailedPath" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_043Args">
+      <data name="Path" inType="win:UnicodeString"/>
+      <data name="Import" inType="win:AnsiString"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_044Args">
+      <data name="CachedCopyStatus" inType="win:UInt32"/>
+      <data name="IdkGenerationStatus" inType="win:UInt32"/>
+      <data name="MeasuringStatus" inType="win:UInt32"/>
+      <data name="SealingAndCachingStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="RetrieveDriverListTimeArgs">
+      <data name="RetrieveDriverListTime" inType="win:UInt64"/>
+     </template>
+     <template tid="LoadDriversArgs">
+      <data name="LoadDriversTime" inType="win:UInt64"/>
+     </template>
+     <template tid="LoadHiveArgs">
+      <data name="Path" inType="win:UnicodeString"/>
+      <data name="LoadHiveTime" inType="win:UInt64"/>
+     </template>
+     <template tid="SiPolicyFailureArgs">
+      <data name="ImageName" inType="win:UnicodeString"/>
+      <data name="SiPolicyStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="VsmLKeyProvisioningStatusArgs">
+      <data name="CachedCopyStatus" inType="win:UInt32"/>
+      <data name="UnsealingCachedCopyStatus" inType="win:UInt32"/>
+      <data name="KeyGenerationAndSaveStatus" inType="win:UInt32"/>
+      <data name="SealingStatus" inType="win:UInt32"/>
+      <data name="TpmPcrMask" inType="win:UInt32"/>
+      <data name="ProtectorAssistedUnsealStatus" inType="win:UInt32"/>
+      <data name="ProtectorAssistedResealStatus" inType="win:UInt32"/>
+      <data name="ProtectorSealUpdateStatus" inType="win:UInt32"/>
+      <data name="TpmCounterOpStatus" inType="win:UInt32"/>
+      <data name="TpmCounterCreateStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="BootAppLoadTimeArgs">
+      <data name="ApplicationIdentifier" inType="win:GUID"/>
+      <data name="ApplicationLoadTime" inType="win:UInt64"/>
+     </template>
+     <template tid="BootApplicationExecutionArgs">
+      <data name="ApplicationIdentifier" inType="win:GUID"/>
+      <data name="ApplicationExecutionTime" inType="win:UInt64"/>
+     </template>
+     <template tid="task_054Args">
+      <data name="Status" inType="win:UInt32"/>
+      <data name="FileName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="PrepareTargetFailureArgs">
+      <data name="Status" inType="win:UInt32"/>
+      <data name="FailurePoint" inType="win:UInt32" map="BootDiagMessageMap"/>
+     </template>
+     <template tid="task_057Args">
+      <data name="TpmSrkProvisioningStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="task_058Args">
+      <data name="TpmSrkProvisioningTime" inType="win:UInt64"/>
+     </template>
+     <template tid="task_059Args">
+      <data name="TpmBindingProvisioningStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="MeasuredLaunchTxtLaunchPreparedArgs">
+      <data name="PmrLowBase" inType="win:UInt64"/>
+      <data name="PmrLowSize" inType="win:UInt64"/>
+      <data name="PmrHighBase" inType="win:UInt64"/>
+      <data name="PmrHighSize" inType="win:UInt64"/>
+      <data name="FirmwareProvidedAcm" inType="win:Boolean"/>
+     </template>
+     <template tid="MeasuredLaunchPreviousTxtErrorArgs">
+      <data name="TxtErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="MeasuredLaunchInvalidTxtSinitRangeArgs">
+      <data name="Base" inType="win:UInt64"/>
+      <data name="Size" inType="win:UInt64"/>
+     </template>
+     <template tid="MeasuredLaunchInvalidTxtHeapBiosDataSizeArgs">
+      <data name="BiosDataSize" inType="win:UInt64"/>
+     </template>
+     <template tid="MeasuredLaunchMleHeaderTooOldArgs">
+      <data name="AcmMinMleHeaderVer" inType="win:UInt32"/>
+      <data name="MleHeaderVersion" inType="win:UInt32"/>
+     </template>
+     <template tid="FileOpenOpenFailureArgs">
+      <data name="DeviceID" inType="win:UInt32"/>
+      <data name="FileName" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="MeasuredLaunchTxtRejectedFirmwareAcmArgs">
+      <data name="TxtStatus" inType="win:UInt32" map="TxtStatusMap"/>
+     </template>
+     <template tid="VsmLKeyProvisioningStatus74Args">
+      <data name="CachedCopyStatus" inType="win:UInt32"/>
+      <data name="KeyGenerationStatus" inType="win:UInt32"/>
+      <data name="SealAndSaveStatus" inType="win:UInt32"/>
+      <data name="UEFIKeysStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="BootDebuggerBdInitFailureArgs">
+      <data name="DebuggerStatus" inType="win:UInt32" map="DebuggerStatusMap"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="KernelDebuggerKdInitFailureArgs">
+      <data name="DebuggerStatus" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="RebuildKernelMemoryMapStartArgs">
+      <data name="ReserveDescriptors" inType="win:UInt32"/>
+     </template>
+     <template tid="PersistMemoryStartArgs">
+      <data name="ApplicationId" inType="win:GUID"/>
+      <data name="RunCount" inType="win:UInt32"/>
+      <data name="PageCount" inType="win:UInt64"/>
+     </template>
+     <template tid="PersistMemoryStopArgs">
+      <data name="Status" inType="win:UInt32"/>
+      <data name="BlockId" inType="win:UInt64"/>
+     </template>
+     <template tid="CleanupPageDatabaseStartArgs">
+      <data name="FreePersistentPages" inType="win:Boolean"/>
+     </template>
+     <template tid="FreePersistedMemoryStartArgs">
+      <data name="ApplicationId" inType="win:GUID"/>
+      <data name="FreePersistentPages" inType="win:Boolean"/>
+     </template>
+     <template tid="ClaimPersistedMemoryStartArgs">
+      <data name="ApplicationId" inType="win:GUID"/>
+      <data name="BlockId" inType="win:UInt64"/>
+      <data name="Flags" inType="win:UInt32"/>
+     </template>
+     <template tid="ClaimPersistedMemoryStopArgs">
+      <data name="Status" inType="win:UInt32"/>
+      <data name="RunsClaimed" inType="win:UInt32"/>
+      <data name="PageCount" inType="win:UInt64"/>
+     </template>
+     <template tid="MemoryBlockRundownArgs">
+      <data name="ApplicationId" inType="win:GUID"/>
+      <data name="BlockId" inType="win:UInt64"/>
+     </template>
+     <template tid="GetMemoryMapStartArgs">
+      <data name="Type" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="BufferSize" inType="win:UInt32"/>
+     </template>
+     <template tid="GetMemoryMapStopArgs">
+      <data name="Status" inType="win:UInt32"/>
+      <data name="DataSize" inType="win:UInt32"/>
+      <data name="BufferSize" inType="win:UInt32"/>
+     </template>
+     <template tid="VsmPolicyFailureArgs">
+      <data name="Phase" inType="win:UInt8"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="AllocatePhysicalPagesForMdlStartArgs">
+      <data name="LowAddress" inType="win:UInt64"/>
+      <data name="HighAddress" inType="win:UInt64"/>
+      <data name="SkipBytes" inType="win:UInt64"/>
+      <data name="TotalBytes" inType="win:UInt64"/>
+      <data name="CacheType" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+     </template>
+     <template tid="AllocatePhysicalPagesForMdlStopArgs">
+      <data name="Mdl" inType="win:Pointer"/>
+     </template>
+     <template tid="ExecuteTransitionStartArgs">
+      <data name="StartTime" inType="win:FILETIME"/>
+     </template>
+     <template tid="MemoryMapRundownArgs">
+      <data name="SequenceNumber" inType="win:UInt32"/>
+      <data name="DescriptorCount" inType="win:UInt32"/>
+      <data name="MemoryDescriptor" inType="win:Int8" count="DescriptorCount"/>
+     </template>
+     <template tid="MemoryMapRundownStopArgs">
+      <data name="DescriptorCount" inType="win:UInt32"/>
+     </template>
+     <template tid="PhysicalPageAllocationFailureArgs">
+      <data name="Status" inType="win:HexInt32"/>
+      <data name="PageCount" inType="win:UInt64"/>
+      <data name="MemoryType" inType="win:UInt32"/>
+      <data name="Attributes" inType="win:UInt32"/>
+      <data name="LowAddress" inType="win:UInt64"/>
+      <data name="HighAddress" inType="win:UInt64"/>
+     </template>
+     <template tid="CleanupPageDatabaseArgs">
+      <data name="Status" inType="win:UInt32"/>
+      <data name="OutstandingCount" inType="win:UInt64"/>
+     </template>
+     <template tid="MemoryPartitionRestoreStartArgs">
+      <data name="Identifier" inType="win:GUID"/>
+      <data name="PartitionId" inType="win:UInt32"/>
+     </template>
+     <template tid="MemoryPartitionRestoreStopArgs">
+      <data name="Identifier" inType="win:GUID"/>
+      <data name="PartitionPageCount" inType="win:UInt64"/>
+      <data name="AllocatedBlockCount" inType="win:UInt64"/>
+      <data name="AllocatedRunCount" inType="win:UInt64"/>
+      <data name="AllocatedPageCount" inType="win:UInt64"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="MemoryPartitionRestoreArgs">
+      <data name="Identifier" inType="win:GUID"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="PersistMemoryPartitionStartArgs">
+      <data name="Identifier" inType="win:GUID"/>
+     </template>
+     <template tid="PersistMemoryPartitionStopArgs">
+      <data name="Identifier" inType="win:GUID"/>
+      <data name="RunCount" inType="win:UInt32"/>
+      <data name="PageCount" inType="win:UInt64"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="PartitionNameLength" inType="win:UInt16"/>
+      <data name="PartitionName" inType="win:UnicodeString" length="PartitionNameLength"/>
+     </template>
+     <template tid="RegisterLoaderArgs">
+      <data name="Status" inType="win:UInt32"/>
+      <data name="ActualSize" inType="win:UInt32"/>
+      <data name="ExpectedSize" inType="win:UInt32"/>
+     </template>
+     <template tid="FreePersistedMemoryBlockStartArgs">
+      <data name="ApplicationId" inType="win:GUID"/>
+      <data name="BlockId" inType="win:UInt64"/>
+      <data name="FreePersistentPages" inType="win:Boolean"/>
+     </template>
+     <template tid="PartitionInitialAddMemoryStartArgs">
+      <data name="PartitionId" inType="win:UInt32"/>
+      <data name="RunCount" inType="win:UInt32"/>
+      <data name="PageCount" inType="win:UInt64"/>
+     </template>
+     <template tid="VsmPolicyEnablementArgs">
+      <data name="Status" inType="win:UInt32"/>
+      <data name="EnableDisableReason" inType="win:UInt32"/>
+      <data name="VsmPolicy" inType="win:UInt32" map="VsmPolicyMap"/>
+     </template>
+     <template tid="task_0156Args">
+      <data name="Status" inType="win:UInt32"/>
+      <data name="EnableDisableReason" inType="win:UInt32"/>
+      <data name="VsmPolicy" inType="win:UInt32"/>
+     </template>
+     <template tid="BootDiagArgs">
+      <data name="DiagCode" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="RemoveEnclavePagesStartArgs">
+      <data name="BasePage" inType="win:UInt64"/>
+      <data name="PageCount" inType="win:UInt64"/>
+     </template>
+     <template tid="EfiVariableAccessGetEfiVariableArgs">
+      <data name="VendorGuid" inType="win:GUID"/>
+      <data name="VariableName" inType="win:UnicodeString"/>
+      <data name="Attributes" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="InitializeMeasurementContextMeasurementsDisabledArgs">
+      <data name="DisableReason" inType="win:UInt32"/>
+      <data name="TcgLogStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="TpmCommandResponseArgs">
+      <data name="CommandCode" inType="win:UInt32"/>
+      <data name="ResponseCode" inType="win:UInt32"/>
+      <data name="ResponseMilliseconds" inType="win:UInt64"/>
+     </template>
+     <template tid="TpmCommandResponse201Args">
+      <data name="CommandCode" inType="win:UInt32"/>
+      <data name="ResponseCode" inType="win:UInt32"/>
+      <data name="ResponseMilliseconds" inType="win:UInt64"/>
+      <data name="CommandSize" inType="win:UInt32"/>
+      <data name="CommandData" inType="win:Binary" length="CommandSize"/>
+      <data name="ResponseSize" inType="win:UInt32"/>
+      <data name="ResponseData" inType="win:Binary" length="ResponseSize"/>
+     </template>
+     <template tid="TpmSubmitErrorArgs">
+      <data name="CommandCode" inType="win:UInt32"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="ResponseMilliseconds" inType="win:UInt64"/>
+     </template>
+     <template tid="TpmSubmitError203Args">
+      <data name="CommandCode" inType="win:UInt32"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="ResponseMilliseconds" inType="win:UInt64"/>
+      <data name="CommandSize" inType="win:UInt32"/>
+      <data name="CommandData" inType="win:Binary" length="CommandSize"/>
+     </template>
+     <template tid="TpmBitLockerUsageArgs">
+      <data name="FveGlobalDataFlags" inType="win:UInt32"/>
+     </template>
+     <template tid="BootSIInitStatusArgs">
+      <data name="Phase" inType="win:UInt32"/>
+      <data name="StatusCode" inType="win:UInt32"/>
+      <data name="EnvironmentState" inType="win:UInt32"/>
+     </template>
+     <template tid="BootSIEnterInsecureStateArgs">
+      <data name="InitState" inType="win:UInt32"/>
+      <data name="StatusCode" inType="win:UInt32"/>
+      <data name="FailureAddress" inType="win:UInt64"/>
+      <data name="ReferenceAddress" inType="win:UInt64"/>
+      <data name="ReasonCode" inType="win:UInt32"/>
+     </template>
+     <template tid="BootSIDrtmSvnCheckArgs">
+      <data name="SvnCounterId" inType="win:UInt32"/>
+      <data name="StatusCode" inType="win:UInt32"/>
+      <data name="SvnValue" inType="win:UInt32"/>
+      <data name="PrevSvnValue" inType="win:UInt32"/>
+     </template>
+     <template tid="MeasuredLaunchSinitPerformanceArgs">
+      <data name="SinitTimeMs" inType="win:UInt64"/>
+     </template>
+     <template tid="FileModificationArgs">
+      <data name="PathLength" inType="win:UInt16"/>
+      <data name="Path" inType="win:UnicodeString" length="PathLength"/>
+     </template>
+     <template tid="SoftRebootStartArgs">
+      <data name="TryComplete" inType="win:Boolean"/>
+     </template>
+     <template tid="SoftRebootArgs">
+      <data name="Function" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="Checkpoint" inType="win:UInt32"/>
+     </template>
+     <template tid="MeasuredLaunchTxtInformationArgs">
+      <data name="AcmDateDay" inType="win:UInt8"/>
+      <data name="AcmDateMonth" inType="win:UInt8"/>
+      <data name="AcmDateYear" inType="win:UInt16"/>
+     </template>
+     <template tid="MeasuredLaunchTxtNotSupportedArgs">
+      <data name="TxtStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="MeasuredLaunchPpamFailureArgs">
+      <data name="TxtStatus" inType="win:UInt32"/>
+      <data name="Argument1" inType="win:UInt64"/>
+      <data name="Argument2" inType="win:UInt64"/>
+     </template>
+     <template tid="IoSpaceMemoryAllocationFailureArgs">
+      <data name="Phase" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="Tries" inType="win:UInt32"/>
+      <data name="RemainingNodesCount" inType="win:UInt32"/>
+      <data name="RemainingNodes" inType="win:Int16" count="RemainingNodesCount"/>
+     </template>
+     <template tid="IoSpaceMemoryAllocationArgs">
+      <data name="AllocatedRegions" inType="win:UInt32"/>
+      <data name="Tries" inType="win:UInt32"/>
+     </template>
+     <template tid="BootMenuTimerCanceledArgs">
+      <data name="KeyType" inType="win:UInt32"/>
+      <data name="Code" inType="win:UInt32"/>
+     </template>
+     <template tid="MemoryPartitionRestoreStatsArgs">
+      <data name="Identifier" inType="win:GUID"/>
+      <data name="PartitionId" inType="win:UInt32"/>
+      <data name="AllocatedBlockCount" inType="win:UInt64"/>
+      <data name="AllocatedRunCount" inType="win:UInt64"/>
+      <data name="AllocatedPageCount" inType="win:UInt64"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="BootTpmTpmInitArgs">
+      <data name="StatusCode" inType="win:UInt32"/>
+      <data name="Position" inType="win:UInt32"/>
+     </template>
+     <template tid="MeasuredLaunchSmmLevelCheckArgs">
+      <data name="TxtStatus" inType="win:UInt32"/>
+      <data name="PolicyLevel" inType="win:UInt32"/>
+      <data name="Argument1" inType="win:UInt64"/>
+      <data name="Argument2" inType="win:UInt64"/>
+     </template>
+     <template tid="task_016Args_V1">
+      <data name="FailureStatus" inType="win:UInt32"/>
+      <data name="FailureMsg" inType="win:UnicodeString"/>
+     </template>
+     <template tid="DirtyBootShutdownArgs_V1">
+      <data name="LastShutdownGood" inType="win:Boolean"/>
+      <data name="LastBootGood" inType="win:Boolean"/>
+      <data name="LastBootId" inType="win:UInt32"/>
+      <data name="BootStatusPolicy" inType="win:UInt32"/>
+     </template>
+     <template tid="BootTypeArgs_V1">
+      <data name="BootType" inType="win:UInt32"/>
+      <data name="LoadOptions" inType="win:AnsiString"/>
+     </template>
+     <template tid="InitializeLibraryStartArgs_V1">
+      <data name="Secure" inType="win:Boolean"/>
+     </template>
+     <template tid="PrepareTargetStartArgs_V1">
+      <data name="SoftRestartCount" inType="win:UInt32"/>
+     </template>
+     <template tid="PhysicalPageAllocationFailureArgs_V1">
+      <data name="Status" inType="win:HexInt32"/>
+      <data name="PageCount" inType="win:UInt64"/>
+      <data name="MemoryType" inType="win:UInt32"/>
+      <data name="Attributes" inType="win:UInt32"/>
+      <data name="LowAddress" inType="win:UInt64"/>
+      <data name="HighAddress" inType="win:UInt64"/>
+      <data name="Alignment" inType="win:UInt32"/>
+      <data name="ProximityId" inType="win:UInt32"/>
+     </template>
+     <template tid="CleanupPageDatabaseArgs_V1">
+      <data name="Status" inType="win:UInt32"/>
+      <data name="OutstandingCount" inType="win:UInt64"/>
+      <data name="ApplicationsCount" inType="win:UInt32"/>
+      <data name="Applications" inType="win:GUID" count="ApplicationsCount"/>
+     </template>
+     <template tid="MemoryPartitionRestoreStopArgs_V1">
+      <data name="Identifier" inType="win:GUID"/>
+      <data name="PartitionPageCount" inType="win:UInt64"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="PersistMemoryPartitionStopArgs_V1">
+      <data name="Identifier" inType="win:GUID"/>
+      <data name="RunCount" inType="win:UInt32"/>
+      <data name="PageCount" inType="win:UInt64"/>
+      <data name="IoSpaceRunCount" inType="win:UInt32"/>
+      <data name="IoSpacePageCount" inType="win:UInt64"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="PartitionNameLength" inType="win:UInt16"/>
+      <data name="PartitionName" inType="win:UnicodeString" length="PartitionNameLength"/>
+     </template>
+     <template tid="PartitionInitialAddMemoryStartArgs_V1">
+      <data name="PartitionId" inType="win:UInt32"/>
+      <data name="RunCount" inType="win:UInt32"/>
+      <data name="PageCount" inType="win:UInt64"/>
+      <data name="IoSpaceMemory" inType="win:Boolean"/>
+     </template>
+     <template tid="InitializeMeasurementContextInitializationFailureArgs_V1">
+      <data name="Status" inType="win:UInt32"/>
+      <data name="FailurePoint" inType="win:UInt32"/>
+     </template>
+     <template tid="PrepareTargetStartArgs_V2">
+      <data name="SoftRestartCount" inType="win:UInt32"/>
+      <data name="Secure" inType="win:Boolean"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_SoftRestart" value="SoftRestart"/>
+    <string id="keyword_MemoryPreservation" value="MemoryPreservation"/>
+    <string id="keyword_MemoryBlockRundown" value="MemoryBlockRundown"/>
+    <string id="keyword_PhysicalMemory" value="PhysicalMemory"/>
+    <string id="keyword_MemoryMapRundown" value="MemoryMapRundown"/>
+    <string id="keyword_MemoryPartitions" value="MemoryPartitions"/>
+    <string id="keyword_EfiVariables" value="EfiVariables"/>
+    <string id="keyword_keyword_80000000000" value="keyword_80000000000"/>
+    <string id="keyword_keyword_200000000000" value="keyword_200000000000"/>
+    <string id="keyword_keyword_400000000000" value="keyword_400000000000"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_InitializeLibrary" value="InitializeLibrary"/>
+    <string id="task_PrepareTarget" value="PrepareTarget"/>
+    <string id="task_RebuildKernelMemoryMap" value="RebuildKernelMemoryMap"/>
+    <string id="task_FatalError" value="FatalError"/>
+    <string id="task_PersistMemory" value="PersistMemory"/>
+    <string id="task_ClaimPersistedMemory" value="ClaimPersistedMemory"/>
+    <string id="task_FreePersistedMemory" value="FreePersistedMemory"/>
+    <string id="task_CleanupPageDatabase" value="CleanupPageDatabase"/>
+    <string id="task_CancelBoot" value="CancelBoot"/>
+    <string id="task_AttachPersistentPageDatabase" value="AttachPersistentPageDatabase"/>
+    <string id="task_MemoryBlockRundown" value="MemoryBlockRundown"/>
+    <string id="task_BuildKernelMemoryMap" value="BuildKernelMemoryMap"/>
+    <string id="task_GetMemoryMap" value="GetMemoryMap"/>
+    <string id="task_AllocatePhysicalPagesForMdl" value="AllocatePhysicalPagesForMdl"/>
+    <string id="task_ExecuteTransition" value="ExecuteTransition"/>
+    <string id="task_DisconnectHypervisor" value="DisconnectHypervisor"/>
+    <string id="task_MemoryMapRundown" value="MemoryMapRundown"/>
+    <string id="task_PhysicalPageAllocationFailure" value="PhysicalPageAllocationFailure"/>
+    <string id="task_BootManager" value="BootManager"/>
+    <string id="task_PreBoot" value="PreBoot"/>
+    <string id="task_FirmwareBootData" value="FirmwareBootData"/>
+    <string id="task_LoadDrivers" value="LoadDrivers"/>
+    <string id="task_LoadHive" value="LoadHive"/>
+    <string id="task_BootApplicationExecution" value="BootApplicationExecution"/>
+    <string id="task_WaitForPartitionsRestored" value="WaitForPartitionsRestored"/>
+    <string id="task_MemoryPartitionRestore" value="MemoryPartitionRestore"/>
+    <string id="task_PersistMemoryPartition" value="PersistMemoryPartition"/>
+    <string id="task_RegisterLoader" value="RegisterLoader"/>
+    <string id="task_SiPolicyFailure" value="SiPolicyFailure"/>
+    <string id="task_BootTotalIo" value="BootTotalIo"/>
+    <string id="task_DirtyBootShutdown" value="DirtyBootShutdown"/>
+    <string id="task_BootMenuPolicy" value="BootMenuPolicy"/>
+    <string id="task_BootType" value="BootType"/>
+    <string id="task_MemoryPartitionsRestored" value="MemoryPartitionsRestored"/>
+    <string id="task_QueryStatistics" value="QueryStatistics"/>
+    <string id="task_ConnectSecureLoader" value="ConnectSecureLoader"/>
+    <string id="task_BootFileAccess" value="BootFileAccess"/>
+    <string id="task_RetrieveDriverListTime" value="RetrieveDriverListTime"/>
+    <string id="task_FreePersistedMemoryBlock" value="FreePersistedMemoryBlock"/>
+    <string id="task_PrepareNotification" value="PrepareNotification"/>
+    <string id="task_PartitionInitialAddMemory" value="PartitionInitialAddMemory"/>
+    <string id="task_ImageHashCheck" value="ImageHashCheck"/>
+    <string id="task_ImageIntegrityCheck" value="ImageIntegrityCheck"/>
+    <string id="task_BootPolicyMigration" value="BootPolicyMigration"/>
+    <string id="task_RemoveEnclavePages" value="RemoveEnclavePages"/>
+    <string id="task_EnumerateEnclavePages" value="EnumerateEnclavePages"/>
+    <string id="task_GetSystemBootDevice" value="GetSystemBootDevice"/>
+    <string id="task_NormalizeBootOptionList" value="NormalizeBootOptionList"/>
+    <string id="task_CreateLibraryParameters" value="CreateLibraryParameters"/>
+    <string id="task_CreateDevices" value="CreateDevices"/>
+    <string id="task_SoftRestartHostCapability" value="SoftRestartHostCapability"/>
+    <string id="task_CancelNotification" value="CancelNotification"/>
+    <string id="task_BootDiag" value="BootDiag"/>
+    <string id="task_ImageLoadFailure" value="ImageLoadFailure"/>
+    <string id="task_FirmwareResolution" value="FirmwareResolution"/>
+    <string id="task_BootEnvResolution" value="BootEnvResolution"/>
+    <string id="task_BootmgrEntryCount" value="BootmgrEntryCount"/>
+    <string id="task_UserInputTime" value="UserInputTime"/>
+    <string id="task_VsmIdkProvisioningStatus" value="VsmIdkProvisioningStatus"/>
+    <string id="task_BootAppLoadTime" value="BootAppLoadTime"/>
+    <string id="task_PrepareTargetFailure" value="PrepareTargetFailure"/>
+    <string id="task_VsmPolicyEnablement" value="VsmPolicyEnablement"/>
+    <string id="task_InitializeMeasurementContext" value="InitializeMeasurementContext"/>
+    <string id="opcode_InitializeMeasurementContextInitializationFailure" value="InitializationFailure"/>
+    <string id="opcode_InitializeMeasurementContextMeasurementsDisabled" value="MeasurementsDisabled"/>
+    <string id="task_KsrMeasurement" value="KsrMeasurement"/>
+    <string id="task_TpmMeasurement" value="TpmMeasurement"/>
+    <string id="task_CloseMeasurementLog" value="CloseMeasurementLog"/>
+    <string id="task_CommitPendingEvents" value="CommitPendingEvents"/>
+    <string id="task_CapTpmPcr" value="CapTpmPcr"/>
+    <string id="task_TpmCommandResponse" value="TpmCommandResponse"/>
+    <string id="task_TpmSubmitError" value="TpmSubmitError"/>
+    <string id="task_TpmBitLockerUsage" value="TpmBitLockerUsage"/>
+    <string id="task_EfiVariableAccess" value="EfiVariableAccess"/>
+    <string id="opcode_EfiVariableAccessGetEfiVariable" value="GetEfiVariable"/>
+    <string id="opcode_EfiVariableAccessSetEfiVariable" value="SetEfiVariable"/>
+    <string id="task_GetFirmwareInformation" value="GetFirmwareInformation"/>
+    <string id="task_VerifyBootEntry" value="VerifyBootEntry"/>
+    <string id="task_InvalidNfitTable" value="InvalidNfitTable"/>
+    <string id="task_MeasuredLaunch" value="MeasuredLaunch"/>
+    <string id="opcode_MeasuredLaunchTxtLaunchPrepared" value="TxtLaunchPrepared"/>
+    <string id="opcode_MeasuredLaunchPreviousTxtError" value="PreviousTxtError"/>
+    <string id="opcode_MeasuredLaunchInvalidTxtSinitRange" value="InvalidTxtSinitRange"/>
+    <string id="opcode_MeasuredLaunchInvalidTxtHeapRange" value="InvalidTxtHeapRange"/>
+    <string id="opcode_MeasuredLaunchMleLoadFailure" value="MleLoadFailure"/>
+    <string id="opcode_MeasuredLaunchMissingRsdpTable" value="MissingRsdpTable"/>
+    <string id="opcode_MeasuredLaunchNoSinitAcm" value="NoSinitAcm"/>
+    <string id="opcode_MeasuredLaunchComputePmrRangesFailure" value="ComputePmrRangesFailure"/>
+    <string id="opcode_MeasuredLaunchInvalidTxtHeapBiosDataSize" value="InvalidTxtHeapBiosDataSize"/>
+    <string id="opcode_MeasuredLaunchMleHeaderTooOld" value="MleHeaderTooOld"/>
+    <string id="opcode_MeasuredLaunchSinitPerformance" value="SinitPerformance"/>
+    <string id="opcode_MeasuredLaunchPrepareLcpFailure" value="PrepareLcpFailure"/>
+    <string id="opcode_MeasuredLaunchTxtRejectedFirmwareAcm" value="TxtRejectedFirmwareAcm"/>
+    <string id="opcode_MeasuredLaunchTxtInformation" value="TxtInformation"/>
+    <string id="opcode_MeasuredLaunchTxtNotSupported" value="TxtNotSupported"/>
+    <string id="opcode_MeasuredLaunchDrtmDriversNotSupportVbs" value="DrtmDriversNotSupportVbs"/>
+    <string id="opcode_MeasuredLaunchPpamFailure" value="PpamFailure"/>
+    <string id="opcode_MeasuredLaunchSmmLevelCheck" value="SmmLevelCheck"/>
+    <string id="task_EFICapsuleCreation" value="EFICapsuleCreation"/>
+    <string id="task_BootSI" value="BootSI"/>
+    <string id="opcode_BootSIInitStatus" value="InitStatus"/>
+    <string id="opcode_BootSIEnterInsecureState" value="EnterInsecureState"/>
+    <string id="opcode_BootSIDrtmSvnCheck" value="DrtmSvnCheck"/>
+    <string id="task_FileOpen" value="FileOpen"/>
+    <string id="opcode_FileOpenOpenFailure" value="OpenFailure"/>
+    <string id="task_VsmPolicyFailure" value="VsmPolicyFailure"/>
+    <string id="task_VsmLKeyProvisioningStatus" value="VsmLKeyProvisioningStatus"/>
+    <string id="task_SecureBootVariableUsage" value="SecureBootVariableUsage"/>
+    <string id="task_MiniFilterStartFailure" value="MiniFilterStartFailure"/>
+    <string id="task_FileModification" value="FileModification"/>
+    <string id="task_RegistryModification" value="RegistryModification"/>
+    <string id="task_SoftReboot" value="SoftReboot"/>
+    <string id="task_RegisterFilter" value="RegisterFilter"/>
+    <string id="task_BootDebugger" value="BootDebugger"/>
+    <string id="opcode_BootDebuggerBdEnabled" value="BdEnabled"/>
+    <string id="opcode_BootDebuggerBdInitFailure" value="BdInitFailure"/>
+    <string id="task_IoSpaceMemory" value="IoSpaceMemory"/>
+    <string id="opcode_IoSpaceMemoryAllocation" value="Allocation"/>
+    <string id="opcode_IoSpaceMemoryAllocationFailure" value="AllocationFailure"/>
+    <string id="opcode_IoSpaceMemoryEnumerateFailure" value="EnumerateFailure"/>
+    <string id="task_FinalizeMemoryMap" value="FinalizeMemoryMap"/>
+    <string id="task_RegisterHvloaderPersistenceInterface" value="RegisterHvloaderPersistenceInterface"/>
+    <string id="task_LoadHvloaderForPersistence" value="LoadHvloaderForPersistence"/>
+    <string id="task_VsmBootNoSecretsMode" value="VsmBootNoSecretsMode"/>
+    <string id="task_BootMenuTimerCanceled" value="BootMenuTimerCanceled"/>
+    <string id="task_BadMemoryPages" value="BadMemoryPages"/>
+    <string id="opcode_BadMemoryPagesListInitializationFailure" value="ListInitializationFailure"/>
+    <string id="task_KernelDebugger" value="KernelDebugger"/>
+    <string id="opcode_KernelDebuggerKdEnabled" value="KdEnabled"/>
+    <string id="opcode_KernelDebuggerKdInitFailure" value="KdInitFailure"/>
+    <string id="task_MemoryPartitionFreeUnusedMemory" value="MemoryPartitionFreeUnusedMemory"/>
+    <string id="task_MemoryPartitionRestoreStats" value="MemoryPartitionRestoreStats"/>
+    <string id="task_BootTpm" value="BootTpm"/>
+    <string id="opcode_BootTpmTpmInit" value="TpmInit"/>
+    <string id="map_BootDiagMessageMapBL_LOG_INFO_NONE: Info none" value="BL_LOG_INFO_NONE: Info none"/>
+    <string id="map_BootDiagMessageMapBL_LOG_INFO_BLI_IO_INITED: IO initialized in boot library initialization." value="BL_LOG_INFO_BLI_IO_INITED: IO initialized in boot library initialization."/>
+    <string id="map_BootDiagMessageMapBL_LOG_INFO_BLI_FINISHED: Finished in boot library initialization." value="BL_LOG_INFO_BLI_FINISHED: Finished in boot library initialization."/>
+    <string id="map_BootDiagMessageMapBL_LOG_INFO_BM_BL_INITED: The boot library has been initialized for bootmgr." value="BL_LOG_INFO_BM_BL_INITED: The boot library has been initialized for bootmgr."/>
+    <string id="map_BootDiagMessageMapBL_LOG_INFO_BM_GET_BOOT_SEQ: Getting boot sequence in bootmgr." value="BL_LOG_INFO_BM_GET_BOOT_SEQ: Getting boot sequence in bootmgr."/>
+    <string id="map_BootDiagMessageMapBL_LOG_INFO_BM_LAUNCH_ENTRY: Launching boot entry in bootmgr." value="BL_LOG_INFO_BM_LAUNCH_ENTRY: Launching boot entry in bootmgr."/>
+    <string id="map_BootDiagMessageMapBL_LOG_INFO_OSL_PREPARE_ENTERED: Reached prepare target within osloader." value="BL_LOG_INFO_OSL_PREPARE_ENTERED: Reached prepare target within osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_INFO_OSL_OPEN_DEVICE: Preparing to open OS device in osloader." value="BL_LOG_INFO_OSL_OPEN_DEVICE: Preparing to open OS device in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_INFO_OSL_LAUNCH_HYPERV: Preparing to launch hyper-v if specified within osloader." value="BL_LOG_INFO_OSL_LAUNCH_HYPERV: Preparing to launch hyper-v if specified within osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_INFO_OSL_LOAD_MODULES: Preparing to load OS modules within osloader." value="BL_LOG_INFO_OSL_LOAD_MODULES: Preparing to load OS modules within osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_INFO_OSL_KERNEL_SETUP: Setting up kernel within osloader." value="BL_LOG_INFO_OSL_KERNEL_SETUP: Setting up kernel within osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_INFO_OSL_PRELOAD_HYPERV: Preloading hyper-v if specified within osloader." value="BL_LOG_INFO_OSL_PRELOAD_HYPERV: Preloading hyper-v if specified within osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_INFO_OSL_BOOT_CANCELLED: Boot was cancelled." value="BL_LOG_INFO_OSL_BOOT_CANCELLED: Boot was cancelled."/>
+    <string id="map_BootDiagMessageMapBL_LOG_INFO_TCB_LAUNCH_HYPERV: Preparing to launch hyper-v." value="BL_LOG_INFO_TCB_LAUNCH_HYPERV: Preparing to launch hyper-v."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR: Generic Error" value="BL_LOG_ERROR: Generic Error"/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BLI_NET_INIT: BlNetInitialize failed in BL initialization." value="BL_LOG_ERROR_BLI_NET_INIT: BlNetInitialize failed in BL initialization."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BLI_UTL_INIT: BlUtlInitialize failed in BL initialization." value="BL_LOG_ERROR_BLI_UTL_INIT: BlUtlInitialize failed in BL initialization."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BLI_SEC_BOOT_INIT: BlSecureBootInitialize failed in BL initialization." value="BL_LOG_ERROR_BLI_SEC_BOOT_INIT: BlSecureBootInitialize failed in BL initialization."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BLI_PDATA_INIT: BlpPdInitialize failed in BL initialization." value="BL_LOG_ERROR_BLI_PDATA_INIT: BlpPdInitialize failed in BL initialization."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BLI_RES_INIT: BlpResourceInitialize failed in BL initialization." value="BL_LOG_ERROR_BLI_RES_INIT: BlpResourceInitialize failed in BL initialization."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BLI_SEC_LAUNCH_INIT: BlpTcbLaunchInitialize failed in BL initialization." value="BL_LOG_ERROR_BLI_SEC_LAUNCH_INIT: BlpTcbLaunchInitialize failed in BL initialization."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BM_INIT_MACH_POL: BmSecureBootInitializeMachinePolicy failed in bootmgr." value="BL_LOG_ERROR_BM_INIT_MACH_POL: BmSecureBootInitializeMachinePolicy failed in bootmgr."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BM_FW_REG_SYSINT: BmFwRegisterSystemIntegrityPolicies failed in bootmgr." value="BL_LOG_ERROR_BM_FW_REG_SYSINT: BmFwRegisterSystemIntegrityPolicies failed in bootmgr."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BM_RES_FIND_HTML: BlResourceFindHtml failed to find BOOTMGR.XSL in bootmgr." value="BL_LOG_ERROR_BM_RES_FIND_HTML: BlResourceFindHtml failed to find BOOTMGR.XSL in bootmgr."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BM_XMI_INIT: BlXmiInitialize failed in bootmgr." value="BL_LOG_ERROR_BM_XMI_INIT: BlXmiInitialize failed in bootmgr."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BM_OPEN_DATA_STORE: BmOpenDataStore failed in bootmgr." value="BL_LOG_ERROR_BM_OPEN_DATA_STORE: BmOpenDataStore failed in bootmgr."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BM_SELF_INT_CHK: BmpSelfIntegrityCheck failed in bootmgr." value="BL_LOG_ERROR_BM_SELF_INT_CHK: BmpSelfIntegrityCheck failed in bootmgr."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BM_FW_REG_REV_LIST: BmFwRegisterRevocationList failed in bootmgr." value="BL_LOG_ERROR_BM_FW_REG_REV_LIST: BmFwRegisterRevocationList failed in bootmgr."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BM_RESUME_HIBER: BmResumeFromHibernate failed in bootmgr." value="BL_LOG_ERROR_BM_RESUME_HIBER: BmResumeFromHibernate failed in bootmgr."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BM_PURGE_OPT_START_SEQ: BL_ERROR_BM_PURGE_OPT_START_SEQ failed in bootmgr." value="BL_LOG_ERROR_BM_PURGE_OPT_START_SEQ: BL_ERROR_BM_PURGE_OPT_START_SEQ failed in bootmgr."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BM_PURGE_OPT_BOOT_SEQ: BmPurgeOption failed for BCDE_BOOTMGR_TYPE_BOOT_SEQUENCE in bootmgr." value="BL_LOG_ERROR_BM_PURGE_OPT_BOOT_SEQ: BmPurgeOption failed for BCDE_BOOTMGR_TYPE_BOOT_SEQUENCE in bootmgr."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BM_REOPEN_DATA_STORE: BmOpenDataStore failed on reopen in bootmgr." value="BL_LOG_ERROR_BM_REOPEN_DATA_STORE: BmOpenDataStore failed on reopen in bootmgr."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BM_UPDATE_APP_OPTS: BmpUpdateApplicationOptions failed in bootmgr." value="BL_LOG_ERROR_BM_UPDATE_APP_OPTS: BmpUpdateApplicationOptions failed in bootmgr."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BM_LAUNCH_BOOT_ENTRY: BmpLaunchBootEntry failed in bootmgr." value="BL_LOG_ERROR_BM_LAUNCH_BOOT_ENTRY: BmpLaunchBootEntry failed in bootmgr."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BM_CREATE_DEVICES: BmpCreateDevices failed in bootmgr." value="BL_LOG_ERROR_BM_CREATE_DEVICES: BmpCreateDevices failed in bootmgr."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BM_LAUNCH_FLIGHT_BM: BmFwLaunchFlightedBootmgr failed in bootmgr." value="BL_LOG_ERROR_BM_LAUNCH_FLIGHT_BM: BmFwLaunchFlightedBootmgr failed in bootmgr."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BM_FE_BOOTAPP_LD: Fatal error: failure to load boot app in bootmgr." value="BL_LOG_ERROR_BM_FE_BOOTAPP_LD: Fatal error: failure to load boot app in bootmgr."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BM_FE_CONFIG_DATA: Fatal error: failure attempting to read boot config file in bootmgr." value="BL_LOG_ERROR_BM_FE_CONFIG_DATA: Fatal error: failure attempting to read boot config file in bootmgr."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BM_FE_NO_VALID_OS_ENTRY: Fatal error: no valid os entires found in bootmgr." value="BL_LOG_ERROR_BM_FE_NO_VALID_OS_ENTRY: Fatal error: no valid os entires found in bootmgr."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BM_FE_NO_VALID_PXE_ENTRY: Fatal error: no valid entries found from PXE server in bootmgr." value="BL_LOG_ERROR_BM_FE_NO_VALID_PXE_ENTRY: Fatal error: no valid entries found from PXE server in bootmgr."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BM_FE_FAILURE_STATUS: Fatal error: failure status in bootmgr." value="BL_LOG_ERROR_BM_FE_FAILURE_STATUS: Fatal error: failure status in bootmgr."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BM_FE_BOOT_DEVICE: Fatal error: boot device inaccessible in bootmgr." value="BL_LOG_ERROR_BM_FE_BOOT_DEVICE: Fatal error: boot device inaccessible in bootmgr."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BM_FE_RAMDISK_MEM: Fatal error: ramdisk device creation had insufficient memory in bootmgr." value="BL_LOG_ERROR_BM_FE_RAMDISK_MEM: Fatal error: ramdisk device creation had insufficient memory in bootmgr."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BM_FE_INVALID_BCD_STORE: Fatal error: BCD is invalid in bootmgr." value="BL_LOG_ERROR_BM_FE_INVALID_BCD_STORE: Fatal error: BCD is invalid in bootmgr."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BM_FE_INVALID_BCD_ENTRY: Fatal error: Invalid BCD entry in bootmgr." value="BL_LOG_ERROR_BM_FE_INVALID_BCD_ENTRY: Fatal error: Invalid BCD entry in bootmgr."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BM_FE_NO_SECUREBOOT_POL: Fatal error: Default Secure Boot policy not found in bootmgr." value="BL_LOG_ERROR_BM_FE_NO_SECUREBOOT_POL: Fatal error: Default Secure Boot policy not found in bootmgr."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BM_FE_NO_PAE_SUPPORT: Fatal error: CPU does not support PAE in bootmgr." value="BL_LOG_ERROR_BM_FE_NO_PAE_SUPPORT: Fatal error: CPU does not support PAE in bootmgr."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BM_FE_UNSEAL_NOT_POS: Fatal error: Cannot unseal sensitive data in bootmgr." value="BL_LOG_ERROR_BM_FE_UNSEAL_NOT_POS: Fatal error: Cannot unseal sensitive data in bootmgr."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_BM_FE_GENERIC: Fatal error: Generic failure in bootmgr." value="BL_LOG_ERROR_BM_FE_GENERIC: Fatal error: Generic failure in bootmgr."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_REM_INTERN_APP_OPTS: OslpRemoveInternalApplicationOptions failed in osloader." value="BL_LOG_ERROR_OSL_REM_INTERN_APP_OPTS: OslpRemoveInternalApplicationOptions failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_GET_APP_OPT_DEVICE: BlGetApplicationOptionDevice failed for BCDE_OSLOADER_TYPE_OS_DEVICE in osloader." value="BL_LOG_ERROR_OSL_GET_APP_OPT_DEVICE: BlGetApplicationOptionDevice failed for BCDE_OSLOADER_TYPE_OS_DEVICE in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_GET_SYSTEM_ROOT: Failed to get SystemRoot in osloader." value="BL_LOG_ERROR_OSL_GET_SYSTEM_ROOT: Failed to get SystemRoot in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_FORCED_FAIL: OslpCheckForcedFailure failed implying a forced failure in osloader." value="BL_LOG_ERROR_OSL_FORCED_FAIL: OslpCheckForcedFailure failed implying a forced failure in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_DISABLE_VGA: BlAppendApplicationOptionBoolean for BCDE_OSLOADER_TYPE_DISABLE_VGA_MODE failed in osloader." value="BL_LOG_ERROR_OSL_DISABLE_VGA: BlAppendApplicationOptionBoolean for BCDE_OSLOADER_TYPE_DISABLE_VGA_MODE failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_OPEN_OS_DEVICE: BlDeviceOpen failed for os device in osloader." value="BL_LOG_ERROR_OSL_OPEN_OS_DEVICE: BlDeviceOpen failed for os device in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_LOAD_SYS_HIVE: OslpLoadSystemHive failed in osloader." value="BL_LOG_ERROR_OSL_LOAD_SYS_HIVE: OslpLoadSystemHive failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_CREATE_OS_LD_OPTS: AhCreateLoadOptionsString failed in osloader." value="BL_LOG_ERROR_OSL_CREATE_OS_LD_OPTS: AhCreateLoadOptionsString failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_DISPLAY_INIT: OslDisplayInitialize failed in osloader." value="BL_LOG_ERROR_OSL_DISPLAY_INIT: OslDisplayInitialize failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_PROCESS_SI_POLICY: OslpProcessSIPolicy failed in osloader." value="BL_LOG_ERROR_OSL_PROCESS_SI_POLICY: OslpProcessSIPolicy failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_DISP_ADV_OPT: OslDisplayAdvancedOptionsProcess failed in osloader." value="BL_LOG_ERROR_OSL_DISP_ADV_OPT: OslDisplayAdvancedOptionsProcess failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_ARCH_HV_SETUP: OslArchHypervisorSetup failed in osloader." value="BL_LOG_ERROR_OSL_ARCH_HV_SETUP: OslArchHypervisorSetup failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_ARCH_HYPERCALL_SETUP: OslArchHypercallSetup failed in osloader." value="BL_LOG_ERROR_OSL_ARCH_HYPERCALL_SETUP: OslArchHypercallSetup failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_INIT_RESUME_CONTEXT: OslInitializeResumeContext failed in osloader." value="BL_LOG_ERROR_OSL_INIT_RESUME_CONTEXT: OslInitializeResumeContext failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_INIT_LDR_BLOCK: OslInitializeLoaderBlock failed in osloader." value="BL_LOG_ERROR_OSL_INIT_LDR_BLOCK: OslInitializeLoaderBlock failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_PROC_INIT_MACH_CONFIG: OslpProcessInitialMachineConfiguration failed in osloader." value="BL_LOG_ERROR_OSL_PROC_INIT_MACH_CONFIG: OslpProcessInitialMachineConfiguration failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_ENUM_DISKS: OslEnumerateDisks failed for the loader block in osloader." value="BL_LOG_ERROR_OSL_ENUM_DISKS: OslEnumerateDisks failed for the loader block in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_REINIT_SYS_HIVE: OslpReinitializeSystemHive failed in osloader." value="BL_LOG_ERROR_OSL_REINIT_SYS_HIVE: OslpReinitializeSystemHive failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_INIT_CODE_INT: OslInitializeCodeIntegrity failed in osloader." value="BL_LOG_ERROR_OSL_INIT_CODE_INT: OslInitializeCodeIntegrity failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_INIT_CODE_INT_LD_BLOCK: OslBuildCodeIntegrityLoaderBlock failed in osloader." value="BL_LOG_ERROR_OSL_INIT_CODE_INT_LD_BLOCK: OslBuildCodeIntegrityLoaderBlock failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_SECURE_BOOT_VARS: OslFwProtectSecureBootVariables failed in osloader." value="BL_LOG_ERROR_OSL_SECURE_BOOT_VARS: OslFwProtectSecureBootVariables failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_LD_MODULES: OslpLoadAllModules failed in osloader." value="BL_LOG_ERROR_OSL_LD_MODULES: OslpLoadAllModules failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_LD_FW_DRIVERS: OslFwLoadFirmwareDrivers failed in osloader." value="BL_LOG_ERROR_OSL_LD_FW_DRIVERS: OslFwLoadFirmwareDrivers failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_VSM_CHK_ENCRYPT_KEY: BlVsmCheckSystemPolicy failed for master sncrupt key provisioning in osloader." value="BL_LOG_ERROR_OSL_VSM_CHK_ENCRYPT_KEY: BlVsmCheckSystemPolicy failed for master sncrupt key provisioning in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_VSM_PHASE_0: Fatal VSM Phase 0 initializatin failure in osloader." value="BL_LOG_ERROR_OSL_VSM_PHASE_0: Fatal VSM Phase 0 initializatin failure in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_SET_SEIL_SIGN_POL: OslSetSeILSigningPolicy failed in osloader." value="BL_LOG_ERROR_OSL_SET_SEIL_SIGN_POL: OslSetSeILSigningPolicy failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_CMS_PROV_IDK: BlVsmCheckSystemPolicy failed during VSM Idendity key work in osloader." value="BL_LOG_ERROR_OSL_CMS_PROV_IDK: BlVsmCheckSystemPolicy failed during VSM Idendity key work in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_ARCH_KERNEL_SETUP_0: OslArchKernelSetup failed for 0 in osloader." value="BL_LOG_ERROR_OSL_ARCH_KERNEL_SETUP_0: OslArchKernelSetup failed for 0 in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_FW_KERNEL_SETUP: OslFwKernelSetup failed for 0 in osloader." value="BL_LOG_ERROR_OSL_FW_KERNEL_SETUP: OslFwKernelSetup failed for 0 in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_PROC_EV_STORE: OslpProcessEVStore failed in osloader." value="BL_LOG_ERROR_OSL_PROC_EV_STORE: OslpProcessEVStore failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_COPY_BOOT_OPTS: BlCopyBootOptions failed in osloader." value="BL_LOG_ERROR_OSL_COPY_BOOT_OPTS: BlCopyBootOptions failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_FVE_SEC_BOOT_REST_ONE: BlFveSecureBootRestrictToOne failed in osloader." value="BL_LOG_ERROR_OSL_FVE_SEC_BOOT_REST_ONE: BlFveSecureBootRestrictToOne failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_NET_UNDI_CLOSE: BlNetUndiClose failed in osloader." value="BL_LOG_ERROR_OSL_NET_UNDI_CLOSE: BlNetUndiClose failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_PROC_APP_PDATA: OslProcessApplicationPersistentData failed in osloader." value="BL_LOG_ERROR_OSL_PROC_APP_PDATA: OslProcessApplicationPersistentData failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_BLD_MEM_CACHE_REQ_LIST: OslFwBuildMemoryCachingRequirementsList failed in osloader." value="BL_LOG_ERROR_OSL_BLD_MEM_CACHE_REQ_LIST: OslFwBuildMemoryCachingRequirementsList failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_BLD_RT_MEM_MAP: OslFwBuildRuntimeMemoryMap failed in osloader." value="BL_LOG_ERROR_OSL_BLD_RT_MEM_MAP: OslFwBuildRuntimeMemoryMap failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_VSM_SETUP_1: OslVsmSetup failed for 1 in osloader." value="BL_LOG_ERROR_OSL_VSM_SETUP_1: OslVsmSetup failed for 1 in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_BLD_KERNEL_MEM_MAP: BlTraceBuildKernelMemoryMapStop failed in osloader." value="BL_LOG_ERROR_OSL_BLD_KERNEL_MEM_MAP: BlTraceBuildKernelMemoryMapStop failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_ARCH_KERNEL_SETUP_1: OslArchKernelSetup failed for 1 in osloader." value="BL_LOG_ERROR_OSL_ARCH_KERNEL_SETUP_1: OslArchKernelSetup failed for 1 in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_SET_VSM_POL_SYS_HIVE: OslSetVsmPolicy failed in osloader." value="BL_LOG_ERROR_OSL_SET_VSM_POL_SYS_HIVE: OslSetVsmPolicy failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_ENUM_ENCLAVE_PAGES: OslEnumerateEnclavePageRegions failed in osloader." value="BL_LOG_ERROR_OSL_ENUM_ENCLAVE_PAGES: OslEnumerateEnclavePageRegions failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_GATHER_ENTROPY: OslGatherEntropy failed in osloader." value="BL_LOG_ERROR_OSL_GATHER_ENTROPY: OslGatherEntropy failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_VSM_SETUP_0: OslVsmSetup failed for 0 in osloader." value="BL_LOG_ERROR_OSL_VSM_SETUP_0: OslVsmSetup failed for 0 in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_VSM_CANNOT_BE_DISABLED_BY_KSR: VSM must not be disabled through KSR" value="BL_LOG_ERROR_OSL_VSM_CANNOT_BE_DISABLED_BY_KSR: VSM must not be disabled through KSR"/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_VSM_PHASE0_ALLOCATE_PAGES_FAILED" value="BL_LOG_ERROR_OSL_VSM_PHASE0_ALLOCATE_PAGES_FAILED"/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_VSM_PHASE0_LOAD_MODULES_FAILED" value="BL_LOG_ERROR_OSL_VSM_PHASE0_LOAD_MODULES_FAILED"/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_VSM_PHASE0_LOAD_CIDATA_FAILED" value="BL_LOG_ERROR_OSL_VSM_PHASE0_LOAD_CIDATA_FAILED"/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_VSM_PHASE0_COPY_VSM_KEYS_FAILED" value="BL_LOG_ERROR_OSL_VSM_PHASE0_COPY_VSM_KEYS_FAILED"/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_VSM_PHASE0_COPY_ACPI_TABLES_FAILED" value="BL_LOG_ERROR_OSL_VSM_PHASE0_COPY_ACPI_TABLES_FAILED"/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_VSM_PHASE0_ARCH_SETUP_FAILED" value="BL_LOG_ERROR_OSL_VSM_PHASE0_ARCH_SETUP_FAILED"/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_VSM_PHASE0_BUILD_PAGE_TABLES_FAILED" value="BL_LOG_ERROR_OSL_VSM_PHASE0_BUILD_PAGE_TABLES_FAILED"/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_BUILD_BSD_LOCATION_FAILED: OslpBuildBsdLogLocation failed in osloader." value="BL_LOG_ERROR_OSL_BUILD_BSD_LOCATION_FAILED: OslpBuildBsdLogLocation failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_GET_APP_OPT_DEVICE_OSDATA: BlGetApplicationOptionDevice failed for BCDE_OSLOADER_TYPE_OS_DATA_DEVICE in osloader." value="BL_LOG_ERROR_OSL_GET_APP_OPT_DEVICE_OSDATA: BlGetApplicationOptionDevice failed for BCDE_OSLOADER_TYPE_OS_DATA_DEVICE in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_OPEN_OSDATA_DEVICE: BlDeviceOpen failed for osdata device in osloader." value="BL_LOG_ERROR_OSL_OPEN_OSDATA_DEVICE: BlDeviceOpen failed for osdata device in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_ENUMERATE_PERSISTENT_MEMORY: OslEnumeratePersistentMemory failed in osloader." value="BL_LOG_ERROR_OSL_ENUMERATE_PERSISTENT_MEMORY: OslEnumeratePersistentMemory failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_HVCI_CANNOT_BE_ENABLED_BY_KSR: HVCI must not be enabled through KSR" value="BL_LOG_ERROR_OSL_HVCI_CANNOT_BE_ENABLED_BY_KSR: HVCI must not be enabled through KSR"/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_PROCESS_PRESERVED_MEMORY: Error while processing preserved memory." value="BL_LOG_ERROR_OSL_PROCESS_PRESERVED_MEMORY: Error while processing preserved memory."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_LOAD_DEVICES_HIVE: OslpLoadDevicesHive failed in osloader." value="BL_LOG_ERROR_OSL_LOAD_DEVICES_HIVE: OslpLoadDevicesHive failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_LOAD_OSBOOT_HIVE: OslpLoadOsBootHive failed in osloader." value="BL_LOG_ERROR_OSL_LOAD_OSBOOT_HIVE: OslpLoadOsBootHive failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_LOAD_DRIVER_STORES: OslpLoadDriverStoreNodes failed in osloader." value="BL_LOG_ERROR_OSL_LOAD_DRIVER_STORES: OslpLoadDriverStoreNodes failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_CMS_PROV_HBK: BlVsmCheckSystemPolicy failed during VSM Hibernation key work in osloader." value="BL_LOG_ERROR_OSL_CMS_PROV_HBK: BlVsmCheckSystemPolicy failed during VSM Hibernation key work in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_ALLOC_LDR_BLOCK: OslAllocateLoaderBlock failed in osloader." value="BL_LOG_ERROR_OSL_ALLOC_LDR_BLOCK: OslAllocateLoaderBlock failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_ARCH_TCB_LAUNCH_0: OslTcbLaunch(0) failed in osloader." value="BL_LOG_ERROR_OSL_ARCH_TCB_LAUNCH_0: OslTcbLaunch(0) failed in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_HVCI_CANNOT_BE_DISABLED_BY_KSR: HVCI must not be disabled through KSR" value="BL_LOG_ERROR_OSL_HVCI_CANNOT_BE_DISABLED_BY_KSR: HVCI must not be disabled through KSR"/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_GET_APP_OPT_DEVICE_BSP: BlGetApplicationOptionDevice failed for BCDE_OSLOADER_TYPE_BSP_DEVICE in osloader." value="BL_LOG_ERROR_OSL_GET_APP_OPT_DEVICE_BSP: BlGetApplicationOptionDevice failed for BCDE_OSLOADER_TYPE_BSP_DEVICE in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_OPEN_BSP_DEVICE: BlDeviceOpen failed for bsp device in osloader." value="BL_LOG_ERROR_OSL_OPEN_BSP_DEVICE: BlDeviceOpen failed for bsp device in osloader."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_KSR_KSEG0: InitializeRebootAddressRange failed in SK extension." value="BL_LOG_ERROR_KSR_KSEG0: InitializeRebootAddressRange failed in SK extension."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_KSR_OUT_OF_MEMORY: Memory allocation failed in SK KSR extension." value="BL_LOG_ERROR_KSR_OUT_OF_MEMORY: Memory allocation failed in SK KSR extension."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_KSR_IMAGE_VALIDATION: Image validation failed in SK KSR extension." value="BL_LOG_ERROR_KSR_IMAGE_VALIDATION: Image validation failed in SK KSR extension."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_KSR_IMAGE_RELOCATION: Image relocation failed in SK KSR extension." value="BL_LOG_ERROR_KSR_IMAGE_RELOCATION: Image relocation failed in SK KSR extension."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_KSR_BIND_IMPORT: Failed to bind imports to image in SK KSR extension." value="BL_LOG_ERROR_KSR_BIND_IMPORT: Failed to bind imports to image in SK KSR extension."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_KSR_LOADER_ENTRY_POINT: SK loader entry point returned failure." value="BL_LOG_ERROR_KSR_LOADER_ENTRY_POINT: SK loader entry point returned failure."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_TCB_SI_POLICY_CHECK: Failed to validate and measure SI policy." value="BL_LOG_ERROR_TCB_SI_POLICY_CHECK: Failed to validate and measure SI policy."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_TCB_LOAD_TCBLOADER: Failed to load tcbloader.dll." value="BL_LOG_ERROR_TCB_LOAD_TCBLOADER: Failed to load tcbloader.dll."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_TCB_LOAD: Failed to perform load action." value="BL_LOG_ERROR_TCB_LOAD: Failed to perform load action."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_TCB_RESUME: Failed to perform resume action." value="BL_LOG_ERROR_TCB_RESUME: Failed to perform resume action."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_TCB_INVALID_ATTRIBUTES: Invalid tcblaunch application attributes." value="BL_LOG_ERROR_TCB_INVALID_ATTRIBUTES: Invalid tcblaunch application attributes."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_TCB_REGISTER_EVENT_HANDLER: Failed to register launch notificaiton handler." value="BL_LOG_ERROR_TCB_REGISTER_EVENT_HANDLER: Failed to register launch notificaiton handler."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_TCB_OPEN_DEVICE: Failed to open application device." value="BL_LOG_ERROR_TCB_OPEN_DEVICE: Failed to open application device."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_TCB_GET_DEVICE: Failed to query application device." value="BL_LOG_ERROR_TCB_GET_DEVICE: Failed to query application device."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_GET_SYSTEM_ROOT: Failed to get SystemRoot value." value="BL_LOG_ERROR_GET_SYSTEM_ROOT: Failed to get SystemRoot value."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_PROCESS_BOOTSTAT_DATA: Failed to process bootstat data." value="BL_LOG_ERROR_OSL_PROCESS_BOOTSTAT_DATA: Failed to process bootstat data."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_VIRT_SETUP_0: Failed to perform virtual setup phase 0." value="BL_LOG_ERROR_OSL_VIRT_SETUP_0: Failed to perform virtual setup phase 0."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_VIRT_SETUP_1: Failed to perform virtual setup phase 1." value="BL_LOG_ERROR_OSL_VIRT_SETUP_1: Failed to perform virtual setup phase 1."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_PRELOAD_SI_POLICY: Failed to preload SI policies from OS volume." value="BL_LOG_ERROR_OSL_PRELOAD_SI_POLICY: Failed to preload SI policies from OS volume."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_OSL_ARCH_TCB_LAUNCH_1: OslTcbLaunch(1) failed in osloader." value="BL_LOG_ERROR_OSL_ARCH_TCB_LAUNCH_1: OslTcbLaunch(1) failed in osloader."/>
+    <string id="map_BootDiagMessageMapERROR_TCB_PLATORM_INIT: Failed to initialize TCB platform." value="ERROR_TCB_PLATORM_INIT: Failed to initialize TCB platform."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_RES_OPEN_HIBERFILE: Failed to open the hiberfile." value="BL_LOG_ERROR_RES_OPEN_HIBERFILE: Failed to open the hiberfile."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_RES_INIT_DISPLAY: Failed to initialize display." value="BL_LOG_ERROR_RES_INIT_DISPLAY: Failed to initialize display."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_RES_INVALID_PAGEFILE: Page file is invalide for hibernate resume." value="BL_LOG_ERROR_RES_INVALID_PAGEFILE: Page file is invalide for hibernate resume."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_RES_HW_CHANGE: Hardware or firmware settings have changes since hibernate." value="BL_LOG_ERROR_RES_HW_CHANGE: Hardware or firmware settings have changes since hibernate."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_RES_INVALID_HIBERFILE: Hiberfile is invalid." value="BL_LOG_ERROR_RES_INVALID_HIBERFILE: Hiberfile is invalid."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_RES_GET_CONTEXT_FAILED: Failed to get the resume context." value="BL_LOG_ERROR_RES_GET_CONTEXT_FAILED: Failed to get the resume context."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_RES_INVALID_MEM_MAP: The memory map has changed since associated cold boot." value="BL_LOG_ERROR_RES_INVALID_MEM_MAP: The memory map has changed since associated cold boot."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_RES_FIRMWARE_PHASE_0: Failed phase 0 of firmware setup for resume." value="BL_LOG_ERROR_RES_FIRMWARE_PHASE_0: Failed phase 0 of firmware setup for resume."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_RES_USB_HANDOFF: Failed setup for legacy usb handoff." value="BL_LOG_ERROR_RES_USB_HANDOFF: Failed setup for legacy usb handoff."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_RES_SMBIOS: Failed to get SMBIOS data." value="BL_LOG_ERROR_RES_SMBIOS: Failed to get SMBIOS data."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_RES_TCB_ALLOCATE: Failed to allocate space for TCB resume." value="BL_LOG_ERROR_RES_TCB_ALLOCATE: Failed to allocate space for TCB resume."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_RES_TCB_PREPARE: Failed to prepare TCB data." value="BL_LOG_ERROR_RES_TCB_PREPARE: Failed to prepare TCB data."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_RES_INIT_PREALLOCATION: Failed to initialize the preallocation." value="BL_LOG_ERROR_RES_INIT_PREALLOCATION: Failed to initialize the preallocation."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_RES_INIT_TRANSITION_SPACE: Failed to intialize transition space." value="BL_LOG_ERROR_RES_INIT_TRANSITION_SPACE: Failed to intialize transition space."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_RES_INIT_PAGE_ALLOCATOR: Failed to initialize the free page allocator." value="BL_LOG_ERROR_RES_INIT_PAGE_ALLOCATOR: Failed to initialize the free page allocator."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_RES_RELOC_PROC_CONTEXT: Failed to relocate the processor context page." value="BL_LOG_ERROR_RES_RELOC_PROC_CONTEXT: Failed to relocate the processor context page."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_RES_LOAD_SECURE_DATA: Failed to load secure data from the hiberfile." value="BL_LOG_ERROR_RES_LOAD_SECURE_DATA: Failed to load secure data from the hiberfile."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_RES_RESTORE_IMAGE: Failed to restore image from the hiberfile." value="BL_LOG_ERROR_RES_RESTORE_IMAGE: Failed to restore image from the hiberfile."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_RES_SECURE_DECRYPT_0: Failed phase 0 of secure data decryption." value="BL_LOG_ERROR_RES_SECURE_DECRYPT_0: Failed phase 0 of secure data decryption."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_RES_FVE_RESTRICT: Failed to restrict bitlocker to resuming OS." value="BL_LOG_ERROR_RES_FVE_RESTRICT: Failed to restrict bitlocker to resuming OS."/>
+    <string id="map_BootDiagMessageMapBL_LOG_ERROR_RES_TCB_PREP_DATA: Failed to prepare data for TCB resume." value="BL_LOG_ERROR_RES_TCB_PREP_DATA: Failed to prepare data for TCB resume."/>
+    <string id="map_TxtStatusMapNone" value="None"/>
+    <string id="map_TxtStatusMapProcessor is not supported." value="Processor is not supported."/>
+    <string id="map_TxtStatusMapVMX is not supported." value="VMX is not supported."/>
+    <string id="map_TxtStatusMapSMX is not supported." value="SMX is not supported."/>
+    <string id="map_TxtStatusMapTXT is disabled by the BIOS in MSR_FEATURE_CONTROL." value="TXT is disabled by the BIOS in MSR_FEATURE_CONTROL."/>
+    <string id="map_TxtStatusMapRequired GETSEC[CAPABILITIES] are not available." value="Required GETSEC[CAPABILITIES] are not available."/>
+    <string id="map_TxtStatusMapTPM 2.0 is not available." value="TPM 2.0 is not available."/>
+    <string id="map_TxtStatusMapMemory Attributes Table (MAT) not available." value="Memory Attributes Table (MAT) not available."/>
+    <string id="map_TxtStatusMapNo SINIT ACM module type found at the SINIT base address." value="No SINIT ACM module type found at the SINIT base address."/>
+    <string id="map_TxtStatusMapThe ACM UUID does not match well known value." value="The ACM UUID does not match well known value."/>
+    <string id="map_TxtStatusMapThe ACM client/server flags do not match the bios data." value="The ACM client/server flags do not match the bios data."/>
+    <string id="map_TxtStatusMapThe ACM debug flag does not match platform." value="The ACM debug flag does not match platform."/>
+    <string id="map_TxtStatusMapThe ACM does not support the chipset." value="The ACM does not support the chipset."/>
+    <string id="map_TxtStatusMapThe ACM does not support the processor." value="The ACM does not support the processor."/>
+    <string id="map_TxtStatusMapA more up to date ACM is available on the system." value="A more up to date ACM is available on the system."/>
+    <string id="map_TxtStatusMapNo compatible ACM found on the system." value="No compatible ACM found on the system."/>
+    <string id="map_TxtStatusMapThe system does not support DMA remapping in the DMAR table." value="The system does not support DMA remapping in the DMAR table."/>
+    <string id="map_TxtStatusMapTPM does not meet provisioning requirements." value="TPM does not meet provisioning requirements."/>
+    <string id="map_TxtStatusMapSystem does not meet required configuration to validate SMM." value="System does not meet required configuration to validate SMM."/>
+    <string id="map_TxtStatusMapA VMX failure was encountered." value="A VMX failure was encountered."/>
+    <string id="map_TxtStatusMapCall to retrieve SMM information failed." value="Call to retrieve SMM information failed."/>
+    <string id="map_TxtStatusMapSMM has access to OS memory regions." value="SMM has access to OS memory regions."/>
+    <string id="map_TxtStatusMapSMM signature is missing or corrupt." value="SMM signature is missing or corrupt."/>
+    <string id="map_TxtStatusMapSMM signature check failed." value="SMM signature check failed."/>
+    <string id="map_TxtStatusMapSMM has access to a MSR that is not allowed by policy level." value="SMM has access to a MSR that is not allowed by policy level."/>
+    <string id="map_TxtStatusMapSMM has access to an IO port that is not allowed by policy level." value="SMM has access to an IO port that is not allowed by policy level."/>
+    <string id="map_TxtStatusMapSMM has access to IOMMU structures." value="SMM has access to IOMMU structures."/>
+    <string id="map_DebuggerStatusMapNone." value="None."/>
+    <string id="map_DebuggerStatusMapFailed to reserve scratch VA." value="Failed to reserve scratch VA."/>
+    <string id="map_DebuggerStatusMapFailed to get connection parameters." value="Failed to get connection parameters."/>
+    <string id="map_DebuggerStatusMapDebugging blocked by BitLocker." value="Debugging blocked by BitLocker."/>
+    <string id="map_DebuggerStatusMapFailed to initialize debug device descriptor." value="Failed to initialize debug device descriptor."/>
+    <string id="map_DebuggerStatusMapFailed to setup debugging device." value="Failed to setup debugging device."/>
+    <string id="map_DebuggerStatusMapFailed to initialize debug transport." value="Failed to initialize debug transport."/>
+    <string id="map_DebuggerStatusMapFailed to setup debug traps." value="Failed to setup debug traps."/>
+    <string id="map_DebuggerStatusMapFailed to load debugger transport module." value="Failed to load debugger transport module."/>
+    <string id="map_DebuggerStatusMapFailed to allocate scratch buffer." value="Failed to allocate scratch buffer."/>
+    <string id="map_DebuggerStatusMapFailed to get debugger transport extension name." value="Failed to get debugger transport extension name."/>
+    <string id="map_VsmPolicyMapNone" value="None"/>
+    <string id="map_VsmPolicyMapVBS Enabled" value="VBS Enabled"/>
+    <string id="map_VsmPolicyMapVSM Required" value="VSM Required"/>
+    <string id="map_VsmPolicyMapSecure Boot" value="Secure Boot"/>
+    <string id="map_VsmPolicyMapIommu Protection" value="Iommu Protection"/>
+    <string id="map_VsmPolicyMapMmio Nx" value="Mmio Nx"/>
+    <string id="map_VsmPolicyMapStrong MSR Filtering" value="Strong MSR Filtering"/>
+    <string id="map_VsmPolicyMapMandatory" value="Mandatory"/>
+    <string id="map_VsmPolicyMapHvci" value="Hvci"/>
+    <string id="map_VsmPolicyMapHvci Strict" value="Hvci Strict"/>
+    <string id="map_VsmPolicyMapBoot Chain Signer Soft Enforced" value="Boot Chain Signer Soft Enforced"/>
+    <string id="map_VsmPolicyMapBoot Chain Signer Hard Enforced" value="Boot Chain Signer Hard Enforced"/>
+    <string id="map_VsmPolicyMapMeasured Launch" value="Measured Launch"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,32 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-CDROM" guid="{9b6123dc-9af6-4430-80d7-7d36f054fb9f}" resourceFileName="Microsoft-Windows-CDROM" messageFileName="Microsoft-Windows-CDROM" symbol="MicrosoftWindowsCDROM" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="CDROM_DRIVER" message="$(string.task_CDROM_DRIVER)" value="1"/>
+     <task name="SettingdevicepowerforZeroPowerODD." message="$(string.task_SettingdevicepowerforZeroPowerODD.)" value="2"/>
+    </tasks>
+    <events>
+     <event value="100" symbol="CDROM_DRIVER" version="0" task="CDROM_DRIVER" level="win:Informational" template="CDROM_DRIVERArgs"/>
+     <event value="103" symbol="SettingdevicepowerforZeroPowerODD.Start" version="0" task="SettingdevicepowerforZeroPowerODD." opcode="win:Start" level="win:Informational"/>
+     <event value="104" symbol="SettingdevicepowerforZeroPowerODD.Stop" version="0" task="SettingdevicepowerforZeroPowerODD." opcode="win:Stop" level="win:Informational"/>
+    </events>
+    <templates>
+     <template tid="CDROM_DRIVERArgs">
+      <data name="DeviceName" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_CDROM_DRIVER" value="CDROM_DRIVER"/>
+    <string id="task_SettingdevicepowerforZeroPowerODD." value="SettingdevicepowerforZeroPowerODD."/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,38 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-RemoteDesktopServices-SessionServices" guid="{f1394de0-32c7-4a76-a6de-b245e48f4615}" resourceFileName="Microsoft-Windows-RemoteDesktopServices-SessionServices" messageFileName="Microsoft-Windows-RemoteDesktopServices-SessionServices" symbol="MicrosoftWindowsRemoteDesktopServicesSessionServices" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="Displaycontrol" message="$(string.task_Displaycontrol)" value="1">
+>
+      <opcodes>
+       <opcode name="Changesessionresolution" message="$(string.opcode_DisplaycontrolChangesessionresolution)" value="11"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="1" symbol="DisplaycontrolChangesessionresolution" version="0" task="Displaycontrol" opcode="Changesessionresolution" level="win:Informational" template="DisplaycontrolChangesessionresolutionArgs"/>
+     <event value="2" symbol="DisplaycontrolChangesessionresolution2" version="0" task="Displaycontrol" opcode="Changesessionresolution" level="win:Error" template="DisplaycontrolChangesessionresolution2Args"/>
+    </events>
+    <templates>
+     <template tid="DisplaycontrolChangesessionresolutionArgs">
+      <data name="NumMonitors" inType="win:UInt32"/>
+     </template>
+     <template tid="DisplaycontrolChangesessionresolution2Args">
+      <data name="ErrorCode" inType="win:HexInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_Displaycontrol" value="Displaycontrol"/>
+    <string id="opcode_DisplaycontrolChangesessionresolution" value="Changesessionresolution"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

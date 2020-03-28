@@ -1,0 +1,93 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Intel-iaLPSS-GPIO" guid="{d386cc7a-620a-41c1-abf5-55018c6c699a}" resourceFileName="Intel-iaLPSS-GPIO" messageFileName="Intel-iaLPSS-GPIO" symbol="InteliaLPSSGPIO" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="EnumerationofGPIOxdriver" message="$(string.task_EnumerationofGPIOxdriver)" value="1"/>
+     <task name="GpioIOoperations" message="$(string.task_GpioIOoperations)" value="3"/>
+    </tasks>
+    <maps>
+     <valueMap name="ConnectMode">
+      <map value="0x0" message="$(string.map_ConnectModeInvalid)"/>
+      <map value="0x1" message="$(string.map_ConnectModeInput)"/>
+      <map value="0x2" message="$(string.map_ConnectModeOutput)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1001" symbol="EnumerationofGPIOxdriver_V1" version="1" task="EnumerationofGPIOxdriver" level="win:Informational" template="EnumerationofGPIOxdriverArgs_V1"/>
+     <event value="1002" symbol="EnumerationofGPIOxdriver1002_V1" version="1" task="EnumerationofGPIOxdriver" level="win:Informational" template="EnumerationofGPIOxdriver1002Args_V1"/>
+     <event value="1003" symbol="EnumerationofGPIOxdriver1003_V1" version="1" task="EnumerationofGPIOxdriver" level="win:Error" template="EnumerationofGPIOxdriver1003Args_V1"/>
+     <event value="1004" symbol="EnumerationofGPIOxdriver1004_V1" version="1" task="EnumerationofGPIOxdriver" level="win:Informational" template="EnumerationofGPIOxdriverArgs_V1"/>
+     <event value="1005" symbol="task_0Start_V1" version="1" task="task_0" opcode="win:Start" level="win:Informational"/>
+     <event value="1006" symbol="task_0Stop_V1" version="1" task="task_0" opcode="win:Stop" level="win:Informational"/>
+     <event value="1007" symbol="task_0Start1007_V1" version="1" task="task_0" opcode="win:Start" level="win:Informational"/>
+     <event value="1008" symbol="task_0Stop1008_V1" version="1" task="task_0" opcode="win:Stop" level="win:Informational"/>
+     <event value="1015" symbol="task_0Start1015_V1" version="1" task="task_0" opcode="win:Start" level="win:Informational"/>
+     <event value="1016" symbol="task_0Stop1016_V1" version="1" task="task_0" opcode="win:Stop" level="win:Informational"/>
+     <event value="1017" symbol="EnumerationofGPIOxdriverStart_V1" version="1" task="EnumerationofGPIOxdriver" opcode="win:Start" level="win:Informational"/>
+     <event value="1018" symbol="EnumerationofGPIOxdriverStop_V1" version="1" task="EnumerationofGPIOxdriver" opcode="win:Stop" level="win:Informational"/>
+     <event value="1019" symbol="EnumerationofGPIOxdriverStart1019_V1" version="1" task="EnumerationofGPIOxdriver" opcode="win:Start" level="win:Informational"/>
+     <event value="1020" symbol="EnumerationofGPIOxdriverStop1020_V1" version="1" task="EnumerationofGPIOxdriver" opcode="win:Stop" level="win:Informational"/>
+     <event value="1030" symbol="task_0_V1" version="1" task="task_0" level="win:Informational"/>
+     <event value="1040" symbol="EnumerationofGPIOxdriver1040_V1" version="1" task="EnumerationofGPIOxdriver" level="win:Informational" template="EnumerationofGPIOxdriverArgs_V1"/>
+     <event value="1041" symbol="EnumerationofGPIOxdriverStart1041_V1" version="1" task="EnumerationofGPIOxdriver" opcode="win:Start" level="win:Informational" template="EnumerationofGPIOxdriverArgs_V1"/>
+     <event value="1042" symbol="EnumerationofGPIOxdriver1042_V1" version="1" task="EnumerationofGPIOxdriver" level="win:Informational"/>
+     <event value="1045" symbol="GpioIOoperations1045_V1" version="1" task="GpioIOoperations" level="win:Informational" template="GpioIOoperations1045Args_V1"/>
+     <event value="1046" symbol="GpioIOoperations1046_V1" version="1" task="GpioIOoperations" level="win:Informational" template="GpioIOoperations1046Args_V1"/>
+     <event value="1048" symbol="GpioIOoperations" version="0" task="GpioIOoperations" level="win:Informational" template="GpioIOoperationsArgs"/>
+     <event value="1049" symbol="GpioIOoperations1049" version="0" task="GpioIOoperations" level="win:Informational" template="GpioIOoperations1049Args"/>
+    </events>
+    <templates>
+     <template tid="GpioIOoperationsArgs">
+      <data name="BankID" inType="win:HexInt32"/>
+      <data name="PinValues" inType="win:HexInt32"/>
+     </template>
+     <template tid="GpioIOoperations1049Args">
+      <data name="BankID" inType="win:HexInt32"/>
+      <data name="SetValue" inType="win:HexInt64"/>
+      <data name="ClearValue" inType="win:HexInt64"/>
+     </template>
+     <template tid="EnumerationofGPIOxdriverArgs_V1">
+      <data name="WDFDEVICE" inType="win:Pointer"/>
+     </template>
+     <template tid="EnumerationofGPIOxdriver1002Args_V1">
+      <data name="FxDevice" inType="win:Pointer"/>
+      <data name="IOAddr" inType="win:Pointer"/>
+      <data name="IOLen" inType="win:HexInt32"/>
+     </template>
+     <template tid="EnumerationofGPIOxdriver1003Args_V1">
+      <data name="FailReason" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="WDFDEVICE" inType="win:Pointer"/>
+     </template>
+     <template tid="GpioIOoperations1045Args_V1">
+      <data name="BankId" inType="win:HexInt32"/>
+      <data name="PinCount" inType="win:UInt16"/>
+      <data name="ConnectMode" inType="win:HexInt32" map="ConnectMode"/>
+      <data name="PullConfig" inType="win:HexInt32"/>
+     </template>
+     <template tid="GpioIOoperations1046Args_V1">
+      <data name="BankId" inType="win:HexInt32"/>
+      <data name="PinCount" inType="win:HexInt32"/>
+      <data name="DisconnectMode" inType="win:HexInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_EnumerationofGPIOxdriver" value="EnumerationofGPIOxdriver"/>
+    <string id="task_GpioIOoperations" value="GpioIOoperations"/>
+    <string id="map_ConnectModeInvalid" value="Invalid"/>
+    <string id="map_ConnectModeInput" value="Input"/>
+    <string id="map_ConnectModeOutput" value="Output"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

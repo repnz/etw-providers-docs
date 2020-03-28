@@ -1,0 +1,44 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Crypto-BCrypt" guid="{c7e089ac-ba2a-11e0-9af7-68384824019b}" resourceFileName="Microsoft-Windows-Crypto-BCrypt" messageFileName="Microsoft-Windows-Crypto-BCrypt" symbol="MicrosoftWindowsCryptoBCrypt" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <maps>
+     <valueMap name="OpenAlgorithmProviderFailureMap">
+      <map value="0x1" message="$(string.map_OpenAlgorithmProviderFailureMapFailed to resolve the provider.)"/>
+      <map value="0x2" message="$(string.map_OpenAlgorithmProviderFailureMapFailed to load the provider.)"/>
+      <map value="0x3" message="$(string.map_OpenAlgorithmProviderFailureMapProvider did not pass basic validation.)"/>
+      <map value="0x4" message="$(string.map_OpenAlgorithmProviderFailureMapFailed to open the Provider.)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="task_0" version="0" task="task_0" level="win:Error" template="task_0Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="ProviderName" inType="win:UnicodeString"/>
+      <data name="AlgorithmName" inType="win:UnicodeString"/>
+      <data name="dwFlags" inType="win:UInt32"/>
+      <data name="Status" inType="win:HexInt32"/>
+      <data name="OperationType" inType="win:UInt32" map="OpenAlgorithmProviderFailureMap"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_task_0" value="task_0"/>
+    <string id="map_OpenAlgorithmProviderFailureMapFailed to resolve the provider." value="Failed to resolve the provider."/>
+    <string id="map_OpenAlgorithmProviderFailureMapFailed to load the provider." value="Failed to load the provider."/>
+    <string id="map_OpenAlgorithmProviderFailureMapProvider did not pass basic validation." value="Provider did not pass basic validation."/>
+    <string id="map_OpenAlgorithmProviderFailureMapFailed to open the Provider." value="Failed to open the Provider."/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

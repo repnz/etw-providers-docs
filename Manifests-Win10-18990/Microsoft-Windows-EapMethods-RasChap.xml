@@ -1,0 +1,45 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-EapMethods-RasChap" guid="{58980f4b-bd39-4a3e-b344-492ed2254a4e}" resourceFileName="Microsoft-Windows-EapMethods-RasChap" messageFileName="Microsoft-Windows-EapMethods-RasChap" symbol="MicrosoftWindowsEapMethodsRasChap" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="Authenticationfailed." message="$(string.task_Authenticationfailed.)" value="1"/>
+     <task name="Authenticationsucceeded." message="$(string.task_Authenticationsucceeded.)" value="2"/>
+     <task name="RasChapauthenticationinprogressevent" message="$(string.task_RasChapauthenticationinprogressevent)" value="3"/>
+    </tasks>
+    <events>
+     <event value="100" symbol="Authenticationsucceeded." version="0" task="Authenticationsucceeded." level="win:Informational" template="Authenticationsucceeded.Args"/>
+     <event value="101" symbol="Authenticationfailed." version="0" task="Authenticationfailed." level="win:Error" template="Authenticationfailed.Args"/>
+     <event value="102" symbol="Authenticationfailed.102" version="0" task="Authenticationfailed." level="win:Error" template="Authenticationsucceeded.Args"/>
+     <event value="103" symbol="Authenticationfailed.103" version="0" task="Authenticationfailed." level="win:Error" template="Authenticationsucceeded.Args"/>
+     <event value="104" symbol="Authenticationfailed.104" version="0" task="Authenticationfailed." level="win:Error" template="Authenticationsucceeded.Args"/>
+     <event value="105" symbol="Authenticationfailed.105" version="0" task="Authenticationfailed." level="win:Error" template="Authenticationsucceeded.Args"/>
+     <event value="106" symbol="Authenticationfailed.106" version="0" task="Authenticationfailed." level="win:Error" template="Authenticationsucceeded.Args"/>
+     <event value="107" symbol="RasChapauthenticationinprogressevent" version="0" task="RasChapauthenticationinprogressevent" level="win:Informational" template="Authenticationsucceeded.Args"/>
+    </events>
+    <templates>
+     <template tid="Authenticationsucceeded.Args">
+      <data name="Domain" inType="win:AnsiString"/>
+      <data name="Username" inType="win:AnsiString"/>
+     </template>
+     <template tid="Authenticationfailed.Args">
+      <data name="Domain" inType="win:AnsiString"/>
+      <data name="Username" inType="win:AnsiString"/>
+      <data name="int1" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_Authenticationfailed." value="Authenticationfailed."/>
+    <string id="task_Authenticationsucceeded." value="Authenticationsucceeded."/>
+    <string id="task_RasChapauthenticationinprogressevent" value="RasChapauthenticationinprogressevent"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

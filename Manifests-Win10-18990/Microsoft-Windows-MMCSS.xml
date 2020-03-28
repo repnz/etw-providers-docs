@@ -1,0 +1,154 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-MMCSS" guid="{36008301-e154-466c-acec-5f4cbd6b4694}" resourceFileName="Microsoft-Windows-MMCSS" messageFileName="Microsoft-Windows-MMCSS" symbol="MicrosoftWindowsMMCSS" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="Scheduler_Priority_Change" message="$(string.task_Scheduler_Priority_Change)" value="100"/>
+     <task name="Scheduler_Wakeup" message="$(string.task_Scheduler_Wakeup)" value="101"/>
+     <task name="Scheduler_Sleep" message="$(string.task_Scheduler_Sleep)" value="102"/>
+     <task name="Service_Start" message="$(string.task_Service_Start)" value="104"/>
+     <task name="Service_Stop" message="$(string.task_Service_Stop)" value="105"/>
+     <task name="Thread_Join" message="$(string.task_Thread_Join)" value="106"/>
+     <task name="Thread_Leave" message="$(string.task_Thread_Leave)" value="107"/>
+     <task name="TaskIndex_Yield" message="$(string.task_TaskIndex_Yield)" value="111"/>
+     <task name="TaskIndex_YieldCancel" message="$(string.task_TaskIndex_YieldCancel)" value="112"/>
+     <task name="Set_MultimediaMode" message="$(string.task_Set_MultimediaMode)" value="113"/>
+     <task name="TaskIndex_DeadlineExpired" message="$(string.task_TaskIndex_DeadlineExpired)" value="114"/>
+     <task name="TurboEngaged" message="$(string.task_TurboEngaged)" value="115"/>
+     <task name="ThreadBuffering" message="$(string.task_ThreadBuffering)" value="116"/>
+     <task name="TaskIndex_PreDeadlineExpired" message="$(string.task_TaskIndex_PreDeadlineExpired)" value="117"/>
+    </tasks>
+    <maps>
+     <bitMap name="wakeupReasonMap">
+      <map value="0x1" message="$(string.map_wakeupReasonMapNewThread)"/>
+      <map value="0x2" message="$(string.map_wakeupReasonMapProcessResume)"/>
+      <map value="0x4" message="$(string.map_wakeupReasonMapProcessSuspend)"/>
+      <map value="0x8" message="$(string.map_wakeupReasonMapExit)"/>
+      <map value="0x10" message="$(string.map_wakeupReasonMapInternalDeadline)"/>
+      <map value="0x20" message="$(string.map_wakeupReasonMapYieldDeadline)"/>
+      <map value="0x80" message="$(string.map_wakeupReasonMapNoClientThreads)"/>
+      <map value="0x8000" message="$(string.map_wakeupReasonMapDeepSleep)"/>
+     </bitMap>
+     <valueMap name="sleepReasonMap">
+      <map value="0x0" message="$(string.map_sleepReasonMapSleepResponsiveness)"/>
+      <map value="0x1" message="$(string.map_sleepReasonMapRealtime)"/>
+      <map value="0x2" message="$(string.map_sleepReasonMapSleepRealtimeLazy)"/>
+      <map value="0x3" message="$(string.map_sleepReasonMapIdleDetection)"/>
+      <map value="0x4" message="$(string.map_sleepReasonMapIdleDetectionLazy)"/>
+      <map value="0x5" message="$(string.map_sleepReasonMapDeepSleep)"/>
+     </valueMap>
+     <valueMap name="categoryMap">
+      <map value="0x0" message="$(string.map_categoryMapUberLow)"/>
+      <map value="0x1" message="$(string.map_categoryMapLow)"/>
+      <map value="0x2" message="$(string.map_categoryMapMedium)"/>
+      <map value="0x3" message="$(string.map_categoryMapHigh)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="Scheduler_Priority_Change_V1" version="1" task="Scheduler_Priority_Change" level="win:Informational" template="Scheduler_Priority_ChangeArgs_V1"/>
+     <event value="2" symbol="Scheduler_Wakeup_V1" version="1" task="Scheduler_Wakeup" level="win:Informational" template="Scheduler_WakeupArgs_V1"/>
+     <event value="3" symbol="Scheduler_Sleep_V1" version="1" task="Scheduler_Sleep" level="win:Informational" template="Scheduler_SleepArgs_V1"/>
+     <event value="5" symbol="Service_Start_V1" version="1" task="Service_Start" level="win:Informational"/>
+     <event value="6" symbol="Service_Stop_V1" version="1" task="Service_Stop" level="win:Informational"/>
+     <event value="7" symbol="Thread_Join_V1" version="1" task="Thread_Join" level="win:Informational" template="Thread_JoinArgs_V1"/>
+     <event value="8" symbol="Thread_Leave_V1" version="1" task="Thread_Leave" level="win:Informational" template="Thread_LeaveArgs_V1"/>
+     <event value="12" symbol="TaskIndex_Yield_V1" version="1" task="TaskIndex_Yield" level="win:Informational" template="TaskIndex_YieldArgs_V1"/>
+     <event value="13" symbol="TaskIndex_YieldCancel_V1" version="1" task="TaskIndex_YieldCancel" level="win:Informational" template="TaskIndex_YieldCancelArgs_V1"/>
+     <event value="14" symbol="Set_MultimediaMode_V1" version="1" task="Set_MultimediaMode" level="win:Informational" template="Set_MultimediaModeArgs_V1"/>
+     <event value="15" symbol="TaskIndex_DeadlineExpired_V1" version="1" task="TaskIndex_DeadlineExpired" level="win:Informational" template="TaskIndex_YieldCancelArgs_V1"/>
+     <event value="16" symbol="TurboEngaged_V1" version="1" task="TurboEngaged" level="win:Informational" template="TurboEngagedArgs_V1"/>
+     <event value="17" symbol="ThreadBufferingStart_V1" version="1" task="ThreadBuffering" opcode="win:Start" level="win:Informational" template="ThreadBufferingStartArgs_V1"/>
+     <event value="18" symbol="ThreadBufferingStop_V1" version="1" task="ThreadBuffering" opcode="win:Stop" level="win:Informational" template="ThreadBufferingStartArgs_V1"/>
+     <event value="19" symbol="TaskIndex_PreDeadlineExpired_V1" version="1" task="TaskIndex_PreDeadlineExpired" level="win:Informational" template="TaskIndex_YieldCancelArgs_V1"/>
+    </events>
+    <templates>
+     <template tid="Scheduler_Priority_ChangeArgs_V1">
+      <data name="ProcessID" inType="win:UInt32"/>
+      <data name="ThreadID" inType="win:UInt32"/>
+      <data name="Priority" inType="win:UInt8"/>
+      <data name="TaskIndex" inType="win:UInt32"/>
+     </template>
+     <template tid="Scheduler_WakeupArgs_V1">
+      <data name="Reason" inType="win:UInt32" map="wakeupReasonMap"/>
+     </template>
+     <template tid="Scheduler_SleepArgs_V1">
+      <data name="Reason" inType="win:UInt32" map="sleepReasonMap"/>
+      <data name="Duration" inType="win:UInt32"/>
+     </template>
+     <template tid="Thread_JoinArgs_V1">
+      <data name="ThreadID" inType="win:UInt32"/>
+      <data name="MediumPriority" inType="win:UInt8"/>
+      <data name="LowPriority" inType="win:UInt8"/>
+      <data name="UberLowPriority" inType="win:UInt8"/>
+      <data name="TaskName" inType="win:UnicodeString"/>
+      <data name="TaskIndex" inType="win:UInt32"/>
+      <data name="Category" inType="win:UInt8" map="categoryMap"/>
+      <data name="Flags" inType="win:UInt8"/>
+     </template>
+     <template tid="Thread_LeaveArgs_V1">
+      <data name="ThreadID" inType="win:UInt32"/>
+      <data name="OriginalBasePriority" inType="win:UInt8"/>
+     </template>
+     <template tid="TaskIndex_YieldArgs_V1">
+      <data name="TaskIndex" inType="win:UInt32"/>
+      <data name="Duration" inType="win:UInt32"/>
+      <data name="PreDuration" inType="win:UInt32"/>
+     </template>
+     <template tid="TaskIndex_YieldCancelArgs_V1">
+      <data name="TaskIndex" inType="win:UInt32"/>
+     </template>
+     <template tid="Set_MultimediaModeArgs_V1">
+      <data name="TaskIndex" inType="win:UInt32"/>
+      <data name="ThreadTag" inType="win:UInt32"/>
+     </template>
+     <template tid="TurboEngagedArgs_V1">
+      <data name="TurboEngaged" inType="win:UInt32"/>
+     </template>
+     <template tid="ThreadBufferingStartArgs_V1">
+      <data name="ThreadID" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_Scheduler_Priority_Change" value="Scheduler_Priority_Change"/>
+    <string id="task_Scheduler_Wakeup" value="Scheduler_Wakeup"/>
+    <string id="task_Scheduler_Sleep" value="Scheduler_Sleep"/>
+    <string id="task_Service_Start" value="Service_Start"/>
+    <string id="task_Service_Stop" value="Service_Stop"/>
+    <string id="task_Thread_Join" value="Thread_Join"/>
+    <string id="task_Thread_Leave" value="Thread_Leave"/>
+    <string id="task_TaskIndex_Yield" value="TaskIndex_Yield"/>
+    <string id="task_TaskIndex_YieldCancel" value="TaskIndex_YieldCancel"/>
+    <string id="task_Set_MultimediaMode" value="Set_MultimediaMode"/>
+    <string id="task_TaskIndex_DeadlineExpired" value="TaskIndex_DeadlineExpired"/>
+    <string id="task_TurboEngaged" value="TurboEngaged"/>
+    <string id="task_ThreadBuffering" value="ThreadBuffering"/>
+    <string id="task_TaskIndex_PreDeadlineExpired" value="TaskIndex_PreDeadlineExpired"/>
+    <string id="map_wakeupReasonMapNewThread" value="NewThread"/>
+    <string id="map_wakeupReasonMapProcessResume" value="ProcessResume"/>
+    <string id="map_wakeupReasonMapProcessSuspend" value="ProcessSuspend"/>
+    <string id="map_wakeupReasonMapExit" value="Exit"/>
+    <string id="map_wakeupReasonMapInternalDeadline" value="InternalDeadline"/>
+    <string id="map_wakeupReasonMapYieldDeadline" value="YieldDeadline"/>
+    <string id="map_wakeupReasonMapNoClientThreads" value="NoClientThreads"/>
+    <string id="map_wakeupReasonMapDeepSleep" value="DeepSleep"/>
+    <string id="map_sleepReasonMapSleepResponsiveness" value="SleepResponsiveness"/>
+    <string id="map_sleepReasonMapRealtime" value="Realtime"/>
+    <string id="map_sleepReasonMapSleepRealtimeLazy" value="SleepRealtimeLazy"/>
+    <string id="map_sleepReasonMapIdleDetection" value="IdleDetection"/>
+    <string id="map_sleepReasonMapIdleDetectionLazy" value="IdleDetectionLazy"/>
+    <string id="map_sleepReasonMapDeepSleep" value="DeepSleep"/>
+    <string id="map_categoryMapUberLow" value="UberLow"/>
+    <string id="map_categoryMapLow" value="Low"/>
+    <string id="map_categoryMapMedium" value="Medium"/>
+    <string id="map_categoryMapHigh" value="High"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

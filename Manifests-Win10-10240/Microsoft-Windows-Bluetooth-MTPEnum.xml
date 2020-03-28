@@ -1,0 +1,44 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Bluetooth-MTPEnum" guid="{04268430-d489-424d-b914-0cff741d6684}" resourceFileName="Microsoft-Windows-Bluetooth-MTPEnum" messageFileName="Microsoft-Windows-Bluetooth-MTPEnum" symbol="MicrosoftWindowsBluetoothMTPEnum" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="DriverHealth" message="$(string.task_DriverHealth)" value="1"/>
+     <task name="LinkState" message="$(string.task_LinkState)" value="2"/>
+    </tasks>
+    <events>
+     <event value="100" symbol="DriverHealth" version="0" task="DriverHealth" level="win:Informational" template="DriverHealthArgs"/>
+     <event value="101" symbol="DriverHealth101" version="0" task="DriverHealth" level="win:Error" template="DriverHealthArgs"/>
+     <event value="102" symbol="DriverHealth102" version="0" task="DriverHealth" level="win:Informational" template="DriverHealthArgs"/>
+     <event value="103" symbol="DriverHealth103" version="0" task="DriverHealth" level="win:Error" template="DriverHealthArgs"/>
+     <event value="200" symbol="LinkState" version="0" task="LinkState" level="win:Informational" template="LinkStateArgs"/>
+     <event value="201" symbol="LinkState201" version="0" task="LinkState" level="win:Informational" template="LinkStateArgs"/>
+     <event value="202" symbol="LinkState202" version="0" task="LinkState" level="win:Informational" template="LinkState202Args"/>
+     <event value="203" symbol="LinkState203" version="0" task="LinkState" level="win:Informational" template="LinkState202Args"/>
+     <event value="204" symbol="LinkState204" version="0" task="LinkState" level="win:Error" template="LinkStateArgs"/>
+    </events>
+    <templates>
+     <template tid="DriverHealthArgs">
+      <data name="StatusCode" inType="win:UInt32"/>
+     </template>
+     <template tid="LinkStateArgs">
+      <data name="ResultCode" inType="win:UInt32"/>
+     </template>
+     <template tid="LinkState202Args">
+      <data name="Name" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_DriverHealth" value="DriverHealth"/>
+    <string id="task_LinkState" value="LinkState"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

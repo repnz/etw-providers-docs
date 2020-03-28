@@ -1,0 +1,760 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Iphlpsvc-Trace" guid="{6600e712-c3b6-44a2-8a48-935c511f28c8}" resourceFileName="Microsoft-Windows-Iphlpsvc-Trace" messageFileName="Microsoft-Windows-Iphlpsvc-Trace" symbol="MicrosoftWindowsIphlpsvcTrace" source="Xml" >
+    <keywords>
+     <keyword name="isatap" message="$(string.keyword_isatap)" mask="0x1"/>
+     <keyword name="sixto4" message="$(string.keyword_sixto4)" mask="0x2"/>
+     <keyword name="iphttps" message="$(string.keyword_iphttps)" mask="0x4"/>
+     <keyword name="teredo" message="$(string.keyword_teredo)" mask="0x8"/>
+     <keyword name="teredoVerbose" message="$(string.keyword_teredoVerbose)" mask="0x10"/>
+     <keyword name="teredoStart" message="$(string.keyword_teredoStart)" mask="0x20"/>
+     <keyword name="teredoEnd" message="$(string.keyword_teredoEnd)" mask="0x40"/>
+     <keyword name="teredoFailures" message="$(string.keyword_teredoFailures)" mask="0x80"/>
+     <keyword name="dns64" message="$(string.keyword_dns64)" mask="0x100"/>
+     <keyword name="CPVerbose" message="$(string.keyword_CPVerbose)" mask="0x200"/>
+     <keyword name="CPStart" message="$(string.keyword_CPStart)" mask="0x400"/>
+     <keyword name="CPEnd" message="$(string.keyword_CPEnd)" mask="0x800"/>
+     <keyword name="CPFailures" message="$(string.keyword_CPFailures)" mask="0x1000"/>
+     <keyword name="CP" message="$(string.keyword_CP)" mask="0x2000"/>
+     <keyword name="HA" message="$(string.keyword_HA)" mask="0x4000"/>
+     <keyword name="PROXYMGR" message="$(string.keyword_PROXYMGR)" mask="0x8000"/>
+     <keyword name="damultisite" message="$(string.keyword_damultisite)" mask="0x10000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <maps>
+     <valueMap name="IPHLPSVC_ETW_LOGGING_ServiceType_ValueMap">
+      <map value="0x0" message="$(string.map_IPHLPSVC_ETW_LOGGING_ServiceType_ValueMapClient)"/>
+      <map value="0x1" message="$(string.map_IPHLPSVC_ETW_LOGGING_ServiceType_ValueMapServer)"/>
+      <map value="0x2" message="$(string.map_IPHLPSVC_ETW_LOGGING_ServiceType_ValueMapPeer)"/>
+     </valueMap>
+     <valueMap name="IPHLPSVC_ETW_LOGGING_PacketType_ValueMap">
+      <map value="0x0" message="$(string.map_IPHLPSVC_ETW_LOGGING_PacketType_ValueMapRouter Solicitation)"/>
+      <map value="0x1" message="$(string.map_IPHLPSVC_ETW_LOGGING_PacketType_ValueMapRouter Advertisement)"/>
+      <map value="0x2" message="$(string.map_IPHLPSVC_ETW_LOGGING_PacketType_ValueMapNeighbor Solicitation)"/>
+      <map value="0x3" message="$(string.map_IPHLPSVC_ETW_LOGGING_PacketType_ValueMapNeighbor Advertisement)"/>
+      <map value="0x4" message="$(string.map_IPHLPSVC_ETW_LOGGING_PacketType_ValueMapDirect Bubble)"/>
+      <map value="0x5" message="$(string.map_IPHLPSVC_ETW_LOGGING_PacketType_ValueMapIndirect Bubble)"/>
+      <map value="0x6" message="$(string.map_IPHLPSVC_ETW_LOGGING_PacketType_ValueMapMulticast Bubble)"/>
+      <map value="0x7" message="$(string.map_IPHLPSVC_ETW_LOGGING_PacketType_ValueMapBubble)"/>
+      <map value="0x8" message="$(string.map_IPHLPSVC_ETW_LOGGING_PacketType_ValueMapData)"/>
+      <map value="0x9" message="$(string.map_IPHLPSVC_ETW_LOGGING_PacketType_ValueMapEcho Request)"/>
+      <map value="0xa" message="$(string.map_IPHLPSVC_ETW_LOGGING_PacketType_ValueMapPort Prediction Direct Bubble)"/>
+      <map value="0xb" message="$(string.map_IPHLPSVC_ETW_LOGGING_PacketType_ValueMapPort Prediction Echo Packet)"/>
+     </valueMap>
+     <valueMap name="IPHLPSVC_ETW_LOGGING_TeredoState_ValueMap">
+      <map value="0x0" message="$(string.map_IPHLPSVC_ETW_LOGGING_TeredoState_ValueMapOffline)"/>
+      <map value="0x1" message="$(string.map_IPHLPSVC_ETW_LOGGING_TeredoState_ValueMapStop Pending)"/>
+      <map value="0x2" message="$(string.map_IPHLPSVC_ETW_LOGGING_TeredoState_ValueMapStart Pending)"/>
+      <map value="0x3" message="$(string.map_IPHLPSVC_ETW_LOGGING_TeredoState_ValueMapProbe Primary)"/>
+      <map value="0x4" message="$(string.map_IPHLPSVC_ETW_LOGGING_TeredoState_ValueMapProbe Secondary)"/>
+      <map value="0x5" message="$(string.map_IPHLPSVC_ETW_LOGGING_TeredoState_ValueMapQualified)"/>
+      <map value="0x6" message="$(string.map_IPHLPSVC_ETW_LOGGING_TeredoState_ValueMapFirewall)"/>
+      <map value="0x7" message="$(string.map_IPHLPSVC_ETW_LOGGING_TeredoState_ValueMapOnline)"/>
+      <map value="0x8" message="$(string.map_IPHLPSVC_ETW_LOGGING_TeredoState_ValueMapDormant)"/>
+      <map value="0x9" message="$(string.map_IPHLPSVC_ETW_LOGGING_TeredoState_ValueMapProbe Cone)"/>
+      <map value="0xa" message="$(string.map_IPHLPSVC_ETW_LOGGING_TeredoState_ValueMapProbe Restricted)"/>
+      <map value="0xb" message="$(string.map_IPHLPSVC_ETW_LOGGING_TeredoState_ValueMapBad State)"/>
+     </valueMap>
+     <valueMap name="IPHLPSVC_ETW_LOGGING_BadParameter_ValueMap">
+      <map value="0x0" message="$(string.map_IPHLPSVC_ETW_LOGGING_BadParameter_ValueMapBad Checksum)"/>
+      <map value="0x1" message="$(string.map_IPHLPSVC_ETW_LOGGING_BadParameter_ValueMapInvalid Source Address)"/>
+      <map value="0x2" message="$(string.map_IPHLPSVC_ETW_LOGGING_BadParameter_ValueMapInvalid Destination Address)"/>
+      <map value="0x3" message="$(string.map_IPHLPSVC_ETW_LOGGING_BadParameter_ValueMapInvalid Peer)"/>
+      <map value="0x4" message="$(string.map_IPHLPSVC_ETW_LOGGING_BadParameter_ValueMapBad Protocol Header)"/>
+      <map value="0x5" message="$(string.map_IPHLPSVC_ETW_LOGGING_BadParameter_ValueMapBad Authentation)"/>
+     </valueMap>
+     <valueMap name="IPHLPSVC_ETW_LOGGING_ProtocolType_ValueMap">
+      <map value="0x0" message="$(string.map_IPHLPSVC_ETW_LOGGING_ProtocolType_ValueMap6to4)"/>
+      <map value="0x1" message="$(string.map_IPHLPSVC_ETW_LOGGING_ProtocolType_ValueMapIsatap)"/>
+      <map value="0x2" message="$(string.map_IPHLPSVC_ETW_LOGGING_ProtocolType_ValueMapTeredo)"/>
+     </valueMap>
+     <valueMap name="IPHLPSVC_ETW_LOGGING_RouteReach_ValueMap">
+      <map value="0x0" message="$(string.map_IPHLPSVC_ETW_LOGGING_RouteReach_ValueMapReachable)"/>
+      <map value="0x1" message="$(string.map_IPHLPSVC_ETW_LOGGING_RouteReach_ValueMapUnreachable)"/>
+      <map value="0x2" message="$(string.map_IPHLPSVC_ETW_LOGGING_RouteReach_ValueMapresolved)"/>
+      <map value="0x3" message="$(string.map_IPHLPSVC_ETW_LOGGING_RouteReach_ValueMapnot resolved)"/>
+     </valueMap>
+     <valueMap name="IPHLPSVC_ETW_LOGGING_AddressUpdate_ValueMap">
+      <map value="0x0" message="$(string.map_IPHLPSVC_ETW_LOGGING_AddressUpdate_ValueMapAdded)"/>
+      <map value="0x1" message="$(string.map_IPHLPSVC_ETW_LOGGING_AddressUpdate_ValueMapDeleted)"/>
+     </valueMap>
+     <valueMap name="IPHLPSVC_ETW_LOGGING_RoutingState_ValueMap">
+      <map value="0x0" message="$(string.map_IPHLPSVC_ETW_LOGGING_RoutingState_ValueMapDefault)"/>
+      <map value="0x1" message="$(string.map_IPHLPSVC_ETW_LOGGING_RoutingState_ValueMapAutomatic)"/>
+      <map value="0x2" message="$(string.map_IPHLPSVC_ETW_LOGGING_RoutingState_ValueMapEnabled)"/>
+      <map value="0x3" message="$(string.map_IPHLPSVC_ETW_LOGGING_RoutingState_ValueMapDisabled)"/>
+      <map value="0x4" message="$(string.map_IPHLPSVC_ETW_LOGGING_RoutingState_ValueMapInvalid)"/>
+     </valueMap>
+     <valueMap name="IPHLPSVC_ETW_LOGGING_NetworkType_ValueMap">
+      <map value="0x0" message="$(string.map_IPHLPSVC_ETW_LOGGING_NetworkType_ValueMapnot managed)"/>
+      <map value="0x1" message="$(string.map_IPHLPSVC_ETW_LOGGING_NetworkType_ValueMapmanaged)"/>
+     </valueMap>
+     <valueMap name="IPHLPSVC_ETW_PROXYMGR_CLIENT_EVENT_ValueMap">
+      <map value="0x0" message="$(string.map_IPHLPSVC_ETW_PROXYMGR_CLIENT_EVENT_ValueMapproxy configuration change)"/>
+      <map value="0x1" message="$(string.map_IPHLPSVC_ETW_PROXYMGR_CLIENT_EVENT_ValueMapproxy credentials change)"/>
+      <map value="0x2" message="$(string.map_IPHLPSVC_ETW_PROXYMGR_CLIENT_EVENT_ValueMapinvalid client event)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="4051" symbol="task_0" version="0" task="task_0" level="win:Informational" keywords="teredo" template="task_0Args"/>
+     <event value="4052" symbol="task_04052" version="0" task="task_0" level="win:Informational" keywords="teredo" template="task_04052Args"/>
+     <event value="4053" symbol="task_04053" version="0" task="task_0" level="win:Informational" keywords="teredo" template="task_04053Args"/>
+     <event value="4054" symbol="task_04054" version="0" task="task_0" level="win:Informational" keywords="teredo" template="task_04054Args"/>
+     <event value="4055" symbol="task_04055" version="0" task="task_0" level="win:Informational" keywords="teredo" template="task_04055Args"/>
+     <event value="4056" symbol="task_04056" version="0" task="task_0" level="win:Informational" keywords="teredo" template="task_04056Args"/>
+     <event value="4057" symbol="task_04057" version="0" task="task_0" level="win:Informational" keywords="teredo" template="task_04057Args"/>
+     <event value="4058" symbol="task_04058" version="0" task="task_0" level="win:Informational" keywords="teredo" template="task_04058Args"/>
+     <event value="4059" symbol="task_04059" version="0" task="task_0" level="win:Informational" keywords="teredo" template="task_04059Args"/>
+     <event value="4060" symbol="task_04060" version="0" task="task_0" level="win:Informational" keywords="teredo" template="task_04060Args"/>
+     <event value="4061" symbol="task_04061" version="0" task="task_0" level="win:Informational" keywords="teredo" template="task_04061Args"/>
+     <event value="4062" symbol="task_04062" version="0" task="task_0" level="win:Informational" keywords="teredo" template="task_04062Args"/>
+     <event value="4063" symbol="task_04063" version="0" task="task_0" level="win:Informational" keywords="teredo" template="task_04063Args"/>
+     <event value="4064" symbol="task_04064" version="0" task="task_0" level="win:Informational" keywords="teredo" template="task_04064Args"/>
+     <event value="4065" symbol="task_04065" version="0" task="task_0" level="win:Informational" keywords="teredo" template="task_04065Args"/>
+     <event value="4066" symbol="task_04066" version="0" task="task_0" level="win:Informational" keywords="teredo" template="task_04066Args"/>
+     <event value="4067" symbol="task_04067" version="0" task="task_0" level="win:Informational" keywords="teredo" template="task_04067Args"/>
+     <event value="4150" symbol="task_04150" version="0" task="task_0" level="win:Informational" keywords="isatap sixto4" template="task_04150Args"/>
+     <event value="4151" symbol="task_04151" version="0" task="task_0" level="win:Informational" keywords="isatap" template="task_04151Args"/>
+     <event value="4152" symbol="task_04152" version="0" task="task_0" level="win:Informational" keywords="isatap"/>
+     <event value="4153" symbol="task_04153" version="0" task="task_0" level="win:Informational" keywords="isatap sixto4" template="task_04153Args"/>
+     <event value="4154" symbol="task_04154" version="0" task="task_0" level="win:Verbose" keywords="isatap" template="task_04154Args"/>
+     <event value="4155" symbol="task_04155" version="0" task="task_0" level="win:Verbose" keywords="isatap" template="task_04155Args"/>
+     <event value="4157" symbol="task_04157" version="0" task="task_0" level="win:Informational" keywords="isatap sixto4" template="task_04157Args"/>
+     <event value="4158" symbol="task_04158" version="0" task="task_0" level="win:Informational" keywords="isatap sixto4" template="task_04157Args"/>
+     <event value="4159" symbol="task_04159" version="0" task="task_0" level="win:Informational" keywords="isatap sixto4" template="task_04157Args"/>
+     <event value="4160" symbol="task_04160" version="0" task="task_0" level="win:Informational" keywords="isatap sixto4" template="task_04157Args"/>
+     <event value="4161" symbol="task_04161" version="0" task="task_0" level="win:Informational" keywords="isatap" template="task_04161Args"/>
+     <event value="4162" symbol="task_04162" version="0" task="task_0" level="win:Informational" keywords="isatap sixto4" template="task_04162Args"/>
+     <event value="4163" symbol="task_04163" version="0" task="task_0" level="win:Informational" keywords="sixto4" template="task_04163Args"/>
+     <event value="4164" symbol="task_04164" version="0" task="task_0" level="win:Informational" keywords="sixto4" template="task_04164Args"/>
+     <event value="4165" symbol="task_04165" version="0" task="task_0" level="win:Informational" keywords="sixto4" template="task_04165Args"/>
+     <event value="4166" symbol="task_04166" version="0" task="task_0" level="win:Informational" keywords="sixto4" template="task_04166Args"/>
+     <event value="4167" symbol="task_04167" version="0" task="task_0" level="win:Informational" keywords="sixto4" template="task_04167Args"/>
+     <event value="4168" symbol="task_04168" version="0" task="task_0" level="win:Informational" keywords="sixto4" template="task_04168Args"/>
+     <event value="4169" symbol="task_04169" version="0" task="task_0" level="win:Informational" keywords="isatap sixto4" template="task_04169Args"/>
+     <event value="4170" symbol="task_04170" version="0" task="task_0" level="win:Verbose" keywords="isatap sixto4 teredo" template="task_04170Args"/>
+     <event value="4171" symbol="task_04171" version="0" task="task_0" level="win:Informational" keywords="teredo" template="task_04171Args"/>
+     <event value="4172" symbol="task_04172" version="0" task="task_0" level="win:Informational" keywords="teredo" template="task_04171Args"/>
+     <event value="4173" symbol="task_04173" version="0" task="task_0" level="win:Informational" keywords="sixto4" template="task_04173Args"/>
+     <event value="4174" symbol="task_04174" version="0" task="task_0" level="win:Informational" keywords="isatap" template="task_04174Args"/>
+     <event value="4175" symbol="task_04175" version="0" task="task_0" level="win:Informational" keywords="teredo" template="task_04175Args"/>
+     <event value="4176" symbol="task_04176" version="0" task="task_0" level="win:Informational" keywords="teredo" template="task_04176Args"/>
+     <event value="4177" symbol="task_04177" version="0" task="task_0" level="win:Verbose" keywords="teredoVerbose" template="task_04177Args"/>
+     <event value="4178" symbol="task_04178" version="0" task="task_0" level="win:Verbose" keywords="teredoStart" template="task_04177Args"/>
+     <event value="4179" symbol="task_04179" version="0" task="task_0" level="win:Verbose" keywords="teredoEnd" template="task_04177Args"/>
+     <event value="4180" symbol="task_04180" version="0" task="task_0" level="win:Verbose" keywords="teredoFailures" template="task_04177Args"/>
+     <event value="5000" symbol="task_05000" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05000Args"/>
+     <event value="5001" symbol="task_05001" version="0" task="task_0" level="win:Error" keywords="iphttps" template="task_05001Args"/>
+     <event value="5002" symbol="task_05002" version="0" task="task_0" level="win:Error" keywords="iphttps" template="task_05001Args"/>
+     <event value="5003" symbol="task_05003" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05003Args"/>
+     <event value="5004" symbol="task_05004" version="0" task="task_0" level="win:Verbose" keywords="iphttps" template="task_05001Args"/>
+     <event value="5005" symbol="task_05005" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05001Args"/>
+     <event value="5006" symbol="task_05006" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05001Args"/>
+     <event value="5007" symbol="task_05007" version="0" task="task_0" level="win:Error" keywords="iphttps" template="task_05007Args"/>
+     <event value="5008" symbol="task_05008" version="0" task="task_0" level="win:Error" keywords="iphttps" template="task_05001Args"/>
+     <event value="5009" symbol="task_05009" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05001Args"/>
+     <event value="5010" symbol="task_05010" version="0" task="task_0" level="win:Verbose" keywords="iphttps" template="task_05001Args"/>
+     <event value="5011" symbol="task_05011" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05001Args"/>
+     <event value="5012" symbol="task_05012" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05001Args"/>
+     <event value="5013" symbol="task_05013" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05001Args"/>
+     <event value="5014" symbol="task_05014" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05001Args"/>
+     <event value="5015" symbol="task_05015" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05015Args"/>
+     <event value="5016" symbol="task_05016" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05016Args"/>
+     <event value="5017" symbol="task_05017" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05015Args"/>
+     <event value="5018" symbol="task_05018" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05001Args"/>
+     <event value="5019" symbol="task_05019" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05019Args"/>
+     <event value="5020" symbol="task_05020" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05019Args"/>
+     <event value="5021" symbol="task_05021" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05021Args"/>
+     <event value="5022" symbol="task_05022" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05022Args"/>
+     <event value="5023" symbol="task_05023" version="0" task="task_0" level="win:Error" keywords="iphttps" template="task_05001Args"/>
+     <event value="5024" symbol="task_05024" version="0" task="task_0" level="win:Verbose" keywords="iphttps" template="task_05024Args"/>
+     <event value="5025" symbol="task_05025" version="0" task="task_0" level="win:Verbose" keywords="iphttps"/>
+     <event value="5026" symbol="task_05026" version="0" task="task_0" level="win:Verbose" keywords="iphttps" template="task_05007Args"/>
+     <event value="5027" symbol="task_05027" version="0" task="task_0" level="win:Verbose" keywords="iphttps" template="task_05007Args"/>
+     <event value="5028" symbol="task_05028" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05001Args"/>
+     <event value="5029" symbol="task_05029" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05001Args"/>
+     <event value="5030" symbol="task_05030" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05001Args"/>
+     <event value="5031" symbol="task_05031" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05001Args"/>
+     <event value="5032" symbol="task_05032" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05001Args"/>
+     <event value="5033" symbol="task_05033" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05001Args"/>
+     <event value="5034" symbol="task_05034" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05001Args"/>
+     <event value="5035" symbol="task_05035" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05001Args"/>
+     <event value="5036" symbol="task_05036" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05036Args"/>
+     <event value="5037" symbol="task_05037" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05036Args"/>
+     <event value="5038" symbol="task_05038" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05036Args"/>
+     <event value="5039" symbol="task_05039" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05036Args"/>
+     <event value="5040" symbol="task_05040" version="0" task="task_0" level="win:Verbose" keywords="iphttps" template="task_05001Args"/>
+     <event value="5041" symbol="task_05041" version="0" task="task_0" level="win:Verbose" keywords="iphttps" template="task_05001Args"/>
+     <event value="5042" symbol="task_05042" version="0" task="task_0" level="win:Verbose" keywords="iphttps" template="task_05001Args"/>
+     <event value="5043" symbol="task_05043" version="0" task="task_0" level="win:Verbose" keywords="iphttps" template="task_05001Args"/>
+     <event value="5044" symbol="task_05044" version="0" task="task_0" level="win:Verbose" keywords="iphttps" template="task_05001Args"/>
+     <event value="5045" symbol="task_05045" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05045Args"/>
+     <event value="5046" symbol="task_05046" version="0" task="task_0" level="win:Verbose" keywords="iphttps" template="task_05045Args"/>
+     <event value="5047" symbol="task_05047" version="0" task="task_0" level="win:Verbose" keywords="iphttps" template="task_05007Args"/>
+     <event value="5048" symbol="task_05048" version="0" task="task_0" level="win:Verbose" keywords="iphttps" template="task_05007Args"/>
+     <event value="5049" symbol="task_05049" version="0" task="task_0" level="win:Verbose" keywords="iphttps" template="task_05007Args"/>
+     <event value="5050" symbol="task_05050" version="0" task="task_0" level="win:Verbose" keywords="iphttps" template="task_05007Args"/>
+     <event value="5051" symbol="task_05051" version="0" task="task_0" level="win:Verbose" keywords="iphttps" template="task_05007Args"/>
+     <event value="5052" symbol="task_05052" version="0" task="task_0" level="win:Verbose" keywords="iphttps" template="task_05007Args"/>
+     <event value="5053" symbol="task_05053" version="0" task="task_0" level="win:Verbose" keywords="iphttps" template="task_05007Args"/>
+     <event value="5054" symbol="task_05054" version="0" task="task_0" level="win:Verbose" keywords="iphttps" template="task_05007Args"/>
+     <event value="5055" symbol="task_05055" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05001Args"/>
+     <event value="5061" symbol="task_05061" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05061Args"/>
+     <event value="5062" symbol="task_05062" version="0" task="task_0" level="win:Informational" keywords="iphttps"/>
+     <event value="5063" symbol="task_05063" version="0" task="task_0" level="win:Error" keywords="iphttps" template="task_05001Args"/>
+     <event value="5064" symbol="task_05064" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05001Args"/>
+     <event value="5065" symbol="task_05065" version="0" task="task_0" level="win:Verbose" keywords="iphttps" template="task_05065Args"/>
+     <event value="5066" symbol="task_05066" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05001Args"/>
+     <event value="5067" symbol="task_05067" version="0" task="task_0" level="win:Informational" keywords="iphttps" template="task_05067Args"/>
+     <event value="5100" symbol="task_05100" version="0" task="task_0" level="win:Informational" keywords="dns64" template="task_05100Args"/>
+     <event value="5101" symbol="task_05101" version="0" task="task_0" level="win:Informational" keywords="dns64" template="task_05100Args"/>
+     <event value="5102" symbol="task_05102" version="0" task="task_0" level="win:Informational" keywords="dns64" template="task_05102Args"/>
+     <event value="5103" symbol="task_05103" version="0" task="task_0" level="win:Informational" keywords="dns64"/>
+     <event value="5104" symbol="task_05104" version="0" task="task_0" level="win:Informational" keywords="dns64" template="task_05104Args"/>
+     <event value="5105" symbol="task_05105" version="0" task="task_0" level="win:Error" keywords="dns64" template="task_05105Args"/>
+     <event value="5106" symbol="task_05106" version="0" task="task_0" level="win:Verbose" keywords="dns64" template="task_05007Args"/>
+     <event value="5107" symbol="task_05107" version="0" task="task_0" level="win:Verbose" keywords="dns64" template="task_05007Args"/>
+     <event value="5108" symbol="task_05108" version="0" task="task_0" level="win:Verbose" keywords="dns64" template="task_05007Args"/>
+     <event value="5109" symbol="task_05109" version="0" task="task_0" level="win:Verbose" keywords="dns64" template="task_05007Args"/>
+     <event value="5110" symbol="task_05110" version="0" task="task_0" level="win:Verbose" keywords="dns64" template="task_05007Args"/>
+     <event value="5111" symbol="task_05111" version="0" task="task_0" level="win:Verbose" keywords="dns64" template="task_05111Args"/>
+     <event value="5112" symbol="task_05112" version="0" task="task_0" level="win:Verbose" keywords="dns64" template="task_05007Args"/>
+     <event value="5113" symbol="task_05113" version="0" task="task_0" level="win:Verbose" keywords="dns64" template="task_05007Args"/>
+     <event value="5114" symbol="task_05114" version="0" task="task_0" level="win:Verbose" keywords="dns64" template="task_05007Args"/>
+     <event value="5115" symbol="task_05115" version="0" task="task_0" level="win:Verbose" keywords="dns64" template="task_05105Args"/>
+     <event value="5116" symbol="task_05116" version="0" task="task_0" level="win:Verbose" keywords="dns64" template="task_05105Args"/>
+     <event value="5117" symbol="task_05117" version="0" task="task_0" level="win:Verbose" keywords="dns64" template="task_05105Args"/>
+     <event value="5118" symbol="task_05118" version="0" task="task_0" level="win:Verbose" keywords="dns64" template="task_05105Args"/>
+     <event value="5119" symbol="task_05119" version="0" task="task_0" level="win:Verbose" keywords="dns64" template="task_05105Args"/>
+     <event value="5120" symbol="task_05120" version="0" task="task_0" level="win:Verbose" keywords="dns64" template="task_05105Args"/>
+     <event value="5121" symbol="task_05121" version="0" task="task_0" level="win:Verbose" keywords="dns64" template="task_05105Args"/>
+     <event value="5122" symbol="task_05122" version="0" task="task_0" level="win:Verbose" keywords="dns64" template="task_05105Args"/>
+     <event value="5123" symbol="task_05123" version="0" task="task_0" level="win:Verbose" keywords="dns64" template="task_05105Args"/>
+     <event value="5124" symbol="task_05124" version="0" task="task_0" level="win:Verbose" keywords="dns64" template="task_05105Args"/>
+     <event value="5125" symbol="task_05125" version="0" task="task_0" level="win:Verbose" keywords="dns64" template="task_05105Args"/>
+     <event value="5126" symbol="task_05126" version="0" task="task_0" level="win:Verbose" keywords="dns64" template="task_05105Args"/>
+     <event value="5127" symbol="task_05127" version="0" task="task_0" level="win:Verbose" keywords="dns64" template="task_05105Args"/>
+     <event value="5128" symbol="task_05128" version="0" task="task_0" level="win:Verbose" keywords="dns64" template="task_05105Args"/>
+     <event value="5129" symbol="task_05129" version="0" task="task_0" level="win:Verbose" keywords="dns64" template="task_05105Args"/>
+     <event value="5130" symbol="task_05130" version="0" task="task_0" level="win:Verbose" keywords="dns64" template="task_05105Args"/>
+     <event value="5131" symbol="task_05131" version="0" task="task_0" level="win:Verbose" keywords="dns64" template="task_05105Args"/>
+     <event value="5132" symbol="task_05132" version="0" task="task_0" level="win:Verbose" keywords="dns64" template="task_05105Args"/>
+     <event value="5133" symbol="task_05133" version="0" task="task_0" level="win:Verbose" keywords="dns64" template="task_05105Args"/>
+     <event value="5200" symbol="task_05200" version="0" task="task_0" level="win:Verbose" keywords="CPVerbose" template="task_04177Args"/>
+     <event value="5201" symbol="task_05201" version="0" task="task_0" level="win:Verbose" keywords="CPStart" template="task_04177Args"/>
+     <event value="5202" symbol="task_05202" version="0" task="task_0" level="win:Verbose" keywords="CPEnd" template="task_04177Args"/>
+     <event value="5203" symbol="task_05203" version="0" task="task_0" level="win:Verbose" keywords="CPFailures" template="task_04177Args"/>
+     <event value="5300" symbol="task_05300" version="0" task="task_0" level="win:Informational" keywords="HA" template="task_04177Args"/>
+     <event value="5301" symbol="task_05301" version="0" task="task_0" level="win:Informational" keywords="HA" template="task_05301Args"/>
+     <event value="5302" symbol="task_05302" version="0" task="task_0" level="win:Informational" keywords="HA" template="task_05302Args"/>
+     <event value="5303" symbol="task_05303" version="0" task="task_0" level="win:Informational" keywords="HA" template="task_05302Args"/>
+     <event value="5304" symbol="task_05304" version="0" task="task_0" level="win:Informational" keywords="HA" template="task_05304Args"/>
+     <event value="5401" symbol="task_05401" version="0" task="task_0" level="win:Informational" keywords="PROXYMGR" template="task_05401Args"/>
+     <event value="5402" symbol="task_05402" version="0" task="task_0" level="win:Informational" keywords="PROXYMGR" template="task_05402Args"/>
+     <event value="5403" symbol="task_05403" version="0" task="task_0" level="win:Error" keywords="PROXYMGR" template="task_05301Args"/>
+     <event value="5404" symbol="task_05404" version="0" task="task_0" level="win:Error" keywords="PROXYMGR" template="task_04177Args"/>
+     <event value="5501" symbol="task_05501" version="0" task="task_0" level="win:Informational" keywords="damultisite" template="task_05501Args"/>
+     <event value="5502" symbol="task_05502" version="0" task="task_0" level="win:Informational" keywords="damultisite" template="task_05502Args"/>
+     <event value="5503" symbol="task_05503" version="0" task="task_0" level="win:Informational" keywords="damultisite" template="task_05503Args"/>
+     <event value="5504" symbol="task_05504" version="0" task="task_0" level="win:Informational" keywords="damultisite" template="task_05504Args"/>
+     <event value="5505" symbol="task_05505" version="0" task="task_0" level="win:Informational" keywords="damultisite" template="task_05505Args"/>
+     <event value="5506" symbol="task_05506" version="0" task="task_0" level="win:Informational" keywords="damultisite" template="task_05506Args"/>
+     <event value="5508" symbol="task_05508" version="0" task="task_0" level="win:Informational" keywords="damultisite" template="task_05508Args"/>
+     <event value="5509" symbol="task_05509" version="0" task="task_0" level="win:Verbose" keywords="damultisite" template="task_05105Args"/>
+     <event value="5510" symbol="task_05510" version="0" task="task_0" level="win:Verbose" keywords="damultisite" template="task_04177Args"/>
+     <event value="5511" symbol="task_05511" version="0" task="task_0" level="win:Verbose" keywords="damultisite" template="task_05105Args"/>
+     <event value="5512" symbol="task_05512" version="0" task="task_0" level="win:Verbose" keywords="damultisite" template="task_05512Args"/>
+     <event value="5513" symbol="task_05513" version="0" task="task_0" level="win:Verbose" keywords="damultisite" template="task_05105Args"/>
+     <event value="5514" symbol="task_05514" version="0" task="task_0" level="win:Verbose" keywords="damultisite" template="task_05514Args"/>
+     <event value="5515" symbol="task_05515" version="0" task="task_0" level="win:Verbose" keywords="damultisite" template="task_05515Args"/>
+     <event value="5516" symbol="task_05516" version="0" task="task_0" level="win:Verbose" keywords="damultisite" template="task_04177Args"/>
+     <event value="5517" symbol="task_05517" version="0" task="task_0" level="win:Verbose" keywords="damultisite" template="task_05517Args"/>
+     <event value="5518" symbol="task_05518" version="0" task="task_0" level="win:Verbose" keywords="damultisite" template="task_05105Args"/>
+     <event value="5607" symbol="task_05607" version="0" task="task_0" level="win:Informational" keywords="damultisite" template="task_05607Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="IpAddrLength" inType="win:UInt32"/>
+      <data name="ServiceType" inType="win:UInt32" map="IPHLPSVC_ETW_LOGGING_ServiceType_ValueMap"/>
+      <data name="TeredoPacketType" inType="win:UInt32"/>
+      <data name="SourceIPAddress" inType="win:Binary" length="IpAddrLength"/>
+      <data name="DestinationIPAddress" inType="win:Binary" length="IpAddrLength"/>
+     </template>
+     <template tid="task_04052Args">
+      <data name="IpAddrLength" inType="win:UInt32"/>
+      <data name="ReceivedTeredoPacketType" inType="win:UInt32" map="IPHLPSVC_ETW_LOGGING_PacketType_ValueMap"/>
+      <data name="SourceIPAddress" inType="win:Binary" length="IpAddrLength"/>
+      <data name="SentTeredoPacketType" inType="win:UInt32"/>
+      <data name="DestinationIPAddress" inType="win:Binary" length="IpAddrLength"/>
+     </template>
+     <template tid="task_04053Args">
+      <data name="IpAddrLength" inType="win:UInt32"/>
+      <data name="ServiceType" inType="win:UInt32"/>
+      <data name="ReceivedTeredoPacketType" inType="win:UInt32"/>
+      <data name="MappedTeredoPacketType" inType="win:UInt32"/>
+      <data name="SourceIPAddress" inType="win:Binary" length="IpAddrLength"/>
+      <data name="DestinationIPAddress" inType="win:Binary" length="IpAddrLength"/>
+      <data name="TargetIPAddress" inType="win:Binary" length="IpAddrLength"/>
+     </template>
+     <template tid="task_04054Args">
+      <data name="TeredoProtocolState" inType="win:UInt32" map="IPHLPSVC_ETW_LOGGING_TeredoState_ValueMap"/>
+      <data name="BadorInvalidPacket" inType="win:UInt32" map="IPHLPSVC_ETW_LOGGING_BadParameter_ValueMap"/>
+     </template>
+     <template tid="task_04055Args">
+      <data name="PreviousTeredoProtocolState" inType="win:UInt32"/>
+      <data name="CurrentTeredoProtocolState" inType="win:UInt32"/>
+     </template>
+     <template tid="task_04056Args">
+      <data name="TeredoPacketType" inType="win:UInt32"/>
+     </template>
+     <template tid="task_04057Args">
+      <data name="IpAddrV4Length" inType="win:UInt32"/>
+      <data name="IpAddrV6Length" inType="win:UInt32"/>
+      <data name="SourceIpv6Address" inType="win:Binary" length="IpAddrV6Length"/>
+      <data name="DestinationIPv6Address" inType="win:Binary" length="IpAddrV6Length"/>
+      <data name="SourceIPv4Address" inType="win:UInt32"/>
+      <data name="DestinationIPv4Address" inType="win:UInt32"/>
+      <data name="SourcePort" inType="win:UInt16"/>
+      <data name="DestinationPort" inType="win:UInt16"/>
+     </template>
+     <template tid="task_04058Args">
+      <data name="Description" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_04059Args">
+      <data name="BadorInvalidPacket" inType="win:UInt32"/>
+     </template>
+     <template tid="task_04060Args">
+      <data name="SockAddrLength" inType="win:UInt32"/>
+      <data name="ServiceType" inType="win:UInt32"/>
+      <data name="MappingType" inType="win:UInt32"/>
+      <data name="SocketAddress" inType="win:Binary" length="SockAddrLength"/>
+     </template>
+     <template tid="task_04061Args">
+      <data name="AddrLength" inType="win:UInt32"/>
+      <data name="PrimaryorSecondary" inType="win:UnicodeString"/>
+      <data name="DestinationAddress" inType="win:Binary" length="AddrLength"/>
+     </template>
+     <template tid="task_04062Args">
+      <data name="AddrLength" inType="win:UInt32"/>
+      <data name="ServiceType" inType="win:UInt32"/>
+      <data name="TeredoPacketType" inType="win:UInt32"/>
+      <data name="SourceIpv6Address" inType="win:Binary" length="AddrLength"/>
+     </template>
+     <template tid="task_04063Args">
+      <data name="IpAddrLength" inType="win:UInt32"/>
+      <data name="ServiceType" inType="win:UInt32"/>
+      <data name="ReceivedTeredoPacketType" inType="win:UInt32"/>
+      <data name="MappedTeredoPacketType" inType="win:UInt32"/>
+      <data name="DestinationIPAddress" inType="win:Binary" length="IpAddrLength"/>
+     </template>
+     <template tid="task_04064Args">
+      <data name="AddrLength" inType="win:UInt32"/>
+      <data name="ServiceType" inType="win:UInt32"/>
+      <data name="ReceivedTeredoPacketType" inType="win:UInt32"/>
+      <data name="MappedTeredoPacketType" inType="win:UInt32"/>
+      <data name="DestinationIPAddress" inType="win:Binary" length="AddrLength"/>
+     </template>
+     <template tid="task_04065Args">
+      <data name="AddrLength" inType="win:UInt32"/>
+      <data name="PrimaryorSecondary" inType="win:UnicodeString"/>
+      <data name="SocketAddress" inType="win:Binary" length="AddrLength"/>
+     </template>
+     <template tid="task_04066Args">
+      <data name="AddrLength" inType="win:UInt32"/>
+      <data name="ServiceType" inType="win:UInt32"/>
+      <data name="TeredoPacketType" inType="win:UInt32"/>
+      <data name="SourceIpv6Address" inType="win:Binary" length="AddrLength"/>
+      <data name="DestinationIPAddress" inType="win:Binary" length="AddrLength"/>
+      <data name="TargetIPAddress" inType="win:Binary" length="AddrLength"/>
+     </template>
+     <template tid="task_04067Args">
+      <data name="AddrLength" inType="win:UInt32"/>
+      <data name="ServiceType" inType="win:UInt32"/>
+      <data name="TeredoPacketType" inType="win:UInt32"/>
+      <data name="DestinationAddress" inType="win:Binary" length="AddrLength"/>
+     </template>
+     <template tid="task_04150Args">
+      <data name="ProtocolType" inType="win:UInt32" map="IPHLPSVC_ETW_LOGGING_ProtocolType_ValueMap"/>
+      <data name="Interface" inType="win:UnicodeString"/>
+      <data name="InterfaceState" inType="win:UInt32"/>
+     </template>
+     <template tid="task_04151Args">
+      <data name="AddrLength" inType="win:UInt32"/>
+      <data name="Interface" inType="win:UnicodeString"/>
+      <data name="CurrentIPv4Address" inType="win:UInt32"/>
+      <data name="NewIPv4Address" inType="win:UInt32"/>
+     </template>
+     <template tid="task_04153Args">
+      <data name="AddrLength" inType="win:UInt32"/>
+      <data name="ProtocolType" inType="win:UInt32"/>
+      <data name="DestinationIPv4Address" inType="win:UInt32"/>
+      <data name="Interface" inType="win:UnicodeString"/>
+      <data name="SourceIPv4Address" inType="win:UInt32"/>
+      <data name="NextHopIPv4Address" inType="win:UInt32"/>
+     </template>
+     <template tid="task_04154Args">
+      <data name="AddrLength" inType="win:UInt32"/>
+      <data name="ProtocolType" inType="win:UInt32"/>
+      <data name="InterfaceName" inType="win:UnicodeString"/>
+      <data name="RouterIPv4Address" inType="win:UInt32"/>
+      <data name="Reachable" inType="win:UInt32"/>
+     </template>
+     <template tid="task_04155Args">
+      <data name="AddrLength" inType="win:UInt32"/>
+      <data name="InterfaceName" inType="win:UnicodeString"/>
+      <data name="RouterName" inType="win:UnicodeString"/>
+      <data name="Resolved" inType="win:UInt32" map="IPHLPSVC_ETW_LOGGING_RouteReach_ValueMap"/>
+      <data name="RouterIPv4Address" inType="win:UInt32"/>
+     </template>
+     <template tid="task_04157Args">
+      <data name="ProtocolType" inType="win:UInt32"/>
+     </template>
+     <template tid="task_04161Args">
+      <data name="InterfaceName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_04162Args">
+      <data name="AddrLength" inType="win:UInt32"/>
+      <data name="ProtocolType" inType="win:UInt32"/>
+      <data name="AddedorDeleted" inType="win:UInt32" map="IPHLPSVC_ETW_LOGGING_AddressUpdate_ValueMap"/>
+      <data name="IPv4Address" inType="win:UInt32"/>
+      <data name="InterfaceName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_04163Args">
+      <data name="AddrLength" inType="win:UInt32"/>
+      <data name="IPAddress" inType="win:Binary" length="AddrLength"/>
+      <data name="PrefixLen" inType="win:UInt64"/>
+      <data name="InterfaceAlias" inType="win:UnicodeString"/>
+      <data name="Metric" inType="win:UInt32"/>
+      <data name="PreferredLifetime" inType="win:UInt32"/>
+      <data name="ValidLifeTime" inType="win:UInt32"/>
+      <data name="Publish" inType="win:Boolean"/>
+     </template>
+     <template tid="task_04164Args">
+      <data name="InterfaceAlias" inType="win:UnicodeString"/>
+      <data name="IcsPrivateInterface" inType="win:Boolean"/>
+      <data name="AdvertiseDefaultRoute" inType="win:Boolean"/>
+      <data name="Advertises" inType="win:Boolean"/>
+      <data name="Forwards" inType="win:Boolean"/>
+      <data name="Status" inType="win:UInt64"/>
+     </template>
+     <template tid="task_04165Args">
+      <data name="NewRoutingState" inType="win:UInt32"/>
+      <data name="OldRoutingState" inType="win:UInt32" map="IPHLPSVC_ETW_LOGGING_RoutingState_ValueMap"/>
+     </template>
+     <template tid="task_04166Args">
+      <data name="InterfaceAlias" inType="win:UnicodeString"/>
+      <data name="IPAddress" inType="win:UInt32"/>
+     </template>
+     <template tid="task_04167Args">
+      <data name="ProtocolType" inType="win:UInt32"/>
+      <data name="CompartmentId" inType="win:UInt32"/>
+      <data name="HaveGlobalIpv6Address" inType="win:Boolean"/>
+      <data name="ICSEnabled" inType="win:Boolean"/>
+      <data name="GlobalIPv4AddressCount" inType="win:UInt64"/>
+     </template>
+     <template tid="task_04168Args">
+      <data name="InterfaceIndex" inType="win:UInt64"/>
+      <data name="CompartmentId" inType="win:UInt32"/>
+      <data name="RoutingState" inType="win:UInt32"/>
+     </template>
+     <template tid="task_04169Args">
+      <data name="AddrLength" inType="win:UInt32"/>
+      <data name="InterfaceAlias" inType="win:UnicodeString"/>
+      <data name="IPAddress" inType="win:Binary" length="AddrLength"/>
+      <data name="Lifetime" inType="win:UInt64"/>
+      <data name="PrefixConf" inType="win:UInt64"/>
+      <data name="SuffixConf" inType="win:UInt64"/>
+     </template>
+     <template tid="task_04170Args">
+      <data name="ProtocolCallback" inType="win:UInt32"/>
+      <data name="ProtocolType" inType="win:UInt32"/>
+     </template>
+     <template tid="task_04171Args">
+      <data name="TeredoReasonCode" inType="win:UInt32"/>
+     </template>
+     <template tid="task_04173Args">
+      <data name="WindowsErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="task_04174Args">
+      <data name="IsatapRouter" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="task_04175Args">
+      <data name="NetworkType" inType="win:UInt32" map="IPHLPSVC_ETW_LOGGING_NetworkType_ValueMap"/>
+     </template>
+     <template tid="task_04176Args">
+      <data name="SourceIPv4Address" inType="win:UInt32"/>
+      <data name="SourcePort" inType="win:UInt16"/>
+      <data name="UpperValue" inType="win:UInt16"/>
+      <data name="LowerValue" inType="win:UInt16"/>
+      <data name="PortPredicted" inType="win:UInt16"/>
+     </template>
+     <template tid="task_04177Args">
+      <data name="Action" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_05000Args">
+      <data name="InterfaceName" inType="win:UnicodeString"/>
+      <data name="InterfaceType" inType="win:UInt32"/>
+      <data name="RegistryState" inType="win:UInt32"/>
+      <data name="CurrentState" inType="win:UInt32"/>
+      <data name="URL" inType="win:UnicodeString"/>
+      <data name="AuthenticationMode" inType="win:UInt32"/>
+     </template>
+     <template tid="task_05001Args">
+      <data name="InterfaceName" inType="win:UnicodeString"/>
+      <data name="StatusCode" inType="win:UInt32"/>
+     </template>
+     <template tid="task_05003Args">
+      <data name="InterfaceName" inType="win:UnicodeString"/>
+      <data name="CertificateCN" inType="win:UnicodeString"/>
+      <data name="Preference" inType="win:UInt32"/>
+     </template>
+     <template tid="task_05007Args">
+      <data name="Object" inType="win:Pointer"/>
+      <data name="FileName" inType="win:AnsiString"/>
+      <data name="LineNumber" inType="win:UInt32"/>
+     </template>
+     <template tid="task_05015Args">
+      <data name="InterfaceIndex" inType="win:UInt32"/>
+      <data name="Address" inType="win:UnicodeString"/>
+      <data name="Added" inType="win:Boolean"/>
+      <data name="LimitedConnectivity" inType="win:Boolean"/>
+     </template>
+     <template tid="task_05016Args">
+      <data name="GlobalIpv6AddressCount" inType="win:UInt32"/>
+      <data name="Ipv4Connectivity" inType="win:Boolean"/>
+      <data name="Ipv6Connectivity" inType="win:Boolean"/>
+      <data name="CorpConnectivity" inType="win:Boolean"/>
+     </template>
+     <template tid="task_05019Args">
+      <data name="DueTime" inType="win:UInt32"/>
+     </template>
+     <template tid="task_05021Args">
+      <data name="NetworkGuid" inType="win:GUID"/>
+      <data name="Added" inType="win:Boolean"/>
+     </template>
+     <template tid="task_05022Args">
+      <data name="CurrentTeredoProtocolState" inType="win:UInt32"/>
+     </template>
+     <template tid="task_05024Args">
+      <data name="PacketType" inType="win:UInt32"/>
+      <data name="TargetAddress" inType="win:UnicodeString"/>
+      <data name="Prefix" inType="win:UnicodeString"/>
+      <data name="DefaultRouter" inType="win:Boolean"/>
+     </template>
+     <template tid="task_05036Args">
+      <data name="InterfaceName" inType="win:UnicodeString"/>
+      <data name="Address" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_05045Args">
+      <data name="InterfaceName" inType="win:UnicodeString"/>
+      <data name="DestinationAddress" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_05061Args">
+      <data name="WmiNotificationType" inType="win:UInt32"/>
+      <data name="InterfaceName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_05065Args">
+      <data name="InterfaceName" inType="win:UnicodeString"/>
+      <data name="ProxyAccessType" inType="win:UInt32"/>
+      <data name="Proxy" inType="win:UnicodeString"/>
+      <data name="ProxyBypass" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_05067Args">
+      <data name="ClientContext" inType="win:Pointer"/>
+      <data name="TargetAddress" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_05100Args">
+      <data name="AddrLength" inType="win:UInt32"/>
+      <data name="ClientIP" inType="win:Binary" length="AddrLength"/>
+      <data name="QuestionName" inType="win:UnicodeString"/>
+      <data name="QueryReceiveInterface" inType="win:UnicodeString"/>
+      <data name="QuerySendInterface" inType="win:UnicodeString"/>
+      <data name="DnsStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="task_05102Args">
+      <data name="AddrLength" inType="win:UInt32"/>
+      <data name="ClientIP" inType="win:Binary" length="AddrLength"/>
+      <data name="QuestionName" inType="win:UnicodeString"/>
+      <data name="TranslatedIPv4Address" inType="win:UInt32"/>
+     </template>
+     <template tid="task_05104Args">
+      <data name="AddrLength" inType="win:UInt32"/>
+      <data name="ClientIP" inType="win:Binary" length="AddrLength"/>
+      <data name="QuestionName" inType="win:UnicodeString"/>
+      <data name="IPv4Address" inType="win:UInt32"/>
+      <data name="IPv6Address" inType="win:Binary" length="AddrLength"/>
+     </template>
+     <template tid="task_05105Args">
+      <data name="Object" inType="win:Pointer"/>
+      <data name="Message" inType="win:UnicodeString"/>
+      <data name="Value" inType="win:UInt32"/>
+     </template>
+     <template tid="task_05111Args">
+      <data name="Object" inType="win:Pointer"/>
+      <data name="FileName" inType="win:AnsiString"/>
+      <data name="LineNumber" inType="win:UInt32"/>
+      <data name="Object2" inType="win:Pointer"/>
+     </template>
+     <template tid="task_05301Args">
+      <data name="Action" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_05302Args">
+      <data name="Count" inType="win:UInt32"/>
+     </template>
+     <template tid="task_05304Args">
+      <data name="NetworkID" inType="win:GUID"/>
+     </template>
+     <template tid="task_05401Args">
+      <data name="Reason" inType="win:UnicodeString"/>
+      <data name="Event" inType="win:UInt32"/>
+     </template>
+     <template tid="task_05402Args">
+      <data name="Reason" inType="win:UnicodeString"/>
+      <data name="Event" inType="win:UInt32" map="IPHLPSVC_ETW_PROXYMGR_CLIENT_EVENT_ValueMap"/>
+     </template>
+     <template tid="task_05501Args">
+      <data name="SiteSelectionMethod" inType="win:UInt32"/>
+      <data name="SiteName" inType="win:UnicodeString"/>
+      <data name="IphttpsProfileName" inType="win:UnicodeString"/>
+      <data name="TeredoServerIp" inType="win:UInt32"/>
+      <data name="AddrLength" inType="win:UInt32"/>
+      <data name="SiteIpv6Address" inType="win:Binary" length="AddrLength"/>
+      <data name="AdSiteName" inType="win:UnicodeString"/>
+      <data name="CorporateRanges" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_05502Args">
+      <data name="AdSiteName" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_05503Args">
+      <data name="AddrLength" inType="win:UInt32"/>
+      <data name="Prefix" inType="win:Binary" length="AddrLength"/>
+      <data name="PrefixLength" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_05504Args">
+      <data name="IphttpsProfileName" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_05505Args">
+      <data name="TeredoServerIp" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_05506Args">
+      <data name="SiteName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_05508Args">
+      <data name="SortingSiteName" inType="win:UnicodeString"/>
+      <data name="SortingMetric" inType="win:UInt32"/>
+      <data name="AddressFamily" inType="win:UInt32"/>
+      <data name="ProbingSiteName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_05512Args">
+      <data name="AddrLength" inType="win:UInt32"/>
+      <data name="Prefix" inType="win:Binary" length="AddrLength"/>
+     </template>
+     <template tid="task_05514Args">
+      <data name="SiteUrl" inType="win:UnicodeString"/>
+      <data name="Timestamp" inType="win:UInt64"/>
+     </template>
+     <template tid="task_05515Args">
+      <data name="SiteUrl" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="Timestamp" inType="win:UInt64"/>
+     </template>
+     <template tid="task_05517Args">
+      <data name="SiteUrl" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="HttpStatus" inType="win:UInt32"/>
+      <data name="Timestamp" inType="win:UInt64"/>
+     </template>
+     <template tid="task_05607Args">
+      <data name="SiteName" inType="win:UnicodeString"/>
+      <data name="Delay" inType="win:UInt64"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_isatap" value="isatap"/>
+    <string id="keyword_sixto4" value="sixto4"/>
+    <string id="keyword_iphttps" value="iphttps"/>
+    <string id="keyword_teredo" value="teredo"/>
+    <string id="keyword_teredoVerbose" value="teredoVerbose"/>
+    <string id="keyword_teredoStart" value="teredoStart"/>
+    <string id="keyword_teredoEnd" value="teredoEnd"/>
+    <string id="keyword_teredoFailures" value="teredoFailures"/>
+    <string id="keyword_dns64" value="dns64"/>
+    <string id="keyword_CPVerbose" value="CPVerbose"/>
+    <string id="keyword_CPStart" value="CPStart"/>
+    <string id="keyword_CPEnd" value="CPEnd"/>
+    <string id="keyword_CPFailures" value="CPFailures"/>
+    <string id="keyword_CP" value="CP"/>
+    <string id="keyword_HA" value="HA"/>
+    <string id="keyword_PROXYMGR" value="PROXYMGR"/>
+    <string id="keyword_damultisite" value="damultisite"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_ServiceType_ValueMapClient" value="Client"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_ServiceType_ValueMapServer" value="Server"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_ServiceType_ValueMapPeer" value="Peer"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_PacketType_ValueMapRouter Solicitation" value="Router Solicitation"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_PacketType_ValueMapRouter Advertisement" value="Router Advertisement"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_PacketType_ValueMapNeighbor Solicitation" value="Neighbor Solicitation"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_PacketType_ValueMapNeighbor Advertisement" value="Neighbor Advertisement"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_PacketType_ValueMapDirect Bubble" value="Direct Bubble"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_PacketType_ValueMapIndirect Bubble" value="Indirect Bubble"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_PacketType_ValueMapMulticast Bubble" value="Multicast Bubble"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_PacketType_ValueMapBubble" value="Bubble"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_PacketType_ValueMapData" value="Data"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_PacketType_ValueMapEcho Request" value="Echo Request"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_PacketType_ValueMapPort Prediction Direct Bubble" value="Port Prediction Direct Bubble"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_PacketType_ValueMapPort Prediction Echo Packet" value="Port Prediction Echo Packet"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_TeredoState_ValueMapOffline" value="Offline"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_TeredoState_ValueMapStop Pending" value="Stop Pending"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_TeredoState_ValueMapStart Pending" value="Start Pending"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_TeredoState_ValueMapProbe Primary" value="Probe Primary"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_TeredoState_ValueMapProbe Secondary" value="Probe Secondary"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_TeredoState_ValueMapQualified" value="Qualified"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_TeredoState_ValueMapFirewall" value="Firewall"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_TeredoState_ValueMapOnline" value="Online"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_TeredoState_ValueMapDormant" value="Dormant"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_TeredoState_ValueMapProbe Cone" value="Probe Cone"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_TeredoState_ValueMapProbe Restricted" value="Probe Restricted"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_TeredoState_ValueMapBad State" value="Bad State"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_BadParameter_ValueMapBad Checksum" value="Bad Checksum"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_BadParameter_ValueMapInvalid Source Address" value="Invalid Source Address"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_BadParameter_ValueMapInvalid Destination Address" value="Invalid Destination Address"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_BadParameter_ValueMapInvalid Peer" value="Invalid Peer"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_BadParameter_ValueMapBad Protocol Header" value="Bad Protocol Header"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_BadParameter_ValueMapBad Authentation" value="Bad Authentation"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_ProtocolType_ValueMap6to4" value="6to4"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_ProtocolType_ValueMapIsatap" value="Isatap"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_ProtocolType_ValueMapTeredo" value="Teredo"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_RouteReach_ValueMapReachable" value="Reachable"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_RouteReach_ValueMapUnreachable" value="Unreachable"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_RouteReach_ValueMapresolved" value="resolved"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_RouteReach_ValueMapnot resolved" value="not resolved"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_AddressUpdate_ValueMapAdded" value="Added"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_AddressUpdate_ValueMapDeleted" value="Deleted"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_RoutingState_ValueMapDefault" value="Default"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_RoutingState_ValueMapAutomatic" value="Automatic"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_RoutingState_ValueMapEnabled" value="Enabled"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_RoutingState_ValueMapDisabled" value="Disabled"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_RoutingState_ValueMapInvalid" value="Invalid"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_NetworkType_ValueMapnot managed" value="not managed"/>
+    <string id="map_IPHLPSVC_ETW_LOGGING_NetworkType_ValueMapmanaged" value="managed"/>
+    <string id="map_IPHLPSVC_ETW_PROXYMGR_CLIENT_EVENT_ValueMapproxy configuration change" value="proxy configuration change"/>
+    <string id="map_IPHLPSVC_ETW_PROXYMGR_CLIENT_EVENT_ValueMapproxy credentials change" value="proxy credentials change"/>
+    <string id="map_IPHLPSVC_ETW_PROXYMGR_CLIENT_EVENT_ValueMapinvalid client event" value="invalid client event"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

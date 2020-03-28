@@ -1,0 +1,350 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-OneX" guid="{ab0d8ef9-866d-4d39-b83f-453f3b8f6325}" resourceFileName="Microsoft-Windows-OneX" messageFileName="Microsoft-Windows-OneX" symbol="MicrosoftWindowsOneX" source="Xml" >
+    <keywords>
+     <keyword name="API" message="$(string.keyword_API)" mask="0x1"/>
+     <keyword name="EAP" message="$(string.keyword_EAP)" mask="0x2"/>
+     <keyword name="EAPPacket" message="$(string.keyword_EAPPacket)" mask="0x4"/>
+     <keyword name="OneXUI" message="$(string.keyword_OneXUI)" mask="0x8"/>
+     <keyword name="Profile" message="$(string.keyword_Profile)" mask="0x10"/>
+     <keyword name="Semantic" message="$(string.keyword_Semantic)" mask="0x20"/>
+     <keyword name="Supplicant" message="$(string.keyword_Supplicant)" mask="0x40"/>
+     <keyword name="User" message="$(string.keyword_User)" mask="0x80"/>
+     <keyword name="LwtDiagnostic" message="$(string.keyword_LwtDiagnostic)" mask="0x100"/>
+     <keyword name="ut:SendPath" message="$(string.keyword_ut:SendPath)" mask="0x100000000"/>
+     <keyword name="ut:ReceivePath" message="$(string.keyword_ut:ReceivePath)" mask="0x200000000"/>
+     <keyword name="ut:L3ConnectPath" message="$(string.keyword_ut:L3ConnectPath)" mask="0x400000000"/>
+     <keyword name="ut:L2ConnectPath" message="$(string.keyword_ut:L2ConnectPath)" mask="0x800000000"/>
+     <keyword name="ut:ClosePath" message="$(string.keyword_ut:ClosePath)" mask="0x1000000000"/>
+     <keyword name="ut:Authentication" message="$(string.keyword_ut:Authentication)" mask="0x2000000000"/>
+     <keyword name="ut:Configuration" message="$(string.keyword_ut:Configuration)" mask="0x4000000000"/>
+     <keyword name="ut:Global" message="$(string.keyword_ut:Global)" mask="0x8000000000"/>
+     <keyword name="keyword_200000000000" message="$(string.keyword_keyword_200000000000)" mask="0x200000000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="API" message="$(string.task_API)" value="1"/>
+     <task name="EAP" message="$(string.task_EAP)" value="2"/>
+     <task name="MSM" message="$(string.task_MSM)" value="3"/>
+     <task name="User" message="$(string.task_User)" value="4"/>
+     <task name="Supplicant" message="$(string.task_Supplicant)" value="5"/>
+     <task name="Profile" message="$(string.task_Profile)" value="6"/>
+     <task name="Port" message="$(string.task_Port)" value="7"/>
+    </tasks>
+    <maps>
+     <valueMap name="PeerResponseActionMap">
+      <map value="0x0" message="$(string.map_PeerResponseActionMapDiscard)"/>
+      <map value="0x1" message="$(string.map_PeerResponseActionMapSend)"/>
+      <map value="0x2" message="$(string.map_PeerResponseActionMapResult)"/>
+      <map value="0x3" message="$(string.map_PeerResponseActionMapInvokeUI)"/>
+      <map value="0x4" message="$(string.map_PeerResponseActionMapRespond)"/>
+      <map value="0x5" message="$(string.map_PeerResponseActionMapStartAuthentication)"/>
+      <map value="0x6" message="$(string.map_PeerResponseActionMapNone)"/>
+     </valueMap>
+     <valueMap name="EAPPacketTypeMap">
+      <map value="0x0" message="$(string.map_EAPPacketTypeMapNone)"/>
+      <map value="0x1" message="$(string.map_EAPPacketTypeMapNotification)"/>
+      <map value="0x2" message="$(string.map_EAPPacketTypeMapRequestId)"/>
+      <map value="0x3" message="$(string.map_EAPPacketTypeMapSuccess)"/>
+      <map value="0x4" message="$(string.map_EAPPacketTypeMapFail)"/>
+      <map value="0x5" message="$(string.map_EAPPacketTypeMapRequestOther)"/>
+      <map value="0x6" message="$(string.map_EAPPacketTypeMapResponseId)"/>
+      <map value="0x7" message="$(string.map_EAPPacketTypeMapResponseNak)"/>
+      <map value="0x8" message="$(string.map_EAPPacketTypeMapResponseOther)"/>
+      <map value="0x9" message="$(string.map_EAPPacketTypeMapPacketInvalid)"/>
+     </valueMap>
+     <valueMap name="StartAuthReasonMap">
+      <map value="0x1" message="$(string.map_StartAuthReasonMapUser change)"/>
+      <map value="0x2" message="$(string.map_StartAuthReasonMapMSM initiated)"/>
+      <map value="0x3" message="$(string.map_StartAuthReasonMapConfig change)"/>
+     </valueMap>
+     <valueMap name="PassDlgResultMap">
+      <map value="0x1" message="$(string.map_PassDlgResultMapSuccess)"/>
+      <map value="0x2" message="$(string.map_PassDlgResultMapFailure)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="API" version="0" task="API" level="win:Informational" keywords="API ut:Authentication" template="APIArgs"/>
+     <event value="2" symbol="APIStart" version="0" task="API" opcode="win:Start" level="win:Informational" keywords="API LwtDiagnostic ut:Authentication" template="APIArgs"/>
+     <event value="3" symbol="APIStop" version="0" task="API" opcode="win:Stop" level="win:Informational" keywords="API LwtDiagnostic ut:Authentication" template="APIArgs"/>
+     <event value="4" symbol="EAP" version="0" task="EAP" level="win:Error" keywords="EAP LwtDiagnostic ut:Authentication" template="EAPArgs"/>
+     <event value="5" symbol="EAP5" version="0" task="EAP" level="win:Warning" keywords="EAP LwtDiagnostic ut:Authentication" template="APIArgs"/>
+     <event value="6" symbol="EAP6" version="0" task="EAP" level="win:Error" keywords="EAP LwtDiagnostic ut:Authentication" template="EAP6Args"/>
+     <event value="7" symbol="EAP7" version="0" task="EAP" level="win:Informational" keywords="EAP ut:Authentication" template="EAP7Args"/>
+     <event value="8" symbol="EAP8" version="0" task="EAP" level="win:Informational" keywords="EAP ut:Authentication" template="EAP7Args"/>
+     <event value="9" symbol="EAP9" version="0" task="EAP" level="win:Informational" keywords="EAP LwtDiagnostic ut:Authentication" template="APIArgs"/>
+     <event value="10" symbol="EAP10" version="0" task="EAP" level="win:Informational" keywords="EAP ut:Authentication" template="EAP10Args"/>
+     <event value="11" symbol="EAP11" version="0" task="EAP" level="win:Warning" keywords="EAP LwtDiagnostic ut:Authentication" template="APIArgs"/>
+     <event value="12" symbol="EAP12" version="0" task="EAP" level="win:Error" keywords="EAP LwtDiagnostic ut:Authentication" template="EAP12Args"/>
+     <event value="13" symbol="EAP13" version="0" task="EAP" level="win:Error" keywords="EAP LwtDiagnostic ut:Authentication" template="EAP12Args"/>
+     <event value="14" symbol="EAP14" version="0" task="EAP" level="win:Error" keywords="EAP LwtDiagnostic ut:Authentication" template="EAP12Args"/>
+     <event value="15" symbol="EAP15" version="0" task="EAP" level="win:Error" keywords="EAP LwtDiagnostic ut:Authentication" template="EAP12Args"/>
+     <event value="16" symbol="EAP16" version="0" task="EAP" level="win:Error" keywords="EAP LwtDiagnostic ut:Authentication" template="EAP12Args"/>
+     <event value="17" symbol="EAP17" version="0" task="EAP" level="win:Error" keywords="EAP LwtDiagnostic ut:Authentication" template="EAP12Args"/>
+     <event value="18" symbol="EAP18" version="0" task="EAP" level="win:Error" keywords="EAP LwtDiagnostic ut:Authentication" template="EAP12Args"/>
+     <event value="19" symbol="EAP19" version="0" task="EAP" level="win:Error" keywords="EAP LwtDiagnostic ut:Authentication" template="EAP12Args"/>
+     <event value="20" symbol="MSM" version="0" task="MSM" level="win:Error" keywords="OneXUI LwtDiagnostic ut:Authentication" template="MSMArgs"/>
+     <event value="21" symbol="User" version="0" task="User" level="win:Error" keywords="User LwtDiagnostic ut:Authentication" template="EAP12Args"/>
+     <event value="22" symbol="User22" version="0" task="User" level="win:Error" keywords="User LwtDiagnostic ut:Authentication" template="EAP12Args"/>
+     <event value="23" symbol="User23" version="0" task="User" level="win:Error" keywords="User LwtDiagnostic ut:Authentication" template="APIArgs"/>
+     <event value="24" symbol="Supplicant" version="0" task="Supplicant" level="win:Error" keywords="Supplicant LwtDiagnostic ut:Authentication" template="EAP12Args"/>
+     <event value="25" symbol="Supplicant25" version="0" task="Supplicant" level="win:Warning" keywords="Supplicant LwtDiagnostic ut:Authentication" template="Supplicant25Args"/>
+     <event value="26" symbol="Supplicant26" version="0" task="Supplicant" level="win:Error" keywords="Supplicant LwtDiagnostic ut:Authentication" template="EAP12Args"/>
+     <event value="27" symbol="Supplicant27" version="0" task="Supplicant" level="win:Error" keywords="Supplicant LwtDiagnostic ut:Authentication" template="EAP12Args"/>
+     <event value="28" symbol="EAP28" version="0" task="EAP" level="win:Error" keywords="EAP LwtDiagnostic ut:Authentication" template="EAP12Args"/>
+     <event value="29" symbol="Profile" version="0" task="Profile" level="win:Informational" keywords="Profile ut:Authentication" template="ProfileArgs"/>
+     <event value="30" symbol="Profile30" version="0" task="Profile" level="win:Informational" keywords="Profile ut:Authentication" template="ProfileArgs"/>
+     <event value="31" symbol="Profile31" version="0" task="Profile" level="win:Informational" keywords="Profile ut:Authentication" template="Profile31Args"/>
+     <event value="32" symbol="Profile32" version="0" task="Profile" level="win:Informational" keywords="Profile ut:Authentication" template="Profile32Args"/>
+     <event value="33" symbol="Profile33" version="0" task="Profile" level="win:Informational" keywords="Profile ut:Authentication" template="Profile33Args"/>
+     <event value="34" symbol="MSM34" version="0" task="MSM" level="win:Informational" keywords="OneXUI LwtDiagnostic ut:Authentication" template="MSMArgs"/>
+     <event value="35" symbol="Supplicant35" version="0" task="Supplicant" level="win:Informational" keywords="Supplicant ut:Authentication" template="Supplicant35Args"/>
+     <event value="36" symbol="Port" version="0" task="Port" level="win:Informational" keywords="Supplicant ut:Authentication" template="PortArgs"/>
+     <event value="37" symbol="Supplicant37" version="0" task="Supplicant" level="win:Informational" keywords="Supplicant ut:Authentication" template="APIArgs"/>
+     <event value="38" symbol="MSM38" version="0" task="MSM" level="win:Informational" keywords="OneXUI ut:Authentication" template="MSMArgs"/>
+     <event value="39" symbol="MSM39" version="0" task="MSM" level="win:Informational" keywords="Profile ut:Authentication" template="APIArgs"/>
+     <event value="40" symbol="EAP40" version="0" task="EAP" level="win:Informational" keywords="EAP EAPPacket LwtDiagnostic ut:Authentication" template="EAP40Args"/>
+     <event value="41" symbol="EAP41" version="0" task="EAP" level="win:Informational" keywords="EAP EAPPacket LwtDiagnostic ut:Authentication" template="APIArgs"/>
+     <event value="42" symbol="EAP42" version="0" task="EAP" level="win:Informational" keywords="EAP EAPPacket ut:Authentication" template="APIArgs"/>
+     <event value="43" symbol="MSM43" version="0" task="MSM" level="win:Warning" keywords="Supplicant LwtDiagnostic ut:Authentication" template="MSM43Args"/>
+     <event value="44" symbol="SupplicantStart" version="0" task="Supplicant" opcode="win:Start" level="win:Informational" keywords="Supplicant ut:Authentication" template="APIArgs"/>
+     <event value="45" symbol="SupplicantStop" version="0" task="Supplicant" opcode="win:Stop" level="win:Informational" keywords="Supplicant ut:Authentication" template="APIArgs"/>
+     <event value="46" symbol="Supplicant46" version="0" task="Supplicant" level="win:Informational" keywords="Supplicant ut:Authentication" template="Supplicant46Args"/>
+     <event value="47" symbol="Supplicant47" version="0" task="Supplicant" level="win:Informational" keywords="Supplicant ut:Authentication" template="Supplicant47Args"/>
+     <event value="48" symbol="Supplicant48" version="0" task="Supplicant" level="win:Informational" keywords="Supplicant ut:Authentication" template="APIArgs"/>
+     <event value="49" symbol="Supplicant49" version="0" task="Supplicant" level="win:Informational" keywords="Supplicant ut:Authentication" template="Supplicant49Args"/>
+     <event value="50" symbol="Supplicant50" version="0" task="Supplicant" level="win:Informational" keywords="Supplicant ut:Authentication" template="APIArgs"/>
+     <event value="51" symbol="Supplicant51" version="0" task="Supplicant" level="win:Informational" keywords="Supplicant ut:Authentication" template="APIArgs"/>
+     <event value="52" symbol="Supplicant52" version="0" task="Supplicant" level="win:Informational" keywords="Supplicant ut:Authentication" template="APIArgs"/>
+     <event value="53" symbol="Supplicant53" version="0" task="Supplicant" level="win:Informational" keywords="Supplicant LwtDiagnostic ut:Authentication" template="APIArgs"/>
+     <event value="54" symbol="Supplicant54" version="0" task="Supplicant" level="win:Informational" keywords="Supplicant LwtDiagnostic ut:Authentication" template="APIArgs"/>
+     <event value="55" symbol="User55" version="0" task="User" level="win:Warning" keywords="EAP OneXUI LwtDiagnostic ut:Authentication" template="User55Args"/>
+     <event value="56" symbol="User56" version="0" task="User" level="win:Warning" keywords="OneXUI LwtDiagnostic ut:Authentication" template="User56Args"/>
+     <event value="57" symbol="User57" version="0" task="User" level="win:Informational" keywords="User LwtDiagnostic ut:Authentication" template="User57Args"/>
+     <event value="58" symbol="User58" version="0" task="User" level="win:Informational" keywords="User LwtDiagnostic ut:Authentication" template="APIArgs"/>
+     <event value="59" symbol="EAP59" version="0" task="EAP" level="win:Error" keywords="EAP OneXUI LwtDiagnostic ut:Authentication" template="EAP6Args"/>
+     <event value="60" symbol="EAP60" version="0" task="EAP" level="win:Error" keywords="EAP OneXUI ut:Authentication" template="EAP12Args"/>
+     <event value="61" symbol="EAP61" version="0" task="EAP" level="win:Error" keywords="EAP OneXUI ut:Authentication" template="EAP12Args"/>
+     <event value="62" symbol="EAP62" version="0" task="EAP" level="win:Error" keywords="EAP OneXUI ut:Authentication" template="EAP12Args"/>
+     <event value="63" symbol="User63" version="0" task="User" level="win:Informational" keywords="OneXUI ut:Authentication" template="User63Args"/>
+     <event value="64" symbol="EAP64" version="0" task="EAP" level="win:Informational" keywords="EAP EAPPacket LwtDiagnostic ut:Authentication" template="EAP64Args"/>
+     <event value="65" symbol="EAP65" version="0" task="EAP" level="win:Informational" keywords="EAP EAPPacket LwtDiagnostic ut:Authentication" template="EAP65Args"/>
+     <event value="66" symbol="EAP66" version="0" task="EAP" level="win:Informational" keywords="EAP ut:Authentication" template="EAP66Args"/>
+     <event value="68" symbol="EAP68" version="0" task="EAP" level="win:Informational" keywords="EAP ut:Authentication" template="EAP66Args"/>
+     <event value="70" symbol="EAP70" version="0" task="EAP" level="win:Informational" keywords="EAP ut:Authentication" template="APIArgs"/>
+     <event value="60001" symbol="task_0" version="0" task="task_0" level="win:Error" template="EAP12Args"/>
+     <event value="60002" symbol="task_060002" version="0" task="task_0" level="win:Warning" template="Supplicant25Args"/>
+     <event value="60003" symbol="task_060003" version="0" task="task_0" level="win:Informational" keywords="keyword_200000000000" template="task_060003Args"/>
+     <event value="60004" symbol="task_060004" version="0" task="task_0" level="win:Informational" template="task_060004Args"/>
+     <event value="60101" symbol="task_060101" version="0" task="task_0" level="win:Informational" template="task_060101Args"/>
+     <event value="60102" symbol="task_060102" version="0" task="task_0" level="win:Informational" template="task_060102Args"/>
+     <event value="60103" symbol="task_060103" version="0" task="task_0" level="win:Informational" template="task_060103Args"/>
+    </events>
+    <templates>
+     <template tid="APIArgs">
+      <data name="PortId" inType="win:UInt32"/>
+     </template>
+     <template tid="EAPArgs">
+      <data name="PortId" inType="win:UInt32"/>
+      <data name="WinError" inType="win:UInt32"/>
+      <data name="ReasonCode" inType="win:UInt32"/>
+      <data name="EAPMethodType" inType="win:UInt8"/>
+      <data name="RootCauseString" inType="win:UnicodeString"/>
+     </template>
+     <template tid="EAP6Args">
+      <data name="PortId" inType="win:UInt32"/>
+      <data name="WinError" inType="win:UInt32"/>
+      <data name="ReasonCode" inType="win:UInt32"/>
+     </template>
+     <template tid="EAP7Args">
+      <data name="PortId" inType="win:UInt32"/>
+      <data name="UserDataSize" inType="win:UInt32"/>
+     </template>
+     <template tid="EAP10Args">
+      <data name="PortId" inType="win:UInt32"/>
+      <data name="Response" inType="win:UInt32" map="PeerResponseActionMap"/>
+     </template>
+     <template tid="EAP12Args">
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Context" inType="win:UInt32"/>
+     </template>
+     <template tid="MSMArgs">
+      <data name="PortId" inType="win:UInt32"/>
+      <data name="UIRequestCode" inType="win:UInt32"/>
+     </template>
+     <template tid="Supplicant25Args">
+      <data name="WarningCode" inType="win:UInt32"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Context" inType="win:UInt32"/>
+     </template>
+     <template tid="ProfileArgs">
+      <data name="EAPMethodType" inType="win:UInt8"/>
+     </template>
+     <template tid="Profile31Args">
+      <data name="ProfilesCount" inType="win:UInt32"/>
+     </template>
+     <template tid="Profile32Args">
+      <data name="EAPMethodType" inType="win:UInt8"/>
+      <data name="AuthMode" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Profile33Args">
+      <data name="EAPMethodType" inType="win:UInt8"/>
+      <data name="MediaType" inType="win:UInt32"/>
+     </template>
+     <template tid="Supplicant35Args">
+      <data name="ChangeType" inType="win:UInt32"/>
+     </template>
+     <template tid="PortArgs">
+      <data name="PortId" inType="win:UInt32"/>
+      <data name="FriendlyName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="EAP40Args">
+      <data name="PortId" inType="win:UInt32"/>
+      <data name="PacketLength" inType="win:UInt16"/>
+      <data name="PacketType" inType="win:UInt32" map="EAPPacketTypeMap"/>
+      <data name="Identifier" inType="win:UInt8"/>
+      <data name="EapMethodType" inType="win:UInt32"/>
+     </template>
+     <template tid="MSM43Args">
+      <data name="PortId" inType="win:UInt32"/>
+      <data name="Reason" inType="win:UInt32"/>
+     </template>
+     <template tid="Supplicant46Args">
+      <data name="PortId" inType="win:UInt32"/>
+      <data name="TimeTaken" inType="win:UInt32"/>
+     </template>
+     <template tid="Supplicant47Args">
+      <data name="PortId" inType="win:UInt32"/>
+      <data name="AuthIdentity" inType="win:UnicodeString"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="Username" inType="win:UnicodeString"/>
+      <data name="Domain" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Supplicant49Args">
+      <data name="PortId" inType="win:UInt32"/>
+      <data name="Reason" inType="win:UInt32" map="StartAuthReasonMap"/>
+     </template>
+     <template tid="User55Args">
+      <data name="PortId" inType="win:UInt32"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="UIRequestSessionId" inType="win:UInt32"/>
+     </template>
+     <template tid="User56Args">
+      <data name="PortId" inType="win:UInt32"/>
+      <data name="Size" inType="win:UInt32"/>
+      <data name="SessionId" inType="win:UInt32"/>
+     </template>
+     <template tid="User57Args">
+      <data name="PortId" inType="win:UInt32"/>
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="SessionId" inType="win:UInt32"/>
+     </template>
+     <template tid="User63Args">
+      <data name="Result" inType="win:UInt32" map="PassDlgResultMap"/>
+     </template>
+     <template tid="EAP64Args">
+      <data name="PortId" inType="win:UInt32"/>
+      <data name="PacketLength" inType="win:UInt16"/>
+      <data name="PacketType" inType="win:UInt32"/>
+      <data name="Identifier" inType="win:UInt8"/>
+      <data name="EapMethodType" inType="win:UInt32"/>
+     </template>
+     <template tid="EAP65Args">
+      <data name="PortId" inType="win:UInt32"/>
+      <data name="Identity" inType="win:AnsiString"/>
+     </template>
+     <template tid="EAP66Args">
+      <data name="PortId" inType="win:UInt32"/>
+      <data name="ExplicitCredentials" inType="win:Boolean"/>
+     </template>
+     <template tid="task_060003Args">
+      <data name="NextState" inType="win:UInt8"/>
+      <data name="Context" inType="win:UInt32"/>
+     </template>
+     <template tid="task_060004Args">
+      <data name="Context" inType="win:UInt32"/>
+      <data name="UpdateReasonCode" inType="win:UInt32"/>
+     </template>
+     <template tid="task_060101Args">
+      <data name="SourceAddress" inType="win:UInt32"/>
+      <data name="SourcePort" inType="win:UInt32"/>
+      <data name="DestinationAddress" inType="win:UInt32"/>
+      <data name="DestinationPort" inType="win:UInt32"/>
+      <data name="Protocol" inType="win:UInt32"/>
+      <data name="ReferenceContext" inType="win:UInt32"/>
+     </template>
+     <template tid="task_060102Args">
+      <data name="SourceAddress" inType="win:Binary"/>
+      <data name="SourcePort" inType="win:UInt32"/>
+      <data name="DestinationAddress" inType="win:Binary"/>
+      <data name="DestinationPort" inType="win:UInt32"/>
+      <data name="Protocol" inType="win:UInt32"/>
+      <data name="ReferenceContext" inType="win:UInt32"/>
+     </template>
+     <template tid="task_060103Args">
+      <data name="IfGuid" inType="win:GUID"/>
+      <data name="IfIndex" inType="win:UInt32"/>
+      <data name="IfLuid" inType="win:UInt64"/>
+      <data name="ReferenceContext" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_API" value="API"/>
+    <string id="keyword_EAP" value="EAP"/>
+    <string id="keyword_EAPPacket" value="EAPPacket"/>
+    <string id="keyword_OneXUI" value="OneXUI"/>
+    <string id="keyword_Profile" value="Profile"/>
+    <string id="keyword_Semantic" value="Semantic"/>
+    <string id="keyword_Supplicant" value="Supplicant"/>
+    <string id="keyword_User" value="User"/>
+    <string id="keyword_LwtDiagnostic" value="LwtDiagnostic"/>
+    <string id="keyword_ut:SendPath" value="ut:SendPath"/>
+    <string id="keyword_ut:ReceivePath" value="ut:ReceivePath"/>
+    <string id="keyword_ut:L3ConnectPath" value="ut:L3ConnectPath"/>
+    <string id="keyword_ut:L2ConnectPath" value="ut:L2ConnectPath"/>
+    <string id="keyword_ut:ClosePath" value="ut:ClosePath"/>
+    <string id="keyword_ut:Authentication" value="ut:Authentication"/>
+    <string id="keyword_ut:Configuration" value="ut:Configuration"/>
+    <string id="keyword_ut:Global" value="ut:Global"/>
+    <string id="keyword_keyword_200000000000" value="keyword_200000000000"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_API" value="API"/>
+    <string id="task_EAP" value="EAP"/>
+    <string id="task_MSM" value="MSM"/>
+    <string id="task_User" value="User"/>
+    <string id="task_Supplicant" value="Supplicant"/>
+    <string id="task_Profile" value="Profile"/>
+    <string id="task_Port" value="Port"/>
+    <string id="map_PeerResponseActionMapDiscard" value="Discard"/>
+    <string id="map_PeerResponseActionMapSend" value="Send"/>
+    <string id="map_PeerResponseActionMapResult" value="Result"/>
+    <string id="map_PeerResponseActionMapInvokeUI" value="InvokeUI"/>
+    <string id="map_PeerResponseActionMapRespond" value="Respond"/>
+    <string id="map_PeerResponseActionMapStartAuthentication" value="StartAuthentication"/>
+    <string id="map_PeerResponseActionMapNone" value="None"/>
+    <string id="map_EAPPacketTypeMapNone" value="None"/>
+    <string id="map_EAPPacketTypeMapNotification" value="Notification"/>
+    <string id="map_EAPPacketTypeMapRequestId" value="RequestId"/>
+    <string id="map_EAPPacketTypeMapSuccess" value="Success"/>
+    <string id="map_EAPPacketTypeMapFail" value="Fail"/>
+    <string id="map_EAPPacketTypeMapRequestOther" value="RequestOther"/>
+    <string id="map_EAPPacketTypeMapResponseId" value="ResponseId"/>
+    <string id="map_EAPPacketTypeMapResponseNak" value="ResponseNak"/>
+    <string id="map_EAPPacketTypeMapResponseOther" value="ResponseOther"/>
+    <string id="map_EAPPacketTypeMapPacketInvalid" value="PacketInvalid"/>
+    <string id="map_StartAuthReasonMapUser change" value="User change"/>
+    <string id="map_StartAuthReasonMapMSM initiated" value="MSM initiated"/>
+    <string id="map_StartAuthReasonMapConfig change" value="Config change"/>
+    <string id="map_PassDlgResultMapSuccess" value="Success"/>
+    <string id="map_PassDlgResultMapFailure" value="Failure"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

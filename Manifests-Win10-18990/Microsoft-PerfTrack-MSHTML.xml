@@ -1,0 +1,69 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-PerfTrack-MSHTML" guid="{ffdb9886-80f3-4540-aa8b-b85192217ddf}" resourceFileName="Microsoft-PerfTrack-MSHTML" messageFileName="Microsoft-PerfTrack-MSHTML" symbol="MicrosoftPerfTrackMSHTML" source="Xml" >
+    <keywords>
+     <keyword name="defunct" message="$(string.keyword_defunct)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="Navigation" message="$(string.task_Navigation)" value="101"/>
+     <task name="Scroll" message="$(string.task_Scroll)" value="103"/>
+     <task name="Redirect" message="$(string.task_Redirect)" value="105"/>
+     <task name="XSSFilter_RuleCheck" message="$(string.task_XSSFilter_RuleCheck)" value="107"/>
+     <task name="XSSFilter_Sanitize" message="$(string.task_XSSFilter_Sanitize)" value="109"/>
+     <task name="Mshtml_TouchSelection_Invocation" message="$(string.task_Mshtml_TouchSelection_Invocation)" value="120"/>
+     <task name="Mshtml_TouchSelection_Manipulation" message="$(string.task_Mshtml_TouchSelection_Manipulation)" value="122"/>
+     <task name="Mshtml_TouchSelection_Dismissal" message="$(string.task_Mshtml_TouchSelection_Dismissal)" value="124"/>
+    </tasks>
+    <events>
+     <event value="101" symbol="NavigationStart" version="0" task="Navigation" opcode="win:Start" level="win:Informational" template="NavigationStartArgs"/>
+     <event value="102" symbol="NavigationStop" version="0" task="Navigation" opcode="win:Stop" level="win:Informational" template="NavigationStartArgs"/>
+     <event value="103" symbol="ScrollStart" version="0" task="Scroll" opcode="win:Start" level="win:Informational" keywords="defunct" template="ScrollStartArgs"/>
+     <event value="104" symbol="ScrollStop" version="0" task="Scroll" opcode="win:Stop" level="win:Informational" keywords="defunct" template="ScrollStartArgs"/>
+     <event value="105" symbol="RedirectStart" version="0" task="Redirect" opcode="win:Start" level="win:Informational" template="NavigationStartArgs"/>
+     <event value="107" symbol="XSSFilter_RuleCheckStart" version="0" task="XSSFilter_RuleCheck" opcode="win:Start" level="win:Informational" template="XSSFilter_RuleCheckStartArgs"/>
+     <event value="108" symbol="XSSFilter_RuleCheckStop" version="0" task="XSSFilter_RuleCheck" opcode="win:Stop" level="win:Informational" template="XSSFilter_RuleCheckStartArgs"/>
+     <event value="109" symbol="XSSFilter_SanitizeStart" version="0" task="XSSFilter_Sanitize" opcode="win:Start" level="win:Informational" template="XSSFilter_SanitizeStartArgs"/>
+     <event value="110" symbol="XSSFilter_SanitizeStop" version="0" task="XSSFilter_Sanitize" opcode="win:Stop" level="win:Informational" template="XSSFilter_SanitizeStartArgs"/>
+     <event value="120" symbol="Mshtml_TouchSelection_InvocationStart" version="0" task="Mshtml_TouchSelection_Invocation" opcode="win:Start" level="win:Informational"/>
+     <event value="121" symbol="Mshtml_TouchSelection_InvocationStop" version="0" task="Mshtml_TouchSelection_Invocation" opcode="win:Stop" level="win:Informational"/>
+     <event value="122" symbol="Mshtml_TouchSelection_ManipulationStart" version="0" task="Mshtml_TouchSelection_Manipulation" opcode="win:Start" level="win:Informational"/>
+     <event value="123" symbol="Mshtml_TouchSelection_ManipulationStop" version="0" task="Mshtml_TouchSelection_Manipulation" opcode="win:Stop" level="win:Informational"/>
+     <event value="124" symbol="Mshtml_TouchSelection_DismissalStart" version="0" task="Mshtml_TouchSelection_Dismissal" opcode="win:Start" level="win:Informational"/>
+     <event value="125" symbol="Mshtml_TouchSelection_DismissalStop" version="0" task="Mshtml_TouchSelection_Dismissal" opcode="win:Stop" level="win:Informational"/>
+    </events>
+    <templates>
+     <template tid="NavigationStartArgs">
+      <data name="ObjectMSHTML" inType="win:UInt64"/>
+      <data name="Counter" inType="win:UInt32"/>
+     </template>
+     <template tid="ScrollStartArgs">
+      <data name="ObjectMSHTML" inType="win:UInt64"/>
+     </template>
+     <template tid="XSSFilter_RuleCheckStartArgs">
+      <data name="ObjectXSSFilter" inType="win:UInt64"/>
+      <data name="Type" inType="win:UnicodeString"/>
+     </template>
+     <template tid="XSSFilter_SanitizeStartArgs">
+      <data name="ObjectXSSFilter" inType="win:UInt64"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_defunct" value="defunct"/>
+    <string id="task_Navigation" value="Navigation"/>
+    <string id="task_Scroll" value="Scroll"/>
+    <string id="task_Redirect" value="Redirect"/>
+    <string id="task_XSSFilter_RuleCheck" value="XSSFilter_RuleCheck"/>
+    <string id="task_XSSFilter_Sanitize" value="XSSFilter_Sanitize"/>
+    <string id="task_Mshtml_TouchSelection_Invocation" value="Mshtml_TouchSelection_Invocation"/>
+    <string id="task_Mshtml_TouchSelection_Manipulation" value="Mshtml_TouchSelection_Manipulation"/>
+    <string id="task_Mshtml_TouchSelection_Dismissal" value="Mshtml_TouchSelection_Dismissal"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

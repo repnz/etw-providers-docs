@@ -1,0 +1,54 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-DCLocator" guid="{cfaa5446-c6c4-4f5c-866f-31c9b55b962d}" resourceFileName="Microsoft-Windows-DCLocator" messageFileName="Microsoft-Windows-DCLocator" symbol="MicrosoftWindowsDCLocator" source="Xml" >
+    <keywords>
+     <keyword name="misc" message="$(string.keyword_misc)" mask="0x2"/>
+     <keyword name="mailslot" message="$(string.keyword_mailslot)" mask="0x10"/>
+     <keyword name="site" message="$(string.keyword_site)" mask="0x20"/>
+     <keyword name="critical" message="$(string.keyword_critical)" mask="0x100"/>
+     <keyword name="session_setup" message="$(string.keyword_session_setup)" mask="0x200"/>
+     <keyword name="dns" message="$(string.keyword_dns)" mask="0x4000"/>
+     <keyword name="dns_more" message="$(string.keyword_dns_more)" mask="0x20000"/>
+     <keyword name="mailslot_text" message="$(string.keyword_mailslot_text)" mask="0x2000000"/>
+     <keyword name="site_more" message="$(string.keyword_site_more)" mask="0x8000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="task_0" version="0" task="task_0" level="win:Always" keywords="misc" template="task_0Args"/>
+     <event value="2" symbol="task_02" version="0" task="task_0" level="win:Always" keywords="mailslot" template="task_0Args"/>
+     <event value="3" symbol="task_03" version="0" task="task_0" level="win:Always" keywords="site" template="task_0Args"/>
+     <event value="4" symbol="task_04" version="0" task="task_0" level="win:Always" keywords="critical" template="task_0Args"/>
+     <event value="5" symbol="task_05" version="0" task="task_0" level="win:Always" keywords="session_setup" template="task_0Args"/>
+     <event value="6" symbol="task_06" version="0" task="task_0" level="win:Always" keywords="dns" template="task_0Args"/>
+     <event value="7" symbol="task_07" version="0" task="task_0" level="win:Always" keywords="dns_more" template="task_0Args"/>
+     <event value="8" symbol="task_08" version="0" task="task_0" level="win:Always" keywords="mailslot_text" template="task_0Args"/>
+     <event value="9" symbol="task_09" version="0" task="task_0" level="win:Always" keywords="site_more" template="task_0Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="Message" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_misc" value="misc"/>
+    <string id="keyword_mailslot" value="mailslot"/>
+    <string id="keyword_site" value="site"/>
+    <string id="keyword_critical" value="critical"/>
+    <string id="keyword_session_setup" value="session_setup"/>
+    <string id="keyword_dns" value="dns"/>
+    <string id="keyword_dns_more" value="dns_more"/>
+    <string id="keyword_mailslot_text" value="mailslot_text"/>
+    <string id="keyword_site_more" value="site_more"/>
+    <string id="task_task_0" value="task_0"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

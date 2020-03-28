@@ -1,0 +1,483 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Kernel-Acpi" guid="{c514638f-7723-485b-bcfc-96565d735d4a}" resourceFileName="Microsoft-Windows-Kernel-Acpi" messageFileName="Microsoft-Windows-Kernel-Acpi" symbol="MicrosoftWindowsKernelAcpi" source="Xml" >
+    <keywords>
+     <keyword name="acpi:Diagnostic" message="$(string.keyword_acpi:Diagnostic)" mask="0x1"/>
+     <keyword name="acpi:Thermal" message="$(string.keyword_acpi:Thermal)" mask="0x2"/>
+     <keyword name="keyword_200000000000" message="$(string.keyword_keyword_200000000000)" mask="0x200000000000"/>
+    </keywords>
+    <tasks>
+     <task name="ResourceTranslation" message="$(string.task_ResourceTranslation)" value="100"/>
+     <task name="GpeEventHandling" message="$(string.task_GpeEventHandling)" value="101"/>
+     <task name="TemperatureNotification" message="$(string.task_TemperatureNotification)" value="102"/>
+     <task name="TripPointNotification" message="$(string.task_TripPointNotification)" value="103"/>
+     <task name="ActiveCoolingDevicePower" message="$(string.task_ActiveCoolingDevicePower)" value="104"/>
+     <task name="AmlMethodTrace" message="$(string.task_AmlMethodTrace)" value="105"/>
+     <task name="DeviceActiveCooling" message="$(string.task_DeviceActiveCooling)" value="106"/>
+     <task name="DevicePassiveCooling" message="$(string.task_DevicePassiveCooling)" value="107"/>
+     <task name="DeviceCoolingRundown" message="$(string.task_DeviceCoolingRundown)" value="108"/>
+     <task name="TemperatureChange" message="$(string.task_TemperatureChange)" value="109"/>
+     <task name="ThermalZoneRundown" message="$(string.task_ThermalZoneRundown)" value="110"/>
+     <task name="FanRundown" message="$(string.task_FanRundown)" value="111"/>
+     <task name="FanPowerStateChange" message="$(string.task_FanPowerStateChange)" value="112"/>
+     <task name="FanStatusChange" message="$(string.task_FanStatusChange)" value="113"/>
+     <task name="ActiveCoolingConstraint" message="$(string.task_ActiveCoolingConstraint)" value="114"/>
+     <task name="ActiveCoolingConstraintRundown" message="$(string.task_ActiveCoolingConstraintRundown)" value="115"/>
+     <task name="PassiveCoolingConstraint" message="$(string.task_PassiveCoolingConstraint)" value="116"/>
+     <task name="PassiveCoolingConstraintRundown" message="$(string.task_PassiveCoolingConstraintRundown)" value="117"/>
+     <task name="DeviceReset" message="$(string.task_DeviceReset)" value="118"/>
+     <task name="AcpiOverride" message="$(string.task_AcpiOverride)" value="119"/>
+     <task name="AMLIError" message="$(string.task_AMLIError)" value="120"/>
+     <task name="FrequentAmlMethod" message="$(string.task_FrequentAmlMethod)" value="121"/>
+    </tasks>
+    <maps>
+     <valueMap name="MapActiveCoolingDevicePowerState">
+      <map value="0x0" message="$(string.map_MapActiveCoolingDevicePowerStateoff)"/>
+      <map value="0x1" message="$(string.map_MapActiveCoolingDevicePowerStateon)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="ResourceTranslation" version="0" task="ResourceTranslation" level="win:Informational" keywords="acpi:Diagnostic" template="ResourceTranslationArgs"/>
+     <event value="2" symbol="GpeEventHandling" version="0" task="GpeEventHandling" level="win:Informational" keywords="acpi:Diagnostic" template="GpeEventHandlingArgs"/>
+     <event value="3" symbol="TemperatureNotification" version="0" task="TemperatureNotification" level="win:Informational" keywords="acpi:Thermal" template="TemperatureNotificationArgs"/>
+     <event value="4" symbol="TripPointNotification" version="0" task="TripPointNotification" level="win:Informational" keywords="acpi:Thermal" template="TemperatureNotificationArgs"/>
+     <event value="5" symbol="ActiveCoolingDevicePower" version="0" task="ActiveCoolingDevicePower" level="win:Informational" keywords="acpi:Thermal" template="ActiveCoolingDevicePowerArgs"/>
+     <event value="6" symbol="ActiveCoolingDevicePower6" version="0" task="ActiveCoolingDevicePower" level="win:Informational" keywords="acpi:Thermal" template="ActiveCoolingDevicePower6Args"/>
+     <event value="7" symbol="AmlMethodTrace" version="0" task="AmlMethodTrace" level="win:Informational" keywords="acpi:Diagnostic keyword_200000000000" template="AmlMethodTraceArgs"/>
+     <event value="8" symbol="DeviceActiveCooling" version="0" task="DeviceActiveCooling" level="win:Informational" keywords="acpi:Thermal" template="DeviceActiveCoolingArgs"/>
+     <event value="9" symbol="DevicePassiveCooling" version="0" task="DevicePassiveCooling" level="win:Informational" keywords="acpi:Thermal" template="DevicePassiveCoolingArgs"/>
+     <event value="10" symbol="DeviceCoolingRundown" version="0" task="DeviceCoolingRundown" level="win:Informational" keywords="acpi:Thermal" template="DeviceCoolingRundownArgs"/>
+     <event value="11" symbol="TemperatureChange" version="0" task="TemperatureChange" level="win:Informational" keywords="acpi:Thermal" template="TemperatureChangeArgs"/>
+     <event value="12" symbol="ThermalZoneRundown" version="0" task="ThermalZoneRundown" level="win:Informational" keywords="acpi:Thermal" template="ThermalZoneRundownArgs"/>
+     <event value="12" symbol="ThermalZoneRundown_V1" version="1" task="ThermalZoneRundown" level="win:Informational" keywords="acpi:Thermal" template="ThermalZoneRundownArgs_V1"/>
+     <event value="12" symbol="ThermalZoneRundown_V2" version="2" task="ThermalZoneRundown" level="win:Informational" keywords="acpi:Thermal" template="ThermalZoneRundownArgs_V2"/>
+     <event value="12" symbol="ThermalZoneRundown_V3" version="3" task="ThermalZoneRundown" level="win:Informational" keywords="acpi:Thermal" template="ThermalZoneRundownArgs_V3"/>
+     <event value="12" symbol="ThermalZoneRundown_V4" version="4" task="ThermalZoneRundown" level="win:Informational" keywords="acpi:Thermal" template="ThermalZoneRundownArgs_V4"/>
+     <event value="13" symbol="FanRundown" version="0" task="FanRundown" level="win:Informational" keywords="acpi:Thermal" template="FanRundownArgs"/>
+     <event value="14" symbol="FanPowerStateChange" version="0" task="FanPowerStateChange" level="win:Informational" keywords="acpi:Thermal" template="FanPowerStateChangeArgs"/>
+     <event value="15" symbol="FanStatusChange" version="0" task="FanStatusChange" level="win:Informational" keywords="acpi:Thermal" template="FanStatusChangeArgs"/>
+     <event value="16" symbol="ActiveCoolingConstraint" version="0" task="ActiveCoolingConstraint" level="win:Informational" keywords="acpi:Thermal" template="ActiveCoolingConstraintArgs"/>
+     <event value="17" symbol="ActiveCoolingConstraintRundown" version="0" task="ActiveCoolingConstraintRundown" level="win:Informational" keywords="acpi:Thermal" template="ActiveCoolingConstraintArgs"/>
+     <event value="18" symbol="PassiveCoolingConstraint" version="0" task="PassiveCoolingConstraint" level="win:Informational" keywords="acpi:Thermal" template="PassiveCoolingConstraintArgs"/>
+     <event value="19" symbol="PassiveCoolingConstraintRundown" version="0" task="PassiveCoolingConstraintRundown" level="win:Informational" keywords="acpi:Thermal" template="PassiveCoolingConstraintArgs"/>
+     <event value="20" symbol="DeviceReset" version="0" task="DeviceReset" level="win:Informational" keywords="acpi:Diagnostic keyword_200000000000" template="DeviceResetArgs"/>
+     <event value="21" symbol="AcpiOverride" version="0" task="AcpiOverride" level="win:Informational" keywords="acpi:Diagnostic keyword_200000000000" template="AcpiOverrideArgs"/>
+     <event value="22" symbol="AMLIError" version="0" task="AMLIError" level="win:Error" keywords="acpi:Diagnostic" template="AMLIErrorArgs"/>
+     <event value="23" symbol="FrequentAmlMethod" version="0" task="FrequentAmlMethod" level="win:Warning" keywords="acpi:Diagnostic" template="FrequentAmlMethodArgs"/>
+    </events>
+    <templates>
+     <template tid="ResourceTranslationArgs">
+      <data name="ResourceFlag" inType="win:UInt8"/>
+      <data name="GeneralFlag" inType="win:UInt8"/>
+      <data name="TypeSpecificFlag" inType="win:UInt8"/>
+      <data name="Granularity" inType="win:UInt64"/>
+      <data name="AddressMin" inType="win:UInt64"/>
+      <data name="AddressMax" inType="win:UInt64"/>
+      <data name="AddressTranslation" inType="win:UInt64"/>
+      <data name="AddressLength" inType="win:UInt64"/>
+     </template>
+     <template tid="GpeEventHandlingArgs">
+      <data name="GpeRegister" inType="win:UInt32"/>
+      <data name="UnexpectedEventMap" inType="win:UInt8"/>
+     </template>
+     <template tid="TemperatureNotificationArgs">
+      <data name="ThermalZoneDeviceInstanceLength" inType="win:UInt16"/>
+      <data name="ThermalZoneDeviceInstance" inType="win:UnicodeString" length="ThermalZoneDeviceInstanceLength"/>
+      <data name="_TMP" inType="win:UInt32"/>
+      <data name="_PSV" inType="win:UInt32"/>
+      <data name="_AC0" inType="win:UInt32"/>
+      <data name="_AC1" inType="win:UInt32"/>
+      <data name="_AC2" inType="win:UInt32"/>
+      <data name="_AC3" inType="win:UInt32"/>
+      <data name="_AC4" inType="win:UInt32"/>
+      <data name="_AC5" inType="win:UInt32"/>
+      <data name="_AC6" inType="win:UInt32"/>
+      <data name="_AC7" inType="win:UInt32"/>
+      <data name="_AC8" inType="win:UInt32"/>
+      <data name="_AC9" inType="win:UInt32"/>
+      <data name="_HOT" inType="win:UInt32"/>
+      <data name="_CRT" inType="win:UInt32"/>
+     </template>
+     <template tid="ActiveCoolingDevicePowerArgs">
+      <data name="ThermalZoneDeviceInstanceLength" inType="win:UInt16"/>
+      <data name="ThermalZoneDeviceInstance" inType="win:UnicodeString" length="ThermalZoneDeviceInstanceLength"/>
+      <data name="ActiveCoolingLevel" inType="win:UInt32"/>
+      <data name="ActiveCoolingDeviceIndex" inType="win:UInt32"/>
+      <data name="FanDeviceInstanceLength" inType="win:UInt16"/>
+      <data name="FanDeviceInstance" inType="win:UnicodeString" length="FanDeviceInstanceLength"/>
+      <data name="PowerStateLength" inType="win:UInt16"/>
+      <data name="PowerState" inType="win:UnicodeString" length="PowerStateLength"/>
+     </template>
+     <template tid="ActiveCoolingDevicePower6Args">
+      <data name="ThermalZoneDeviceInstanceLength" inType="win:UInt16"/>
+      <data name="ThermalZoneDeviceInstance" inType="win:UnicodeString" length="ThermalZoneDeviceInstanceLength"/>
+      <data name="ActiveCoolingLevel" inType="win:UInt32"/>
+      <data name="ActiveCoolingDeviceIndex" inType="win:UInt32"/>
+      <data name="FanDeviceInstanceLength" inType="win:UInt16"/>
+      <data name="FanDeviceInstance" inType="win:UnicodeString" length="FanDeviceInstanceLength"/>
+      <data name="PowerState" inType="win:UInt16" map="MapActiveCoolingDevicePowerState"/>
+     </template>
+     <template tid="AmlMethodTraceArgs">
+      <data name="AmlMethodNameLength" inType="win:UInt16"/>
+      <data name="AmlMethodName" inType="win:UnicodeString" length="AmlMethodNameLength"/>
+      <data name="AmlMethodState" inType="win:UInt16"/>
+      <data name="AmlElapsedTime" inType="win:UInt64"/>
+     </template>
+     <template tid="DeviceActiveCoolingArgs">
+      <data name="DeviceInstanceLength" inType="win:UInt16"/>
+      <data name="DeviceInstance" inType="win:UnicodeString" length="DeviceInstanceLength"/>
+      <data name="PowerState" inType="win:UInt16"/>
+     </template>
+     <template tid="DevicePassiveCoolingArgs">
+      <data name="DeviceInstanceLength" inType="win:UInt16"/>
+      <data name="DeviceInstance" inType="win:UnicodeString" length="DeviceInstanceLength"/>
+      <data name="Throttle" inType="win:UInt8"/>
+     </template>
+     <template tid="DeviceCoolingRundownArgs">
+      <data name="DeviceInstanceLength" inType="win:UInt16"/>
+      <data name="DeviceInstance" inType="win:UnicodeString" length="DeviceInstanceLength"/>
+      <data name="PowerState" inType="win:UInt16"/>
+      <data name="Throttle" inType="win:UInt8"/>
+     </template>
+     <template tid="TemperatureChangeArgs">
+      <data name="ThermalZoneDeviceInstanceLength" inType="win:UInt16"/>
+      <data name="ThermalZoneDeviceInstance" inType="win:UnicodeString" length="ThermalZoneDeviceInstanceLength"/>
+      <data name="Temperature" inType="win:UInt32"/>
+     </template>
+     <template tid="ThermalZoneRundownArgs">
+      <data name="ThermalZoneBiosNameLength" inType="win:UInt16"/>
+      <data name="ThermalZoneBiosName" inType="win:UnicodeString" length="ThermalZoneBiosNameLength"/>
+      <data name="_TMP" inType="win:UInt32"/>
+      <data name="_PSV" inType="win:UInt32"/>
+      <data name="_TC1" inType="win:UInt32"/>
+      <data name="_TC2" inType="win:UInt32"/>
+      <data name="_TSP" inType="win:UInt32"/>
+      <data name="_AC0" inType="win:UInt32"/>
+      <data name="_AC1" inType="win:UInt32"/>
+      <data name="_AC2" inType="win:UInt32"/>
+      <data name="_AC3" inType="win:UInt32"/>
+      <data name="_AC4" inType="win:UInt32"/>
+      <data name="_AC5" inType="win:UInt32"/>
+      <data name="_AC6" inType="win:UInt32"/>
+      <data name="_AC7" inType="win:UInt32"/>
+      <data name="_AC8" inType="win:UInt32"/>
+      <data name="_AC9" inType="win:UInt32"/>
+      <data name="_HOT" inType="win:UInt32"/>
+      <data name="_CRT" inType="win:UInt32"/>
+      <data name="_NTT" inType="win:UInt32"/>
+      <data name="_PSLCount" inType="win:UInt32"/>
+      <data name="_PSLEntries" inType="win:AnsiString" count="_PSLCount"/>
+      <data name="_TZDCount" inType="win:UInt32"/>
+      <data name="_TZDEntries" inType="win:AnsiString" count="_TZDCount"/>
+      <data name="_AL0Count" inType="win:UInt32"/>
+      <data name="_AL0Entries" inType="win:AnsiString" count="_AL0Count"/>
+      <data name="_AL1Count" inType="win:UInt32"/>
+      <data name="_AL1Entries" inType="win:AnsiString" count="_AL1Count"/>
+      <data name="_AL2Count" inType="win:UInt32"/>
+      <data name="_AL2Entries" inType="win:AnsiString" count="_AL2Count"/>
+      <data name="_AL3Count" inType="win:UInt32"/>
+      <data name="_AL3Entries" inType="win:AnsiString" count="_AL3Count"/>
+      <data name="_AL4Count" inType="win:UInt32"/>
+      <data name="_AL4Entries" inType="win:AnsiString" count="_AL4Count"/>
+      <data name="_AL5Count" inType="win:UInt32"/>
+      <data name="_AL5Entries" inType="win:AnsiString" count="_AL5Count"/>
+      <data name="_AL6Count" inType="win:UInt32"/>
+      <data name="_AL6Entries" inType="win:AnsiString" count="_AL6Count"/>
+      <data name="_AL7Count" inType="win:UInt32"/>
+      <data name="_AL7Entries" inType="win:AnsiString" count="_AL7Count"/>
+      <data name="_AL8Count" inType="win:UInt32"/>
+      <data name="_AL8Entries" inType="win:AnsiString" count="_AL8Count"/>
+      <data name="_AL9Count" inType="win:UInt32"/>
+      <data name="_AL9Entries" inType="win:AnsiString" count="_AL9Count"/>
+     </template>
+     <template tid="FanRundownArgs">
+      <data name="FanBiosNameLength" inType="win:UInt16"/>
+      <data name="FanBiosName" inType="win:UnicodeString" length="FanBiosNameLength"/>
+      <data name="FstSupported" inType="win:Boolean"/>
+      <data name="PowerState" inType="win:UInt16"/>
+      <data name="Control" inType="win:UInt32"/>
+     </template>
+     <template tid="FanPowerStateChangeArgs">
+      <data name="FanBiosNameLength" inType="win:UInt16"/>
+      <data name="FanBiosName" inType="win:UnicodeString" length="FanBiosNameLength"/>
+      <data name="PowerState" inType="win:UInt16"/>
+     </template>
+     <template tid="FanStatusChangeArgs">
+      <data name="FanBiosNameLength" inType="win:UInt16"/>
+      <data name="FanBiosName" inType="win:UnicodeString" length="FanBiosNameLength"/>
+      <data name="Control" inType="win:UInt32"/>
+     </template>
+     <template tid="ActiveCoolingConstraintArgs">
+      <data name="ThermalZoneDeviceInstanceLength" inType="win:UInt16"/>
+      <data name="ThermalZoneDeviceInstance" inType="win:UnicodeString" length="ThermalZoneDeviceInstanceLength"/>
+      <data name="DeviceInstanceLength" inType="win:UInt16"/>
+      <data name="DeviceInstance" inType="win:UnicodeString" length="DeviceInstanceLength"/>
+      <data name="PowerState" inType="win:UInt16"/>
+     </template>
+     <template tid="PassiveCoolingConstraintArgs">
+      <data name="ThermalZoneDeviceInstanceLength" inType="win:UInt16"/>
+      <data name="ThermalZoneDeviceInstance" inType="win:UnicodeString" length="ThermalZoneDeviceInstanceLength"/>
+      <data name="DeviceInstanceLength" inType="win:UInt16"/>
+      <data name="DeviceInstance" inType="win:UnicodeString" length="DeviceInstanceLength"/>
+      <data name="ThrottleLimit" inType="win:UInt8"/>
+     </template>
+     <template tid="DeviceResetArgs">
+      <data name="DeviceBiosNameLength" inType="win:UInt16"/>
+      <data name="DeviceBiosName" inType="win:UnicodeString" length="DeviceBiosNameLength"/>
+      <data name="DeviceResetType" inType="win:UInt16"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="AcpiOverrideArgs">
+      <data name="AcpiOverrideType" inType="win:UInt16"/>
+     </template>
+     <template tid="AMLIErrorArgs">
+      <data name="Scope" inType="win:UnicodeString"/>
+      <data name="Object" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="FrequentAmlMethodArgs">
+      <data name="AmlMethodNameLength" inType="win:UInt16"/>
+      <data name="AmlMethodName" inType="win:UnicodeString" length="AmlMethodNameLength"/>
+      <data name="Frequency" inType="win:UInt64"/>
+     </template>
+     <template tid="ThermalZoneRundownArgs_V1">
+      <data name="ThermalZoneBiosNameLength" inType="win:UInt16"/>
+      <data name="ThermalZoneBiosName" inType="win:UnicodeString" length="ThermalZoneBiosNameLength"/>
+      <data name="_TMP" inType="win:UInt32"/>
+      <data name="_PSV" inType="win:UInt32"/>
+      <data name="_TC1" inType="win:UInt32"/>
+      <data name="_TC2" inType="win:UInt32"/>
+      <data name="_TSP" inType="win:UInt32"/>
+      <data name="_AC0" inType="win:UInt32"/>
+      <data name="_AC1" inType="win:UInt32"/>
+      <data name="_AC2" inType="win:UInt32"/>
+      <data name="_AC3" inType="win:UInt32"/>
+      <data name="_AC4" inType="win:UInt32"/>
+      <data name="_AC5" inType="win:UInt32"/>
+      <data name="_AC6" inType="win:UInt32"/>
+      <data name="_AC7" inType="win:UInt32"/>
+      <data name="_AC8" inType="win:UInt32"/>
+      <data name="_AC9" inType="win:UInt32"/>
+      <data name="_HOT" inType="win:UInt32"/>
+      <data name="_CRT" inType="win:UInt32"/>
+      <data name="_NTT" inType="win:UInt32"/>
+      <data name="_PSLCount" inType="win:UInt32"/>
+      <data name="_PSLEntries" inType="win:AnsiString" count="_PSLCount"/>
+      <data name="_TZDCount" inType="win:UInt32"/>
+      <data name="_TZDEntries" inType="win:AnsiString" count="_TZDCount"/>
+      <data name="_AL0Count" inType="win:UInt32"/>
+      <data name="_AL0Entries" inType="win:AnsiString" count="_AL0Count"/>
+      <data name="_AL1Count" inType="win:UInt32"/>
+      <data name="_AL1Entries" inType="win:AnsiString" count="_AL1Count"/>
+      <data name="_AL2Count" inType="win:UInt32"/>
+      <data name="_AL2Entries" inType="win:AnsiString" count="_AL2Count"/>
+      <data name="_AL3Count" inType="win:UInt32"/>
+      <data name="_AL3Entries" inType="win:AnsiString" count="_AL3Count"/>
+      <data name="_AL4Count" inType="win:UInt32"/>
+      <data name="_AL4Entries" inType="win:AnsiString" count="_AL4Count"/>
+      <data name="_AL5Count" inType="win:UInt32"/>
+      <data name="_AL5Entries" inType="win:AnsiString" count="_AL5Count"/>
+      <data name="_AL6Count" inType="win:UInt32"/>
+      <data name="_AL6Entries" inType="win:AnsiString" count="_AL6Count"/>
+      <data name="_AL7Count" inType="win:UInt32"/>
+      <data name="_AL7Entries" inType="win:AnsiString" count="_AL7Count"/>
+      <data name="_AL8Count" inType="win:UInt32"/>
+      <data name="_AL8Entries" inType="win:AnsiString" count="_AL8Count"/>
+      <data name="_AL9Count" inType="win:UInt32"/>
+      <data name="_AL9Entries" inType="win:AnsiString" count="_AL9Count"/>
+      <data name="MinimumThrottle" inType="win:UInt32"/>
+     </template>
+     <template tid="ThermalZoneRundownArgs_V2">
+      <data name="ThermalZoneBiosNameLength" inType="win:UInt16"/>
+      <data name="ThermalZoneBiosName" inType="win:UnicodeString" length="ThermalZoneBiosNameLength"/>
+      <data name="_TMP" inType="win:UInt32"/>
+      <data name="_PSV" inType="win:UInt32"/>
+      <data name="_TC1" inType="win:UInt32"/>
+      <data name="_TC2" inType="win:UInt32"/>
+      <data name="_TSP" inType="win:UInt32"/>
+      <data name="_AC0" inType="win:UInt32"/>
+      <data name="_AC1" inType="win:UInt32"/>
+      <data name="_AC2" inType="win:UInt32"/>
+      <data name="_AC3" inType="win:UInt32"/>
+      <data name="_AC4" inType="win:UInt32"/>
+      <data name="_AC5" inType="win:UInt32"/>
+      <data name="_AC6" inType="win:UInt32"/>
+      <data name="_AC7" inType="win:UInt32"/>
+      <data name="_AC8" inType="win:UInt32"/>
+      <data name="_AC9" inType="win:UInt32"/>
+      <data name="_HOT" inType="win:UInt32"/>
+      <data name="_CRT" inType="win:UInt32"/>
+      <data name="_NTT" inType="win:UInt32"/>
+      <data name="_PSLCount" inType="win:UInt32"/>
+      <data name="_PSLEntries" inType="win:AnsiString" count="_PSLCount"/>
+      <data name="_TZDCount" inType="win:UInt32"/>
+      <data name="_TZDEntries" inType="win:AnsiString" count="_TZDCount"/>
+      <data name="_AL0Count" inType="win:UInt32"/>
+      <data name="_AL0Entries" inType="win:AnsiString" count="_AL0Count"/>
+      <data name="_AL1Count" inType="win:UInt32"/>
+      <data name="_AL1Entries" inType="win:AnsiString" count="_AL1Count"/>
+      <data name="_AL2Count" inType="win:UInt32"/>
+      <data name="_AL2Entries" inType="win:AnsiString" count="_AL2Count"/>
+      <data name="_AL3Count" inType="win:UInt32"/>
+      <data name="_AL3Entries" inType="win:AnsiString" count="_AL3Count"/>
+      <data name="_AL4Count" inType="win:UInt32"/>
+      <data name="_AL4Entries" inType="win:AnsiString" count="_AL4Count"/>
+      <data name="_AL5Count" inType="win:UInt32"/>
+      <data name="_AL5Entries" inType="win:AnsiString" count="_AL5Count"/>
+      <data name="_AL6Count" inType="win:UInt32"/>
+      <data name="_AL6Entries" inType="win:AnsiString" count="_AL6Count"/>
+      <data name="_AL7Count" inType="win:UInt32"/>
+      <data name="_AL7Entries" inType="win:AnsiString" count="_AL7Count"/>
+      <data name="_AL8Count" inType="win:UInt32"/>
+      <data name="_AL8Entries" inType="win:AnsiString" count="_AL8Count"/>
+      <data name="_AL9Count" inType="win:UInt32"/>
+      <data name="_AL9Entries" inType="win:AnsiString" count="_AL9Count"/>
+      <data name="MinimumThrottle" inType="win:UInt32"/>
+      <data name="_CR3" inType="win:UInt32"/>
+      <data name="_TFP" inType="win:UInt32"/>
+      <data name="OverThrottleThreshold" inType="win:UInt32"/>
+     </template>
+     <template tid="ThermalZoneRundownArgs_V3">
+      <data name="ThermalZoneBiosNameLength" inType="win:UInt16"/>
+      <data name="ThermalZoneBiosName" inType="win:UnicodeString" length="ThermalZoneBiosNameLength"/>
+      <data name="_TMP" inType="win:UInt32"/>
+      <data name="_PSV" inType="win:UInt32"/>
+      <data name="_TC1" inType="win:UInt32"/>
+      <data name="_TC2" inType="win:UInt32"/>
+      <data name="_TSP" inType="win:UInt32"/>
+      <data name="_AC0" inType="win:UInt32"/>
+      <data name="_AC1" inType="win:UInt32"/>
+      <data name="_AC2" inType="win:UInt32"/>
+      <data name="_AC3" inType="win:UInt32"/>
+      <data name="_AC4" inType="win:UInt32"/>
+      <data name="_AC5" inType="win:UInt32"/>
+      <data name="_AC6" inType="win:UInt32"/>
+      <data name="_AC7" inType="win:UInt32"/>
+      <data name="_AC8" inType="win:UInt32"/>
+      <data name="_AC9" inType="win:UInt32"/>
+      <data name="_HOT" inType="win:UInt32"/>
+      <data name="_CRT" inType="win:UInt32"/>
+      <data name="_NTT" inType="win:UInt32"/>
+      <data name="_PSLCount" inType="win:UInt32"/>
+      <data name="_PSLEntries" inType="win:AnsiString" count="_PSLCount"/>
+      <data name="_TZDCount" inType="win:UInt32"/>
+      <data name="_TZDEntries" inType="win:AnsiString" count="_TZDCount"/>
+      <data name="_AL0Count" inType="win:UInt32"/>
+      <data name="_AL0Entries" inType="win:AnsiString" count="_AL0Count"/>
+      <data name="_AL1Count" inType="win:UInt32"/>
+      <data name="_AL1Entries" inType="win:AnsiString" count="_AL1Count"/>
+      <data name="_AL2Count" inType="win:UInt32"/>
+      <data name="_AL2Entries" inType="win:AnsiString" count="_AL2Count"/>
+      <data name="_AL3Count" inType="win:UInt32"/>
+      <data name="_AL3Entries" inType="win:AnsiString" count="_AL3Count"/>
+      <data name="_AL4Count" inType="win:UInt32"/>
+      <data name="_AL4Entries" inType="win:AnsiString" count="_AL4Count"/>
+      <data name="_AL5Count" inType="win:UInt32"/>
+      <data name="_AL5Entries" inType="win:AnsiString" count="_AL5Count"/>
+      <data name="_AL6Count" inType="win:UInt32"/>
+      <data name="_AL6Entries" inType="win:AnsiString" count="_AL6Count"/>
+      <data name="_AL7Count" inType="win:UInt32"/>
+      <data name="_AL7Entries" inType="win:AnsiString" count="_AL7Count"/>
+      <data name="_AL8Count" inType="win:UInt32"/>
+      <data name="_AL8Entries" inType="win:AnsiString" count="_AL8Count"/>
+      <data name="_AL9Count" inType="win:UInt32"/>
+      <data name="_AL9Entries" inType="win:AnsiString" count="_AL9Count"/>
+      <data name="MinimumThrottle" inType="win:UInt32"/>
+      <data name="_CR3" inType="win:UInt32"/>
+      <data name="_TFP" inType="win:UInt32"/>
+      <data name="OverThrottleThreshold" inType="win:UInt32"/>
+      <data name="DescriptionLength" inType="win:UInt16"/>
+      <data name="Description" inType="win:UnicodeString" length="DescriptionLength"/>
+     </template>
+     <template tid="ThermalZoneRundownArgs_V4">
+      <data name="ThermalZoneBiosNameLength" inType="win:UInt16"/>
+      <data name="ThermalZoneBiosName" inType="win:UnicodeString" length="ThermalZoneBiosNameLength"/>
+      <data name="_TMP" inType="win:UInt32"/>
+      <data name="_PSV" inType="win:UInt32"/>
+      <data name="_TC1" inType="win:UInt32"/>
+      <data name="_TC2" inType="win:UInt32"/>
+      <data name="_TSP" inType="win:UInt32"/>
+      <data name="_AC0" inType="win:UInt32"/>
+      <data name="_AC1" inType="win:UInt32"/>
+      <data name="_AC2" inType="win:UInt32"/>
+      <data name="_AC3" inType="win:UInt32"/>
+      <data name="_AC4" inType="win:UInt32"/>
+      <data name="_AC5" inType="win:UInt32"/>
+      <data name="_AC6" inType="win:UInt32"/>
+      <data name="_AC7" inType="win:UInt32"/>
+      <data name="_AC8" inType="win:UInt32"/>
+      <data name="_AC9" inType="win:UInt32"/>
+      <data name="_HOT" inType="win:UInt32"/>
+      <data name="_CRT" inType="win:UInt32"/>
+      <data name="_NTT" inType="win:UInt32"/>
+      <data name="_PSLCount" inType="win:UInt32"/>
+      <data name="_PSLEntries" inType="win:AnsiString" count="_PSLCount"/>
+      <data name="_TZDCount" inType="win:UInt32"/>
+      <data name="_TZDEntries" inType="win:AnsiString" count="_TZDCount"/>
+      <data name="_AL0Count" inType="win:UInt32"/>
+      <data name="_AL0Entries" inType="win:AnsiString" count="_AL0Count"/>
+      <data name="_AL1Count" inType="win:UInt32"/>
+      <data name="_AL1Entries" inType="win:AnsiString" count="_AL1Count"/>
+      <data name="_AL2Count" inType="win:UInt32"/>
+      <data name="_AL2Entries" inType="win:AnsiString" count="_AL2Count"/>
+      <data name="_AL3Count" inType="win:UInt32"/>
+      <data name="_AL3Entries" inType="win:AnsiString" count="_AL3Count"/>
+      <data name="_AL4Count" inType="win:UInt32"/>
+      <data name="_AL4Entries" inType="win:AnsiString" count="_AL4Count"/>
+      <data name="_AL5Count" inType="win:UInt32"/>
+      <data name="_AL5Entries" inType="win:AnsiString" count="_AL5Count"/>
+      <data name="_AL6Count" inType="win:UInt32"/>
+      <data name="_AL6Entries" inType="win:AnsiString" count="_AL6Count"/>
+      <data name="_AL7Count" inType="win:UInt32"/>
+      <data name="_AL7Entries" inType="win:AnsiString" count="_AL7Count"/>
+      <data name="_AL8Count" inType="win:UInt32"/>
+      <data name="_AL8Entries" inType="win:AnsiString" count="_AL8Count"/>
+      <data name="_AL9Count" inType="win:UInt32"/>
+      <data name="_AL9Entries" inType="win:AnsiString" count="_AL9Count"/>
+      <data name="MinimumThrottle" inType="win:UInt32"/>
+      <data name="_CR3" inType="win:UInt32"/>
+      <data name="_TFP" inType="win:UInt32"/>
+      <data name="OverThrottleThreshold" inType="win:UInt32"/>
+      <data name="DescriptionLength" inType="win:UInt16"/>
+      <data name="Description" inType="win:UnicodeString" length="DescriptionLength"/>
+      <data name="_TZP" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_acpi:Diagnostic" value="acpi:Diagnostic"/>
+    <string id="keyword_acpi:Thermal" value="acpi:Thermal"/>
+    <string id="keyword_keyword_200000000000" value="keyword_200000000000"/>
+    <string id="task_ResourceTranslation" value="ResourceTranslation"/>
+    <string id="task_GpeEventHandling" value="GpeEventHandling"/>
+    <string id="task_TemperatureNotification" value="TemperatureNotification"/>
+    <string id="task_TripPointNotification" value="TripPointNotification"/>
+    <string id="task_ActiveCoolingDevicePower" value="ActiveCoolingDevicePower"/>
+    <string id="task_AmlMethodTrace" value="AmlMethodTrace"/>
+    <string id="task_DeviceActiveCooling" value="DeviceActiveCooling"/>
+    <string id="task_DevicePassiveCooling" value="DevicePassiveCooling"/>
+    <string id="task_DeviceCoolingRundown" value="DeviceCoolingRundown"/>
+    <string id="task_TemperatureChange" value="TemperatureChange"/>
+    <string id="task_ThermalZoneRundown" value="ThermalZoneRundown"/>
+    <string id="task_FanRundown" value="FanRundown"/>
+    <string id="task_FanPowerStateChange" value="FanPowerStateChange"/>
+    <string id="task_FanStatusChange" value="FanStatusChange"/>
+    <string id="task_ActiveCoolingConstraint" value="ActiveCoolingConstraint"/>
+    <string id="task_ActiveCoolingConstraintRundown" value="ActiveCoolingConstraintRundown"/>
+    <string id="task_PassiveCoolingConstraint" value="PassiveCoolingConstraint"/>
+    <string id="task_PassiveCoolingConstraintRundown" value="PassiveCoolingConstraintRundown"/>
+    <string id="task_DeviceReset" value="DeviceReset"/>
+    <string id="task_AcpiOverride" value="AcpiOverride"/>
+    <string id="task_AMLIError" value="AMLIError"/>
+    <string id="task_FrequentAmlMethod" value="FrequentAmlMethod"/>
+    <string id="map_MapActiveCoolingDevicePowerStateoff" value="off"/>
+    <string id="map_MapActiveCoolingDevicePowerStateon" value="on"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

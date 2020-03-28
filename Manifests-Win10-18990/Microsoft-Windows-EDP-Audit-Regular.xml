@@ -1,0 +1,69 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-EDP-Audit-Regular" guid="{50f99b2d-96d2-421f-be4c-222c4140da9f}" resourceFileName="Microsoft-Windows-EDP-Audit-Regular" messageFileName="Microsoft-Windows-EDP-Audit-Regular" symbol="MicrosoftWindowsEDPAuditRegular" source="Xml" >
+    <keywords>
+     <keyword name="EDP_Audit_Keyword_DataCopied" message="$(string.keyword_EDP_Audit_Keyword_DataCopied)" mask="0x10"/>
+     <keyword name="EDP_Audit_Keyword_ApplicationGenerated" message="$(string.keyword_EDP_Audit_Keyword_ApplicationGenerated)" mask="0x20"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <maps>
+     <valueMap name="EdpActionType">
+      <map value="0x0" message="$(string.map_EdpActionTypeSystem Operation)"/>
+      <map value="0x1" message="$(string.map_EdpActionTypeDecrypt Enterprise File)"/>
+      <map value="0x2" message="$(string.map_EdpActionTypeCopy Enterprise File)"/>
+      <map value="0x3" message="$(string.map_EdpActionTypeSend Enterprise File)"/>
+      <map value="0x4" message="$(string.map_EdpActionTypeOther)"/>
+      <map value="0x5" message="$(string.map_EdpActionTypeRead Enterprise File)"/>
+      <map value="0x6" message="$(string.map_EdpActionTypeAccess Enterprise Network)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="201" symbol="task_0" version="0" task="task_0" level="win:Informational" keywords="EDP_Audit_Keyword_DataCopied" template="task_0Args"/>
+     <event value="301" symbol="task_0301" version="0" task="task_0" level="win:Informational" keywords="EDP_Audit_Keyword_ApplicationGenerated" template="task_0301Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="UserId" inType="win:SID"/>
+      <data name="Policy" inType="win:UnicodeString"/>
+      <data name="Justification" inType="win:UnicodeString"/>
+      <data name="SourceEnterpriseId" inType="win:UnicodeString"/>
+      <data name="SourceAppName" inType="win:UnicodeString"/>
+      <data name="DestinationEnterpriseId" inType="win:UnicodeString"/>
+      <data name="DestinationAppName" inType="win:UnicodeString"/>
+      <data name="DataInfo" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0301Args">
+      <data name="UserId" inType="win:SID"/>
+      <data name="Policy" inType="win:UnicodeString"/>
+      <data name="Object" inType="win:UnicodeString"/>
+      <data name="Action" inType="win:UInt32" map="EdpActionType"/>
+      <data name="SourceName" inType="win:UnicodeString"/>
+      <data name="SourceEnterpriseId" inType="win:UnicodeString"/>
+      <data name="DestinationName" inType="win:UnicodeString"/>
+      <data name="DestinationEnterpriseId" inType="win:UnicodeString"/>
+      <data name="ApplicationName" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_EDP_Audit_Keyword_DataCopied" value="EDP_Audit_Keyword_DataCopied"/>
+    <string id="keyword_EDP_Audit_Keyword_ApplicationGenerated" value="EDP_Audit_Keyword_ApplicationGenerated"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="map_EdpActionTypeSystem Operation" value="System Operation"/>
+    <string id="map_EdpActionTypeDecrypt Enterprise File" value="Decrypt Enterprise File"/>
+    <string id="map_EdpActionTypeCopy Enterprise File" value="Copy Enterprise File"/>
+    <string id="map_EdpActionTypeSend Enterprise File" value="Send Enterprise File"/>
+    <string id="map_EdpActionTypeOther" value="Other"/>
+    <string id="map_EdpActionTypeRead Enterprise File" value="Read Enterprise File"/>
+    <string id="map_EdpActionTypeAccess Enterprise Network" value="Access Enterprise Network"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

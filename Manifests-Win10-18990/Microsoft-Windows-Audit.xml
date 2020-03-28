@@ -1,0 +1,49 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Audit" guid="{75ebc33e-0936-4a55-9d26-5f298f3180bf}" resourceFileName="Microsoft-Windows-Audit" messageFileName="Microsoft-Windows-Audit" symbol="MicrosoftWindowsAudit" source="Xml" >
+    <keywords>
+     <keyword name="keyPerformance" message="$(string.keyword_keyPerformance)" mask="0x1"/>
+     <keyword name="keyDiagnostic" message="$(string.keyword_keyDiagnostic)" mask="0x2"/>
+    </keywords>
+    <tasks>
+     <task name="RunAudit" message="$(string.task_RunAudit)" value="1000"/>
+     <task name="AuditProcessUnattend" message="$(string.task_AuditProcessUnattend)" value="2000"/>
+    </tasks>
+    <events>
+     <event value="1001" symbol="RunAuditStart" version="0" task="RunAudit" opcode="win:Start" level="win:Informational" keywords="keyPerformance" template="RunAuditStartArgs"/>
+     <event value="1002" symbol="RunAuditStop" version="0" task="RunAudit" opcode="win:Stop" level="win:Informational" keywords="keyPerformance" template="RunAuditStopArgs"/>
+     <event value="2001" symbol="AuditProcessUnattendStart" version="0" task="AuditProcessUnattend" opcode="win:Start" level="win:Informational" keywords="keyPerformance" template="AuditProcessUnattendStartArgs"/>
+     <event value="2002" symbol="AuditProcessUnattendStop" version="0" task="AuditProcessUnattend" opcode="win:Stop" level="win:Informational" keywords="keyPerformance" template="RunAuditStopArgs"/>
+     <event value="2003" symbol="AuditProcessUnattendStop2003" version="0" task="AuditProcessUnattend" opcode="win:Stop" level="win:Informational" keywords="keyPerformance" template="RunAuditStopArgs"/>
+     <event value="2004" symbol="AuditProcessUnattend" version="0" task="AuditProcessUnattend" level="win:Informational" keywords="keyDiagnostic" template="AuditProcessUnattendArgs"/>
+    </events>
+    <templates>
+     <template tid="RunAuditStartArgs">
+      <data name="CommandLine" inType="win:UnicodeString"/>
+     </template>
+     <template tid="RunAuditStopArgs">
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="AuditProcessUnattendStartArgs">
+      <data name="Pass" inType="win:UnicodeString"/>
+     </template>
+     <template tid="AuditProcessUnattendArgs">
+      <data name="Pass" inType="win:UnicodeString"/>
+      <data name="FilePath" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_keyPerformance" value="keyPerformance"/>
+    <string id="keyword_keyDiagnostic" value="keyDiagnostic"/>
+    <string id="task_RunAudit" value="RunAudit"/>
+    <string id="task_AuditProcessUnattend" value="AuditProcessUnattend"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

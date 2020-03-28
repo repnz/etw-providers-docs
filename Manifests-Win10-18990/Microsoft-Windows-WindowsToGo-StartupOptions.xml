@@ -1,0 +1,41 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-WindowsToGo-StartupOptions" guid="{2e6cb42e-161d-413b-a6c1-84ca4c1e5890}" resourceFileName="Microsoft-Windows-WindowsToGo-StartupOptions" messageFileName="Microsoft-Windows-WindowsToGo-StartupOptions" symbol="MicrosoftWindowsWindowsToGoStartupOptions" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <maps>
+     <valueMap name="LauncherState">
+      <map value="0x0" message="$(string.map_LauncherStateDisabled)"/>
+      <map value="0x1" message="$(string.map_LauncherStateEnabled)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="8193" symbol="task_0" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+     <event value="8194" symbol="task_08194" version="0" task="task_0" level="win:Error" template="task_08194Args"/>
+     <event value="8195" symbol="task_08195" version="0" task="task_0" level="win:Error"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="State" inType="win:UInt32" map="LauncherState"/>
+     </template>
+     <template tid="task_08194Args">
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_task_0" value="task_0"/>
+    <string id="map_LauncherStateDisabled" value="Disabled"/>
+    <string id="map_LauncherStateEnabled" value="Enabled"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

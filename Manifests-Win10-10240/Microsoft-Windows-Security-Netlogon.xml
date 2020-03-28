@@ -1,0 +1,57 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Security-Netlogon" guid="{e5ba83f6-07d0-46b1-8bc7-7e669a1d31dc}" resourceFileName="Microsoft-Windows-Security-Netlogon" messageFileName="Microsoft-Windows-Security-Netlogon" symbol="MicrosoftWindowsSecurityNetlogon" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="BlockingNTLM" message="$(string.task_BlockingNTLM)" value="1"/>
+     <task name="AuditingNTLM" message="$(string.task_AuditingNTLM)" value="2"/>
+     <task name="MSA" message="$(string.task_MSA)" value="3"/>
+    </tasks>
+    <events>
+     <event value="4004" symbol="BlockingNTLM" version="0" task="BlockingNTLM" level="win:Warning" template="BlockingNTLMArgs"/>
+     <event value="4005" symbol="BlockingNTLM4005" version="0" task="BlockingNTLM" level="win:Warning" template="BlockingNTLMArgs"/>
+     <event value="4006" symbol="BlockingNTLM4006" version="0" task="BlockingNTLM" level="win:Warning" template="BlockingNTLMArgs"/>
+     <event value="8004" symbol="AuditingNTLM" version="0" task="AuditingNTLM" level="win:Informational" template="BlockingNTLMArgs"/>
+     <event value="8005" symbol="AuditingNTLM8005" version="0" task="AuditingNTLM" level="win:Informational" template="BlockingNTLMArgs"/>
+     <event value="8006" symbol="AuditingNTLM8006" version="0" task="AuditingNTLM" level="win:Informational" template="BlockingNTLMArgs"/>
+     <event value="9000" symbol="MSA" version="0" task="MSA" level="win:Error" template="MSAArgs"/>
+     <event value="9001" symbol="MSA9001" version="0" task="MSA" level="win:Error" template="MSA9001Args"/>
+     <event value="9002" symbol="MSA9002" version="0" task="MSA" level="win:Error" template="MSA9002Args"/>
+     <event value="9003" symbol="MSA9003" version="0" task="MSA" level="win:Error" template="MSA9002Args"/>
+    </events>
+    <templates>
+     <template tid="BlockingNTLMArgs">
+      <data name="SChannelName" inType="win:UnicodeString"/>
+      <data name="UserName" inType="win:UnicodeString"/>
+      <data name="DomainName" inType="win:UnicodeString"/>
+      <data name="WorkstationName" inType="win:UnicodeString"/>
+      <data name="SChannelType" inType="win:UInt32"/>
+     </template>
+     <template tid="MSAArgs">
+      <data name="AccountName" inType="win:UnicodeString"/>
+      <data name="AccountDomain" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="MSA9001Args">
+      <data name="Account" inType="win:UnicodeString"/>
+     </template>
+     <template tid="MSA9002Args">
+      <data name="Account" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_BlockingNTLM" value="BlockingNTLM"/>
+    <string id="task_AuditingNTLM" value="AuditingNTLM"/>
+    <string id="task_MSA" value="MSA"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

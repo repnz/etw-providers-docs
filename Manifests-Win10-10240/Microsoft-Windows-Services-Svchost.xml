@@ -1,0 +1,29 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Services-Svchost" guid="{06184c97-5201-480e-92af-3a3626c5b140}" resourceFileName="Microsoft-Windows-Services-Svchost" messageFileName="Microsoft-Windows-Services-Svchost" symbol="MicrosoftWindowsServicesSvchost" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="ServiceMain" message="$(string.task_ServiceMain)" value="1"/>
+    </tasks>
+    <events>
+     <event value="101" symbol="ServiceMainStart" version="0" task="ServiceMain" opcode="win:Start" level="win:Informational" template="ServiceMainStartArgs"/>
+     <event value="102" symbol="ServiceMainStop" version="0" task="ServiceMain" opcode="win:Stop" level="win:Informational" template="ServiceMainStartArgs"/>
+    </events>
+    <templates>
+     <template tid="ServiceMainStartArgs">
+      <data name="ServiceName" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_ServiceMain" value="ServiceMain"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,324 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-PrintBRM" guid="{cf3f502e-b40d-4071-996f-00981edf938e}" resourceFileName="Microsoft-Windows-PrintBRM" messageFileName="Microsoft-Windows-PrintBRM" symbol="MicrosoftWindowsPrintBRM" source="Xml" >
+    <keywords>
+     <keyword name="PRINT_BRM_KEYWORD" message="$(string.keyword_PRINT_BRM_KEYWORD)" mask="0x1"/>
+     <keyword name="PRINT_QUEUE_KEYWORD" message="$(string.keyword_PRINT_QUEUE_KEYWORD)" mask="0x2"/>
+     <keyword name="PRINT_DRIVER_KEYWORD" message="$(string.keyword_PRINT_DRIVER_KEYWORD)" mask="0x4"/>
+     <keyword name="PRINT_PROC_KEYWORD" message="$(string.keyword_PRINT_PROC_KEYWORD)" mask="0x8"/>
+     <keyword name="PRINT_LANG_MON_KEYWORD" message="$(string.keyword_PRINT_LANG_MON_KEYWORD)" mask="0x10"/>
+     <keyword name="PRINT_FORM_KEYWORD" message="$(string.keyword_PRINT_FORM_KEYWORD)" mask="0x20"/>
+     <keyword name="PRINT_PORT_KEYWORD" message="$(string.keyword_PRINT_PORT_KEYWORD)" mask="0x40"/>
+    </keywords>
+    <tasks>
+     <task name="Backup" message="$(string.task_Backup)" value="1">
+>
+      <opcodes>
+       <opcode name="PrintBRMoperationsuccess" message="$(string.opcode_BackupPrintBRMoperationsuccess)" value="10"/>
+       <opcode name="PrintBRMoperationfailure" message="$(string.opcode_BackupPrintBRMoperationfailure)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="Restore" message="$(string.task_Restore)" value="2">
+>
+      <opcodes>
+       <opcode name="PrintBRMoperationsuccess" message="$(string.opcode_RestorePrintBRMoperationsuccess)" value="10"/>
+       <opcode name="PrintBRMoperationfailure" message="$(string.opcode_RestorePrintBRMoperationfailure)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="Generaloperation" message="$(string.task_Generaloperation)" value="3">
+>
+      <opcodes>
+       <opcode name="PrintBRMoperationsuccess" message="$(string.opcode_GeneraloperationPrintBRMoperationsuccess)" value="10"/>
+       <opcode name="PrintBRMoperationfailure" message="$(string.opcode_GeneraloperationPrintBRMoperationfailure)" value="11"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="1" symbol="BackupPrintBRMoperationsuccess" version="0" task="Backup" opcode="PrintBRMoperationsuccess" level="win:Informational" keywords="PRINT_QUEUE_KEYWORD"/>
+     <event value="2" symbol="RestorePrintBRMoperationsuccess" version="0" task="Restore" opcode="PrintBRMoperationsuccess" level="win:Informational" keywords="PRINT_QUEUE_KEYWORD"/>
+     <event value="3" symbol="RestorePrintBRMoperationsuccess3" version="0" task="Restore" opcode="PrintBRMoperationsuccess" level="win:Informational" keywords="PRINT_QUEUE_KEYWORD" template="RestorePrintBRMoperationsuccess3Args"/>
+     <event value="4" symbol="RestorePrintBRMoperationfailure" version="0" task="Restore" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_QUEUE_KEYWORD" template="RestorePrintBRMoperationfailureArgs"/>
+     <event value="5" symbol="GeneraloperationPrintBRMoperationsuccess" version="0" task="Generaloperation" opcode="PrintBRMoperationsuccess" level="win:Informational" keywords="PRINT_BRM_KEYWORD"/>
+     <event value="6" symbol="RestorePrintBRMoperationsuccess6" version="0" task="Restore" opcode="PrintBRMoperationsuccess" level="win:Informational" keywords="PRINT_QUEUE_KEYWORD" template="RestorePrintBRMoperationsuccess6Args"/>
+     <event value="7" symbol="RestorePrintBRMoperationfailure7" version="0" task="Restore" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_QUEUE_KEYWORD" template="RestorePrintBRMoperationfailureArgs"/>
+     <event value="8" symbol="RestorePrintBRMoperationsuccess8" version="0" task="Restore" opcode="PrintBRMoperationsuccess" level="win:Informational" keywords="PRINT_QUEUE_KEYWORD" template="RestorePrintBRMoperationsuccess6Args"/>
+     <event value="9" symbol="RestorePrintBRMoperationsuccess9" version="0" task="Restore" opcode="PrintBRMoperationsuccess" level="win:Informational" keywords="PRINT_QUEUE_KEYWORD" template="RestorePrintBRMoperationsuccess6Args"/>
+     <event value="10" symbol="RestorePrintBRMoperationsuccess10" version="0" task="Restore" opcode="PrintBRMoperationsuccess" level="win:Informational" keywords="PRINT_QUEUE_KEYWORD" template="RestorePrintBRMoperationsuccess6Args"/>
+     <event value="11" symbol="RestorePrintBRMoperationfailure11" version="0" task="Restore" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_QUEUE_KEYWORD" template="RestorePrintBRMoperationfailure11Args"/>
+     <event value="12" symbol="RestorePrintBRMoperationsuccess12" version="0" task="Restore" opcode="PrintBRMoperationsuccess" level="win:Informational" keywords="PRINT_QUEUE_KEYWORD" template="RestorePrintBRMoperationsuccess6Args"/>
+     <event value="13" symbol="RestorePrintBRMoperationfailure13" version="0" task="Restore" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_QUEUE_KEYWORD" template="RestorePrintBRMoperationfailureArgs"/>
+     <event value="14" symbol="RestorePrintBRMoperationsuccess14" version="0" task="Restore" opcode="PrintBRMoperationsuccess" level="win:Informational" keywords="PRINT_PROC_KEYWORD" template="RestorePrintBRMoperationsuccess14Args"/>
+     <event value="15" symbol="RestorePrintBRMoperationfailure15" version="0" task="Restore" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_PROC_KEYWORD" template="RestorePrintBRMoperationfailure15Args"/>
+     <event value="16" symbol="BackupPrintBRMoperationfailure" version="0" task="Backup" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_LANG_MON_KEYWORD" template="BackupPrintBRMoperationfailureArgs"/>
+     <event value="17" symbol="RestorePrintBRMoperationsuccess17" version="0" task="Restore" opcode="PrintBRMoperationsuccess" level="win:Informational" keywords="PRINT_LANG_MON_KEYWORD" template="RestorePrintBRMoperationsuccess17Args"/>
+     <event value="18" symbol="RestorePrintBRMoperationfailure18" version="0" task="Restore" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_LANG_MON_KEYWORD" template="RestorePrintBRMoperationfailure18Args"/>
+     <event value="19" symbol="RestorePrintBRMoperationfailure19" version="0" task="Restore" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_LANG_MON_KEYWORD" template="RestorePrintBRMoperationfailure19Args"/>
+     <event value="20" symbol="Restore" version="0" task="Restore" level="win:Warning" keywords="PRINT_DRIVER_KEYWORD" template="RestoreArgs"/>
+     <event value="21" symbol="RestorePrintBRMoperationsuccess21" version="0" task="Restore" opcode="PrintBRMoperationsuccess" level="win:Informational" keywords="PRINT_DRIVER_KEYWORD" template="RestorePrintBRMoperationsuccess21Args"/>
+     <event value="22" symbol="RestorePrintBRMoperationfailure22" version="0" task="Restore" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_DRIVER_KEYWORD" template="RestorePrintBRMoperationfailure22Args"/>
+     <event value="23" symbol="RestorePrintBRMoperationsuccess23" version="0" task="Restore" opcode="PrintBRMoperationsuccess" level="win:Informational" keywords="PRINT_DRIVER_KEYWORD" template="RestorePrintBRMoperationsuccess23Args"/>
+     <event value="24" symbol="RestorePrintBRMoperationfailure24" version="0" task="Restore" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_DRIVER_KEYWORD" template="RestorePrintBRMoperationfailure24Args"/>
+     <event value="25" symbol="RestorePrintBRMoperationsuccess25" version="0" task="Restore" opcode="PrintBRMoperationsuccess" level="win:Informational" keywords="PRINT_DRIVER_KEYWORD" template="RestorePrintBRMoperationsuccess23Args"/>
+     <event value="26" symbol="RestorePrintBRMoperationfailure26" version="0" task="Restore" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_DRIVER_KEYWORD" template="RestorePrintBRMoperationfailure24Args"/>
+     <event value="27" symbol="GeneraloperationPrintBRMoperationfailure" version="0" task="Generaloperation" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_DRIVER_KEYWORD" template="GeneraloperationPrintBRMoperationfailureArgs"/>
+     <event value="28" symbol="RestorePrintBRMoperationfailure28" version="0" task="Restore" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_DRIVER_KEYWORD" template="RestorePrintBRMoperationfailure28Args"/>
+     <event value="29" symbol="RestorePrintBRMoperationfailure29" version="0" task="Restore" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_PORT_KEYWORD" template="RestorePrintBRMoperationfailure29Args"/>
+     <event value="30" symbol="RestorePrintBRMoperationfailure30" version="0" task="Restore" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_PORT_KEYWORD" template="RestorePrintBRMoperationfailure30Args"/>
+     <event value="31" symbol="RestorePrintBRMoperationsuccess31" version="0" task="Restore" opcode="PrintBRMoperationsuccess" level="win:Informational" keywords="PRINT_PORT_KEYWORD" template="RestorePrintBRMoperationsuccess31Args"/>
+     <event value="32" symbol="RestorePrintBRMoperationsuccess32" version="0" task="Restore" opcode="PrintBRMoperationsuccess" level="win:Informational" keywords="PRINT_PORT_KEYWORD" template="RestorePrintBRMoperationsuccess32Args"/>
+     <event value="33" symbol="BackupPrintBRMoperationsuccess33" version="0" task="Backup" opcode="PrintBRMoperationsuccess" level="win:Informational" keywords="PRINT_FORM_KEYWORD"/>
+     <event value="34" symbol="RestorePrintBRMoperationsuccess34" version="0" task="Restore" opcode="PrintBRMoperationsuccess" level="win:Informational" keywords="PRINT_FORM_KEYWORD"/>
+     <event value="35" symbol="BackupPrintBRMoperationsuccess35" version="0" task="Backup" opcode="PrintBRMoperationsuccess" level="win:Informational" keywords="PRINT_FORM_KEYWORD" template="BackupPrintBRMoperationsuccess35Args"/>
+     <event value="36" symbol="RestorePrintBRMoperationsuccess36" version="0" task="Restore" opcode="PrintBRMoperationsuccess" level="win:Informational" keywords="PRINT_FORM_KEYWORD"/>
+     <event value="37" symbol="RestorePrintBRMoperationsuccess37" version="0" task="Restore" opcode="PrintBRMoperationsuccess" level="win:Informational" keywords="PRINT_FORM_KEYWORD"/>
+     <event value="38" symbol="RestorePrintBRMoperationfailure38" version="0" task="Restore" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_BRM_KEYWORD" template="BackupPrintBRMoperationfailureArgs"/>
+     <event value="39" symbol="BackupPrintBRMoperationfailure39" version="0" task="Backup" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_PROC_KEYWORD" template="BackupPrintBRMoperationfailure39Args"/>
+     <event value="40" symbol="RestorePrintBRMoperationsuccess40" version="0" task="Restore" opcode="PrintBRMoperationsuccess" level="win:Informational" keywords="PRINT_BRM_KEYWORD" template="RestorePrintBRMoperationsuccess40Args"/>
+     <event value="41" symbol="RestorePrintBRMoperationfailure41" version="0" task="Restore" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_BRM_KEYWORD" template="RestorePrintBRMoperationsuccess40Args"/>
+     <event value="42" symbol="RestorePrintBRMoperationfailure42" version="0" task="Restore" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_BRM_KEYWORD" template="RestorePrintBRMoperationfailure42Args"/>
+     <event value="43" symbol="RestorePrintBRMoperationsuccess43" version="0" task="Restore" opcode="PrintBRMoperationsuccess" level="win:Informational" keywords="PRINT_BRM_KEYWORD" template="RestorePrintBRMoperationsuccess43Args"/>
+     <event value="44" symbol="RestorePrintBRMoperationfailure44" version="0" task="Restore" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_BRM_KEYWORD" template="RestorePrintBRMoperationfailure42Args"/>
+     <event value="45" symbol="BackupPrintBRMoperationsuccess45" version="0" task="Backup" opcode="PrintBRMoperationsuccess" level="win:Informational" keywords="PRINT_BRM_KEYWORD" template="BackupPrintBRMoperationsuccess45Args"/>
+     <event value="46" symbol="BackupPrintBRMoperationfailure46" version="0" task="Backup" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_BRM_KEYWORD" template="BackupPrintBRMoperationfailure46Args"/>
+     <event value="47" symbol="BackupPrintBRMoperationfailure47" version="0" task="Backup" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_BRM_KEYWORD" template="BackupPrintBRMoperationfailureArgs"/>
+     <event value="48" symbol="BackupPrintBRMoperationfailure48" version="0" task="Backup" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_BRM_KEYWORD" template="BackupPrintBRMoperationfailure48Args"/>
+     <event value="49" symbol="BackupPrintBRMoperationfailure49" version="0" task="Backup" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_BRM_KEYWORD" template="BackupPrintBRMoperationfailure49Args"/>
+     <event value="50" symbol="BackupPrintBRMoperationfailure50" version="0" task="Backup" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_BRM_KEYWORD" template="BackupPrintBRMoperationfailure48Args"/>
+     <event value="51" symbol="GeneraloperationPrintBRMoperationsuccess51" version="0" task="Generaloperation" opcode="PrintBRMoperationsuccess" level="win:Informational" keywords="PRINT_BRM_KEYWORD" template="BackupPrintBRMoperationfailure49Args"/>
+     <event value="52" symbol="RestorePrintBRMoperationsuccess52" version="0" task="Restore" opcode="PrintBRMoperationsuccess" level="win:Informational" keywords="PRINT_PROC_KEYWORD" template="RestorePrintBRMoperationsuccess52Args"/>
+     <event value="53" symbol="GeneraloperationPrintBRMoperationfailure53" version="0" task="Generaloperation" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_BRM_KEYWORD" template="GeneraloperationPrintBRMoperationfailure53Args"/>
+     <event value="54" symbol="GeneraloperationPrintBRMoperationsuccess54" version="0" task="Generaloperation" opcode="PrintBRMoperationsuccess" level="win:Informational" keywords="PRINT_BRM_KEYWORD" template="GeneraloperationPrintBRMoperationsuccess54Args"/>
+     <event value="55" symbol="GeneraloperationPrintBRMoperationsuccess55" version="0" task="Generaloperation" opcode="PrintBRMoperationsuccess" level="win:Informational" keywords="PRINT_BRM_KEYWORD" template="GeneraloperationPrintBRMoperationsuccess54Args"/>
+     <event value="56" symbol="GeneraloperationPrintBRMoperationfailure56" version="0" task="Generaloperation" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_BRM_KEYWORD" template="GeneraloperationPrintBRMoperationfailure56Args"/>
+     <event value="57" symbol="GeneraloperationPrintBRMoperationfailure57" version="0" task="Generaloperation" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_BRM_KEYWORD" template="GeneraloperationPrintBRMoperationfailure56Args"/>
+     <event value="58" symbol="RestorePrintBRMoperationsuccess58" version="0" task="Restore" opcode="PrintBRMoperationsuccess" level="win:Informational" keywords="PRINT_PROC_KEYWORD" template="RestorePrintBRMoperationsuccess58Args"/>
+     <event value="59" symbol="GeneraloperationPrintBRMoperationsuccess59" version="0" task="Generaloperation" opcode="PrintBRMoperationsuccess" level="win:Informational" keywords="PRINT_PROC_KEYWORD" template="GeneraloperationPrintBRMoperationsuccess59Args"/>
+     <event value="60" symbol="GeneraloperationPrintBRMoperationfailure60" version="0" task="Generaloperation" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_PROC_KEYWORD" template="GeneraloperationPrintBRMoperationfailure60Args"/>
+     <event value="61" symbol="GeneraloperationPrintBRMoperationsuccess61" version="0" task="Generaloperation" opcode="PrintBRMoperationsuccess" level="win:Informational" keywords="PRINT_PORT_KEYWORD" template="GeneraloperationPrintBRMoperationsuccess61Args"/>
+     <event value="62" symbol="RestorePrintBRMoperationfailure62" version="0" task="Restore" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_PORT_KEYWORD" template="RestorePrintBRMoperationsuccess31Args"/>
+     <event value="63" symbol="RestorePrintBRMoperationfailure63" version="0" task="Restore" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_PORT_KEYWORD" template="RestorePrintBRMoperationfailure29Args"/>
+     <event value="64" symbol="RestorePrintBRMoperationfailure64" version="0" task="Restore" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_PORT_KEYWORD" template="RestorePrintBRMoperationfailure29Args"/>
+     <event value="65" symbol="RestorePrintBRMoperationfailure65" version="0" task="Restore" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_QUEUE_KEYWORD" template="RestorePrintBRMoperationfailure65Args"/>
+     <event value="66" symbol="RestorePrintBRMoperationfailure66" version="0" task="Restore" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_QUEUE_KEYWORD" template="RestorePrintBRMoperationfailure11Args"/>
+     <event value="67" symbol="GeneraloperationPrintBRMoperationfailure67" version="0" task="Generaloperation" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_BRM_KEYWORD" template="GeneraloperationPrintBRMoperationfailure67Args"/>
+     <event value="68" symbol="GeneraloperationPrintBRMoperationfailure68" version="0" task="Generaloperation" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_BRM_KEYWORD" template="GeneraloperationPrintBRMoperationfailure68Args"/>
+     <event value="69" symbol="RestorePrintBRMoperationfailure69" version="0" task="Restore" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_PORT_KEYWORD" template="RestorePrintBRMoperationfailure69Args"/>
+     <event value="70" symbol="BackupPrintBRMoperationfailure70" version="0" task="Backup" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_BRM_KEYWORD" template="RestorePrintBRMoperationsuccess58Args"/>
+     <event value="71" symbol="GeneraloperationPrintBRMoperationfailure71" version="0" task="Generaloperation" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_BRM_KEYWORD" template="GeneraloperationPrintBRMoperationfailure71Args"/>
+     <event value="72" symbol="GeneraloperationPrintBRMoperationfailure72" version="0" task="Generaloperation" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_BRM_KEYWORD" template="GeneraloperationPrintBRMoperationfailure71Args"/>
+     <event value="73" symbol="GeneraloperationPrintBRMoperationfailure73" version="0" task="Generaloperation" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_BRM_KEYWORD" template="RestorePrintBRMoperationfailure42Args"/>
+     <event value="74" symbol="RestorePrintBRMoperationsuccess74" version="0" task="Restore" opcode="PrintBRMoperationsuccess" level="win:Informational" keywords="PRINT_DRIVER_KEYWORD" template="RestorePrintBRMoperationsuccess23Args"/>
+     <event value="75" symbol="RestorePrintBRMoperationfailure75" version="0" task="Restore" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_DRIVER_KEYWORD" template="RestorePrintBRMoperationfailure24Args"/>
+     <event value="76" symbol="BackupPrintBRMoperationfailure76" version="0" task="Backup" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_DRIVER_KEYWORD" template="RestorePrintBRMoperationfailure24Args"/>
+     <event value="77" symbol="BackupPrintBRMoperationfailure77" version="0" task="Backup" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_DRIVER_KEYWORD" template="RestorePrintBRMoperationfailure30Args"/>
+     <event value="78" symbol="BackupPrintBRMoperationfailure78" version="0" task="Backup" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_PROC_KEYWORD" template="BackupPrintBRMoperationfailure78Args"/>
+     <event value="79" symbol="BackupPrintBRMoperationfailure79" version="0" task="Backup" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_PROC_KEYWORD" template="BackupPrintBRMoperationfailure79Args"/>
+     <event value="80" symbol="BackupPrintBRMoperationfailure80" version="0" task="Backup" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_QUEUE_KEYWORD" template="RestorePrintBRMoperationfailureArgs"/>
+     <event value="81" symbol="RestorePrintBRMoperationfailure81" version="0" task="Restore" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_QUEUE_KEYWORD" template="RestorePrintBRMoperationfailureArgs"/>
+     <event value="82" symbol="RestorePrintBRMoperationfailure82" version="0" task="Restore" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_QUEUE_KEYWORD" template="RestorePrintBRMoperationfailureArgs"/>
+     <event value="83" symbol="RestorePrintBRMoperationfailure83" version="0" task="Restore" opcode="PrintBRMoperationfailure" level="win:Error" keywords="PRINT_PORT_KEYWORD" template="RestorePrintBRMoperationfailure29Args"/>
+    </events>
+    <templates>
+     <template tid="RestorePrintBRMoperationsuccess3Args">
+      <data name="DriverName" inType="win:UnicodeString"/>
+      <data name="NewDriver" inType="win:UnicodeString"/>
+      <data name="PrinterName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="RestorePrintBRMoperationfailureArgs">
+      <data name="PrinterName" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:HexInt32"/>
+     </template>
+     <template tid="RestorePrintBRMoperationsuccess6Args">
+      <data name="PrinterName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="RestorePrintBRMoperationfailure11Args">
+      <data name="PrinterName" inType="win:UnicodeString"/>
+      <data name="PortName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="RestorePrintBRMoperationsuccess14Args">
+      <data name="PrintProcessorName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="RestorePrintBRMoperationfailure15Args">
+      <data name="PrintProcessorName" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:HexInt32"/>
+     </template>
+     <template tid="BackupPrintBRMoperationfailureArgs">
+      <data name="FileName" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:HexInt32"/>
+     </template>
+     <template tid="RestorePrintBRMoperationsuccess17Args">
+      <data name="LanguageMonitor" inType="win:UnicodeString"/>
+     </template>
+     <template tid="RestorePrintBRMoperationfailure18Args">
+      <data name="LanguageMonitor" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:HexInt32"/>
+     </template>
+     <template tid="RestorePrintBRMoperationfailure19Args">
+      <data name="SourceArchitecture" inType="win:UnicodeString"/>
+      <data name="TargetArchitecture" inType="win:UnicodeString"/>
+     </template>
+     <template tid="RestoreArgs">
+      <data name="DriverName" inType="win:UnicodeString"/>
+      <data name="TargetServerArchitecture" inType="win:UnicodeString"/>
+     </template>
+     <template tid="RestorePrintBRMoperationsuccess21Args">
+      <data name="DriverName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="RestorePrintBRMoperationfailure22Args">
+      <data name="DriverName" inType="win:UnicodeString"/>
+      <data name="TargetServerArchitecture" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:HexInt32"/>
+     </template>
+     <template tid="RestorePrintBRMoperationsuccess23Args">
+      <data name="DriverName" inType="win:UnicodeString"/>
+      <data name="Architecture" inType="win:UnicodeString"/>
+     </template>
+     <template tid="RestorePrintBRMoperationfailure24Args">
+      <data name="DriverName" inType="win:UnicodeString"/>
+      <data name="Architecture" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:HexInt32"/>
+     </template>
+     <template tid="GeneraloperationPrintBRMoperationfailureArgs">
+      <data name="DirectoryName" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:HexInt32"/>
+     </template>
+     <template tid="RestorePrintBRMoperationfailure28Args">
+      <data name="Source" inType="win:UnicodeString"/>
+      <data name="Destination" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:HexInt32"/>
+     </template>
+     <template tid="RestorePrintBRMoperationfailure29Args">
+      <data name="Port" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:HexInt32"/>
+     </template>
+     <template tid="RestorePrintBRMoperationfailure30Args">
+      <data name="PortName" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:HexInt32"/>
+     </template>
+     <template tid="RestorePrintBRMoperationsuccess31Args">
+      <data name="PortName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="RestorePrintBRMoperationsuccess32Args">
+      <data name="Status" inType="win:UnicodeString"/>
+     </template>
+     <template tid="BackupPrintBRMoperationsuccess35Args">
+      <data name="NumberOfForms" inType="win:UInt32"/>
+     </template>
+     <template tid="BackupPrintBRMoperationfailure39Args">
+      <data name="PluginDllName" inType="win:UnicodeString"/>
+      <data name="ProcessorName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="RestorePrintBRMoperationsuccess40Args">
+      <data name="FolderName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="RestorePrintBRMoperationfailure42Args">
+      <data name="ErrorCode" inType="win:HexInt32"/>
+     </template>
+     <template tid="RestorePrintBRMoperationsuccess43Args">
+      <data name="LogLevel" inType="win:UInt32"/>
+     </template>
+     <template tid="BackupPrintBRMoperationsuccess45Args">
+      <data name="ServerName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="BackupPrintBRMoperationfailure46Args">
+      <data name="CabFileName" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:HexInt32"/>
+     </template>
+     <template tid="BackupPrintBRMoperationfailure48Args">
+      <data name="PluginDllName" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:HexInt32"/>
+     </template>
+     <template tid="BackupPrintBRMoperationfailure49Args">
+      <data name="PluginDllName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="RestorePrintBRMoperationsuccess52Args">
+      <data name="ProcessorName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="GeneraloperationPrintBRMoperationfailure53Args">
+      <data name="FunctionName" inType="win:UnicodeString"/>
+      <data name="ComputerName" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:HexInt32"/>
+     </template>
+     <template tid="GeneraloperationPrintBRMoperationsuccess54Args">
+      <data name="ServiceName" inType="win:UnicodeString"/>
+      <data name="ServerName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="GeneraloperationPrintBRMoperationfailure56Args">
+      <data name="ServiceName" inType="win:UnicodeString"/>
+      <data name="ComputerName" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:HexInt32"/>
+     </template>
+     <template tid="RestorePrintBRMoperationsuccess58Args">
+      <data name="FileName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="GeneraloperationPrintBRMoperationsuccess59Args">
+      <data name="SourceFile" inType="win:UnicodeString"/>
+      <data name="DestinationFile" inType="win:UnicodeString"/>
+     </template>
+     <template tid="GeneraloperationPrintBRMoperationfailure60Args">
+      <data name="SourceFile" inType="win:UnicodeString"/>
+      <data name="DestinationFile" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:HexInt32"/>
+     </template>
+     <template tid="GeneraloperationPrintBRMoperationsuccess61Args">
+      <data name="HostName" inType="win:UnicodeString"/>
+      <data name="DeviceSection" inType="win:UnicodeString"/>
+     </template>
+     <template tid="RestorePrintBRMoperationfailure65Args">
+      <data name="KeyName" inType="win:UnicodeString"/>
+      <data name="ValueName" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:HexInt32"/>
+     </template>
+     <template tid="GeneraloperationPrintBRMoperationfailure67Args">
+      <data name="KeyName" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:HexInt32"/>
+     </template>
+     <template tid="GeneraloperationPrintBRMoperationfailure68Args">
+      <data name="PathName" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:HexInt32"/>
+     </template>
+     <template tid="RestorePrintBRMoperationfailure69Args">
+      <data name="Address" inType="win:UnicodeString"/>
+      <data name="PortName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="GeneraloperationPrintBRMoperationfailure71Args">
+      <data name="ComputerName" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:HexInt32"/>
+     </template>
+     <template tid="BackupPrintBRMoperationfailure78Args">
+      <data name="PrintProcessorName" inType="win:UnicodeString"/>
+      <data name="PrintProcessorArchitecture" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:HexInt32"/>
+     </template>
+     <template tid="BackupPrintBRMoperationfailure79Args">
+      <data name="PrintProcessorArchitecture" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:HexInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_PRINT_BRM_KEYWORD" value="PRINT_BRM_KEYWORD"/>
+    <string id="keyword_PRINT_QUEUE_KEYWORD" value="PRINT_QUEUE_KEYWORD"/>
+    <string id="keyword_PRINT_DRIVER_KEYWORD" value="PRINT_DRIVER_KEYWORD"/>
+    <string id="keyword_PRINT_PROC_KEYWORD" value="PRINT_PROC_KEYWORD"/>
+    <string id="keyword_PRINT_LANG_MON_KEYWORD" value="PRINT_LANG_MON_KEYWORD"/>
+    <string id="keyword_PRINT_FORM_KEYWORD" value="PRINT_FORM_KEYWORD"/>
+    <string id="keyword_PRINT_PORT_KEYWORD" value="PRINT_PORT_KEYWORD"/>
+    <string id="task_Backup" value="Backup"/>
+    <string id="opcode_BackupPrintBRMoperationsuccess" value="PrintBRMoperationsuccess"/>
+    <string id="opcode_BackupPrintBRMoperationfailure" value="PrintBRMoperationfailure"/>
+    <string id="task_Restore" value="Restore"/>
+    <string id="opcode_RestorePrintBRMoperationsuccess" value="PrintBRMoperationsuccess"/>
+    <string id="opcode_RestorePrintBRMoperationfailure" value="PrintBRMoperationfailure"/>
+    <string id="task_Generaloperation" value="Generaloperation"/>
+    <string id="opcode_GeneraloperationPrintBRMoperationsuccess" value="PrintBRMoperationsuccess"/>
+    <string id="opcode_GeneraloperationPrintBRMoperationfailure" value="PrintBRMoperationfailure"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

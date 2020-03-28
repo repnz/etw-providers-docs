@@ -1,0 +1,99 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="NisDrvWFP Provider" guid="{49d6ad7b-52c4-4f79-a164-4dcd908391e4}" resourceFileName="NisDrvWFP Provider" messageFileName="NisDrvWFP Provider" symbol="NisDrvWFPProvider" source="Xml" >
+    <keywords>
+     <keyword name="WfpReinjection" message="$(string.keyword_WfpReinjection)" mask="0x1"/>
+     <keyword name="DeferredAction" message="$(string.keyword_DeferredAction)" mask="0x2"/>
+     <keyword name="StalledAction" message="$(string.keyword_StalledAction)" mask="0x4"/>
+     <keyword name="InterceptedPacket" message="$(string.keyword_InterceptedPacket)" mask="0x8"/>
+     <keyword name="FlowEstablished" message="$(string.keyword_FlowEstablished)" mask="0x10"/>
+     <keyword name="FlowFiltered" message="$(string.keyword_FlowFiltered)" mask="0x20"/>
+     <keyword name="FlowCancelInterception" message="$(string.keyword_FlowCancelInterception)" mask="0x40"/>
+     <keyword name="StreamIrpsExhausted" message="$(string.keyword_StreamIrpsExhausted)" mask="0x80"/>
+     <keyword name="AllIrpsExhausted" message="$(string.keyword_AllIrpsExhausted)" mask="0x100"/>
+     <keyword name="DynamicExclusion" message="$(string.keyword_DynamicExclusion)" mask="0x200"/>
+    </keywords>
+    <tasks>
+     <task name="WFPReinjection" message="$(string.task_WFPReinjection)" value="2001"/>
+     <task name="DPCDeferredAction" message="$(string.task_DPCDeferredAction)" value="2002"/>
+     <task name="StalledActions" message="$(string.task_StalledActions)" value="2003"/>
+     <task name="InterceptedPacket" message="$(string.task_InterceptedPacket)" value="2004"/>
+     <task name="FlowEstablished" message="$(string.task_FlowEstablished)" value="2005"/>
+     <task name="FlowFiltered" message="$(string.task_FlowFiltered)" value="2006"/>
+     <task name="FlowCanceled" message="$(string.task_FlowCanceled)" value="2007"/>
+     <task name="StreamIrpsExhausted" message="$(string.task_StreamIrpsExhausted)" value="2008"/>
+     <task name="AllIrpsExhausted" message="$(string.task_AllIrpsExhausted)" value="2009"/>
+     <task name="DynamicExclusion" message="$(string.task_DynamicExclusion)" value="2010"/>
+     <task name="Flow" message="$(string.task_Flow)" value="2011"/>
+    </tasks>
+    <events>
+     <event value="1001" symbol="WFPReinjectionStart" version="0" task="WFPReinjection" opcode="win:Start" level="win:Informational" keywords="WfpReinjection" template="WFPReinjectionStartArgs"/>
+     <event value="1002" symbol="WFPReinjectionStop" version="0" task="WFPReinjection" opcode="win:Stop" level="win:Informational" keywords="WfpReinjection" template="WFPReinjectionStopArgs"/>
+     <event value="1003" symbol="DPCDeferredActionStart" version="0" task="DPCDeferredAction" opcode="win:Start" level="win:Informational" keywords="DeferredAction" template="WFPReinjectionStartArgs"/>
+     <event value="1004" symbol="DPCDeferredActionStop" version="0" task="DPCDeferredAction" opcode="win:Stop" level="win:Informational" keywords="DeferredAction" template="WFPReinjectionStopArgs"/>
+     <event value="1005" symbol="StalledActionsStart" version="0" task="StalledActions" opcode="win:Start" level="win:Informational" keywords="StalledAction" template="WFPReinjectionStartArgs"/>
+     <event value="1006" symbol="StalledActionsStop" version="0" task="StalledActions" opcode="win:Stop" level="win:Informational" keywords="StalledAction" template="WFPReinjectionStopArgs"/>
+     <event value="1007" symbol="InterceptedPacketStart" version="0" task="InterceptedPacket" opcode="win:Start" level="win:Informational" keywords="InterceptedPacket" template="WFPReinjectionStartArgs"/>
+     <event value="1008" symbol="InterceptedPacketStop" version="0" task="InterceptedPacket" opcode="win:Stop" level="win:Informational" keywords="InterceptedPacket" template="WFPReinjectionStopArgs"/>
+     <event value="1009" symbol="FlowEstablished" version="0" task="FlowEstablished" level="win:Informational" keywords="FlowEstablished"/>
+     <event value="1010" symbol="FlowFiltered" version="0" task="FlowFiltered" level="win:Informational" keywords="FlowFiltered"/>
+     <event value="1011" symbol="FlowCanceled" version="0" task="FlowCanceled" level="win:Informational" keywords="FlowCancelInterception"/>
+     <event value="1012" symbol="StreamIrpsExhausted" version="0" task="StreamIrpsExhausted" level="win:Informational" keywords="StreamIrpsExhausted"/>
+     <event value="1013" symbol="AllIrpsExhausted" version="0" task="AllIrpsExhausted" level="win:Informational" keywords="AllIrpsExhausted"/>
+     <event value="1014" symbol="DynamicExclusion" version="0" task="DynamicExclusion" level="win:Informational" keywords="DynamicExclusion" template="DynamicExclusionArgs"/>
+     <event value="1015" symbol="Flow" version="0" task="Flow" level="win:Informational" template="FlowArgs"/>
+    </events>
+    <templates>
+     <template tid="WFPReinjectionStartArgs">
+      <data name="Context" inType="win:Int64"/>
+      <data name="Outbound" inType="win:Boolean"/>
+      <data name="SizeBytes" inType="win:Int64"/>
+     </template>
+     <template tid="WFPReinjectionStopArgs">
+      <data name="Context" inType="win:Int64"/>
+      <data name="Outbound" inType="win:Boolean"/>
+      <data name="Result" inType="win:HexInt32"/>
+     </template>
+     <template tid="DynamicExclusionArgs">
+      <data name="Pid" inType="win:Int32"/>
+      <data name="Matched" inType="win:Boolean"/>
+      <data name="ProcessType" inType="win:Int32"/>
+     </template>
+     <template tid="FlowArgs">
+      <data name="Context" inType="win:UInt64"/>
+      <data name="Stage" inType="win:UnicodeString"/>
+      <data name="PidFlowHash" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_WfpReinjection" value="WfpReinjection"/>
+    <string id="keyword_DeferredAction" value="DeferredAction"/>
+    <string id="keyword_StalledAction" value="StalledAction"/>
+    <string id="keyword_InterceptedPacket" value="InterceptedPacket"/>
+    <string id="keyword_FlowEstablished" value="FlowEstablished"/>
+    <string id="keyword_FlowFiltered" value="FlowFiltered"/>
+    <string id="keyword_FlowCancelInterception" value="FlowCancelInterception"/>
+    <string id="keyword_StreamIrpsExhausted" value="StreamIrpsExhausted"/>
+    <string id="keyword_AllIrpsExhausted" value="AllIrpsExhausted"/>
+    <string id="keyword_DynamicExclusion" value="DynamicExclusion"/>
+    <string id="task_WFPReinjection" value="WFPReinjection"/>
+    <string id="task_DPCDeferredAction" value="DPCDeferredAction"/>
+    <string id="task_StalledActions" value="StalledActions"/>
+    <string id="task_InterceptedPacket" value="InterceptedPacket"/>
+    <string id="task_FlowEstablished" value="FlowEstablished"/>
+    <string id="task_FlowFiltered" value="FlowFiltered"/>
+    <string id="task_FlowCanceled" value="FlowCanceled"/>
+    <string id="task_StreamIrpsExhausted" value="StreamIrpsExhausted"/>
+    <string id="task_AllIrpsExhausted" value="AllIrpsExhausted"/>
+    <string id="task_DynamicExclusion" value="DynamicExclusion"/>
+    <string id="task_Flow" value="Flow"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

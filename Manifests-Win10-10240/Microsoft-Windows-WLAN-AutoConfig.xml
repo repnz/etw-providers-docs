@@ -1,0 +1,1722 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-WLAN-AutoConfig" guid="{9580d7dd-0379-4658-9870-d5be7d52d6de}" resourceFileName="Microsoft-Windows-WLAN-AutoConfig" messageFileName="Microsoft-Windows-WLAN-AutoConfig" symbol="MicrosoftWindowsWLANAutoConfig" source="Xml" >
+    <keywords>
+     <keyword name="IntfContext" message="$(string.keyword_IntfContext)" mask="0x1"/>
+     <keyword name="IntfMgr" message="$(string.keyword_IntfMgr)" mask="0x2"/>
+     <keyword name="State" message="$(string.keyword_State)" mask="0x4"/>
+     <keyword name="Session" message="$(string.keyword_Session)" mask="0x8"/>
+     <keyword name="API" message="$(string.keyword_API)" mask="0x10"/>
+     <keyword name="MSM" message="$(string.keyword_MSM)" mask="0x20"/>
+     <keyword name="MSMSEC" message="$(string.keyword_MSMSEC)" mask="0x40"/>
+     <keyword name="SOFTAP" message="$(string.keyword_SOFTAP)" mask="0x80"/>
+     <keyword name="MSAM" message="$(string.keyword_MSAM)" mask="0x100"/>
+     <keyword name="WlanConnect" message="$(string.keyword_WlanConnect)" mask="0x200"/>
+     <keyword name="LwtDiagnostic" message="$(string.keyword_LwtDiagnostic)" mask="0x400"/>
+     <keyword name="TelemetryReserved28" message="$(string.keyword_TelemetryReserved28)" mask="0x10000000"/>
+     <keyword name="Telemetry" message="$(string.keyword_Telemetry)" mask="0x20000000"/>
+     <keyword name="Measures" message="$(string.keyword_Measures)" mask="0x40000000"/>
+     <keyword name="CriticalData" message="$(string.keyword_CriticalData)" mask="0x80000000"/>
+     <keyword name="ut:SendPath" message="$(string.keyword_ut:SendPath)" mask="0x100000000"/>
+     <keyword name="ut:ReceivePath" message="$(string.keyword_ut:ReceivePath)" mask="0x200000000"/>
+     <keyword name="ut:L3ConnectPath" message="$(string.keyword_ut:L3ConnectPath)" mask="0x400000000"/>
+     <keyword name="ut:L2ConnectPath" message="$(string.keyword_ut:L2ConnectPath)" mask="0x800000000"/>
+     <keyword name="ut:ClosePath" message="$(string.keyword_ut:ClosePath)" mask="0x1000000000"/>
+     <keyword name="ut:Authentication" message="$(string.keyword_ut:Authentication)" mask="0x2000000000"/>
+     <keyword name="ut:Configuration" message="$(string.keyword_ut:Configuration)" mask="0x4000000000"/>
+     <keyword name="ut:Global" message="$(string.keyword_ut:Global)" mask="0x8000000000"/>
+     <keyword name="keyword_40000000000" message="$(string.keyword_keyword_40000000000)" mask="0x40000000000"/>
+     <keyword name="keyword_200000000000" message="$(string.keyword_keyword_200000000000)" mask="0x200000000000"/>
+     <keyword name="keyword_400000000000" message="$(string.keyword_keyword_400000000000)" mask="0x400000000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="Connecttosamenetworkonresume" message="$(string.task_Connecttosamenetworkonresume)" value="24000"/>
+     <task name="Connecttonetworkonresumeafterinterveningdisconnect" message="$(string.task_Connecttonetworkonresumeafterinterveningdisconnect)" value="24001"/>
+     <task name="WLANConnecttonetwork" message="$(string.task_WLANConnecttonetwork)" value="24002"/>
+     <task name="AcmConnection" message="$(string.task_AcmConnection)" value="24010">
+>
+      <opcodes>
+       <opcode name="Start_24010_189" message="$(string.opcode_AcmConnectionStart_24010_189)" value="189"/>
+       <opcode name="Success" message="$(string.opcode_AcmConnectionSuccess)" value="190"/>
+       <opcode name="Failure" message="$(string.opcode_AcmConnectionFailure)" value="191"/>
+       <opcode name="Disconnect" message="$(string.opcode_AcmConnectionDisconnect)" value="192"/>
+       <opcode name="ut:ActivityContext" message="$(string.opcode_AcmConnectionut:ActivityContext)" value="210"/>
+      </opcodes>
+     </task>
+     <task name="MsmAssociation" message="$(string.task_MsmAssociation)" value="24011">
+>
+      <opcodes>
+       <opcode name="Start_24011_193" message="$(string.opcode_MsmAssociationStart_24011_193)" value="193"/>
+       <opcode name="Success_24011_194" message="$(string.opcode_MsmAssociationSuccess_24011_194)" value="194"/>
+       <opcode name="Failure_24011_195" message="$(string.opcode_MsmAssociationFailure_24011_195)" value="195"/>
+      </opcodes>
+     </task>
+     <task name="MsmSecurity" message="$(string.task_MsmSecurity)" value="24012">
+>
+      <opcodes>
+       <opcode name="Start_24012_196" message="$(string.opcode_MsmSecurityStart_24012_196)" value="196"/>
+       <opcode name="Stop_24012_197" message="$(string.opcode_MsmSecurityStop_24012_197)" value="197"/>
+       <opcode name="Success_24012_198" message="$(string.opcode_MsmSecuritySuccess_24012_198)" value="198"/>
+       <opcode name="Failure_24012_199" message="$(string.opcode_MsmSecurityFailure_24012_199)" value="199"/>
+       <opcode name="Start_24012_200" message="$(string.opcode_MsmSecurityStart_24012_200)" value="200"/>
+      </opcodes>
+     </task>
+     <task name="IhvSecurity" message="$(string.task_IhvSecurity)" value="24013">
+>
+      <opcodes>
+       <opcode name="Success_24013_201" message="$(string.opcode_IhvSecuritySuccess_24013_201)" value="201"/>
+       <opcode name="Failure_24013_202" message="$(string.opcode_IhvSecurityFailure_24013_202)" value="202"/>
+      </opcodes>
+     </task>
+     <task name="OneXAuthentication" message="$(string.task_OneXAuthentication)" value="24014">
+>
+      <opcodes>
+       <opcode name="Start_24014_203" message="$(string.opcode_OneXAuthenticationStart_24014_203)" value="203"/>
+       <opcode name="Success_24014_204" message="$(string.opcode_OneXAuthenticationSuccess_24014_204)" value="204"/>
+       <opcode name="Failure_24014_205" message="$(string.opcode_OneXAuthenticationFailure_24014_205)" value="205"/>
+       <opcode name="Restart" message="$(string.opcode_OneXAuthenticationRestart)" value="206"/>
+      </opcodes>
+     </task>
+     <task name="Startthedevicenetwork" message="$(string.task_Startthedevicenetwork)" value="24015"/>
+     <task name="Stopthedevicenetwork" message="$(string.task_Stopthedevicenetwork)" value="24016"/>
+     <task name="Authenticatethepeersassociatedtothehostednetwork" message="$(string.task_Authenticatethepeersassociatedtothehostednetwork)" value="24017"/>
+     <task name="Perftrack_WfdDiscover" message="$(string.task_Perftrack_WfdDiscover)" value="24018"/>
+     <task name="Perftrack_WfdPair" message="$(string.task_Perftrack_WfdPair)" value="24019"/>
+     <task name="ConnectionCost" message="$(string.task_ConnectionCost)" value="24100"/>
+    </tasks>
+    <maps>
+     <valueMap name="tid_BoolValues">
+      <map value="0x0" message="$(string.map_tid_BoolValuesNo)"/>
+      <map value="0x1" message="$(string.map_tid_BoolValuesYes)"/>
+     </valueMap>
+     <valueMap name="tid_EnabledValues">
+      <map value="0x0" message="$(string.map_tid_EnabledValuesDisabled)"/>
+      <map value="0x1" message="$(string.map_tid_EnabledValuesEnabled)"/>
+     </valueMap>
+     <valueMap name="tid_WlansvcPrelogon.Result">
+      <map value="0x0" message="$(string.map_tid_WlansvcPrelogon.ResultSuccess)"/>
+      <map value="0x1" message="$(string.map_tid_WlansvcPrelogon.ResultFailure)"/>
+      <map value="0x2" message="$(string.map_tid_WlansvcPrelogon.ResultThe operational criteria were not met.)"/>
+      <map value="0x3" message="$(string.map_tid_WlansvcPrelogon.ResultThe operational criteria were met.)"/>
+     </valueMap>
+     <valueMap name="tid_WlansvcPostlogon.Result">
+      <map value="0x0" message="$(string.map_tid_WlansvcPostlogon.ResultSuccess)"/>
+      <map value="0x1" message="$(string.map_tid_WlansvcPostlogon.ResultFailure)"/>
+      <map value="0x2" message="$(string.map_tid_WlansvcPostlogon.ResultThe operational criteria were not met.)"/>
+      <map value="0x3" message="$(string.map_tid_WlansvcPostlogon.ResultThe operational criteria were met.)"/>
+     </valueMap>
+     <valueMap name="CostSourceMap">
+      <map value="0x1" message="$(string.map_CostSourceMapGroup Policy)"/>
+      <map value="0x2" message="$(string.map_CostSourceMapUser)"/>
+      <map value="0x3" message="$(string.map_CostSourceMapPublic)"/>
+      <map value="0x4" message="$(string.map_CostSourceMapOperator)"/>
+     </valueMap>
+     <bitMap name="CostValueMap">
+      <map value="0x1" message="$(string.map_CostValueMapUnrestricted)"/>
+      <map value="0x2" message="$(string.map_CostValueMapFixed)"/>
+      <map value="0x4" message="$(string.map_CostValueMapVariable)"/>
+      <map value="0x10000" message="$(string.map_CostValueMapOver Data Limit)"/>
+      <map value="0x20000" message="$(string.map_CostValueMapCongested)"/>
+      <map value="0x40000" message="$(string.map_CostValueMapRoaming)"/>
+     </bitMap>
+     <valueMap name="BSSTypeMap">
+      <map value="0x1" message="$(string.map_BSSTypeMapinfrastructure)"/>
+      <map value="0x2" message="$(string.map_BSSTypeMapindependent)"/>
+      <map value="0x3" message="$(string.map_BSSTypeMapany)"/>
+     </valueMap>
+     <valueMap name="RadioStateMap">
+      <map value="0x0" message="$(string.map_RadioStateMapunknown)"/>
+      <map value="0x1" message="$(string.map_RadioStateMapon)"/>
+      <map value="0x2" message="$(string.map_RadioStateMapoff)"/>
+     </valueMap>
+     <valueMap name="Dot11OpModeMap">
+      <map value="0x0" message="$(string.map_Dot11OpModeMapUnknown)"/>
+      <map value="0x1" message="$(string.map_Dot11OpModeMapStation)"/>
+      <map value="0x2" message="$(string.map_Dot11OpModeMapAP)"/>
+      <map value="0x4" message="$(string.map_Dot11OpModeMapExtensible Station)"/>
+      <map value="0x10" message="$(string.map_Dot11OpModeMapDevice)"/>
+      <map value="0x20" message="$(string.map_Dot11OpModeMapGroup Owner)"/>
+      <map value="0x40" message="$(string.map_Dot11OpModeMapClient)"/>
+      <map value="0x80000000" message="$(string.map_Dot11OpModeMapNetwork Monitor)"/>
+     </valueMap>
+     <valueMap name="WLANConnectionModeMap">
+      <map value="0x0" message="$(string.map_WLANConnectionModeMapprofile)"/>
+      <map value="0x1" message="$(string.map_WLANConnectionModeMaptemporary profile)"/>
+      <map value="0x2" message="$(string.map_WLANConnectionModeMapdiscovery (secure))"/>
+      <map value="0x3" message="$(string.map_WLANConnectionModeMapdiscovery (unsecure))"/>
+      <map value="0x4" message="$(string.map_WLANConnectionModeMapauto)"/>
+      <map value="0x5" message="$(string.map_WLANConnectionModeMapinvalid)"/>
+     </valueMap>
+     <valueMap name="HealthCheckResultMap">
+      <map value="0x0" message="$(string.map_HealthCheckResultMapis updated)"/>
+      <map value="0x1" message="$(string.map_HealthCheckResultMapwill be updated after health check)"/>
+      <map value="0x2" message="$(string.map_HealthCheckResultMapnot updated because the connection is not healthy)"/>
+     </valueMap>
+     <valueMap name="PowerSettingMap">
+      <map value="0x0" message="$(string.map_PowerSettingMapno_saving)"/>
+      <map value="0x1" message="$(string.map_PowerSettingMaplow_saving)"/>
+      <map value="0x2" message="$(string.map_PowerSettingMapmedium_saving)"/>
+      <map value="0x3" message="$(string.map_PowerSettingMapmaximum_saving)"/>
+      <map value="0x4" message="$(string.map_PowerSettingMapinvalid)"/>
+     </valueMap>
+     <valueMap name="MSMFSMStateMap">
+      <map value="0x0" message="$(string.map_MSMFSMStateMapDisconnected)"/>
+      <map value="0x1" message="$(string.map_MSMFSMStateMapConfiguring)"/>
+      <map value="0x2" message="$(string.map_MSMFSMStateMapAssociating)"/>
+      <map value="0x3" message="$(string.map_MSMFSMStateMapWait_For_Portup)"/>
+      <map value="0x4" message="$(string.map_MSMFSMStateMapAuthenticating)"/>
+      <map value="0x5" message="$(string.map_MSMFSMStateMapRoaming)"/>
+      <map value="0x6" message="$(string.map_MSMFSMStateMapConnected)"/>
+      <map value="0x7" message="$(string.map_MSMFSMStateMapWait_For_Disconnected)"/>
+      <map value="0x8" message="$(string.map_MSMFSMStateMapIhv_Configuring)"/>
+      <map value="0x9" message="$(string.map_MSMFSMStateMapReset)"/>
+      <map value="0xb" message="$(string.map_MSMFSMStateMapAP_Reset_For_Connect)"/>
+      <map value="0xc" message="$(string.map_MSMFSMStateMapAP_Configuring)"/>
+      <map value="0xd" message="$(string.map_MSMFSMStateMapAP_Started)"/>
+      <map value="0xe" message="$(string.map_MSMFSMStateMapAP_Stopping)"/>
+      <map value="0xf" message="$(string.map_MSMFSMStateMapAP_Reset_For_Disconnect)"/>
+      <map value="0x14" message="$(string.map_MSMFSMStateMapAP_Disconnected)"/>
+     </valueMap>
+     <valueMap name="AuthUpcallTypeMap">
+      <map value="0x0" message="$(string.map_AuthUpcallTypeMapPORT_UP)"/>
+      <map value="0x1" message="$(string.map_AuthUpcallTypeMapPORT_DOWN)"/>
+      <map value="0x2" message="$(string.map_AuthUpcallTypeMapPACKET)"/>
+      <map value="0x3" message="$(string.map_AuthUpcallTypeMapDISCONNECT)"/>
+      <map value="0x4" message="$(string.map_AuthUpcallTypeMapIHV)"/>
+      <map value="0x5" message="$(string.map_AuthUpcallTypeMapTKIPMIC_FAILURE)"/>
+      <map value="0x6" message="$(string.map_AuthUpcallTypeMapPMKID_CANDIDATE_LIST)"/>
+      <map value="0x7" message="$(string.map_AuthUpcallTypeMapPHY_STATE_CHANGE)"/>
+      <map value="0x8" message="$(string.map_AuthUpcallTypeMapLINK_QUALITY)"/>
+      <map value="0x9" message="$(string.map_AuthUpcallTypeMapCONNECT_COMPLETION)"/>
+      <map value="0xb" message="$(string.map_AuthUpcallTypeMap4_WAY_COMPLETION)"/>
+      <map value="0xc" message="$(string.map_AuthUpcallTypeMapPSK_MISMATCH)"/>
+      <map value="0xd" message="$(string.map_AuthUpcallTypeMapPHY_FREQUENCY_ADOPTED)"/>
+      <map value="0xe" message="$(string.map_AuthUpcallTypeMapEXTAP_PORT_UP)"/>
+      <map value="0xf" message="$(string.map_AuthUpcallTypeMapEXTAP_PORT_DOWN)"/>
+      <map value="0x14" message="$(string.map_AuthUpcallTypeMap4_WAY_START)"/>
+     </valueMap>
+     <valueMap name="Dot11AuthAlgorithmMap">
+      <map value="0x1" message="$(string.map_Dot11AuthAlgorithmMapOpen)"/>
+      <map value="0x2" message="$(string.map_Dot11AuthAlgorithmMapShared Key)"/>
+      <map value="0x3" message="$(string.map_Dot11AuthAlgorithmMapWPA)"/>
+      <map value="0x4" message="$(string.map_Dot11AuthAlgorithmMapWPA PSK)"/>
+      <map value="0x5" message="$(string.map_Dot11AuthAlgorithmMapWPA None)"/>
+      <map value="0x6" message="$(string.map_Dot11AuthAlgorithmMapRSNA)"/>
+      <map value="0x7" message="$(string.map_Dot11AuthAlgorithmMapRSNA PSK)"/>
+     </valueMap>
+     <valueMap name="Dot11CipherAlgorithmMap">
+      <map value="0x0" message="$(string.map_Dot11CipherAlgorithmMapNONE)"/>
+      <map value="0x1" message="$(string.map_Dot11CipherAlgorithmMapWEP40)"/>
+      <map value="0x2" message="$(string.map_Dot11CipherAlgorithmMapTKIP)"/>
+      <map value="0x4" message="$(string.map_Dot11CipherAlgorithmMapCCMP)"/>
+      <map value="0x5" message="$(string.map_Dot11CipherAlgorithmMapWEP104)"/>
+      <map value="0x100" message="$(string.map_Dot11CipherAlgorithmMapUSE_GROUP)"/>
+      <map value="0x101" message="$(string.map_Dot11CipherAlgorithmMapWEP)"/>
+     </valueMap>
+     <valueMap name="IntfSecStateMap">
+      <map value="0x1" message="$(string.map_IntfSecStateMapINITIALIZED)"/>
+      <map value="0x2" message="$(string.map_IntfSecStateMapPROCESSING_PREASSOCIATE)"/>
+      <map value="0x3" message="$(string.map_IntfSecStateMapPREASSOCIATE_DONE)"/>
+      <map value="0x4" message="$(string.map_IntfSecStateMapSTOPPING_SECURITY)"/>
+      <map value="0x5" message="$(string.map_IntfSecStateMapPROCESSING_POSTASSOCIATE)"/>
+      <map value="0x6" message="$(string.map_IntfSecStateMapPROCESSING_STOP_POSTASSOCIATE)"/>
+      <map value="0x7" message="$(string.map_IntfSecStateMapWAIT_FOR_UI_RESPONSE)"/>
+      <map value="0x8" message="$(string.map_IntfSecStateMapFAILURE)"/>
+     </valueMap>
+     <valueMap name="UIResponseTypeMap">
+      <map value="0x0" message="$(string.map_UIResponseTypeMapkey)"/>
+      <map value="0x1" message="$(string.map_UIResponseTypeMappassphrase)"/>
+      <map value="0x2" message="$(string.map_UIResponseTypeMappsk)"/>
+      <map value="0x3" message="$(string.map_UIResponseTypeMaponex)"/>
+      <map value="0x4" message="$(string.map_UIResponseTypeMapany)"/>
+      <map value="0x5" message="$(string.map_UIResponseTypeMapinvalid)"/>
+     </valueMap>
+     <valueMap name="AuthMgrStateMap">
+      <map value="0x1" message="$(string.map_AuthMgrStateMapDISABLED)"/>
+      <map value="0x2" message="$(string.map_AuthMgrStateMapFAKE_AUTH)"/>
+      <map value="0x3" message="$(string.map_AuthMgrStateMapENABLED)"/>
+      <map value="0x4" message="$(string.map_AuthMgrStateMapDEACTIVATE)"/>
+      <map value="0x5" message="$(string.map_AuthMgrStateMapFORCE_AUTHENTICATED)"/>
+      <map value="0x6" message="$(string.map_AuthMgrStateMapSTART_AUTH)"/>
+      <map value="0x7" message="$(string.map_AuthMgrStateMapAUTHENTICATING)"/>
+      <map value="0x8" message="$(string.map_AuthMgrStateMapAUTHENTICATIONSUCCESS)"/>
+      <map value="0x9" message="$(string.map_AuthMgrStateMapAUTHENTICATED)"/>
+      <map value="0xa" message="$(string.map_AuthMgrStateMapAUTH_FAILED)"/>
+     </valueMap>
+     <valueMap name="KeyExtStateMap">
+      <map value="0x1" message="$(string.map_KeyExtStateMapENABLED)"/>
+      <map value="0x2" message="$(string.map_KeyExtStateMapSTOP_AUTH)"/>
+      <map value="0x3" message="$(string.map_KeyExtStateMapSTART_AUTH)"/>
+      <map value="0x4" message="$(string.map_KeyExtStateMapAUTHENTICATING)"/>
+      <map value="0x5" message="$(string.map_KeyExtStateMapAUTHENTICATED)"/>
+      <map value="0x6" message="$(string.map_KeyExtStateMapAUTH_FAILED)"/>
+     </valueMap>
+     <valueMap name="KeyExchangeStateMap">
+      <map value="0x0" message="$(string.map_KeyExchangeStateMapINACTIVE)"/>
+      <map value="0x1" message="$(string.map_KeyExchangeStateMapUNDERWAY)"/>
+      <map value="0x2" message="$(string.map_KeyExchangeStateMapSUCCESS)"/>
+      <map value="0x3" message="$(string.map_KeyExchangeStateMapFAILURE)"/>
+     </valueMap>
+     <valueMap name="KeyMgrAuthStateMap">
+      <map value="0x1" message="$(string.map_KeyMgrAuthStateMapINACTIVE)"/>
+      <map value="0x2" message="$(string.map_KeyMgrAuthStateMapPHS1)"/>
+      <map value="0x3" message="$(string.map_KeyMgrAuthStateMapPHS2)"/>
+      <map value="0x4" message="$(string.map_KeyMgrAuthStateMapSUCCESS)"/>
+      <map value="0x5" message="$(string.map_KeyMgrAuthStateMapGHS)"/>
+      <map value="0x6" message="$(string.map_KeyMgrAuthStateMapFAILURE)"/>
+     </valueMap>
+     <valueMap name="Dot11DirectionMap">
+      <map value="0x1" message="$(string.map_Dot11DirectionMapInbound)"/>
+      <map value="0x2" message="$(string.map_Dot11DirectionMapOutbound)"/>
+      <map value="0x3" message="$(string.map_Dot11DirectionMapBoth)"/>
+     </valueMap>
+     <valueMap name="UIRequestTypeMap">
+      <map value="0x0" message="$(string.map_UIRequestTypeMapautoconfig)"/>
+      <map value="0x1" message="$(string.map_UIRequestTypeMapmsm)"/>
+      <map value="0x2" message="$(string.map_UIRequestTypeMapsecurity)"/>
+      <map value="0x3" message="$(string.map_UIRequestTypeMapihv)"/>
+      <map value="0x4" message="$(string.map_UIRequestTypeMapverifynet)"/>
+      <map value="0x5" message="$(string.map_UIRequestTypeMapcancelled)"/>
+      <map value="0x6" message="$(string.map_UIRequestTypeMapinvalid)"/>
+     </valueMap>
+     <valueMap name="PreAuthMgrStateMap">
+      <map value="0x1" message="$(string.map_PreAuthMgrStateMapDISABLED)"/>
+      <map value="0x2" message="$(string.map_PreAuthMgrStateMapINITIALIZE_PROFILE)"/>
+      <map value="0x3" message="$(string.map_PreAuthMgrStateMapENABLED)"/>
+      <map value="0x4" message="$(string.map_PreAuthMgrStateMapACTIVATED)"/>
+      <map value="0x5" message="$(string.map_PreAuthMgrStateMapPREAUTH_STARTED)"/>
+      <map value="0x6" message="$(string.map_PreAuthMgrStateMapPREAUTH_IN_PROGRESS)"/>
+      <map value="0x7" message="$(string.map_PreAuthMgrStateMapPROCESS_ONEX_RESULT)"/>
+      <map value="0x8" message="$(string.map_PreAuthMgrStateMapPROCESS_TIMEOUT)"/>
+     </valueMap>
+     <valueMap name="PortSecStateMap">
+      <map value="0x1" message="$(string.map_PortSecStateMapINACTIVE)"/>
+      <map value="0x2" message="$(string.map_PortSecStateMapACTIVE)"/>
+      <map value="0x3" message="$(string.map_PortSecStateMapSTART_AUTH)"/>
+      <map value="0x4" message="$(string.map_PortSecStateMapWAIT_FOR_AUTH_SUCCESS)"/>
+      <map value="0x5" message="$(string.map_PortSecStateMapREVIVE_CACHE)"/>
+      <map value="0x6" message="$(string.map_PortSecStateMapKEY_ACTIVATE)"/>
+      <map value="0x7" message="$(string.map_PortSecStateMapWAIT_FOR_KEY_SUCCESS)"/>
+      <map value="0x8" message="$(string.map_PortSecStateMapSUCCESS)"/>
+      <map value="0x9" message="$(string.map_PortSecStateMapFAILURE)"/>
+      <map value="0xa" message="$(string.map_PortSecStateMapKEY_DEACTIVATE)"/>
+      <map value="0xb" message="$(string.map_PortSecStateMapDEACTIVATE)"/>
+      <map value="0xc" message="$(string.map_PortSecStateMapFORCE_AUTHENTICATED)"/>
+      <map value="0xd" message="$(string.map_PortSecStateMapWAIT_FOR_KEY_START)"/>
+      <map value="0xe" message="$(string.map_PortSecStateMapROAM_AUTHENTICATE)"/>
+     </valueMap>
+     <valueMap name="ut:OpcodeMap">
+      <map value="0xb4" message="$(string.map_ut:OpcodeMapStart State)"/>
+      <map value="0xb5" message="$(string.map_ut:OpcodeMapEnd State)"/>
+      <map value="0xb6" message="$(string.map_ut:OpcodeMapClosed State)"/>
+      <map value="0xb7" message="$(string.map_ut:OpcodeMapOpen State)"/>
+      <map value="0xb8" message="$(string.map_ut:OpcodeMapConnect State)"/>
+      <map value="0xb9" message="$(string.map_ut:OpcodeMapListen State)"/>
+      <map value="0xba" message="$(string.map_ut:OpcodeMapAssociation State)"/>
+      <map value="0xbb" message="$(string.map_ut:OpcodeMapAuthentication State)"/>
+      <map value="0xbc" message="$(string.map_ut:OpcodeMapEstablished State)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="4000" symbol="task_0Start" version="0" task="task_0" opcode="win:Start" level="win:Informational"/>
+     <event value="4001" symbol="task_0Stop" version="0" task="task_0" opcode="win:Stop" level="win:Informational"/>
+     <event value="4002" symbol="task_0" version="0" task="task_0" level="win:Error" keywords="Telemetry" template="task_0Args"/>
+     <event value="4003" symbol="task_04003" version="0" task="task_0" level="win:Error" keywords="Telemetry" template="task_04003Args"/>
+     <event value="8000" symbol="AcmConnectionStart_24010_189" version="0" task="AcmConnection" opcode="Start_24010_189" level="win:Informational" keywords="WlanConnect LwtDiagnostic" template="AcmConnectionStart_24010_189Args"/>
+     <event value="8001" symbol="AcmConnectionSuccess" version="0" task="AcmConnection" opcode="Success" level="win:Informational" keywords="WlanConnect LwtDiagnostic Measures" template="AcmConnectionSuccessArgs"/>
+     <event value="8002" symbol="AcmConnectionFailure" version="0" task="AcmConnection" opcode="Failure" level="win:Error" keywords="WlanConnect LwtDiagnostic Measures" template="AcmConnectionFailureArgs"/>
+     <event value="8003" symbol="AcmConnectionDisconnect" version="0" task="AcmConnection" opcode="Disconnect" level="win:Informational" keywords="WlanConnect LwtDiagnostic Measures" template="AcmConnectionDisconnectArgs"/>
+     <event value="8004" symbol="task_08004" version="0" task="task_0" level="win:Error" keywords="LwtDiagnostic Telemetry" template="task_08004Args"/>
+     <event value="8005" symbol="StartthedevicenetworkStart" version="0" task="Startthedevicenetwork" opcode="win:Start" level="win:Informational" keywords="SOFTAP" template="StartthedevicenetworkStartArgs"/>
+     <event value="8006" symbol="StartthedevicenetworkStop" version="0" task="Startthedevicenetwork" opcode="win:Stop" level="win:Informational" keywords="SOFTAP" template="StartthedevicenetworkStartArgs"/>
+     <event value="8007" symbol="StartthedevicenetworkStop8007" version="0" task="Startthedevicenetwork" opcode="win:Stop" level="win:Error" keywords="SOFTAP" template="StartthedevicenetworkStop8007Args"/>
+     <event value="8008" symbol="StopthedevicenetworkStart" version="0" task="Stopthedevicenetwork" opcode="win:Start" level="win:Informational" keywords="SOFTAP" template="StartthedevicenetworkStartArgs"/>
+     <event value="8009" symbol="StopthedevicenetworkStop" version="0" task="Stopthedevicenetwork" opcode="win:Stop" level="win:Informational" keywords="SOFTAP" template="StartthedevicenetworkStartArgs"/>
+     <event value="8010" symbol="StopthedevicenetworkStop8010" version="0" task="Stopthedevicenetwork" opcode="win:Stop" level="win:Error" keywords="SOFTAP" template="StartthedevicenetworkStop8007Args"/>
+     <event value="8011" symbol="AcmConnection" version="0" task="AcmConnection" level="win:Informational" keywords="WlanConnect Telemetry" template="AcmConnectionArgs"/>
+     <event value="8012" symbol="AcmConnection8012" version="0" task="AcmConnection" level="win:Informational" keywords="WlanConnect Telemetry" template="AcmConnection8012Args"/>
+     <event value="10000" symbol="task_010000" version="0" task="task_0" level="win:Error" keywords="Telemetry" template="task_010000Args"/>
+     <event value="10001" symbol="task_010001" version="0" task="task_0" level="win:Informational" template="task_010001Args"/>
+     <event value="10002" symbol="task_010002" version="0" task="task_0" level="win:Warning" template="task_010001Args"/>
+     <event value="10003" symbol="task_010003" version="0" task="task_0" level="win:Error" keywords="Telemetry" template="task_010001Args"/>
+     <event value="10004" symbol="task_010004" version="0" task="task_0" level="win:Warning" keywords="Telemetry" template="task_010001Args"/>
+     <event value="11000" symbol="MsmAssociationStart_24011_193" version="0" task="MsmAssociation" opcode="Start_24011_193" level="win:Informational" keywords="WlanConnect LwtDiagnostic" template="MsmAssociationStart_24011_193Args"/>
+     <event value="11001" symbol="MsmAssociationSuccess_24011_194" version="0" task="MsmAssociation" opcode="Success_24011_194" level="win:Informational" keywords="WlanConnect LwtDiagnostic" template="MsmAssociationSuccess_24011_194Args"/>
+     <event value="11002" symbol="MsmAssociationFailure_24011_195" version="0" task="MsmAssociation" opcode="Failure_24011_195" level="win:Error" keywords="WlanConnect LwtDiagnostic" template="MsmAssociationFailure_24011_195Args"/>
+     <event value="11003" symbol="MsmSecurityStart_24012_196" version="0" task="MsmSecurity" opcode="Start_24012_196" level="win:Informational" keywords="WlanConnect LwtDiagnostic" template="MsmSecurityStart_24012_196Args"/>
+     <event value="11004" symbol="MsmSecurityStop_24012_197" version="0" task="MsmSecurity" opcode="Stop_24012_197" level="win:Informational" keywords="WlanConnect LwtDiagnostic" template="MsmSecurityStop_24012_197Args"/>
+     <event value="11005" symbol="MsmSecuritySuccess_24012_198" version="0" task="MsmSecurity" opcode="Success_24012_198" level="win:Informational" keywords="WlanConnect LwtDiagnostic" template="MsmSecuritySuccess_24012_198Args"/>
+     <event value="11006" symbol="MsmSecurityFailure_24012_199" version="0" task="MsmSecurity" opcode="Failure_24012_199" level="win:Error" keywords="WlanConnect LwtDiagnostic" template="MsmSecurityFailure_24012_199Args"/>
+     <event value="11007" symbol="task_011007" version="0" task="task_0" level="win:Informational" keywords="LwtDiagnostic" template="task_011007Args"/>
+     <event value="11008" symbol="IhvSecuritySuccess_24013_201" version="0" task="IhvSecurity" opcode="Success_24013_201" level="win:Informational" keywords="WlanConnect LwtDiagnostic" template="MsmSecuritySuccess_24012_198Args"/>
+     <event value="11009" symbol="IhvSecurityFailure_24013_202" version="0" task="IhvSecurity" opcode="Failure_24013_202" level="win:Error" keywords="WlanConnect LwtDiagnostic" template="IhvSecurityFailure_24013_202Args"/>
+     <event value="11010" symbol="MsmSecurityStart_24012_200" version="0" task="MsmSecurity" opcode="Start_24012_200" level="win:Informational" keywords="WlanConnect LwtDiagnostic" template="MsmSecurityStart_24012_200Args"/>
+     <event value="12011" symbol="OneXAuthenticationStart_24014_203" version="0" task="OneXAuthentication" opcode="Start_24014_203" level="win:Informational" keywords="WlanConnect LwtDiagnostic" template="OneXAuthenticationStart_24014_203Args"/>
+     <event value="12012" symbol="OneXAuthenticationSuccess_24014_204" version="0" task="OneXAuthentication" opcode="Success_24014_204" level="win:Informational" keywords="WlanConnect LwtDiagnostic" template="OneXAuthenticationSuccess_24014_204Args"/>
+     <event value="12013" symbol="OneXAuthenticationFailure_24014_205" version="0" task="OneXAuthentication" opcode="Failure_24014_205" level="win:Error" keywords="WlanConnect LwtDiagnostic" template="OneXAuthenticationFailure_24014_205Args"/>
+     <event value="12014" symbol="OneXAuthenticationRestart" version="0" task="OneXAuthentication" opcode="Restart" level="win:Informational" keywords="WlanConnect LwtDiagnostic" template="OneXAuthenticationRestartArgs"/>
+     <event value="13001" symbol="task_013001" version="0" task="task_0" level="win:Informational" keywords="LwtDiagnostic" template="task_013001Args"/>
+     <event value="13002" symbol="task_013002" version="0" task="task_0" level="win:Informational" keywords="LwtDiagnostic" template="task_013002Args"/>
+     <event value="13011" symbol="task_013011" version="0" task="task_0" level="win:Informational" template="task_013001Args"/>
+     <event value="13012" symbol="task_013012" version="0" task="task_0" level="win:Informational" keywords="LwtDiagnostic" template="task_013012Args"/>
+     <event value="13013" symbol="task_013013" version="0" task="task_0" level="win:Informational" template="task_013013Args"/>
+     <event value="13014" symbol="task_013014" version="0" task="task_0" level="win:Informational" keywords="LwtDiagnostic" template="task_013014Args"/>
+     <event value="13100" symbol="ConnectionCost" version="0" task="ConnectionCost" level="win:Informational" keywords="LwtDiagnostic" template="ConnectionCostArgs"/>
+     <event value="13101" symbol="ConnectionCost13101" version="0" task="ConnectionCost" level="win:Informational" keywords="LwtDiagnostic" template="ConnectionCost13101Args"/>
+     <event value="13102" symbol="ConnectionCost13102" version="0" task="ConnectionCost" level="win:Informational" keywords="LwtDiagnostic" template="ConnectionCost13102Args"/>
+     <event value="13103" symbol="ConnectionCost13103" version="0" task="ConnectionCost" level="win:Informational" keywords="LwtDiagnostic"/>
+     <event value="14000" symbol="task_014000" version="0" task="task_0" level="win:Informational" keywords="IntfContext LwtDiagnostic" template="task_014000Args"/>
+     <event value="14001" symbol="task_014001" version="0" task="task_0" level="win:Informational" keywords="IntfContext" template="task_014001Args"/>
+     <event value="14002" symbol="task_014002" version="0" task="task_0" level="win:Informational" keywords="IntfContext ut:Configuration" template="task_014002Args"/>
+     <event value="14003" symbol="task_014003" version="0" task="task_0" level="win:Informational" keywords="IntfContext Telemetry ut:Configuration" template="task_014003Args"/>
+     <event value="14004" symbol="task_014004" version="0" task="task_0" level="win:Informational" keywords="IntfContext ut:Configuration" template="task_014004Args"/>
+     <event value="14005" symbol="task_014005" version="0" task="task_0" level="win:Informational" keywords="IntfContext LwtDiagnostic Telemetry ut:Configuration" template="task_014005Args"/>
+     <event value="14006" symbol="task_014006" version="0" task="task_0" level="win:Informational" keywords="IntfContext" template="AcmConnection8012Args"/>
+     <event value="14007" symbol="task_014007" version="0" task="task_0" level="win:Informational" keywords="IntfContext" template="AcmConnection8012Args"/>
+     <event value="14008" symbol="task_014008" version="0" task="task_0" level="win:Informational" keywords="IntfContext LwtDiagnostic ut:Configuration" template="task_014008Args"/>
+     <event value="14009" symbol="task_014009" version="0" task="task_0" level="win:Informational" keywords="IntfContext LwtDiagnostic ut:Configuration" template="task_014009Args"/>
+     <event value="14010" symbol="task_014010" version="0" task="task_0" level="win:Informational" keywords="IntfContext LwtDiagnostic Telemetry" template="AcmConnection8012Args"/>
+     <event value="14011" symbol="task_014011" version="0" task="task_0" level="win:Informational" keywords="IntfContext LwtDiagnostic Telemetry ut:Configuration" template="task_014011Args"/>
+     <event value="14012" symbol="task_014012" version="0" task="task_0" level="win:Informational" keywords="IntfContext" template="AcmConnection8012Args"/>
+     <event value="14013" symbol="task_014013" version="0" task="task_0" level="win:Informational" keywords="IntfContext ut:Configuration" template="task_014013Args"/>
+     <event value="14014" symbol="task_014014" version="0" task="task_0" level="win:Informational" keywords="IntfContext" template="task_014014Args"/>
+     <event value="14015" symbol="task_014015" version="0" task="task_0" level="win:Informational" keywords="IntfContext ut:Configuration" template="task_014015Args"/>
+     <event value="14016" symbol="task_014016" version="0" task="task_0" level="win:Informational" keywords="IntfContext ut:L2ConnectPath" template="task_014016Args"/>
+     <event value="14017" symbol="task_014017" version="0" task="task_0" level="win:Informational" keywords="IntfContext Telemetry ut:L2ConnectPath" template="AcmConnection8012Args"/>
+     <event value="14018" symbol="task_014018" version="0" task="task_0" level="win:Error" keywords="IntfContext Telemetry ut:L2ConnectPath" template="task_014018Args"/>
+     <event value="14019" symbol="task_014019" version="0" task="task_0" level="win:Informational" keywords="IntfContext Telemetry ut:L2ConnectPath" template="AcmConnection8012Args"/>
+     <event value="14020" symbol="task_014020" version="0" task="task_0" level="win:Informational" keywords="IntfContext ut:L2ConnectPath" template="AcmConnection8012Args"/>
+     <event value="14021" symbol="task_014021" version="0" task="task_0" level="win:Informational" keywords="IntfContext ut:L2ConnectPath ut:ClosePath" template="task_014021Args"/>
+     <event value="14022" symbol="task_014022" version="0" task="task_0" level="win:Informational" keywords="IntfContext ut:ClosePath" template="AcmConnection8012Args"/>
+     <event value="14023" symbol="task_014023" version="0" task="task_0" level="win:Informational" keywords="IntfContext ut:ClosePath" template="task_014013Args"/>
+     <event value="14024" symbol="task_014024" version="0" task="task_0" level="win:Informational" keywords="IntfContext ut:ClosePath" template="AcmConnection8012Args"/>
+     <event value="14025" symbol="task_014025" version="0" task="task_0" level="win:Informational" keywords="IntfContext" template="task_014025Args"/>
+     <event value="14026" symbol="task_014026" version="0" task="task_0" level="win:Informational" keywords="IntfContext" template="task_014026Args"/>
+     <event value="14027" symbol="task_014027" version="0" task="task_0" level="win:Informational" keywords="IntfContext" template="task_014027Args"/>
+     <event value="14028" symbol="task_014028" version="0" task="task_0" level="win:Informational" keywords="IntfContext ut:Configuration" template="task_014028Args"/>
+     <event value="14029" symbol="task_014029" version="0" task="task_0" level="win:Informational" keywords="IntfContext Telemetry" template="AcmConnection8012Args"/>
+     <event value="14030" symbol="task_014030" version="0" task="task_0" level="win:Informational" keywords="IntfContext" template="task_014030Args"/>
+     <event value="14031" symbol="task_014031" version="0" task="task_0" level="win:Informational" keywords="IntfMgr" template="task_014031Args"/>
+     <event value="14032" symbol="task_014032" version="0" task="task_0" level="win:Error" keywords="IntfMgr Telemetry" template="task_014018Args"/>
+     <event value="14033" symbol="task_014033" version="0" task="task_0" level="win:Warning" keywords="IntfMgr" template="AcmConnection8012Args"/>
+     <event value="14034" symbol="task_014034" version="0" task="task_0" level="win:Informational" keywords="IntfMgr" template="task_014034Args"/>
+     <event value="14035" symbol="task_014035" version="0" task="task_0" level="win:Informational" keywords="IntfMgr" template="task_014035Args"/>
+     <event value="14036" symbol="task_014036" version="0" task="task_0" level="win:Informational" keywords="IntfMgr" template="task_014036Args"/>
+     <event value="14037" symbol="task_014037" version="0" task="task_0" level="win:Informational" keywords="State ut:ClosePath" template="task_014037Args"/>
+     <event value="14038" symbol="task_014038" version="0" task="task_0" level="win:Informational" keywords="State ut:ClosePath" template="AcmConnection8012Args"/>
+     <event value="14039" symbol="task_014039" version="0" task="task_0" level="win:Informational" keywords="State" template="task_014039Args"/>
+     <event value="14040" symbol="task_014040" version="0" task="task_0" level="win:Informational" keywords="State" template="task_014040Args"/>
+     <event value="14041" symbol="task_014041" version="0" task="task_0" level="win:Informational" keywords="State" template="AcmConnection8012Args"/>
+     <event value="14042" symbol="task_014042" version="0" task="task_0" level="win:Informational" keywords="State" template="AcmConnection8012Args"/>
+     <event value="14043" symbol="task_014043" version="0" task="task_0" level="win:Informational" keywords="State" template="AcmConnection8012Args"/>
+     <event value="14044" symbol="task_014044" version="0" task="task_0" level="win:Informational" keywords="State" template="task_014013Args"/>
+     <event value="14045" symbol="task_014045" version="0" task="task_0" level="win:Informational" keywords="State ut:L2ConnectPath" template="task_014045Args"/>
+     <event value="14046" symbol="task_014046" version="0" task="task_0" level="win:Informational" keywords="Session" template="task_014046Args"/>
+     <event value="14047" symbol="task_014047" version="0" task="task_0" level="win:Informational" keywords="Session" template="task_014046Args"/>
+     <event value="14048" symbol="task_014048" version="0" task="task_0" level="win:Informational" keywords="Session" template="task_014048Args"/>
+     <event value="14049" symbol="task_014049" version="0" task="task_0" level="win:Informational" keywords="Session" template="task_014049Args"/>
+     <event value="14050" symbol="task_014050" version="0" task="task_0" level="win:Informational" keywords="API" template="AcmConnection8012Args"/>
+     <event value="14051" symbol="task_014051" version="0" task="task_0" level="win:Informational" keywords="API" template="AcmConnection8012Args"/>
+     <event value="14052" symbol="task_014052" version="0" task="task_0" level="win:Error" keywords="API" template="task_014018Args"/>
+     <event value="14053" symbol="task_014053" version="0" task="task_0" level="win:Informational" keywords="API" template="task_014053Args"/>
+     <event value="14054" symbol="task_014054" version="0" task="task_0" level="win:Informational" keywords="IntfContext ut:Configuration" template="task_014002Args"/>
+     <event value="14055" symbol="task_014055" version="0" task="task_0" level="win:Informational" keywords="State" template="AcmConnection8012Args"/>
+     <event value="14056" symbol="task_014056" version="0" task="task_0" level="win:Informational" keywords="State" template="AcmConnection8012Args"/>
+     <event value="14057" symbol="task_014057" version="0" task="task_0" level="win:Informational" keywords="State" template="AcmConnection8012Args"/>
+     <event value="14058" symbol="AcmConnectionT:ACTIVITYCONTEXTt:ActivityContext" version="0" task="AcmConnection" opcode="ut:ActivityContext" level="win:Informational" keywords="State" template="AcmConnectionT:ACTIVITYCONTEXTt:ActivityContextArgs"/>
+     <event value="14059" symbol="task_014059" version="0" task="task_0" level="win:Informational" keywords="IntfContext ut:Configuration" template="task_014002Args"/>
+     <event value="20000" symbol="task_020000" version="0" task="task_0" level="win:Informational" keywords="MSM ut:L2ConnectPath" template="task_020000Args"/>
+     <event value="20001" symbol="task_020001" version="0" task="task_0" level="win:Informational" keywords="MSM Telemetry ut:ClosePath" template="AcmConnection8012Args"/>
+     <event value="20002" symbol="task_020002" version="0" task="task_0" level="win:Informational" keywords="MSM" template="AcmConnection8012Args"/>
+     <event value="20003" symbol="task_020003" version="0" task="task_0" level="win:Informational" keywords="MSM ut:Authentication" template="AcmConnection8012Args"/>
+     <event value="20004" symbol="task_020004" version="0" task="task_0" level="win:Informational" keywords="MSM ut:L2ConnectPath" template="task_020004Args"/>
+     <event value="20005" symbol="task_020005" version="0" task="task_0" level="win:Informational" keywords="MSM ut:Authentication" template="task_020005Args"/>
+     <event value="20006" symbol="task_020006" version="0" task="task_0" level="win:Informational" keywords="MSM" template="task_020006Args"/>
+     <event value="20007" symbol="task_020007" version="0" task="task_0" level="win:Informational" keywords="MSM Telemetry" template="task_020007Args"/>
+     <event value="20008" symbol="task_020008" version="0" task="task_0" level="win:Error" keywords="MSM ut:L2ConnectPath" template="AcmConnection8012Args"/>
+     <event value="20009" symbol="task_020009" version="0" task="task_0" level="win:Informational" keywords="MSM ut:Authentication" template="task_020009Args"/>
+     <event value="20010" symbol="task_020010" version="0" task="task_0" level="win:Informational" keywords="MSM Telemetry ut:Authentication" template="task_020010Args"/>
+     <event value="20011" symbol="task_020011" version="0" task="task_0" level="win:Informational" keywords="MSM Telemetry ut:Authentication" template="task_020010Args"/>
+     <event value="20012" symbol="task_020012" version="0" task="task_0" level="win:Informational" keywords="MSM ut:Authentication" template="AcmConnection8012Args"/>
+     <event value="20013" symbol="task_020013" version="0" task="task_0" level="win:Error" keywords="MSM Telemetry ut:Authentication" template="task_014018Args"/>
+     <event value="20014" symbol="task_020014" version="0" task="task_0" level="win:Informational" keywords="MSM ut:Authentication" template="task_020014Args"/>
+     <event value="20015" symbol="task_020015" version="0" task="task_0" level="win:Informational" keywords="MSM ut:Authentication" template="task_020015Args"/>
+     <event value="20016" symbol="task_020016" version="0" task="task_0" level="win:Informational" keywords="MSM ut:Authentication" template="task_020016Args"/>
+     <event value="20017" symbol="task_020017" version="0" task="task_0" level="win:Informational" keywords="MSM ut:Authentication" template="task_020016Args"/>
+     <event value="20018" symbol="task_020018" version="0" task="task_0" level="win:Informational" keywords="MSM ut:L2ConnectPath" template="task_020018Args"/>
+     <event value="20019" symbol="AuthenticatethepeersassociatedtothehostednetworkStart" version="0" task="Authenticatethepeersassociatedtothehostednetwork" opcode="win:Start" level="win:Informational" keywords="SOFTAP MSAM ut:Authentication" template="AuthenticatethepeersassociatedtothehostednetworkStartArgs"/>
+     <event value="20020" symbol="AuthenticatethepeersassociatedtothehostednetworkStop" version="0" task="Authenticatethepeersassociatedtothehostednetwork" opcode="win:Stop" level="win:Informational" keywords="SOFTAP MSAM ut:Authentication" template="AuthenticatethepeersassociatedtothehostednetworkStartArgs"/>
+     <event value="20021" symbol="AuthenticatethepeersassociatedtothehostednetworkStop20021" version="0" task="Authenticatethepeersassociatedtothehostednetwork" opcode="win:Stop" level="win:Error" keywords="SOFTAP MSAM ut:Authentication" template="AuthenticatethepeersassociatedtothehostednetworkStop20021Args"/>
+     <event value="20022" symbol="task_020022" version="0" task="task_0" level="win:Informational" keywords="MSM keyword_400000000000" template="task_020022Args"/>
+     <event value="20023" symbol="task_020023" version="0" task="task_0" level="win:Informational" keywords="MSM keyword_400000000000" template="task_020023Args"/>
+     <event value="20024" symbol="task_020024" version="0" task="task_0" level="win:Informational" keywords="MSM keyword_400000000000" template="task_020024Args"/>
+     <event value="20025" symbol="task_020025" version="0" task="task_0" level="win:Informational" keywords="MSM keyword_400000000000" template="task_020025Args"/>
+     <event value="21001" symbol="task_021001" version="0" task="task_0" level="win:Informational" keywords="MSMSEC Telemetry ut:Authentication" template="task_021001Args"/>
+     <event value="21002" symbol="task_021002" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication" template="task_021002Args"/>
+     <event value="21003" symbol="task_021003" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication" template="task_021003Args"/>
+     <event value="21004" symbol="task_021004" version="0" task="task_0" level="win:Error" keywords="MSMSEC ut:Authentication" template="task_021004Args"/>
+     <event value="21005" symbol="task_021005" version="0" task="task_0" level="win:Error" keywords="MSMSEC ut:Authentication" template="task_021003Args"/>
+     <event value="21006" symbol="task_021006" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication" template="task_021006Args"/>
+     <event value="21007" symbol="task_021007" version="0" task="task_0" level="win:Informational" keywords="MSMSEC Telemetry ut:Authentication" template="task_021007Args"/>
+     <event value="21008" symbol="task_021008" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication" template="task_021007Args"/>
+     <event value="21009" symbol="task_021009" version="0" task="task_0" level="win:Warning" keywords="MSMSEC ut:Authentication" template="task_021009Args"/>
+     <event value="21010" symbol="task_021010" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication" template="task_021010Args"/>
+     <event value="21011" symbol="task_021011" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication" template="task_021007Args"/>
+     <event value="21012" symbol="task_021012" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication" template="task_021012Args"/>
+     <event value="21013" symbol="task_021013" version="0" task="task_0" level="win:Error" keywords="MSMSEC Telemetry ut:Authentication" template="task_021013Args"/>
+     <event value="21014" symbol="task_021014" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication" template="task_021014Args"/>
+     <event value="21015" symbol="task_021015" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication" template="task_021015Args"/>
+     <event value="21016" symbol="task_021016" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication keyword_40000000000" template="task_021016Args"/>
+     <event value="21017" symbol="task_021017" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication keyword_40000000000" template="task_021016Args"/>
+     <event value="21018" symbol="task_021018" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication keyword_40000000000" template="task_021016Args"/>
+     <event value="21019" symbol="task_021019" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication" template="task_021019Args"/>
+     <event value="21020" symbol="task_021020" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication" template="task_021016Args"/>
+     <event value="21021" symbol="task_021021" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication" template="task_021021Args"/>
+     <event value="21022" symbol="task_021022" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication ut:Global" template="task_021022Args"/>
+     <event value="21023" symbol="task_021023" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication ut:Global" template="task_021023Args"/>
+     <event value="21024" symbol="task_021024" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication" template="task_021024Args"/>
+     <event value="21025" symbol="task_021025" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication" template="task_021025Args"/>
+     <event value="21026" symbol="task_021026" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication keyword_40000000000" template="task_021026Args"/>
+     <event value="21027" symbol="task_021027" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication" template="task_021027Args"/>
+     <event value="21028" symbol="task_021028" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication" template="task_021028Args"/>
+     <event value="21029" symbol="task_021029" version="0" task="task_0" level="win:Informational" keywords="MSMSEC Telemetry ut:Authentication" template="task_021003Args"/>
+     <event value="21030" symbol="task_021030" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication" template="task_021030Args"/>
+     <event value="21031" symbol="task_021031" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication" template="task_021030Args"/>
+     <event value="21032" symbol="task_021032" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication keyword_40000000000" template="task_021032Args"/>
+     <event value="21033" symbol="task_021033" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication" template="task_021033Args"/>
+     <event value="21034" symbol="task_021034" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication" template="task_021034Args"/>
+     <event value="21035" symbol="task_021035" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication" template="task_021009Args"/>
+     <event value="21036" symbol="task_021036" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication" template="task_021003Args"/>
+     <event value="21037" symbol="task_021037" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication" template="task_021037Args"/>
+     <event value="21038" symbol="task_021038" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication ut:Global" template="task_021038Args"/>
+     <event value="21039" symbol="task_021039" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication ut:Global" template="task_021039Args"/>
+     <event value="21040" symbol="task_021040" version="0" task="task_0" level="win:Error" keywords="MSMSEC ut:Authentication" template="task_021009Args"/>
+     <event value="21041" symbol="task_021041" version="0" task="task_0" level="win:Error" keywords="MSMSEC ut:Authentication ut:Global"/>
+     <event value="21042" symbol="task_021042" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication" template="task_021042Args"/>
+     <event value="21043" symbol="task_021043" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication" template="task_021016Args"/>
+     <event value="21044" symbol="task_021044" version="0" task="task_0" level="win:Error" keywords="MSMSEC Telemetry ut:Authentication" template="task_021013Args"/>
+     <event value="21045" symbol="task_021045" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication" template="task_021014Args"/>
+     <event value="21046" symbol="task_021046" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication ut:Global" template="task_021046Args"/>
+     <event value="21047" symbol="task_021047" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication" template="task_021016Args"/>
+     <event value="21048" symbol="task_021048" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication" template="task_021016Args"/>
+     <event value="21049" symbol="task_021049" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication keyword_40000000000" template="task_021016Args"/>
+     <event value="21050" symbol="task_021050" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication keyword_40000000000" template="task_021016Args"/>
+     <event value="21051" symbol="task_021051" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication keyword_40000000000" template="task_021016Args"/>
+     <event value="21052" symbol="task_021052" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication keyword_40000000000" template="task_021016Args"/>
+     <event value="21053" symbol="task_021053" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication keyword_40000000000" template="task_021016Args"/>
+     <event value="21054" symbol="task_021054" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication keyword_40000000000" template="task_021016Args"/>
+     <event value="21055" symbol="task_021055" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication" template="task_021055Args"/>
+     <event value="21056" symbol="task_021056" version="0" task="task_0" level="win:Error" keywords="MSMSEC Telemetry ut:Authentication" template="task_021009Args"/>
+     <event value="21057" symbol="task_021057" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication" template="task_021057Args"/>
+     <event value="21058" symbol="task_021058" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication" template="task_021016Args"/>
+     <event value="21059" symbol="task_021059" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication keyword_40000000000" template="task_021016Args"/>
+     <event value="21060" symbol="task_021060" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication keyword_40000000000" template="task_021016Args"/>
+     <event value="21061" symbol="task_021061" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication keyword_40000000000" template="task_021016Args"/>
+     <event value="21062" symbol="task_021062" version="0" task="task_0" level="win:Error" keywords="MSMSEC ut:Authentication" template="task_021009Args"/>
+     <event value="21063" symbol="task_021063" version="0" task="task_0" level="win:Error" keywords="MSMSEC ut:Authentication" template="task_021063Args"/>
+     <event value="21064" symbol="task_021064" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication" template="task_021064Args"/>
+     <event value="21065" symbol="task_021065" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication ut:Global" template="task_021046Args"/>
+     <event value="21066" symbol="task_021066" version="0" task="task_0" level="win:Informational" keywords="MSMSEC ut:Authentication ut:Global" template="task_021066Args"/>
+     <event value="30000" symbol="ConnecttosamenetworkonresumeStop" version="0" task="Connecttosamenetworkonresume" opcode="win:Stop" level="win:Informational" template="task_020022Args"/>
+     <event value="30001" symbol="ConnecttonetworkonresumeafterinterveningdisconnectStop" version="0" task="Connecttonetworkonresumeafterinterveningdisconnect" opcode="win:Stop" level="win:Informational" template="task_020022Args"/>
+     <event value="30002" symbol="ConnecttonetworkonresumeafterinterveningdisconnectStop30002" version="0" task="Connecttonetworkonresumeafterinterveningdisconnect" opcode="win:Stop" level="win:Informational" template="task_020022Args"/>
+     <event value="30003" symbol="ConnecttosamenetworkonresumeStop30003" version="0" task="Connecttosamenetworkonresume" opcode="win:Stop" level="win:Informational" template="task_020022Args"/>
+     <event value="30004" symbol="ConnecttonetworkonresumeafterinterveningdisconnectStop30004" version="0" task="Connecttonetworkonresumeafterinterveningdisconnect" opcode="win:Stop" level="win:Informational" template="task_020022Args"/>
+     <event value="30005" symbol="ConnecttosamenetworkonresumeStop30005" version="0" task="Connecttosamenetworkonresume" opcode="win:Stop" level="win:Informational" template="task_020022Args"/>
+     <event value="30006" symbol="ConnecttonetworkonresumeafterinterveningdisconnectStop30006" version="0" task="Connecttonetworkonresumeafterinterveningdisconnect" opcode="win:Stop" level="win:Informational" template="task_020022Args"/>
+     <event value="30007" symbol="ConnecttonetworkonresumeafterinterveningdisconnectStop30007" version="0" task="Connecttonetworkonresumeafterinterveningdisconnect" opcode="win:Stop" level="win:Informational" template="task_020022Args"/>
+     <event value="30008" symbol="ConnecttonetworkonresumeafterinterveningdisconnectStop30008" version="0" task="Connecttonetworkonresumeafterinterveningdisconnect" opcode="win:Stop" level="win:Informational" template="task_020022Args"/>
+     <event value="30009" symbol="ConnecttonetworkonresumeafterinterveningdisconnectStop30009" version="0" task="Connecttonetworkonresumeafterinterveningdisconnect" opcode="win:Stop" level="win:Informational" template="task_020022Args"/>
+     <event value="30010" symbol="ConnecttonetworkonresumeafterinterveningdisconnectStop30010" version="0" task="Connecttonetworkonresumeafterinterveningdisconnect" opcode="win:Stop" level="win:Informational" template="task_020022Args"/>
+     <event value="30011" symbol="ConnecttonetworkonresumeafterinterveningdisconnectStop30011" version="0" task="Connecttonetworkonresumeafterinterveningdisconnect" opcode="win:Stop" level="win:Informational" template="task_020022Args"/>
+     <event value="30012" symbol="ConnecttonetworkonresumeafterinterveningdisconnectStop30012" version="0" task="Connecttonetworkonresumeafterinterveningdisconnect" opcode="win:Stop" level="win:Informational" template="task_020022Args"/>
+     <event value="30013" symbol="ConnecttonetworkonresumeafterinterveningdisconnectStop30013" version="0" task="Connecttonetworkonresumeafterinterveningdisconnect" opcode="win:Stop" level="win:Informational" template="task_020022Args"/>
+     <event value="30014" symbol="ConnecttonetworkonresumeafterinterveningdisconnectStop30014" version="0" task="Connecttonetworkonresumeafterinterveningdisconnect" opcode="win:Stop" level="win:Informational" template="task_020022Args"/>
+     <event value="30015" symbol="ConnecttonetworkonresumeafterinterveningdisconnectStop30015" version="0" task="Connecttonetworkonresumeafterinterveningdisconnect" opcode="win:Stop" level="win:Informational" template="task_020022Args"/>
+     <event value="30016" symbol="ConnecttonetworkonresumeafterinterveningdisconnectStop30016" version="0" task="Connecttonetworkonresumeafterinterveningdisconnect" opcode="win:Stop" level="win:Informational" template="task_020022Args"/>
+     <event value="30017" symbol="ConnecttonetworkonresumeafterinterveningdisconnectStop30017" version="0" task="Connecttonetworkonresumeafterinterveningdisconnect" opcode="win:Stop" level="win:Informational" template="task_020022Args"/>
+     <event value="30018" symbol="ConnecttonetworkonresumeafterinterveningdisconnectStop30018" version="0" task="Connecttonetworkonresumeafterinterveningdisconnect" opcode="win:Stop" level="win:Informational" template="task_020022Args"/>
+     <event value="30019" symbol="ConnecttonetworkonresumeafterinterveningdisconnectStop30019" version="0" task="Connecttonetworkonresumeafterinterveningdisconnect" opcode="win:Stop" level="win:Informational" template="task_020022Args"/>
+     <event value="30020" symbol="task_0Start30020" version="0" task="task_0" opcode="win:Start" level="win:Informational" template="task_020022Args"/>
+     <event value="30021" symbol="task_0Stop30021" version="0" task="task_0" opcode="win:Stop" level="win:Informational" template="task_0Stop30021Args"/>
+     <event value="30022" symbol="task_0Stop30022" version="0" task="task_0" opcode="win:Stop" level="win:Informational" template="task_020022Args"/>
+     <event value="30100" symbol="Perftrack_WfdDiscoverStart" version="0" task="Perftrack_WfdDiscover" opcode="win:Start" level="win:Informational" template="Perftrack_WfdDiscoverStartArgs"/>
+     <event value="30101" symbol="Perftrack_WfdDiscoverStop" version="0" task="Perftrack_WfdDiscover" opcode="win:Stop" level="win:Informational" template="Perftrack_WfdDiscoverStartArgs"/>
+     <event value="30102" symbol="Perftrack_WfdPairStart" version="0" task="Perftrack_WfdPair" opcode="win:Start" level="win:Informational" template="Perftrack_WfdDiscoverStartArgs"/>
+     <event value="30103" symbol="Perftrack_WfdPairStop" version="0" task="Perftrack_WfdPair" opcode="win:Stop" level="win:Informational" template="Perftrack_WfdPairStopArgs"/>
+     <event value="30104" symbol="WLANConnecttonetworkStop" version="0" task="WLANConnecttonetwork" opcode="win:Stop" level="win:Informational" template="task_020022Args"/>
+     <event value="30105" symbol="task_030105" version="0" task="task_0" level="win:Error" template="task_030105Args"/>
+     <event value="40001" symbol="AcmConnection40001" version="0" task="AcmConnection" level="win:Informational" keywords="LwtDiagnostic Measures" template="AcmConnection40001Args"/>
+     <event value="60001" symbol="task_060001" version="0" task="task_0" level="win:Error" template="task_021009Args"/>
+     <event value="60002" symbol="task_060002" version="0" task="task_0" level="win:Warning" template="task_060002Args"/>
+     <event value="60003" symbol="task_060003" version="0" task="task_0" level="win:Informational" keywords="keyword_200000000000" template="task_060003Args"/>
+     <event value="60004" symbol="task_060004" version="0" task="task_0" level="win:Informational" template="task_060004Args"/>
+     <event value="60101" symbol="task_060101" version="0" task="task_0" level="win:Informational" template="task_060101Args"/>
+     <event value="60102" symbol="task_060102" version="0" task="task_0" level="win:Informational" template="task_060102Args"/>
+     <event value="60103" symbol="task_060103" version="0" task="task_0" level="win:Informational" template="task_060103Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="task_04003Args">
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="Reason" inType="win:HexInt32"/>
+      <data name="IpFamily" inType="win:HexInt32"/>
+      <data name="PortType" inType="win:HexInt32"/>
+     </template>
+     <template tid="AcmConnectionStart_24010_189Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="ConnectionMode" inType="win:UnicodeString"/>
+      <data name="ProfileName" inType="win:UnicodeString"/>
+      <data name="SSID" inType="win:UnicodeString"/>
+      <data name="BSSType" inType="win:UnicodeString"/>
+      <data name="ConnectionId" inType="win:Pointer"/>
+     </template>
+     <template tid="AcmConnectionSuccessArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="ConnectionMode" inType="win:UnicodeString"/>
+      <data name="ProfileName" inType="win:UnicodeString"/>
+      <data name="SSID" inType="win:UnicodeString"/>
+      <data name="BSSType" inType="win:UnicodeString"/>
+      <data name="PHYType" inType="win:UnicodeString"/>
+      <data name="AuthenticationAlgorithm" inType="win:UnicodeString"/>
+      <data name="CipherAlgorithm" inType="win:UnicodeString"/>
+      <data name="OnexEnabled" inType="win:UInt32" map="tid_BoolValues"/>
+      <data name="ConnectionId" inType="win:Pointer"/>
+      <data name="NonBroadcast" inType="win:Boolean"/>
+     </template>
+     <template tid="AcmConnectionFailureArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="ConnectionMode" inType="win:UnicodeString"/>
+      <data name="ProfileName" inType="win:UnicodeString"/>
+      <data name="SSID" inType="win:UnicodeString"/>
+      <data name="BSSType" inType="win:UnicodeString"/>
+      <data name="FailureReason" inType="win:UnicodeString"/>
+      <data name="ReasonCode" inType="win:UInt32"/>
+      <data name="ConnectionId" inType="win:Pointer"/>
+      <data name="RSSI" inType="win:Int32"/>
+     </template>
+     <template tid="AcmConnectionDisconnectArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="ConnectionMode" inType="win:UnicodeString"/>
+      <data name="ProfileName" inType="win:UnicodeString"/>
+      <data name="SSID" inType="win:UnicodeString"/>
+      <data name="BSSType" inType="win:UnicodeString"/>
+      <data name="Reason" inType="win:UnicodeString"/>
+      <data name="ConnectionId" inType="win:Pointer"/>
+      <data name="ReasonCode" inType="win:UInt32"/>
+     </template>
+     <template tid="task_08004Args">
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="SSIDs" inType="win:UnicodeString"/>
+      <data name="ProfileName" inType="win:UnicodeString"/>
+      <data name="ConnectionMode" inType="win:UnicodeString"/>
+      <data name="BSSType" inType="win:UnicodeString"/>
+      <data name="FailureReason" inType="win:UnicodeString"/>
+      <data name="BlockTime" inType="win:UInt32"/>
+      <data name="ReasonCode" inType="win:UInt32"/>
+      <data name="ConnectionId" inType="win:Pointer"/>
+     </template>
+     <template tid="StartthedevicenetworkStartArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="SSID" inType="win:AnsiString"/>
+     </template>
+     <template tid="StartthedevicenetworkStop8007Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="ErrorMsg" inType="win:UnicodeString"/>
+      <data name="SSID" inType="win:AnsiString"/>
+     </template>
+     <template tid="AcmConnectionArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="ProfileName" inType="win:UnicodeString"/>
+      <data name="SSID" inType="win:UnicodeString"/>
+      <data name="BSSType" inType="win:UInt32"/>
+     </template>
+     <template tid="AcmConnection8012Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_010000Args">
+      <data name="ExtensibleModulePath" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="task_010001Args">
+      <data name="ExtensibleModulePath" inType="win:UnicodeString"/>
+     </template>
+     <template tid="MsmAssociationStart_24011_193Args">
+      <data name="Adapter" inType="win:UnicodeString"/>
+      <data name="DeviceGuid" inType="win:GUID"/>
+      <data name="LocalMac" inType="win:UnicodeString"/>
+      <data name="SSID" inType="win:UnicodeString"/>
+      <data name="BSSType" inType="win:UnicodeString"/>
+      <data name="Auth" inType="win:UnicodeString"/>
+      <data name="Cipher" inType="win:UnicodeString"/>
+      <data name="OnexEnabled" inType="win:UInt32"/>
+      <data name="IhvConnectivitySetting" inType="win:UnicodeString"/>
+      <data name="ConnectionId" inType="win:Pointer"/>
+     </template>
+     <template tid="MsmAssociationSuccess_24011_194Args">
+      <data name="Adapter" inType="win:UnicodeString"/>
+      <data name="DeviceGuid" inType="win:GUID"/>
+      <data name="LocalMac" inType="win:UnicodeString"/>
+      <data name="SSID" inType="win:UnicodeString"/>
+      <data name="BSSType" inType="win:UnicodeString"/>
+      <data name="ConnectionId" inType="win:Pointer"/>
+      <data name="MgmtFrameProtection" inType="win:Boolean"/>
+     </template>
+     <template tid="MsmAssociationFailure_24011_195Args">
+      <data name="Adapter" inType="win:UnicodeString"/>
+      <data name="DeviceGuid" inType="win:GUID"/>
+      <data name="LocalMac" inType="win:UnicodeString"/>
+      <data name="SSID" inType="win:UnicodeString"/>
+      <data name="BSSType" inType="win:UnicodeString"/>
+      <data name="FailureReason" inType="win:UnicodeString"/>
+      <data name="ReasonCode" inType="win:UInt32"/>
+      <data name="Dot11StatusCode" inType="win:UInt32"/>
+      <data name="ConnectionId" inType="win:Pointer"/>
+      <data name="RSSI" inType="win:Int32"/>
+     </template>
+     <template tid="MsmSecurityStart_24012_196Args">
+      <data name="Adapter" inType="win:UnicodeString"/>
+      <data name="DeviceGuid" inType="win:GUID"/>
+      <data name="LocalMac" inType="win:UnicodeString"/>
+      <data name="SSID" inType="win:UnicodeString"/>
+      <data name="BSSType" inType="win:UnicodeString"/>
+      <data name="Auth" inType="win:UnicodeString"/>
+      <data name="AuthVal" inType="win:UInt32"/>
+      <data name="Cipher" inType="win:UnicodeString"/>
+      <data name="CipherVal" inType="win:UInt32"/>
+      <data name="FIPSMode" inType="win:UInt32" map="tid_EnabledValues"/>
+      <data name="OnexEnabled" inType="win:UInt32"/>
+      <data name="ConnectionId" inType="win:Pointer"/>
+     </template>
+     <template tid="MsmSecurityStop_24012_197Args">
+      <data name="Adapter" inType="win:UnicodeString"/>
+      <data name="DeviceGuid" inType="win:GUID"/>
+      <data name="LocalMac" inType="win:UnicodeString"/>
+      <data name="SSID" inType="win:UnicodeString"/>
+      <data name="BSSType" inType="win:UnicodeString"/>
+      <data name="SecurityHint" inType="win:UnicodeString"/>
+      <data name="SecurityHintCode" inType="win:UInt32"/>
+      <data name="ConnectionId" inType="win:Pointer"/>
+     </template>
+     <template tid="MsmSecuritySuccess_24012_198Args">
+      <data name="Adapter" inType="win:UnicodeString"/>
+      <data name="DeviceGuid" inType="win:GUID"/>
+      <data name="LocalMac" inType="win:UnicodeString"/>
+      <data name="SSID" inType="win:UnicodeString"/>
+      <data name="BSSType" inType="win:UnicodeString"/>
+      <data name="ConnectionId" inType="win:Pointer"/>
+     </template>
+     <template tid="MsmSecurityFailure_24012_199Args">
+      <data name="Adapter" inType="win:UnicodeString"/>
+      <data name="DeviceGuid" inType="win:GUID"/>
+      <data name="LocalMac" inType="win:UnicodeString"/>
+      <data name="SSID" inType="win:UnicodeString"/>
+      <data name="BSSType" inType="win:UnicodeString"/>
+      <data name="PeerMac" inType="win:UnicodeString"/>
+      <data name="ReasonText" inType="win:UnicodeString"/>
+      <data name="ReasonCode" inType="win:HexInt32"/>
+      <data name="ErrorCode" inType="win:HexInt32"/>
+      <data name="ConnectionId" inType="win:Pointer"/>
+     </template>
+     <template tid="task_011007Args">
+      <data name="Adapter" inType="win:UnicodeString"/>
+      <data name="DeviceGuid" inType="win:GUID"/>
+      <data name="LocalMac" inType="win:UnicodeString"/>
+      <data name="SSID" inType="win:UnicodeString"/>
+      <data name="BSSType" inType="win:UnicodeString"/>
+      <data name="IhvSecuritySetting" inType="win:UnicodeString"/>
+      <data name="ConnectionId" inType="win:Pointer"/>
+     </template>
+     <template tid="IhvSecurityFailure_24013_202Args">
+      <data name="Adapter" inType="win:UnicodeString"/>
+      <data name="DeviceGuid" inType="win:GUID"/>
+      <data name="LocalMac" inType="win:UnicodeString"/>
+      <data name="SSID" inType="win:UnicodeString"/>
+      <data name="BSSType" inType="win:UnicodeString"/>
+      <data name="PeerMac" inType="win:UnicodeString"/>
+      <data name="IhvReasonCode" inType="win:HexInt32"/>
+      <data name="IhvDataLength" inType="win:UInt32"/>
+      <data name="IhvData" inType="win:Binary"/>
+      <data name="ConnectionId" inType="win:Pointer"/>
+     </template>
+     <template tid="MsmSecurityStart_24012_200Args">
+      <data name="Adapter" inType="win:UnicodeString"/>
+      <data name="DeviceGuid" inType="win:GUID"/>
+      <data name="LocalMac" inType="win:UnicodeString"/>
+      <data name="SSID" inType="win:UnicodeString"/>
+      <data name="BSSType" inType="win:UnicodeString"/>
+      <data name="Auth" inType="win:UnicodeString"/>
+      <data name="AuthVal" inType="win:UInt32"/>
+      <data name="Cipher" inType="win:UnicodeString"/>
+      <data name="CipherVal" inType="win:UInt32"/>
+      <data name="FIPSMode" inType="win:UInt32"/>
+      <data name="OnexEnabled" inType="win:UInt32"/>
+      <data name="ConnectionId" inType="win:Pointer"/>
+     </template>
+     <template tid="OneXAuthenticationStart_24014_203Args">
+      <data name="Adapter" inType="win:UnicodeString"/>
+      <data name="DeviceGuid" inType="win:GUID"/>
+      <data name="LocalMac" inType="win:UnicodeString"/>
+      <data name="SSID" inType="win:UnicodeString"/>
+      <data name="BSSType" inType="win:UnicodeString"/>
+      <data name="EapType" inType="win:UInt32"/>
+      <data name="VendorID" inType="win:UInt32"/>
+      <data name="VendorType" inType="win:UInt32"/>
+      <data name="AuthorID" inType="win:UInt32"/>
+      <data name="ConnectionId" inType="win:Pointer"/>
+     </template>
+     <template tid="OneXAuthenticationSuccess_24014_204Args">
+      <data name="Adapter" inType="win:UnicodeString"/>
+      <data name="DeviceGuid" inType="win:GUID"/>
+      <data name="LocalMac" inType="win:UnicodeString"/>
+      <data name="SSID" inType="win:UnicodeString"/>
+      <data name="BSSType" inType="win:UnicodeString"/>
+      <data name="Identity" inType="win:UnicodeString"/>
+      <data name="User" inType="win:UnicodeString"/>
+      <data name="Domain" inType="win:UnicodeString"/>
+      <data name="ConnectionId" inType="win:Pointer"/>
+      <data name="ExplicitCredentials" inType="win:Boolean"/>
+     </template>
+     <template tid="OneXAuthenticationFailure_24014_205Args">
+      <data name="Adapter" inType="win:UnicodeString"/>
+      <data name="DeviceGuid" inType="win:GUID"/>
+      <data name="LocalMac" inType="win:UnicodeString"/>
+      <data name="SSID" inType="win:UnicodeString"/>
+      <data name="BSSType" inType="win:UnicodeString"/>
+      <data name="PeerMac" inType="win:UnicodeString"/>
+      <data name="Identity" inType="win:UnicodeString"/>
+      <data name="User" inType="win:UnicodeString"/>
+      <data name="Domain" inType="win:UnicodeString"/>
+      <data name="ReasonText" inType="win:UnicodeString"/>
+      <data name="ReasonCode" inType="win:HexInt32"/>
+      <data name="ErrorCode" inType="win:HexInt32"/>
+      <data name="EAPReasonCode" inType="win:HexInt32"/>
+      <data name="EAPRootCauseString" inType="win:UnicodeString"/>
+      <data name="EAPErrorCode" inType="win:HexInt32"/>
+      <data name="ConnectionId" inType="win:Pointer"/>
+      <data name="ExplicitCredentials" inType="win:Boolean"/>
+     </template>
+     <template tid="OneXAuthenticationRestartArgs">
+      <data name="Adapter" inType="win:UnicodeString"/>
+      <data name="DeviceGuid" inType="win:GUID"/>
+      <data name="LocalMac" inType="win:UnicodeString"/>
+      <data name="SSID" inType="win:UnicodeString"/>
+      <data name="BSSType" inType="win:UnicodeString"/>
+      <data name="EapType" inType="win:UInt32"/>
+      <data name="VendorID" inType="win:UInt32"/>
+      <data name="VendorType" inType="win:UInt32"/>
+      <data name="AuthorID" inType="win:UInt32"/>
+      <data name="RestartReason" inType="win:UnicodeString"/>
+      <data name="ConnectionId" inType="win:Pointer"/>
+     </template>
+     <template tid="task_013001Args">
+      <data name="Result" inType="win:UInt32"/>
+      <data name="Reason" inType="win:UInt32"/>
+     </template>
+     <template tid="task_013002Args">
+      <data name="Result" inType="win:UInt32" map="tid_WlansvcPrelogon.Result"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="ProfileName" inType="win:UnicodeString"/>
+      <data name="RequestedFields" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_013012Args">
+      <data name="Result" inType="win:UInt32" map="tid_WlansvcPostlogon.Result"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="ProfileName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_013013Args">
+      <data name="Result" inType="win:UInt32"/>
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="ProfileName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_013014Args">
+      <data name="Result" inType="win:UInt32"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="ProfileName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ConnectionCostArgs">
+      <data name="CostSource" inType="win:UInt32" map="CostSourceMap"/>
+      <data name="CostValue" inType="win:UInt32"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="ProfileName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ConnectionCost13101Args">
+      <data name="CostValue" inType="win:UInt32" map="CostValueMap"/>
+     </template>
+     <template tid="ConnectionCost13102Args">
+      <data name="CostSource" inType="win:UInt32"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="ProfileName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_014000Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="Connected" inType="win:Boolean"/>
+     </template>
+     <template tid="task_014001Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="Joined" inType="win:Boolean"/>
+     </template>
+     <template tid="task_014002Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="Enabled" inType="win:Boolean"/>
+     </template>
+     <template tid="task_014003Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="Enabled" inType="win:Boolean"/>
+      <data name="Result" inType="win:UInt32"/>
+     </template>
+     <template tid="task_014004Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="BSSType" inType="win:UInt32" map="BSSTypeMap"/>
+     </template>
+     <template tid="task_014005Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="PHY" inType="win:UInt32"/>
+      <data name="RadioState" inType="win:UInt32" map="RadioStateMap"/>
+      <data name="Result" inType="win:UInt32"/>
+      <data name="PHYCount" inType="win:UInt32"/>
+     </template>
+     <template tid="task_014008Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="PowerSetting" inType="win:UInt32"/>
+     </template>
+     <template tid="task_014009Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="ConnectionId" inType="win:Pointer"/>
+     </template>
+     <template tid="task_014011Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="PHY" inType="win:UInt32"/>
+      <data name="SoftwareState" inType="win:UInt32"/>
+      <data name="HardwareState" inType="win:UInt32"/>
+      <data name="PHYCount" inType="win:UInt32"/>
+     </template>
+     <template tid="task_014013Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="Profile" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_014014Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="ConnectionResetReason" inType="win:UInt32"/>
+     </template>
+     <template tid="task_014015Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="OpMode" inType="win:UInt32" map="Dot11OpModeMap"/>
+      <data name="Result" inType="win:UInt32"/>
+     </template>
+     <template tid="task_014016Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="ConnectionMode" inType="win:UInt32" map="WLANConnectionModeMap"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="Profile" inType="win:UnicodeString"/>
+      <data name="ConnectionId" inType="win:Pointer"/>
+     </template>
+     <template tid="task_014018Args">
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Context" inType="win:UInt32"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_014021Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="ConnectionId" inType="win:Pointer"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="Adhoc" inType="win:Boolean"/>
+     </template>
+     <template tid="task_014025Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="State" inType="win:UInt32"/>
+     </template>
+     <template tid="task_014026Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="Result" inType="win:Boolean"/>
+     </template>
+     <template tid="task_014027Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="Profile" inType="win:UnicodeString"/>
+      <data name="HealthCheckResult" inType="win:UInt32" map="HealthCheckResultMap"/>
+     </template>
+     <template tid="task_014028Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="OldProfileName" inType="win:UnicodeString"/>
+      <data name="NewProfileName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_014030Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="OpMode" inType="win:UInt32"/>
+     </template>
+     <template tid="task_014031Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="Type" inType="win:UInt32"/>
+     </template>
+     <template tid="task_014034Args">
+      <data name="DeviceGuid" inType="win:UnicodeString"/>
+      <data name="FriendlyName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_014035Args">
+      <data name="SSID" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_014036Args">
+      <data name="Setting" inType="win:UInt8" map="PowerSettingMap"/>
+     </template>
+     <template tid="task_014037Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="Profile" inType="win:UnicodeString"/>
+      <data name="Reason" inType="win:UInt8"/>
+     </template>
+     <template tid="task_014039Args">
+      <data name="Type" inType="win:UInt32"/>
+      <data name="ConnectionId" inType="win:Pointer"/>
+     </template>
+     <template tid="task_014040Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="ScanType" inType="win:UInt32"/>
+      <data name="FlushBSSList" inType="win:Boolean"/>
+     </template>
+     <template tid="task_014045Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="ProfileName" inType="win:UnicodeString"/>
+      <data name="Auto" inType="win:Boolean"/>
+      <data name="SSID" inType="win:UnicodeString"/>
+      <data name="Multiple" inType="win:Boolean"/>
+      <data name="SSIDListSize" inType="win:UInt16"/>
+      <data name="SSIDList" inType="win:Binary" length="SSIDListSize"/>
+     </template>
+     <template tid="task_014046Args">
+      <data name="ConnectionId" inType="win:Pointer"/>
+      <data name="Active" inType="win:Boolean"/>
+      <data name="Console" inType="win:Boolean"/>
+     </template>
+     <template tid="task_014048Args">
+      <data name="ActiveConsole" inType="win:Boolean"/>
+     </template>
+     <template tid="task_014049Args">
+      <data name="ConnectionId" inType="win:Pointer"/>
+     </template>
+     <template tid="task_014053Args">
+      <data name="ConnectionId" inType="win:Pointer"/>
+      <data name="Network" inType="win:GUID"/>
+      <data name="Suppressed" inType="win:Boolean"/>
+     </template>
+     <template tid="AcmConnectionT:ACTIVITYCONTEXTt:ActivityContextArgs">
+      <data name="ProfileName" inType="win:UnicodeString"/>
+      <data name="SSID" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_020000Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="Session" inType="win:Pointer"/>
+     </template>
+     <template tid="task_020004Args">
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="Session" inType="win:Pointer"/>
+      <data name="AdHocFormed" inType="win:Boolean"/>
+     </template>
+     <template tid="task_020005Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="AssocStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="task_020006Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="CurrState" inType="win:UInt32"/>
+      <data name="EventId" inType="win:UInt32"/>
+     </template>
+     <template tid="task_020007Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="CurrState" inType="win:UInt32" map="MSMFSMStateMap"/>
+      <data name="NewState" inType="win:UInt32"/>
+     </template>
+     <template tid="task_020009Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="Quality" inType="win:UInt32"/>
+     </template>
+     <template tid="task_020010Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="BSSID" inType="win:Binary"/>
+     </template>
+     <template tid="task_020014Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="PacketType" inType="win:UInt32" map="AuthUpcallTypeMap"/>
+     </template>
+     <template tid="task_020015Args">
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="task_020016Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="Length" inType="win:UInt32"/>
+      <data name="Handle" inType="win:Pointer"/>
+     </template>
+     <template tid="task_020018Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="SSID" inType="win:UnicodeString"/>
+      <data name="BSSIDCount" inType="win:UInt32"/>
+      <data name="BSSIDList" inType="win:Binary" count="BSSIDCount"/>
+     </template>
+     <template tid="AuthenticatethepeersassociatedtothehostednetworkStartArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="SSID" inType="win:UnicodeString"/>
+      <data name="LocalMAC" inType="win:UnicodeString"/>
+      <data name="PeerMAC" inType="win:UnicodeString"/>
+     </template>
+     <template tid="AuthenticatethepeersassociatedtothehostednetworkStop20021Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="ErrorMsg" inType="win:UnicodeString"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="SSID" inType="win:UnicodeString"/>
+      <data name="LocalMAC" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_020022Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+     </template>
+     <template tid="task_020023Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_020024Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="Count" inType="win:UInt32"/>
+     </template>
+     <template tid="task_020025Args">
+      <data name="Ssid" inType="win:UnicodeString"/>
+      <data name="BssidCount" inType="win:UInt32"/>
+      <data name="AuthAlgoId" inType="win:UInt32" map="Dot11AuthAlgorithmMap"/>
+      <data name="CipherAlgoId" inType="win:UInt32" map="Dot11CipherAlgorithmMap"/>
+      <data name="Rssi" inType="win:UInt32"/>
+     </template>
+     <template tid="task_021001Args">
+      <data name="AdapterId" inType="win:UInt32"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="LocalAddr" inType="win:Binary"/>
+      <data name="FriendlyName" inType="win:UnicodeString"/>
+      <data name="PKMIDs" inType="win:UInt32"/>
+      <data name="FourWayOffloadSupported" inType="win:Boolean"/>
+      <data name="SafeModeSupported" inType="win:Boolean"/>
+      <data name="SafeModeCertified" inType="win:Boolean"/>
+     </template>
+     <template tid="task_021002Args">
+      <data name="AdapterId" inType="win:UInt32"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="OldState" inType="win:UInt32"/>
+      <data name="NewState" inType="win:UInt32" map="IntfSecStateMap"/>
+     </template>
+     <template tid="task_021003Args">
+      <data name="AdapterId" inType="win:UInt32"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+     </template>
+     <template tid="task_021004Args">
+      <data name="AdapterId" inType="win:UInt32"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="AuthAlgoId" inType="win:UInt32"/>
+      <data name="CipherAlgoId" inType="win:UInt32"/>
+      <data name="OneXEnabled" inType="win:Boolean"/>
+      <data name="UICancelled" inType="win:Boolean"/>
+     </template>
+     <template tid="task_021006Args">
+      <data name="AdapterId" inType="win:UInt32"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="ResponseType" inType="win:UInt32" map="UIResponseTypeMap"/>
+     </template>
+     <template tid="task_021007Args">
+      <data name="AdapterId" inType="win:UInt32"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="PortId" inType="win:UInt32"/>
+      <data name="PeerAddr" inType="win:Binary"/>
+      <data name="Context" inType="win:UInt32"/>
+     </template>
+     <template tid="task_021009Args">
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Context" inType="win:UInt32"/>
+     </template>
+     <template tid="task_021010Args">
+      <data name="AdapterId" inType="win:UInt32"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="PortId" inType="win:UInt32"/>
+      <data name="LocalAddr" inType="win:Binary"/>
+      <data name="PeerAddr" inType="win:Binary"/>
+      <data name="OldState" inType="win:UInt32"/>
+      <data name="NewState" inType="win:UInt32" map="AuthMgrStateMap"/>
+     </template>
+     <template tid="task_021012Args">
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="OldState" inType="win:UInt32" map="KeyExtStateMap"/>
+      <data name="NewState" inType="win:UInt32"/>
+     </template>
+     <template tid="task_021013Args">
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="task_021014Args">
+      <data name="SessionId" inType="win:UInt32"/>
+     </template>
+     <template tid="task_021015Args">
+      <data name="AdapterId" inType="win:UInt32"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="PortId" inType="win:UInt32"/>
+      <data name="LocalAddr" inType="win:Binary"/>
+      <data name="PeerAddr" inType="win:Binary"/>
+      <data name="OldState" inType="win:UInt32" map="KeyExchangeStateMap"/>
+      <data name="NewState" inType="win:UInt32"/>
+     </template>
+     <template tid="task_021016Args">
+      <data name="AdapterId" inType="win:UInt32"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="PortId" inType="win:UInt32"/>
+      <data name="LocalAddr" inType="win:Binary"/>
+      <data name="PeerAddr" inType="win:Binary"/>
+      <data name="Timeout" inType="win:UInt32"/>
+     </template>
+     <template tid="task_021019Args">
+      <data name="AdapterId" inType="win:UInt32"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="PortId" inType="win:UInt32"/>
+      <data name="LocalAddr" inType="win:Binary"/>
+      <data name="PeerAddr" inType="win:Binary"/>
+      <data name="OldState" inType="win:UInt32"/>
+      <data name="NewState" inType="win:UInt32" map="KeyMgrAuthStateMap"/>
+     </template>
+     <template tid="task_021021Args">
+      <data name="AdapterId" inType="win:UInt32"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="PortId" inType="win:UInt32"/>
+      <data name="LocalAddr" inType="win:Binary"/>
+      <data name="PeerAddr" inType="win:Binary"/>
+      <data name="Authenticator" inType="win:Boolean"/>
+      <data name="Reason" inType="win:UInt32"/>
+     </template>
+     <template tid="task_021022Args">
+      <data name="Index" inType="win:UInt32"/>
+      <data name="CipherAlgoId" inType="win:UInt32"/>
+      <data name="Direction" inType="win:UInt8" map="Dot11DirectionMap"/>
+      <data name="Len" inType="win:UInt32"/>
+     </template>
+     <template tid="task_021023Args">
+      <data name="Addr" inType="win:Binary"/>
+      <data name="CipherAlgoId" inType="win:UInt32"/>
+      <data name="Direction" inType="win:UInt8"/>
+      <data name="Len" inType="win:UInt32"/>
+     </template>
+     <template tid="task_021024Args">
+      <data name="AdapterId" inType="win:UInt32"/>
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="task_021025Args">
+      <data name="PortId" inType="win:UInt32"/>
+      <data name="PeerAddr" inType="win:Binary"/>
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="task_021026Args">
+      <data name="PeerAddr" inType="win:Binary"/>
+      <data name="EtherType" inType="win:UInt32"/>
+      <data name="Size" inType="win:UInt32"/>
+      <data name="Context" inType="win:UInt32"/>
+     </template>
+     <template tid="task_021027Args">
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="PageClsId" inType="win:GUID"/>
+      <data name="RequestType" inType="win:UInt32"/>
+     </template>
+     <template tid="task_021028Args">
+      <data name="AdapterId" inType="win:UInt32"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="LocalAddr" inType="win:Binary"/>
+      <data name="SSID" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_021030Args">
+      <data name="AdapterId" inType="win:UInt32"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="PeerAddr" inType="win:Binary"/>
+     </template>
+     <template tid="task_021032Args">
+      <data name="AdapterId" inType="win:UInt32"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="PeerAddr" inType="win:Binary"/>
+      <data name="EtherType" inType="win:UInt32"/>
+      <data name="Size" inType="win:UInt32"/>
+      <data name="Context" inType="win:UInt32"/>
+     </template>
+     <template tid="task_021033Args">
+      <data name="AdapterId" inType="win:UInt32"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="RequestType" inType="win:UInt32" map="UIRequestTypeMap"/>
+      <data name="ResponseType" inType="win:UInt32"/>
+      <data name="Cancelled" inType="win:Boolean"/>
+     </template>
+     <template tid="task_021034Args">
+      <data name="AdapterID" inType="win:UInt32"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="SSID" inType="win:AnsiString"/>
+      <data name="BSSType" inType="win:UInt32"/>
+      <data name="Secure" inType="win:Boolean"/>
+     </template>
+     <template tid="task_021037Args">
+      <data name="AdapterId" inType="win:UInt32"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="Healthy" inType="win:Boolean"/>
+      <data name="HealthStatus" inType="win:UInt32"/>
+      <data name="Hint" inType="win:Boolean"/>
+     </template>
+     <template tid="task_021038Args">
+      <data name="BSSID" inType="win:Binary"/>
+     </template>
+     <template tid="task_021039Args">
+      <data name="Valid" inType="win:Boolean"/>
+      <data name="Cancelled" inType="win:Boolean"/>
+     </template>
+     <template tid="task_021042Args">
+      <data name="AdapterId" inType="win:UInt32"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="OldState" inType="win:UInt32"/>
+      <data name="NewState" inType="win:UInt32" map="PreAuthMgrStateMap"/>
+     </template>
+     <template tid="task_021046Args">
+      <data name="AdapterId" inType="win:UInt32"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="PortId" inType="win:UInt32"/>
+      <data name="LocalAddr" inType="win:Binary"/>
+      <data name="PeerAddr" inType="win:Binary"/>
+      <data name="RapidRekey" inType="win:Boolean"/>
+     </template>
+     <template tid="task_021055Args">
+      <data name="AdapterId" inType="win:UInt32"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="PortId" inType="win:UInt32"/>
+      <data name="LocalAddr" inType="win:Binary"/>
+      <data name="PeerAddr" inType="win:Binary"/>
+      <data name="FastRoam" inType="win:Boolean"/>
+     </template>
+     <template tid="task_021057Args">
+      <data name="AdapterId" inType="win:UInt32"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="PortId" inType="win:UInt32"/>
+      <data name="LocalAddr" inType="win:Binary"/>
+      <data name="PeerAddr" inType="win:Binary"/>
+      <data name="OldState" inType="win:UInt32"/>
+      <data name="NewState" inType="win:UInt32" map="PortSecStateMap"/>
+     </template>
+     <template tid="task_021063Args">
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Context" inType="win:UInt32"/>
+      <data name="Current" inType="win:UInt32"/>
+      <data name="Max" inType="win:UInt32"/>
+     </template>
+     <template tid="task_021064Args">
+      <data name="BSSType" inType="win:UInt32"/>
+      <data name="AuthAlgoId" inType="win:UInt32"/>
+      <data name="CipherAlgoId" inType="win:UInt32"/>
+      <data name="OnexEnabled" inType="win:UInt32"/>
+      <data name="EapType" inType="win:UInt32"/>
+      <data name="VendorID" inType="win:UInt32"/>
+      <data name="VendorType" inType="win:UInt32"/>
+      <data name="AuthorID" inType="win:UInt32"/>
+     </template>
+     <template tid="task_021066Args">
+      <data name="Index" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0Stop30021Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="WLANStatusCode" inType="win:UInt32"/>
+      <data name="DetailedStatusCode" inType="win:UInt32"/>
+      <data name="ConnectionInformation" inType="win:UInt32"/>
+      <data name="DeviceID" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Perftrack_WfdDiscoverStartArgs">
+      <data name="RequestId" inType="win:UInt32"/>
+     </template>
+     <template tid="Perftrack_WfdPairStopArgs">
+      <data name="RequestId" inType="win:UInt32"/>
+      <data name="WFDPairReturnCode" inType="win:UInt32"/>
+     </template>
+     <template tid="task_030105Args">
+      <data name="ReturnValue" inType="win:UInt32"/>
+      <data name="ReasonCode" inType="win:UInt32"/>
+     </template>
+     <template tid="AcmConnection40001Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="InterfaceDescription" inType="win:UnicodeString"/>
+      <data name="ConnectionMode" inType="win:UInt32"/>
+      <data name="SSID" inType="win:UnicodeString"/>
+      <data name="BSSType" inType="win:UInt32"/>
+      <data name="AuthAlgo" inType="win:UInt32"/>
+      <data name="CipherAlgo" inType="win:UInt32"/>
+      <data name="OnexEnabled" inType="win:UInt32"/>
+      <data name="IHVBitmap" inType="win:UInt32"/>
+      <data name="NonBroadcast" inType="win:Boolean"/>
+      <data name="PeerMAC" inType="win:UnicodeString"/>
+      <data name="WLANStatusCode" inType="win:UInt32"/>
+      <data name="DetailedStatusCode" inType="win:UInt32"/>
+      <data name="AssocDuration" inType="win:UInt32"/>
+      <data name="AssocRestartCount" inType="win:UInt32"/>
+      <data name="AuthDuration" inType="win:UInt32"/>
+      <data name="AuthRestartCount" inType="win:UInt32"/>
+      <data name="DeviceID" inType="win:UnicodeString"/>
+      <data name="DriverVersion" inType="win:UnicodeString"/>
+      <data name="DriverService" inType="win:UnicodeString"/>
+      <data name="RSSI" inType="win:Int32"/>
+      <data name="SignalQualityPercentage" inType="win:Int32"/>
+      <data name="Channel" inType="win:Int32"/>
+      <data name="InterferingAPCount" inType="win:Int32"/>
+      <data name="TotalVisibleAPCount" inType="win:Int32"/>
+      <data name="APPhyType" inType="win:UnicodeString"/>
+      <data name="APMaxChannelWidth" inType="win:Int32"/>
+      <data name="APDescription" inType="win:AnsiString"/>
+      <data name="APManufacturer" inType="win:AnsiString"/>
+      <data name="APModelName" inType="win:AnsiString"/>
+      <data name="APModelNum" inType="win:AnsiString"/>
+      <data name="DetailedStatusCodeOnRoam" inType="win:UInt32"/>
+      <data name="RxRate" inType="win:Int32"/>
+      <data name="TxRate" inType="win:Int32"/>
+      <data name="EAPType" inType="win:Int32"/>
+      <data name="OneXAuthMode" inType="win:UnicodeString"/>
+      <data name="HotSpot20IEPresent" inType="win:Boolean"/>
+      <data name="DeviceMfg" inType="win:UnicodeString"/>
+      <data name="ProfileTypeUsed" inType="win:Int32"/>
+      <data name="SystemRandomizationStatus" inType="win:UInt32"/>
+      <data name="ProfileRandomizationStatus" inType="win:UInt32"/>
+      <data name="DriverDate" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_060002Args">
+      <data name="WarningCode" inType="win:UInt32"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Context" inType="win:UInt32"/>
+     </template>
+     <template tid="task_060003Args">
+      <data name="NextState" inType="win:UInt8" map="ut:OpcodeMap"/>
+      <data name="Context" inType="win:UInt32"/>
+     </template>
+     <template tid="task_060004Args">
+      <data name="Context" inType="win:UInt32"/>
+      <data name="UpdateReasonCode" inType="win:UInt32"/>
+     </template>
+     <template tid="task_060101Args">
+      <data name="SourceAddress" inType="win:UInt32"/>
+      <data name="SourcePort" inType="win:UInt32"/>
+      <data name="DestinationAddress" inType="win:UInt32"/>
+      <data name="DestinationPort" inType="win:UInt32"/>
+      <data name="Protocol" inType="win:UInt32"/>
+      <data name="ReferenceContext" inType="win:UInt32"/>
+     </template>
+     <template tid="task_060102Args">
+      <data name="SourceAddress" inType="win:Binary"/>
+      <data name="SourcePort" inType="win:UInt32"/>
+      <data name="DestinationAddress" inType="win:Binary"/>
+      <data name="DestinationPort" inType="win:UInt32"/>
+      <data name="Protocol" inType="win:UInt32"/>
+      <data name="ReferenceContext" inType="win:UInt32"/>
+     </template>
+     <template tid="task_060103Args">
+      <data name="IfGuid" inType="win:GUID"/>
+      <data name="IfIndex" inType="win:UInt32"/>
+      <data name="IfLuid" inType="win:UInt64"/>
+      <data name="ReferenceContext" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_IntfContext" value="IntfContext"/>
+    <string id="keyword_IntfMgr" value="IntfMgr"/>
+    <string id="keyword_State" value="State"/>
+    <string id="keyword_Session" value="Session"/>
+    <string id="keyword_API" value="API"/>
+    <string id="keyword_MSM" value="MSM"/>
+    <string id="keyword_MSMSEC" value="MSMSEC"/>
+    <string id="keyword_SOFTAP" value="SOFTAP"/>
+    <string id="keyword_MSAM" value="MSAM"/>
+    <string id="keyword_WlanConnect" value="WlanConnect"/>
+    <string id="keyword_LwtDiagnostic" value="LwtDiagnostic"/>
+    <string id="keyword_TelemetryReserved28" value="TelemetryReserved28"/>
+    <string id="keyword_Telemetry" value="Telemetry"/>
+    <string id="keyword_Measures" value="Measures"/>
+    <string id="keyword_CriticalData" value="CriticalData"/>
+    <string id="keyword_ut:SendPath" value="ut:SendPath"/>
+    <string id="keyword_ut:ReceivePath" value="ut:ReceivePath"/>
+    <string id="keyword_ut:L3ConnectPath" value="ut:L3ConnectPath"/>
+    <string id="keyword_ut:L2ConnectPath" value="ut:L2ConnectPath"/>
+    <string id="keyword_ut:ClosePath" value="ut:ClosePath"/>
+    <string id="keyword_ut:Authentication" value="ut:Authentication"/>
+    <string id="keyword_ut:Configuration" value="ut:Configuration"/>
+    <string id="keyword_ut:Global" value="ut:Global"/>
+    <string id="keyword_keyword_40000000000" value="keyword_40000000000"/>
+    <string id="keyword_keyword_200000000000" value="keyword_200000000000"/>
+    <string id="keyword_keyword_400000000000" value="keyword_400000000000"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_Connecttosamenetworkonresume" value="Connecttosamenetworkonresume"/>
+    <string id="task_Connecttonetworkonresumeafterinterveningdisconnect" value="Connecttonetworkonresumeafterinterveningdisconnect"/>
+    <string id="task_WLANConnecttonetwork" value="WLANConnecttonetwork"/>
+    <string id="task_AcmConnection" value="AcmConnection"/>
+    <string id="opcode_AcmConnectionStart_24010_189" value="Start_24010_189"/>
+    <string id="opcode_AcmConnectionSuccess" value="Success"/>
+    <string id="opcode_AcmConnectionFailure" value="Failure"/>
+    <string id="opcode_AcmConnectionDisconnect" value="Disconnect"/>
+    <string id="opcode_AcmConnectionut:ActivityContext" value="ut:ActivityContext"/>
+    <string id="task_MsmAssociation" value="MsmAssociation"/>
+    <string id="opcode_MsmAssociationStart_24011_193" value="Start_24011_193"/>
+    <string id="opcode_MsmAssociationSuccess_24011_194" value="Success_24011_194"/>
+    <string id="opcode_MsmAssociationFailure_24011_195" value="Failure_24011_195"/>
+    <string id="task_MsmSecurity" value="MsmSecurity"/>
+    <string id="opcode_MsmSecurityStart_24012_196" value="Start_24012_196"/>
+    <string id="opcode_MsmSecurityStop_24012_197" value="Stop_24012_197"/>
+    <string id="opcode_MsmSecuritySuccess_24012_198" value="Success_24012_198"/>
+    <string id="opcode_MsmSecurityFailure_24012_199" value="Failure_24012_199"/>
+    <string id="opcode_MsmSecurityStart_24012_200" value="Start_24012_200"/>
+    <string id="task_IhvSecurity" value="IhvSecurity"/>
+    <string id="opcode_IhvSecuritySuccess_24013_201" value="Success_24013_201"/>
+    <string id="opcode_IhvSecurityFailure_24013_202" value="Failure_24013_202"/>
+    <string id="task_OneXAuthentication" value="OneXAuthentication"/>
+    <string id="opcode_OneXAuthenticationStart_24014_203" value="Start_24014_203"/>
+    <string id="opcode_OneXAuthenticationSuccess_24014_204" value="Success_24014_204"/>
+    <string id="opcode_OneXAuthenticationFailure_24014_205" value="Failure_24014_205"/>
+    <string id="opcode_OneXAuthenticationRestart" value="Restart"/>
+    <string id="task_Startthedevicenetwork" value="Startthedevicenetwork"/>
+    <string id="task_Stopthedevicenetwork" value="Stopthedevicenetwork"/>
+    <string id="task_Authenticatethepeersassociatedtothehostednetwork" value="Authenticatethepeersassociatedtothehostednetwork"/>
+    <string id="task_Perftrack_WfdDiscover" value="Perftrack_WfdDiscover"/>
+    <string id="task_Perftrack_WfdPair" value="Perftrack_WfdPair"/>
+    <string id="task_ConnectionCost" value="ConnectionCost"/>
+    <string id="map_tid_BoolValuesNo" value="No"/>
+    <string id="map_tid_BoolValuesYes" value="Yes"/>
+    <string id="map_tid_EnabledValuesDisabled" value="Disabled"/>
+    <string id="map_tid_EnabledValuesEnabled" value="Enabled"/>
+    <string id="map_tid_WlansvcPrelogon.ResultSuccess" value="Success"/>
+    <string id="map_tid_WlansvcPrelogon.ResultFailure" value="Failure"/>
+    <string id="map_tid_WlansvcPrelogon.ResultThe operational criteria were not met." value="The operational criteria were not met."/>
+    <string id="map_tid_WlansvcPrelogon.ResultThe operational criteria were met." value="The operational criteria were met."/>
+    <string id="map_tid_WlansvcPostlogon.ResultSuccess" value="Success"/>
+    <string id="map_tid_WlansvcPostlogon.ResultFailure" value="Failure"/>
+    <string id="map_tid_WlansvcPostlogon.ResultThe operational criteria were not met." value="The operational criteria were not met."/>
+    <string id="map_tid_WlansvcPostlogon.ResultThe operational criteria were met." value="The operational criteria were met."/>
+    <string id="map_CostSourceMapGroup Policy" value="Group Policy"/>
+    <string id="map_CostSourceMapUser" value="User"/>
+    <string id="map_CostSourceMapPublic" value="Public"/>
+    <string id="map_CostSourceMapOperator" value="Operator"/>
+    <string id="map_CostValueMapUnrestricted" value="Unrestricted"/>
+    <string id="map_CostValueMapFixed" value="Fixed"/>
+    <string id="map_CostValueMapVariable" value="Variable"/>
+    <string id="map_CostValueMapOver Data Limit" value="Over Data Limit"/>
+    <string id="map_CostValueMapCongested" value="Congested"/>
+    <string id="map_CostValueMapRoaming" value="Roaming"/>
+    <string id="map_BSSTypeMapinfrastructure" value="infrastructure"/>
+    <string id="map_BSSTypeMapindependent" value="independent"/>
+    <string id="map_BSSTypeMapany" value="any"/>
+    <string id="map_RadioStateMapunknown" value="unknown"/>
+    <string id="map_RadioStateMapon" value="on"/>
+    <string id="map_RadioStateMapoff" value="off"/>
+    <string id="map_Dot11OpModeMapUnknown" value="Unknown"/>
+    <string id="map_Dot11OpModeMapStation" value="Station"/>
+    <string id="map_Dot11OpModeMapAP" value="AP"/>
+    <string id="map_Dot11OpModeMapExtensible Station" value="Extensible Station"/>
+    <string id="map_Dot11OpModeMapDevice" value="Device"/>
+    <string id="map_Dot11OpModeMapGroup Owner" value="Group Owner"/>
+    <string id="map_Dot11OpModeMapClient" value="Client"/>
+    <string id="map_Dot11OpModeMapNetwork Monitor" value="Network Monitor"/>
+    <string id="map_WLANConnectionModeMapprofile" value="profile"/>
+    <string id="map_WLANConnectionModeMaptemporary profile" value="temporary profile"/>
+    <string id="map_WLANConnectionModeMapdiscovery (secure)" value="discovery (secure)"/>
+    <string id="map_WLANConnectionModeMapdiscovery (unsecure)" value="discovery (unsecure)"/>
+    <string id="map_WLANConnectionModeMapauto" value="auto"/>
+    <string id="map_WLANConnectionModeMapinvalid" value="invalid"/>
+    <string id="map_HealthCheckResultMapis updated" value="is updated"/>
+    <string id="map_HealthCheckResultMapwill be updated after health check" value="will be updated after health check"/>
+    <string id="map_HealthCheckResultMapnot updated because the connection is not healthy" value="not updated because the connection is not healthy"/>
+    <string id="map_PowerSettingMapno_saving" value="no_saving"/>
+    <string id="map_PowerSettingMaplow_saving" value="low_saving"/>
+    <string id="map_PowerSettingMapmedium_saving" value="medium_saving"/>
+    <string id="map_PowerSettingMapmaximum_saving" value="maximum_saving"/>
+    <string id="map_PowerSettingMapinvalid" value="invalid"/>
+    <string id="map_MSMFSMStateMapDisconnected" value="Disconnected"/>
+    <string id="map_MSMFSMStateMapConfiguring" value="Configuring"/>
+    <string id="map_MSMFSMStateMapAssociating" value="Associating"/>
+    <string id="map_MSMFSMStateMapWait_For_Portup" value="Wait_For_Portup"/>
+    <string id="map_MSMFSMStateMapAuthenticating" value="Authenticating"/>
+    <string id="map_MSMFSMStateMapRoaming" value="Roaming"/>
+    <string id="map_MSMFSMStateMapConnected" value="Connected"/>
+    <string id="map_MSMFSMStateMapWait_For_Disconnected" value="Wait_For_Disconnected"/>
+    <string id="map_MSMFSMStateMapIhv_Configuring" value="Ihv_Configuring"/>
+    <string id="map_MSMFSMStateMapReset" value="Reset"/>
+    <string id="map_MSMFSMStateMapAP_Reset_For_Connect" value="AP_Reset_For_Connect"/>
+    <string id="map_MSMFSMStateMapAP_Configuring" value="AP_Configuring"/>
+    <string id="map_MSMFSMStateMapAP_Started" value="AP_Started"/>
+    <string id="map_MSMFSMStateMapAP_Stopping" value="AP_Stopping"/>
+    <string id="map_MSMFSMStateMapAP_Reset_For_Disconnect" value="AP_Reset_For_Disconnect"/>
+    <string id="map_MSMFSMStateMapAP_Disconnected" value="AP_Disconnected"/>
+    <string id="map_AuthUpcallTypeMapPORT_UP" value="PORT_UP"/>
+    <string id="map_AuthUpcallTypeMapPORT_DOWN" value="PORT_DOWN"/>
+    <string id="map_AuthUpcallTypeMapPACKET" value="PACKET"/>
+    <string id="map_AuthUpcallTypeMapDISCONNECT" value="DISCONNECT"/>
+    <string id="map_AuthUpcallTypeMapIHV" value="IHV"/>
+    <string id="map_AuthUpcallTypeMapTKIPMIC_FAILURE" value="TKIPMIC_FAILURE"/>
+    <string id="map_AuthUpcallTypeMapPMKID_CANDIDATE_LIST" value="PMKID_CANDIDATE_LIST"/>
+    <string id="map_AuthUpcallTypeMapPHY_STATE_CHANGE" value="PHY_STATE_CHANGE"/>
+    <string id="map_AuthUpcallTypeMapLINK_QUALITY" value="LINK_QUALITY"/>
+    <string id="map_AuthUpcallTypeMapCONNECT_COMPLETION" value="CONNECT_COMPLETION"/>
+    <string id="map_AuthUpcallTypeMap4_WAY_COMPLETION" value="4_WAY_COMPLETION"/>
+    <string id="map_AuthUpcallTypeMapPSK_MISMATCH" value="PSK_MISMATCH"/>
+    <string id="map_AuthUpcallTypeMapPHY_FREQUENCY_ADOPTED" value="PHY_FREQUENCY_ADOPTED"/>
+    <string id="map_AuthUpcallTypeMapEXTAP_PORT_UP" value="EXTAP_PORT_UP"/>
+    <string id="map_AuthUpcallTypeMapEXTAP_PORT_DOWN" value="EXTAP_PORT_DOWN"/>
+    <string id="map_AuthUpcallTypeMap4_WAY_START" value="4_WAY_START"/>
+    <string id="map_Dot11AuthAlgorithmMapOpen" value="Open"/>
+    <string id="map_Dot11AuthAlgorithmMapShared Key" value="Shared Key"/>
+    <string id="map_Dot11AuthAlgorithmMapWPA" value="WPA"/>
+    <string id="map_Dot11AuthAlgorithmMapWPA PSK" value="WPA PSK"/>
+    <string id="map_Dot11AuthAlgorithmMapWPA None" value="WPA None"/>
+    <string id="map_Dot11AuthAlgorithmMapRSNA" value="RSNA"/>
+    <string id="map_Dot11AuthAlgorithmMapRSNA PSK" value="RSNA PSK"/>
+    <string id="map_Dot11CipherAlgorithmMapNONE" value="NONE"/>
+    <string id="map_Dot11CipherAlgorithmMapWEP40" value="WEP40"/>
+    <string id="map_Dot11CipherAlgorithmMapTKIP" value="TKIP"/>
+    <string id="map_Dot11CipherAlgorithmMapCCMP" value="CCMP"/>
+    <string id="map_Dot11CipherAlgorithmMapWEP104" value="WEP104"/>
+    <string id="map_Dot11CipherAlgorithmMapUSE_GROUP" value="USE_GROUP"/>
+    <string id="map_Dot11CipherAlgorithmMapWEP" value="WEP"/>
+    <string id="map_IntfSecStateMapINITIALIZED" value="INITIALIZED"/>
+    <string id="map_IntfSecStateMapPROCESSING_PREASSOCIATE" value="PROCESSING_PREASSOCIATE"/>
+    <string id="map_IntfSecStateMapPREASSOCIATE_DONE" value="PREASSOCIATE_DONE"/>
+    <string id="map_IntfSecStateMapSTOPPING_SECURITY" value="STOPPING_SECURITY"/>
+    <string id="map_IntfSecStateMapPROCESSING_POSTASSOCIATE" value="PROCESSING_POSTASSOCIATE"/>
+    <string id="map_IntfSecStateMapPROCESSING_STOP_POSTASSOCIATE" value="PROCESSING_STOP_POSTASSOCIATE"/>
+    <string id="map_IntfSecStateMapWAIT_FOR_UI_RESPONSE" value="WAIT_FOR_UI_RESPONSE"/>
+    <string id="map_IntfSecStateMapFAILURE" value="FAILURE"/>
+    <string id="map_UIResponseTypeMapkey" value="key"/>
+    <string id="map_UIResponseTypeMappassphrase" value="passphrase"/>
+    <string id="map_UIResponseTypeMappsk" value="psk"/>
+    <string id="map_UIResponseTypeMaponex" value="onex"/>
+    <string id="map_UIResponseTypeMapany" value="any"/>
+    <string id="map_UIResponseTypeMapinvalid" value="invalid"/>
+    <string id="map_AuthMgrStateMapDISABLED" value="DISABLED"/>
+    <string id="map_AuthMgrStateMapFAKE_AUTH" value="FAKE_AUTH"/>
+    <string id="map_AuthMgrStateMapENABLED" value="ENABLED"/>
+    <string id="map_AuthMgrStateMapDEACTIVATE" value="DEACTIVATE"/>
+    <string id="map_AuthMgrStateMapFORCE_AUTHENTICATED" value="FORCE_AUTHENTICATED"/>
+    <string id="map_AuthMgrStateMapSTART_AUTH" value="START_AUTH"/>
+    <string id="map_AuthMgrStateMapAUTHENTICATING" value="AUTHENTICATING"/>
+    <string id="map_AuthMgrStateMapAUTHENTICATIONSUCCESS" value="AUTHENTICATIONSUCCESS"/>
+    <string id="map_AuthMgrStateMapAUTHENTICATED" value="AUTHENTICATED"/>
+    <string id="map_AuthMgrStateMapAUTH_FAILED" value="AUTH_FAILED"/>
+    <string id="map_KeyExtStateMapENABLED" value="ENABLED"/>
+    <string id="map_KeyExtStateMapSTOP_AUTH" value="STOP_AUTH"/>
+    <string id="map_KeyExtStateMapSTART_AUTH" value="START_AUTH"/>
+    <string id="map_KeyExtStateMapAUTHENTICATING" value="AUTHENTICATING"/>
+    <string id="map_KeyExtStateMapAUTHENTICATED" value="AUTHENTICATED"/>
+    <string id="map_KeyExtStateMapAUTH_FAILED" value="AUTH_FAILED"/>
+    <string id="map_KeyExchangeStateMapINACTIVE" value="INACTIVE"/>
+    <string id="map_KeyExchangeStateMapUNDERWAY" value="UNDERWAY"/>
+    <string id="map_KeyExchangeStateMapSUCCESS" value="SUCCESS"/>
+    <string id="map_KeyExchangeStateMapFAILURE" value="FAILURE"/>
+    <string id="map_KeyMgrAuthStateMapINACTIVE" value="INACTIVE"/>
+    <string id="map_KeyMgrAuthStateMapPHS1" value="PHS1"/>
+    <string id="map_KeyMgrAuthStateMapPHS2" value="PHS2"/>
+    <string id="map_KeyMgrAuthStateMapSUCCESS" value="SUCCESS"/>
+    <string id="map_KeyMgrAuthStateMapGHS" value="GHS"/>
+    <string id="map_KeyMgrAuthStateMapFAILURE" value="FAILURE"/>
+    <string id="map_Dot11DirectionMapInbound" value="Inbound"/>
+    <string id="map_Dot11DirectionMapOutbound" value="Outbound"/>
+    <string id="map_Dot11DirectionMapBoth" value="Both"/>
+    <string id="map_UIRequestTypeMapautoconfig" value="autoconfig"/>
+    <string id="map_UIRequestTypeMapmsm" value="msm"/>
+    <string id="map_UIRequestTypeMapsecurity" value="security"/>
+    <string id="map_UIRequestTypeMapihv" value="ihv"/>
+    <string id="map_UIRequestTypeMapverifynet" value="verifynet"/>
+    <string id="map_UIRequestTypeMapcancelled" value="cancelled"/>
+    <string id="map_UIRequestTypeMapinvalid" value="invalid"/>
+    <string id="map_PreAuthMgrStateMapDISABLED" value="DISABLED"/>
+    <string id="map_PreAuthMgrStateMapINITIALIZE_PROFILE" value="INITIALIZE_PROFILE"/>
+    <string id="map_PreAuthMgrStateMapENABLED" value="ENABLED"/>
+    <string id="map_PreAuthMgrStateMapACTIVATED" value="ACTIVATED"/>
+    <string id="map_PreAuthMgrStateMapPREAUTH_STARTED" value="PREAUTH_STARTED"/>
+    <string id="map_PreAuthMgrStateMapPREAUTH_IN_PROGRESS" value="PREAUTH_IN_PROGRESS"/>
+    <string id="map_PreAuthMgrStateMapPROCESS_ONEX_RESULT" value="PROCESS_ONEX_RESULT"/>
+    <string id="map_PreAuthMgrStateMapPROCESS_TIMEOUT" value="PROCESS_TIMEOUT"/>
+    <string id="map_PortSecStateMapINACTIVE" value="INACTIVE"/>
+    <string id="map_PortSecStateMapACTIVE" value="ACTIVE"/>
+    <string id="map_PortSecStateMapSTART_AUTH" value="START_AUTH"/>
+    <string id="map_PortSecStateMapWAIT_FOR_AUTH_SUCCESS" value="WAIT_FOR_AUTH_SUCCESS"/>
+    <string id="map_PortSecStateMapREVIVE_CACHE" value="REVIVE_CACHE"/>
+    <string id="map_PortSecStateMapKEY_ACTIVATE" value="KEY_ACTIVATE"/>
+    <string id="map_PortSecStateMapWAIT_FOR_KEY_SUCCESS" value="WAIT_FOR_KEY_SUCCESS"/>
+    <string id="map_PortSecStateMapSUCCESS" value="SUCCESS"/>
+    <string id="map_PortSecStateMapFAILURE" value="FAILURE"/>
+    <string id="map_PortSecStateMapKEY_DEACTIVATE" value="KEY_DEACTIVATE"/>
+    <string id="map_PortSecStateMapDEACTIVATE" value="DEACTIVATE"/>
+    <string id="map_PortSecStateMapFORCE_AUTHENTICATED" value="FORCE_AUTHENTICATED"/>
+    <string id="map_PortSecStateMapWAIT_FOR_KEY_START" value="WAIT_FOR_KEY_START"/>
+    <string id="map_PortSecStateMapROAM_AUTHENTICATE" value="ROAM_AUTHENTICATE"/>
+    <string id="map_ut:OpcodeMapStart State" value="Start State"/>
+    <string id="map_ut:OpcodeMapEnd State" value="End State"/>
+    <string id="map_ut:OpcodeMapClosed State" value="Closed State"/>
+    <string id="map_ut:OpcodeMapOpen State" value="Open State"/>
+    <string id="map_ut:OpcodeMapConnect State" value="Connect State"/>
+    <string id="map_ut:OpcodeMapListen State" value="Listen State"/>
+    <string id="map_ut:OpcodeMapAssociation State" value="Association State"/>
+    <string id="map_ut:OpcodeMapAuthentication State" value="Authentication State"/>
+    <string id="map_ut:OpcodeMapEstablished State" value="Established State"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

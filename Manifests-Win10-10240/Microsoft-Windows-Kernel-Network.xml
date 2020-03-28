@@ -1,0 +1,166 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Kernel-Network" guid="{7dd42a49-5329-4832-8dfd-43d979153a88}" resourceFileName="Microsoft-Windows-Kernel-Network" messageFileName="Microsoft-Windows-Kernel-Network" symbol="MicrosoftWindowsKernelNetwork" source="Xml" >
+    <keywords>
+     <keyword name="KERNEL_NETWORK_KEYWORD_IPV4" message="$(string.keyword_KERNEL_NETWORK_KEYWORD_IPV4)" mask="0x10"/>
+     <keyword name="KERNEL_NETWORK_KEYWORD_IPV6" message="$(string.keyword_KERNEL_NETWORK_KEYWORD_IPV6)" mask="0x20"/>
+    </keywords>
+    <tasks>
+     <task name="KERNEL_NETWORK_TASK_TCPIP" message="$(string.task_KERNEL_NETWORK_TASK_TCPIP)" value="10">
+>
+      <opcodes>
+       <opcode name="Datasent." message="$(string.opcode_KERNEL_NETWORK_TASK_TCPIPDatasent.)" value="10"/>
+       <opcode name="Datareceived." message="$(string.opcode_KERNEL_NETWORK_TASK_TCPIPDatareceived.)" value="11"/>
+       <opcode name="Connectionattempted." message="$(string.opcode_KERNEL_NETWORK_TASK_TCPIPConnectionattempted.)" value="12"/>
+       <opcode name="Disconnectissued." message="$(string.opcode_KERNEL_NETWORK_TASK_TCPIPDisconnectissued.)" value="13"/>
+       <opcode name="Dataretransmitted." message="$(string.opcode_KERNEL_NETWORK_TASK_TCPIPDataretransmitted.)" value="14"/>
+       <opcode name="Connectionaccepted." message="$(string.opcode_KERNEL_NETWORK_TASK_TCPIPConnectionaccepted.)" value="15"/>
+       <opcode name="Reconnectattempted." message="$(string.opcode_KERNEL_NETWORK_TASK_TCPIPReconnectattempted.)" value="16"/>
+       <opcode name="TCPconnectionattemptfailed." message="$(string.opcode_KERNEL_NETWORK_TASK_TCPIPTCPconnectionattemptfailed.)" value="17"/>
+       <opcode name="Protocolcopieddataonbehalfofuser." message="$(string.opcode_KERNEL_NETWORK_TASK_TCPIPProtocolcopieddataonbehalfofuser.)" value="18"/>
+      </opcodes>
+     </task>
+     <task name="KERNEL_NETWORK_TASK_UDPIP" message="$(string.task_KERNEL_NETWORK_TASK_UDPIP)" value="11">
+>
+      <opcodes>
+       <opcode name="DatasentoverUDPprotocol." message="$(string.opcode_KERNEL_NETWORK_TASK_UDPIPDatasentoverUDPprotocol.)" value="42"/>
+       <opcode name="DatareceivedoverUDPprotocol." message="$(string.opcode_KERNEL_NETWORK_TASK_UDPIPDatareceivedoverUDPprotocol.)" value="43"/>
+       <opcode name="UDPconnectionattemptfailed." message="$(string.opcode_KERNEL_NETWORK_TASK_UDPIPUDPconnectionattemptfailed.)" value="49"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="10" symbol="KERNEL_NETWORK_TASK_TCPIPDatasent." version="0" task="KERNEL_NETWORK_TASK_TCPIP" opcode="Datasent." level="win:Informational" keywords="KERNEL_NETWORK_KEYWORD_IPV4" template="KERNEL_NETWORK_TASK_TCPIPDatasent.Args"/>
+     <event value="11" symbol="KERNEL_NETWORK_TASK_TCPIPDatareceived." version="0" task="KERNEL_NETWORK_TASK_TCPIP" opcode="Datareceived." level="win:Informational" keywords="KERNEL_NETWORK_KEYWORD_IPV4" template="KERNEL_NETWORK_TASK_TCPIPDatareceived.Args"/>
+     <event value="12" symbol="KERNEL_NETWORK_TASK_TCPIPConnectionattempted." version="0" task="KERNEL_NETWORK_TASK_TCPIP" opcode="Connectionattempted." level="win:Informational" keywords="KERNEL_NETWORK_KEYWORD_IPV4" template="KERNEL_NETWORK_TASK_TCPIPConnectionattempted.Args"/>
+     <event value="13" symbol="KERNEL_NETWORK_TASK_TCPIPDisconnectissued." version="0" task="KERNEL_NETWORK_TASK_TCPIP" opcode="Disconnectissued." level="win:Informational" keywords="KERNEL_NETWORK_KEYWORD_IPV4" template="KERNEL_NETWORK_TASK_TCPIPDatareceived.Args"/>
+     <event value="14" symbol="KERNEL_NETWORK_TASK_TCPIPDataretransmitted." version="0" task="KERNEL_NETWORK_TASK_TCPIP" opcode="Dataretransmitted." level="win:Informational" keywords="KERNEL_NETWORK_KEYWORD_IPV4" template="KERNEL_NETWORK_TASK_TCPIPDatareceived.Args"/>
+     <event value="15" symbol="KERNEL_NETWORK_TASK_TCPIPConnectionaccepted." version="0" task="KERNEL_NETWORK_TASK_TCPIP" opcode="Connectionaccepted." level="win:Informational" keywords="KERNEL_NETWORK_KEYWORD_IPV4" template="KERNEL_NETWORK_TASK_TCPIPConnectionattempted.Args"/>
+     <event value="16" symbol="KERNEL_NETWORK_TASK_TCPIPReconnectattempted." version="0" task="KERNEL_NETWORK_TASK_TCPIP" opcode="Reconnectattempted." level="win:Informational" keywords="KERNEL_NETWORK_KEYWORD_IPV4" template="KERNEL_NETWORK_TASK_TCPIPDatareceived.Args"/>
+     <event value="17" symbol="KERNEL_NETWORK_TASK_TCPIPTCPconnectionattemptfailed." version="0" task="KERNEL_NETWORK_TASK_TCPIP" opcode="TCPconnectionattemptfailed." level="win:Informational" keywords="KERNEL_NETWORK_KEYWORD_IPV4 KERNEL_NETWORK_KEYWORD_IPV6" template="KERNEL_NETWORK_TASK_TCPIPTCPconnectionattemptfailed.Args"/>
+     <event value="18" symbol="KERNEL_NETWORK_TASK_TCPIPProtocolcopieddataonbehalfofuser." version="0" task="KERNEL_NETWORK_TASK_TCPIP" opcode="Protocolcopieddataonbehalfofuser." level="win:Informational" keywords="KERNEL_NETWORK_KEYWORD_IPV4" template="KERNEL_NETWORK_TASK_TCPIPDatareceived.Args"/>
+     <event value="26" symbol="KERNEL_NETWORK_TASK_TCPIPDatasent.26" version="0" task="KERNEL_NETWORK_TASK_TCPIP" opcode="Datasent." level="win:Informational" keywords="KERNEL_NETWORK_KEYWORD_IPV6" template="KERNEL_NETWORK_TASK_TCPIPDatasent.26Args"/>
+     <event value="27" symbol="KERNEL_NETWORK_TASK_TCPIPDatareceived.27" version="0" task="KERNEL_NETWORK_TASK_TCPIP" opcode="Datareceived." level="win:Informational" keywords="KERNEL_NETWORK_KEYWORD_IPV6" template="KERNEL_NETWORK_TASK_TCPIPDatareceived.27Args"/>
+     <event value="28" symbol="KERNEL_NETWORK_TASK_TCPIPConnectionattempted.28" version="0" task="KERNEL_NETWORK_TASK_TCPIP" opcode="Connectionattempted." level="win:Informational" keywords="KERNEL_NETWORK_KEYWORD_IPV6" template="KERNEL_NETWORK_TASK_TCPIPConnectionattempted.28Args"/>
+     <event value="29" symbol="KERNEL_NETWORK_TASK_TCPIPDisconnectissued.29" version="0" task="KERNEL_NETWORK_TASK_TCPIP" opcode="Disconnectissued." level="win:Informational" keywords="KERNEL_NETWORK_KEYWORD_IPV6" template="KERNEL_NETWORK_TASK_TCPIPDatareceived.27Args"/>
+     <event value="30" symbol="KERNEL_NETWORK_TASK_TCPIPDataretransmitted.30" version="0" task="KERNEL_NETWORK_TASK_TCPIP" opcode="Dataretransmitted." level="win:Informational" keywords="KERNEL_NETWORK_KEYWORD_IPV6" template="KERNEL_NETWORK_TASK_TCPIPDatareceived.27Args"/>
+     <event value="31" symbol="KERNEL_NETWORK_TASK_TCPIPConnectionaccepted.31" version="0" task="KERNEL_NETWORK_TASK_TCPIP" opcode="Connectionaccepted." level="win:Informational" keywords="KERNEL_NETWORK_KEYWORD_IPV6" template="KERNEL_NETWORK_TASK_TCPIPConnectionattempted.28Args"/>
+     <event value="32" symbol="KERNEL_NETWORK_TASK_TCPIPReconnectattempted.32" version="0" task="KERNEL_NETWORK_TASK_TCPIP" opcode="Reconnectattempted." level="win:Informational" keywords="KERNEL_NETWORK_KEYWORD_IPV6" template="KERNEL_NETWORK_TASK_TCPIPDatareceived.27Args"/>
+     <event value="34" symbol="KERNEL_NETWORK_TASK_TCPIPProtocolcopieddataonbehalfofuser.34" version="0" task="KERNEL_NETWORK_TASK_TCPIP" opcode="Protocolcopieddataonbehalfofuser." level="win:Informational" keywords="KERNEL_NETWORK_KEYWORD_IPV6" template="KERNEL_NETWORK_TASK_TCPIPDatareceived.27Args"/>
+     <event value="42" symbol="KERNEL_NETWORK_TASK_UDPIPDatasentoverUDPprotocol." version="0" task="KERNEL_NETWORK_TASK_UDPIP" opcode="DatasentoverUDPprotocol." level="win:Informational" keywords="KERNEL_NETWORK_KEYWORD_IPV4" template="KERNEL_NETWORK_TASK_TCPIPDatareceived.Args"/>
+     <event value="43" symbol="KERNEL_NETWORK_TASK_UDPIPDatareceivedoverUDPprotocol." version="0" task="KERNEL_NETWORK_TASK_UDPIP" opcode="DatareceivedoverUDPprotocol." level="win:Informational" keywords="KERNEL_NETWORK_KEYWORD_IPV4" template="KERNEL_NETWORK_TASK_TCPIPDatareceived.Args"/>
+     <event value="49" symbol="KERNEL_NETWORK_TASK_UDPIPUDPconnectionattemptfailed." version="0" task="KERNEL_NETWORK_TASK_UDPIP" opcode="UDPconnectionattemptfailed." level="win:Informational" keywords="KERNEL_NETWORK_KEYWORD_IPV4 KERNEL_NETWORK_KEYWORD_IPV6" template="KERNEL_NETWORK_TASK_TCPIPTCPconnectionattemptfailed.Args"/>
+     <event value="58" symbol="KERNEL_NETWORK_TASK_UDPIPDatasentoverUDPprotocol.58" version="0" task="KERNEL_NETWORK_TASK_UDPIP" opcode="DatasentoverUDPprotocol." level="win:Informational" keywords="KERNEL_NETWORK_KEYWORD_IPV6" template="KERNEL_NETWORK_TASK_TCPIPDatareceived.27Args"/>
+     <event value="59" symbol="KERNEL_NETWORK_TASK_UDPIPDatareceivedoverUDPprotocol.59" version="0" task="KERNEL_NETWORK_TASK_UDPIP" opcode="DatareceivedoverUDPprotocol." level="win:Informational" keywords="KERNEL_NETWORK_KEYWORD_IPV6" template="KERNEL_NETWORK_TASK_TCPIPDatareceived.27Args"/>
+    </events>
+    <templates>
+     <template tid="KERNEL_NETWORK_TASK_TCPIPDatasent.Args">
+      <data name="PID" inType="win:UInt32"/>
+      <data name="size" inType="win:UInt32"/>
+      <data name="daddr" inType="win:UInt32"/>
+      <data name="saddr" inType="win:UInt32"/>
+      <data name="dport" inType="win:UInt16"/>
+      <data name="sport" inType="win:UInt16"/>
+      <data name="startime" inType="win:UInt32"/>
+      <data name="endtime" inType="win:UInt32"/>
+      <data name="seqnum" inType="win:UInt32"/>
+      <data name="connid" inType="win:UInt32"/>
+     </template>
+     <template tid="KERNEL_NETWORK_TASK_TCPIPDatareceived.Args">
+      <data name="PID" inType="win:UInt32"/>
+      <data name="size" inType="win:UInt32"/>
+      <data name="daddr" inType="win:UInt32"/>
+      <data name="saddr" inType="win:UInt32"/>
+      <data name="dport" inType="win:UInt16"/>
+      <data name="sport" inType="win:UInt16"/>
+      <data name="seqnum" inType="win:UInt32"/>
+      <data name="connid" inType="win:UInt32"/>
+     </template>
+     <template tid="KERNEL_NETWORK_TASK_TCPIPConnectionattempted.Args">
+      <data name="PID" inType="win:UInt32"/>
+      <data name="size" inType="win:UInt32"/>
+      <data name="daddr" inType="win:UInt32"/>
+      <data name="saddr" inType="win:UInt32"/>
+      <data name="dport" inType="win:UInt16"/>
+      <data name="sport" inType="win:UInt16"/>
+      <data name="mss" inType="win:UInt16"/>
+      <data name="sackopt" inType="win:UInt16"/>
+      <data name="tsopt" inType="win:UInt16"/>
+      <data name="wsopt" inType="win:UInt16"/>
+      <data name="rcvwin" inType="win:UInt32"/>
+      <data name="rcvwinscale" inType="win:UInt16"/>
+      <data name="sndwinscale" inType="win:UInt16"/>
+      <data name="seqnum" inType="win:UInt32"/>
+      <data name="connid" inType="win:UInt32"/>
+     </template>
+     <template tid="KERNEL_NETWORK_TASK_TCPIPTCPconnectionattemptfailed.Args">
+      <data name="Proto" inType="win:UInt16"/>
+      <data name="FailureCode" inType="win:UInt16"/>
+     </template>
+     <template tid="KERNEL_NETWORK_TASK_TCPIPDatasent.26Args">
+      <data name="PID" inType="win:UInt32"/>
+      <data name="size" inType="win:UInt32"/>
+      <data name="daddr" inType="win:Binary"/>
+      <data name="saddr" inType="win:Binary"/>
+      <data name="dport" inType="win:UInt16"/>
+      <data name="sport" inType="win:UInt16"/>
+      <data name="startime" inType="win:UInt32"/>
+      <data name="endtime" inType="win:UInt32"/>
+      <data name="seqnum" inType="win:UInt32"/>
+      <data name="connid" inType="win:UInt32"/>
+     </template>
+     <template tid="KERNEL_NETWORK_TASK_TCPIPDatareceived.27Args">
+      <data name="PID" inType="win:UInt32"/>
+      <data name="size" inType="win:UInt32"/>
+      <data name="daddr" inType="win:Binary"/>
+      <data name="saddr" inType="win:Binary"/>
+      <data name="dport" inType="win:UInt16"/>
+      <data name="sport" inType="win:UInt16"/>
+      <data name="seqnum" inType="win:UInt32"/>
+      <data name="connid" inType="win:UInt32"/>
+     </template>
+     <template tid="KERNEL_NETWORK_TASK_TCPIPConnectionattempted.28Args">
+      <data name="PID" inType="win:UInt32"/>
+      <data name="size" inType="win:UInt32"/>
+      <data name="daddr" inType="win:Binary"/>
+      <data name="saddr" inType="win:Binary"/>
+      <data name="dport" inType="win:UInt16"/>
+      <data name="sport" inType="win:UInt16"/>
+      <data name="mss" inType="win:UInt16"/>
+      <data name="sackopt" inType="win:UInt16"/>
+      <data name="tsopt" inType="win:UInt16"/>
+      <data name="wsopt" inType="win:UInt16"/>
+      <data name="rcvwin" inType="win:UInt32"/>
+      <data name="rcvwinscale" inType="win:UInt16"/>
+      <data name="sndwinscale" inType="win:UInt16"/>
+      <data name="seqnum" inType="win:UInt32"/>
+      <data name="connid" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_KERNEL_NETWORK_KEYWORD_IPV4" value="KERNEL_NETWORK_KEYWORD_IPV4"/>
+    <string id="keyword_KERNEL_NETWORK_KEYWORD_IPV6" value="KERNEL_NETWORK_KEYWORD_IPV6"/>
+    <string id="task_KERNEL_NETWORK_TASK_TCPIP" value="KERNEL_NETWORK_TASK_TCPIP"/>
+    <string id="opcode_KERNEL_NETWORK_TASK_TCPIPDatasent." value="Datasent."/>
+    <string id="opcode_KERNEL_NETWORK_TASK_TCPIPDatareceived." value="Datareceived."/>
+    <string id="opcode_KERNEL_NETWORK_TASK_TCPIPConnectionattempted." value="Connectionattempted."/>
+    <string id="opcode_KERNEL_NETWORK_TASK_TCPIPDisconnectissued." value="Disconnectissued."/>
+    <string id="opcode_KERNEL_NETWORK_TASK_TCPIPDataretransmitted." value="Dataretransmitted."/>
+    <string id="opcode_KERNEL_NETWORK_TASK_TCPIPConnectionaccepted." value="Connectionaccepted."/>
+    <string id="opcode_KERNEL_NETWORK_TASK_TCPIPReconnectattempted." value="Reconnectattempted."/>
+    <string id="opcode_KERNEL_NETWORK_TASK_TCPIPTCPconnectionattemptfailed." value="TCPconnectionattemptfailed."/>
+    <string id="opcode_KERNEL_NETWORK_TASK_TCPIPProtocolcopieddataonbehalfofuser." value="Protocolcopieddataonbehalfofuser."/>
+    <string id="task_KERNEL_NETWORK_TASK_UDPIP" value="KERNEL_NETWORK_TASK_UDPIP"/>
+    <string id="opcode_KERNEL_NETWORK_TASK_UDPIPDatasentoverUDPprotocol." value="DatasentoverUDPprotocol."/>
+    <string id="opcode_KERNEL_NETWORK_TASK_UDPIPDatareceivedoverUDPprotocol." value="DatareceivedoverUDPprotocol."/>
+    <string id="opcode_KERNEL_NETWORK_TASK_UDPIPUDPconnectionattemptfailed." value="UDPconnectionattemptfailed."/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

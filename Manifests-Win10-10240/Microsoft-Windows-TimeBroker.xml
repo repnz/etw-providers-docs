@@ -1,0 +1,73 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-TimeBroker" guid="{0657adc1-9ae8-4e18-932d-e6079cda5ab3}" resourceFileName="Microsoft-Windows-TimeBroker" messageFileName="Microsoft-Windows-TimeBroker" symbol="MicrosoftWindowsTimeBroker" source="Xml" >
+    <keywords>
+     <keyword name="Api" message="$(string.keyword_Api)" mask="0x1"/>
+     <keyword name="EventState" message="$(string.keyword_EventState)" mask="0x2"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <maps>
+     <valueMap name="EventStates">
+      <map value="0x0" message="$(string.map_EventStatesDisabled)"/>
+      <map value="0x1" message="$(string.map_EventStatesArmed)"/>
+      <map value="0x2" message="$(string.map_EventStatesSignalled)"/>
+      <map value="0x3" message="$(string.map_EventStatesDeletePending)"/>
+      <map value="0x4" message="$(string.map_EventStatesEnabled)"/>
+     </valueMap>
+     <valueMap name="EventTypes">
+      <map value="0x0" message="$(string.map_EventTypesAlarm)"/>
+      <map value="0x1" message="$(string.map_EventTypesCalendar)"/>
+      <map value="0x2" message="$(string.map_EventTypesConvenient)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="task_0_V1" version="1" task="task_0" level="win:Verbose" keywords="EventState" template="task_0Args_V1"/>
+     <event value="2" symbol="task_02_V1" version="1" task="task_0" level="win:Verbose" keywords="EventState" template="task_02Args_V1"/>
+     <event value="3" symbol="task_03_V1" version="1" task="task_0" level="win:Informational" keywords="Api" template="task_03Args_V1"/>
+     <event value="4" symbol="task_04_V1" version="1" task="task_0" level="win:Informational" keywords="Api" template="task_04Args_V1"/>
+    </events>
+    <templates>
+     <template tid="task_0Args_V1">
+      <data name="BrokeredEventId" inType="win:GUID"/>
+      <data name="OldState" inType="win:UInt32" map="EventStates"/>
+      <data name="NewState" inType="win:UInt32"/>
+     </template>
+     <template tid="task_02Args_V1">
+      <data name="BrokeredEventId" inType="win:GUID"/>
+      <data name="StartTime" inType="win:FILETIME"/>
+      <data name="EndTime" inType="win:FILETIME"/>
+     </template>
+     <template tid="task_03Args_V1">
+      <data name="BrokeredEventId" inType="win:GUID"/>
+      <data name="EventType" inType="win:UInt32" map="EventTypes"/>
+      <data name="Status" inType="win:HexInt32"/>
+     </template>
+     <template tid="task_04Args_V1">
+      <data name="BrokeredEventId" inType="win:GUID"/>
+      <data name="Status" inType="win:HexInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Api" value="Api"/>
+    <string id="keyword_EventState" value="EventState"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="map_EventStatesDisabled" value="Disabled"/>
+    <string id="map_EventStatesArmed" value="Armed"/>
+    <string id="map_EventStatesSignalled" value="Signalled"/>
+    <string id="map_EventStatesDeletePending" value="DeletePending"/>
+    <string id="map_EventStatesEnabled" value="Enabled"/>
+    <string id="map_EventTypesAlarm" value="Alarm"/>
+    <string id="map_EventTypesCalendar" value="Calendar"/>
+    <string id="map_EventTypesConvenient" value="Convenient"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

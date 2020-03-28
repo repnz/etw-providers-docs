@@ -1,0 +1,85 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Input-HIDCLASS" guid="{6465da78-e7a0-4f39-b084-8f53c7c30dc6}" resourceFileName="Microsoft-Windows-Input-HIDCLASS" messageFileName="Microsoft-Windows-Input-HIDCLASS" symbol="MicrosoftWindowsInputHIDCLASS" source="Xml" >
+    <keywords>
+     <keyword name="Default" message="$(string.keyword_Default)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0">
+>
+      <opcodes>
+       <opcode name="Information" message="$(string.opcode_task_0Information)" value="10"/>
+      </opcodes>
+     </task>
+     <task name="HIDCLASSRundown" message="$(string.task_HIDCLASSRundown)" value="1"/>
+    </tasks>
+    <maps>
+     <valueMap name="DevicePowerStateMap">
+      <map value="0x0" message="$(string.map_DevicePowerStateMapUnspecified)"/>
+      <map value="0x1" message="$(string.map_DevicePowerStateMapD0)"/>
+      <map value="0x2" message="$(string.map_DevicePowerStateMapD1)"/>
+      <map value="0x3" message="$(string.map_DevicePowerStateMapD2)"/>
+      <map value="0x4" message="$(string.map_DevicePowerStateMapD3)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="HIDCLASSRundownStart" version="0" task="HIDCLASSRundown" opcode="win:Start" level="win:Informational" keywords="Default"/>
+     <event value="2" symbol="HIDCLASSRundownStop" version="0" task="HIDCLASSRundown" opcode="win:Stop" level="win:Informational" keywords="Default"/>
+     <event value="3" symbol="task_0Information" version="0" task="task_0" opcode="Information" level="win:Informational" keywords="Default" template="task_0InformationArgs"/>
+     <event value="3" symbol="task_0Information_V1" version="1" task="task_0" opcode="Information" level="win:Informational" keywords="Default" template="task_0InformationArgs_V1"/>
+    </events>
+    <templates>
+     <template tid="task_0InformationArgs">
+      <data name="DeviceObject" inType="win:Pointer"/>
+      <data name="VendorID" inType="win:UInt16"/>
+      <data name="ProductID" inType="win:UInt16"/>
+      <data name="VersionNumber" inType="win:UInt16"/>
+      <data name="ReportDescriptorLength" inType="win:UInt32"/>
+      <data name="ReportDescriptor" inType="win:Binary" length="ReportDescriptorLength"/>
+     </template>
+     <template tid="task_0InformationArgs_V1">
+      <data name="DeviceObject" inType="win:Pointer"/>
+      <data name="PhysicalDeviceObject" inType="win:Pointer"/>
+      <data name="VendorID" inType="win:UInt16"/>
+      <data name="ProductID" inType="win:UInt16"/>
+      <data name="VersionNumber" inType="win:UInt16"/>
+      <data name="DeviceInstancePath" inType="win:UnicodeString"/>
+      <data name="DeviceDescription" inType="win:UnicodeString"/>
+      <data name="DeviceServiceName" inType="win:UnicodeString"/>
+      <data name="DeviceUpperFilters" inType="win:UnicodeString"/>
+      <data name="DeviceLowerFilters" inType="win:UnicodeString"/>
+      <data name="CollectionCount" inType="win:UInt32"/>
+      <data name="ReportDescriptorLength" inType="win:UInt32"/>
+      <data name="ReportDescriptor" inType="win:Binary" length="ReportDescriptorLength"/>
+      <data name="DevicePowerState" inType="win:UInt32" map="DevicePowerStateMap"/>
+      <data name="StateMachineCurrentState" inType="win:UInt32"/>
+      <data name="OpenCount" inType="win:UInt32"/>
+      <data name="LastReadReportSuccessTime" inType="win:UInt64"/>
+      <data name="NumReadReports" inType="win:UInt64"/>
+      <data name="NumReadReportsSinceStart" inType="win:UInt64"/>
+      <data name="NumReadReportsSincePresence" inType="win:UInt64"/>
+      <data name="NumReadReportsSinceD0" inType="win:UInt64"/>
+      <data name="NumReadReportsSinceCaptureState" inType="win:UInt64"/>
+      <data name="Collections" inType="win:CountedMbcsString" count="CollectionCount"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Default" value="Default"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="opcode_task_0Information" value="Information"/>
+    <string id="task_HIDCLASSRundown" value="HIDCLASSRundown"/>
+    <string id="map_DevicePowerStateMapUnspecified" value="Unspecified"/>
+    <string id="map_DevicePowerStateMapD0" value="D0"/>
+    <string id="map_DevicePowerStateMapD1" value="D1"/>
+    <string id="map_DevicePowerStateMapD2" value="D2"/>
+    <string id="map_DevicePowerStateMapD3" value="D3"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

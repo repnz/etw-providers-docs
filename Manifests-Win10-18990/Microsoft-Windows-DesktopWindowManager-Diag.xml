@@ -1,0 +1,55 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-DesktopWindowManager-Diag" guid="{31f60101-3703-48ea-8143-451f8de779d2}" resourceFileName="Microsoft-Windows-DesktopWindowManager-Diag" messageFileName="Microsoft-Windows-DesktopWindowManager-Diag" symbol="MicrosoftWindowsDesktopWindowManagerDiag" source="Xml" >
+    <keywords>
+     <keyword name="DesktopWindowManager_WDI" message="$(string.keyword_DesktopWindowManager_WDI)" mask="0x2000000"/>
+    </keywords>
+    <tasks>
+     <task name="DesktopWindowManager_DiagStats" message="$(string.task_DesktopWindowManager_DiagStats)" value="1"/>
+     <task name="DesktopWindowManager_DWMResponsiveness" message="$(string.task_DesktopWindowManager_DWMResponsiveness)" value="2"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="DesktopWindowManager_DiagStats" version="0" task="DesktopWindowManager_DiagStats" level="win:Informational" keywords="DesktopWindowManager_WDI" template="DesktopWindowManager_DiagStatsArgs"/>
+     <event value="2" symbol="DesktopWindowManager_DWMResponsiveness" version="0" task="DesktopWindowManager_DWMResponsiveness" level="win:Informational" keywords="DesktopWindowManager_WDI" template="DesktopWindowManager_DWMResponsivenessArgs"/>
+    </events>
+    <templates>
+     <template tid="DesktopWindowManager_DiagStatsArgs">
+      <data name="PercentLessThan4" inType="win:UInt32"/>
+      <data name="PercentLessThan8" inType="win:UInt32"/>
+      <data name="PercentLessThan16" inType="win:UInt32"/>
+      <data name="PercentLessThan32" inType="win:UInt32"/>
+      <data name="PercentLessThan50" inType="win:UInt32"/>
+      <data name="PercentLessThan100" inType="win:UInt32"/>
+      <data name="PercentLessThan500" inType="win:UInt32"/>
+      <data name="PercentLessThan1000" inType="win:UInt32"/>
+      <data name="PercentLessThan2000" inType="win:UInt32"/>
+      <data name="PercentLessThan5000" inType="win:UInt32"/>
+      <data name="PercentLessThan10000" inType="win:UInt32"/>
+      <data name="PercentGreater10000" inType="win:UInt32"/>
+      <data name="PercentMissedFlips" inType="win:UInt32"/>
+      <data name="FrameRateReductions" inType="win:UInt32"/>
+      <data name="DiagEventsFired" inType="win:UInt32"/>
+      <data name="PeakPercentSysMemUsed" inType="win:UInt32"/>
+      <data name="PeakWindowCount" inType="win:UInt32"/>
+      <data name="DiagFrames" inType="win:UInt32"/>
+      <data name="DiagStatsDuration" inType="win:UInt32"/>
+     </template>
+     <template tid="DesktopWindowManager_DWMResponsivenessArgs">
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="Diagnosis" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_DesktopWindowManager_WDI" value="DesktopWindowManager_WDI"/>
+    <string id="task_DesktopWindowManager_DiagStats" value="DesktopWindowManager_DiagStats"/>
+    <string id="task_DesktopWindowManager_DWMResponsiveness" value="DesktopWindowManager_DWMResponsiveness"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

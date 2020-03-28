@@ -1,0 +1,31 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Deplorch" guid="{b9da9fe6-ae5f-4f3e-b2fa-8e623c11dc75}" resourceFileName="Microsoft-Windows-Deplorch" messageFileName="Microsoft-Windows-Deplorch" symbol="MicrosoftWindowsDeplorch" source="Xml" >
+    <keywords>
+     <keyword name="keyPerformance" message="$(string.keyword_keyPerformance)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="StartSystemServices" message="$(string.task_StartSystemServices)" value="1000"/>
+    </tasks>
+    <events>
+     <event value="1001" symbol="StartSystemServicesStart" version="0" task="StartSystemServices" opcode="win:Start" level="win:Informational" keywords="keyPerformance"/>
+     <event value="1002" symbol="StartSystemServicesStop" version="0" task="StartSystemServices" opcode="win:Stop" level="win:Informational" keywords="keyPerformance" template="StartSystemServicesStopArgs"/>
+    </events>
+    <templates>
+     <template tid="StartSystemServicesStopArgs">
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_keyPerformance" value="keyPerformance"/>
+    <string id="task_StartSystemServices" value="StartSystemServices"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

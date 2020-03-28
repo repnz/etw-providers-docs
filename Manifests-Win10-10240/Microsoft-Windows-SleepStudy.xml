@@ -1,0 +1,53 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-SleepStudy" guid="{d37687e7-8bf0-4d11-b589-a7abe080756a}" resourceFileName="Microsoft-Windows-SleepStudy" messageFileName="Microsoft-Windows-SleepStudy" symbol="MicrosoftWindowsSleepStudy" source="Xml" >
+    <keywords>
+     <keyword name="sleepstudy" message="$(string.keyword_sleepstudy)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="ScenarioBlocker" message="$(string.task_ScenarioBlocker)" value="1"/>
+     <task name="ScenarioBlockerData" message="$(string.task_ScenarioBlockerData)" value="2"/>
+     <task name="TopOffendersPerfTrack" message="$(string.task_TopOffendersPerfTrack)" value="3"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="ScenarioBlocker" version="0" task="ScenarioBlocker" level="win:Informational" keywords="sleepstudy" template="ScenarioBlockerArgs"/>
+     <event value="2" symbol="ScenarioBlockerData" version="0" task="ScenarioBlockerData" level="win:Informational" keywords="sleepstudy" template="ScenarioBlockerDataArgs"/>
+     <event value="3" symbol="TopOffendersPerfTrack" version="0" task="TopOffendersPerfTrack" level="win:Informational" template="TopOffendersPerfTrackArgs"/>
+    </events>
+    <templates>
+     <template tid="ScenarioBlockerArgs">
+      <data name="ScenarioInstanceId" inType="win:UInt8"/>
+      <data name="ParentGuid" inType="win:GUID"/>
+      <data name="BlockerNameLength" inType="win:UInt32"/>
+      <data name="BlockerName" inType="win:UnicodeString" length="BlockerNameLength"/>
+      <data name="BlockerGuid" inType="win:GUID"/>
+      <data name="ActiveTime" inType="win:UInt64"/>
+     </template>
+     <template tid="ScenarioBlockerDataArgs">
+      <data name="ScenarioInstanceId" inType="win:UInt8"/>
+      <data name="DataCount" inType="win:UInt32"/>
+      <data name="Data" inType="win:Int8" count="DataCount"/>
+     </template>
+     <template tid="TopOffendersPerfTrackArgs">
+      <data name="ActiveTimeAndCommonData" inType="win:UInt32"/>
+      <data name="TopLevelActiveTime" inType="win:UInt32"/>
+      <data name="BlockerHierarchyLevel1" inType="win:UnicodeString"/>
+      <data name="BlockerHierarchyLevel2" inType="win:UnicodeString"/>
+      <data name="BlockerHierarchyLevel3" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_sleepstudy" value="sleepstudy"/>
+    <string id="task_ScenarioBlocker" value="ScenarioBlocker"/>
+    <string id="task_ScenarioBlockerData" value="ScenarioBlockerData"/>
+    <string id="task_TopOffendersPerfTrack" value="TopOffendersPerfTrack"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

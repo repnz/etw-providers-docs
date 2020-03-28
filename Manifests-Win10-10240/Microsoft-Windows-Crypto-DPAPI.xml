@@ -1,0 +1,85 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Crypto-DPAPI" guid="{89fe8f40-cdce-464e-8217-15ef97d4c7c3}" resourceFileName="Microsoft-Windows-Crypto-DPAPI" messageFileName="Microsoft-Windows-Crypto-DPAPI" symbol="MicrosoftWindowsCryptoDPAPI" source="Xml" >
+    <keywords>
+     <keyword name="ETW_TASK_BACKUPSERVICE_OPERATION" message="$(string.keyword_ETW_TASK_BACKUPSERVICE_OPERATION)" mask="0x1"/>
+     <keyword name="ETW_TASK_MASTERKEY_OPERATION" message="$(string.keyword_ETW_TASK_MASTERKEY_OPERATION)" mask="0x2"/>
+     <keyword name="ETW_TASK_DATAPROTECTION_OPERATION" message="$(string.keyword_ETW_TASK_DATAPROTECTION_OPERATION)" mask="0x4"/>
+    </keywords>
+    <tasks>
+     <task name="BackUpServiceOperation" message="$(string.task_BackUpServiceOperation)" value="1"/>
+     <task name="MasterKeyOperation" message="$(string.task_MasterKeyOperation)" value="2"/>
+     <task name="DataProtectionOperation" message="$(string.task_DataProtectionOperation)" value="4"/>
+    </tasks>
+    <maps>
+     <valueMap name="DPAPIReasonForFailure">
+      <map value="0x0" message="$(string.map_DPAPIReasonForFailureUnknown)"/>
+      <map value="0x1" message="$(string.map_DPAPIReasonForFailureVersion check failed)"/>
+      <map value="0x2" message="$(string.map_DPAPIReasonForFailureMAC check failed)"/>
+      <map value="0x3" message="$(string.map_DPAPIReasonForFailureInput buffer size check failed)"/>
+      <map value="0x4" message="$(string.map_DPAPIReasonForFailureAccess check failed)"/>
+      <map value="0x5" message="$(string.map_DPAPIReasonForFailurePassword required, but UI is forbidden)"/>
+      <map value="0x6" message="$(string.map_DPAPIReasonForFailureCould not get the master key)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="MasterKeyOperation" version="0" task="MasterKeyOperation" level="win:Informational" keywords="ETW_TASK_MASTERKEY_OPERATION" template="MasterKeyOperationArgs"/>
+     <event value="2" symbol="MasterKeyOperation2" version="0" task="MasterKeyOperation" level="win:Informational" keywords="ETW_TASK_MASTERKEY_OPERATION" template="MasterKeyOperation2Args"/>
+     <event value="4097" symbol="BackUpServiceOperation" version="0" task="BackUpServiceOperation" level="win:Informational" keywords="ETW_TASK_BACKUPSERVICE_OPERATION"/>
+     <event value="4098" symbol="BackUpServiceOperation4098" version="0" task="BackUpServiceOperation" level="win:Informational" keywords="ETW_TASK_BACKUPSERVICE_OPERATION"/>
+     <event value="8193" symbol="MasterKeyOperation8193" version="0" task="MasterKeyOperation" level="win:Error" keywords="ETW_TASK_MASTERKEY_OPERATION" template="MasterKeyOperation8193Args"/>
+     <event value="8194" symbol="MasterKeyOperation8194" version="0" task="MasterKeyOperation" level="win:Error" keywords="ETW_TASK_MASTERKEY_OPERATION" template="MasterKeyOperation8194Args"/>
+     <event value="8195" symbol="MasterKeyOperation8195" version="0" task="MasterKeyOperation" level="win:Error" keywords="ETW_TASK_MASTERKEY_OPERATION"/>
+     <event value="8196" symbol="MasterKeyOperation8196" version="0" task="MasterKeyOperation" level="win:Error" keywords="ETW_TASK_MASTERKEY_OPERATION"/>
+     <event value="8197" symbol="DataProtectionOperation" version="0" task="DataProtectionOperation" level="win:Error" keywords="ETW_TASK_DATAPROTECTION_OPERATION" template="DataProtectionOperationArgs"/>
+     <event value="8198" symbol="DataProtectionOperation8198" version="0" task="DataProtectionOperation" level="win:Error" keywords="ETW_TASK_DATAPROTECTION_OPERATION" template="DataProtectionOperation8198Args"/>
+    </events>
+    <templates>
+     <template tid="MasterKeyOperationArgs">
+      <data name="MasterKeyGUID" inType="win:GUID"/>
+      <data name="UserStorage" inType="win:UnicodeString"/>
+     </template>
+     <template tid="MasterKeyOperation2Args">
+      <data name="MasterKeyGUID" inType="win:UnicodeString"/>
+      <data name="UserStorage" inType="win:UnicodeString"/>
+     </template>
+     <template tid="MasterKeyOperation8193Args">
+      <data name="Status" inType="win:HexInt32"/>
+     </template>
+     <template tid="MasterKeyOperation8194Args">
+      <data name="FileName" inType="win:UnicodeString"/>
+      <data name="Access" inType="win:HexInt32"/>
+     </template>
+     <template tid="DataProtectionOperationArgs">
+      <data name="Status" inType="win:HexInt32"/>
+      <data name="ReasonForFailure" inType="win:UInt32" map="DPAPIReasonForFailure"/>
+     </template>
+     <template tid="DataProtectionOperation8198Args">
+      <data name="Status" inType="win:HexInt32"/>
+      <data name="ReasonForFailure" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_ETW_TASK_BACKUPSERVICE_OPERATION" value="ETW_TASK_BACKUPSERVICE_OPERATION"/>
+    <string id="keyword_ETW_TASK_MASTERKEY_OPERATION" value="ETW_TASK_MASTERKEY_OPERATION"/>
+    <string id="keyword_ETW_TASK_DATAPROTECTION_OPERATION" value="ETW_TASK_DATAPROTECTION_OPERATION"/>
+    <string id="task_BackUpServiceOperation" value="BackUpServiceOperation"/>
+    <string id="task_MasterKeyOperation" value="MasterKeyOperation"/>
+    <string id="task_DataProtectionOperation" value="DataProtectionOperation"/>
+    <string id="map_DPAPIReasonForFailureUnknown" value="Unknown"/>
+    <string id="map_DPAPIReasonForFailureVersion check failed" value="Version check failed"/>
+    <string id="map_DPAPIReasonForFailureMAC check failed" value="MAC check failed"/>
+    <string id="map_DPAPIReasonForFailureInput buffer size check failed" value="Input buffer size check failed"/>
+    <string id="map_DPAPIReasonForFailureAccess check failed" value="Access check failed"/>
+    <string id="map_DPAPIReasonForFailurePassword required, but UI is forbidden" value="Password required, but UI is forbidden"/>
+    <string id="map_DPAPIReasonForFailureCould not get the master key" value="Could not get the master key"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

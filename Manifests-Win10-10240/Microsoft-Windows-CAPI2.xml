@@ -1,0 +1,202 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-CAPI2" guid="{5bbca4a8-b209-48dc-a8c7-b23d3e5216fb}" resourceFileName="Microsoft-Windows-CAPI2" messageFileName="Microsoft-Windows-CAPI2" symbol="MicrosoftWindowsCAPI2" source="Xml" >
+    <keywords>
+     <keyword name="PathValidation" message="$(string.keyword_PathValidation)" mask="0x1"/>
+     <keyword name="PathDiscovery" message="$(string.keyword_PathDiscovery)" mask="0x2"/>
+     <keyword name="Revocation" message="$(string.keyword_Revocation)" mask="0x4"/>
+     <keyword name="Cache" message="$(string.keyword_Cache)" mask="0x8"/>
+     <keyword name="Retrieval" message="$(string.keyword_Retrieval)" mask="0x10"/>
+     <keyword name="AutoRootUpdate" message="$(string.keyword_AutoRootUpdate)" mask="0x20"/>
+     <keyword name="WinVerifyTrust" message="$(string.keyword_WinVerifyTrust)" mask="0x40"/>
+     <keyword name="PrivateKey" message="$(string.keyword_PrivateKey)" mask="0x80"/>
+     <keyword name="CertificateStore" message="$(string.keyword_CertificateStore)" mask="0x100"/>
+     <keyword name="CertificateDetails" message="$(string.keyword_CertificateDetails)" mask="0x200"/>
+     <keyword name="Catalog" message="$(string.keyword_Catalog)" mask="0x400"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="BuildChain" message="$(string.task_BuildChain)" value="11"/>
+     <task name="RetrieveIssuerCertificatefromCache" message="$(string.task_RetrieveIssuerCertificatefromCache)" value="13"/>
+     <task name="RetrieveIssuerCertificatefromNetwork" message="$(string.task_RetrieveIssuerCertificatefromNetwork)" value="15"/>
+     <task name="InhibitIssuerCertificateRetrieval" message="$(string.task_InhibitIssuerCertificateRetrieval)" value="16"/>
+     <task name="RetrieveThird_PartyRootCertificatefromCache" message="$(string.task_RetrieveThird_PartyRootCertificatefromCache)" value="18"/>
+     <task name="RetrieveThird_PartyRootCertificatefromNetwork" message="$(string.task_RetrieveThird_PartyRootCertificatefromNetwork)" value="20"/>
+     <task name="RetrieveCrossCertificatefromCache" message="$(string.task_RetrieveCrossCertificatefromCache)" value="22"/>
+     <task name="RetrieveCrossCertificatefromNetwork" message="$(string.task_RetrieveCrossCertificatefromNetwork)" value="24"/>
+     <task name="VerifyChainPolicy" message="$(string.task_VerifyChainPolicy)" value="30"/>
+     <task name="VerifyRevocation" message="$(string.task_VerifyRevocation)" value="41"/>
+     <task name="RejectRevocationInformation" message="$(string.task_RejectRevocationInformation)" value="42"/>
+     <task name="RetrieveObjectfromCache" message="$(string.task_RetrieveObjectfromCache)" value="51"/>
+     <task name="RetrieveObjectfromNetwork" message="$(string.task_RetrieveObjectfromNetwork)" value="53"/>
+     <task name="OpenStore" message="$(string.task_OpenStore)" value="60"/>
+     <task name="AcquireCertificatePrivateKey" message="$(string.task_AcquireCertificatePrivateKey)" value="70"/>
+     <task name="SignCertificate" message="$(string.task_SignCertificate)" value="71"/>
+     <task name="VerifyTrust" message="$(string.task_VerifyTrust)" value="80"/>
+     <task name="FindSecurityCatalogforFile" message="$(string.task_FindSecurityCatalogforFile)" value="82"/>
+     <task name="X509Objects" message="$(string.task_X509Objects)" value="90"/>
+     <task name="AddaSecurityCatalogtotheCatalogDatabase" message="$(string.task_AddaSecurityCatalogtotheCatalogDatabase)" value="500"/>
+     <task name="RemoveaSecurityCatalogfromtheCatalogDatabase" message="$(string.task_RemoveaSecurityCatalogfromtheCatalogDatabase)" value="501"/>
+     <task name="SyncaSecurityCatalogwiththeCatalogDatabase" message="$(string.task_SyncaSecurityCatalogwiththeCatalogDatabase)" value="502"/>
+     <task name="RebuildasubsystemoftheCatalogDatabase" message="$(string.task_RebuildasubsystemoftheCatalogDatabase)" value="503"/>
+     <task name="SearchforSecurityCatalogsintheCatalogDatabasethatcontainthehash" message="$(string.task_SearchforSecurityCatalogsintheCatalogDatabasethatcontainthehash)" value="504"/>
+    </tasks>
+    <events>
+     <event value="10" symbol="BuildChainStart" version="0" task="BuildChain" opcode="win:Start" level="win:Informational" keywords="PathValidation PathDiscovery" template="BuildChainStartArgs"/>
+     <event value="11" symbol="BuildChainStop" version="0" task="BuildChain" opcode="win:Stop" level="win:Informational" keywords="PathValidation PathDiscovery" template="BuildChainStartArgs"/>
+     <event value="12" symbol="RetrieveIssuerCertificatefromCacheStart" version="0" task="RetrieveIssuerCertificatefromCache" opcode="win:Start" level="win:Informational" keywords="PathDiscovery Cache" template="BuildChainStartArgs"/>
+     <event value="13" symbol="RetrieveIssuerCertificatefromCacheStop" version="0" task="RetrieveIssuerCertificatefromCache" opcode="win:Stop" level="win:Informational" keywords="PathDiscovery Cache" template="BuildChainStartArgs"/>
+     <event value="14" symbol="RetrieveIssuerCertificatefromNetworkStart" version="0" task="RetrieveIssuerCertificatefromNetwork" opcode="win:Start" level="win:Informational" keywords="PathDiscovery Retrieval" template="BuildChainStartArgs"/>
+     <event value="15" symbol="RetrieveIssuerCertificatefromNetworkStop" version="0" task="RetrieveIssuerCertificatefromNetwork" opcode="win:Stop" level="win:Informational" keywords="PathDiscovery Retrieval" template="BuildChainStartArgs"/>
+     <event value="16" symbol="InhibitIssuerCertificateRetrieval" version="0" task="InhibitIssuerCertificateRetrieval" level="win:Error" keywords="PathDiscovery Cache Retrieval" template="BuildChainStartArgs"/>
+     <event value="17" symbol="RetrieveThird_PartyRootCertificatefromCacheStart" version="0" task="RetrieveThird_PartyRootCertificatefromCache" opcode="win:Start" level="win:Informational" keywords="PathDiscovery Cache AutoRootUpdate" template="BuildChainStartArgs"/>
+     <event value="18" symbol="RetrieveThird_PartyRootCertificatefromCacheStop" version="0" task="RetrieveThird_PartyRootCertificatefromCache" opcode="win:Stop" level="win:Informational" keywords="PathDiscovery Cache AutoRootUpdate" template="BuildChainStartArgs"/>
+     <event value="19" symbol="RetrieveThird_PartyRootCertificatefromNetworkStart" version="0" task="RetrieveThird_PartyRootCertificatefromNetwork" opcode="win:Start" level="win:Informational" keywords="PathDiscovery Retrieval AutoRootUpdate" template="BuildChainStartArgs"/>
+     <event value="20" symbol="RetrieveThird_PartyRootCertificatefromNetworkStop" version="0" task="RetrieveThird_PartyRootCertificatefromNetwork" opcode="win:Stop" level="win:Informational" keywords="PathDiscovery Retrieval AutoRootUpdate" template="BuildChainStartArgs"/>
+     <event value="21" symbol="RetrieveCrossCertificatefromCacheStart" version="0" task="RetrieveCrossCertificatefromCache" opcode="win:Start" level="win:Informational" keywords="PathDiscovery Cache" template="BuildChainStartArgs"/>
+     <event value="22" symbol="RetrieveCrossCertificatefromCacheStop" version="0" task="RetrieveCrossCertificatefromCache" opcode="win:Stop" level="win:Informational" keywords="PathDiscovery Cache" template="BuildChainStartArgs"/>
+     <event value="23" symbol="RetrieveCrossCertificatefromNetworkStart" version="0" task="RetrieveCrossCertificatefromNetwork" opcode="win:Start" level="win:Informational" keywords="PathDiscovery Retrieval" template="BuildChainStartArgs"/>
+     <event value="24" symbol="RetrieveCrossCertificatefromNetworkStop" version="0" task="RetrieveCrossCertificatefromNetwork" opcode="win:Stop" level="win:Informational" keywords="PathDiscovery Retrieval" template="BuildChainStartArgs"/>
+     <event value="30" symbol="VerifyChainPolicy" version="0" task="VerifyChainPolicy" level="win:Informational" keywords="PathValidation" template="BuildChainStartArgs"/>
+     <event value="40" symbol="VerifyRevocationStart" version="0" task="VerifyRevocation" opcode="win:Start" level="win:Informational" keywords="PathValidation Revocation" template="BuildChainStartArgs"/>
+     <event value="41" symbol="VerifyRevocationStop" version="0" task="VerifyRevocation" opcode="win:Stop" level="win:Informational" keywords="PathValidation Revocation" template="BuildChainStartArgs"/>
+     <event value="42" symbol="RejectRevocationInformation" version="0" task="RejectRevocationInformation" level="win:Error" keywords="PathValidation Revocation" template="BuildChainStartArgs"/>
+     <event value="50" symbol="RetrieveObjectfromCacheStart" version="0" task="RetrieveObjectfromCache" opcode="win:Start" level="win:Informational" keywords="PathDiscovery Revocation Cache AutoRootUpdate" template="BuildChainStartArgs"/>
+     <event value="51" symbol="RetrieveObjectfromCacheStop" version="0" task="RetrieveObjectfromCache" opcode="win:Stop" level="win:Informational" keywords="PathDiscovery Revocation Cache AutoRootUpdate" template="BuildChainStartArgs"/>
+     <event value="52" symbol="RetrieveObjectfromNetworkStart" version="0" task="RetrieveObjectfromNetwork" opcode="win:Start" level="win:Informational" keywords="PathDiscovery Revocation Retrieval AutoRootUpdate" template="BuildChainStartArgs"/>
+     <event value="53" symbol="RetrieveObjectfromNetworkStop" version="0" task="RetrieveObjectfromNetwork" opcode="win:Stop" level="win:Informational" keywords="PathDiscovery Revocation Retrieval AutoRootUpdate" template="BuildChainStartArgs"/>
+     <event value="60" symbol="OpenStore" version="0" task="OpenStore" level="win:Verbose" keywords="CertificateStore" template="BuildChainStartArgs"/>
+     <event value="70" symbol="AcquireCertificatePrivateKey" version="0" task="AcquireCertificatePrivateKey" level="win:Informational" keywords="PrivateKey" template="BuildChainStartArgs"/>
+     <event value="71" symbol="SignCertificate" version="0" task="SignCertificate" level="win:Informational" keywords="PrivateKey" template="BuildChainStartArgs"/>
+     <event value="80" symbol="VerifyTrustStart" version="0" task="VerifyTrust" opcode="win:Start" level="win:Informational" keywords="WinVerifyTrust" template="BuildChainStartArgs"/>
+     <event value="81" symbol="VerifyTrustStop" version="0" task="VerifyTrust" opcode="win:Stop" level="win:Informational" keywords="WinVerifyTrust" template="BuildChainStartArgs"/>
+     <event value="82" symbol="FindSecurityCatalogforFile" version="0" task="FindSecurityCatalogforFile" level="win:Informational" keywords="Catalog" template="BuildChainStartArgs"/>
+     <event value="90" symbol="X509Objects" version="0" task="X509Objects" level="win:Informational" keywords="CertificateDetails" template="BuildChainStartArgs"/>
+     <event value="256" symbol="task_0" version="0" task="task_0" level="win:Error" template="task_0Args"/>
+     <event value="257" symbol="task_0257" version="0" task="task_0" level="win:Error" template="task_0257Args"/>
+     <event value="512" symbol="task_0512" version="0" task="task_0" level="win:Critical" template="task_0257Args"/>
+     <event value="513" symbol="task_0513" version="0" task="task_0" level="win:Critical" template="task_0257Args"/>
+     <event value="4097" symbol="task_04097" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+     <event value="4098" symbol="task_04098" version="0" task="task_0" level="win:Informational" template="task_0257Args"/>
+     <event value="4099" symbol="task_04099" version="0" task="task_0" level="win:Error" template="task_0Args"/>
+     <event value="4100" symbol="task_04100" version="0" task="task_0" level="win:Informational" template="task_0257Args"/>
+     <event value="4101" symbol="task_04101" version="0" task="task_0" level="win:Error" template="task_0Args"/>
+     <event value="4102" symbol="task_04102" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+     <event value="4103" symbol="task_04103" version="0" task="task_0" level="win:Informational" template="task_0257Args"/>
+     <event value="4104" symbol="task_04104" version="0" task="task_0" level="win:Error" template="task_0Args"/>
+     <event value="4105" symbol="task_04105" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+     <event value="4106" symbol="task_04106" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+     <event value="4107" symbol="task_04107" version="0" task="task_0" level="win:Error" template="task_0Args"/>
+     <event value="4108" symbol="task_04108" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+     <event value="4109" symbol="task_04109" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+     <event value="4110" symbol="task_04110" version="0" task="task_0" level="win:Error" template="task_0Args"/>
+     <event value="4111" symbol="task_04111" version="0" task="task_0" level="win:Informational" template="task_0257Args"/>
+     <event value="4112" symbol="task_04112" version="0" task="task_0" level="win:Informational" template="task_0257Args"/>
+     <event value="4113" symbol="task_04113" version="0" task="task_0" level="win:Informational" template="task_0257Args"/>
+     <event value="4114" symbol="task_04114" version="0" task="task_0" level="win:Error" template="task_04114Args"/>
+     <event value="4128" symbol="task_04128" version="0" task="task_0" level="win:Informational" template="task_0257Args"/>
+     <event value="4129" symbol="task_04129" version="0" task="task_0" level="win:Error" template="task_0Args"/>
+     <event value="4176" symbol="task_04176" version="0" task="task_0" level="win:Error" template="task_0Args"/>
+     <event value="4177" symbol="task_04177" version="0" task="task_0" level="win:Error" template="task_0Args"/>
+     <event value="4178" symbol="task_04178" version="0" task="task_0" level="win:Error" template="task_0Args"/>
+     <event value="8192" symbol="AddaSecurityCatalogtotheCatalogDatabaseStart" version="0" task="AddaSecurityCatalogtotheCatalogDatabase" opcode="win:Start" level="win:Informational" keywords="Catalog" template="AddaSecurityCatalogtotheCatalogDatabaseStartArgs"/>
+     <event value="8193" symbol="AddaSecurityCatalogtotheCatalogDatabaseStop" version="0" task="AddaSecurityCatalogtotheCatalogDatabase" opcode="win:Stop" level="win:Informational" keywords="Catalog" template="AddaSecurityCatalogtotheCatalogDatabaseStopArgs"/>
+     <event value="8194" symbol="RemoveaSecurityCatalogfromtheCatalogDatabaseStart" version="0" task="RemoveaSecurityCatalogfromtheCatalogDatabase" opcode="win:Start" level="win:Informational" keywords="Catalog" template="AddaSecurityCatalogtotheCatalogDatabaseStartArgs"/>
+     <event value="8195" symbol="RemoveaSecurityCatalogfromtheCatalogDatabaseStop" version="0" task="RemoveaSecurityCatalogfromtheCatalogDatabase" opcode="win:Stop" level="win:Informational" keywords="Catalog" template="AddaSecurityCatalogtotheCatalogDatabaseStopArgs"/>
+     <event value="8196" symbol="SyncaSecurityCatalogwiththeCatalogDatabaseStart" version="0" task="SyncaSecurityCatalogwiththeCatalogDatabase" opcode="win:Start" level="win:Verbose" keywords="Catalog" template="AddaSecurityCatalogtotheCatalogDatabaseStartArgs"/>
+     <event value="8197" symbol="SyncaSecurityCatalogwiththeCatalogDatabaseStop" version="0" task="SyncaSecurityCatalogwiththeCatalogDatabase" opcode="win:Stop" level="win:Verbose" keywords="Catalog" template="AddaSecurityCatalogtotheCatalogDatabaseStopArgs"/>
+     <event value="8198" symbol="RebuildasubsystemoftheCatalogDatabaseStart" version="0" task="RebuildasubsystemoftheCatalogDatabase" opcode="win:Start" level="win:Informational" keywords="Catalog" template="RebuildasubsystemoftheCatalogDatabaseStartArgs"/>
+     <event value="8199" symbol="RebuildasubsystemoftheCatalogDatabaseStop" version="0" task="RebuildasubsystemoftheCatalogDatabase" opcode="win:Stop" level="win:Informational" keywords="Catalog" template="AddaSecurityCatalogtotheCatalogDatabaseStopArgs"/>
+     <event value="8200" symbol="SearchforSecurityCatalogsintheCatalogDatabasethatcontainthehashStart" version="0" task="SearchforSecurityCatalogsintheCatalogDatabasethatcontainthehash" opcode="win:Start" level="win:Informational" keywords="Catalog" template="SearchforSecurityCatalogsintheCatalogDatabasethatcontainthehashStartArgs"/>
+     <event value="8201" symbol="SearchforSecurityCatalogsintheCatalogDatabasethatcontainthehashStop" version="0" task="SearchforSecurityCatalogsintheCatalogDatabasethatcontainthehash" opcode="win:Stop" level="win:Informational" keywords="Catalog" template="SearchforSecurityCatalogsintheCatalogDatabasethatcontainthehashStopArgs"/>
+     <event value="8202" symbol="SyncaSecurityCatalogwiththeCatalogDatabaseStart8202" version="0" task="SyncaSecurityCatalogwiththeCatalogDatabase" opcode="win:Start" level="win:Informational" keywords="Catalog" template="RebuildasubsystemoftheCatalogDatabaseStartArgs"/>
+     <event value="8203" symbol="SyncaSecurityCatalogwiththeCatalogDatabaseStop8203" version="0" task="SyncaSecurityCatalogwiththeCatalogDatabase" opcode="win:Stop" level="win:Informational" keywords="Catalog" template="AddaSecurityCatalogtotheCatalogDatabaseStopArgs"/>
+    </events>
+    <templates>
+     <template tid="BuildChainStartArgs">
+      <data name="EventWriteData" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0Args">
+      <data name="1" inType="win:UnicodeString"/>
+      <data name="2" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0257Args">
+      <data name="1" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_04114Args">
+      <data name="1" inType="win:UnicodeString"/>
+      <data name="2" inType="win:UnicodeString"/>
+      <data name="3" inType="win:UnicodeString"/>
+      <data name="4" inType="win:UnicodeString"/>
+      <data name="5" inType="win:UnicodeString"/>
+      <data name="6" inType="win:UnicodeString"/>
+      <data name="7" inType="win:UnicodeString"/>
+     </template>
+     <template tid="AddaSecurityCatalogtotheCatalogDatabaseStartArgs">
+      <data name="Subsystem" inType="win:UnicodeString"/>
+      <data name="FileName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="AddaSecurityCatalogtotheCatalogDatabaseStopArgs">
+      <data name="Status" inType="win:HexInt32"/>
+     </template>
+     <template tid="RebuildasubsystemoftheCatalogDatabaseStartArgs">
+      <data name="Subsystem" inType="win:UnicodeString"/>
+     </template>
+     <template tid="SearchforSecurityCatalogsintheCatalogDatabasethatcontainthehashStartArgs">
+      <data name="Subsystem" inType="win:UnicodeString"/>
+      <data name="Algorithm" inType="win:UnicodeString"/>
+      <data name="Length" inType="win:UInt16"/>
+      <data name="Value" inType="win:Binary" length="Length"/>
+     </template>
+     <template tid="SearchforSecurityCatalogsintheCatalogDatabasethatcontainthehashStopArgs">
+      <data name="Status" inType="win:HexInt32"/>
+      <data name="Count" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_PathValidation" value="PathValidation"/>
+    <string id="keyword_PathDiscovery" value="PathDiscovery"/>
+    <string id="keyword_Revocation" value="Revocation"/>
+    <string id="keyword_Cache" value="Cache"/>
+    <string id="keyword_Retrieval" value="Retrieval"/>
+    <string id="keyword_AutoRootUpdate" value="AutoRootUpdate"/>
+    <string id="keyword_WinVerifyTrust" value="WinVerifyTrust"/>
+    <string id="keyword_PrivateKey" value="PrivateKey"/>
+    <string id="keyword_CertificateStore" value="CertificateStore"/>
+    <string id="keyword_CertificateDetails" value="CertificateDetails"/>
+    <string id="keyword_Catalog" value="Catalog"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_BuildChain" value="BuildChain"/>
+    <string id="task_RetrieveIssuerCertificatefromCache" value="RetrieveIssuerCertificatefromCache"/>
+    <string id="task_RetrieveIssuerCertificatefromNetwork" value="RetrieveIssuerCertificatefromNetwork"/>
+    <string id="task_InhibitIssuerCertificateRetrieval" value="InhibitIssuerCertificateRetrieval"/>
+    <string id="task_RetrieveThird_PartyRootCertificatefromCache" value="RetrieveThird_PartyRootCertificatefromCache"/>
+    <string id="task_RetrieveThird_PartyRootCertificatefromNetwork" value="RetrieveThird_PartyRootCertificatefromNetwork"/>
+    <string id="task_RetrieveCrossCertificatefromCache" value="RetrieveCrossCertificatefromCache"/>
+    <string id="task_RetrieveCrossCertificatefromNetwork" value="RetrieveCrossCertificatefromNetwork"/>
+    <string id="task_VerifyChainPolicy" value="VerifyChainPolicy"/>
+    <string id="task_VerifyRevocation" value="VerifyRevocation"/>
+    <string id="task_RejectRevocationInformation" value="RejectRevocationInformation"/>
+    <string id="task_RetrieveObjectfromCache" value="RetrieveObjectfromCache"/>
+    <string id="task_RetrieveObjectfromNetwork" value="RetrieveObjectfromNetwork"/>
+    <string id="task_OpenStore" value="OpenStore"/>
+    <string id="task_AcquireCertificatePrivateKey" value="AcquireCertificatePrivateKey"/>
+    <string id="task_SignCertificate" value="SignCertificate"/>
+    <string id="task_VerifyTrust" value="VerifyTrust"/>
+    <string id="task_FindSecurityCatalogforFile" value="FindSecurityCatalogforFile"/>
+    <string id="task_X509Objects" value="X509Objects"/>
+    <string id="task_AddaSecurityCatalogtotheCatalogDatabase" value="AddaSecurityCatalogtotheCatalogDatabase"/>
+    <string id="task_RemoveaSecurityCatalogfromtheCatalogDatabase" value="RemoveaSecurityCatalogfromtheCatalogDatabase"/>
+    <string id="task_SyncaSecurityCatalogwiththeCatalogDatabase" value="SyncaSecurityCatalogwiththeCatalogDatabase"/>
+    <string id="task_RebuildasubsystemoftheCatalogDatabase" value="RebuildasubsystemoftheCatalogDatabase"/>
+    <string id="task_SearchforSecurityCatalogsintheCatalogDatabasethatcontainthehash" value="SearchforSecurityCatalogsintheCatalogDatabasethatcontainthehash"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,1203 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-WWAN-SVC-EVENTS" guid="{3cb40aaa-1145-4fb8-b27b-7e30f0454316}" resourceFileName="Microsoft-Windows-WWAN-SVC-EVENTS" messageFileName="Microsoft-Windows-WWAN-SVC-EVENTS" symbol="MicrosoftWindowsWWANSVCEVENTS" source="Xml" >
+    <keywords>
+     <keyword name="LwtDiagnostic" message="$(string.keyword_LwtDiagnostic)" mask="0x20"/>
+     <keyword name="MbaeUpdater" message="$(string.keyword_MbaeUpdater)" mask="0x40"/>
+     <keyword name="WwanOid" message="$(string.keyword_WwanOid)" mask="0x100"/>
+     <keyword name="ut:L2ConnectPath" message="$(string.keyword_ut:L2ConnectPath)" mask="0x800000000"/>
+     <keyword name="ut:ClosePath" message="$(string.keyword_ut:ClosePath)" mask="0x1000000000"/>
+     <keyword name="ut:Configuration" message="$(string.keyword_ut:Configuration)" mask="0x4000000000"/>
+     <keyword name="keyword_200000000000" message="$(string.keyword_keyword_200000000000)" mask="0x200000000000"/>
+     <keyword name="keyword_400000000000" message="$(string.keyword_keyword_400000000000)" mask="0x400000000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0">
+>
+      <opcodes>
+       <opcode name="OID_Handling" message="$(string.opcode_task_0OID_Handling)" value="18"/>
+      </opcodes>
+     </task>
+     <task name="WWANServiceStartup" message="$(string.task_WWANServiceStartup)" value="1"/>
+     <task name="WWANServiceShutdown" message="$(string.task_WWANServiceShutdown)" value="2"/>
+     <task name="InterfaceInitializationTask" message="$(string.task_InterfaceInitializationTask)" value="3"/>
+     <task name="RegisterTask" message="$(string.task_RegisterTask)" value="4"/>
+     <task name="ConnectTask" message="$(string.task_ConnectTask)" value="7"/>
+     <task name="ScanTask" message="$(string.task_ScanTask)" value="8"/>
+     <task name="WWANServiceStartup_9" message="$(string.task_WWANServiceStartup_9)" value="9"/>
+     <task name="WWANServiceSuspend" message="$(string.task_WWANServiceSuspend)" value="10"/>
+     <task name="ConnectionCost" message="$(string.task_ConnectionCost)" value="11"/>
+     <task name="AccountManagement" message="$(string.task_AccountManagement)" value="12"/>
+     <task name="MeasureWwanResumeReconnecttask" message="$(string.task_MeasureWwanResumeReconnecttask)" value="13"/>
+     <task name="USSD" message="$(string.task_USSD)" value="14"/>
+     <task name="Initialization" message="$(string.task_Initialization)" value="15">
+>
+      <opcodes>
+       <opcode name="Initialize" message="$(string.opcode_InitializationInitialize)" value="10"/>
+      </opcodes>
+     </task>
+     <task name="Shutdown" message="$(string.task_Shutdown)" value="16">
+>
+      <opcodes>
+       <opcode name="Cleanup" message="$(string.opcode_ShutdownCleanup)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="WWANConnection" message="$(string.task_WWANConnection)" value="17">
+>
+      <opcodes>
+       <opcode name="ConnectionProfile" message="$(string.opcode_WWANConnectionConnectionProfile)" value="15"/>
+       <opcode name="AutoConnect" message="$(string.opcode_WWANConnectionAutoConnect)" value="16"/>
+       <opcode name="ConnectionPolicy" message="$(string.opcode_WWANConnectionConnectionPolicy)" value="17"/>
+      </opcodes>
+     </task>
+     <task name="WWANCellularState" message="$(string.task_WWANCellularState)" value="18">
+>
+      <opcodes>
+       <opcode name="RegistrationState" message="$(string.opcode_WWANCellularStateRegistrationState)" value="12"/>
+       <opcode name="PacketServiceState" message="$(string.opcode_WWANCellularStatePacketServiceState)" value="13"/>
+       <opcode name="UiccPresence" message="$(string.opcode_WWANCellularStateUiccPresence)" value="14"/>
+       <opcode name="IWLANAvailabilityState" message="$(string.opcode_WWANCellularStateIWLANAvailabilityState)" value="19"/>
+      </opcodes>
+     </task>
+     <task name="AUTH" message="$(string.task_AUTH)" value="19"/>
+    </tasks>
+    <maps>
+     <valueMap name="mapWwanRpcApi">
+      <map value="0x1" message="$(string.map_mapWwanRpcApiWwanApiGetPinState)"/>
+      <map value="0x2" message="$(string.map_mapWwanRpcApiWwanApiSetPreferredProviders)"/>
+      <map value="0x3" message="$(string.map_mapWwanRpcApiWwanApiScan)"/>
+      <map value="0x4" message="$(string.map_mapWwanRpcApiWwanApiPinEnable)"/>
+      <map value="0x5" message="$(string.map_mapWwanRpcApiWwanApiPinDisable)"/>
+      <map value="0x6" message="$(string.map_mapWwanRpcApiWwanApiPinEnter)"/>
+      <map value="0x7" message="$(string.map_mapWwanRpcApiWwanApiPinChange)"/>
+      <map value="0x8" message="$(string.map_mapWwanRpcApiWwanApiPinUnblock)"/>
+      <map value="0x9" message="$(string.map_mapWwanRpcApiWwanApiSetRegisterMode)"/>
+      <map value="0xa" message="$(string.map_mapWwanRpcApiWwanApiSetProvisionedContext)"/>
+      <map value="0xb" message="$(string.map_mapWwanRpcApiWwanApiConnect)"/>
+      <map value="0xc" message="$(string.map_mapWwanRpcApiWwanApiDisconnect)"/>
+      <map value="0xd" message="$(string.map_mapWwanRpcApiWwanApiSmsSetConfiguration)"/>
+      <map value="0xe" message="$(string.map_mapWwanRpcApiWwanApiSmsSend)"/>
+      <map value="0xf" message="$(string.map_mapWwanRpcApiWwanApiSmsRead)"/>
+      <map value="0x10" message="$(string.map_mapWwanRpcApiWwanApiSmsDelete)"/>
+      <map value="0x11" message="$(string.map_mapWwanRpcApiWwanApiServiceActivate)"/>
+      <map value="0x12" message="$(string.map_mapWwanRpcApiWwanApiSetHomeProvider)"/>
+      <map value="0x13" message="$(string.map_mapWwanRpcApiWwanApiQueryVendorSpecific)"/>
+      <map value="0x14" message="$(string.map_mapWwanRpcApiWwanApiSetVendorSpecific)"/>
+      <map value="0x15" message="$(string.map_mapWwanRpcApiWwanApiOpenHandle)"/>
+      <map value="0x16" message="$(string.map_mapWwanRpcApiWwanApiCloseHandle)"/>
+      <map value="0x17" message="$(string.map_mapWwanRpcApiWwanApiRegisterNotification)"/>
+      <map value="0x18" message="$(string.map_mapWwanRpcApiWwanApiEnumerateInterfaces)"/>
+      <map value="0x19" message="$(string.map_mapWwanRpcApiWwanApiGetInterfaceCapability)"/>
+      <map value="0x1a" message="$(string.map_mapWwanRpcApiWwanApiSetInterface)"/>
+      <map value="0x1b" message="$(string.map_mapWwanRpcApiWwanApiSetIntfOpcodePin)"/>
+      <map value="0x1c" message="$(string.map_mapWwanRpcApiWwanApiSetIntfOpcodeRadioState)"/>
+      <map value="0x1d" message="$(string.map_mapWwanRpcApiWwanApiSetIntfOpcodeAce)"/>
+      <map value="0x1e" message="$(string.map_mapWwanRpcApiWwanApiSetIntfOpcodePreferredProviders)"/>
+      <map value="0x1f" message="$(string.map_mapWwanRpcApiWwanApiSetIntfOpcodeProvisionedContexts)"/>
+      <map value="0x20" message="$(string.map_mapWwanRpcApiWwanApiSetIntfOpcodeActivateUserAccount)"/>
+      <map value="0x21" message="$(string.map_mapWwanRpcApiWwanApiSetIntfOpcodeHomeProvider)"/>
+      <map value="0x22" message="$(string.map_mapWwanRpcApiWwanApiQueryInterface)"/>
+      <map value="0x23" message="$(string.map_mapWwanRpcApiWwanApiGetVisibleNetworkList)"/>
+      <map value="0x24" message="$(string.map_mapWwanRpcApiWwanApiRegister)"/>
+      <map value="0x25" message="$(string.map_mapWwanRpcApiWwanApiAttach)"/>
+      <map value="0x26" message="$(string.map_mapWwanRpcApiWwanApiDetach)"/>
+      <map value="0x27" message="$(string.map_mapWwanRpcApiWwanApiActivate)"/>
+      <map value="0x28" message="$(string.map_mapWwanRpcApiWwanApiDeactivate)"/>
+      <map value="0x29" message="$(string.map_mapWwanRpcApiWwanApiGetSmsConfiguration)"/>
+      <map value="0x2a" message="$(string.map_mapWwanRpcApiWwanApiSmsQueryStatus)"/>
+      <map value="0x2b" message="$(string.map_mapWwanRpcApiWwanApiSetProfile)"/>
+      <map value="0x2c" message="$(string.map_mapWwanRpcApiWwanApiDeleteProfile)"/>
+      <map value="0x2d" message="$(string.map_mapWwanRpcApiWwanApiGetProfile)"/>
+      <map value="0x2e" message="$(string.map_mapWwanRpcApiWwanApiGetProfileList)"/>
+      <map value="0x2f" message="$(string.map_mapWwanRpcApiWwanApiRenameProfile)"/>
+      <map value="0x30" message="$(string.map_mapWwanRpcApiWwanApiGetProfileIstream)"/>
+      <map value="0x31" message="$(string.map_mapWwanRpcApiWwanApiAuthChallenge)"/>
+      <map value="0x32" message="$(string.map_mapWwanRpcApiWwanApiGetProfileMetaData)"/>
+      <map value="0x33" message="$(string.map_mapWwanRpcApiWwanApiSetProfileMetaData)"/>
+      <map value="0x34" message="$(string.map_mapWwanRpcApiWwanApiUssdRequest)"/>
+      <map value="0x35" message="$(string.map_mapWwanRpcApiWwanApiScanMultiCarrier)"/>
+      <map value="0x36" message="$(string.map_mapWwanRpcApiWwan2ApiOpenHandle)"/>
+      <map value="0x37" message="$(string.map_mapWwanRpcApiWwan2ApiCloseHandle)"/>
+      <map value="0x38" message="$(string.map_mapWwanRpcApiWwan2ApiEnumerateDeviceServices)"/>
+      <map value="0x39" message="$(string.map_mapWwanRpcApiWwan2ApiRegisterNotification)"/>
+      <map value="0x3a" message="$(string.map_mapWwanRpcApiWwan2ApiCloseAllDeviceServiceCommandSessions)"/>
+      <map value="0x3b" message="$(string.map_mapWwanRpcApiWwan2ApiSendDeviceServiceCommand)"/>
+      <map value="0x3c" message="$(string.map_mapWwanRpcApiWwanApiGetSecurity)"/>
+      <map value="0x3d" message="$(string.map_mapWwanRpcApiWwanApiSetSecurity)"/>
+      <map value="0x3e" message="$(string.map_mapWwanRpcApiWwan2ApiQueryInterfaces)"/>
+      <map value="0x3f" message="$(string.map_mapWwanRpcApiWwan2ApiQueryDeviceServiceSupportedCommands)"/>
+      <map value="0x40" message="$(string.map_mapWwanRpcApiWwan2ApiOpenDeviceServiceDataSession)"/>
+      <map value="0x41" message="$(string.map_mapWwanRpcApiWwan2ApiCloseDeviceServiceDataSession)"/>
+      <map value="0x42" message="$(string.map_mapWwanRpcApiWwan2ApiWriteDeviceServiceData)"/>
+      <map value="0x43" message="$(string.map_mapWwanRpcApiWwan2ApiOpenDeviceServiceCommandSession)"/>
+      <map value="0x44" message="$(string.map_mapWwanRpcApiWwan2ApiCloseDeviceServiceCommandSession)"/>
+      <map value="0x45" message="$(string.map_mapWwanRpcApiWwan2ApiAddDeviceServiceSubscription)"/>
+      <map value="0x46" message="$(string.map_mapWwanRpcApiWwan2ApiDeleteDeviceServiceSubscription)"/>
+      <map value="0x47" message="$(string.map_mapWwanRpcApiWwan2ApiSubscribePowerStateEvents)"/>
+      <map value="0x48" message="$(string.map_mapWwanRpcApiWwanApiConnectAdditionalPdpContext)"/>
+      <map value="0x49" message="$(string.map_mapWwanRpcApiWwanApiSearchProfile)"/>
+      <map value="0x4a" message="$(string.map_mapWwanRpcApiWwanApiGetProfileState)"/>
+      <map value="0x4b" message="$(string.map_mapWwanRpcApiWwanApiGetDMConfigProfileList)"/>
+      <map value="0x4c" message="$(string.map_mapWwanRpcApiWwanApiSetDMConfigProfile)"/>
+      <map value="0x4d" message="$(string.map_mapWwanRpcApiWwanApiGetDMConfigProfile)"/>
+      <map value="0x4e" message="$(string.map_mapWwanRpcApiWwanApiDeleteDMConfigProfile)"/>
+      <map value="0x4f" message="$(string.map_mapWwanRpcApiWwanApiSetNetworkQuietMode)"/>
+      <map value="0x50" message="$(string.map_mapWwanRpcApiWwanApiSetDMConfigBinary)"/>
+      <map value="0x51" message="$(string.map_mapWwanRpcApiWwanApiGetDMConfigBinary)"/>
+      <map value="0x52" message="$(string.map_mapWwanRpcApiWwanApiQueryInterfaceEx)"/>
+     </valueMap>
+     <valueMap name="RegisteredTypeMap">
+      <map value="0x1" message="$(string.map_RegisteredTypeMapDeregistered)"/>
+      <map value="0x2" message="$(string.map_RegisteredTypeMapSearching)"/>
+      <map value="0x3" message="$(string.map_RegisteredTypeMapHome)"/>
+      <map value="0x4" message="$(string.map_RegisteredTypeMapRoaming)"/>
+      <map value="0x5" message="$(string.map_RegisteredTypeMapPartner)"/>
+      <map value="0x6" message="$(string.map_RegisteredTypeMapDenied)"/>
+     </valueMap>
+     <valueMap name="CostSourceMap">
+      <map value="0x1" message="$(string.map_CostSourceMapGroup Policy)"/>
+      <map value="0x2" message="$(string.map_CostSourceMapUser)"/>
+      <map value="0x3" message="$(string.map_CostSourceMapPublic)"/>
+      <map value="0x4" message="$(string.map_CostSourceMapOperator)"/>
+     </valueMap>
+     <bitMap name="CostValueMap">
+      <map value="0x1" message="$(string.map_CostValueMapUnrestricted)"/>
+      <map value="0x2" message="$(string.map_CostValueMapFixed)"/>
+      <map value="0x4" message="$(string.map_CostValueMapVariable)"/>
+      <map value="0x10000" message="$(string.map_CostValueMapOver Data Limit)"/>
+      <map value="0x20000" message="$(string.map_CostValueMapCongested)"/>
+      <map value="0x40000" message="$(string.map_CostValueMapRoaming)"/>
+     </bitMap>
+     <valueMap name="UssdRequestTypeMap">
+      <map value="0x0" message="$(string.map_UssdRequestTypeMapInitiate session)"/>
+      <map value="0x1" message="$(string.map_UssdRequestTypeMapContinue session)"/>
+      <map value="0x2" message="$(string.map_UssdRequestTypeMapCancel session)"/>
+     </valueMap>
+     <valueMap name="UssdSessionStateMap">
+      <map value="0x0" message="$(string.map_UssdSessionStateMapNew session)"/>
+      <map value="0x1" message="$(string.map_UssdSessionStateMapExisting session)"/>
+     </valueMap>
+     <valueMap name="StateMap">
+      <map value="0x1" message="$(string.map_StateMapState Start)"/>
+      <map value="0x2" message="$(string.map_StateMapState End)"/>
+      <map value="0x3" message="$(string.map_StateMapNot started state)"/>
+      <map value="0x4" message="$(string.map_StateMapStarted State)"/>
+     </valueMap>
+     <valueMap name="mapWwanObject">
+      <map value="0x0" message="$(string.map_mapWwanObjectInterface)"/>
+      <map value="0x1" message="$(string.map_mapWwanObjectExecutor)"/>
+      <map value="0x2" message="$(string.map_mapWwanObjectModem)"/>
+     </valueMap>
+     <valueMap name="AuthChallengeMethodTypeMap">
+      <map value="0x0" message="$(string.map_AuthChallengeMethodTypeMapWwanAuthSim)"/>
+      <map value="0x1" message="$(string.map_AuthChallengeMethodTypeMapWwanAuthAka)"/>
+      <map value="0x2" message="$(string.map_AuthChallengeMethodTypeMapWwanAuthAkaPrime)"/>
+      <map value="0x3" message="$(string.map_AuthChallengeMethodTypeMapWwanAuthMethodMax)"/>
+     </valueMap>
+     <valueMap name="WwanStatusMap">
+      <map value="0x0" message="$(string.map_WwanStatusMapWWAN_STATUS_SUCCESS)"/>
+      <map value="0x40040007" message="$(string.map_WwanStatusMapWWAN_STATUS_PIN_DISABLED)"/>
+      <map value="0x40040008" message="$(string.map_WwanStatusMapWWAN_STATUS_NOT_REGISTERED)"/>
+      <map value="0x40040009" message="$(string.map_WwanStatusMapWWAN_STATUS_PROVIDERS_NOT_FOUND)"/>
+      <map value="0x4004000b" message="$(string.map_WwanStatusMapWWAN_STATUS_PROVIDER_NOT_VISIBLE)"/>
+      <map value="0x4004000c" message="$(string.map_WwanStatusMapWWAN_STATUS_DATA_CLASS_NOT_AVAILABLE)"/>
+      <map value="0x40040010" message="$(string.map_WwanStatusMapWWAN_STATUS_VOICE_CALL_IN_PROGRESS)"/>
+      <map value="0x40040108" message="$(string.map_WwanStatusMapWWAN_STATUS_SMS_MORE_DATA)"/>
+      <map value="0xc0040002" message="$(string.map_WwanStatusMapWWAN_STATUS_BUSY)"/>
+      <map value="0xc0040003" message="$(string.map_WwanStatusMapWWAN_STATUS_FAILURE)"/>
+      <map value="0xc0040004" message="$(string.map_WwanStatusMapWWAN_STATUS_SIM_NOT_INSERTED)"/>
+      <map value="0xc0040005" message="$(string.map_WwanStatusMapWWAN_STATUS_BAD_SIM)"/>
+      <map value="0xc0040006" message="$(string.map_WwanStatusMapWWAN_STATUS_PIN_REQUIRED)"/>
+      <map value="0xc004000a" message="$(string.map_WwanStatusMapWWAN_STATUS_NO_DEVICE_SUPPORT)"/>
+      <map value="0xc004000d" message="$(string.map_WwanStatusMapWWAN_STATUS_PACKET_SVC_DETACHED)"/>
+      <map value="0xc004000e" message="$(string.map_WwanStatusMapWWAN_STATUS_MAX_ACTIVATED_CONTEXTS)"/>
+      <map value="0xc004000f" message="$(string.map_WwanStatusMapWWAN_STATUS_NOT_INITIALIZED)"/>
+      <map value="0xc0040011" message="$(string.map_WwanStatusMapWWAN_STATUS_CONTEXT_NOT_ACTIVATED)"/>
+      <map value="0xc0040012" message="$(string.map_WwanStatusMapWWAN_STATUS_SERVICE_NOT_ACTIVATED)"/>
+      <map value="0xc0040013" message="$(string.map_WwanStatusMapWWAN_STATUS_INVALID_ACCESS_STRING)"/>
+      <map value="0xc0040014" message="$(string.map_WwanStatusMapWWAN_STATUS_INVALID_USER_NAME_PWD)"/>
+      <map value="0xc0040015" message="$(string.map_WwanStatusMapWWAN_STATUS_RADIO_POWER_OFF)"/>
+      <map value="0xc0040016" message="$(string.map_WwanStatusMapWWAN_STATUS_INVALID_PARAMETERS)"/>
+      <map value="0xc0040017" message="$(string.map_WwanStatusMapWWAN_STATUS_READ_FAILURE)"/>
+      <map value="0xc0040018" message="$(string.map_WwanStatusMapWWAN_STATUS_WRITE_FAILURE)"/>
+      <map value="0xc0040019" message="$(string.map_WwanStatusMapWWAN_STATUS_DENIED_POLICY)"/>
+      <map value="0xc004001a" message="$(string.map_WwanStatusMapWWAN_STATUS_INVALID_DEVICE_SERVICE_OPERATION)"/>
+      <map value="0xc004001b" message="$(string.map_WwanStatusMapWWAN_STATUS_MORE_DATA)"/>
+      <map value="0xc0040100" message="$(string.map_WwanStatusMapWWAN_STATUS_SMS_OPERATION_NOT_ALLOWED)"/>
+      <map value="0xc0040101" message="$(string.map_WwanStatusMapWWAN_STATUS_SMS_MEMORY_FAILURE)"/>
+      <map value="0xc0040102" message="$(string.map_WwanStatusMapWWAN_STATUS_SMS_INVALID_MEMORY_INDEX)"/>
+      <map value="0xc0040103" message="$(string.map_WwanStatusMapWWAN_STATUS_SMS_UNKNOWN_SMSC_ADDRESS)"/>
+      <map value="0xc0040104" message="$(string.map_WwanStatusMapWWAN_STATUS_SMS_NETWORK_TIMEOUT)"/>
+      <map value="0xc0040105" message="$(string.map_WwanStatusMapWWAN_STATUS_SMS_MEMORY_FULL)"/>
+      <map value="0xc0040106" message="$(string.map_WwanStatusMapWWAN_STATUS_SMS_UNKNOWN_ERROR)"/>
+      <map value="0xc0040107" message="$(string.map_WwanStatusMapWWAN_STATUS_SMS_FILTER_NOT_SUPPORTED)"/>
+      <map value="0xc0040109" message="$(string.map_WwanStatusMapWWAN_STATUS_SMS_LANG_NOT_SUPPORTED)"/>
+      <map value="0xc004010a" message="$(string.map_WwanStatusMapWWAN_STATUS_SMS_ENCODING_NOT_SUPPORTED)"/>
+      <map value="0xc004010b" message="$(string.map_WwanStatusMapWWAN_STATUS_SMS_FORMAT_NOT_SUPPORTED)"/>
+      <map value="0xc0040200" message="$(string.map_WwanStatusMapWWAN_STATUS_AUTH_INCORRECT_AUTN)"/>
+      <map value="0xc0040201" message="$(string.map_WwanStatusMapWWAN_STATUS_AUTH_SYNC_FAILURE)"/>
+      <map value="0xc0040202" message="$(string.map_WwanStatusMapWWAN_STATUS_AUTH_AMF_NOT_SET)"/>
+     </valueMap>
+     <valueMap name="WwanDeviceTypeMap">
+      <map value="0x1" message="$(string.map_WwanDeviceTypeMapWwanDeviceTypeEmbedded)"/>
+      <map value="0x2" message="$(string.map_WwanDeviceTypeMapWwanDeviceTypeRemovable)"/>
+      <map value="0x3" message="$(string.map_WwanDeviceTypeMapWwanDeviceTypeRemote)"/>
+     </valueMap>
+     <valueMap name="WwanCellularClassMap">
+      <map value="0x1" message="$(string.map_WwanCellularClassMapWwanCellularClassGsm)"/>
+      <map value="0x2" message="$(string.map_WwanCellularClassMapWwanCellularClassCdma)"/>
+     </valueMap>
+     <valueMap name="WwanSimClassMap">
+      <map value="0x1" message="$(string.map_WwanSimClassMapWwanSimClassLogical)"/>
+      <map value="0x2" message="$(string.map_WwanSimClassMapWwanSimClassRemovable)"/>
+      <map value="0x3" message="$(string.map_WwanSimClassMapWwanSimClassRemote)"/>
+     </valueMap>
+     <bitMap name="WwanAuthAlgoCapsMap">
+      <map value="0x1" message="$(string.map_WwanAuthAlgoCapsMapWWAN_AUTH_ALGO_CAPS_SIM)"/>
+      <map value="0x2" message="$(string.map_WwanAuthAlgoCapsMapWWAN_AUTH_ALGO_CAPS_AKA)"/>
+      <map value="0x4" message="$(string.map_WwanAuthAlgoCapsMapWWAN_AUTH_ALGO_CAPS_AKAPRIME)"/>
+     </bitMap>
+     <valueMap name="WwanEmergencyModeMap">
+      <map value="0x0" message="$(string.map_WwanEmergencyModeMapWwanEmergencyModeOff)"/>
+      <map value="0x1" message="$(string.map_WwanEmergencyModeMapWwanEmergencyModeOn)"/>
+     </valueMap>
+     <valueMap name="WwanRadioMap">
+      <map value="0x0" message="$(string.map_WwanRadioMapWwanRadioOff)"/>
+      <map value="0x1" message="$(string.map_WwanRadioMapWwanRadioOn)"/>
+     </valueMap>
+     <valueMap name="RegisterModeMap">
+      <map value="0x1" message="$(string.map_RegisterModeMapAutomatic)"/>
+      <map value="0x2" message="$(string.map_RegisterModeMapManual)"/>
+     </valueMap>
+     <valueMap name="WwanActivationStateMap">
+      <map value="0x1" message="$(string.map_WwanActivationStateMapWwanActivationStateActivated)"/>
+      <map value="0x2" message="$(string.map_WwanActivationStateMapWwanActivationStateActivating)"/>
+      <map value="0x3" message="$(string.map_WwanActivationStateMapWwanActivationStateDeactivated)"/>
+      <map value="0x4" message="$(string.map_WwanActivationStateMapWwanActivationStateDeactivating)"/>
+     </valueMap>
+     <valueMap name="WwanVoiceCallStateMap">
+      <map value="0x0" message="$(string.map_WwanVoiceCallStateMapWwanVoiceCallStateNone)"/>
+      <map value="0x1" message="$(string.map_WwanVoiceCallStateMapWwanVoiceCallStateInProgress)"/>
+      <map value="0x2" message="$(string.map_WwanVoiceCallStateMapWwanVoiceCallStateHangUp)"/>
+     </valueMap>
+     <valueMap name="WwanIPTypeMap">
+      <map value="0x0" message="$(string.map_WwanIPTypeMapWwanIPTypeDefault)"/>
+      <map value="0x1" message="$(string.map_WwanIPTypeMapWwanIPTypeIPv4)"/>
+      <map value="0x2" message="$(string.map_WwanIPTypeMapWwanIPTypeIPv6)"/>
+      <map value="0x3" message="$(string.map_WwanIPTypeMapWwanIPTypeIpv4v6)"/>
+     </valueMap>
+     <valueMap name="WwanPinStateMap">
+      <map value="0x0" message="$(string.map_WwanPinStateMapWwanPinStateNone)"/>
+      <map value="0x1" message="$(string.map_WwanPinStateMapWwanPinStateEnter)"/>
+     </valueMap>
+     <valueMap name="mapWwanDeviceServiceEvents">
+      <map value="0xdeef1001" message="$(string.map_mapWwanDeviceServiceEventsDataSuspensionState)"/>
+      <map value="0xdeef1002" message="$(string.map_mapWwanDeviceServiceEventsInternalError)"/>
+      <map value="0xdeef1003" message="$(string.map_mapWwanDeviceServiceEventsDLTEAttachDefaultBearer)"/>
+      <map value="0xdeef1004" message="$(string.map_mapWwanDeviceServiceEventsDefaultBearerBridging)"/>
+      <map value="0xdeef1005" message="$(string.map_mapWwanDeviceServiceEventsDualSimCaps)"/>
+     </valueMap>
+     <valueMap name="mapWwanDeviceServiceResponse">
+      <map value="0xceef1001" message="$(string.map_mapWwanDeviceServiceResponseDataSuspensionState)"/>
+      <map value="0xceef1002" message="$(string.map_mapWwanDeviceServiceResponseLTEINFO)"/>
+      <map value="0xceef1003" message="$(string.map_mapWwanDeviceServiceResponseActivationOption)"/>
+      <map value="0xceef1004" message="$(string.map_mapWwanDeviceServiceResponseDataDormancyHint)"/>
+      <map value="0xceef1005" message="$(string.map_mapWwanDeviceServiceResponseModemExecutorNumber)"/>
+      <map value="0xceef1006" message="$(string.map_mapWwanDeviceServiceResponseDMConnConfig)"/>
+      <map value="0xceef1007" message="$(string.map_mapWwanDeviceServiceResponseIPV6eHRPDConfig)"/>
+      <map value="0xceef1008" message="$(string.map_mapWwanDeviceServiceResponseModemDualSIMCaps)"/>
+      <map value="0xceef1009" message="$(string.map_mapWwanDeviceServiceResponseMaxContextNumber)"/>
+      <map value="0xceef100a" message="$(string.map_mapWwanDeviceServiceResponseDMConnConfigV2)"/>
+     </valueMap>
+     <valueMap name="WwanOidMap">
+      <map value="0xe010100" message="$(string.map_WwanOidMapOID_WWAN_DRIVER_CAPS)"/>
+      <map value="0xe010101" message="$(string.map_WwanOidMapOID_WWAN_DEVICE_CAPS)"/>
+      <map value="0xe010102" message="$(string.map_WwanOidMapOID_WWAN_READY_INFO)"/>
+      <map value="0xe010103" message="$(string.map_WwanOidMapOID_WWAN_RADIO_STATE)"/>
+      <map value="0xe010104" message="$(string.map_WwanOidMapOID_WWAN_PIN)"/>
+      <map value="0xe010105" message="$(string.map_WwanOidMapOID_WWAN_PIN_LIST)"/>
+      <map value="0xe010106" message="$(string.map_WwanOidMapOID_WWAN_HOME_PROVIDER)"/>
+      <map value="0xe010107" message="$(string.map_WwanOidMapOID_WWAN_PREFERRED_PROVIDERS)"/>
+      <map value="0xe010108" message="$(string.map_WwanOidMapOID_WWAN_VISIBLE_PROVIDERS)"/>
+      <map value="0xe010109" message="$(string.map_WwanOidMapOID_WWAN_REGISTER_STATE)"/>
+      <map value="0xe01010a" message="$(string.map_WwanOidMapOID_WWAN_PACKET_SERVICE)"/>
+      <map value="0xe01010b" message="$(string.map_WwanOidMapOID_WWAN_SIGNAL_STATE)"/>
+      <map value="0xe01010c" message="$(string.map_WwanOidMapOID_WWAN_CONNECT)"/>
+      <map value="0xe01010d" message="$(string.map_WwanOidMapOID_WWAN_PROVISIONED_CONTEXTS)"/>
+      <map value="0xe01010e" message="$(string.map_WwanOidMapOID_WWAN_SERVICE_ACTIVATION)"/>
+      <map value="0xe01010f" message="$(string.map_WwanOidMapOID_WWAN_SMS_CONFIGURATION)"/>
+      <map value="0xe010110" message="$(string.map_WwanOidMapOID_WWAN_SMS_READ)"/>
+      <map value="0xe010111" message="$(string.map_WwanOidMapOID_WWAN_SMS_SEND)"/>
+      <map value="0xe010112" message="$(string.map_WwanOidMapOID_WWAN_SMS_DELETE)"/>
+      <map value="0xe010113" message="$(string.map_WwanOidMapOID_WWAN_SMS_STATUS)"/>
+      <map value="0xe010114" message="$(string.map_WwanOidMapOID_WWAN_VENDOR_SPECIFIC)"/>
+      <map value="0xe010115" message="$(string.map_WwanOidMapOID_WWAN_AUTH_CHALLENGE)"/>
+      <map value="0xe010116" message="$(string.map_WwanOidMapOID_WWAN_ENUMERATE_DEVICE_SERVICES)"/>
+      <map value="0xe010117" message="$(string.map_WwanOidMapOID_WWAN_SUBSCRIBE_DEVICE_SERVICE_EVENTS)"/>
+      <map value="0xe010118" message="$(string.map_WwanOidMapOID_WWAN_DEVICE_SERVICE_COMMAND)"/>
+      <map value="0xe010119" message="$(string.map_WwanOidMapOID_WWAN_USSD)"/>
+      <map value="0xe010121" message="$(string.map_WwanOidMapOID_WWAN_PIN_EX)"/>
+      <map value="0xe010122" message="$(string.map_WwanOidMapOID_WWAN_ENUMERATE_DEVICE_SERVICE_COMMANDS)"/>
+      <map value="0xe010123" message="$(string.map_WwanOidMapOID_WWAN_DEVICE_SERVICE_SESSION)"/>
+      <map value="0xe010124" message="$(string.map_WwanOidMapOID_WWAN_DEVICE_SERVICE_SESSION_WRITE)"/>
+      <map value="0xe010125" message="$(string.map_WwanOidMapOID_WWAN_PREFERRED_MULTICARRIER_PROVIDERS)"/>
+      <map value="0xe010126" message="$(string.map_WwanOidMapOID_WWAN_CREATE_MAC)"/>
+      <map value="0xe010127" message="$(string.map_WwanOidMapOID_WWAN_DELETE_MAC)"/>
+     </valueMap>
+     <valueMap name="WwanRegisterActionMap">
+      <map value="0x0" message="$(string.map_WwanRegisterActionMapWwanRegisterActionAutomatic)"/>
+      <map value="0x1" message="$(string.map_WwanRegisterActionMapWwanRegisterActionManual)"/>
+     </valueMap>
+     <valueMap name="WwanActivationCommandMap">
+      <map value="0x0" message="$(string.map_WwanActivationCommandMapWwanActivationCommandDeactivate)"/>
+      <map value="0x1" message="$(string.map_WwanActivationCommandMapWwanActivationCommandActivate)"/>
+     </valueMap>
+     <valueMap name="WwanCompressionMap">
+      <map value="0x0" message="$(string.map_WwanCompressionMapWwanCompressionNone)"/>
+      <map value="0x1" message="$(string.map_WwanCompressionMapWwanCompressionEnable)"/>
+     </valueMap>
+     <valueMap name="WwanPinOperationMap">
+      <map value="0x0" message="$(string.map_WwanPinOperationMapWwanPinOperationEnter)"/>
+      <map value="0x1" message="$(string.map_WwanPinOperationMapWwanPinOperationEnable)"/>
+      <map value="0x2" message="$(string.map_WwanPinOperationMapWwanPinOperationDisable)"/>
+      <map value="0x3" message="$(string.map_WwanPinOperationMapWwanPinOperationChange)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1001" symbol="task_0" version="0" task="task_0" level="win:Error" template="task_0Args"/>
+     <event value="1002" symbol="task_01002" version="0" task="task_0" level="win:Warning" template="task_01002Args"/>
+     <event value="1003" symbol="task_01003" version="0" task="task_0" level="win:Error" template="task_01003Args"/>
+     <event value="2001" symbol="task_02001" version="0" task="task_0" level="win:Informational"/>
+     <event value="2002" symbol="task_02002" version="0" task="task_0" level="win:Informational"/>
+     <event value="2003" symbol="task_02003" version="0" task="task_0" level="win:Informational" keywords="LwtDiagnostic ut:L2ConnectPath" template="task_02003Args"/>
+     <event value="2004" symbol="task_02004" version="0" task="task_0" level="win:Informational" keywords="ut:ClosePath" template="task_02003Args"/>
+     <event value="2005" symbol="task_02005" version="0" task="task_0" level="win:Error" keywords="LwtDiagnostic ut:L2ConnectPath" template="task_02003Args"/>
+     <event value="2006" symbol="task_02006" version="0" task="task_0" level="win:Informational" keywords="ut:Configuration" template="task_02006Args"/>
+     <event value="2007" symbol="task_02007" version="0" task="task_0" level="win:Verbose" keywords="ut:L2ConnectPath ut:Configuration" template="task_02007Args"/>
+     <event value="2008" symbol="task_02008" version="0" task="task_0" level="win:Verbose" template="task_02008Args"/>
+     <event value="3001" symbol="task_03001" version="0" task="task_0" level="win:Informational" keywords="LwtDiagnostic ut:L2ConnectPath" template="task_03001Args"/>
+     <event value="3002" symbol="task_03002" version="0" task="task_0" level="win:Error" keywords="LwtDiagnostic ut:L2ConnectPath" template="task_03002Args"/>
+     <event value="3003" symbol="task_03003" version="0" task="task_0" level="win:Informational" keywords="ut:ClosePath" template="task_03001Args"/>
+     <event value="3004" symbol="task_03004" version="0" task="task_0" level="win:Informational" keywords="ut:L2ConnectPath" template="task_03001Args"/>
+     <event value="3006" symbol="task_03006" version="0" task="task_0" level="win:Informational" keywords="ut:ClosePath" template="task_03001Args"/>
+     <event value="3008" symbol="task_03008" version="0" task="task_0" level="win:Informational" keywords="ut:L2ConnectPath" template="task_03001Args"/>
+     <event value="3010" symbol="task_03010" version="0" task="task_0" level="win:Informational" keywords="ut:ClosePath" template="task_03001Args"/>
+     <event value="3012" symbol="task_03012" version="0" task="task_0" level="win:Informational" keywords="LwtDiagnostic ut:L2ConnectPath" template="task_03001Args"/>
+     <event value="3013" symbol="task_03013" version="0" task="task_0" level="win:Error" keywords="LwtDiagnostic ut:L2ConnectPath" template="task_03002Args"/>
+     <event value="3014" symbol="task_03014" version="0" task="task_0" level="win:Informational" keywords="ut:ClosePath" template="task_03001Args"/>
+     <event value="3015" symbol="task_03015" version="0" task="task_0" level="win:Error" keywords="ut:ClosePath" template="task_03002Args"/>
+     <event value="4001" symbol="task_04001" version="0" task="task_0" level="win:Informational" keywords="ut:Configuration" template="task_04001Args"/>
+     <event value="4002" symbol="task_04002" version="0" task="task_0" level="win:Informational" keywords="ut:Configuration" template="task_04002Args"/>
+     <event value="4003" symbol="task_04003" version="0" task="task_0" level="win:Informational" keywords="ut:Configuration" template="task_04003Args"/>
+     <event value="4004" symbol="task_04004" version="0" task="task_0" level="win:Informational" keywords="ut:Configuration" template="task_02003Args"/>
+     <event value="4005" symbol="task_04005" version="0" task="task_0" level="win:Informational" keywords="ut:Configuration" template="task_04005Args"/>
+     <event value="5001" symbol="task_05001" version="0" task="task_0" level="win:Always" keywords="ut:Configuration" template="task_05001Args"/>
+     <event value="5002" symbol="task_05002" version="0" task="task_0" level="win:Informational" keywords="ut:Configuration"/>
+     <event value="5003" symbol="task_05003" version="0" task="task_0" level="win:Informational" keywords="ut:Configuration" template="task_05003Args"/>
+     <event value="6001" symbol="ConnectionCost" version="0" task="ConnectionCost" level="win:Informational" keywords="ut:Configuration" template="ConnectionCostArgs"/>
+     <event value="6002" symbol="ConnectionCost6002" version="0" task="ConnectionCost" level="win:Informational" keywords="ut:Configuration" template="ConnectionCost6002Args"/>
+     <event value="6003" symbol="ConnectionCost6003" version="0" task="ConnectionCost" level="win:Informational" keywords="ut:Configuration" template="ConnectionCost6003Args"/>
+     <event value="6004" symbol="ConnectionCost6004" version="0" task="ConnectionCost" level="win:Informational" keywords="ut:Configuration"/>
+     <event value="6100" symbol="MeasureWwanResumeReconnecttaskStart" version="0" task="MeasureWwanResumeReconnecttask" opcode="win:Start" level="win:Informational" keywords="keyword_200000000000" template="task_02003Args"/>
+     <event value="6101" symbol="MeasureWwanResumeReconnecttaskStop" version="0" task="MeasureWwanResumeReconnecttask" opcode="win:Stop" level="win:Informational" keywords="keyword_200000000000" template="task_02003Args"/>
+     <event value="6102" symbol="task_0Start" version="0" task="task_0" opcode="win:Start" level="win:Informational" template="task_02003Args"/>
+     <event value="6103" symbol="task_0Stop" version="0" task="task_0" opcode="win:Stop" level="win:Informational" template="task_0StopArgs"/>
+     <event value="6104" symbol="task_0Stop6104" version="0" task="task_0" opcode="win:Stop" level="win:Informational" template="task_02003Args"/>
+     <event value="7000" symbol="AccountManagement" version="0" task="AccountManagement" level="win:Critical" template="AccountManagementArgs"/>
+     <event value="7001" symbol="AccountManagement7001" version="0" task="AccountManagement" level="win:Error" template="AccountManagement7001Args"/>
+     <event value="7002" symbol="AccountManagement7002" version="0" task="AccountManagement" level="win:Warning" template="AccountManagement7002Args"/>
+     <event value="7003" symbol="AccountManagement7003" version="0" task="AccountManagement" level="win:Error"/>
+     <event value="7004" symbol="AccountManagement7004" version="0" task="AccountManagement" level="win:Informational"/>
+     <event value="7005" symbol="AccountManagement7005" version="0" task="AccountManagement" level="win:Informational"/>
+     <event value="7006" symbol="AccountManagement7006" version="0" task="AccountManagement" level="win:Error" template="AccountManagementArgs"/>
+     <event value="7007" symbol="AccountManagement7007" version="0" task="AccountManagement" level="win:Error" template="AccountManagementArgs"/>
+     <event value="7008" symbol="AccountManagement7008" version="0" task="AccountManagement" level="win:Error" template="AccountManagementArgs"/>
+     <event value="7009" symbol="AccountManagement7009" version="0" task="AccountManagement" level="win:Informational" template="AccountManagement7009Args"/>
+     <event value="7010" symbol="AccountManagement7010" version="0" task="AccountManagement" level="win:Informational" template="AccountManagement7009Args"/>
+     <event value="7011" symbol="AccountManagement7011" version="0" task="AccountManagement" level="win:Informational" template="AccountManagement7009Args"/>
+     <event value="7012" symbol="AccountManagement7012" version="0" task="AccountManagement" level="win:Informational" template="AccountManagement7009Args"/>
+     <event value="7013" symbol="AccountManagement7013" version="0" task="AccountManagement" level="win:Warning" template="AccountManagement7013Args"/>
+     <event value="7014" symbol="AccountManagement7014" version="0" task="AccountManagement" level="win:Warning" template="AccountManagement7013Args"/>
+     <event value="7015" symbol="AccountManagement7015" version="0" task="AccountManagement" level="win:Error" template="AccountManagement7013Args"/>
+     <event value="7016" symbol="AccountManagement7016" version="0" task="AccountManagement" level="win:Error" template="AccountManagement7013Args"/>
+     <event value="7017" symbol="AccountManagement7017" version="0" task="AccountManagement" level="win:Informational" template="AccountManagement7013Args"/>
+     <event value="7018" symbol="AccountManagement7018" version="0" task="AccountManagement" level="win:Error" template="AccountManagement7018Args"/>
+     <event value="7900" symbol="AccountManagementStart" version="0" task="AccountManagement" opcode="win:Start" level="win:Informational" keywords="MbaeUpdater" template="AccountManagementStartArgs"/>
+     <event value="7901" symbol="AccountManagementStop" version="0" task="AccountManagement" opcode="win:Stop" level="win:Informational" keywords="MbaeUpdater" template="AccountManagementStartArgs"/>
+     <event value="7902" symbol="AccountManagementStart7902" version="0" task="AccountManagement" opcode="win:Start" level="win:Informational" keywords="MbaeUpdater"/>
+     <event value="7903" symbol="AccountManagementStop7903" version="0" task="AccountManagement" opcode="win:Stop" level="win:Informational" keywords="MbaeUpdater"/>
+     <event value="7904" symbol="AccountManagementStart7904" version="0" task="AccountManagement" opcode="win:Start" level="win:Informational" keywords="MbaeUpdater"/>
+     <event value="7905" symbol="AccountManagementStop7905" version="0" task="AccountManagement" opcode="win:Stop" level="win:Informational" keywords="MbaeUpdater"/>
+     <event value="8001" symbol="USSD" version="0" task="USSD" level="win:Informational" template="USSDArgs"/>
+     <event value="8002" symbol="USSD8002" version="0" task="USSD" level="win:Informational" template="USSD8002Args"/>
+     <event value="8003" symbol="USSD8003" version="0" task="USSD" level="win:Informational" template="USSD8003Args"/>
+     <event value="10001" symbol="WWANServiceStartupStart" version="0" task="WWANServiceStartup" opcode="win:Start" level="win:Informational" keywords="keyword_200000000000" template="WWANServiceStartupStartArgs"/>
+     <event value="10002" symbol="WWANServiceStartupStop" version="0" task="WWANServiceStartup" opcode="win:Stop" level="win:Informational" keywords="keyword_200000000000" template="WWANServiceStartupStopArgs"/>
+     <event value="10011" symbol="WWANServiceShutdownStart" version="0" task="WWANServiceShutdown" opcode="win:Start" level="win:Informational" keywords="keyword_200000000000" template="WWANServiceStartupStartArgs"/>
+     <event value="10012" symbol="WWANServiceShutdownStop" version="0" task="WWANServiceShutdown" opcode="win:Stop" level="win:Informational" keywords="keyword_200000000000" template="WWANServiceStartupStartArgs"/>
+     <event value="10021" symbol="InterfaceInitializationTaskStart" version="0" task="InterfaceInitializationTask" opcode="win:Start" level="win:Informational" keywords="keyword_200000000000" template="WWANServiceStartupStartArgs"/>
+     <event value="10022" symbol="InterfaceInitializationTaskStop" version="0" task="InterfaceInitializationTask" opcode="win:Stop" level="win:Informational" keywords="keyword_200000000000" template="WWANServiceStartupStartArgs"/>
+     <event value="10031" symbol="RegisterTaskStart" version="0" task="RegisterTask" opcode="win:Start" level="win:Informational" keywords="ut:L2ConnectPath keyword_200000000000" template="WWANServiceStartupStartArgs"/>
+     <event value="10032" symbol="RegisterTaskStop" version="0" task="RegisterTask" opcode="win:Stop" level="win:Informational" keywords="ut:L2ConnectPath keyword_200000000000" template="WWANServiceStartupStartArgs"/>
+     <event value="10061" symbol="ConnectTaskStart" version="0" task="ConnectTask" opcode="win:Start" level="win:Informational" keywords="ut:L2ConnectPath keyword_200000000000" template="WWANServiceStartupStartArgs"/>
+     <event value="10062" symbol="ConnectTaskStop" version="0" task="ConnectTask" opcode="win:Stop" level="win:Informational" keywords="ut:L2ConnectPath keyword_200000000000" template="WWANServiceStartupStartArgs"/>
+     <event value="10071" symbol="ScanTaskStart" version="0" task="ScanTask" opcode="win:Start" level="win:Informational" keywords="keyword_200000000000" template="WWANServiceStartupStartArgs"/>
+     <event value="10072" symbol="ScanTaskStop" version="0" task="ScanTask" opcode="win:Stop" level="win:Informational" keywords="keyword_200000000000" template="WWANServiceStartupStartArgs"/>
+     <event value="10081" symbol="WWANServiceStartup_9Start" version="0" task="WWANServiceStartup_9" opcode="win:Start" level="win:Informational" keywords="keyword_200000000000" template="WWANServiceStartupStartArgs"/>
+     <event value="10082" symbol="WWANServiceStartup_9Stop" version="0" task="WWANServiceStartup_9" opcode="win:Stop" level="win:Informational" keywords="keyword_200000000000" template="WWANServiceStartupStartArgs"/>
+     <event value="10091" symbol="WWANServiceSuspendStart" version="0" task="WWANServiceSuspend" opcode="win:Start" level="win:Informational" keywords="keyword_200000000000" template="WWANServiceStartupStartArgs"/>
+     <event value="10092" symbol="WWANServiceSuspendStop" version="0" task="WWANServiceSuspend" opcode="win:Stop" level="win:Informational" keywords="keyword_200000000000" template="WWANServiceStartupStartArgs"/>
+     <event value="11001" symbol="task_0OID_Handling_V1" version="1" task="task_0" opcode="OID_Handling" level="win:Informational" keywords="LwtDiagnostic WwanOid keyword_400000000000" template="task_0OID_HandlingArgs_V1"/>
+     <event value="11002" symbol="task_0OID_Handling11002_V1" version="1" task="task_0" opcode="OID_Handling" level="win:Informational" keywords="LwtDiagnostic WwanOid keyword_400000000000" template="task_0OID_Handling11002Args_V1"/>
+     <event value="11003" symbol="task_0OID_Handling11003_V1" version="1" task="task_0" opcode="OID_Handling" level="win:Informational" keywords="LwtDiagnostic WwanOid keyword_400000000000" template="task_0OID_Handling11003Args_V1"/>
+     <event value="11004" symbol="task_0OID_Handling11004_V2" version="2" task="task_0" opcode="OID_Handling" level="win:Informational" keywords="LwtDiagnostic WwanOid keyword_400000000000" template="task_0OID_Handling11004Args_V2"/>
+     <event value="11005" symbol="task_0OID_Handling11005_V1" version="1" task="task_0" opcode="OID_Handling" level="win:Informational" keywords="LwtDiagnostic WwanOid keyword_400000000000" template="task_0OID_Handling11005Args_V1"/>
+     <event value="11006" symbol="task_0OID_Handling11006_V2" version="2" task="task_0" opcode="OID_Handling" level="win:Informational" keywords="LwtDiagnostic WwanOid keyword_400000000000" template="task_0OID_Handling11006Args_V2"/>
+     <event value="11007" symbol="task_0OID_Handling11007_V1" version="1" task="task_0" opcode="OID_Handling" level="win:Informational" keywords="LwtDiagnostic WwanOid keyword_400000000000" template="task_0OID_Handling11007Args_V1"/>
+     <event value="11008" symbol="task_0OID_Handling11008_V2" version="2" task="task_0" opcode="OID_Handling" level="win:Informational" keywords="LwtDiagnostic WwanOid keyword_400000000000" template="task_0OID_Handling11008Args_V2"/>
+     <event value="11009" symbol="task_0OID_Handling11009_V1" version="1" task="task_0" opcode="OID_Handling" level="win:Informational" keywords="LwtDiagnostic WwanOid keyword_400000000000" template="task_0OID_Handling11009Args_V1"/>
+     <event value="11010" symbol="task_0OID_Handling11010_V2" version="2" task="task_0" opcode="OID_Handling" level="win:Informational" keywords="LwtDiagnostic WwanOid keyword_400000000000" template="task_0OID_Handling11010Args_V2"/>
+     <event value="11011" symbol="task_0OID_Handling11011_V1" version="1" task="task_0" opcode="OID_Handling" level="win:Informational" keywords="LwtDiagnostic WwanOid keyword_400000000000" template="task_0OID_Handling11011Args_V1"/>
+     <event value="11012" symbol="task_0OID_Handling11012_V2" version="2" task="task_0" opcode="OID_Handling" level="win:Informational" keywords="LwtDiagnostic WwanOid keyword_400000000000" template="task_0OID_Handling11012Args_V2"/>
+     <event value="11013" symbol="task_0OID_Handling11013_V1" version="1" task="task_0" opcode="OID_Handling" level="win:Informational" keywords="LwtDiagnostic WwanOid keyword_400000000000" template="task_0OID_Handling11013Args_V1"/>
+     <event value="11014" symbol="task_0OID_Handling11014_V2" version="2" task="task_0" opcode="OID_Handling" level="win:Informational" keywords="LwtDiagnostic WwanOid keyword_400000000000" template="task_0OID_Handling11014Args_V2"/>
+     <event value="11015" symbol="task_0OID_Handling11015_V1" version="1" task="task_0" opcode="OID_Handling" level="win:Informational" keywords="LwtDiagnostic WwanOid keyword_400000000000" template="task_0OID_Handling11015Args_V1"/>
+     <event value="11016" symbol="task_0OID_Handling11016_V1" version="1" task="task_0" opcode="OID_Handling" level="win:Informational" keywords="LwtDiagnostic WwanOid keyword_400000000000" template="task_0OID_Handling11016Args_V1"/>
+     <event value="11017" symbol="task_0OID_Handling11017_V1" version="1" task="task_0" opcode="OID_Handling" level="win:Informational" keywords="LwtDiagnostic WwanOid keyword_400000000000" template="task_0OID_Handling11017Args_V1"/>
+     <event value="11018" symbol="task_0OID_Handling11018_V1" version="1" task="task_0" opcode="OID_Handling" level="win:Informational" keywords="LwtDiagnostic WwanOid keyword_400000000000" template="task_0OID_Handling11018Args_V1"/>
+     <event value="11019" symbol="task_0OID_Handling11019_V1" version="1" task="task_0" opcode="OID_Handling" level="win:Informational" keywords="LwtDiagnostic WwanOid keyword_400000000000" template="task_0OID_Handling11019Args_V1"/>
+     <event value="11020" symbol="task_0OID_Handling11020_V1" version="1" task="task_0" opcode="OID_Handling" level="win:Informational" keywords="LwtDiagnostic WwanOid keyword_400000000000" template="task_0OID_Handling11020Args_V1"/>
+     <event value="11101" symbol="task_0OID_Handling11101_V1" version="1" task="task_0" opcode="OID_Handling" level="win:Informational" keywords="LwtDiagnostic WwanOid keyword_400000000000" template="task_0OID_Handling11101Args_V1"/>
+     <event value="11102" symbol="task_0OID_Handling11102_V1" version="1" task="task_0" opcode="OID_Handling" level="win:Informational" keywords="LwtDiagnostic WwanOid keyword_400000000000" template="task_0OID_Handling11102Args_V1"/>
+     <event value="11103" symbol="task_0OID_Handling11103_V1" version="1" task="task_0" opcode="OID_Handling" level="win:Informational" keywords="LwtDiagnostic WwanOid keyword_400000000000" template="task_0OID_Handling11103Args_V1"/>
+     <event value="12000" symbol="InitializationInitialize" version="0" task="Initialization" opcode="Initialize" level="win:Informational" keywords="keyword_400000000000" template="InitializationInitializeArgs"/>
+     <event value="12001" symbol="ShutdownCleanup" version="0" task="Shutdown" opcode="Cleanup" level="win:Informational" keywords="keyword_400000000000" template="ShutdownCleanupArgs"/>
+     <event value="12100" symbol="WWANCellularStateRegistrationState" version="0" task="WWANCellularState" opcode="RegistrationState" level="win:Informational" keywords="keyword_400000000000" template="WWANCellularStateRegistrationStateArgs"/>
+     <event value="12101" symbol="WWANCellularStateUiccPresence" version="0" task="WWANCellularState" opcode="UiccPresence" level="win:Informational" keywords="keyword_400000000000" template="task_02003Args"/>
+     <event value="12102" symbol="WWANCellularStatePacketServiceState" version="0" task="WWANCellularState" opcode="PacketServiceState" level="win:Informational" keywords="keyword_400000000000" template="WWANCellularStatePacketServiceStateArgs"/>
+     <event value="12103" symbol="WWANCellularStateIWLANAvailabilityState" version="0" task="WWANCellularState" opcode="IWLANAvailabilityState" level="win:Informational" keywords="keyword_400000000000" template="WWANCellularStateIWLANAvailabilityStateArgs"/>
+     <event value="12200" symbol="WWANConnectionAutoConnect" version="0" task="WWANConnection" opcode="AutoConnect" level="win:Informational" keywords="keyword_400000000000" template="WWANConnectionAutoConnectArgs"/>
+     <event value="12201" symbol="WWANConnectionConnectionPolicy" version="0" task="WWANConnection" opcode="ConnectionPolicy" level="win:Informational" keywords="keyword_400000000000" template="WWANConnectionConnectionPolicyArgs"/>
+     <event value="12211" symbol="WWANConnectionConnectionProfile" version="0" task="WWANConnection" opcode="ConnectionProfile" level="win:Informational" keywords="keyword_400000000000" template="WWANConnectionConnectionProfileArgs"/>
+     <event value="12212" symbol="WWANConnectionConnectionProfile12212" version="0" task="WWANConnection" opcode="ConnectionProfile" level="win:Informational" keywords="keyword_400000000000" template="WWANConnectionConnectionProfileArgs"/>
+     <event value="12213" symbol="WWANConnectionConnectionProfile12213" version="0" task="WWANConnection" opcode="ConnectionProfile" level="win:Error" keywords="keyword_400000000000" template="WWANConnectionConnectionProfile12213Args"/>
+     <event value="12214" symbol="WWANConnectionConnectionProfile12214" version="0" task="WWANConnection" opcode="ConnectionProfile" level="win:Informational" keywords="keyword_400000000000" template="WWANConnectionConnectionProfile12214Args"/>
+     <event value="12215" symbol="WWANConnectionConnectionProfile12215" version="0" task="WWANConnection" opcode="ConnectionProfile" level="win:Informational" keywords="keyword_400000000000" template="WWANConnectionConnectionProfile12214Args"/>
+     <event value="12216" symbol="WWANConnectionConnectionProfile12216" version="0" task="WWANConnection" opcode="ConnectionProfile" level="win:Informational" keywords="keyword_400000000000" template="WWANConnectionConnectionProfile12214Args"/>
+     <event value="12231" symbol="AUTH" version="0" task="AUTH" level="win:Informational" keywords="keyword_400000000000" template="AUTHArgs"/>
+     <event value="12240" symbol="WWANConnection" version="0" task="WWANConnection" level="win:Error" keywords="keyword_400000000000" template="WWANConnectionArgs"/>
+     <event value="12241" symbol="WWANConnection12241" version="0" task="WWANConnection" level="win:Informational" keywords="keyword_400000000000" template="WWANConnectionArgs"/>
+     <event value="12242" symbol="WWANConnection12242" version="0" task="WWANConnection" level="win:Error" keywords="keyword_400000000000" template="WWANConnectionArgs"/>
+     <event value="12243" symbol="WWANConnection12243" version="0" task="WWANConnection" level="win:Informational" keywords="keyword_400000000000" template="WWANConnectionArgs"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Context" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01002Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="WarningCode" inType="win:UInt32"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Context" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01003Args">
+      <data name="FunctionCall" inType="win:UnicodeString"/>
+      <data name="Method" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="task_02003Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+     </template>
+     <template tid="task_02006Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="dwMajorVersion" inType="win:UInt32"/>
+      <data name="dwMinorVersion" inType="win:UInt32"/>
+      <data name="dwDriverCaps" inType="win:UInt32"/>
+      <data name="WwanCellularClass" inType="win:UInt32"/>
+      <data name="WwanDataClass" inType="win:UInt32"/>
+      <data name="WwanGSMBandClass" inType="win:UInt32"/>
+      <data name="WwanCDMABandClass" inType="win:UInt32"/>
+      <data name="ReadyState" inType="win:UInt32"/>
+      <data name="HwRadioState" inType="win:UInt32"/>
+      <data name="SwRadioState" inType="win:UInt32"/>
+      <data name="InformationAvailability" inType="win:UInt8"/>
+      <data name="NoOfProviders" inType="win:UInt32"/>
+      <data name="RegisterState" inType="win:UInt32"/>
+      <data name="RegisterMode" inType="win:UInt32"/>
+      <data name="PacketAttachState" inType="win:UInt32"/>
+      <data name="CurrentNetworkCaps" inType="win:UInt32"/>
+      <data name="NwError" inType="win:UInt32"/>
+      <data name="ConnectionId" inType="win:UInt32"/>
+      <data name="ActivationState" inType="win:UInt32"/>
+      <data name="VoiceCallState" inType="win:UInt32"/>
+     </template>
+     <template tid="task_02007Args">
+      <data name="APIName" inType="win:UInt32"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Context" inType="win:UInt32"/>
+     </template>
+     <template tid="task_02008Args">
+      <data name="WwanApiName" inType="win:UInt32" map="mapWwanRpcApi"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+     </template>
+     <template tid="task_03001Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="EventCode" inType="win:UInt32"/>
+      <data name="RequestID" inType="win:UInt32"/>
+     </template>
+     <template tid="task_03002Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="EventCode" inType="win:UInt32"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="NetworkErrorCode" inType="win:UInt32"/>
+      <data name="RequestID" inType="win:UInt32"/>
+     </template>
+     <template tid="task_04001Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="Rssi" inType="win:UInt32"/>
+      <data name="ErrorRate" inType="win:UInt32"/>
+      <data name="RssiInterval" inType="win:UInt32"/>
+      <data name="RssiThreshold" inType="win:UInt32"/>
+     </template>
+     <template tid="task_04002Args">
+      <data name="HWRadio" inType="win:UInt32"/>
+      <data name="SWRadio" inType="win:UInt32"/>
+     </template>
+     <template tid="task_04003Args">
+      <data name="ProfileUpdateType" inType="win:UInt32"/>
+      <data name="ProfileName" inType="win:UnicodeString"/>
+      <data name="oldProfileName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_04005Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="RegisteredType" inType="win:UInt32" map="RegisteredTypeMap"/>
+     </template>
+     <template tid="task_05001Args">
+      <data name="PinType" inType="win:UInt32"/>
+      <data name="PinState" inType="win:UInt32"/>
+      <data name="AttemptsRemaining" inType="win:UInt32"/>
+     </template>
+     <template tid="task_05003Args">
+      <data name="PinType" inType="win:UInt32"/>
+      <data name="PinOperation" inType="win:UInt32"/>
+     </template>
+     <template tid="ConnectionCostArgs">
+      <data name="CostSource" inType="win:UInt32" map="CostSourceMap"/>
+      <data name="CostValue" inType="win:UInt32"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="ProfileName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ConnectionCost6002Args">
+      <data name="CostSource" inType="win:UInt32"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="ProfileName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ConnectionCost6003Args">
+      <data name="CostValue" inType="win:UInt32" map="CostValueMap"/>
+     </template>
+     <template tid="task_0StopArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="ConnectInformationFlags" inType="win:UInt32"/>
+      <data name="APIErrorCode" inType="win:UInt32"/>
+      <data name="NetworkErrorCode" inType="win:UInt32"/>
+      <data name="HardwareId" inType="win:UnicodeString"/>
+     </template>
+     <template tid="AccountManagementArgs">
+      <data name="error" inType="win:UInt32"/>
+      <data name="hresult" inType="win:Int32"/>
+     </template>
+     <template tid="AccountManagement7001Args">
+      <data name="mbnInterface" inType="win:UnicodeString"/>
+      <data name="propname" inType="win:UnicodeString"/>
+      <data name="error" inType="win:UInt32"/>
+      <data name="hresult" inType="win:Int32"/>
+     </template>
+     <template tid="AccountManagement7002Args">
+      <data name="mbnInterface" inType="win:UnicodeString"/>
+      <data name="cellularClass" inType="win:Int32"/>
+     </template>
+     <template tid="AccountManagement7009Args">
+      <data name="mbnInterface" inType="win:UnicodeString"/>
+      <data name="info" inType="win:UnicodeString"/>
+     </template>
+     <template tid="AccountManagement7013Args">
+      <data name="mbnInterface" inType="win:UnicodeString"/>
+     </template>
+     <template tid="AccountManagement7018Args">
+      <data name="mbnInterface" inType="win:UnicodeString"/>
+      <data name="error" inType="win:UInt32"/>
+      <data name="hresult" inType="win:Int32"/>
+     </template>
+     <template tid="AccountManagementStartArgs">
+      <data name="interfaceGuid" inType="win:GUID"/>
+     </template>
+     <template tid="USSDArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="RequestType" inType="win:UInt32" map="UssdRequestTypeMap"/>
+      <data name="DataCodingScheme" inType="win:UInt8"/>
+      <data name="StringLength" inType="win:UInt8"/>
+     </template>
+     <template tid="USSD8002Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="EventType" inType="win:UInt32"/>
+      <data name="SessionState" inType="win:UInt32" map="UssdSessionStateMap"/>
+      <data name="DataCodingScheme" inType="win:UInt8"/>
+      <data name="StringLength" inType="win:UInt8"/>
+     </template>
+     <template tid="USSD8003Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="EventCode" inType="win:UInt32"/>
+     </template>
+     <template tid="WWANServiceStartupStartArgs">
+      <data name="CurrentOrNextState" inType="win:UInt8"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Context" inType="win:UInt32"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+     </template>
+     <template tid="WWANServiceStartupStopArgs">
+      <data name="CurrentOrNextState" inType="win:UInt8" map="StateMap"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Context" inType="win:UInt32"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+     </template>
+     <template tid="InitializationInitializeArgs">
+      <data name="ObjectGUID" inType="win:GUID"/>
+      <data name="ObjectType" inType="win:UInt32" map="mapWwanObject"/>
+     </template>
+     <template tid="ShutdownCleanupArgs">
+      <data name="ObjectGUID" inType="win:GUID"/>
+      <data name="ObjectType" inType="win:UInt32"/>
+     </template>
+     <template tid="WWANCellularStateRegistrationStateArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="RegisteredType" inType="win:UInt32"/>
+     </template>
+     <template tid="WWANCellularStatePacketServiceStateArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="PacketServiceState" inType="win:UInt32"/>
+     </template>
+     <template tid="WWANCellularStateIWLANAvailabilityStateArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="IWLANAvailabilityState" inType="win:UInt32"/>
+     </template>
+     <template tid="WWANConnectionAutoConnectArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="State" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WWANConnectionConnectionPolicyArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="PolicyType" inType="win:UnicodeString"/>
+      <data name="PolicyState" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WWANConnectionConnectionProfileArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="execIdx" inType="win:UInt32"/>
+      <data name="profileName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WWANConnectionConnectionProfile12213Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="execIdx" inType="win:UInt32"/>
+      <data name="profileName" inType="win:UnicodeString"/>
+      <data name="IccID" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WWANConnectionConnectionProfile12214Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="execIdx" inType="win:UInt32"/>
+      <data name="profileName" inType="win:UnicodeString"/>
+      <data name="IccID" inType="win:UnicodeString"/>
+      <data name="connMode" inType="win:UInt32"/>
+     </template>
+     <template tid="AUTHArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="authMethod" inType="win:UInt32" map="AuthChallengeMethodTypeMap"/>
+      <data name="size" inType="win:UInt32"/>
+     </template>
+     <template tid="WWANConnectionArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="error" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0OID_HandlingArgs_V1">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="RequestId" inType="win:UInt32"/>
+      <data name="WwanStatus" inType="win:UInt32" map="WwanStatusMap"/>
+      <data name="DeviceType" inType="win:UInt32" map="WwanDeviceTypeMap"/>
+      <data name="CellularClass" inType="win:UInt32" map="WwanCellularClassMap"/>
+      <data name="VoiceClass" inType="win:UInt32"/>
+      <data name="SimClass" inType="win:UInt32" map="WwanSimClassMap"/>
+      <data name="DataClass" inType="win:UInt32"/>
+      <data name="CustomDataClass" inType="win:UnicodeString"/>
+      <data name="BandClass" inType="win:UInt32"/>
+      <data name="CustomBandClass" inType="win:UnicodeString"/>
+      <data name="SmsCaps" inType="win:UInt32"/>
+      <data name="ControlCaps" inType="win:UInt32"/>
+      <data name="DeviceId" inType="win:UnicodeString"/>
+      <data name="Manufacturer" inType="win:UnicodeString"/>
+      <data name="Model" inType="win:UnicodeString"/>
+      <data name="FirmwareInfo" inType="win:UnicodeString"/>
+      <data name="MaxActivatedContexts" inType="win:UInt32"/>
+      <data name="AuthAlgoCaps" inType="win:UInt32" map="WwanAuthAlgoCapsMap"/>
+     </template>
+     <template tid="task_0OID_Handling11002Args_V1">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="RequestId" inType="win:UInt32"/>
+      <data name="ReadyState" inType="win:UInt32"/>
+      <data name="EmergencyMode" inType="win:UInt32" map="WwanEmergencyModeMap"/>
+      <data name="SubscriberId" inType="win:UnicodeString"/>
+      <data name="SimIccId" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0OID_Handling11003Args_V1">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="RequestId" inType="win:UInt32"/>
+      <data name="WwanStatus" inType="win:UInt32"/>
+      <data name="HwRadioState" inType="win:UInt32" map="WwanRadioMap"/>
+      <data name="SwRadioState" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0OID_Handling11005Args_V1">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="RequestId" inType="win:UInt32"/>
+      <data name="WwanStatus" inType="win:UInt32"/>
+      <data name="NetworkErrorCode" inType="win:UInt32"/>
+      <data name="RegisterState" inType="win:UInt32"/>
+      <data name="RegisterMode" inType="win:UInt32" map="RegisterModeMap"/>
+      <data name="ProviderId" inType="win:UnicodeString"/>
+      <data name="ProviderName" inType="win:UnicodeString"/>
+      <data name="RoamingText" inType="win:UnicodeString"/>
+      <data name="RegistrationFlags" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0OID_Handling11007Args_V1">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="RequestId" inType="win:UInt32"/>
+      <data name="WwanStatus" inType="win:UInt32"/>
+      <data name="NetworkErrorCode" inType="win:UInt32"/>
+      <data name="PacketServiceState" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0OID_Handling11009Args_V1">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="RequestId" inType="win:UInt32"/>
+      <data name="WwanStatus" inType="win:UInt32"/>
+      <data name="NetworkErrorCode" inType="win:UInt32"/>
+      <data name="ConnectionId" inType="win:UInt32"/>
+      <data name="ActivationState" inType="win:UInt32" map="WwanActivationStateMap"/>
+      <data name="VoiceCallState" inType="win:UInt32" map="WwanVoiceCallStateMap"/>
+      <data name="IPType" inType="win:UInt32" map="WwanIPTypeMap"/>
+     </template>
+     <template tid="task_0OID_Handling11011Args_V1">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="RequestId" inType="win:UInt32"/>
+      <data name="WwanStatus" inType="win:UInt32"/>
+      <data name="PinType" inType="win:UInt32"/>
+      <data name="PinState" inType="win:UInt32" map="WwanPinStateMap"/>
+      <data name="AttemptsRemaining" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0OID_Handling11013Args_V1">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="RequestId" inType="win:UInt32"/>
+      <data name="WwanStatus" inType="win:UInt32"/>
+      <data name="ProviderId" inType="win:UnicodeString"/>
+      <data name="ProviderState" inType="win:UInt32"/>
+      <data name="ProviderName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0OID_Handling11015Args_V1">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="RequestId" inType="win:UInt32"/>
+      <data name="DeviceServiceGuid" inType="win:GUID"/>
+      <data name="WwanDeviceServiceCommands" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0OID_Handling11016Args_V1">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="RequestId" inType="win:UInt32"/>
+      <data name="DeviceServiceGuid" inType="win:GUID"/>
+      <data name="WwanDeviceServiceEvents" inType="win:UInt32" map="mapWwanDeviceServiceEvents"/>
+     </template>
+     <template tid="task_0OID_Handling11017Args_V1">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="RequestId" inType="win:UInt32"/>
+      <data name="DeviceServiceGuid" inType="win:GUID"/>
+      <data name="WwanDeviceServiceResponse" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0OID_Handling11018Args_V1">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="RequestId" inType="win:UInt32"/>
+      <data name="DeviceServiceGuid" inType="win:GUID"/>
+      <data name="WwanDeviceServiceResponse" inType="win:UInt32" map="mapWwanDeviceServiceResponse"/>
+      <data name="ModemNumber" inType="win:UInt32"/>
+      <data name="ExecutorID" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0OID_Handling11019Args_V1">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="RequestId" inType="win:UInt32"/>
+      <data name="DeviceServiceGuid" inType="win:GUID"/>
+      <data name="WwanDeviceServiceResponse" inType="win:UInt32"/>
+      <data name="MaxContextCount" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0OID_Handling11020Args_V1">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="RequestId" inType="win:UInt32"/>
+      <data name="DeviceServiceGuid" inType="win:GUID"/>
+      <data name="WwanDeviceServiceResponse" inType="win:UInt32"/>
+      <data name="Executors" inType="win:UInt32"/>
+      <data name="ActiveExecutors" inType="win:UInt32"/>
+      <data name="ActiveDataExecutors" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0OID_Handling11101Args_V1">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="RequestId" inType="win:UInt32"/>
+      <data name="OID" inType="win:UInt32"/>
+      <data name="cbPayload" inType="win:UInt32"/>
+      <data name="Payload" inType="win:Binary" length="cbPayload"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0OID_Handling11102Args_V1">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="RequestId" inType="win:UInt32"/>
+      <data name="OID" inType="win:UInt32" map="WwanOidMap"/>
+      <data name="cbPayload" inType="win:UInt32"/>
+      <data name="Payload" inType="win:Binary" length="cbPayload"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0OID_Handling11103Args_V1">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="RequestId" inType="win:UInt32"/>
+      <data name="NdisStatusId" inType="win:UInt32"/>
+      <data name="cbPayload" inType="win:UInt32"/>
+      <data name="Payload" inType="win:Binary" length="cbPayload"/>
+     </template>
+     <template tid="task_0OID_Handling11004Args_V2">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="RequestId" inType="win:UInt32"/>
+      <data name="SwRadioAction" inType="win:UInt32"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0OID_Handling11006Args_V2">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="RequestId" inType="win:UInt32"/>
+      <data name="ProviderId" inType="win:UnicodeString"/>
+      <data name="RegisterAction" inType="win:UInt32" map="WwanRegisterActionMap"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0OID_Handling11008Args_V2">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="RequestId" inType="win:UInt32"/>
+      <data name="PacketServiceAction" inType="win:UInt32"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0OID_Handling11010Args_V2">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="RequestId" inType="win:UInt32"/>
+      <data name="ConnectionId" inType="win:UInt32"/>
+      <data name="ActivationCommand" inType="win:UInt32" map="WwanActivationCommandMap"/>
+      <data name="AccessString" inType="win:UnicodeString"/>
+      <data name="Compression" inType="win:UInt32" map="WwanCompressionMap"/>
+      <data name="AuthProtocol" inType="win:UInt32"/>
+      <data name="IPType" inType="win:UInt32"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0OID_Handling11012Args_V2">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="RequestId" inType="win:UInt32"/>
+      <data name="PinType" inType="win:UInt32"/>
+      <data name="PinOperation" inType="win:UInt32" map="WwanPinOperationMap"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0OID_Handling11014Args_V2">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="RequestId" inType="win:UInt32"/>
+      <data name="ProviderId" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_LwtDiagnostic" value="LwtDiagnostic"/>
+    <string id="keyword_MbaeUpdater" value="MbaeUpdater"/>
+    <string id="keyword_WwanOid" value="WwanOid"/>
+    <string id="keyword_ut:L2ConnectPath" value="ut:L2ConnectPath"/>
+    <string id="keyword_ut:ClosePath" value="ut:ClosePath"/>
+    <string id="keyword_ut:Configuration" value="ut:Configuration"/>
+    <string id="keyword_keyword_200000000000" value="keyword_200000000000"/>
+    <string id="keyword_keyword_400000000000" value="keyword_400000000000"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="opcode_task_0OID_Handling" value="OID_Handling"/>
+    <string id="task_WWANServiceStartup" value="WWANServiceStartup"/>
+    <string id="task_WWANServiceShutdown" value="WWANServiceShutdown"/>
+    <string id="task_InterfaceInitializationTask" value="InterfaceInitializationTask"/>
+    <string id="task_RegisterTask" value="RegisterTask"/>
+    <string id="task_ConnectTask" value="ConnectTask"/>
+    <string id="task_ScanTask" value="ScanTask"/>
+    <string id="task_WWANServiceStartup_9" value="WWANServiceStartup_9"/>
+    <string id="task_WWANServiceSuspend" value="WWANServiceSuspend"/>
+    <string id="task_ConnectionCost" value="ConnectionCost"/>
+    <string id="task_AccountManagement" value="AccountManagement"/>
+    <string id="task_MeasureWwanResumeReconnecttask" value="MeasureWwanResumeReconnecttask"/>
+    <string id="task_USSD" value="USSD"/>
+    <string id="task_Initialization" value="Initialization"/>
+    <string id="opcode_InitializationInitialize" value="Initialize"/>
+    <string id="task_Shutdown" value="Shutdown"/>
+    <string id="opcode_ShutdownCleanup" value="Cleanup"/>
+    <string id="task_WWANConnection" value="WWANConnection"/>
+    <string id="opcode_WWANConnectionConnectionProfile" value="ConnectionProfile"/>
+    <string id="opcode_WWANConnectionAutoConnect" value="AutoConnect"/>
+    <string id="opcode_WWANConnectionConnectionPolicy" value="ConnectionPolicy"/>
+    <string id="task_WWANCellularState" value="WWANCellularState"/>
+    <string id="opcode_WWANCellularStateRegistrationState" value="RegistrationState"/>
+    <string id="opcode_WWANCellularStatePacketServiceState" value="PacketServiceState"/>
+    <string id="opcode_WWANCellularStateUiccPresence" value="UiccPresence"/>
+    <string id="opcode_WWANCellularStateIWLANAvailabilityState" value="IWLANAvailabilityState"/>
+    <string id="task_AUTH" value="AUTH"/>
+    <string id="map_mapWwanRpcApiWwanApiGetPinState" value="WwanApiGetPinState"/>
+    <string id="map_mapWwanRpcApiWwanApiSetPreferredProviders" value="WwanApiSetPreferredProviders"/>
+    <string id="map_mapWwanRpcApiWwanApiScan" value="WwanApiScan"/>
+    <string id="map_mapWwanRpcApiWwanApiPinEnable" value="WwanApiPinEnable"/>
+    <string id="map_mapWwanRpcApiWwanApiPinDisable" value="WwanApiPinDisable"/>
+    <string id="map_mapWwanRpcApiWwanApiPinEnter" value="WwanApiPinEnter"/>
+    <string id="map_mapWwanRpcApiWwanApiPinChange" value="WwanApiPinChange"/>
+    <string id="map_mapWwanRpcApiWwanApiPinUnblock" value="WwanApiPinUnblock"/>
+    <string id="map_mapWwanRpcApiWwanApiSetRegisterMode" value="WwanApiSetRegisterMode"/>
+    <string id="map_mapWwanRpcApiWwanApiSetProvisionedContext" value="WwanApiSetProvisionedContext"/>
+    <string id="map_mapWwanRpcApiWwanApiConnect" value="WwanApiConnect"/>
+    <string id="map_mapWwanRpcApiWwanApiDisconnect" value="WwanApiDisconnect"/>
+    <string id="map_mapWwanRpcApiWwanApiSmsSetConfiguration" value="WwanApiSmsSetConfiguration"/>
+    <string id="map_mapWwanRpcApiWwanApiSmsSend" value="WwanApiSmsSend"/>
+    <string id="map_mapWwanRpcApiWwanApiSmsRead" value="WwanApiSmsRead"/>
+    <string id="map_mapWwanRpcApiWwanApiSmsDelete" value="WwanApiSmsDelete"/>
+    <string id="map_mapWwanRpcApiWwanApiServiceActivate" value="WwanApiServiceActivate"/>
+    <string id="map_mapWwanRpcApiWwanApiSetHomeProvider" value="WwanApiSetHomeProvider"/>
+    <string id="map_mapWwanRpcApiWwanApiQueryVendorSpecific" value="WwanApiQueryVendorSpecific"/>
+    <string id="map_mapWwanRpcApiWwanApiSetVendorSpecific" value="WwanApiSetVendorSpecific"/>
+    <string id="map_mapWwanRpcApiWwanApiOpenHandle" value="WwanApiOpenHandle"/>
+    <string id="map_mapWwanRpcApiWwanApiCloseHandle" value="WwanApiCloseHandle"/>
+    <string id="map_mapWwanRpcApiWwanApiRegisterNotification" value="WwanApiRegisterNotification"/>
+    <string id="map_mapWwanRpcApiWwanApiEnumerateInterfaces" value="WwanApiEnumerateInterfaces"/>
+    <string id="map_mapWwanRpcApiWwanApiGetInterfaceCapability" value="WwanApiGetInterfaceCapability"/>
+    <string id="map_mapWwanRpcApiWwanApiSetInterface" value="WwanApiSetInterface"/>
+    <string id="map_mapWwanRpcApiWwanApiSetIntfOpcodePin" value="WwanApiSetIntfOpcodePin"/>
+    <string id="map_mapWwanRpcApiWwanApiSetIntfOpcodeRadioState" value="WwanApiSetIntfOpcodeRadioState"/>
+    <string id="map_mapWwanRpcApiWwanApiSetIntfOpcodeAce" value="WwanApiSetIntfOpcodeAce"/>
+    <string id="map_mapWwanRpcApiWwanApiSetIntfOpcodePreferredProviders" value="WwanApiSetIntfOpcodePreferredProviders"/>
+    <string id="map_mapWwanRpcApiWwanApiSetIntfOpcodeProvisionedContexts" value="WwanApiSetIntfOpcodeProvisionedContexts"/>
+    <string id="map_mapWwanRpcApiWwanApiSetIntfOpcodeActivateUserAccount" value="WwanApiSetIntfOpcodeActivateUserAccount"/>
+    <string id="map_mapWwanRpcApiWwanApiSetIntfOpcodeHomeProvider" value="WwanApiSetIntfOpcodeHomeProvider"/>
+    <string id="map_mapWwanRpcApiWwanApiQueryInterface" value="WwanApiQueryInterface"/>
+    <string id="map_mapWwanRpcApiWwanApiGetVisibleNetworkList" value="WwanApiGetVisibleNetworkList"/>
+    <string id="map_mapWwanRpcApiWwanApiRegister" value="WwanApiRegister"/>
+    <string id="map_mapWwanRpcApiWwanApiAttach" value="WwanApiAttach"/>
+    <string id="map_mapWwanRpcApiWwanApiDetach" value="WwanApiDetach"/>
+    <string id="map_mapWwanRpcApiWwanApiActivate" value="WwanApiActivate"/>
+    <string id="map_mapWwanRpcApiWwanApiDeactivate" value="WwanApiDeactivate"/>
+    <string id="map_mapWwanRpcApiWwanApiGetSmsConfiguration" value="WwanApiGetSmsConfiguration"/>
+    <string id="map_mapWwanRpcApiWwanApiSmsQueryStatus" value="WwanApiSmsQueryStatus"/>
+    <string id="map_mapWwanRpcApiWwanApiSetProfile" value="WwanApiSetProfile"/>
+    <string id="map_mapWwanRpcApiWwanApiDeleteProfile" value="WwanApiDeleteProfile"/>
+    <string id="map_mapWwanRpcApiWwanApiGetProfile" value="WwanApiGetProfile"/>
+    <string id="map_mapWwanRpcApiWwanApiGetProfileList" value="WwanApiGetProfileList"/>
+    <string id="map_mapWwanRpcApiWwanApiRenameProfile" value="WwanApiRenameProfile"/>
+    <string id="map_mapWwanRpcApiWwanApiGetProfileIstream" value="WwanApiGetProfileIstream"/>
+    <string id="map_mapWwanRpcApiWwanApiAuthChallenge" value="WwanApiAuthChallenge"/>
+    <string id="map_mapWwanRpcApiWwanApiGetProfileMetaData" value="WwanApiGetProfileMetaData"/>
+    <string id="map_mapWwanRpcApiWwanApiSetProfileMetaData" value="WwanApiSetProfileMetaData"/>
+    <string id="map_mapWwanRpcApiWwanApiUssdRequest" value="WwanApiUssdRequest"/>
+    <string id="map_mapWwanRpcApiWwanApiScanMultiCarrier" value="WwanApiScanMultiCarrier"/>
+    <string id="map_mapWwanRpcApiWwan2ApiOpenHandle" value="Wwan2ApiOpenHandle"/>
+    <string id="map_mapWwanRpcApiWwan2ApiCloseHandle" value="Wwan2ApiCloseHandle"/>
+    <string id="map_mapWwanRpcApiWwan2ApiEnumerateDeviceServices" value="Wwan2ApiEnumerateDeviceServices"/>
+    <string id="map_mapWwanRpcApiWwan2ApiRegisterNotification" value="Wwan2ApiRegisterNotification"/>
+    <string id="map_mapWwanRpcApiWwan2ApiCloseAllDeviceServiceCommandSessions" value="Wwan2ApiCloseAllDeviceServiceCommandSessions"/>
+    <string id="map_mapWwanRpcApiWwan2ApiSendDeviceServiceCommand" value="Wwan2ApiSendDeviceServiceCommand"/>
+    <string id="map_mapWwanRpcApiWwanApiGetSecurity" value="WwanApiGetSecurity"/>
+    <string id="map_mapWwanRpcApiWwanApiSetSecurity" value="WwanApiSetSecurity"/>
+    <string id="map_mapWwanRpcApiWwan2ApiQueryInterfaces" value="Wwan2ApiQueryInterfaces"/>
+    <string id="map_mapWwanRpcApiWwan2ApiQueryDeviceServiceSupportedCommands" value="Wwan2ApiQueryDeviceServiceSupportedCommands"/>
+    <string id="map_mapWwanRpcApiWwan2ApiOpenDeviceServiceDataSession" value="Wwan2ApiOpenDeviceServiceDataSession"/>
+    <string id="map_mapWwanRpcApiWwan2ApiCloseDeviceServiceDataSession" value="Wwan2ApiCloseDeviceServiceDataSession"/>
+    <string id="map_mapWwanRpcApiWwan2ApiWriteDeviceServiceData" value="Wwan2ApiWriteDeviceServiceData"/>
+    <string id="map_mapWwanRpcApiWwan2ApiOpenDeviceServiceCommandSession" value="Wwan2ApiOpenDeviceServiceCommandSession"/>
+    <string id="map_mapWwanRpcApiWwan2ApiCloseDeviceServiceCommandSession" value="Wwan2ApiCloseDeviceServiceCommandSession"/>
+    <string id="map_mapWwanRpcApiWwan2ApiAddDeviceServiceSubscription" value="Wwan2ApiAddDeviceServiceSubscription"/>
+    <string id="map_mapWwanRpcApiWwan2ApiDeleteDeviceServiceSubscription" value="Wwan2ApiDeleteDeviceServiceSubscription"/>
+    <string id="map_mapWwanRpcApiWwan2ApiSubscribePowerStateEvents" value="Wwan2ApiSubscribePowerStateEvents"/>
+    <string id="map_mapWwanRpcApiWwanApiConnectAdditionalPdpContext" value="WwanApiConnectAdditionalPdpContext"/>
+    <string id="map_mapWwanRpcApiWwanApiSearchProfile" value="WwanApiSearchProfile"/>
+    <string id="map_mapWwanRpcApiWwanApiGetProfileState" value="WwanApiGetProfileState"/>
+    <string id="map_mapWwanRpcApiWwanApiGetDMConfigProfileList" value="WwanApiGetDMConfigProfileList"/>
+    <string id="map_mapWwanRpcApiWwanApiSetDMConfigProfile" value="WwanApiSetDMConfigProfile"/>
+    <string id="map_mapWwanRpcApiWwanApiGetDMConfigProfile" value="WwanApiGetDMConfigProfile"/>
+    <string id="map_mapWwanRpcApiWwanApiDeleteDMConfigProfile" value="WwanApiDeleteDMConfigProfile"/>
+    <string id="map_mapWwanRpcApiWwanApiSetNetworkQuietMode" value="WwanApiSetNetworkQuietMode"/>
+    <string id="map_mapWwanRpcApiWwanApiSetDMConfigBinary" value="WwanApiSetDMConfigBinary"/>
+    <string id="map_mapWwanRpcApiWwanApiGetDMConfigBinary" value="WwanApiGetDMConfigBinary"/>
+    <string id="map_mapWwanRpcApiWwanApiQueryInterfaceEx" value="WwanApiQueryInterfaceEx"/>
+    <string id="map_RegisteredTypeMapDeregistered" value="Deregistered"/>
+    <string id="map_RegisteredTypeMapSearching" value="Searching"/>
+    <string id="map_RegisteredTypeMapHome" value="Home"/>
+    <string id="map_RegisteredTypeMapRoaming" value="Roaming"/>
+    <string id="map_RegisteredTypeMapPartner" value="Partner"/>
+    <string id="map_RegisteredTypeMapDenied" value="Denied"/>
+    <string id="map_CostSourceMapGroup Policy" value="Group Policy"/>
+    <string id="map_CostSourceMapUser" value="User"/>
+    <string id="map_CostSourceMapPublic" value="Public"/>
+    <string id="map_CostSourceMapOperator" value="Operator"/>
+    <string id="map_CostValueMapUnrestricted" value="Unrestricted"/>
+    <string id="map_CostValueMapFixed" value="Fixed"/>
+    <string id="map_CostValueMapVariable" value="Variable"/>
+    <string id="map_CostValueMapOver Data Limit" value="Over Data Limit"/>
+    <string id="map_CostValueMapCongested" value="Congested"/>
+    <string id="map_CostValueMapRoaming" value="Roaming"/>
+    <string id="map_UssdRequestTypeMapInitiate session" value="Initiate session"/>
+    <string id="map_UssdRequestTypeMapContinue session" value="Continue session"/>
+    <string id="map_UssdRequestTypeMapCancel session" value="Cancel session"/>
+    <string id="map_UssdSessionStateMapNew session" value="New session"/>
+    <string id="map_UssdSessionStateMapExisting session" value="Existing session"/>
+    <string id="map_StateMapState Start" value="State Start"/>
+    <string id="map_StateMapState End" value="State End"/>
+    <string id="map_StateMapNot started state" value="Not started state"/>
+    <string id="map_StateMapStarted State" value="Started State"/>
+    <string id="map_mapWwanObjectInterface" value="Interface"/>
+    <string id="map_mapWwanObjectExecutor" value="Executor"/>
+    <string id="map_mapWwanObjectModem" value="Modem"/>
+    <string id="map_AuthChallengeMethodTypeMapWwanAuthSim" value="WwanAuthSim"/>
+    <string id="map_AuthChallengeMethodTypeMapWwanAuthAka" value="WwanAuthAka"/>
+    <string id="map_AuthChallengeMethodTypeMapWwanAuthAkaPrime" value="WwanAuthAkaPrime"/>
+    <string id="map_AuthChallengeMethodTypeMapWwanAuthMethodMax" value="WwanAuthMethodMax"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_SUCCESS" value="WWAN_STATUS_SUCCESS"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_PIN_DISABLED" value="WWAN_STATUS_PIN_DISABLED"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_NOT_REGISTERED" value="WWAN_STATUS_NOT_REGISTERED"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_PROVIDERS_NOT_FOUND" value="WWAN_STATUS_PROVIDERS_NOT_FOUND"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_PROVIDER_NOT_VISIBLE" value="WWAN_STATUS_PROVIDER_NOT_VISIBLE"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_DATA_CLASS_NOT_AVAILABLE" value="WWAN_STATUS_DATA_CLASS_NOT_AVAILABLE"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_VOICE_CALL_IN_PROGRESS" value="WWAN_STATUS_VOICE_CALL_IN_PROGRESS"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_SMS_MORE_DATA" value="WWAN_STATUS_SMS_MORE_DATA"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_BUSY" value="WWAN_STATUS_BUSY"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_FAILURE" value="WWAN_STATUS_FAILURE"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_SIM_NOT_INSERTED" value="WWAN_STATUS_SIM_NOT_INSERTED"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_BAD_SIM" value="WWAN_STATUS_BAD_SIM"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_PIN_REQUIRED" value="WWAN_STATUS_PIN_REQUIRED"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_NO_DEVICE_SUPPORT" value="WWAN_STATUS_NO_DEVICE_SUPPORT"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_PACKET_SVC_DETACHED" value="WWAN_STATUS_PACKET_SVC_DETACHED"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_MAX_ACTIVATED_CONTEXTS" value="WWAN_STATUS_MAX_ACTIVATED_CONTEXTS"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_NOT_INITIALIZED" value="WWAN_STATUS_NOT_INITIALIZED"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_CONTEXT_NOT_ACTIVATED" value="WWAN_STATUS_CONTEXT_NOT_ACTIVATED"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_SERVICE_NOT_ACTIVATED" value="WWAN_STATUS_SERVICE_NOT_ACTIVATED"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_INVALID_ACCESS_STRING" value="WWAN_STATUS_INVALID_ACCESS_STRING"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_INVALID_USER_NAME_PWD" value="WWAN_STATUS_INVALID_USER_NAME_PWD"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_RADIO_POWER_OFF" value="WWAN_STATUS_RADIO_POWER_OFF"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_INVALID_PARAMETERS" value="WWAN_STATUS_INVALID_PARAMETERS"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_READ_FAILURE" value="WWAN_STATUS_READ_FAILURE"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_WRITE_FAILURE" value="WWAN_STATUS_WRITE_FAILURE"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_DENIED_POLICY" value="WWAN_STATUS_DENIED_POLICY"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_INVALID_DEVICE_SERVICE_OPERATION" value="WWAN_STATUS_INVALID_DEVICE_SERVICE_OPERATION"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_MORE_DATA" value="WWAN_STATUS_MORE_DATA"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_SMS_OPERATION_NOT_ALLOWED" value="WWAN_STATUS_SMS_OPERATION_NOT_ALLOWED"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_SMS_MEMORY_FAILURE" value="WWAN_STATUS_SMS_MEMORY_FAILURE"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_SMS_INVALID_MEMORY_INDEX" value="WWAN_STATUS_SMS_INVALID_MEMORY_INDEX"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_SMS_UNKNOWN_SMSC_ADDRESS" value="WWAN_STATUS_SMS_UNKNOWN_SMSC_ADDRESS"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_SMS_NETWORK_TIMEOUT" value="WWAN_STATUS_SMS_NETWORK_TIMEOUT"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_SMS_MEMORY_FULL" value="WWAN_STATUS_SMS_MEMORY_FULL"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_SMS_UNKNOWN_ERROR" value="WWAN_STATUS_SMS_UNKNOWN_ERROR"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_SMS_FILTER_NOT_SUPPORTED" value="WWAN_STATUS_SMS_FILTER_NOT_SUPPORTED"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_SMS_LANG_NOT_SUPPORTED" value="WWAN_STATUS_SMS_LANG_NOT_SUPPORTED"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_SMS_ENCODING_NOT_SUPPORTED" value="WWAN_STATUS_SMS_ENCODING_NOT_SUPPORTED"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_SMS_FORMAT_NOT_SUPPORTED" value="WWAN_STATUS_SMS_FORMAT_NOT_SUPPORTED"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_AUTH_INCORRECT_AUTN" value="WWAN_STATUS_AUTH_INCORRECT_AUTN"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_AUTH_SYNC_FAILURE" value="WWAN_STATUS_AUTH_SYNC_FAILURE"/>
+    <string id="map_WwanStatusMapWWAN_STATUS_AUTH_AMF_NOT_SET" value="WWAN_STATUS_AUTH_AMF_NOT_SET"/>
+    <string id="map_WwanDeviceTypeMapWwanDeviceTypeEmbedded" value="WwanDeviceTypeEmbedded"/>
+    <string id="map_WwanDeviceTypeMapWwanDeviceTypeRemovable" value="WwanDeviceTypeRemovable"/>
+    <string id="map_WwanDeviceTypeMapWwanDeviceTypeRemote" value="WwanDeviceTypeRemote"/>
+    <string id="map_WwanCellularClassMapWwanCellularClassGsm" value="WwanCellularClassGsm"/>
+    <string id="map_WwanCellularClassMapWwanCellularClassCdma" value="WwanCellularClassCdma"/>
+    <string id="map_WwanSimClassMapWwanSimClassLogical" value="WwanSimClassLogical"/>
+    <string id="map_WwanSimClassMapWwanSimClassRemovable" value="WwanSimClassRemovable"/>
+    <string id="map_WwanSimClassMapWwanSimClassRemote" value="WwanSimClassRemote"/>
+    <string id="map_WwanAuthAlgoCapsMapWWAN_AUTH_ALGO_CAPS_SIM" value="WWAN_AUTH_ALGO_CAPS_SIM"/>
+    <string id="map_WwanAuthAlgoCapsMapWWAN_AUTH_ALGO_CAPS_AKA" value="WWAN_AUTH_ALGO_CAPS_AKA"/>
+    <string id="map_WwanAuthAlgoCapsMapWWAN_AUTH_ALGO_CAPS_AKAPRIME" value="WWAN_AUTH_ALGO_CAPS_AKAPRIME"/>
+    <string id="map_WwanEmergencyModeMapWwanEmergencyModeOff" value="WwanEmergencyModeOff"/>
+    <string id="map_WwanEmergencyModeMapWwanEmergencyModeOn" value="WwanEmergencyModeOn"/>
+    <string id="map_WwanRadioMapWwanRadioOff" value="WwanRadioOff"/>
+    <string id="map_WwanRadioMapWwanRadioOn" value="WwanRadioOn"/>
+    <string id="map_RegisterModeMapAutomatic" value="Automatic"/>
+    <string id="map_RegisterModeMapManual" value="Manual"/>
+    <string id="map_WwanActivationStateMapWwanActivationStateActivated" value="WwanActivationStateActivated"/>
+    <string id="map_WwanActivationStateMapWwanActivationStateActivating" value="WwanActivationStateActivating"/>
+    <string id="map_WwanActivationStateMapWwanActivationStateDeactivated" value="WwanActivationStateDeactivated"/>
+    <string id="map_WwanActivationStateMapWwanActivationStateDeactivating" value="WwanActivationStateDeactivating"/>
+    <string id="map_WwanVoiceCallStateMapWwanVoiceCallStateNone" value="WwanVoiceCallStateNone"/>
+    <string id="map_WwanVoiceCallStateMapWwanVoiceCallStateInProgress" value="WwanVoiceCallStateInProgress"/>
+    <string id="map_WwanVoiceCallStateMapWwanVoiceCallStateHangUp" value="WwanVoiceCallStateHangUp"/>
+    <string id="map_WwanIPTypeMapWwanIPTypeDefault" value="WwanIPTypeDefault"/>
+    <string id="map_WwanIPTypeMapWwanIPTypeIPv4" value="WwanIPTypeIPv4"/>
+    <string id="map_WwanIPTypeMapWwanIPTypeIPv6" value="WwanIPTypeIPv6"/>
+    <string id="map_WwanIPTypeMapWwanIPTypeIpv4v6" value="WwanIPTypeIpv4v6"/>
+    <string id="map_WwanPinStateMapWwanPinStateNone" value="WwanPinStateNone"/>
+    <string id="map_WwanPinStateMapWwanPinStateEnter" value="WwanPinStateEnter"/>
+    <string id="map_mapWwanDeviceServiceEventsDataSuspensionState" value="DataSuspensionState"/>
+    <string id="map_mapWwanDeviceServiceEventsInternalError" value="InternalError"/>
+    <string id="map_mapWwanDeviceServiceEventsDLTEAttachDefaultBearer" value="DLTEAttachDefaultBearer"/>
+    <string id="map_mapWwanDeviceServiceEventsDefaultBearerBridging" value="DefaultBearerBridging"/>
+    <string id="map_mapWwanDeviceServiceEventsDualSimCaps" value="DualSimCaps"/>
+    <string id="map_mapWwanDeviceServiceResponseDataSuspensionState" value="DataSuspensionState"/>
+    <string id="map_mapWwanDeviceServiceResponseLTEINFO" value="LTEINFO"/>
+    <string id="map_mapWwanDeviceServiceResponseActivationOption" value="ActivationOption"/>
+    <string id="map_mapWwanDeviceServiceResponseDataDormancyHint" value="DataDormancyHint"/>
+    <string id="map_mapWwanDeviceServiceResponseModemExecutorNumber" value="ModemExecutorNumber"/>
+    <string id="map_mapWwanDeviceServiceResponseDMConnConfig" value="DMConnConfig"/>
+    <string id="map_mapWwanDeviceServiceResponseIPV6eHRPDConfig" value="IPV6eHRPDConfig"/>
+    <string id="map_mapWwanDeviceServiceResponseModemDualSIMCaps" value="ModemDualSIMCaps"/>
+    <string id="map_mapWwanDeviceServiceResponseMaxContextNumber" value="MaxContextNumber"/>
+    <string id="map_mapWwanDeviceServiceResponseDMConnConfigV2" value="DMConnConfigV2"/>
+    <string id="map_WwanOidMapOID_WWAN_DRIVER_CAPS" value="OID_WWAN_DRIVER_CAPS"/>
+    <string id="map_WwanOidMapOID_WWAN_DEVICE_CAPS" value="OID_WWAN_DEVICE_CAPS"/>
+    <string id="map_WwanOidMapOID_WWAN_READY_INFO" value="OID_WWAN_READY_INFO"/>
+    <string id="map_WwanOidMapOID_WWAN_RADIO_STATE" value="OID_WWAN_RADIO_STATE"/>
+    <string id="map_WwanOidMapOID_WWAN_PIN" value="OID_WWAN_PIN"/>
+    <string id="map_WwanOidMapOID_WWAN_PIN_LIST" value="OID_WWAN_PIN_LIST"/>
+    <string id="map_WwanOidMapOID_WWAN_HOME_PROVIDER" value="OID_WWAN_HOME_PROVIDER"/>
+    <string id="map_WwanOidMapOID_WWAN_PREFERRED_PROVIDERS" value="OID_WWAN_PREFERRED_PROVIDERS"/>
+    <string id="map_WwanOidMapOID_WWAN_VISIBLE_PROVIDERS" value="OID_WWAN_VISIBLE_PROVIDERS"/>
+    <string id="map_WwanOidMapOID_WWAN_REGISTER_STATE" value="OID_WWAN_REGISTER_STATE"/>
+    <string id="map_WwanOidMapOID_WWAN_PACKET_SERVICE" value="OID_WWAN_PACKET_SERVICE"/>
+    <string id="map_WwanOidMapOID_WWAN_SIGNAL_STATE" value="OID_WWAN_SIGNAL_STATE"/>
+    <string id="map_WwanOidMapOID_WWAN_CONNECT" value="OID_WWAN_CONNECT"/>
+    <string id="map_WwanOidMapOID_WWAN_PROVISIONED_CONTEXTS" value="OID_WWAN_PROVISIONED_CONTEXTS"/>
+    <string id="map_WwanOidMapOID_WWAN_SERVICE_ACTIVATION" value="OID_WWAN_SERVICE_ACTIVATION"/>
+    <string id="map_WwanOidMapOID_WWAN_SMS_CONFIGURATION" value="OID_WWAN_SMS_CONFIGURATION"/>
+    <string id="map_WwanOidMapOID_WWAN_SMS_READ" value="OID_WWAN_SMS_READ"/>
+    <string id="map_WwanOidMapOID_WWAN_SMS_SEND" value="OID_WWAN_SMS_SEND"/>
+    <string id="map_WwanOidMapOID_WWAN_SMS_DELETE" value="OID_WWAN_SMS_DELETE"/>
+    <string id="map_WwanOidMapOID_WWAN_SMS_STATUS" value="OID_WWAN_SMS_STATUS"/>
+    <string id="map_WwanOidMapOID_WWAN_VENDOR_SPECIFIC" value="OID_WWAN_VENDOR_SPECIFIC"/>
+    <string id="map_WwanOidMapOID_WWAN_AUTH_CHALLENGE" value="OID_WWAN_AUTH_CHALLENGE"/>
+    <string id="map_WwanOidMapOID_WWAN_ENUMERATE_DEVICE_SERVICES" value="OID_WWAN_ENUMERATE_DEVICE_SERVICES"/>
+    <string id="map_WwanOidMapOID_WWAN_SUBSCRIBE_DEVICE_SERVICE_EVENTS" value="OID_WWAN_SUBSCRIBE_DEVICE_SERVICE_EVENTS"/>
+    <string id="map_WwanOidMapOID_WWAN_DEVICE_SERVICE_COMMAND" value="OID_WWAN_DEVICE_SERVICE_COMMAND"/>
+    <string id="map_WwanOidMapOID_WWAN_USSD" value="OID_WWAN_USSD"/>
+    <string id="map_WwanOidMapOID_WWAN_PIN_EX" value="OID_WWAN_PIN_EX"/>
+    <string id="map_WwanOidMapOID_WWAN_ENUMERATE_DEVICE_SERVICE_COMMANDS" value="OID_WWAN_ENUMERATE_DEVICE_SERVICE_COMMANDS"/>
+    <string id="map_WwanOidMapOID_WWAN_DEVICE_SERVICE_SESSION" value="OID_WWAN_DEVICE_SERVICE_SESSION"/>
+    <string id="map_WwanOidMapOID_WWAN_DEVICE_SERVICE_SESSION_WRITE" value="OID_WWAN_DEVICE_SERVICE_SESSION_WRITE"/>
+    <string id="map_WwanOidMapOID_WWAN_PREFERRED_MULTICARRIER_PROVIDERS" value="OID_WWAN_PREFERRED_MULTICARRIER_PROVIDERS"/>
+    <string id="map_WwanOidMapOID_WWAN_CREATE_MAC" value="OID_WWAN_CREATE_MAC"/>
+    <string id="map_WwanOidMapOID_WWAN_DELETE_MAC" value="OID_WWAN_DELETE_MAC"/>
+    <string id="map_WwanRegisterActionMapWwanRegisterActionAutomatic" value="WwanRegisterActionAutomatic"/>
+    <string id="map_WwanRegisterActionMapWwanRegisterActionManual" value="WwanRegisterActionManual"/>
+    <string id="map_WwanActivationCommandMapWwanActivationCommandDeactivate" value="WwanActivationCommandDeactivate"/>
+    <string id="map_WwanActivationCommandMapWwanActivationCommandActivate" value="WwanActivationCommandActivate"/>
+    <string id="map_WwanCompressionMapWwanCompressionNone" value="WwanCompressionNone"/>
+    <string id="map_WwanCompressionMapWwanCompressionEnable" value="WwanCompressionEnable"/>
+    <string id="map_WwanPinOperationMapWwanPinOperationEnter" value="WwanPinOperationEnter"/>
+    <string id="map_WwanPinOperationMapWwanPinOperationEnable" value="WwanPinOperationEnable"/>
+    <string id="map_WwanPinOperationMapWwanPinOperationDisable" value="WwanPinOperationDisable"/>
+    <string id="map_WwanPinOperationMapWwanPinOperationChange" value="WwanPinOperationChange"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

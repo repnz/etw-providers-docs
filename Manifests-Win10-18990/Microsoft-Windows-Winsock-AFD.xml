@@ -1,0 +1,971 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Winsock-AFD" guid="{e53c6823-7bb8-44bb-90dc-3f86090d48a6}" resourceFileName="Microsoft-Windows-Winsock-AFD" messageFileName="Microsoft-Windows-Winsock-AFD" symbol="MicrosoftWindowsWinsockAFD" source="Xml" >
+    <keywords>
+     <keyword name="AFD_KW_DATAGRAM" message="$(string.keyword_AFD_KW_DATAGRAM)" mask="0x1"/>
+     <keyword name="AFD_KW_STREAM" message="$(string.keyword_AFD_KW_STREAM)" mask="0x2"/>
+     <keyword name="AFD_KW_SOURCE_WINSOCK" message="$(string.keyword_AFD_KW_SOURCE_WINSOCK)" mask="0x4"/>
+     <keyword name="AFD_KW_SOURCE_TRANSPORT" message="$(string.keyword_AFD_KW_SOURCE_TRANSPORT)" mask="0x8"/>
+     <keyword name="AFD_KW_FASTPATH" message="$(string.keyword_AFD_KW_FASTPATH)" mask="0x10"/>
+     <keyword name="AFD_KW_BUFFERED" message="$(string.keyword_AFD_KW_BUFFERED)" mask="0x20"/>
+     <keyword name="AFD_KW_RIO" message="$(string.keyword_AFD_KW_RIO)" mask="0x40"/>
+     <keyword name="AFD_KW_NRT" message="$(string.keyword_AFD_KW_NRT)" mask="0x80"/>
+     <keyword name="keyword_10000000000" message="$(string.keyword_keyword_10000000000)" mask="0x10000000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="AfdCreate" message="$(string.task_AfdCreate)" value="1000">
+>
+      <opcodes>
+       <opcode name="Open" message="$(string.opcode_AfdCreateOpen)" value="10"/>
+      </opcodes>
+     </task>
+     <task name="AfdClose" message="$(string.task_AfdClose)" value="1001">
+>
+      <opcodes>
+       <opcode name="Closed" message="$(string.opcode_AfdCloseClosed)" value="15"/>
+      </opcodes>
+     </task>
+     <task name="AfdCleanup" message="$(string.task_AfdCleanup)" value="1002">
+>
+      <opcodes>
+       <opcode name="Freed" message="$(string.opcode_AfdCleanupFreed)" value="16"/>
+      </opcodes>
+     </task>
+     <task name="AfdSend" message="$(string.task_AfdSend)" value="1003">
+>
+      <opcodes>
+       <opcode name="Connected" message="$(string.opcode_AfdSendConnected)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="AfdReceive" message="$(string.task_AfdReceive)" value="1004">
+>
+      <opcodes>
+       <opcode name="Connected" message="$(string.opcode_AfdReceiveConnected)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="AfdSendTo" message="$(string.task_AfdSendTo)" value="1005">
+>
+      <opcodes>
+       <opcode name="Connected" message="$(string.opcode_AfdSendToConnected)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="AfdReceiveFrom" message="$(string.task_AfdReceiveFrom)" value="1006">
+>
+      <opcodes>
+       <opcode name="Connected" message="$(string.opcode_AfdReceiveFromConnected)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="AfdSendToWithAddress" message="$(string.task_AfdSendToWithAddress)" value="1007">
+>
+      <opcodes>
+       <opcode name="Connected" message="$(string.opcode_AfdSendToWithAddressConnected)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="AfdReceiveFromWithAddress" message="$(string.task_AfdReceiveFromWithAddress)" value="1009">
+>
+      <opcodes>
+       <opcode name="Connected" message="$(string.opcode_AfdReceiveFromWithAddressConnected)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="AfdSendMessage" message="$(string.task_AfdSendMessage)" value="1011">
+>
+      <opcodes>
+       <opcode name="Connected" message="$(string.opcode_AfdSendMessageConnected)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="AfdReceiveMessage" message="$(string.task_AfdReceiveMessage)" value="1012">
+>
+      <opcodes>
+       <opcode name="Connected" message="$(string.opcode_AfdReceiveMessageConnected)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="AfdSendMessageWithAddress" message="$(string.task_AfdSendMessageWithAddress)" value="1013">
+>
+      <opcodes>
+       <opcode name="Connected" message="$(string.opcode_AfdSendMessageWithAddressConnected)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="AfdReceiveMessageWithAddress" message="$(string.task_AfdReceiveMessageWithAddress)" value="1015">
+>
+      <opcodes>
+       <opcode name="Connected" message="$(string.opcode_AfdReceiveMessageWithAddressConnected)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="AfdConnect" message="$(string.task_AfdConnect)" value="1017">
+>
+      <opcodes>
+       <opcode name="Connected" message="$(string.opcode_AfdConnectConnected)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="AfdConnectWithAddress" message="$(string.task_AfdConnectWithAddress)" value="1018">
+>
+      <opcodes>
+       <opcode name="Connected" message="$(string.opcode_AfdConnectWithAddressConnected)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="AfdConnectEx" message="$(string.task_AfdConnectEx)" value="1020">
+>
+      <opcodes>
+       <opcode name="Connected" message="$(string.opcode_AfdConnectExConnected)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="AfdConnectExWithAddress" message="$(string.task_AfdConnectExWithAddress)" value="1021">
+>
+      <opcodes>
+       <opcode name="Connected" message="$(string.opcode_AfdConnectExWithAddressConnected)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="AfdAccept" message="$(string.task_AfdAccept)" value="1023">
+>
+      <opcodes>
+       <opcode name="Connected" message="$(string.opcode_AfdAcceptConnected)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="AfdAcceptWithAddress" message="$(string.task_AfdAcceptWithAddress)" value="1024">
+>
+      <opcodes>
+       <opcode name="Connected" message="$(string.opcode_AfdAcceptWithAddressConnected)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="AfdAcceptEx" message="$(string.task_AfdAcceptEx)" value="1026">
+>
+      <opcodes>
+       <opcode name="Connected" message="$(string.opcode_AfdAcceptExConnected)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="AfdAcceptExWithAddress" message="$(string.task_AfdAcceptExWithAddress)" value="1027">
+>
+      <opcodes>
+       <opcode name="Connected" message="$(string.opcode_AfdAcceptExWithAddressConnected)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="AfdBind" message="$(string.task_AfdBind)" value="1029">
+>
+      <opcodes>
+       <opcode name="Connected" message="$(string.opcode_AfdBindConnected)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="AfdBindWithAddress" message="$(string.task_AfdBindWithAddress)" value="1030">
+>
+      <opcodes>
+       <opcode name="Connected" message="$(string.opcode_AfdBindWithAddressConnected)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="AfdAbort" message="$(string.task_AfdAbort)" value="1032">
+>
+      <opcodes>
+       <opcode name="Aborted" message="$(string.opcode_AfdAbortAborted)" value="14"/>
+      </opcodes>
+     </task>
+     <task name="AfdDatagramDropWithAddress" message="$(string.task_AfdDatagramDropWithAddress)" value="1033">
+>
+      <opcodes>
+       <opcode name="Connected" message="$(string.opcode_AfdDatagramDropWithAddressConnected)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="AfdOption" message="$(string.task_AfdOption)" value="1035"/>
+     <task name="AfdWaitForListen" message="$(string.task_AfdWaitForListen)" value="1036"/>
+     <task name="AfdListen" message="$(string.task_AfdListen)" value="1037"/>
+     <task name="AfdConnectIndication" message="$(string.task_AfdConnectIndication)" value="3000"/>
+     <task name="AfdConnectIndicationWithAddress" message="$(string.task_AfdConnectIndicationWithAddress)" value="3001"/>
+     <task name="AfdDataIndication" message="$(string.task_AfdDataIndication)" value="3003"/>
+     <task name="AfdDataIndicationWithAddress" message="$(string.task_AfdDataIndicationWithAddress)" value="3004"/>
+     <task name="AfdDisconnect" message="$(string.task_AfdDisconnect)" value="3006">
+>
+      <opcodes>
+       <opcode name="Disconnected" message="$(string.opcode_AfdDisconnectDisconnected)" value="13"/>
+      </opcodes>
+     </task>
+     <task name="AfdSendBackLog" message="$(string.task_AfdSendBackLog)" value="3007"/>
+     <task name="AfdRioCreateRegistrationDomain" message="$(string.task_AfdRioCreateRegistrationDomain)" value="4000">
+>
+      <opcodes>
+       <opcode name="Open" message="$(string.opcode_AfdRioCreateRegistrationDomainOpen)" value="10"/>
+      </opcodes>
+     </task>
+     <task name="AfdRioCleanupRegistrationDomain" message="$(string.task_AfdRioCleanupRegistrationDomain)" value="4001">
+>
+      <opcodes>
+       <opcode name="Closed" message="$(string.opcode_AfdRioCleanupRegistrationDomainClosed)" value="15"/>
+      </opcodes>
+     </task>
+     <task name="AfdRioCreateCq" message="$(string.task_AfdRioCreateCq)" value="4002">
+>
+      <opcodes>
+       <opcode name="Open" message="$(string.opcode_AfdRioCreateCqOpen)" value="10"/>
+      </opcodes>
+     </task>
+     <task name="AfdRioDestroyCq" message="$(string.task_AfdRioDestroyCq)" value="4003">
+>
+      <opcodes>
+       <opcode name="Closed" message="$(string.opcode_AfdRioDestroyCqClosed)" value="15"/>
+      </opcodes>
+     </task>
+     <task name="AfdRioCleanupCq" message="$(string.task_AfdRioCleanupCq)" value="4004">
+>
+      <opcodes>
+       <opcode name="Freed" message="$(string.opcode_AfdRioCleanupCqFreed)" value="16"/>
+      </opcodes>
+     </task>
+     <task name="AfdRioResizeCq" message="$(string.task_AfdRioResizeCq)" value="4005">
+>
+      <opcodes>
+       <opcode name="Modified" message="$(string.opcode_AfdRioResizeCqModified)" value="17"/>
+      </opcodes>
+     </task>
+     <task name="AfdRioCreateRqPair" message="$(string.task_AfdRioCreateRqPair)" value="4006">
+>
+      <opcodes>
+       <opcode name="Open" message="$(string.opcode_AfdRioCreateRqPairOpen)" value="10"/>
+      </opcodes>
+     </task>
+     <task name="AfdRioCloseRioState" message="$(string.task_AfdRioCloseRioState)" value="4007">
+>
+      <opcodes>
+       <opcode name="Closed" message="$(string.opcode_AfdRioCloseRioStateClosed)" value="15"/>
+      </opcodes>
+     </task>
+     <task name="AfdRioCleanupRioState" message="$(string.task_AfdRioCleanupRioState)" value="4008">
+>
+      <opcodes>
+       <opcode name="Freed" message="$(string.opcode_AfdRioCleanupRioStateFreed)" value="16"/>
+      </opcodes>
+     </task>
+     <task name="AfdRioResizeRqPair" message="$(string.task_AfdRioResizeRqPair)" value="4009">
+>
+      <opcodes>
+       <opcode name="Modified" message="$(string.opcode_AfdRioResizeRqPairModified)" value="17"/>
+      </opcodes>
+     </task>
+     <task name="AfdRioRegisterBuffer" message="$(string.task_AfdRioRegisterBuffer)" value="4010">
+>
+      <opcodes>
+       <opcode name="Open" message="$(string.opcode_AfdRioRegisterBufferOpen)" value="10"/>
+      </opcodes>
+     </task>
+     <task name="AfdRioDeregisterBuffer" message="$(string.task_AfdRioDeregisterBuffer)" value="4011">
+>
+      <opcodes>
+       <opcode name="Closed" message="$(string.opcode_AfdRioDeregisterBufferClosed)" value="15"/>
+      </opcodes>
+     </task>
+     <task name="AfdRioCleanupBuffer" message="$(string.task_AfdRioCleanupBuffer)" value="4012">
+>
+      <opcodes>
+       <opcode name="Freed" message="$(string.opcode_AfdRioCleanupBufferFreed)" value="16"/>
+      </opcodes>
+     </task>
+     <task name="AfdRioValidateBufferId" message="$(string.task_AfdRioValidateBufferId)" value="4013"/>
+     <task name="AfdRioRangeCheck" message="$(string.task_AfdRioRangeCheck)" value="4014"/>
+     <task name="AfdRioSendReceive" message="$(string.task_AfdRioSendReceive)" value="4015"/>
+     <task name="AfdNrtCreate" message="$(string.task_AfdNrtCreate)" value="4016">
+>
+      <opcodes>
+       <opcode name="Open" message="$(string.opcode_AfdNrtCreateOpen)" value="10"/>
+      </opcodes>
+     </task>
+     <task name="AfdNrtClose" message="$(string.task_AfdNrtClose)" value="4017">
+>
+      <opcodes>
+       <opcode name="Closed" message="$(string.opcode_AfdNrtCloseClosed)" value="15"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <maps>
+     <valueMap name="WINSOCK_SocketType_ValueMap">
+      <map value="0x1" message="$(string.map_WINSOCK_SocketType_ValueMapSOCK_STREAM)"/>
+      <map value="0x2" message="$(string.map_WINSOCK_SocketType_ValueMapSOCK_DGRAM)"/>
+      <map value="0x3" message="$(string.map_WINSOCK_SocketType_ValueMapSOCK_RAW)"/>
+      <map value="0x4" message="$(string.map_WINSOCK_SocketType_ValueMapSOCK_RDM)"/>
+      <map value="0x5" message="$(string.map_WINSOCK_SocketType_ValueMapSOCK_SEQPACKET)"/>
+     </valueMap>
+     <valueMap name="AFD_DGRAM_DROP_ValueMap">
+      <map value="0x1" message="$(string.map_AFD_DGRAM_DROP_ValueMapDatagram source address does not match connected address)"/>
+      <map value="0x2" message="$(string.map_AFD_DGRAM_DROP_ValueMapInsufficient local buffer space)"/>
+      <map value="0x3" message="$(string.map_AFD_DGRAM_DROP_ValueMapBuffer allocation failed)"/>
+      <map value="0x4" message="$(string.map_AFD_DGRAM_DROP_ValueMapInsufficient local buffer space - circular queueing enabled)"/>
+      <map value="0x5" message="$(string.map_AFD_DGRAM_DROP_ValueMapIndicated datagram too large - integer overflow)"/>
+     </valueMap>
+     <valueMap name="AFD_OPTION_ValueMap">
+      <map value="0x1" message="$(string.map_AFD_OPTION_ValueMapSO_OOBINLINE)"/>
+      <map value="0x2" message="$(string.map_AFD_OPTION_ValueMapFIONBIO)"/>
+      <map value="0x6" message="$(string.map_AFD_OPTION_ValueMapSO_RCVBUF)"/>
+      <map value="0x7" message="$(string.map_AFD_OPTION_ValueMapSO_SNDBUF)"/>
+      <map value="0x9" message="$(string.map_AFD_OPTION_ValueMapSIO_ENABLE_CIRCULAR_QUEUEING)"/>
+      <map value="0xb" message="$(string.map_AFD_OPTION_ValueMapSIO_UDP_CONNRESET)"/>
+      <map value="0xd" message="$(string.map_AFD_OPTION_ValueMapAFD_IPV6_V6ONLY)"/>
+      <map value="0xf" message="$(string.map_AFD_OPTION_ValueMapSIO_UDP_NETRESET)"/>
+     </valueMap>
+     <valueMap name="RIO_NOTIFICATION_TYPE_ValueMap">
+      <map value="0x0" message="$(string.map_RIO_NOTIFICATION_TYPE_ValueMapNone)"/>
+      <map value="0x1" message="$(string.map_RIO_NOTIFICATION_TYPE_ValueMapEvent)"/>
+      <map value="0x2" message="$(string.map_RIO_NOTIFICATION_TYPE_ValueMapIOCP)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="task_0" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+     <event value="2" symbol="task_02" version="0" task="task_0" level="win:Informational" template="task_02Args"/>
+     <event value="3" symbol="task_03" version="0" task="task_0" level="win:Informational" template="task_03Args"/>
+     <event value="4" symbol="task_04" version="0" task="task_0" level="win:Informational" template="task_04Args"/>
+     <event value="5" symbol="task_05" version="0" task="task_0" level="win:Informational" template="task_05Args"/>
+     <event value="6" symbol="task_06" version="0" task="task_0" level="win:Informational" template="task_06Args"/>
+     <event value="7" symbol="task_07" version="0" task="task_0" level="win:Informational" template="task_07Args"/>
+     <event value="8" symbol="task_08" version="0" task="task_0" level="win:Informational" template="task_07Args"/>
+     <event value="9" symbol="task_09" version="0" task="task_0" level="win:Informational" template="task_06Args"/>
+     <event value="10" symbol="task_010" version="0" task="task_0" level="win:Informational" template="task_06Args"/>
+     <event value="11" symbol="task_011" version="0" task="task_0" level="win:Informational" template="task_06Args"/>
+     <event value="12" symbol="task_012" version="0" task="task_0" level="win:Informational" template="task_06Args"/>
+     <event value="13" symbol="task_013" version="0" task="task_0" level="win:Informational" template="task_06Args"/>
+     <event value="14" symbol="task_014" version="0" task="task_0" level="win:Informational" template="task_06Args"/>
+     <event value="15" symbol="task_015" version="0" task="task_0" level="win:Informational" template="task_02Args"/>
+     <event value="16" symbol="task_016" version="0" task="task_0" level="win:Informational" template="task_03Args"/>
+     <event value="17" symbol="task_017" version="0" task="task_0" level="win:Informational" template="task_06Args"/>
+     <event value="18" symbol="task_018" version="0" task="task_0" level="win:Verbose" template="task_018Args"/>
+     <event value="19" symbol="task_019" version="0" task="task_0" level="win:Verbose" template="task_018Args"/>
+     <event value="20" symbol="task_020" version="0" task="task_0" level="win:Verbose" template="task_018Args"/>
+     <event value="21" symbol="task_021" version="0" task="task_0" level="win:Verbose" template="task_021Args"/>
+     <event value="22" symbol="task_022" version="0" task="task_0" level="win:Verbose" template="task_022Args"/>
+     <event value="23" symbol="task_023" version="0" task="task_0" level="win:Verbose" template="task_023Args"/>
+     <event value="24" symbol="task_024" version="0" task="task_0" level="win:Verbose" template="task_023Args"/>
+     <event value="25" symbol="task_025" version="0" task="task_0" level="win:Verbose" template="task_023Args"/>
+     <event value="26" symbol="task_026" version="0" task="task_0" level="win:Verbose" template="task_026Args"/>
+     <event value="27" symbol="task_027" version="0" task="task_0" level="win:Verbose" template="task_027Args"/>
+     <event value="28" symbol="task_028" version="0" task="task_0" level="win:Verbose" template="task_023Args"/>
+     <event value="29" symbol="task_029" version="0" task="task_0" level="win:Verbose" template="task_029Args"/>
+     <event value="30" symbol="task_030" version="0" task="task_0" level="win:Verbose" template="task_030Args"/>
+     <event value="31" symbol="task_031" version="0" task="task_0" level="win:Verbose" template="task_06Args"/>
+     <event value="32" symbol="task_032" version="0" task="task_0" level="win:Verbose" template="task_032Args"/>
+     <event value="33" symbol="task_033" version="0" task="task_0" level="win:Verbose" keywords="keyword_10000000000" template="task_033Args"/>
+     <event value="34" symbol="task_034" version="0" task="task_0" level="win:Verbose" keywords="keyword_10000000000" template="task_034Args"/>
+     <event value="35" symbol="task_035" version="0" task="task_0" level="win:Verbose" template="task_035Args"/>
+     <event value="36" symbol="task_036" version="0" task="task_0" level="win:Verbose" template="task_036Args"/>
+     <event value="37" symbol="task_037" version="0" task="task_0" level="win:Verbose" template="task_037Args"/>
+     <event value="38" symbol="task_038" version="0" task="task_0" level="win:Verbose" template="task_038Args"/>
+     <event value="39" symbol="task_039" version="0" task="task_0" level="win:Verbose" template="task_039Args"/>
+     <event value="40" symbol="task_040" version="0" task="task_0" level="win:Informational" template="task_06Args"/>
+     <event value="41" symbol="task_041" version="0" task="task_0" level="win:Verbose" template="task_041Args"/>
+     <event value="1000" symbol="AfdCreateOpen" version="0" task="AfdCreate" opcode="Open" level="win:Informational" keywords="AFD_KW_SOURCE_WINSOCK" template="AfdCreateOpenArgs"/>
+     <event value="1001" symbol="AfdCloseClosed" version="0" task="AfdClose" opcode="Closed" level="win:Informational" keywords="AFD_KW_SOURCE_WINSOCK" template="AfdCloseClosedArgs"/>
+     <event value="1002" symbol="AfdCleanupFreed" version="0" task="AfdCleanup" opcode="Freed" level="win:Informational" keywords="AFD_KW_SOURCE_WINSOCK" template="AfdCloseClosedArgs"/>
+     <event value="1003" symbol="AfdSendConnected" version="0" task="AfdSend" opcode="Connected" level="win:Informational" keywords="AFD_KW_SOURCE_WINSOCK" template="AfdSendConnectedArgs"/>
+     <event value="1004" symbol="AfdReceiveConnected" version="0" task="AfdReceive" opcode="Connected" level="win:Informational" keywords="AFD_KW_SOURCE_WINSOCK" template="AfdSendConnectedArgs"/>
+     <event value="1005" symbol="AfdSendToConnected" version="0" task="AfdSendTo" opcode="Connected" level="win:Informational" keywords="AFD_KW_SOURCE_WINSOCK" template="AfdSendConnectedArgs"/>
+     <event value="1006" symbol="AfdReceiveFromConnected" version="0" task="AfdReceiveFrom" opcode="Connected" level="win:Informational" keywords="AFD_KW_SOURCE_WINSOCK" template="AfdSendConnectedArgs"/>
+     <event value="1007" symbol="AfdSendToWithAddressConnected" version="0" task="AfdSendToWithAddress" opcode="Connected" level="win:Informational" keywords="AFD_KW_SOURCE_WINSOCK" template="AfdSendToWithAddressConnectedArgs"/>
+     <event value="1009" symbol="AfdReceiveFromWithAddressConnected" version="0" task="AfdReceiveFromWithAddress" opcode="Connected" level="win:Informational" keywords="AFD_KW_SOURCE_WINSOCK" template="AfdSendToWithAddressConnectedArgs"/>
+     <event value="1011" symbol="AfdSendMessageConnected" version="0" task="AfdSendMessage" opcode="Connected" level="win:Informational" keywords="AFD_KW_SOURCE_WINSOCK" template="AfdSendConnectedArgs"/>
+     <event value="1012" symbol="AfdReceiveMessageConnected" version="0" task="AfdReceiveMessage" opcode="Connected" level="win:Informational" keywords="AFD_KW_SOURCE_WINSOCK" template="AfdSendConnectedArgs"/>
+     <event value="1013" symbol="AfdSendMessageWithAddressConnected" version="0" task="AfdSendMessageWithAddress" opcode="Connected" level="win:Informational" keywords="AFD_KW_SOURCE_WINSOCK" template="AfdSendToWithAddressConnectedArgs"/>
+     <event value="1015" symbol="AfdReceiveMessageWithAddressConnected" version="0" task="AfdReceiveMessageWithAddress" opcode="Connected" level="win:Informational" keywords="AFD_KW_SOURCE_WINSOCK" template="AfdSendToWithAddressConnectedArgs"/>
+     <event value="1017" symbol="AfdConnectConnected" version="0" task="AfdConnect" opcode="Connected" level="win:Informational" keywords="AFD_KW_SOURCE_WINSOCK" template="AfdCloseClosedArgs"/>
+     <event value="1018" symbol="AfdConnectWithAddressConnected" version="0" task="AfdConnectWithAddress" opcode="Connected" level="win:Informational" keywords="AFD_KW_SOURCE_WINSOCK" template="AfdConnectWithAddressConnectedArgs"/>
+     <event value="1020" symbol="AfdConnectExConnected" version="0" task="AfdConnectEx" opcode="Connected" level="win:Informational" keywords="AFD_KW_SOURCE_WINSOCK" template="AfdCloseClosedArgs"/>
+     <event value="1021" symbol="AfdConnectExWithAddressConnected" version="0" task="AfdConnectExWithAddress" opcode="Connected" level="win:Informational" keywords="AFD_KW_SOURCE_WINSOCK" template="AfdConnectWithAddressConnectedArgs"/>
+     <event value="1023" symbol="AfdAcceptConnected" version="0" task="AfdAccept" opcode="Connected" level="win:Informational" keywords="AFD_KW_SOURCE_WINSOCK" template="AfdCloseClosedArgs"/>
+     <event value="1024" symbol="AfdAcceptWithAddressConnected" version="0" task="AfdAcceptWithAddress" opcode="Connected" level="win:Informational" keywords="AFD_KW_SOURCE_WINSOCK" template="AfdAcceptWithAddressConnectedArgs"/>
+     <event value="1026" symbol="AfdAcceptExConnected" version="0" task="AfdAcceptEx" opcode="Connected" level="win:Informational" keywords="AFD_KW_SOURCE_WINSOCK" template="AfdCloseClosedArgs"/>
+     <event value="1027" symbol="AfdAcceptExWithAddressConnected" version="0" task="AfdAcceptExWithAddress" opcode="Connected" level="win:Informational" keywords="AFD_KW_SOURCE_WINSOCK" template="AfdAcceptWithAddressConnectedArgs"/>
+     <event value="1029" symbol="AfdBindConnected" version="0" task="AfdBind" opcode="Connected" level="win:Informational" keywords="AFD_KW_SOURCE_WINSOCK" template="AfdCloseClosedArgs"/>
+     <event value="1030" symbol="AfdBindWithAddressConnected" version="0" task="AfdBindWithAddress" opcode="Connected" level="win:Informational" keywords="AFD_KW_SOURCE_WINSOCK" template="AfdBindWithAddressConnectedArgs"/>
+     <event value="1032" symbol="AfdAbortAborted" version="0" task="AfdAbort" opcode="Aborted" level="win:Error" keywords="AFD_KW_SOURCE_WINSOCK" template="AfdAbortAbortedArgs"/>
+     <event value="1033" symbol="AfdDatagramDropWithAddressConnected" version="0" task="AfdDatagramDropWithAddress" opcode="Connected" level="win:Error" keywords="AFD_KW_SOURCE_WINSOCK keyword_10000000000" template="AfdDatagramDropWithAddressConnectedArgs"/>
+     <event value="1035" symbol="AfdOption" version="0" task="AfdOption" level="win:Informational" keywords="AFD_KW_SOURCE_WINSOCK" template="AfdOptionArgs"/>
+     <event value="1036" symbol="AfdWaitForListen" version="0" task="AfdWaitForListen" level="win:Informational" keywords="AFD_KW_SOURCE_WINSOCK" template="AfdCloseClosedArgs"/>
+     <event value="1037" symbol="AfdListen" version="0" task="AfdListen" level="win:Informational" keywords="AFD_KW_SOURCE_WINSOCK" template="AfdListenArgs"/>
+     <event value="3000" symbol="AfdConnectIndication" version="0" task="AfdConnectIndication" level="win:Informational" keywords="AFD_KW_SOURCE_TRANSPORT" template="AfdCloseClosedArgs"/>
+     <event value="3001" symbol="AfdConnectIndicationWithAddress" version="0" task="AfdConnectIndicationWithAddress" level="win:Informational" keywords="AFD_KW_SOURCE_TRANSPORT" template="AfdConnectIndicationWithAddressArgs"/>
+     <event value="3003" symbol="AfdDataIndication" version="0" task="AfdDataIndication" level="win:Informational" keywords="AFD_KW_SOURCE_TRANSPORT" template="AfdDataIndicationArgs"/>
+     <event value="3004" symbol="AfdDataIndicationWithAddress" version="0" task="AfdDataIndicationWithAddress" level="win:Informational" keywords="AFD_KW_SOURCE_TRANSPORT" template="AfdDataIndicationWithAddressArgs"/>
+     <event value="3006" symbol="AfdDisconnectDisconnected" version="0" task="AfdDisconnect" opcode="Disconnected" level="win:Informational" keywords="AFD_KW_SOURCE_TRANSPORT" template="AfdCloseClosedArgs"/>
+     <event value="3007" symbol="AfdSendBackLog" version="0" task="AfdSendBackLog" level="win:Informational" keywords="AFD_KW_SOURCE_TRANSPORT" template="AfdSendBackLogArgs"/>
+     <event value="4000" symbol="AfdRioCreateRegistrationDomainOpen" version="0" task="AfdRioCreateRegistrationDomain" opcode="Open" level="win:Informational" keywords="AFD_KW_RIO" template="AfdRioCreateRegistrationDomainOpenArgs"/>
+     <event value="4001" symbol="AfdRioCleanupRegistrationDomainClosed" version="0" task="AfdRioCleanupRegistrationDomain" opcode="Closed" level="win:Informational" keywords="AFD_KW_RIO" template="AfdRioCleanupRegistrationDomainClosedArgs"/>
+     <event value="4002" symbol="AfdRioCreateCqOpen" version="0" task="AfdRioCreateCq" opcode="Open" level="win:Informational" keywords="AFD_KW_RIO" template="AfdRioCreateCqOpenArgs"/>
+     <event value="4003" symbol="AfdRioDestroyCqClosed" version="0" task="AfdRioDestroyCq" opcode="Closed" level="win:Informational" keywords="AFD_KW_RIO" template="AfdRioDestroyCqClosedArgs"/>
+     <event value="4004" symbol="AfdRioCleanupCqFreed" version="0" task="AfdRioCleanupCq" opcode="Freed" level="win:Informational" keywords="AFD_KW_RIO" template="AfdRioCleanupCqFreedArgs"/>
+     <event value="4005" symbol="AfdRioResizeCqModified" version="0" task="AfdRioResizeCq" opcode="Modified" level="win:Informational" keywords="AFD_KW_RIO" template="AfdRioResizeCqModifiedArgs"/>
+     <event value="4006" symbol="AfdRioCreateRqPairOpen" version="0" task="AfdRioCreateRqPair" opcode="Open" level="win:Informational" keywords="AFD_KW_RIO" template="AfdRioCreateRqPairOpenArgs"/>
+     <event value="4007" symbol="AfdRioCloseRioStateClosed" version="0" task="AfdRioCloseRioState" opcode="Closed" level="win:Informational" keywords="AFD_KW_RIO" template="AfdRioCloseRioStateClosedArgs"/>
+     <event value="4008" symbol="AfdRioCleanupRioStateFreed" version="0" task="AfdRioCleanupRioState" opcode="Freed" level="win:Informational" keywords="AFD_KW_RIO" template="AfdRioCleanupRioStateFreedArgs"/>
+     <event value="4009" symbol="AfdRioResizeRqPairModified" version="0" task="AfdRioResizeRqPair" opcode="Modified" level="win:Informational" keywords="AFD_KW_RIO" template="AfdRioResizeRqPairModifiedArgs"/>
+     <event value="4010" symbol="AfdRioRegisterBufferOpen" version="0" task="AfdRioRegisterBuffer" opcode="Open" level="win:Informational" keywords="AFD_KW_RIO" template="AfdRioRegisterBufferOpenArgs"/>
+     <event value="4011" symbol="AfdRioDeregisterBufferClosed" version="0" task="AfdRioDeregisterBuffer" opcode="Closed" level="win:Informational" keywords="AFD_KW_RIO" template="AfdRioDeregisterBufferClosedArgs"/>
+     <event value="4012" symbol="AfdRioCleanupBufferFreed" version="0" task="AfdRioCleanupBuffer" opcode="Freed" level="win:Informational" keywords="AFD_KW_RIO" template="AfdRioCleanupBufferFreedArgs"/>
+     <event value="4013" symbol="AfdRioValidateBufferId" version="0" task="AfdRioValidateBufferId" level="win:Warning" keywords="AFD_KW_RIO" template="AfdRioValidateBufferIdArgs"/>
+     <event value="4014" symbol="AfdRioRangeCheck" version="0" task="AfdRioRangeCheck" level="win:Warning" keywords="AFD_KW_RIO" template="AfdRioRangeCheckArgs"/>
+     <event value="4015" symbol="AfdRioSendReceive" version="0" task="AfdRioSendReceive" level="win:Warning" keywords="AFD_KW_RIO" template="AfdRioSendReceiveArgs"/>
+     <event value="4016" symbol="AfdNrtCreateOpen" version="0" task="AfdNrtCreate" opcode="Open" level="win:Informational" keywords="AFD_KW_NRT" template="AfdNrtCreateOpenArgs"/>
+     <event value="4017" symbol="AfdNrtCloseClosed" version="0" task="AfdNrtClose" opcode="Closed" level="win:Informational" keywords="AFD_KW_NRT" template="AfdNrtCloseClosedArgs"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="AddressFamily" inType="win:UInt32"/>
+      <data name="SocketType" inType="win:UInt32" map="WINSOCK_SocketType_ValueMap"/>
+      <data name="Protocol" inType="win:UInt32"/>
+      <data name="UserModePid" inType="win:Pointer"/>
+     </template>
+     <template tid="task_02Args">
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="Address" inType="win:UInt32"/>
+      <data name="Port" inType="win:UInt16"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_03Args">
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="Address" inType="win:Binary"/>
+      <data name="Port" inType="win:UInt16"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_04Args">
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="Address" inType="win:UInt32"/>
+      <data name="Port" inType="win:UInt16"/>
+     </template>
+     <template tid="task_05Args">
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="Address" inType="win:Binary"/>
+      <data name="Port" inType="win:UInt16"/>
+     </template>
+     <template tid="task_06Args">
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="task_07Args">
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="Reason" inType="win:Int32"/>
+     </template>
+     <template tid="task_018Args">
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="FastPath" inType="win:Boolean"/>
+      <data name="BufferCount" inType="win:Int32"/>
+      <data name="Buffer" inType="win:Pointer"/>
+      <data name="BufferLength" inType="win:UInt32"/>
+     </template>
+     <template tid="task_021Args">
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="FastPath" inType="win:Boolean"/>
+      <data name="BufferCount" inType="win:Int32"/>
+      <data name="Buffer" inType="win:Pointer"/>
+      <data name="BufferLength" inType="win:UInt32"/>
+      <data name="Address" inType="win:UInt32"/>
+      <data name="Port" inType="win:UInt16"/>
+     </template>
+     <template tid="task_022Args">
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="FastPath" inType="win:Boolean"/>
+      <data name="BufferCount" inType="win:Int32"/>
+      <data name="Buffer" inType="win:Pointer"/>
+      <data name="BufferLength" inType="win:UInt32"/>
+      <data name="Address" inType="win:Binary"/>
+      <data name="Port" inType="win:UInt16"/>
+     </template>
+     <template tid="task_023Args">
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="Buffer" inType="win:Pointer"/>
+      <data name="BufferLength" inType="win:UInt32"/>
+     </template>
+     <template tid="task_026Args">
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="BufferCount" inType="win:Int32"/>
+      <data name="Buffer" inType="win:Pointer"/>
+      <data name="BufferLength" inType="win:UInt32"/>
+      <data name="Address" inType="win:UInt32"/>
+      <data name="Port" inType="win:UInt16"/>
+     </template>
+     <template tid="task_027Args">
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="BufferCount" inType="win:Int32"/>
+      <data name="Buffer" inType="win:Pointer"/>
+      <data name="BufferLength" inType="win:UInt32"/>
+      <data name="Address" inType="win:Binary"/>
+      <data name="Port" inType="win:UInt16"/>
+     </template>
+     <template tid="task_029Args">
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="Option" inType="win:UInt32"/>
+      <data name="Value" inType="win:UInt32"/>
+     </template>
+     <template tid="task_030Args">
+      <data name="Process" inType="win:Pointer"/>
+      <data name="HandleCount" inType="win:Int32"/>
+      <data name="Timeout" inType="win:Int32"/>
+     </template>
+     <template tid="task_032Args">
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="EventMask" inType="win:UInt32"/>
+     </template>
+     <template tid="task_033Args">
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="PacketSize" inType="win:Int32"/>
+      <data name="Address" inType="win:UInt32"/>
+      <data name="Port" inType="win:UInt16"/>
+      <data name="Reason" inType="win:Int32"/>
+     </template>
+     <template tid="task_034Args">
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="PacketSize" inType="win:Int32"/>
+      <data name="Address" inType="win:Binary"/>
+      <data name="Port" inType="win:UInt16"/>
+      <data name="Reason" inType="win:Int32"/>
+     </template>
+     <template tid="task_035Args">
+      <data name="Process" inType="win:Pointer"/>
+      <data name="ListenEndpoint" inType="win:Pointer"/>
+      <data name="Address" inType="win:UInt32"/>
+      <data name="Port" inType="win:UInt16"/>
+     </template>
+     <template tid="task_036Args">
+      <data name="Process" inType="win:Pointer"/>
+      <data name="ListenEndpoint" inType="win:Pointer"/>
+      <data name="Address" inType="win:Binary"/>
+      <data name="Port" inType="win:UInt16"/>
+     </template>
+     <template tid="task_037Args">
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="BytesIndicated" inType="win:Int32"/>
+     </template>
+     <template tid="task_038Args">
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="Address" inType="win:UInt32"/>
+      <data name="Port" inType="win:UInt16"/>
+      <data name="BytesIndicated" inType="win:Int32"/>
+     </template>
+     <template tid="task_039Args">
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="Address" inType="win:Binary"/>
+      <data name="Port" inType="win:UInt16"/>
+      <data name="BytesIndicated" inType="win:Int32"/>
+     </template>
+     <template tid="task_041Args">
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+     </template>
+     <template tid="AfdCreateOpenArgs">
+      <data name="EnterExit" inType="win:UInt32"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="AddressFamily" inType="win:UInt32"/>
+      <data name="SocketType" inType="win:UInt32"/>
+      <data name="Protocol" inType="win:UInt32"/>
+      <data name="ProcessId" inType="win:Pointer"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="AfdCloseClosedArgs">
+      <data name="EnterExit" inType="win:UInt32"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="AfdSendConnectedArgs">
+      <data name="EnterExit" inType="win:UInt32"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="BufferCount" inType="win:UInt32"/>
+      <data name="Buffer" inType="win:Pointer"/>
+      <data name="BufferLength" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="AfdSendToWithAddressConnectedArgs">
+      <data name="EnterExit" inType="win:UInt32"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="BufferCount" inType="win:UInt32"/>
+      <data name="Buffer" inType="win:Pointer"/>
+      <data name="BufferLength" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="AddressLen" inType="win:UInt32"/>
+      <data name="Address" inType="win:Binary" length="AddressLen"/>
+     </template>
+     <template tid="AfdConnectWithAddressConnectedArgs">
+      <data name="EnterExit" inType="win:UInt32"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="Buffer" inType="win:Pointer"/>
+      <data name="BufferLength" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="AddressLen" inType="win:UInt32"/>
+      <data name="Address" inType="win:Binary" length="AddressLen"/>
+     </template>
+     <template tid="AfdAcceptWithAddressConnectedArgs">
+      <data name="EnterExit" inType="win:UInt32"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="Buffer" inType="win:Pointer"/>
+      <data name="BufferLength" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="AddressLen" inType="win:UInt32"/>
+      <data name="Address" inType="win:Binary" length="AddressLen"/>
+      <data name="AcceptEndpoint" inType="win:Pointer"/>
+      <data name="CurrentBacklog" inType="win:UInt32"/>
+     </template>
+     <template tid="AfdBindWithAddressConnectedArgs">
+      <data name="EnterExit" inType="win:UInt32"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="AddressLen" inType="win:UInt32"/>
+      <data name="Address" inType="win:Binary" length="AddressLen"/>
+     </template>
+     <template tid="AfdAbortAbortedArgs">
+      <data name="EnterExit" inType="win:UInt32"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="Reason" inType="win:UInt32"/>
+     </template>
+     <template tid="AfdDatagramDropWithAddressConnectedArgs">
+      <data name="EnterExit" inType="win:UInt32"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="Buffer" inType="win:Pointer"/>
+      <data name="BufferLength" inType="win:UInt32"/>
+      <data name="AddressLen" inType="win:UInt32"/>
+      <data name="Address" inType="win:Binary" length="AddressLen"/>
+      <data name="Reason" inType="win:UInt32" map="AFD_DGRAM_DROP_ValueMap"/>
+     </template>
+     <template tid="AfdOptionArgs">
+      <data name="EnterExit" inType="win:UInt32"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="Option" inType="win:UInt32" map="AFD_OPTION_ValueMap"/>
+      <data name="Value" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="AfdListenArgs">
+      <data name="EnterExit" inType="win:UInt32"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="Backlog" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="AfdConnectIndicationWithAddressArgs">
+      <data name="EnterExit" inType="win:UInt32"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="AddressLen" inType="win:UInt32"/>
+      <data name="Address" inType="win:Binary" length="AddressLen"/>
+      <data name="CurrentBacklog" inType="win:UInt32"/>
+     </template>
+     <template tid="AfdDataIndicationArgs">
+      <data name="EnterExit" inType="win:UInt32"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="Buffer" inType="win:Pointer"/>
+      <data name="BufferLength" inType="win:UInt32"/>
+     </template>
+     <template tid="AfdDataIndicationWithAddressArgs">
+      <data name="EnterExit" inType="win:UInt32"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="Buffer" inType="win:Pointer"/>
+      <data name="BufferLength" inType="win:UInt32"/>
+      <data name="AddressLen" inType="win:UInt32"/>
+      <data name="Address" inType="win:Binary" length="AddressLen"/>
+     </template>
+     <template tid="AfdSendBackLogArgs">
+      <data name="EnterExit" inType="win:UInt32"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="SendBacklog" inType="win:UInt32"/>
+     </template>
+     <template tid="AfdRioCreateRegistrationDomainOpenArgs">
+      <data name="RegistrationDomain" inType="win:Pointer"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="AfdRioCleanupRegistrationDomainClosedArgs">
+      <data name="RegistrationDomain" inType="win:Pointer"/>
+     </template>
+     <template tid="AfdRioCreateCqOpenArgs">
+      <data name="Cq" inType="win:Pointer"/>
+      <data name="RegistrationDomain" inType="win:Pointer"/>
+      <data name="EntryCount" inType="win:UInt32"/>
+      <data name="UserAddress" inType="win:Pointer"/>
+      <data name="SystemAddress" inType="win:Pointer"/>
+      <data name="BufferSize" inType="win:UInt32"/>
+      <data name="CqIndex" inType="win:UInt32"/>
+      <data name="NotificationType" inType="win:UInt32" map="RIO_NOTIFICATION_TYPE_ValueMap"/>
+      <data name="NotificationHandle" inType="win:Pointer"/>
+      <data name="NotificationObject" inType="win:Pointer"/>
+      <data name="NotificationContext1" inType="win:Pointer"/>
+      <data name="NotificationContext2" inType="win:Pointer"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="AfdRioDestroyCqClosedArgs">
+      <data name="Cq" inType="win:Pointer"/>
+      <data name="Commit" inType="win:UInt32"/>
+     </template>
+     <template tid="AfdRioCleanupCqFreedArgs">
+      <data name="Cq" inType="win:Pointer"/>
+     </template>
+     <template tid="AfdRioResizeCqModifiedArgs">
+      <data name="Cq" inType="win:Pointer"/>
+      <data name="OriginalEntryCount" inType="win:UInt32"/>
+      <data name="OriginalStart" inType="win:UInt32"/>
+      <data name="OriginalEnd" inType="win:UInt32"/>
+      <data name="Commit" inType="win:UInt32"/>
+      <data name="RequestedEntryCount" inType="win:UInt32"/>
+      <data name="UserAddress" inType="win:Pointer"/>
+      <data name="SystemAddress" inType="win:Pointer"/>
+      <data name="BufferSize" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="AfdRioCreateRqPairOpenArgs">
+      <data name="Endpoint" inType="win:Pointer"/>
+      <data name="RioState" inType="win:Pointer"/>
+      <data name="RegistrationDomain" inType="win:Pointer"/>
+      <data name="SendEntryCount" inType="win:UInt32"/>
+      <data name="SendUserAddress" inType="win:Pointer"/>
+      <data name="SendSystemAddress" inType="win:Pointer"/>
+      <data name="SendBufferSize" inType="win:UInt32"/>
+      <data name="ReceiveEntryCount" inType="win:UInt32"/>
+      <data name="ReceiveUserAddress" inType="win:Pointer"/>
+      <data name="ReceiveSystemAddress" inType="win:Pointer"/>
+      <data name="ReceiveBufferSize" inType="win:UInt32"/>
+      <data name="SendCqIndex" inType="win:UInt32"/>
+      <data name="ReceiveCqIndex" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="AfdRioCloseRioStateClosedArgs">
+      <data name="RioState" inType="win:Pointer"/>
+      <data name="ReceiveQueueStart" inType="win:UInt32"/>
+      <data name="ReceiveQueueEnd" inType="win:UInt32"/>
+      <data name="SendQueueStart" inType="win:UInt32"/>
+      <data name="SendQueueEnd" inType="win:UInt32"/>
+     </template>
+     <template tid="AfdRioCleanupRioStateFreedArgs">
+      <data name="RioState" inType="win:Pointer"/>
+     </template>
+     <template tid="AfdRioResizeRqPairModifiedArgs">
+      <data name="RioState" inType="win:Pointer"/>
+      <data name="OriginalSendEntryCount" inType="win:UInt32"/>
+      <data name="OriginalSendQueueStart" inType="win:UInt32"/>
+      <data name="OriginalSendQueueEnd" inType="win:UInt32"/>
+      <data name="RequestedSendEntryCount" inType="win:UInt32"/>
+      <data name="SendUserAddress" inType="win:Pointer"/>
+      <data name="SendSystemAddress" inType="win:Pointer"/>
+      <data name="SendBufferSize" inType="win:UInt32"/>
+      <data name="OriginalReceiveEntryCount" inType="win:UInt32"/>
+      <data name="OriginalReceiveQueueStart" inType="win:UInt32"/>
+      <data name="OriginalReceiveQueueEnd" inType="win:UInt32"/>
+      <data name="RequestedReceiveEntryCount" inType="win:UInt32"/>
+      <data name="ReceiveUserAddress" inType="win:Pointer"/>
+      <data name="ReceiveSystemAddress" inType="win:Pointer"/>
+      <data name="ReceiveBufferSize" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="AfdRioRegisterBufferOpenArgs">
+      <data name="Buffer" inType="win:Pointer"/>
+      <data name="RegistrationDomain" inType="win:Pointer"/>
+      <data name="UserAddress" inType="win:Pointer"/>
+      <data name="SystemAddress" inType="win:Pointer"/>
+      <data name="BufferSize" inType="win:UInt32"/>
+      <data name="BufferId" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="AfdRioDeregisterBufferClosedArgs">
+      <data name="Buffer" inType="win:Pointer"/>
+      <data name="References" inType="win:UInt32"/>
+     </template>
+     <template tid="AfdRioCleanupBufferFreedArgs">
+      <data name="Buffer" inType="win:Pointer"/>
+     </template>
+     <template tid="AfdRioValidateBufferIdArgs">
+      <data name="RegistrationDomain" inType="win:Pointer"/>
+      <data name="RioState" inType="win:Pointer"/>
+      <data name="BufferId" inType="win:UInt32"/>
+     </template>
+     <template tid="AfdRioRangeCheckArgs">
+      <data name="RegistrationDomain" inType="win:Pointer"/>
+      <data name="RioState" inType="win:Pointer"/>
+      <data name="Buffer" inType="win:Pointer"/>
+      <data name="BufferOffset" inType="win:UInt32"/>
+      <data name="BufferLength" inType="win:UInt32"/>
+     </template>
+     <template tid="AfdRioSendReceiveArgs">
+      <data name="RioState" inType="win:Pointer"/>
+      <data name="BufferType" inType="win:UInt32"/>
+      <data name="SpecifiedLength" inType="win:UInt32"/>
+      <data name="RequiredLength" inType="win:UInt32"/>
+     </template>
+     <template tid="AfdNrtCreateOpenArgs">
+      <data name="NameResolutionHandle" inType="win:Pointer"/>
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="AfdNrtCloseClosedArgs">
+      <data name="NameResolutionHandle" inType="win:Pointer"/>
+      <data name="Process" inType="win:Pointer"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_AFD_KW_DATAGRAM" value="AFD_KW_DATAGRAM"/>
+    <string id="keyword_AFD_KW_STREAM" value="AFD_KW_STREAM"/>
+    <string id="keyword_AFD_KW_SOURCE_WINSOCK" value="AFD_KW_SOURCE_WINSOCK"/>
+    <string id="keyword_AFD_KW_SOURCE_TRANSPORT" value="AFD_KW_SOURCE_TRANSPORT"/>
+    <string id="keyword_AFD_KW_FASTPATH" value="AFD_KW_FASTPATH"/>
+    <string id="keyword_AFD_KW_BUFFERED" value="AFD_KW_BUFFERED"/>
+    <string id="keyword_AFD_KW_RIO" value="AFD_KW_RIO"/>
+    <string id="keyword_AFD_KW_NRT" value="AFD_KW_NRT"/>
+    <string id="keyword_keyword_10000000000" value="keyword_10000000000"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_AfdCreate" value="AfdCreate"/>
+    <string id="opcode_AfdCreateOpen" value="Open"/>
+    <string id="task_AfdClose" value="AfdClose"/>
+    <string id="opcode_AfdCloseClosed" value="Closed"/>
+    <string id="task_AfdCleanup" value="AfdCleanup"/>
+    <string id="opcode_AfdCleanupFreed" value="Freed"/>
+    <string id="task_AfdSend" value="AfdSend"/>
+    <string id="opcode_AfdSendConnected" value="Connected"/>
+    <string id="task_AfdReceive" value="AfdReceive"/>
+    <string id="opcode_AfdReceiveConnected" value="Connected"/>
+    <string id="task_AfdSendTo" value="AfdSendTo"/>
+    <string id="opcode_AfdSendToConnected" value="Connected"/>
+    <string id="task_AfdReceiveFrom" value="AfdReceiveFrom"/>
+    <string id="opcode_AfdReceiveFromConnected" value="Connected"/>
+    <string id="task_AfdSendToWithAddress" value="AfdSendToWithAddress"/>
+    <string id="opcode_AfdSendToWithAddressConnected" value="Connected"/>
+    <string id="task_AfdReceiveFromWithAddress" value="AfdReceiveFromWithAddress"/>
+    <string id="opcode_AfdReceiveFromWithAddressConnected" value="Connected"/>
+    <string id="task_AfdSendMessage" value="AfdSendMessage"/>
+    <string id="opcode_AfdSendMessageConnected" value="Connected"/>
+    <string id="task_AfdReceiveMessage" value="AfdReceiveMessage"/>
+    <string id="opcode_AfdReceiveMessageConnected" value="Connected"/>
+    <string id="task_AfdSendMessageWithAddress" value="AfdSendMessageWithAddress"/>
+    <string id="opcode_AfdSendMessageWithAddressConnected" value="Connected"/>
+    <string id="task_AfdReceiveMessageWithAddress" value="AfdReceiveMessageWithAddress"/>
+    <string id="opcode_AfdReceiveMessageWithAddressConnected" value="Connected"/>
+    <string id="task_AfdConnect" value="AfdConnect"/>
+    <string id="opcode_AfdConnectConnected" value="Connected"/>
+    <string id="task_AfdConnectWithAddress" value="AfdConnectWithAddress"/>
+    <string id="opcode_AfdConnectWithAddressConnected" value="Connected"/>
+    <string id="task_AfdConnectEx" value="AfdConnectEx"/>
+    <string id="opcode_AfdConnectExConnected" value="Connected"/>
+    <string id="task_AfdConnectExWithAddress" value="AfdConnectExWithAddress"/>
+    <string id="opcode_AfdConnectExWithAddressConnected" value="Connected"/>
+    <string id="task_AfdAccept" value="AfdAccept"/>
+    <string id="opcode_AfdAcceptConnected" value="Connected"/>
+    <string id="task_AfdAcceptWithAddress" value="AfdAcceptWithAddress"/>
+    <string id="opcode_AfdAcceptWithAddressConnected" value="Connected"/>
+    <string id="task_AfdAcceptEx" value="AfdAcceptEx"/>
+    <string id="opcode_AfdAcceptExConnected" value="Connected"/>
+    <string id="task_AfdAcceptExWithAddress" value="AfdAcceptExWithAddress"/>
+    <string id="opcode_AfdAcceptExWithAddressConnected" value="Connected"/>
+    <string id="task_AfdBind" value="AfdBind"/>
+    <string id="opcode_AfdBindConnected" value="Connected"/>
+    <string id="task_AfdBindWithAddress" value="AfdBindWithAddress"/>
+    <string id="opcode_AfdBindWithAddressConnected" value="Connected"/>
+    <string id="task_AfdAbort" value="AfdAbort"/>
+    <string id="opcode_AfdAbortAborted" value="Aborted"/>
+    <string id="task_AfdDatagramDropWithAddress" value="AfdDatagramDropWithAddress"/>
+    <string id="opcode_AfdDatagramDropWithAddressConnected" value="Connected"/>
+    <string id="task_AfdOption" value="AfdOption"/>
+    <string id="task_AfdWaitForListen" value="AfdWaitForListen"/>
+    <string id="task_AfdListen" value="AfdListen"/>
+    <string id="task_AfdConnectIndication" value="AfdConnectIndication"/>
+    <string id="task_AfdConnectIndicationWithAddress" value="AfdConnectIndicationWithAddress"/>
+    <string id="task_AfdDataIndication" value="AfdDataIndication"/>
+    <string id="task_AfdDataIndicationWithAddress" value="AfdDataIndicationWithAddress"/>
+    <string id="task_AfdDisconnect" value="AfdDisconnect"/>
+    <string id="opcode_AfdDisconnectDisconnected" value="Disconnected"/>
+    <string id="task_AfdSendBackLog" value="AfdSendBackLog"/>
+    <string id="task_AfdRioCreateRegistrationDomain" value="AfdRioCreateRegistrationDomain"/>
+    <string id="opcode_AfdRioCreateRegistrationDomainOpen" value="Open"/>
+    <string id="task_AfdRioCleanupRegistrationDomain" value="AfdRioCleanupRegistrationDomain"/>
+    <string id="opcode_AfdRioCleanupRegistrationDomainClosed" value="Closed"/>
+    <string id="task_AfdRioCreateCq" value="AfdRioCreateCq"/>
+    <string id="opcode_AfdRioCreateCqOpen" value="Open"/>
+    <string id="task_AfdRioDestroyCq" value="AfdRioDestroyCq"/>
+    <string id="opcode_AfdRioDestroyCqClosed" value="Closed"/>
+    <string id="task_AfdRioCleanupCq" value="AfdRioCleanupCq"/>
+    <string id="opcode_AfdRioCleanupCqFreed" value="Freed"/>
+    <string id="task_AfdRioResizeCq" value="AfdRioResizeCq"/>
+    <string id="opcode_AfdRioResizeCqModified" value="Modified"/>
+    <string id="task_AfdRioCreateRqPair" value="AfdRioCreateRqPair"/>
+    <string id="opcode_AfdRioCreateRqPairOpen" value="Open"/>
+    <string id="task_AfdRioCloseRioState" value="AfdRioCloseRioState"/>
+    <string id="opcode_AfdRioCloseRioStateClosed" value="Closed"/>
+    <string id="task_AfdRioCleanupRioState" value="AfdRioCleanupRioState"/>
+    <string id="opcode_AfdRioCleanupRioStateFreed" value="Freed"/>
+    <string id="task_AfdRioResizeRqPair" value="AfdRioResizeRqPair"/>
+    <string id="opcode_AfdRioResizeRqPairModified" value="Modified"/>
+    <string id="task_AfdRioRegisterBuffer" value="AfdRioRegisterBuffer"/>
+    <string id="opcode_AfdRioRegisterBufferOpen" value="Open"/>
+    <string id="task_AfdRioDeregisterBuffer" value="AfdRioDeregisterBuffer"/>
+    <string id="opcode_AfdRioDeregisterBufferClosed" value="Closed"/>
+    <string id="task_AfdRioCleanupBuffer" value="AfdRioCleanupBuffer"/>
+    <string id="opcode_AfdRioCleanupBufferFreed" value="Freed"/>
+    <string id="task_AfdRioValidateBufferId" value="AfdRioValidateBufferId"/>
+    <string id="task_AfdRioRangeCheck" value="AfdRioRangeCheck"/>
+    <string id="task_AfdRioSendReceive" value="AfdRioSendReceive"/>
+    <string id="task_AfdNrtCreate" value="AfdNrtCreate"/>
+    <string id="opcode_AfdNrtCreateOpen" value="Open"/>
+    <string id="task_AfdNrtClose" value="AfdNrtClose"/>
+    <string id="opcode_AfdNrtCloseClosed" value="Closed"/>
+    <string id="map_WINSOCK_SocketType_ValueMapSOCK_STREAM" value="SOCK_STREAM"/>
+    <string id="map_WINSOCK_SocketType_ValueMapSOCK_DGRAM" value="SOCK_DGRAM"/>
+    <string id="map_WINSOCK_SocketType_ValueMapSOCK_RAW" value="SOCK_RAW"/>
+    <string id="map_WINSOCK_SocketType_ValueMapSOCK_RDM" value="SOCK_RDM"/>
+    <string id="map_WINSOCK_SocketType_ValueMapSOCK_SEQPACKET" value="SOCK_SEQPACKET"/>
+    <string id="map_AFD_DGRAM_DROP_ValueMapDatagram source address does not match connected address" value="Datagram source address does not match connected address"/>
+    <string id="map_AFD_DGRAM_DROP_ValueMapInsufficient local buffer space" value="Insufficient local buffer space"/>
+    <string id="map_AFD_DGRAM_DROP_ValueMapBuffer allocation failed" value="Buffer allocation failed"/>
+    <string id="map_AFD_DGRAM_DROP_ValueMapInsufficient local buffer space - circular queueing enabled" value="Insufficient local buffer space - circular queueing enabled"/>
+    <string id="map_AFD_DGRAM_DROP_ValueMapIndicated datagram too large - integer overflow" value="Indicated datagram too large - integer overflow"/>
+    <string id="map_AFD_OPTION_ValueMapSO_OOBINLINE" value="SO_OOBINLINE"/>
+    <string id="map_AFD_OPTION_ValueMapFIONBIO" value="FIONBIO"/>
+    <string id="map_AFD_OPTION_ValueMapSO_RCVBUF" value="SO_RCVBUF"/>
+    <string id="map_AFD_OPTION_ValueMapSO_SNDBUF" value="SO_SNDBUF"/>
+    <string id="map_AFD_OPTION_ValueMapSIO_ENABLE_CIRCULAR_QUEUEING" value="SIO_ENABLE_CIRCULAR_QUEUEING"/>
+    <string id="map_AFD_OPTION_ValueMapSIO_UDP_CONNRESET" value="SIO_UDP_CONNRESET"/>
+    <string id="map_AFD_OPTION_ValueMapAFD_IPV6_V6ONLY" value="AFD_IPV6_V6ONLY"/>
+    <string id="map_AFD_OPTION_ValueMapSIO_UDP_NETRESET" value="SIO_UDP_NETRESET"/>
+    <string id="map_RIO_NOTIFICATION_TYPE_ValueMapNone" value="None"/>
+    <string id="map_RIO_NOTIFICATION_TYPE_ValueMapEvent" value="Event"/>
+    <string id="map_RIO_NOTIFICATION_TYPE_ValueMapIOCP" value="IOCP"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

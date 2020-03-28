@@ -1,0 +1,88 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Privacy-Auditing-Activity-History-Privacy-Settings" guid="{63dd5dfb-2488-5e1f-7895-d49ff5bc7125}" resourceFileName="Microsoft-Windows-Privacy-Auditing-Activity-History-Privacy-Settings" messageFileName="Microsoft-Windows-Privacy-Auditing-Activity-History-Privacy-Settings" symbol="MicrosoftWindowsPrivacyAuditingActivityHistoryPrivacySettings" source="Xml" >
+    <keywords>
+     <keyword name="CloudSyncAllowed" message="$(string.keyword_CloudSyncAllowed)" mask="0x1"/>
+     <keyword name="HistoryCollectionAllowed" message="$(string.keyword_HistoryCollectionAllowed)" mask="0x2"/>
+     <keyword name="ClearActivityHistory" message="$(string.keyword_ClearActivityHistory)" mask="0x4"/>
+     <keyword name="FilterAccount" message="$(string.keyword_FilterAccount)" mask="0x8"/>
+     <keyword name="Failure" message="$(string.keyword_Failure)" mask="0x10"/>
+    </keywords>
+    <tasks>
+     <task name="ValueChanged" message="$(string.task_ValueChanged)" value="10"/>
+     <task name="ClearActivityHistory" message="$(string.task_ClearActivityHistory)" value="11"/>
+     <task name="FilterAccount" message="$(string.task_FilterAccount)" value="12"/>
+    </tasks>
+    <events>
+     <event value="0" symbol="ValueChanged" version="0" task="ValueChanged" level="win:Informational" keywords="CloudSyncAllowed" template="ValueChangedArgs"/>
+     <event value="1" symbol="ValueChanged1" version="0" task="ValueChanged" level="win:Error" keywords="CloudSyncAllowed Failure" template="ValueChangedArgs"/>
+     <event value="2" symbol="ValueChanged2" version="0" task="ValueChanged" level="win:Informational" keywords="HistoryCollectionAllowed" template="ValueChangedArgs"/>
+     <event value="3" symbol="ValueChanged3" version="0" task="ValueChanged" level="win:Error" keywords="HistoryCollectionAllowed Failure" template="ValueChangedArgs"/>
+     <event value="4" symbol="ClearActivityHistory" version="0" task="ClearActivityHistory" level="win:Informational" keywords="ClearActivityHistory" template="ClearActivityHistoryArgs"/>
+     <event value="5" symbol="ClearActivityHistory5" version="0" task="ClearActivityHistory" level="win:Error" keywords="ClearActivityHistory Failure" template="ClearActivityHistoryArgs"/>
+     <event value="6" symbol="FilterAccount" version="0" task="FilterAccount" level="win:Informational" keywords="FilterAccount" template="FilterAccountArgs"/>
+     <event value="7" symbol="FilterAccount7" version="0" task="FilterAccount" level="win:Error" keywords="FilterAccount Failure" template="FilterAccountArgs"/>
+    </events>
+    <templates>
+     <template tid="ValueChangedArgs">
+      <data name="CallerUserSid" inType="win:UnicodeString"/>
+      <data name="CallerProcessName" inType="win:UnicodeString"/>
+      <data name="CallerAppPackageFamilyName" inType="win:UnicodeString"/>
+      <data name="OldConsentValue" inType="win:UInt16"/>
+      <data name="NewConsentValue" inType="win:UInt16"/>
+      <data name="SetByHigherAuthority" inType="win:Boolean"/>
+      <data name="EffectiveConsentValue" inType="win:UInt16"/>
+      <data name="TargetUserSid" inType="win:UnicodeString"/>
+      <data name="ConsentID" inType="win:UnicodeString"/>
+      <data name="AppPackageFamilyName" inType="win:UnicodeString"/>
+      <data name="HResult" inType="win:HexInt32"/>
+      <data name="SettingName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ClearActivityHistoryArgs">
+      <data name="CallerUserSid" inType="win:UnicodeString"/>
+      <data name="CallerProcessName" inType="win:UnicodeString"/>
+      <data name="CallerAppPackageFamilyName" inType="win:UnicodeString"/>
+      <data name="OldConsentValue" inType="win:UnicodeString"/>
+      <data name="NewConsentValue" inType="win:UnicodeString"/>
+      <data name="SetByHigherAuthority" inType="win:Boolean"/>
+      <data name="EffectiveConsentValue" inType="win:UnicodeString"/>
+      <data name="TargetUserSid" inType="win:UnicodeString"/>
+      <data name="ConsentID" inType="win:UnicodeString"/>
+      <data name="AppPackageFamilyName" inType="win:UnicodeString"/>
+      <data name="HResult" inType="win:HexInt32"/>
+      <data name="SettingName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="FilterAccountArgs">
+      <data name="CallerUserSid" inType="win:UnicodeString"/>
+      <data name="CallerProcessName" inType="win:UnicodeString"/>
+      <data name="CallerAppPackageFamilyName" inType="win:UnicodeString"/>
+      <data name="OldConsentValue" inType="win:Boolean"/>
+      <data name="NewConsentValue" inType="win:Boolean"/>
+      <data name="SetByHigherAuthority" inType="win:Boolean"/>
+      <data name="EffectiveConsentValue" inType="win:Boolean"/>
+      <data name="TargetUserSid" inType="win:UnicodeString"/>
+      <data name="ConsentID" inType="win:UnicodeString"/>
+      <data name="AppPackageFamilyName" inType="win:UnicodeString"/>
+      <data name="HResult" inType="win:HexInt32"/>
+      <data name="SettingName" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_CloudSyncAllowed" value="CloudSyncAllowed"/>
+    <string id="keyword_HistoryCollectionAllowed" value="HistoryCollectionAllowed"/>
+    <string id="keyword_ClearActivityHistory" value="ClearActivityHistory"/>
+    <string id="keyword_FilterAccount" value="FilterAccount"/>
+    <string id="keyword_Failure" value="Failure"/>
+    <string id="task_ValueChanged" value="ValueChanged"/>
+    <string id="task_ClearActivityHistory" value="ClearActivityHistory"/>
+    <string id="task_FilterAccount" value="FilterAccount"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

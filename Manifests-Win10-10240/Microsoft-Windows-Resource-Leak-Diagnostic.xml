@@ -1,0 +1,49 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Resource-Leak-Diagnostic" guid="{5c9be3e0-3593-4dcd-8f6d-63840923ffee}" resourceFileName="Microsoft-Windows-Resource-Leak-Diagnostic" messageFileName="Microsoft-Windows-Resource-Leak-Diagnostic" symbol="MicrosoftWindowsResourceLeakDiagnostic" source="Xml" >
+    <keywords>
+     <keyword name="RDR_LEAK_DIAG_KEYWORD_MEMORY" message="$(string.keyword_RDR_LEAK_DIAG_KEYWORD_MEMORY)" mask="0x2000"/>
+    </keywords>
+    <tasks>
+     <task name="MemoryLeakDiagnosisEvents" message="$(string.task_MemoryLeakDiagnosisEvents)" value="1">
+>
+      <opcodes>
+       <opcode name="EventsloggedwhentheWindowsResourceLeakDiagnosticinitiatesdiagnosis." message="$(string.opcode_MemoryLeakDiagnosisEventsEventsloggedwhentheWindowsResourceLeakDiagnosticinitiatesdiagnosis.)" value="11"/>
+       <opcode name="EventsloggedwhentheWindowsResourceLeakDiagnosticcompletesdiagnosis." message="$(string.opcode_MemoryLeakDiagnosisEventsEventsloggedwhentheWindowsResourceLeakDiagnosticcompletesdiagnosis.)" value="12"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="1003" symbol="MemoryLeakDiagnosisEventsEventsloggedwhentheWindowsResourceLeakDiagnosticinitiatesdiagnosis." version="0" task="MemoryLeakDiagnosisEvents" opcode="EventsloggedwhentheWindowsResourceLeakDiagnosticinitiatesdiagnosis." level="win:Informational" keywords="RDR_LEAK_DIAG_KEYWORD_MEMORY" template="MemoryLeakDiagnosisEventsEventsloggedwhentheWindowsResourceLeakDiagnosticinitiatesdiagnosis.Args"/>
+     <event value="1004" symbol="MemoryLeakDiagnosisEventsEventsloggedwhentheWindowsResourceLeakDiagnosticcompletesdiagnosis." version="0" task="MemoryLeakDiagnosisEvents" opcode="EventsloggedwhentheWindowsResourceLeakDiagnosticcompletesdiagnosis." level="win:Informational" keywords="RDR_LEAK_DIAG_KEYWORD_MEMORY" template="MemoryLeakDiagnosisEventsEventsloggedwhentheWindowsResourceLeakDiagnosticinitiatesdiagnosis.Args"/>
+     <event value="1005" symbol="MemoryLeakDiagnosisEventsEventsloggedwhentheWindowsResourceLeakDiagnosticinitiatesdiagnosis.1005" version="0" task="MemoryLeakDiagnosisEvents" opcode="EventsloggedwhentheWindowsResourceLeakDiagnosticinitiatesdiagnosis." level="win:Error" keywords="RDR_LEAK_DIAG_KEYWORD_MEMORY" template="MemoryLeakDiagnosisEventsEventsloggedwhentheWindowsResourceLeakDiagnosticinitiatesdiagnosis.1005Args"/>
+     <event value="1006" symbol="MemoryLeakDiagnosisEventsEventsloggedwhentheWindowsResourceLeakDiagnosticcompletesdiagnosis.1006" version="0" task="MemoryLeakDiagnosisEvents" opcode="EventsloggedwhentheWindowsResourceLeakDiagnosticcompletesdiagnosis." level="win:Error" keywords="RDR_LEAK_DIAG_KEYWORD_MEMORY" template="MemoryLeakDiagnosisEventsEventsloggedwhentheWindowsResourceLeakDiagnosticinitiatesdiagnosis.1005Args"/>
+    </events>
+    <templates>
+     <template tid="MemoryLeakDiagnosisEventsEventsloggedwhentheWindowsResourceLeakDiagnosticinitiatesdiagnosis.Args">
+      <data name="ProcessImageName" inType="win:UnicodeString"/>
+      <data name="PID" inType="win:UInt32"/>
+      <data name="CreationTime" inType="win:FILETIME"/>
+     </template>
+     <template tid="MemoryLeakDiagnosisEventsEventsloggedwhentheWindowsResourceLeakDiagnosticinitiatesdiagnosis.1005Args">
+      <data name="ProcessImageName" inType="win:UnicodeString"/>
+      <data name="PID" inType="win:UInt32"/>
+      <data name="CreationTime" inType="win:FILETIME"/>
+      <data name="ReasonCode" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_RDR_LEAK_DIAG_KEYWORD_MEMORY" value="RDR_LEAK_DIAG_KEYWORD_MEMORY"/>
+    <string id="task_MemoryLeakDiagnosisEvents" value="MemoryLeakDiagnosisEvents"/>
+    <string id="opcode_MemoryLeakDiagnosisEventsEventsloggedwhentheWindowsResourceLeakDiagnosticinitiatesdiagnosis." value="EventsloggedwhentheWindowsResourceLeakDiagnosticinitiatesdiagnosis."/>
+    <string id="opcode_MemoryLeakDiagnosisEventsEventsloggedwhentheWindowsResourceLeakDiagnosticcompletesdiagnosis." value="EventsloggedwhentheWindowsResourceLeakDiagnosticcompletesdiagnosis."/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

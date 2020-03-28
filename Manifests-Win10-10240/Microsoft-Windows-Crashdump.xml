@@ -1,0 +1,50 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Crashdump" guid="{ecdaacfa-6fe9-477c-b5f0-85b76f8f50aa}" resourceFileName="Microsoft-Windows-Crashdump" messageFileName="Microsoft-Windows-Crashdump" symbol="MicrosoftWindowsCrashdump" source="Xml" >
+    <keywords>
+     <keyword name="Config" message="$(string.keyword_Config)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="Resumecapablesettings" message="$(string.task_Resumecapablesettings)" value="1">
+>
+      <opcodes>
+       <opcode name="OpCodeResumeCapable" message="$(string.opcode_ResumecapablesettingsOpCodeResumeCapable)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="Rransfersizesettings" message="$(string.task_Rransfersizesettings)" value="2">
+>
+      <opcodes>
+       <opcode name="OpCodeTransferSizes" message="$(string.opcode_RransfersizesettingsOpCodeTransferSizes)" value="12"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="1" symbol="ResumecapablesettingsOpCodeResumeCapable_V1" version="1" task="Resumecapablesettings" opcode="OpCodeResumeCapable" level="win:Informational" keywords="Config" template="ResumecapablesettingsOpCodeResumeCapableArgs_V1"/>
+     <event value="2" symbol="RransfersizesettingsOpCodeTransferSizes_V1" version="1" task="Rransfersizesettings" opcode="OpCodeTransferSizes" level="win:Informational" keywords="Config" template="RransfersizesettingsOpCodeTransferSizesArgs_V1"/>
+    </events>
+    <templates>
+     <template tid="ResumecapablesettingsOpCodeResumeCapableArgs_V1">
+      <data name="ResumeCapable" inType="win:Boolean"/>
+      <data name="ReasonCodes" inType="win:UInt32"/>
+     </template>
+     <template tid="RransfersizesettingsOpCodeTransferSizesArgs_V1">
+      <data name="Minimum" inType="win:UInt32"/>
+      <data name="Maximum" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Config" value="Config"/>
+    <string id="task_Resumecapablesettings" value="Resumecapablesettings"/>
+    <string id="opcode_ResumecapablesettingsOpCodeResumeCapable" value="OpCodeResumeCapable"/>
+    <string id="task_Rransfersizesettings" value="Rransfersizesettings"/>
+    <string id="opcode_RransfersizesettingsOpCodeTransferSizes" value="OpCodeTransferSizes"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

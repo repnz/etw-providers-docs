@@ -1,0 +1,60 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Partition" guid="{412bdff2-a8c4-470d-8f33-63fe0d8c20e2}" resourceFileName="Microsoft-Windows-Partition" messageFileName="Microsoft-Windows-Partition" symbol="MicrosoftWindowsPartition" source="Xml" >
+    <keywords>
+     <keyword name="power" message="$(string.keyword_power)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <events>
+     <event value="1001" symbol="task_0" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+     <event value="1002" symbol="task_01002" version="0" task="task_0" level="win:Informational" template="task_01002Args"/>
+     <event value="1003" symbol="task_01003" version="0" task="task_0" level="win:Informational" keywords="power" template="task_01003Args"/>
+     <event value="1004" symbol="task_01004" version="0" task="task_0" level="win:Informational" keywords="power" template="task_01004Args"/>
+     <event value="1005" symbol="task_01005" version="0" task="task_0" level="win:Informational" keywords="power" template="task_01005Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="DiskNumber" inType="win:UInt32"/>
+      <data name="ControlCode" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01002Args">
+      <data name="DiskNumber" inType="win:UInt32"/>
+      <data name="ControlCode" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01003Args">
+      <data name="Process" inType="win:Pointer"/>
+      <data name="IncrementEnergy" inType="win:UInt64"/>
+      <data name="SrvTime" inType="win:UInt64"/>
+      <data name="EndByteOffset" inType="win:UInt64"/>
+      <data name="IoSize" inType="win:UInt32"/>
+      <data name="LastIdleState" inType="win:UInt8"/>
+      <data name="IsRandom" inType="win:UInt8"/>
+     </template>
+     <template tid="task_01004Args">
+      <data name="Process" inType="win:Pointer"/>
+      <data name="IncrementEnergy" inType="win:UInt64"/>
+      <data name="IdleTime" inType="win:UInt64"/>
+      <data name="LastIdleState" inType="win:UInt8"/>
+     </template>
+     <template tid="task_01005Args">
+      <data name="LocalLastCompTime" inType="win:UInt64"/>
+      <data name="SharedLastCompTime" inType="win:UInt64"/>
+      <data name="CompTime" inType="win:UInt64"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_power" value="power"/>
+    <string id="task_task_0" value="task_0"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

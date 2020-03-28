@@ -1,0 +1,32 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Kernel-IoTrace" guid="{a103cabd-8242-4a93-8df5-1cdf3b3f26a6}" resourceFileName="Microsoft-Windows-Kernel-IoTrace" messageFileName="Microsoft-Windows-Kernel-IoTrace" symbol="MicrosoftWindowsKernelIoTrace" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="UserInitiatedIo" message="$(string.task_UserInitiatedIo)" value="1"/>
+     <task name="KernelIo" message="$(string.task_KernelIo)" value="2"/>
+     <task name="ActivityIdTransfer" message="$(string.task_ActivityIdTransfer)" value="3"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="UserInitiatedIo" version="0" task="UserInitiatedIo" level="win:Informational"/>
+     <event value="2" symbol="KernelIo" version="0" task="KernelIo" level="win:Verbose"/>
+     <event value="3" symbol="KernelIo3" version="0" task="KernelIo" level="win:Verbose"/>
+     <event value="4" symbol="ActivityIdTransfer" version="0" task="ActivityIdTransfer" level="win:Informational"/>
+    </events>
+    <templates>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_UserInitiatedIo" value="UserInitiatedIo"/>
+    <string id="task_KernelIo" value="KernelIo"/>
+    <string id="task_ActivityIdTransfer" value="ActivityIdTransfer"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

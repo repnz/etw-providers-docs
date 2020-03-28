@@ -1,0 +1,34 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Application-Addon-Event-Provider" guid="{a83fa99f-c356-4ded-9fd6-5a5eb8546d68}" resourceFileName="Application-Addon-Event-Provider" messageFileName="Application-Addon-Event-Provider" symbol="ApplicationAddonEventProvider" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="EnableAdd_on" message="$(string.task_EnableAdd_on)" value="1"/>
+     <task name="DisableAdd_on" message="$(string.task_DisableAdd_on)" value="2"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="EnableAdd_onStart_V1" version="1" task="EnableAdd_on" opcode="win:Start" level="win:Informational" template="EnableAdd_onStartArgs_V1"/>
+     <event value="2" symbol="DisableAdd_onStop_V1" version="1" task="DisableAdd_on" opcode="win:Stop" level="win:Informational" template="EnableAdd_onStartArgs_V1"/>
+    </events>
+    <templates>
+     <template tid="EnableAdd_onStartArgs_V1">
+      <data name="Application" inType="win:UnicodeString"/>
+      <data name="AddonName" inType="win:UnicodeString"/>
+      <data name="Publisher" inType="win:UnicodeString"/>
+      <data name="Version" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_EnableAdd_on" value="EnableAdd_on"/>
+    <string id="task_DisableAdd_on" value="DisableAdd_on"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

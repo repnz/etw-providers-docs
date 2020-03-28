@@ -1,0 +1,60 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-CloudStorageWizard" guid="{9fc66dd7-98c7-4b83-8293-46a18439b03b}" resourceFileName="Microsoft-Windows-CloudStorageWizard" messageFileName="Microsoft-Windows-CloudStorageWizard" symbol="MicrosoftWindowsCloudStorageWizard" source="Xml" >
+    <keywords>
+     <keyword name="CloudStorageWizard" message="$(string.keyword_CloudStorageWizard)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="ShowWizard" message="$(string.task_ShowWizard)" value="6001"/>
+     <task name="UserInteraction" message="$(string.task_UserInteraction)" value="6002"/>
+     <task name="ShowBrowser" message="$(string.task_ShowBrowser)" value="6003"/>
+     <task name="Authentication" message="$(string.task_Authentication)" value="6004"/>
+     <task name="Authentication_WaitForUser" message="$(string.task_Authentication_WaitForUser)" value="6005"/>
+     <task name="Authentication_RequestTicket" message="$(string.task_Authentication_RequestTicket)" value="6006"/>
+    </tasks>
+    <events>
+     <event value="5001" symbol="ShowWizardStart" version="0" task="ShowWizard" opcode="win:Start" level="win:Informational" keywords="CloudStorageWizard"/>
+     <event value="5002" symbol="ShowWizardStop" version="0" task="ShowWizard" opcode="win:Stop" level="win:Informational" keywords="CloudStorageWizard" template="ShowWizardStopArgs"/>
+     <event value="5003" symbol="ShowWizardStart5003" version="0" task="ShowWizard" opcode="win:Start" level="win:Informational" keywords="CloudStorageWizard" template="ShowWizardStopArgs"/>
+     <event value="5004" symbol="ShowWizardStop5004" version="0" task="ShowWizard" opcode="win:Stop" level="win:Informational" keywords="CloudStorageWizard" template="ShowWizardStopArgs"/>
+     <event value="5005" symbol="UserInteraction" version="0" task="UserInteraction" level="win:Informational" keywords="CloudStorageWizard" template="UserInteractionArgs"/>
+     <event value="5006" symbol="ShowBrowser" version="0" task="ShowBrowser" level="win:Informational" keywords="CloudStorageWizard" template="ShowBrowserArgs"/>
+     <event value="5007" symbol="ShowWizardStart5007" version="0" task="ShowWizard" opcode="win:Start" level="win:Informational" keywords="CloudStorageWizard" template="ShowWizardStopArgs"/>
+     <event value="5008" symbol="ShowWizardStop5008" version="0" task="ShowWizard" opcode="win:Stop" level="win:Informational" keywords="CloudStorageWizard" template="ShowWizardStopArgs"/>
+     <event value="5009" symbol="AuthenticationStart" version="0" task="Authentication" opcode="win:Start" level="win:Informational" keywords="CloudStorageWizard"/>
+     <event value="5010" symbol="AuthenticationStop" version="0" task="Authentication" opcode="win:Stop" level="win:Informational" keywords="CloudStorageWizard" template="ShowWizardStopArgs"/>
+     <event value="5011" symbol="Authentication_WaitForUserStart" version="0" task="Authentication_WaitForUser" opcode="win:Start" level="win:Informational" keywords="CloudStorageWizard"/>
+     <event value="5012" symbol="Authentication_WaitForUserStop" version="0" task="Authentication_WaitForUser" opcode="win:Stop" level="win:Informational" keywords="CloudStorageWizard" template="ShowWizardStopArgs"/>
+     <event value="5013" symbol="Authentication_RequestTicketStart" version="0" task="Authentication_RequestTicket" opcode="win:Start" level="win:Informational" keywords="CloudStorageWizard"/>
+     <event value="5014" symbol="Authentication_RequestTicketStop" version="0" task="Authentication_RequestTicket" opcode="win:Stop" level="win:Informational" keywords="CloudStorageWizard" template="ShowWizardStopArgs"/>
+    </events>
+    <templates>
+     <template tid="ShowWizardStopArgs">
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="UserInteractionArgs">
+      <data name="Button" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ShowBrowserArgs">
+      <data name="URL" inType="win:UnicodeString"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_CloudStorageWizard" value="CloudStorageWizard"/>
+    <string id="task_ShowWizard" value="ShowWizard"/>
+    <string id="task_UserInteraction" value="UserInteraction"/>
+    <string id="task_ShowBrowser" value="ShowBrowser"/>
+    <string id="task_Authentication" value="Authentication"/>
+    <string id="task_Authentication_WaitForUser" value="Authentication_WaitForUser"/>
+    <string id="task_Authentication_RequestTicket" value="Authentication_RequestTicket"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

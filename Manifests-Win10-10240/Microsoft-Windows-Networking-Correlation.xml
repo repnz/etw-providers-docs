@@ -1,0 +1,60 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Networking-Correlation" guid="{83ed54f0-4d48-4e45-b16e-726ffd1fa4af}" resourceFileName="Microsoft-Windows-Networking-Correlation" messageFileName="Microsoft-Windows-Networking-Correlation" symbol="MicrosoftWindowsNetworkingCorrelation" source="Xml" >
+    <keywords>
+     <keyword name="ActivityTransfer" message="$(string.keyword_ActivityTransfer)" mask="0x1"/>
+     <keyword name="ActivityStart" message="$(string.keyword_ActivityStart)" mask="0x2"/>
+     <keyword name="ActivityStop" message="$(string.keyword_ActivityStop)" mask="0x4"/>
+     <keyword name="ActivityPayloadIncluded" message="$(string.keyword_ActivityPayloadIncluded)" mask="0x8"/>
+     <keyword name="ut:SendPath" message="$(string.keyword_ut:SendPath)" mask="0x100000000"/>
+     <keyword name="ut:ReceivePath" message="$(string.keyword_ut:ReceivePath)" mask="0x200000000"/>
+     <keyword name="ut:L3ConnectPath" message="$(string.keyword_ut:L3ConnectPath)" mask="0x400000000"/>
+     <keyword name="ut:L2ConnectPath" message="$(string.keyword_ut:L2ConnectPath)" mask="0x800000000"/>
+     <keyword name="ut:ClosePath" message="$(string.keyword_ut:ClosePath)" mask="0x1000000000"/>
+     <keyword name="ut:Authentication" message="$(string.keyword_ut:Authentication)" mask="0x2000000000"/>
+     <keyword name="ut:Configuration" message="$(string.keyword_ut:Configuration)" mask="0x4000000000"/>
+     <keyword name="ut:Global" message="$(string.keyword_ut:Global)" mask="0x8000000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <events>
+     <event value="3001" symbol="task_0" version="0" task="task_0" level="win:Critical"/>
+     <event value="3002" symbol="task_03002" version="0" task="task_0" level="win:Error"/>
+     <event value="3003" symbol="task_03003" version="0" task="task_0" level="win:Warning"/>
+     <event value="3004" symbol="task_03004" version="0" task="task_0" level="win:Informational"/>
+     <event value="3005" symbol="task_03005" version="0" task="task_0" level="win:Verbose"/>
+     <event value="60001" symbol="task_0Start" version="0" task="task_0" opcode="win:Start" level="win:Critical" keywords="ActivityTransfer ActivityStart" template="task_0StartArgs"/>
+     <event value="60002" symbol="task_0Stop" version="0" task="task_0" opcode="win:Stop" level="win:Critical" keywords="ActivityTransfer ActivityStop" template="task_0StartArgs"/>
+     <event value="60003" symbol="task_0Send" version="0" task="task_0" opcode="win:Send" level="win:Critical" keywords="ActivityTransfer" template="task_0StartArgs"/>
+    </events>
+    <templates>
+     <template tid="task_0StartArgs">
+      <data name="SourceProvider" inType="win:GUID"/>
+      <data name="Context" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_ActivityTransfer" value="ActivityTransfer"/>
+    <string id="keyword_ActivityStart" value="ActivityStart"/>
+    <string id="keyword_ActivityStop" value="ActivityStop"/>
+    <string id="keyword_ActivityPayloadIncluded" value="ActivityPayloadIncluded"/>
+    <string id="keyword_ut:SendPath" value="ut:SendPath"/>
+    <string id="keyword_ut:ReceivePath" value="ut:ReceivePath"/>
+    <string id="keyword_ut:L3ConnectPath" value="ut:L3ConnectPath"/>
+    <string id="keyword_ut:L2ConnectPath" value="ut:L2ConnectPath"/>
+    <string id="keyword_ut:ClosePath" value="ut:ClosePath"/>
+    <string id="keyword_ut:Authentication" value="ut:Authentication"/>
+    <string id="keyword_ut:Configuration" value="ut:Configuration"/>
+    <string id="keyword_ut:Global" value="ut:Global"/>
+    <string id="task_task_0" value="task_0"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

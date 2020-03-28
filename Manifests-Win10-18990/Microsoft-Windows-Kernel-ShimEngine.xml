@@ -1,0 +1,173 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Kernel-ShimEngine" guid="{0bf2fb94-7b60-4b4d-9766-e82f658df540}" resourceFileName="Microsoft-Windows-Kernel-ShimEngine" messageFileName="Microsoft-Windows-Kernel-ShimEngine" symbol="MicrosoftWindowsKernelShimEngine" source="Xml" >
+    <keywords>
+     <keyword name="ShimEngineEvents" message="$(string.keyword_ShimEngineEvents)" mask="0x1"/>
+     <keyword name="ShimEngineMessages" message="$(string.keyword_ShimEngineMessages)" mask="0x2"/>
+     <keyword name="DriverScopeGeneral" message="$(string.keyword_DriverScopeGeneral)" mask="0x100"/>
+     <keyword name="DriverScopePnp" message="$(string.keyword_DriverScopePnp)" mask="0x200"/>
+     <keyword name="DriverScopePower" message="$(string.keyword_DriverScopePower)" mask="0x400"/>
+     <keyword name="DriverScopeIrps" message="$(string.keyword_DriverScopeIrps)" mask="0x800"/>
+     <keyword name="DriverScopePool" message="$(string.keyword_DriverScopePool)" mask="0x1000"/>
+     <keyword name="SkipDriverUnloadGeneral" message="$(string.keyword_SkipDriverUnloadGeneral)" mask="0x2000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <maps>
+     <valueMap name="KSE:DriverShimApplied.ShimSourceMap">
+      <map value="0x0" message="$(string.map_KSE:DriverShimApplied.ShimSourceMapapplied through registry)"/>
+      <map value="0x1" message="$(string.map_KSE:DriverShimApplied.ShimSourceMapapplied through compatibility database)"/>
+     </valueMap>
+     <valueMap name="KSE:DeviceFlagApplied.FlagSourceMap">
+      <map value="0x0" message="$(string.map_KSE:DeviceFlagApplied.FlagSourceMapapplied through registry)"/>
+      <map value="0x1" message="$(string.map_KSE:DeviceFlagApplied.FlagSourceMapapplied through compatibility database)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="task_0_V1" version="1" task="task_0" level="win:Error" template="task_0Args_V1"/>
+     <event value="2" symbol="task_02_V1" version="1" task="task_0" level="win:Informational" template="task_0Args_V1"/>
+     <event value="3" symbol="task_03_V1" version="1" task="task_0" level="win:Informational" template="task_03Args_V1"/>
+     <event value="4" symbol="task_04_V1" version="1" task="task_0" level="win:Informational" template="task_04Args_V1"/>
+     <event value="5" symbol="task_05_V1" version="1" task="task_0" level="win:Verbose" keywords="SkipDriverUnloadGeneral" template="task_05Args_V1"/>
+     <event value="6" symbol="task_06_V1" version="1" task="task_0" level="win:Verbose" keywords="SkipDriverUnloadGeneral" template="task_06Args_V1"/>
+     <event value="10" symbol="task_010_V1" version="1" task="task_0" level="win:Verbose" keywords="DriverScopeGeneral" template="task_05Args_V1"/>
+     <event value="11" symbol="task_011_V1" version="1" task="task_0" level="win:Verbose" keywords="DriverScopeGeneral" template="task_06Args_V1"/>
+     <event value="12" symbol="task_012_V1" version="1" task="task_0" level="win:Verbose" keywords="DriverScopeGeneral" template="task_012Args_V1"/>
+     <event value="13" symbol="task_013_V1" version="1" task="task_0" level="win:Verbose" keywords="DriverScopePool" template="task_013Args_V1"/>
+     <event value="14" symbol="task_014_V1" version="1" task="task_0" level="win:Verbose" keywords="DriverScopePool" template="task_014Args_V1"/>
+     <event value="15" symbol="task_015_V1" version="1" task="task_0" level="win:Verbose" keywords="DriverScopeIrps" template="task_015Args_V1"/>
+     <event value="16" symbol="task_016_V1" version="1" task="task_0" level="win:Verbose" keywords="DriverScopeGeneral" template="task_016Args_V1"/>
+     <event value="17" symbol="task_017_V1" version="1" task="task_0" level="win:Verbose" keywords="DriverScopeIrps" template="task_017Args_V1"/>
+     <event value="18" symbol="task_018_V1" version="1" task="task_0" level="win:Verbose" keywords="DriverScopePnp" template="task_018Args_V1"/>
+     <event value="19" symbol="task_019_V1" version="1" task="task_0" level="win:Verbose" keywords="DriverScopePnp" template="task_019Args_V1"/>
+     <event value="20" symbol="task_020_V1" version="1" task="task_0" level="win:Verbose" keywords="DriverScopePnp" template="task_019Args_V1"/>
+     <event value="21" symbol="task_021_V1" version="1" task="task_0" level="win:Verbose" keywords="DriverScopePower" template="task_021Args_V1"/>
+     <event value="22" symbol="task_022_V1" version="1" task="task_0" level="win:Verbose" keywords="DriverScopePower" template="task_021Args_V1"/>
+     <event value="23" symbol="task_023_V1" version="1" task="task_0" level="win:Verbose" keywords="DriverScopePower" template="task_023Args_V1"/>
+     <event value="24" symbol="task_024_V1" version="1" task="task_0" level="win:Verbose" keywords="DriverScopePower" template="task_019Args_V1"/>
+    </events>
+    <templates>
+     <template tid="task_0Args_V1">
+      <data name="EventId" inType="win:UInt32"/>
+      <data name="DebugMessage" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_03Args_V1">
+      <data name="DriverName" inType="win:UnicodeString"/>
+      <data name="ShimSource" inType="win:UInt32" map="KSE:DriverShimApplied.ShimSourceMap"/>
+      <data name="ShimCount" inType="win:UInt32"/>
+      <data name="AppliedGuids" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_04Args_V1">
+      <data name="DeviceName" inType="win:UnicodeString"/>
+      <data name="DeviceClass" inType="win:UnicodeString"/>
+      <data name="FlagSource" inType="win:UInt32" map="KSE:DeviceFlagApplied.FlagSourceMap"/>
+      <data name="Flags" inType="win:UInt64"/>
+     </template>
+     <template tid="task_05Args_V1">
+      <data name="DriverName" inType="win:UnicodeString"/>
+      <data name="DriverBase" inType="win:Pointer"/>
+      <data name="DriverSize" inType="win:UInt32"/>
+      <data name="DriverTimeStamp" inType="win:UInt32"/>
+      <data name="DriverCheckSum" inType="win:UInt32"/>
+     </template>
+     <template tid="task_06Args_V1">
+      <data name="DriverObject" inType="win:Pointer"/>
+      <data name="DriverBase" inType="win:Pointer"/>
+     </template>
+     <template tid="task_012Args_V1">
+      <data name="DriverBase" inType="win:Pointer"/>
+      <data name="DriverSize" inType="win:UInt32"/>
+      <data name="DriverObject" inType="win:Pointer"/>
+      <data name="Pdo" inType="win:Pointer"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="ServiceName" inType="win:UnicodeString"/>
+      <data name="HardwareId" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_013Args_V1">
+      <data name="Address" inType="win:Pointer"/>
+      <data name="Caller" inType="win:Pointer"/>
+      <data name="Type" inType="win:UInt32"/>
+      <data name="Size" inType="win:Pointer"/>
+      <data name="Tag" inType="win:UInt32"/>
+     </template>
+     <template tid="task_014Args_V1">
+      <data name="Address" inType="win:Pointer"/>
+      <data name="Caller" inType="win:Pointer"/>
+      <data name="Tag" inType="win:UInt32"/>
+     </template>
+     <template tid="task_015Args_V1">
+      <data name="DriverObject" inType="win:Pointer"/>
+      <data name="Fdo" inType="win:Pointer"/>
+      <data name="Irp" inType="win:Pointer"/>
+     </template>
+     <template tid="task_016Args_V1">
+      <data name="DriverObject" inType="win:Pointer"/>
+      <data name="Fdo" inType="win:Pointer"/>
+      <data name="DeviceType" inType="win:UInt32"/>
+      <data name="DeviceCharacteristics" inType="win:UInt32"/>
+      <data name="Exclusive" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_017Args_V1">
+      <data name="DriverObject" inType="win:Pointer"/>
+      <data name="Fdo" inType="win:Pointer"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="MajorCode" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_018Args_V1">
+      <data name="DriverObject" inType="win:Pointer"/>
+      <data name="Fdo" inType="win:Pointer"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="MinorCode" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_019Args_V1">
+      <data name="DriverObject" inType="win:Pointer"/>
+      <data name="Fdo" inType="win:Pointer"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_021Args_V1">
+      <data name="DriverObject" inType="win:Pointer"/>
+      <data name="Fdo" inType="win:Pointer"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="MinorCode" inType="win:UInt32"/>
+      <data name="PowerType" inType="win:UInt32"/>
+      <data name="PowerState" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_023Args_V1">
+      <data name="DriverObject" inType="win:Pointer"/>
+      <data name="Fdo" inType="win:Pointer"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="MinorCode" inType="win:UInt32"/>
+      <data name="PowerState" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_ShimEngineEvents" value="ShimEngineEvents"/>
+    <string id="keyword_ShimEngineMessages" value="ShimEngineMessages"/>
+    <string id="keyword_DriverScopeGeneral" value="DriverScopeGeneral"/>
+    <string id="keyword_DriverScopePnp" value="DriverScopePnp"/>
+    <string id="keyword_DriverScopePower" value="DriverScopePower"/>
+    <string id="keyword_DriverScopeIrps" value="DriverScopeIrps"/>
+    <string id="keyword_DriverScopePool" value="DriverScopePool"/>
+    <string id="keyword_SkipDriverUnloadGeneral" value="SkipDriverUnloadGeneral"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="map_KSE:DriverShimApplied.ShimSourceMapapplied through registry" value="applied through registry"/>
+    <string id="map_KSE:DriverShimApplied.ShimSourceMapapplied through compatibility database" value="applied through compatibility database"/>
+    <string id="map_KSE:DeviceFlagApplied.FlagSourceMapapplied through registry" value="applied through registry"/>
+    <string id="map_KSE:DeviceFlagApplied.FlagSourceMapapplied through compatibility database" value="applied through compatibility database"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

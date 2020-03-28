@@ -1,0 +1,81 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-UIAnimation" guid="{e0a40b26-30c4-4656-bc9a-74a5c3a0b2ec}" resourceFileName="Microsoft-Windows-UIAnimation" messageFileName="Microsoft-Windows-UIAnimation" symbol="MicrosoftWindowsUIAnimation" source="Xml" >
+    <keywords>
+     <keyword name="Default" message="$(string.keyword_Default)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="ScheduleEnter" message="$(string.task_ScheduleEnter)" value="1"/>
+     <task name="ScheduleLeave" message="$(string.task_ScheduleLeave)" value="2"/>
+     <task name="UpdateEnter" message="$(string.task_UpdateEnter)" value="3"/>
+     <task name="UpdateLeave" message="$(string.task_UpdateLeave)" value="4"/>
+     <task name="OnTimerTickEnter" message="$(string.task_OnTimerTickEnter)" value="5"/>
+     <task name="OnTimerTickLeave" message="$(string.task_OnTimerTickLeave)" value="6"/>
+     <task name="OnVariableUpdate" message="$(string.task_OnVariableUpdate)" value="8"/>
+     <task name="OnVariableAnimating" message="$(string.task_OnVariableAnimating)" value="9"/>
+     <task name="OnNewtonRaphsonMaxIteration" message="$(string.task_OnNewtonRaphsonMaxIteration)" value="10"/>
+     <task name="NewtonRaphsonIterationReport" message="$(string.task_NewtonRaphsonIterationReport)" value="11"/>
+     <task name="GetVectorCurve" message="$(string.task_GetVectorCurve)" value="12"/>
+     <task name="CurveBuilderExport" message="$(string.task_CurveBuilderExport)" value="13"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="ScheduleEnter" version="0" task="ScheduleEnter" level="win:Informational" keywords="Default" template="ScheduleEnterArgs"/>
+     <event value="2" symbol="ScheduleLeave" version="0" task="ScheduleLeave" level="win:Informational" keywords="Default"/>
+     <event value="3" symbol="UpdateEnter" version="0" task="UpdateEnter" level="win:Informational" keywords="Default" template="ScheduleEnterArgs"/>
+     <event value="4" symbol="UpdateLeave" version="0" task="UpdateLeave" level="win:Informational" keywords="Default"/>
+     <event value="5" symbol="OnTimerTickEnter" version="0" task="OnTimerTickEnter" level="win:Informational" keywords="Default"/>
+     <event value="6" symbol="OnTimerTickLeave" version="0" task="OnTimerTickLeave" level="win:Informational" keywords="Default"/>
+     <event value="7" symbol="OnVariableUpdate" version="0" task="OnVariableUpdate" level="win:Informational" keywords="Default" template="OnVariableUpdateArgs"/>
+     <event value="8" symbol="OnVariableAnimatingStart" version="0" task="OnVariableAnimating" opcode="win:Start" level="win:Informational" keywords="Default" template="OnVariableUpdateArgs"/>
+     <event value="9" symbol="OnVariableAnimatingStop" version="0" task="OnVariableAnimating" opcode="win:Stop" level="win:Informational" keywords="Default" template="OnVariableUpdateArgs"/>
+     <event value="10" symbol="OnNewtonRaphsonMaxIteration" version="0" task="OnNewtonRaphsonMaxIteration" level="win:Informational" keywords="Default" template="OnNewtonRaphsonMaxIterationArgs"/>
+     <event value="11" symbol="NewtonRaphsonIterationReport" version="0" task="NewtonRaphsonIterationReport" level="win:Informational" keywords="Default" template="NewtonRaphsonIterationReportArgs"/>
+     <event value="12" symbol="GetVectorCurveStart" version="0" task="GetVectorCurve" opcode="win:Start" level="win:Informational" keywords="Default"/>
+     <event value="13" symbol="GetVectorCurveStop" version="0" task="GetVectorCurve" opcode="win:Stop" level="win:Informational" keywords="Default"/>
+     <event value="14" symbol="CurveBuilderExportStart" version="0" task="CurveBuilderExport" opcode="win:Start" level="win:Informational" keywords="Default"/>
+     <event value="15" symbol="CurveBuilderExportStop" version="0" task="CurveBuilderExport" opcode="win:Stop" level="win:Informational" keywords="Default"/>
+    </events>
+    <templates>
+     <template tid="ScheduleEnterArgs">
+      <data name="secondsNow" inType="win:Double"/>
+     </template>
+     <template tid="OnVariableUpdateArgs">
+      <data name="secondsNow" inType="win:Double"/>
+      <data name="tag" inType="win:UInt32"/>
+      <data name="value0" inType="win:Double"/>
+      <data name="value1" inType="win:Double"/>
+      <data name="value2" inType="win:Double"/>
+      <data name="value3" inType="win:Double"/>
+     </template>
+     <template tid="OnNewtonRaphsonMaxIterationArgs">
+      <data name="numIterations" inType="win:UInt32"/>
+     </template>
+     <template tid="NewtonRaphsonIterationReportArgs">
+      <data name="numIterations" inType="win:UInt32"/>
+      <data name="numComputations" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Default" value="Default"/>
+    <string id="task_ScheduleEnter" value="ScheduleEnter"/>
+    <string id="task_ScheduleLeave" value="ScheduleLeave"/>
+    <string id="task_UpdateEnter" value="UpdateEnter"/>
+    <string id="task_UpdateLeave" value="UpdateLeave"/>
+    <string id="task_OnTimerTickEnter" value="OnTimerTickEnter"/>
+    <string id="task_OnTimerTickLeave" value="OnTimerTickLeave"/>
+    <string id="task_OnVariableUpdate" value="OnVariableUpdate"/>
+    <string id="task_OnVariableAnimating" value="OnVariableAnimating"/>
+    <string id="task_OnNewtonRaphsonMaxIteration" value="OnNewtonRaphsonMaxIteration"/>
+    <string id="task_NewtonRaphsonIterationReport" value="NewtonRaphsonIterationReport"/>
+    <string id="task_GetVectorCurve" value="GetVectorCurve"/>
+    <string id="task_CurveBuilderExport" value="CurveBuilderExport"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

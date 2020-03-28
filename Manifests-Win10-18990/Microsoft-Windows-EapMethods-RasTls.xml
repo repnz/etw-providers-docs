@@ -1,0 +1,47 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-EapMethods-RasTls" guid="{9cc0413e-5717-4af5-82eb-6103d8707b45}" resourceFileName="Microsoft-Windows-EapMethods-RasTls" messageFileName="Microsoft-Windows-EapMethods-RasTls" symbol="MicrosoftWindowsEapMethodsRasTls" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="RasTlsauthenticationfailedevent" message="$(string.task_RasTlsauthenticationfailedevent)" value="1"/>
+     <task name="RasTlsauthenticationsucceededevent" message="$(string.task_RasTlsauthenticationsucceededevent)" value="2"/>
+     <task name="RasTlsauthenticationinprogressevent" message="$(string.task_RasTlsauthenticationinprogressevent)" value="3"/>
+    </tasks>
+    <events>
+     <event value="100" symbol="RasTlsauthenticationsucceededevent" version="0" task="RasTlsauthenticationsucceededevent" level="win:Informational" template="RasTlsauthenticationsucceededeventArgs"/>
+     <event value="101" symbol="RasTlsauthenticationfailedevent" version="0" task="RasTlsauthenticationfailedevent" level="win:Error" template="RasTlsauthenticationfailedeventArgs"/>
+     <event value="102" symbol="RasTlsauthenticationfailedevent102" version="0" task="RasTlsauthenticationfailedevent" level="win:Error" template="RasTlsauthenticationfailedeventArgs"/>
+     <event value="103" symbol="RasTlsauthenticationfailedevent103" version="0" task="RasTlsauthenticationfailedevent" level="win:Error" template="RasTlsauthenticationfailedeventArgs"/>
+     <event value="104" symbol="RasTlsauthenticationfailedevent104" version="0" task="RasTlsauthenticationfailedevent" level="win:Error" template="RasTlsauthenticationfailedeventArgs"/>
+     <event value="105" symbol="RasTlsauthenticationfailedevent105" version="0" task="RasTlsauthenticationfailedevent" level="win:Informational" template="RasTlsauthenticationsucceededeventArgs"/>
+     <event value="106" symbol="RasTlsauthenticationinprogressevent" version="0" task="RasTlsauthenticationinprogressevent" level="win:Informational"/>
+     <event value="107" symbol="RasTlsauthenticationinprogressevent107" version="0" task="RasTlsauthenticationinprogressevent" level="win:Informational" template="RasTlsauthenticationinprogressevent107Args"/>
+    </events>
+    <templates>
+     <template tid="RasTlsauthenticationsucceededeventArgs">
+      <data name="uint1" inType="win:UInt32"/>
+     </template>
+     <template tid="RasTlsauthenticationfailedeventArgs">
+      <data name="uint1" inType="win:UInt32"/>
+      <data name="uint2" inType="win:UInt32"/>
+     </template>
+     <template tid="RasTlsauthenticationinprogressevent107Args">
+      <data name="CAThumbprint" inType="win:UnicodeString"/>
+      <data name="ServerName" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_RasTlsauthenticationfailedevent" value="RasTlsauthenticationfailedevent"/>
+    <string id="task_RasTlsauthenticationsucceededevent" value="RasTlsauthenticationsucceededevent"/>
+    <string id="task_RasTlsauthenticationinprogressevent" value="RasTlsauthenticationinprogressevent"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

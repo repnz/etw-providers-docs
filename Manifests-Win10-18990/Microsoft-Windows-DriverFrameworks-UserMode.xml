@@ -1,0 +1,309 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-DriverFrameworks-UserMode" guid="{2e35aaeb-857f-4beb-a418-2e6c0e54d988}" resourceFileName="Microsoft-Windows-DriverFrameworks-UserMode" messageFileName="Microsoft-Windows-DriverFrameworks-UserMode" symbol="MicrosoftWindowsDriverFrameworksUserMode" source="Xml" >
+    <keywords>
+     <keyword name="umdf:PowerTransition" message="$(string.keyword_umdf:PowerTransition)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="Startupofthedrivermanagerservice." message="$(string.task_Startupofthedrivermanagerservice.)" value="16"/>
+     <task name="Creationofanewdriverhostprocess." message="$(string.task_Creationofanewdriverhostprocess.)" value="17"/>
+     <task name="Shutdownofadriverhostprocess." message="$(string.task_Shutdownofadriverhostprocess.)" value="18"/>
+     <task name="Startupofanewdriverhostprocess." message="$(string.task_Startupofanewdriverhostprocess.)" value="32"/>
+     <task name="Loadingdriverstocontrolanewlydiscovereddevice." message="$(string.task_Loadingdriverstocontrolanewlydiscovereddevice.)" value="33"/>
+     <task name="PnporPowerManagementoperationtoaparticulardevice." message="$(string.task_PnporPowerManagementoperationtoaparticulardevice.)" value="37"/>
+     <task name="Shutdownofadriverhostprocess._41" message="$(string.task_Shutdownofadriverhostprocess._41)" value="41"/>
+     <task name="Installationorupdateofdevicedrivers." message="$(string.task_Installationorupdateofdevicedrivers.)" value="48"/>
+     <task name="User_modeDriverproblems." message="$(string.task_User_modeDriverproblems.)" value="64"/>
+     <task name="PnporPowerManagementoperationtoaparticulardriverinadevicestack." message="$(string.task_PnporPowerManagementoperationtoaparticulardriverinadevicestack.)" value="80"/>
+     <task name="PowerTransition_Driver" message="$(string.task_PowerTransition_Driver)" value="96">
+>
+      <opcodes>
+       <opcode name="NestingStart" message="$(string.opcode_PowerTransition_DriverNestingStart)" value="32"/>
+       <opcode name="NestingStop" message="$(string.opcode_PowerTransition_DriverNestingStop)" value="33"/>
+      </opcodes>
+     </task>
+     <task name="StartupoftheUMDFreflector" message="$(string.task_StartupoftheUMDFreflector)" value="101"/>
+     <task name="TestingUMDF" message="$(string.task_TestingUMDF)" value="116"/>
+     <task name="DDIcalltoreadfromHardware." message="$(string.task_DDIcalltoreadfromHardware.)" value="117"/>
+     <task name="ReadfromHardware." message="$(string.task_ReadfromHardware.)" value="118"/>
+     <task name="DDIcalltoWritetohardware." message="$(string.task_DDIcalltoWritetohardware.)" value="119"/>
+     <task name="Writetohardware." message="$(string.task_Writetohardware.)" value="120"/>
+     <task name="UMDFhardwareinterruptnotification." message="$(string.task_UMDFhardwareinterruptnotification.)" value="121"/>
+    </tasks>
+    <maps>
+     <valueMap name="EventQueueOrderMap">
+      <map value="0x0" message="$(string.map_EventQueueOrderMapQueueToTail)"/>
+      <map value="0x1" message="$(string.map_EventQueueOrderMapQueueToFront)"/>
+      <map value="0x2" message="$(string.map_EventQueueOrderMapQueueFull)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1000" symbol="Startupofthedrivermanagerservice.Start_V1" version="1" task="Startupofthedrivermanagerservice." opcode="win:Start" level="win:Informational" template="Startupofthedrivermanagerservice.StartArgs_V1"/>
+     <event value="1000" symbol="Startupofthedrivermanagerservice.Start_V2" version="2" task="Startupofthedrivermanagerservice." opcode="win:Start" level="win:Informational"/>
+     <event value="1001" symbol="Startupofthedrivermanagerservice.Stop_V1" version="1" task="Startupofthedrivermanagerservice." opcode="win:Stop" level="win:Critical" template="Startupofthedrivermanagerservice.StopArgs_V1"/>
+     <event value="1001" symbol="Startupofthedrivermanagerservice.Stop_V2" version="2" task="Startupofthedrivermanagerservice." opcode="win:Stop" level="win:Critical" template="Startupofthedrivermanagerservice.StopArgs_V2"/>
+     <event value="1002" symbol="Startupofthedrivermanagerservice.Stop1002_V1" version="1" task="Startupofthedrivermanagerservice." opcode="win:Stop" level="win:Informational"/>
+     <event value="1003" symbol="Creationofanewdriverhostprocess.Start_V1" version="1" task="Creationofanewdriverhostprocess." opcode="win:Start" level="win:Informational" template="Creationofanewdriverhostprocess.StartArgs_V1"/>
+     <event value="1004" symbol="Creationofanewdriverhostprocess.Stop_V1" version="1" task="Creationofanewdriverhostprocess." opcode="win:Stop" level="win:Informational" template="Creationofanewdriverhostprocess.StopArgs_V1"/>
+     <event value="1005" symbol="Creationofanewdriverhostprocess.Stop1005_V1" version="1" task="Creationofanewdriverhostprocess." opcode="win:Stop" level="win:Error" template="Creationofanewdriverhostprocess.StopArgs_V1"/>
+     <event value="1006" symbol="Shutdownofadriverhostprocess.Start_V1" version="1" task="Shutdownofadriverhostprocess." opcode="win:Start" level="win:Informational" template="Shutdownofadriverhostprocess.StartArgs_V1"/>
+     <event value="1007" symbol="Shutdownofadriverhostprocess._V1" version="1" task="Shutdownofadriverhostprocess." level="win:Error" template="Shutdownofadriverhostprocess.Args_V1"/>
+     <event value="1008" symbol="Shutdownofadriverhostprocess.Stop_V1" version="1" task="Shutdownofadriverhostprocess." opcode="win:Stop" level="win:Informational" template="Shutdownofadriverhostprocess.StopArgs_V1"/>
+     <event value="2000" symbol="Startupofanewdriverhostprocess.Start_V1" version="1" task="Startupofanewdriverhostprocess." opcode="win:Start" level="win:Informational" template="Shutdownofadriverhostprocess.StartArgs_V1"/>
+     <event value="2001" symbol="Startupofanewdriverhostprocess.Stop_V1" version="1" task="Startupofanewdriverhostprocess." opcode="win:Stop" level="win:Informational" template="Startupofanewdriverhostprocess.StopArgs_V1"/>
+     <event value="2002" symbol="Startupofanewdriverhostprocess.Stop2002_V1" version="1" task="Startupofanewdriverhostprocess." opcode="win:Stop" level="win:Error" template="Startupofanewdriverhostprocess.StopArgs_V1"/>
+     <event value="2003" symbol="Loadingdriverstocontrolanewlydiscovereddevice.Start_V1" version="1" task="Loadingdriverstocontrolanewlydiscovereddevice." opcode="win:Start" level="win:Informational" template="Loadingdriverstocontrolanewlydiscovereddevice.StartArgs_V1"/>
+     <event value="2004" symbol="Loadingdriverstocontrolanewlydiscovereddevice.Start2004_V1" version="1" task="Loadingdriverstocontrolanewlydiscovereddevice." opcode="win:Start" level="win:Verbose" template="Loadingdriverstocontrolanewlydiscovereddevice.Start2004Args_V1"/>
+     <event value="2005" symbol="Loadingdriverstocontrolanewlydiscovereddevice._V1" version="1" task="Loadingdriverstocontrolanewlydiscovereddevice." level="win:Verbose" template="Loadingdriverstocontrolanewlydiscovereddevice.Args_V1"/>
+     <event value="2006" symbol="Loadingdriverstocontrolanewlydiscovereddevice.Stop_V1" version="1" task="Loadingdriverstocontrolanewlydiscovereddevice." opcode="win:Stop" level="win:Verbose" template="Loadingdriverstocontrolanewlydiscovereddevice.StopArgs_V1"/>
+     <event value="2007" symbol="Loadingdriverstocontrolanewlydiscovereddevice.Stop2007_V1" version="1" task="Loadingdriverstocontrolanewlydiscovereddevice." opcode="win:Stop" level="win:Error" template="Loadingdriverstocontrolanewlydiscovereddevice.StopArgs_V1"/>
+     <event value="2010" symbol="Loadingdriverstocontrolanewlydiscovereddevice.Stop2010_V1" version="1" task="Loadingdriverstocontrolanewlydiscovereddevice." opcode="win:Stop" level="win:Informational" template="Loadingdriverstocontrolanewlydiscovereddevice.Stop2010Args_V1"/>
+     <event value="2011" symbol="Loadingdriverstocontrolanewlydiscovereddevice.Stop2011_V1" version="1" task="Loadingdriverstocontrolanewlydiscovereddevice." opcode="win:Stop" level="win:Error" template="Loadingdriverstocontrolanewlydiscovereddevice.Stop2010Args_V1"/>
+     <event value="2100" symbol="PnporPowerManagementoperationtoaparticulardevice.Start_V1" version="1" task="PnporPowerManagementoperationtoaparticulardevice." opcode="win:Start" level="win:Informational" template="PnporPowerManagementoperationtoaparticulardevice.StartArgs_V1"/>
+     <event value="2101" symbol="PnporPowerManagementoperationtoaparticulardevice.Stop_V1" version="1" task="PnporPowerManagementoperationtoaparticulardevice." opcode="win:Stop" level="win:Informational" template="PnporPowerManagementoperationtoaparticulardevice.StartArgs_V1"/>
+     <event value="2102" symbol="PnporPowerManagementoperationtoaparticulardevice.Stop2102_V1" version="1" task="PnporPowerManagementoperationtoaparticulardevice." opcode="win:Stop" level="win:Informational" template="PnporPowerManagementoperationtoaparticulardevice.StartArgs_V1"/>
+     <event value="2103" symbol="PnporPowerManagementoperationtoaparticulardevice.Stop2103_V1" version="1" task="PnporPowerManagementoperationtoaparticulardevice." opcode="win:Stop" level="win:Error" template="PnporPowerManagementoperationtoaparticulardevice.StartArgs_V1"/>
+     <event value="2105" symbol="PnporPowerManagementoperationtoaparticulardevice.Start2105_V1" version="1" task="PnporPowerManagementoperationtoaparticulardevice." opcode="win:Start" level="win:Informational" template="PnporPowerManagementoperationtoaparticulardevice.StartArgs_V1"/>
+     <event value="2106" symbol="PnporPowerManagementoperationtoaparticulardevice.Start2106_V1" version="1" task="PnporPowerManagementoperationtoaparticulardevice." opcode="win:Start" level="win:Informational" template="PnporPowerManagementoperationtoaparticulardevice.StartArgs_V1"/>
+     <event value="2107" symbol="PnporPowerManagementoperationtoaparticulardevice.Start2107_V1" version="1" task="PnporPowerManagementoperationtoaparticulardevice." opcode="win:Start" level="win:Error" template="PnporPowerManagementoperationtoaparticulardevice.StartArgs_V1"/>
+     <event value="2900" symbol="Shutdownofadriverhostprocess._41Start_V1" version="1" task="Shutdownofadriverhostprocess._41" opcode="win:Start" level="win:Informational" template="Shutdownofadriverhostprocess.StartArgs_V1"/>
+     <event value="2901" symbol="Shutdownofadriverhostprocess._41Stop_V1" version="1" task="Shutdownofadriverhostprocess._41" opcode="win:Stop" level="win:Informational" template="Shutdownofadriverhostprocess.StartArgs_V1"/>
+     <event value="3000" symbol="PnporPowerManagementoperationtoaparticulardriverinadevicestack.Start_V1" version="1" task="PnporPowerManagementoperationtoaparticulardriverinadevicestack." opcode="win:Start" level="win:Verbose" template="PnporPowerManagementoperationtoaparticulardriverinadevicestack.StartArgs_V1"/>
+     <event value="3001" symbol="PnporPowerManagementoperationtoaparticulardriverinadevicestack._V1" version="1" task="PnporPowerManagementoperationtoaparticulardriverinadevicestack." level="win:Verbose" template="PnporPowerManagementoperationtoaparticulardriverinadevicestack.Args_V1"/>
+     <event value="3010" symbol="PnporPowerManagementoperationtoaparticulardriverinadevicestack.Start3010_V1" version="1" task="PnporPowerManagementoperationtoaparticulardriverinadevicestack." opcode="win:Start" level="win:Informational" template="PnporPowerManagementoperationtoaparticulardriverinadevicestack.Start3010Args_V1"/>
+     <event value="3011" symbol="PnporPowerManagementoperationtoaparticulardriverinadevicestack.Stop_V1" version="1" task="PnporPowerManagementoperationtoaparticulardriverinadevicestack." opcode="win:Stop" level="win:Verbose" template="PnporPowerManagementoperationtoaparticulardriverinadevicestack.StopArgs_V1"/>
+     <event value="3020" symbol="PnporPowerManagementoperationtoaparticulardriverinadevicestack.Stop3020_V1" version="1" task="PnporPowerManagementoperationtoaparticulardriverinadevicestack." opcode="win:Stop" level="win:Verbose" template="PnporPowerManagementoperationtoaparticulardriverinadevicestack.Args_V1"/>
+     <event value="10000" symbol="Installationorupdateofdevicedrivers.Start_V1" version="1" task="Installationorupdateofdevicedrivers." opcode="win:Start" level="win:Informational" template="Installationorupdateofdevicedrivers.StartArgs_V1"/>
+     <event value="10001" symbol="Installationorupdateofdevicedrivers._V1" version="1" task="Installationorupdateofdevicedrivers." level="win:Informational" template="Installationorupdateofdevicedrivers.Args_V1"/>
+     <event value="10002" symbol="Installationorupdateofdevicedrivers.10002_V1" version="1" task="Installationorupdateofdevicedrivers." level="win:Informational" template="Installationorupdateofdevicedrivers.Args_V1"/>
+     <event value="10100" symbol="Installationorupdateofdevicedrivers.Stop_V1" version="1" task="Installationorupdateofdevicedrivers." opcode="win:Stop" level="win:Informational" template="Installationorupdateofdevicedrivers.StopArgs_V1"/>
+     <event value="10101" symbol="Installationorupdateofdevicedrivers.Stop10101_V1" version="1" task="Installationorupdateofdevicedrivers." opcode="win:Stop" level="win:Error" template="Installationorupdateofdevicedrivers.StopArgs_V1"/>
+     <event value="10110" symbol="User_modeDriverproblems._V1" version="1" task="User_modeDriverproblems." level="win:Critical" template="Shutdownofadriverhostprocess.Args_V1"/>
+     <event value="10111" symbol="User_modeDriverproblems.10111_V1" version="1" task="User_modeDriverproblems." level="win:Critical" template="User_modeDriverproblems.10111Args_V1"/>
+     <event value="10112" symbol="User_modeDriverproblems.10112_V1" version="1" task="User_modeDriverproblems." level="win:Critical" template="User_modeDriverproblems.10111Args_V1"/>
+     <event value="10113" symbol="Startupofanewdriverhostprocess._V1" version="1" task="Startupofanewdriverhostprocess." level="win:Error" template="Startupofanewdriverhostprocess.Args_V1"/>
+     <event value="10115" symbol="User_modeDriverproblems.10115_V1" version="1" task="User_modeDriverproblems." level="win:Critical" template="User_modeDriverproblems.10111Args_V1"/>
+     <event value="10116" symbol="User_modeDriverproblems.10116_V1" version="1" task="User_modeDriverproblems." level="win:Critical" template="User_modeDriverproblems.10111Args_V1"/>
+     <event value="10117" symbol="Installationorupdateofdevicedrivers.10117_V1" version="1" task="Installationorupdateofdevicedrivers." level="win:Critical" template="Installationorupdateofdevicedrivers.10117Args_V1"/>
+     <event value="10118" symbol="StartupoftheUMDFreflector_V1" version="1" task="StartupoftheUMDFreflector" level="win:Informational"/>
+     <event value="19999" symbol="TestingUMDF_V1" version="1" task="TestingUMDF" level="win:Informational" template="TestingUMDFArgs_V1"/>
+     <event value="20030" symbol="PowerTransition_DriverStart_V1" version="1" task="PowerTransition_Driver" opcode="win:Start" level="win:Informational" keywords="umdf:PowerTransition" template="PowerTransition_DriverStartArgs_V1"/>
+     <event value="20031" symbol="PowerTransition_DriverStop_V1" version="1" task="PowerTransition_Driver" opcode="win:Stop" level="win:Informational" keywords="umdf:PowerTransition" template="PowerTransition_DriverStopArgs_V1"/>
+     <event value="20032" symbol="PowerTransition_DriverNestingStart_V1" version="1" task="PowerTransition_Driver" opcode="NestingStart" level="win:Informational" keywords="umdf:PowerTransition" template="PowerTransition_DriverStopArgs_V1"/>
+     <event value="20033" symbol="PowerTransition_DriverNestingStop_V1" version="1" task="PowerTransition_Driver" opcode="NestingStop" level="win:Informational" keywords="umdf:PowerTransition" template="PowerTransition_DriverStopArgs_V1"/>
+     <event value="30008" symbol="DDIcalltoreadfromHardware.Start_V1" version="1" task="DDIcalltoreadfromHardware." opcode="win:Start" level="win:Informational" template="DDIcalltoreadfromHardware.StartArgs_V1"/>
+     <event value="30009" symbol="DDIcalltoreadfromHardware.Stop_V1" version="1" task="DDIcalltoreadfromHardware." opcode="win:Stop" level="win:Informational" template="DDIcalltoreadfromHardware.StartArgs_V1"/>
+     <event value="30010" symbol="ReadfromHardware.Start_V1" version="1" task="ReadfromHardware." opcode="win:Start" level="win:Informational" template="DDIcalltoreadfromHardware.StartArgs_V1"/>
+     <event value="30011" symbol="ReadfromHardware.Stop_V1" version="1" task="ReadfromHardware." opcode="win:Stop" level="win:Informational" template="DDIcalltoreadfromHardware.StartArgs_V1"/>
+     <event value="30012" symbol="DDIcalltoWritetohardware.Start_V1" version="1" task="DDIcalltoWritetohardware." opcode="win:Start" level="win:Informational" template="DDIcalltoreadfromHardware.StartArgs_V1"/>
+     <event value="30013" symbol="DDIcalltoWritetohardware.Stop_V1" version="1" task="DDIcalltoWritetohardware." opcode="win:Stop" level="win:Informational" template="DDIcalltoreadfromHardware.StartArgs_V1"/>
+     <event value="30014" symbol="Writetohardware.Start_V1" version="1" task="Writetohardware." opcode="win:Start" level="win:Informational" template="DDIcalltoreadfromHardware.StartArgs_V1"/>
+     <event value="30015" symbol="Writetohardware.Stop_V1" version="1" task="Writetohardware." opcode="win:Stop" level="win:Informational" template="DDIcalltoreadfromHardware.StartArgs_V1"/>
+     <event value="30016" symbol="ReadfromHardware.Start30016_V1" version="1" task="ReadfromHardware." opcode="win:Start" level="win:Informational" template="DDIcalltoreadfromHardware.StartArgs_V1"/>
+     <event value="30017" symbol="ReadfromHardware.Stop30017_V1" version="1" task="ReadfromHardware." opcode="win:Stop" level="win:Informational" template="DDIcalltoreadfromHardware.StartArgs_V1"/>
+     <event value="30018" symbol="Writetohardware.Start30018_V1" version="1" task="Writetohardware." opcode="win:Start" level="win:Informational" template="DDIcalltoreadfromHardware.StartArgs_V1"/>
+     <event value="30019" symbol="Writetohardware.Stop30019_V1" version="1" task="Writetohardware." opcode="win:Stop" level="win:Informational" template="DDIcalltoreadfromHardware.StartArgs_V1"/>
+     <event value="30020" symbol="UMDFhardwareinterruptnotification._V1" version="1" task="UMDFhardwareinterruptnotification." level="win:Informational" template="UMDFhardwareinterruptnotification.Args_V1"/>
+     <event value="30021" symbol="UMDFhardwareinterruptnotification.30021_V1" version="1" task="UMDFhardwareinterruptnotification." level="win:Informational" template="UMDFhardwareinterruptnotification.Args_V1"/>
+    </events>
+    <templates>
+     <template tid="Startupofthedrivermanagerservice.StartArgs_V1">
+      <data name="Version" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Startupofthedrivermanagerservice.StopArgs_V1">
+      <data name="Version" inType="win:UnicodeString"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="Creationofanewdriverhostprocess.StartArgs_V1">
+      <data name="LifetimeId" inType="win:GUID"/>
+      <data name="HostGuid" inType="win:UnicodeString"/>
+      <data name="InstanceId" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Creationofanewdriverhostprocess.StopArgs_V1">
+      <data name="LifetimeId" inType="win:GUID"/>
+      <data name="FinalStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="Shutdownofadriverhostprocess.StartArgs_V1">
+      <data name="LifetimeId" inType="win:GUID"/>
+     </template>
+     <template tid="Shutdownofadriverhostprocess.Args_V1">
+      <data name="LifetimeId" inType="win:GUID"/>
+      <data name="Problem" inType="win:UInt8"/>
+      <data name="DetectedBy" inType="win:UInt8"/>
+      <data name="ActiveOperation" inType="win:UInt8"/>
+      <data name="ExitCode" inType="win:UInt32"/>
+      <data name="Message" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="Shutdownofadriverhostprocess.StopArgs_V1">
+      <data name="LifetimeId" inType="win:GUID"/>
+      <data name="TerminationStatus" inType="win:UInt32"/>
+      <data name="ExitCode" inType="win:UInt32"/>
+     </template>
+     <template tid="Startupofanewdriverhostprocess.StopArgs_V1">
+      <data name="LifetimeId" inType="win:GUID"/>
+      <data name="ExitCode" inType="win:UInt32"/>
+     </template>
+     <template tid="Loadingdriverstocontrolanewlydiscovereddevice.StartArgs_V1">
+      <data name="LifetimeId" inType="win:GUID"/>
+      <data name="InstanceId" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Loadingdriverstocontrolanewlydiscovereddevice.Start2004Args_V1">
+      <data name="LifetimeId" inType="win:GUID"/>
+      <data name="InstanceId" inType="win:UnicodeString"/>
+      <data name="Level" inType="win:UInt32"/>
+      <data name="Service" inType="win:UnicodeString"/>
+      <data name="ClsId" inType="win:GUID"/>
+     </template>
+     <template tid="Loadingdriverstocontrolanewlydiscovereddevice.Args_V1">
+      <data name="LifetimeId" inType="win:GUID"/>
+      <data name="InstanceId" inType="win:UnicodeString"/>
+      <data name="ModulePath" inType="win:UnicodeString"/>
+      <data name="CompanyName" inType="win:UnicodeString"/>
+      <data name="FileDescription" inType="win:UnicodeString"/>
+      <data name="FileVersion" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Loadingdriverstocontrolanewlydiscovereddevice.StopArgs_V1">
+      <data name="LifetimeId" inType="win:GUID"/>
+      <data name="InstanceId" inType="win:UnicodeString"/>
+      <data name="Level" inType="win:UInt32"/>
+      <data name="FinalStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="Loadingdriverstocontrolanewlydiscovereddevice.Stop2010Args_V1">
+      <data name="LifetimeId" inType="win:GUID"/>
+      <data name="InstanceId" inType="win:UnicodeString"/>
+      <data name="FinalStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="PnporPowerManagementoperationtoaparticulardevice.StartArgs_V1">
+      <data name="LifetimeId" inType="win:GUID"/>
+      <data name="InstanceId" inType="win:UnicodeString"/>
+      <data name="MajorCode" inType="win:UInt8"/>
+      <data name="MinorCode" inType="win:UInt8"/>
+      <data name="Argument1" inType="win:Pointer"/>
+      <data name="Argument2" inType="win:Pointer"/>
+      <data name="Argument3" inType="win:Pointer"/>
+      <data name="Argument4" inType="win:Pointer"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="PnporPowerManagementoperationtoaparticulardriverinadevicestack.StartArgs_V1">
+      <data name="LifetimeId" inType="win:GUID"/>
+      <data name="InstanceId" inType="win:UnicodeString"/>
+      <data name="Level" inType="win:UInt32"/>
+      <data name="StateMachine" inType="win:UInt8"/>
+      <data name="Event" inType="win:UInt32"/>
+      <data name="Queueing" inType="win:UInt32" map="EventQueueOrderMap"/>
+     </template>
+     <template tid="PnporPowerManagementoperationtoaparticulardriverinadevicestack.Args_V1">
+      <data name="LifetimeId" inType="win:GUID"/>
+      <data name="InstanceId" inType="win:UnicodeString"/>
+      <data name="Level" inType="win:UInt32"/>
+      <data name="StateMachine" inType="win:UInt8"/>
+      <data name="Event" inType="win:UInt32"/>
+     </template>
+     <template tid="PnporPowerManagementoperationtoaparticulardriverinadevicestack.Start3010Args_V1">
+      <data name="LifetimeId" inType="win:GUID"/>
+      <data name="InstanceId" inType="win:UnicodeString"/>
+      <data name="Level" inType="win:UInt32"/>
+      <data name="StateMachine" inType="win:UInt32"/>
+      <data name="CurrentState" inType="win:UInt32"/>
+      <data name="Event" inType="win:UInt32"/>
+      <data name="NewState" inType="win:UInt32"/>
+     </template>
+     <template tid="PnporPowerManagementoperationtoaparticulardriverinadevicestack.StopArgs_V1">
+      <data name="LifetimeId" inType="win:GUID"/>
+      <data name="InstanceId" inType="win:UnicodeString"/>
+      <data name="Level" inType="win:UInt32"/>
+      <data name="StateMachine" inType="win:UInt8"/>
+      <data name="CurrentState" inType="win:UInt32"/>
+     </template>
+     <template tid="Installationorupdateofdevicedrivers.StartArgs_V1">
+      <data name="DeviceId" inType="win:UnicodeString"/>
+      <data name="FrameworkVersion" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Installationorupdateofdevicedrivers.Args_V1">
+      <data name="ServiceName" inType="win:UnicodeString"/>
+      <data name="CLSID" inType="win:GUID"/>
+      <data name="FxVersion" inType="win:UnicodeString"/>
+      <data name="Upgrade" inType="win:Boolean"/>
+     </template>
+     <template tid="Installationorupdateofdevicedrivers.StopArgs_V1">
+      <data name="FinalStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="User_modeDriverproblems.10111Args_V1">
+      <data name="LifetimeId" inType="win:GUID"/>
+      <data name="FriendlyName" inType="win:UnicodeString"/>
+      <data name="Location" inType="win:UnicodeString"/>
+      <data name="InstanceId" inType="win:UnicodeString"/>
+      <data name="RestartCount" inType="win:UInt32"/>
+     </template>
+     <template tid="Startupofanewdriverhostprocess.Args_V1">
+      <data name="LifetimeId" inType="win:GUID"/>
+      <data name="InstanceId" inType="win:UnicodeString"/>
+      <data name="ConflictingParameter" inType="win:UnicodeString"/>
+      <data name="Value" inType="win:UInt64"/>
+      <data name="DriverName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Installationorupdateofdevicedrivers.10117Args_V1">
+      <data name="ServiceName" inType="win:UnicodeString"/>
+      <data name="ActualFuntionTableCount" inType="win:UInt32"/>
+      <data name="ExpectedFuntionTableCount" inType="win:UInt32"/>
+     </template>
+     <template tid="TestingUMDFArgs_V1">
+      <data name="String" inType="win:UnicodeString"/>
+     </template>
+     <template tid="PowerTransition_DriverStartArgs_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="Device" inType="win:Pointer"/>
+      <data name="DriverName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="PowerTransition_DriverStopArgs_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="Device" inType="win:Pointer"/>
+     </template>
+     <template tid="DDIcalltoreadfromHardware.StartArgs_V1">
+      <data name="HwAccessTargetType" inType="win:UInt32"/>
+      <data name="HwAccessTargetSize" inType="win:UInt32"/>
+      <data name="HwAccessBufferCount" inType="win:UInt32"/>
+     </template>
+     <template tid="UMDFhardwareinterruptnotification.Args_V1">
+      <data name="InterruptMessageNumber" inType="win:UInt32"/>
+     </template>
+     <template tid="Startupofthedrivermanagerservice.StopArgs_V2">
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_umdf:PowerTransition" value="umdf:PowerTransition"/>
+    <string id="task_Startupofthedrivermanagerservice." value="Startupofthedrivermanagerservice."/>
+    <string id="task_Creationofanewdriverhostprocess." value="Creationofanewdriverhostprocess."/>
+    <string id="task_Shutdownofadriverhostprocess." value="Shutdownofadriverhostprocess."/>
+    <string id="task_Startupofanewdriverhostprocess." value="Startupofanewdriverhostprocess."/>
+    <string id="task_Loadingdriverstocontrolanewlydiscovereddevice." value="Loadingdriverstocontrolanewlydiscovereddevice."/>
+    <string id="task_PnporPowerManagementoperationtoaparticulardevice." value="PnporPowerManagementoperationtoaparticulardevice."/>
+    <string id="task_Shutdownofadriverhostprocess._41" value="Shutdownofadriverhostprocess._41"/>
+    <string id="task_Installationorupdateofdevicedrivers." value="Installationorupdateofdevicedrivers."/>
+    <string id="task_User_modeDriverproblems." value="User_modeDriverproblems."/>
+    <string id="task_PnporPowerManagementoperationtoaparticulardriverinadevicestack." value="PnporPowerManagementoperationtoaparticulardriverinadevicestack."/>
+    <string id="task_PowerTransition_Driver" value="PowerTransition_Driver"/>
+    <string id="opcode_PowerTransition_DriverNestingStart" value="NestingStart"/>
+    <string id="opcode_PowerTransition_DriverNestingStop" value="NestingStop"/>
+    <string id="task_StartupoftheUMDFreflector" value="StartupoftheUMDFreflector"/>
+    <string id="task_TestingUMDF" value="TestingUMDF"/>
+    <string id="task_DDIcalltoreadfromHardware." value="DDIcalltoreadfromHardware."/>
+    <string id="task_ReadfromHardware." value="ReadfromHardware."/>
+    <string id="task_DDIcalltoWritetohardware." value="DDIcalltoWritetohardware."/>
+    <string id="task_Writetohardware." value="Writetohardware."/>
+    <string id="task_UMDFhardwareinterruptnotification." value="UMDFhardwareinterruptnotification."/>
+    <string id="map_EventQueueOrderMapQueueToTail" value="QueueToTail"/>
+    <string id="map_EventQueueOrderMapQueueToFront" value="QueueToFront"/>
+    <string id="map_EventQueueOrderMapQueueFull" value="QueueFull"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,951 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-WinINet" guid="{43d1a55c-76d6-4f7e-995c-64c711e5cafe}" resourceFileName="Microsoft-Windows-WinINet" messageFileName="Microsoft-Windows-WinINet" symbol="MicrosoftWindowsWinINet" source="Xml" >
+    <keywords>
+     <keyword name="WININET_KEYWORD_HANDLES" message="$(string.keyword_WININET_KEYWORD_HANDLES)" mask="0x1"/>
+     <keyword name="WININET_KEYWORD_HTTP" message="$(string.keyword_WININET_KEYWORD_HTTP)" mask="0x2"/>
+     <keyword name="WININET_KEYWORD_CONNECTION" message="$(string.keyword_WININET_KEYWORD_CONNECTION)" mask="0x4"/>
+     <keyword name="WININET_KEYWORD_AUTH" message="$(string.keyword_WININET_KEYWORD_AUTH)" mask="0x8"/>
+     <keyword name="WININET_KEYWORD_HTTPS" message="$(string.keyword_WININET_KEYWORD_HTTPS)" mask="0x10"/>
+     <keyword name="WININET_KEYWORD_AUTOPROXY" message="$(string.keyword_WININET_KEYWORD_AUTOPROXY)" mask="0x20"/>
+     <keyword name="WININET_KEYWORD_COOKIES" message="$(string.keyword_WININET_KEYWORD_COOKIES)" mask="0x40"/>
+     <keyword name="WININET_KEYWORD_IE" message="$(string.keyword_WININET_KEYWORD_IE)" mask="0x80"/>
+     <keyword name="WININET_KEYWORD_AOAC" message="$(string.keyword_WININET_KEYWORD_AOAC)" mask="0x100"/>
+     <keyword name="WININET_KEYWORD_SEND" message="$(string.keyword_WININET_KEYWORD_SEND)" mask="0x100000000"/>
+     <keyword name="WININET_KEYWORD_RECEIVE" message="$(string.keyword_WININET_KEYWORD_RECEIVE)" mask="0x200000000"/>
+     <keyword name="WININET_KEYWORD_MOBILE" message="$(string.keyword_WININET_KEYWORD_MOBILE)" mask="0x400000000"/>
+     <keyword name="keyword_20000000000" message="$(string.keyword_keyword_20000000000)" mask="0x20000000000"/>
+     <keyword name="keyword_40000000000" message="$(string.keyword_keyword_40000000000)" mask="0x40000000000"/>
+    </keywords>
+    <tasks>
+     <task name="WININET_ROOT_HANDLE_CREATED" message="$(string.task_WININET_ROOT_HANDLE_CREATED)" value="500"/>
+     <task name="WININET_OPEN_URL_HANDLE_CREATED" message="$(string.task_WININET_OPEN_URL_HANDLE_CREATED)" value="501"/>
+     <task name="WININET_CONNECT_HANDLE_CREATED" message="$(string.task_WININET_CONNECT_HANDLE_CREATED)" value="502"/>
+     <task name="WININET_HTTP_REQUEST_HANDLE_CREATED" message="$(string.task_WININET_HTTP_REQUEST_HANDLE_CREATED)" value="503"/>
+     <task name="WININET_HANDLE_CLOSED" message="$(string.task_WININET_HANDLE_CLOSED)" value="504"/>
+     <task name="WININET_HANDLE_CREATE_FAILED" message="$(string.task_WININET_HANDLE_CREATE_FAILED)" value="505"/>
+     <task name="WININET_HANDLE_CLOSE_FAILED" message="$(string.task_WININET_HANDLE_CLOSE_FAILED)" value="506"/>
+     <task name="WININET_HTTP_REQUEST" message="$(string.task_WININET_HTTP_REQUEST)" value="507">
+>
+      <opcodes>
+       <opcode name="Fail" message="$(string.opcode_WININET_HTTP_REQUESTFail)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="WININET_HTTP_RESPONSE" message="$(string.task_WININET_HTTP_RESPONSE)" value="508">
+>
+      <opcodes>
+       <opcode name="Fail" message="$(string.opcode_WININET_HTTP_RESPONSEFail)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="WININET_HTTP_CONNECTION_CLOSED" message="$(string.task_WININET_HTTP_CONNECTION_CLOSED)" value="509"/>
+     <task name="WININET_KEEP_ALIVE_CONNECTION_REUSED" message="$(string.task_WININET_KEEP_ALIVE_CONNECTION_REUSED)" value="510"/>
+     <task name="WININET_KEEP_ALIVE_CONNECTION_POOLED" message="$(string.task_WININET_KEEP_ALIVE_CONNECTION_POOLED)" value="511"/>
+     <task name="WININET_KEEP_ALIVE_CONNECTION_CLOSED" message="$(string.task_WININET_KEEP_ALIVE_CONNECTION_CLOSED)" value="512"/>
+     <task name="WININET_HTTP_RESPONSE_BODY_RECEIVED" message="$(string.task_WININET_HTTP_RESPONSE_BODY_RECEIVED)" value="513"/>
+     <task name="WININET_TCP_CONNECTION" message="$(string.task_WININET_TCP_CONNECTION)" value="514">
+>
+      <opcodes>
+       <opcode name="Fail" message="$(string.opcode_WININET_TCP_CONNECTIONFail)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="WININET_DNS_QUERY" message="$(string.task_WININET_DNS_QUERY)" value="515">
+>
+      <opcodes>
+       <opcode name="Fail" message="$(string.opcode_WININET_DNS_QUERYFail)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="WININET_NETWORK_CHANGE_DETECTED" message="$(string.task_WININET_NETWORK_CHANGE_DETECTED)" value="516"/>
+     <task name="WININET_COOKIE_HEADER_RECEIVED" message="$(string.task_WININET_COOKIE_HEADER_RECEIVED)" value="517"/>
+     <task name="WININET_COOKIE_STORED" message="$(string.task_WININET_COOKIE_STORED)" value="518"/>
+     <task name="WININET_COOKIE_DELETED" message="$(string.task_WININET_COOKIE_DELETED)" value="519"/>
+     <task name="WININET_COOKIE_BLOCKED" message="$(string.task_WININET_COOKIE_BLOCKED)" value="520"/>
+     <task name="WININET_COOKIE_P3P_REJECTED" message="$(string.task_WININET_COOKIE_P3P_REJECTED)" value="521"/>
+     <task name="WININET_COOKIE_REQUEST_HEADER_CREATED" message="$(string.task_WININET_COOKIE_REQUEST_HEADER_CREATED)" value="522"/>
+     <task name="WININET_COOKIE_ADDED_TO_HEADER" message="$(string.task_WININET_COOKIE_ADDED_TO_HEADER)" value="523"/>
+     <task name="WININET_AUTH_RESPONSE_RECEIVED" message="$(string.task_WININET_AUTH_RESPONSE_RECEIVED)" value="524"/>
+     <task name="WININET_AUTH_CLIENT_SETS_USERNAME" message="$(string.task_WININET_AUTH_CLIENT_SETS_USERNAME)" value="525"/>
+     <task name="WININET_AUTH_CLIENT_SETS_PASSWORD" message="$(string.task_WININET_AUTH_CLIENT_SETS_PASSWORD)" value="526"/>
+     <task name="WININET_AUTH_USING_CACHED_CREDS" message="$(string.task_WININET_AUTH_USING_CACHED_CREDS)" value="527"/>
+     <task name="WININET_AUTH_USING_DEFAULT_CREDS" message="$(string.task_WININET_AUTH_USING_DEFAULT_CREDS)" value="528"/>
+     <task name="WININET_AUTH_CLIENT_ADD_HEADERS" message="$(string.task_WININET_AUTH_CLIENT_ADD_HEADERS)" value="529"/>
+     <task name="WININET_HTTPS_NEGOTIATION" message="$(string.task_WININET_HTTPS_NEGOTIATION)" value="530">
+>
+      <opcodes>
+       <opcode name="Fail" message="$(string.opcode_WININET_HTTPS_NEGOTIATIONFail)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="WININET_HTTPS_SERVER_CERT_ERROR" message="$(string.task_WININET_HTTPS_SERVER_CERT_ERROR)" value="531"/>
+     <task name="WININET_HTTPS_SERVER_CERT_VALIDATED" message="$(string.task_WININET_HTTPS_SERVER_CERT_VALIDATED)" value="532"/>
+     <task name="WININET_HTTPS_CLIENT_CERT_REQUIRED" message="$(string.task_WININET_HTTPS_CLIENT_CERT_REQUIRED)" value="533"/>
+     <task name="WININET_HTTPS_CLIENT_CERT_UNAVAILABLE" message="$(string.task_WININET_HTTPS_CLIENT_CERT_UNAVAILABLE)" value="534"/>
+     <task name="WININET_HTTPS_CLIENT_CERT_SELECTED" message="$(string.task_WININET_HTTPS_CLIENT_CERT_SELECTED)" value="535"/>
+     <task name="WININET_HTTPS_RENEGOTIATION" message="$(string.task_WININET_HTTPS_RENEGOTIATION)" value="536">
+>
+      <opcodes>
+       <opcode name="Fail" message="$(string.opcode_WININET_HTTPS_RENEGOTIATIONFail)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="WININET_AUTOPROXY_SEARCH" message="$(string.task_WININET_AUTOPROXY_SEARCH)" value="537">
+>
+      <opcodes>
+       <opcode name="Fail" message="$(string.opcode_WININET_AUTOPROXY_SEARCHFail)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="WININET_AUTOPROXY_DHCP" message="$(string.task_WININET_AUTOPROXY_DHCP)" value="538">
+>
+      <opcodes>
+       <opcode name="Fail" message="$(string.opcode_WININET_AUTOPROXY_DHCPFail)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="WININET_AUTOPROXY_DNS" message="$(string.task_WININET_AUTOPROXY_DNS)" value="539">
+>
+      <opcodes>
+       <opcode name="Fail" message="$(string.opcode_WININET_AUTOPROXY_DNSFail)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="WININET_AUTOPROXY_DOWNLOAD" message="$(string.task_WININET_AUTOPROXY_DOWNLOAD)" value="540">
+>
+      <opcodes>
+       <opcode name="Fail" message="$(string.opcode_WININET_AUTOPROXY_DOWNLOADFail)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="WININET_AUTOPROXY_FIND_INFO_FOR_URL" message="$(string.task_WININET_AUTOPROXY_FIND_INFO_FOR_URL)" value="541">
+>
+      <opcodes>
+       <opcode name="Fail" message="$(string.opcode_WININET_AUTOPROXY_FIND_INFO_FOR_URLFail)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="WININET_TEST_EVENT" message="$(string.task_WININET_TEST_EVENT)" value="542"/>
+     <task name="WININET_BLOCKING_AUTOPROXY_DETERMINATION" message="$(string.task_WININET_BLOCKING_AUTOPROXY_DETERMINATION)" value="543"/>
+     <task name="WININET_TRANSFER" message="$(string.task_WININET_TRANSFER)" value="544"/>
+     <task name="WININET_AUTOPROXY_SWPAD" message="$(string.task_WININET_AUTOPROXY_SWPAD)" value="545"/>
+     <task name="WININET_REQUEST_HEADER" message="$(string.task_WININET_REQUEST_HEADER)" value="546"/>
+     <task name="WININET_RESPONSE_HEADER" message="$(string.task_WININET_RESPONSE_HEADER)" value="547"/>
+     <task name="WININET_REQUEST_HEADER_OPTIONAL" message="$(string.task_WININET_REQUEST_HEADER_OPTIONAL)" value="548"/>
+     <task name="Wininet_SendRequest" message="$(string.task_Wininet_SendRequest)" value="550"/>
+     <task name="Wininet_OfflineCacheLookup" message="$(string.task_Wininet_OfflineCacheLookup)" value="551"/>
+     <task name="Wininet_OfflineCacheHit" message="$(string.task_Wininet_OfflineCacheHit)" value="552"/>
+     <task name="Wininet_OfflineCacheMiss" message="$(string.task_Wininet_OfflineCacheMiss)" value="553"/>
+     <task name="Wininet_PreNet_CacheLookup" message="$(string.task_Wininet_PreNet_CacheLookup)" value="554"/>
+     <task name="Wininet_PreNet_CacheHit" message="$(string.task_Wininet_PreNet_CacheHit)" value="555"/>
+     <task name="Wininet_PreNet_CacheMiss" message="$(string.task_Wininet_PreNet_CacheMiss)" value="556"/>
+     <task name="Wininet_PostNet_CacheLookup" message="$(string.task_Wininet_PostNet_CacheLookup)" value="557"/>
+     <task name="Wininet_PostNet_CacheHit" message="$(string.task_Wininet_PostNet_CacheHit)" value="558"/>
+     <task name="Wininet_PostNet_CacheMiss" message="$(string.task_Wininet_PostNet_CacheMiss)" value="559"/>
+     <task name="Wininet_AutodialIfNotLocalHost" message="$(string.task_Wininet_AutodialIfNotLocalHost)" value="560"/>
+     <task name="Wininet_ResolveHost" message="$(string.task_Wininet_ResolveHost)" value="561"/>
+     <task name="Wininet_SendRequest_Main" message="$(string.task_Wininet_SendRequest_Main)" value="562"/>
+     <task name="Wininet_SendRequest_Extra" message="$(string.task_Wininet_SendRequest_Extra)" value="563"/>
+     <task name="Wininet_SendRequest_CRLF" message="$(string.task_Wininet_SendRequest_CRLF)" value="564"/>
+     <task name="Wininet_ReadData" message="$(string.task_Wininet_ReadData)" value="565"/>
+     <task name="Wininet_ReadDataPostReceiveBuf" message="$(string.task_Wininet_ReadDataPostReceiveBuf)" value="566"/>
+     <task name="Wininet_SendRequest_PostReceiveBuf" message="$(string.task_Wininet_SendRequest_PostReceiveBuf)" value="567"/>
+     <task name="Wininet_DrainResponsePostReceiveBuf" message="$(string.task_Wininet_DrainResponsePostReceiveBuf)" value="568"/>
+     <task name="Wininet_Connect" message="$(string.task_Wininet_Connect)" value="569"/>
+     <task name="Wininet_LookupConnection" message="$(string.task_Wininet_LookupConnection)" value="570"/>
+     <task name="Wininet_Redirect" message="$(string.task_Wininet_Redirect)" value="571"/>
+     <task name="Wininet_Getaddrinfo" message="$(string.task_Wininet_Getaddrinfo)" value="572"/>
+     <task name="Wininet_DHCP_I252WPAD" message="$(string.task_Wininet_DHCP_I252WPAD)" value="573"/>
+     <task name="Wininet_Select" message="$(string.task_Wininet_Select)" value="574"/>
+     <task name="Wininet_UsageLogRequest" message="$(string.task_Wininet_UsageLogRequest)" value="575"/>
+     <task name="Wininet_UsageLogScavenge" message="$(string.task_Wininet_UsageLogScavenge)" value="576"/>
+     <task name="Wininet_SocketConnect" message="$(string.task_Wininet_SocketConnect)" value="577"/>
+     <task name="Wininet_AppCacheLookup" message="$(string.task_Wininet_AppCacheLookup)" value="578"/>
+     <task name="Wininet_RequestPrioritySet" message="$(string.task_Wininet_RequestPrioritySet)" value="579"/>
+     <task name="WININET_AUTOPROXY_PERFTRACK_HOST_IP_LOOKUP" message="$(string.task_WININET_AUTOPROXY_PERFTRACK_HOST_IP_LOOKUP)" value="580"/>
+     <task name="WININET_AUTOPROXY_PERFTRACK_SWPAD_LOOKUP" message="$(string.task_WININET_AUTOPROXY_PERFTRACK_SWPAD_LOOKUP)" value="581"/>
+     <task name="WININET_AUTOPROXY_PERFTRACK_KNOWN_DETECTION" message="$(string.task_WININET_AUTOPROXY_PERFTRACK_KNOWN_DETECTION)" value="582"/>
+     <task name="WININET_AUTOPROXY_PERFTRACK_UNKNOWN_DETECTION" message="$(string.task_WININET_AUTOPROXY_PERFTRACK_UNKNOWN_DETECTION)" value="583"/>
+     <task name="WININET_AUTOPROXY_PERFTRACK_SCRIPT_DOWNLOAD" message="$(string.task_WININET_AUTOPROXY_PERFTRACK_SCRIPT_DOWNLOAD)" value="584"/>
+     <task name="WININET_AUTOPROXY_PERFTRACK_ALL" message="$(string.task_WININET_AUTOPROXY_PERFTRACK_ALL)" value="587"/>
+     <task name="WININET_HTTP_RESPONSE_BODY_READ_ERROR" message="$(string.task_WININET_HTTP_RESPONSE_BODY_READ_ERROR)" value="588"/>
+     <task name="WININET_STREAM_DATA_INDICATED" message="$(string.task_WININET_STREAM_DATA_INDICATED)" value="589"/>
+     <task name="WININET_APPLICATION_OFFLINE_CHECK" message="$(string.task_WININET_APPLICATION_OFFLINE_CHECK)" value="590"/>
+     <task name="Wininet_WebSocketUpgrade" message="$(string.task_Wininet_WebSocketUpgrade)" value="600"/>
+     <task name="Wininet_WebSocketSession" message="$(string.task_Wininet_WebSocketSession)" value="601"/>
+    </tasks>
+    <maps>
+     <valueMap name="mapWPADNetworkDecision">
+      <map value="0x0" message="$(string.map_mapWPADNetworkDecisionWPAD_NETWORK_DECISION_OFF)"/>
+      <map value="0x1" message="$(string.map_mapWPADNetworkDecisionWPAD_NETWORK_DECISION_ON)"/>
+      <map value="0x2" message="$(string.map_mapWPADNetworkDecisionWPAD_NETWORK_DECISION_UNKNOWN)"/>
+      <map value="0x3" message="$(string.map_mapWPADNetworkDecisionWPAD_NETWORK_DECISION_UNKNOWN)"/>
+     </valueMap>
+     <valueMap name="mapUsageLogRequestCache">
+      <map value="0x0" message="$(string.map_mapUsageLogRequestCacheMissed)"/>
+      <map value="0x1" message="$(string.map_mapUsageLogRequestCacheHit)"/>
+      <map value="0x2" message="$(string.map_mapUsageLogRequestCacheStale-Modified)"/>
+      <map value="0x3" message="$(string.map_mapUsageLogRequestCacheStale-NotModified)"/>
+     </valueMap>
+     <valueMap name="maphttpProtocolType">
+      <map value="0x0" message="$(string.map_maphttpProtocolTypeHTTP)"/>
+      <map value="0x1" message="$(string.map_maphttpProtocolTypeSPDY3)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="101" symbol="WININET_ROOT_HANDLE_CREATED" version="0" task="WININET_ROOT_HANDLE_CREATED" level="win:Informational" keywords="WININET_KEYWORD_HANDLES" template="WININET_ROOT_HANDLE_CREATEDArgs"/>
+     <event value="102" symbol="WININET_OPEN_URL_HANDLE_CREATED" version="0" task="WININET_OPEN_URL_HANDLE_CREATED" level="win:Informational" keywords="WININET_KEYWORD_HANDLES" template="WININET_OPEN_URL_HANDLE_CREATEDArgs"/>
+     <event value="103" symbol="WININET_CONNECT_HANDLE_CREATED" version="0" task="WININET_CONNECT_HANDLE_CREATED" level="win:Informational" keywords="WININET_KEYWORD_HANDLES" template="WININET_CONNECT_HANDLE_CREATEDArgs"/>
+     <event value="104" symbol="WININET_HTTP_REQUEST_HANDLE_CREATED" version="0" task="WININET_HTTP_REQUEST_HANDLE_CREATED" level="win:Informational" keywords="WININET_KEYWORD_HANDLES" template="WININET_HTTP_REQUEST_HANDLE_CREATEDArgs"/>
+     <event value="105" symbol="WININET_HANDLE_CLOSED" version="0" task="WININET_HANDLE_CLOSED" level="win:Informational" keywords="WININET_KEYWORD_HANDLES" template="WININET_HANDLE_CLOSEDArgs"/>
+     <event value="106" symbol="WININET_HANDLE_CREATE_FAILED" version="0" task="WININET_HANDLE_CREATE_FAILED" level="win:Error" keywords="WININET_KEYWORD_HANDLES" template="WININET_HANDLE_CREATE_FAILEDArgs"/>
+     <event value="107" symbol="WININET_HANDLE_CLOSE_FAILED" version="0" task="WININET_HANDLE_CLOSE_FAILED" level="win:Error" keywords="WININET_KEYWORD_HANDLES" template="WININET_HANDLE_CREATE_FAILEDArgs"/>
+     <event value="108" symbol="WININET_HTTP_REQUEST_HANDLE_CREATED108" version="0" task="WININET_HTTP_REQUEST_HANDLE_CREATED" level="win:Informational" keywords="WININET_KEYWORD_HANDLES" template="WININET_HTTP_REQUEST_HANDLE_CREATED108Args"/>
+     <event value="200" symbol="WININET_HTTP_REQUESTStart" version="0" task="WININET_HTTP_REQUEST" opcode="win:Start" level="win:Informational" keywords="WININET_KEYWORD_HTTP" template="WININET_HANDLE_CLOSEDArgs"/>
+     <event value="200" symbol="WININET_HTTP_REQUESTStart_V1" version="1" task="WININET_HTTP_REQUEST" opcode="win:Start" level="win:Informational" keywords="WININET_KEYWORD_HTTP" template="WININET_HTTP_REQUESTStartArgs_V1"/>
+     <event value="201" symbol="WININET_HTTP_REQUESTStop" version="0" task="WININET_HTTP_REQUEST" opcode="win:Stop" level="win:Informational" keywords="WININET_KEYWORD_HTTP" template="WININET_HTTP_REQUESTStopArgs"/>
+     <event value="202" symbol="WININET_HTTP_REQUESTFail" version="0" task="WININET_HTTP_REQUEST" opcode="Fail" level="win:Error" keywords="WININET_KEYWORD_HTTP WININET_KEYWORD_AOAC" template="WININET_HTTP_REQUESTFailArgs"/>
+     <event value="203" symbol="WININET_HTTP_RESPONSEStop" version="0" task="WININET_HTTP_RESPONSE" opcode="win:Stop" level="win:Informational" keywords="WININET_KEYWORD_HTTP" template="WININET_HTTP_RESPONSEStopArgs"/>
+     <event value="204" symbol="WININET_HTTP_RESPONSEFail" version="0" task="WININET_HTTP_RESPONSE" opcode="Fail" level="win:Informational" keywords="WININET_KEYWORD_HTTP WININET_KEYWORD_AOAC" template="WININET_HTTP_REQUESTFailArgs"/>
+     <event value="205" symbol="WININET_HTTP_CONNECTION_CLOSED" version="0" task="WININET_HTTP_CONNECTION_CLOSED" level="win:Informational" keywords="WININET_KEYWORD_HTTP" template="WININET_HTTP_CONNECTION_CLOSEDArgs"/>
+     <event value="206" symbol="WININET_KEEP_ALIVE_CONNECTION_REUSED" version="0" task="WININET_KEEP_ALIVE_CONNECTION_REUSED" level="win:Informational" keywords="WININET_KEYWORD_HTTP" template="WININET_KEEP_ALIVE_CONNECTION_REUSEDArgs"/>
+     <event value="207" symbol="WININET_KEEP_ALIVE_CONNECTION_POOLED" version="0" task="WININET_KEEP_ALIVE_CONNECTION_POOLED" level="win:Informational" keywords="WININET_KEYWORD_HTTP" template="WININET_KEEP_ALIVE_CONNECTION_REUSEDArgs"/>
+     <event value="208" symbol="WININET_KEEP_ALIVE_CONNECTION_CLOSED" version="0" task="WININET_KEEP_ALIVE_CONNECTION_CLOSED" level="win:Informational" keywords="WININET_KEYWORD_HTTP" template="WININET_KEEP_ALIVE_CONNECTION_REUSEDArgs"/>
+     <event value="209" symbol="WININET_HTTP_RESPONSE_BODY_RECEIVED" version="0" task="WININET_HTTP_RESPONSE_BODY_RECEIVED" level="win:Informational" keywords="WININET_KEYWORD_HTTP" template="WININET_HTTP_RESPONSE_BODY_RECEIVEDArgs"/>
+     <event value="210" symbol="WININET_REQUEST_HEADER" version="0" task="WININET_REQUEST_HEADER" level="win:Verbose" keywords="WININET_KEYWORD_HTTP keyword_20000000000" template="WININET_REQUEST_HEADERArgs"/>
+     <event value="211" symbol="WININET_RESPONSE_HEADER" version="0" task="WININET_RESPONSE_HEADER" level="win:Verbose" keywords="WININET_KEYWORD_HTTP keyword_20000000000" template="WININET_REQUEST_HEADERArgs"/>
+     <event value="212" symbol="WININET_REQUEST_HEADER_OPTIONAL" version="0" task="WININET_REQUEST_HEADER_OPTIONAL" level="win:Verbose" keywords="WININET_KEYWORD_HTTP keyword_20000000000" template="WININET_REQUEST_HEADERArgs"/>
+     <event value="213" symbol="WININET_HTTP_RESPONSE_BODY_READ_ERROR" version="0" task="WININET_HTTP_RESPONSE_BODY_READ_ERROR" level="win:Informational" keywords="WININET_KEYWORD_HTTP WININET_KEYWORD_AOAC" template="WININET_HTTP_RESPONSE_BODY_READ_ERRORArgs"/>
+     <event value="301" symbol="WININET_TCP_CONNECTIONStart" version="0" task="WININET_TCP_CONNECTION" opcode="win:Start" level="win:Informational" keywords="WININET_KEYWORD_CONNECTION" template="WININET_TCP_CONNECTIONStartArgs"/>
+     <event value="302" symbol="WININET_TCP_CONNECTIONFail" version="0" task="WININET_TCP_CONNECTION" opcode="Fail" level="win:Error" keywords="WININET_KEYWORD_CONNECTION WININET_KEYWORD_AOAC" template="WININET_TCP_CONNECTIONFailArgs"/>
+     <event value="303" symbol="WININET_TCP_CONNECTIONStop" version="0" task="WININET_TCP_CONNECTION" opcode="win:Stop" level="win:Informational" keywords="WININET_KEYWORD_CONNECTION" template="WININET_TCP_CONNECTIONStopArgs"/>
+     <event value="304" symbol="WININET_DNS_QUERYStart" version="0" task="WININET_DNS_QUERY" opcode="win:Start" level="win:Informational" keywords="WININET_KEYWORD_CONNECTION" template="WININET_DNS_QUERYStartArgs"/>
+     <event value="305" symbol="WININET_DNS_QUERYStop" version="0" task="WININET_DNS_QUERY" opcode="win:Stop" level="win:Informational" keywords="WININET_KEYWORD_CONNECTION" template="WININET_DNS_QUERYStopArgs"/>
+     <event value="306" symbol="WININET_DNS_QUERYFail" version="0" task="WININET_DNS_QUERY" opcode="Fail" level="win:Error" keywords="WININET_KEYWORD_CONNECTION WININET_KEYWORD_AOAC" template="WININET_DNS_QUERYFailArgs"/>
+     <event value="307" symbol="WININET_DNS_QUERYStop307" version="0" task="WININET_DNS_QUERY" opcode="win:Stop" level="win:Informational" keywords="WININET_KEYWORD_CONNECTION" template="WININET_DNS_QUERYStopArgs"/>
+     <event value="308" symbol="WININET_NETWORK_CHANGE_DETECTED" version="0" task="WININET_NETWORK_CHANGE_DETECTED" level="win:Informational" keywords="WININET_KEYWORD_CONNECTION" template="WININET_NETWORK_CHANGE_DETECTEDArgs"/>
+     <event value="400" symbol="Wininet_WebSocketUpgrade" version="0" task="Wininet_WebSocketUpgrade" level="win:Informational" keywords="keyword_20000000000" template="Wininet_WebSocketUpgradeArgs"/>
+     <event value="401" symbol="Wininet_WebSocketUpgrade401" version="0" task="Wininet_WebSocketUpgrade" level="win:Informational" keywords="keyword_20000000000" template="Wininet_WebSocketUpgrade401Args"/>
+     <event value="402" symbol="Wininet_WebSocketSessionStart" version="0" task="Wininet_WebSocketSession" opcode="win:Start" level="win:Informational" template="Wininet_WebSocketSessionStartArgs"/>
+     <event value="403" symbol="Wininet_WebSocketSessionStop" version="0" task="Wininet_WebSocketSession" opcode="win:Stop" level="win:Informational" template="Wininet_WebSocketSessionStopArgs"/>
+     <event value="404" symbol="Wininet_WebSocketSession" version="0" task="Wininet_WebSocketSession" level="win:Informational" keywords="keyword_20000000000" template="Wininet_WebSocketSessionArgs"/>
+     <event value="405" symbol="Wininet_WebSocketSession405" version="0" task="Wininet_WebSocketSession" level="win:Informational" keywords="keyword_20000000000" template="Wininet_WebSocketSessionArgs"/>
+     <event value="406" symbol="Wininet_WebSocketSession406" version="0" task="Wininet_WebSocketSession" level="win:Informational" template="Wininet_WebSocketSession406Args"/>
+     <event value="407" symbol="Wininet_WebSocketSession407" version="0" task="Wininet_WebSocketSession" level="win:Informational" template="Wininet_WebSocketSession407Args"/>
+     <event value="408" symbol="Wininet_WebSocketSession408" version="0" task="Wininet_WebSocketSession" level="win:Informational" template="Wininet_WebSocketSession406Args"/>
+     <event value="409" symbol="Wininet_WebSocketSession409" version="0" task="Wininet_WebSocketSession" level="win:Informational" template="Wininet_WebSocketSession407Args"/>
+     <event value="410" symbol="Wininet_WebSocketSession410" version="0" task="Wininet_WebSocketSession" level="win:Informational" template="Wininet_WebSocketSession406Args"/>
+     <event value="411" symbol="Wininet_WebSocketSession411" version="0" task="Wininet_WebSocketSession" level="win:Informational" template="Wininet_WebSocketSession406Args"/>
+     <event value="412" symbol="Wininet_WebSocketSession412" version="0" task="Wininet_WebSocketSession" level="win:Informational" template="Wininet_WebSocketSessionStartArgs"/>
+     <event value="413" symbol="Wininet_WebSocketSession413" version="0" task="Wininet_WebSocketSession" level="win:Informational" template="Wininet_WebSocketSessionStartArgs"/>
+     <event value="414" symbol="Wininet_WebSocketSession414" version="0" task="Wininet_WebSocketSession" level="win:Informational" keywords="WININET_KEYWORD_SEND keyword_20000000000 keyword_40000000000" template="Wininet_WebSocketSession414Args"/>
+     <event value="415" symbol="Wininet_WebSocketSession415" version="0" task="Wininet_WebSocketSession" level="win:Informational" keywords="WININET_KEYWORD_RECEIVE keyword_20000000000 keyword_40000000000" template="Wininet_WebSocketSession414Args"/>
+     <event value="416" symbol="Wininet_WebSocketSession416" version="0" task="Wininet_WebSocketSession" level="win:Informational" keywords="WININET_KEYWORD_SEND keyword_20000000000 keyword_40000000000" template="Wininet_WebSocketSession414Args"/>
+     <event value="417" symbol="Wininet_WebSocketSession417" version="0" task="Wininet_WebSocketSession" level="win:Informational" keywords="WININET_KEYWORD_RECEIVE keyword_20000000000 keyword_40000000000" template="Wininet_WebSocketSession414Args"/>
+     <event value="501" symbol="WININET_COOKIE_HEADER_RECEIVED" version="0" task="WININET_COOKIE_HEADER_RECEIVED" level="win:Informational" keywords="WININET_KEYWORD_COOKIES" template="WININET_COOKIE_HEADER_RECEIVEDArgs"/>
+     <event value="502" symbol="WININET_COOKIE_STORED" version="0" task="WININET_COOKIE_STORED" level="win:Verbose" keywords="WININET_KEYWORD_COOKIES" template="WININET_COOKIE_STOREDArgs"/>
+     <event value="503" symbol="WININET_COOKIE_DELETED" version="0" task="WININET_COOKIE_DELETED" level="win:Informational" keywords="WININET_KEYWORD_COOKIES" template="WININET_COOKIE_STOREDArgs"/>
+     <event value="504" symbol="WININET_COOKIE_BLOCKED" version="0" task="WININET_COOKIE_BLOCKED" level="win:Informational" keywords="WININET_KEYWORD_COOKIES" template="WININET_COOKIE_STOREDArgs"/>
+     <event value="505" symbol="WININET_COOKIE_P3P_REJECTED" version="0" task="WININET_COOKIE_P3P_REJECTED" level="win:Informational" keywords="WININET_KEYWORD_COOKIES" template="WININET_COOKIE_STOREDArgs"/>
+     <event value="506" symbol="WININET_COOKIE_REQUEST_HEADER_CREATED" version="0" task="WININET_COOKIE_REQUEST_HEADER_CREATED" level="win:Informational" keywords="WININET_KEYWORD_COOKIES" template="WININET_COOKIE_HEADER_RECEIVEDArgs"/>
+     <event value="507" symbol="WININET_COOKIE_ADDED_TO_HEADER" version="0" task="WININET_COOKIE_ADDED_TO_HEADER" level="win:Verbose" keywords="WININET_KEYWORD_COOKIES" template="WININET_COOKIE_STOREDArgs"/>
+     <event value="601" symbol="WININET_AUTH_RESPONSE_RECEIVED" version="0" task="WININET_AUTH_RESPONSE_RECEIVED" level="win:Informational" keywords="WININET_KEYWORD_AUTH" template="WININET_AUTH_RESPONSE_RECEIVEDArgs"/>
+     <event value="602" symbol="WININET_AUTH_CLIENT_SETS_USERNAME" version="0" task="WININET_AUTH_CLIENT_SETS_USERNAME" level="win:Informational" keywords="WININET_KEYWORD_AUTH" template="WININET_AUTH_CLIENT_SETS_USERNAMEArgs"/>
+     <event value="603" symbol="WININET_AUTH_CLIENT_SETS_PASSWORD" version="0" task="WININET_AUTH_CLIENT_SETS_PASSWORD" level="win:Informational" keywords="WININET_KEYWORD_AUTH" template="WININET_AUTH_CLIENT_SETS_USERNAMEArgs"/>
+     <event value="604" symbol="WININET_AUTH_USING_CACHED_CREDS" version="0" task="WININET_AUTH_USING_CACHED_CREDS" level="win:Informational" keywords="WININET_KEYWORD_AUTH" template="WININET_AUTH_CLIENT_SETS_USERNAMEArgs"/>
+     <event value="605" symbol="WININET_AUTH_USING_DEFAULT_CREDS" version="0" task="WININET_AUTH_USING_DEFAULT_CREDS" level="win:Informational" keywords="WININET_KEYWORD_AUTH" template="WININET_AUTH_CLIENT_SETS_USERNAMEArgs"/>
+     <event value="606" symbol="WININET_AUTH_CLIENT_ADD_HEADERS" version="0" task="WININET_AUTH_CLIENT_ADD_HEADERS" level="win:Informational" keywords="WININET_KEYWORD_AUTH" template="WININET_AUTH_RESPONSE_RECEIVEDArgs"/>
+     <event value="701" symbol="WININET_HTTPS_NEGOTIATIONStart" version="0" task="WININET_HTTPS_NEGOTIATION" opcode="win:Start" level="win:Informational" keywords="WININET_KEYWORD_HTTPS" template="WININET_HTTP_RESPONSE_BODY_RECEIVEDArgs"/>
+     <event value="702" symbol="WININET_HTTPS_NEGOTIATIONStop" version="0" task="WININET_HTTPS_NEGOTIATION" opcode="win:Stop" level="win:Informational" keywords="WININET_KEYWORD_HTTPS" template="WININET_HTTP_RESPONSE_BODY_RECEIVEDArgs"/>
+     <event value="703" symbol="WININET_HTTPS_NEGOTIATIONFail" version="0" task="WININET_HTTPS_NEGOTIATION" opcode="Fail" level="win:Error" keywords="WININET_KEYWORD_HTTPS WININET_KEYWORD_AOAC" template="WININET_HTTP_RESPONSE_BODY_READ_ERRORArgs"/>
+     <event value="704" symbol="WININET_HTTPS_SERVER_CERT_ERROR" version="0" task="WININET_HTTPS_SERVER_CERT_ERROR" level="win:Error" keywords="WININET_KEYWORD_HTTPS WININET_KEYWORD_AOAC" template="WININET_HTTP_RESPONSE_BODY_READ_ERRORArgs"/>
+     <event value="705" symbol="WININET_HTTPS_SERVER_CERT_VALIDATED" version="0" task="WININET_HTTPS_SERVER_CERT_VALIDATED" level="win:Informational" keywords="WININET_KEYWORD_HTTPS" template="WININET_HTTPS_SERVER_CERT_VALIDATEDArgs"/>
+     <event value="706" symbol="WININET_HTTPS_CLIENT_CERT_REQUIRED" version="0" task="WININET_HTTPS_CLIENT_CERT_REQUIRED" level="win:Informational" keywords="WININET_KEYWORD_HTTPS" template="WININET_HTTP_RESPONSE_BODY_RECEIVEDArgs"/>
+     <event value="707" symbol="WININET_HTTPS_CLIENT_CERT_UNAVAILABLE" version="0" task="WININET_HTTPS_CLIENT_CERT_UNAVAILABLE" level="win:Error" keywords="WININET_KEYWORD_HTTPS WININET_KEYWORD_AOAC" template="WININET_HTTP_RESPONSE_BODY_READ_ERRORArgs"/>
+     <event value="708" symbol="WININET_HTTPS_CLIENT_CERT_SELECTED" version="0" task="WININET_HTTPS_CLIENT_CERT_SELECTED" level="win:Informational" keywords="WININET_KEYWORD_HTTPS" template="WININET_HTTPS_CLIENT_CERT_SELECTEDArgs"/>
+     <event value="711" symbol="WININET_HTTPS_RENEGOTIATIONStart" version="0" task="WININET_HTTPS_RENEGOTIATION" opcode="win:Start" level="win:Informational" keywords="WININET_KEYWORD_HTTPS" template="WININET_HTTP_RESPONSE_BODY_RECEIVEDArgs"/>
+     <event value="712" symbol="WININET_HTTPS_RENEGOTIATIONStop" version="0" task="WININET_HTTPS_RENEGOTIATION" opcode="win:Stop" level="win:Informational" keywords="WININET_KEYWORD_HTTPS" template="WININET_HTTP_RESPONSE_BODY_RECEIVEDArgs"/>
+     <event value="713" symbol="WININET_HTTPS_RENEGOTIATIONFail" version="0" task="WININET_HTTPS_RENEGOTIATION" opcode="Fail" level="win:Error" keywords="WININET_KEYWORD_HTTPS WININET_KEYWORD_AOAC" template="WININET_HTTP_RESPONSE_BODY_READ_ERRORArgs"/>
+     <event value="801" symbol="WININET_AUTOPROXY_SEARCHStart" version="0" task="WININET_AUTOPROXY_SEARCH" opcode="win:Start" level="win:Informational" keywords="WININET_KEYWORD_AUTOPROXY" template="WININET_AUTOPROXY_SEARCHStartArgs"/>
+     <event value="801" symbol="WININET_AUTOPROXY_SEARCHStart_V1" version="1" task="WININET_AUTOPROXY_SEARCH" opcode="win:Start" level="win:Informational" keywords="WININET_KEYWORD_AUTOPROXY" template="WININET_AUTOPROXY_SEARCHStartArgs_V1"/>
+     <event value="802" symbol="WININET_AUTOPROXY_DHCPStart" version="0" task="WININET_AUTOPROXY_DHCP" opcode="win:Start" level="win:Verbose" keywords="WININET_KEYWORD_AUTOPROXY" template="WININET_AUTOPROXY_DHCPStartArgs"/>
+     <event value="802" symbol="WININET_AUTOPROXY_DHCPStart_V1" version="1" task="WININET_AUTOPROXY_DHCP" opcode="win:Start" level="win:Verbose" keywords="WININET_KEYWORD_AUTOPROXY" template="WININET_AUTOPROXY_DHCPStartArgs_V1"/>
+     <event value="803" symbol="WININET_AUTOPROXY_DHCPStop" version="0" task="WININET_AUTOPROXY_DHCP" opcode="win:Stop" level="win:Verbose" keywords="WININET_KEYWORD_AUTOPROXY" template="WININET_AUTOPROXY_DHCPStopArgs"/>
+     <event value="803" symbol="WININET_AUTOPROXY_DHCPStop_V1" version="1" task="WININET_AUTOPROXY_DHCP" opcode="win:Stop" level="win:Verbose" keywords="WININET_KEYWORD_AUTOPROXY" template="WININET_AUTOPROXY_DHCPStopArgs_V1"/>
+     <event value="804" symbol="WININET_AUTOPROXY_DHCPFail" version="0" task="WININET_AUTOPROXY_DHCP" opcode="Fail" level="win:Error" keywords="WININET_KEYWORD_AUTOPROXY WININET_KEYWORD_AOAC" template="WININET_AUTOPROXY_DHCPFailArgs"/>
+     <event value="804" symbol="WININET_AUTOPROXY_DHCPFail_V1" version="1" task="WININET_AUTOPROXY_DHCP" opcode="Fail" level="win:Error" keywords="WININET_KEYWORD_AUTOPROXY WININET_KEYWORD_AOAC" template="WININET_AUTOPROXY_DHCPFailArgs_V1"/>
+     <event value="805" symbol="WININET_AUTOPROXY_DNSStart" version="0" task="WININET_AUTOPROXY_DNS" opcode="win:Start" level="win:Verbose" keywords="WININET_KEYWORD_AUTOPROXY" template="WININET_AUTOPROXY_DNSStartArgs"/>
+     <event value="806" symbol="WININET_AUTOPROXY_DNSStop" version="0" task="WININET_AUTOPROXY_DNS" opcode="win:Stop" level="win:Verbose" keywords="WININET_KEYWORD_AUTOPROXY" template="WININET_AUTOPROXY_DNSStopArgs"/>
+     <event value="806" symbol="WININET_AUTOPROXY_DNSStop_V1" version="1" task="WININET_AUTOPROXY_DNS" opcode="win:Stop" level="win:Verbose" keywords="WININET_KEYWORD_AUTOPROXY" template="WININET_AUTOPROXY_DNSStopArgs_V1"/>
+     <event value="807" symbol="WININET_AUTOPROXY_DNSFail" version="0" task="WININET_AUTOPROXY_DNS" opcode="Fail" level="win:Error" keywords="WININET_KEYWORD_AUTOPROXY WININET_KEYWORD_AOAC" template="WININET_AUTOPROXY_DNSFailArgs"/>
+     <event value="808" symbol="WININET_AUTOPROXY_SEARCHFail" version="0" task="WININET_AUTOPROXY_SEARCH" opcode="Fail" level="win:Error" keywords="WININET_KEYWORD_AUTOPROXY WININET_KEYWORD_AOAC" template="WININET_AUTOPROXY_SEARCHFailArgs"/>
+     <event value="809" symbol="WININET_AUTOPROXY_DOWNLOADStart" version="0" task="WININET_AUTOPROXY_DOWNLOAD" opcode="win:Start" level="win:Informational" keywords="WININET_KEYWORD_AUTOPROXY" template="WININET_AUTOPROXY_DOWNLOADStartArgs"/>
+     <event value="809" symbol="WININET_AUTOPROXY_DOWNLOADStart_V1" version="1" task="WININET_AUTOPROXY_DOWNLOAD" opcode="win:Start" level="win:Informational" keywords="WININET_KEYWORD_AUTOPROXY" template="WININET_AUTOPROXY_DOWNLOADStartArgs_V1"/>
+     <event value="810" symbol="WININET_AUTOPROXY_DOWNLOADStop" version="0" task="WININET_AUTOPROXY_DOWNLOAD" opcode="win:Stop" level="win:Informational" keywords="WININET_KEYWORD_AUTOPROXY" template="WININET_AUTOPROXY_DOWNLOADStartArgs"/>
+     <event value="810" symbol="WININET_AUTOPROXY_DOWNLOADStop_V1" version="1" task="WININET_AUTOPROXY_DOWNLOAD" opcode="win:Stop" level="win:Informational" keywords="WININET_KEYWORD_AUTOPROXY" template="WININET_AUTOPROXY_DOWNLOADStartArgs_V1"/>
+     <event value="811" symbol="WININET_AUTOPROXY_DOWNLOADFail" version="0" task="WININET_AUTOPROXY_DOWNLOAD" opcode="Fail" level="win:Error" keywords="WININET_KEYWORD_AUTOPROXY WININET_KEYWORD_AOAC" template="WININET_AUTOPROXY_DOWNLOADFailArgs"/>
+     <event value="811" symbol="WININET_AUTOPROXY_DOWNLOADFail_V1" version="1" task="WININET_AUTOPROXY_DOWNLOAD" opcode="Fail" level="win:Error" keywords="WININET_KEYWORD_AUTOPROXY WININET_KEYWORD_AOAC" template="WININET_AUTOPROXY_DOWNLOADFailArgs_V1"/>
+     <event value="812" symbol="WININET_AUTOPROXY_DOWNLOADFail812" version="0" task="WININET_AUTOPROXY_DOWNLOAD" opcode="Fail" level="win:Error" keywords="WININET_KEYWORD_AUTOPROXY WININET_KEYWORD_AOAC" template="WININET_AUTOPROXY_DOWNLOADFail812Args"/>
+     <event value="812" symbol="WININET_AUTOPROXY_DOWNLOADFail812_V1" version="1" task="WININET_AUTOPROXY_DOWNLOAD" opcode="Fail" level="win:Error" keywords="WININET_KEYWORD_AUTOPROXY WININET_KEYWORD_AOAC" template="WININET_AUTOPROXY_DOWNLOADFail812Args_V1"/>
+     <event value="813" symbol="WININET_AUTOPROXY_FIND_INFO_FOR_URLStart" version="0" task="WININET_AUTOPROXY_FIND_INFO_FOR_URL" opcode="win:Start" level="win:Informational" keywords="WININET_KEYWORD_AUTOPROXY" template="WININET_AUTOPROXY_FIND_INFO_FOR_URLStartArgs"/>
+     <event value="813" symbol="WININET_AUTOPROXY_FIND_INFO_FOR_URLStart_V1" version="1" task="WININET_AUTOPROXY_FIND_INFO_FOR_URL" opcode="win:Start" level="win:Informational" keywords="WININET_KEYWORD_AUTOPROXY" template="WININET_AUTOPROXY_FIND_INFO_FOR_URLStartArgs_V1"/>
+     <event value="814" symbol="WININET_AUTOPROXY_FIND_INFO_FOR_URLStop" version="0" task="WININET_AUTOPROXY_FIND_INFO_FOR_URL" opcode="win:Stop" level="win:Informational" keywords="WININET_KEYWORD_AUTOPROXY" template="WININET_AUTOPROXY_FIND_INFO_FOR_URLStopArgs"/>
+     <event value="814" symbol="WININET_AUTOPROXY_FIND_INFO_FOR_URLStop_V1" version="1" task="WININET_AUTOPROXY_FIND_INFO_FOR_URL" opcode="win:Stop" level="win:Informational" keywords="WININET_KEYWORD_AUTOPROXY" template="WININET_AUTOPROXY_FIND_INFO_FOR_URLStopArgs_V1"/>
+     <event value="815" symbol="WININET_AUTOPROXY_FIND_INFO_FOR_URLFail" version="0" task="WININET_AUTOPROXY_FIND_INFO_FOR_URL" opcode="Fail" level="win:Error" keywords="WININET_KEYWORD_AUTOPROXY WININET_KEYWORD_AOAC" template="WININET_AUTOPROXY_FIND_INFO_FOR_URLFailArgs"/>
+     <event value="815" symbol="WININET_AUTOPROXY_FIND_INFO_FOR_URLFail_V1" version="1" task="WININET_AUTOPROXY_FIND_INFO_FOR_URL" opcode="Fail" level="win:Error" keywords="WININET_KEYWORD_AUTOPROXY WININET_KEYWORD_AOAC" template="WININET_AUTOPROXY_FIND_INFO_FOR_URLFailArgs_V1"/>
+     <event value="816" symbol="WININET_BLOCKING_AUTOPROXY_DETERMINATIONStart" version="0" task="WININET_BLOCKING_AUTOPROXY_DETERMINATION" opcode="win:Start" level="win:Informational" keywords="WININET_KEYWORD_AUTOPROXY"/>
+     <event value="817" symbol="WININET_BLOCKING_AUTOPROXY_DETERMINATIONStop" version="0" task="WININET_BLOCKING_AUTOPROXY_DETERMINATION" opcode="win:Stop" level="win:Informational" keywords="WININET_KEYWORD_AUTOPROXY"/>
+     <event value="818" symbol="WININET_TRANSFER" version="0" task="WININET_TRANSFER" level="win:Informational" keywords="WININET_KEYWORD_HANDLES"/>
+     <event value="819" symbol="WININET_AUTOPROXY_SWPAD" version="0" task="WININET_AUTOPROXY_SWPAD" level="win:Informational" keywords="WININET_KEYWORD_AUTOPROXY" template="WININET_AUTOPROXY_SWPADArgs"/>
+     <event value="820" symbol="WININET_AUTOPROXY_PERFTRACK_HOST_IP_LOOKUPStart" version="0" task="WININET_AUTOPROXY_PERFTRACK_HOST_IP_LOOKUP" opcode="win:Start" level="win:Informational" keywords="WININET_KEYWORD_AUTOPROXY"/>
+     <event value="821" symbol="WININET_AUTOPROXY_PERFTRACK_HOST_IP_LOOKUPStop" version="0" task="WININET_AUTOPROXY_PERFTRACK_HOST_IP_LOOKUP" opcode="win:Stop" level="win:Informational" keywords="WININET_KEYWORD_AUTOPROXY"/>
+     <event value="822" symbol="WININET_AUTOPROXY_PERFTRACK_SWPAD_LOOKUPStart" version="0" task="WININET_AUTOPROXY_PERFTRACK_SWPAD_LOOKUP" opcode="win:Start" level="win:Informational" keywords="WININET_KEYWORD_AUTOPROXY"/>
+     <event value="823" symbol="WININET_AUTOPROXY_PERFTRACK_SWPAD_LOOKUPStop" version="0" task="WININET_AUTOPROXY_PERFTRACK_SWPAD_LOOKUP" opcode="win:Stop" level="win:Informational" keywords="WININET_KEYWORD_AUTOPROXY"/>
+     <event value="824" symbol="WININET_AUTOPROXY_PERFTRACK_KNOWN_DETECTIONStart" version="0" task="WININET_AUTOPROXY_PERFTRACK_KNOWN_DETECTION" opcode="win:Start" level="win:Informational" keywords="WININET_KEYWORD_AUTOPROXY"/>
+     <event value="825" symbol="WININET_AUTOPROXY_PERFTRACK_KNOWN_DETECTIONStop" version="0" task="WININET_AUTOPROXY_PERFTRACK_KNOWN_DETECTION" opcode="win:Stop" level="win:Informational" keywords="WININET_KEYWORD_AUTOPROXY"/>
+     <event value="826" symbol="WININET_AUTOPROXY_PERFTRACK_UNKNOWN_DETECTIONStart" version="0" task="WININET_AUTOPROXY_PERFTRACK_UNKNOWN_DETECTION" opcode="win:Start" level="win:Informational" keywords="WININET_KEYWORD_AUTOPROXY"/>
+     <event value="827" symbol="WININET_AUTOPROXY_PERFTRACK_UNKNOWN_DETECTIONStop" version="0" task="WININET_AUTOPROXY_PERFTRACK_UNKNOWN_DETECTION" opcode="win:Stop" level="win:Informational" keywords="WININET_KEYWORD_AUTOPROXY"/>
+     <event value="828" symbol="WININET_AUTOPROXY_PERFTRACK_SCRIPT_DOWNLOADStart" version="0" task="WININET_AUTOPROXY_PERFTRACK_SCRIPT_DOWNLOAD" opcode="win:Start" level="win:Informational" keywords="WININET_KEYWORD_AUTOPROXY"/>
+     <event value="829" symbol="WININET_AUTOPROXY_PERFTRACK_SCRIPT_DOWNLOADStop" version="0" task="WININET_AUTOPROXY_PERFTRACK_SCRIPT_DOWNLOAD" opcode="win:Stop" level="win:Informational" keywords="WININET_KEYWORD_AUTOPROXY"/>
+     <event value="834" symbol="WININET_AUTOPROXY_PERFTRACK_ALLStart" version="0" task="WININET_AUTOPROXY_PERFTRACK_ALL" opcode="win:Start" level="win:Informational" keywords="WININET_KEYWORD_AUTOPROXY" template="WININET_AUTOPROXY_PERFTRACK_ALLStartArgs"/>
+     <event value="835" symbol="WININET_AUTOPROXY_PERFTRACK_ALLStop" version="0" task="WININET_AUTOPROXY_PERFTRACK_ALL" opcode="win:Stop" level="win:Informational" keywords="WININET_KEYWORD_AUTOPROXY" template="WININET_AUTOPROXY_PERFTRACK_ALLStartArgs"/>
+     <event value="901" symbol="WININET_APPLICATION_OFFLINE_CHECKStart" version="0" task="WININET_APPLICATION_OFFLINE_CHECK" opcode="win:Start" level="win:Informational" keywords="WININET_KEYWORD_MOBILE" template="WININET_APPLICATION_OFFLINE_CHECKStartArgs"/>
+     <event value="902" symbol="WININET_APPLICATION_OFFLINE_CHECKStop" version="0" task="WININET_APPLICATION_OFFLINE_CHECK" opcode="win:Stop" level="win:Informational" keywords="WININET_KEYWORD_MOBILE" template="WININET_APPLICATION_OFFLINE_CHECKStopArgs"/>
+     <event value="1000" symbol="WININET_TEST_EVENT" version="0" task="WININET_TEST_EVENT" level="win:Informational" keywords="WININET_KEYWORD_CONNECTION" template="WININET_TEST_EVENTArgs"/>
+     <event value="1007" symbol="Wininet_SendRequestStart" version="0" task="Wininet_SendRequest" opcode="win:Start" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_SendRequestStartArgs"/>
+     <event value="1008" symbol="Wininet_SendRequestStop" version="0" task="Wininet_SendRequest" opcode="win:Stop" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_SendRequestStopArgs"/>
+     <event value="1009" symbol="Wininet_OfflineCacheLookup" version="0" task="Wininet_OfflineCacheLookup" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_OfflineCacheLookupArgs"/>
+     <event value="1011" symbol="Wininet_OfflineCacheHit" version="0" task="Wininet_OfflineCacheHit" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_OfflineCacheLookupArgs"/>
+     <event value="1013" symbol="Wininet_OfflineCacheMiss" version="0" task="Wininet_OfflineCacheMiss" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_OfflineCacheLookupArgs"/>
+     <event value="1015" symbol="Wininet_PreNet_CacheLookup" version="0" task="Wininet_PreNet_CacheLookup" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_OfflineCacheLookupArgs"/>
+     <event value="1017" symbol="Wininet_PreNet_CacheHit" version="0" task="Wininet_PreNet_CacheHit" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_OfflineCacheLookupArgs"/>
+     <event value="1019" symbol="Wininet_PreNet_CacheMiss" version="0" task="Wininet_PreNet_CacheMiss" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_OfflineCacheLookupArgs"/>
+     <event value="1021" symbol="Wininet_PostNet_CacheLookup" version="0" task="Wininet_PostNet_CacheLookup" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_OfflineCacheLookupArgs"/>
+     <event value="1023" symbol="Wininet_PostNet_CacheHit" version="0" task="Wininet_PostNet_CacheHit" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_OfflineCacheLookupArgs"/>
+     <event value="1025" symbol="Wininet_PostNet_CacheMiss" version="0" task="Wininet_PostNet_CacheMiss" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_OfflineCacheLookupArgs"/>
+     <event value="1027" symbol="Wininet_AutodialIfNotLocalHostStart" version="0" task="Wininet_AutodialIfNotLocalHost" opcode="win:Start" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_AutodialIfNotLocalHostStartArgs"/>
+     <event value="1028" symbol="Wininet_AutodialIfNotLocalHostStop" version="0" task="Wininet_AutodialIfNotLocalHost" opcode="win:Stop" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_OfflineCacheLookupArgs"/>
+     <event value="1029" symbol="Wininet_ResolveHostStart" version="0" task="Wininet_ResolveHost" opcode="win:Start" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_AutodialIfNotLocalHostStartArgs"/>
+     <event value="1030" symbol="Wininet_ResolveHostStop" version="0" task="Wininet_ResolveHost" opcode="win:Stop" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_AutodialIfNotLocalHostStartArgs"/>
+     <event value="1031" symbol="Wininet_SendRequest_Main" version="0" task="Wininet_SendRequest_Main" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_SendRequest_MainArgs"/>
+     <event value="1033" symbol="Wininet_SendRequest_Extra" version="0" task="Wininet_SendRequest_Extra" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_SendRequest_MainArgs"/>
+     <event value="1035" symbol="Wininet_SendRequest_CRLF" version="0" task="Wininet_SendRequest_CRLF" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_SendRequest_MainArgs"/>
+     <event value="1037" symbol="Wininet_ReadData" version="0" task="Wininet_ReadData" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_SendRequest_MainArgs"/>
+     <event value="1039" symbol="Wininet_ReadDataPostReceiveBuf" version="0" task="Wininet_ReadDataPostReceiveBuf" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_SendRequest_MainArgs"/>
+     <event value="1041" symbol="Wininet_SendRequest_PostReceiveBuf" version="0" task="Wininet_SendRequest_PostReceiveBuf" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_SendRequest_MainArgs"/>
+     <event value="1043" symbol="Wininet_DrainResponsePostReceiveBuf" version="0" task="Wininet_DrainResponsePostReceiveBuf" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_SendRequest_MainArgs"/>
+     <event value="1045" symbol="Wininet_ConnectStart" version="0" task="Wininet_Connect" opcode="win:Start" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_OfflineCacheLookupArgs"/>
+     <event value="1046" symbol="Wininet_ConnectStop" version="0" task="Wininet_Connect" opcode="win:Stop" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_ConnectStopArgs"/>
+     <event value="1046" symbol="Wininet_ConnectStop_V1" version="1" task="Wininet_Connect" opcode="win:Stop" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_ConnectStopArgs_V1"/>
+     <event value="1047" symbol="Wininet_LookupConnectionStart" version="0" task="Wininet_LookupConnection" opcode="win:Start" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_OfflineCacheLookupArgs"/>
+     <event value="1048" symbol="Wininet_LookupConnectionStop" version="0" task="Wininet_LookupConnection" opcode="win:Stop" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_ConnectStopArgs"/>
+     <event value="1049" symbol="Wininet_Redirect" version="0" task="Wininet_Redirect" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_SendRequestStartArgs"/>
+     <event value="1051" symbol="Wininet_GetaddrinfoStart" version="0" task="Wininet_Getaddrinfo" opcode="win:Start" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_GetaddrinfoStartArgs"/>
+     <event value="1052" symbol="Wininet_GetaddrinfoStop" version="0" task="Wininet_Getaddrinfo" opcode="win:Stop" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_GetaddrinfoStopArgs"/>
+     <event value="1053" symbol="Wininet_DHCP_I252WPADStart" version="0" task="Wininet_DHCP_I252WPAD" opcode="win:Start" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_DHCP_I252WPADStartArgs"/>
+     <event value="1054" symbol="Wininet_DHCP_I252WPADStop" version="0" task="Wininet_DHCP_I252WPAD" opcode="win:Stop" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_DHCP_I252WPADStopArgs"/>
+     <event value="1055" symbol="Wininet_SelectStart" version="0" task="Wininet_Select" opcode="win:Start" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_SelectStartArgs"/>
+     <event value="1056" symbol="Wininet_SelectStop" version="0" task="Wininet_Select" opcode="win:Stop" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_SelectStartArgs"/>
+     <event value="1057" symbol="Wininet_UsageLogRequest" version="0" task="Wininet_UsageLogRequest" level="win:Informational" keywords="keyword_20000000000" template="Wininet_UsageLogRequestArgs"/>
+     <event value="1058" symbol="Wininet_UsageLogScavenge" version="0" task="Wininet_UsageLogScavenge" level="win:Informational" keywords="keyword_20000000000" template="Wininet_UsageLogScavengeArgs"/>
+     <event value="1059" symbol="Wininet_SocketConnectStart" version="0" task="Wininet_SocketConnect" opcode="win:Start" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_SocketConnectStartArgs"/>
+     <event value="1060" symbol="Wininet_SocketConnectStop" version="0" task="Wininet_SocketConnect" opcode="win:Stop" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_ConnectStopArgs"/>
+     <event value="1061" symbol="Wininet_AppCacheLookupStart" version="0" task="Wininet_AppCacheLookup" opcode="win:Start" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_AppCacheLookupStartArgs"/>
+     <event value="1062" symbol="Wininet_AppCacheLookupStop" version="0" task="Wininet_AppCacheLookup" opcode="win:Stop" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_AppCacheLookupStopArgs"/>
+     <event value="1063" symbol="Wininet_RequestPrioritySet" version="0" task="Wininet_RequestPrioritySet" level="win:Informational" keywords="WININET_KEYWORD_IE" template="Wininet_RequestPrioritySetArgs"/>
+     <event value="1064" symbol="WININET_STREAM_DATA_INDICATED" version="0" task="WININET_STREAM_DATA_INDICATED" level="win:Informational" keywords="WININET_KEYWORD_IE" template="WININET_STREAM_DATA_INDICATEDArgs"/>
+    </events>
+    <templates>
+     <template tid="WININET_ROOT_HANDLE_CREATEDArgs">
+      <data name="HINTERNET" inType="win:Pointer"/>
+      <data name="_UserAgentLength" inType="win:UInt16"/>
+      <data name="UserAgent" inType="win:AnsiString" length="_UserAgentLength"/>
+      <data name="_AccessTypeLength" inType="win:UInt16"/>
+      <data name="AccessType" inType="win:AnsiString" length="_AccessTypeLength"/>
+      <data name="_ProxyListLength" inType="win:UInt16"/>
+      <data name="ProxyList" inType="win:AnsiString" length="_ProxyListLength"/>
+      <data name="_ProxyBypassListLength" inType="win:UInt16"/>
+      <data name="ProxyBypassList" inType="win:AnsiString" length="_ProxyBypassListLength"/>
+      <data name="Flags" inType="win:UInt32"/>
+     </template>
+     <template tid="WININET_OPEN_URL_HANDLE_CREATEDArgs">
+      <data name="ConnectionHandle" inType="win:Pointer"/>
+      <data name="ParentHandle" inType="win:Pointer"/>
+      <data name="_URLLength" inType="win:UInt16"/>
+      <data name="URL" inType="win:AnsiString" length="_URLLength"/>
+      <data name="_HeadersLength" inType="win:UInt16"/>
+      <data name="Headers" inType="win:AnsiString" length="_HeadersLength"/>
+      <data name="Flags" inType="win:UInt32"/>
+     </template>
+     <template tid="WININET_CONNECT_HANDLE_CREATEDArgs">
+      <data name="ConnectionHandle" inType="win:Pointer"/>
+      <data name="ParentHandle" inType="win:Pointer"/>
+      <data name="_ServerNameLength" inType="win:UInt16"/>
+      <data name="ServerName" inType="win:AnsiString" length="_ServerNameLength"/>
+      <data name="ServerPort" inType="win:UInt32"/>
+      <data name="_ServiceLength" inType="win:UInt16"/>
+      <data name="Service" inType="win:AnsiString" length="_ServiceLength"/>
+      <data name="Flags" inType="win:UInt32"/>
+     </template>
+     <template tid="WININET_HTTP_REQUEST_HANDLE_CREATEDArgs">
+      <data name="ConnectionHandle" inType="win:Pointer"/>
+      <data name="ParentHandle" inType="win:Pointer"/>
+      <data name="_VerbLength" inType="win:UInt16"/>
+      <data name="Verb" inType="win:AnsiString" length="_VerbLength"/>
+      <data name="_ObjectNameLength" inType="win:UInt16"/>
+      <data name="ObjectName" inType="win:AnsiString" length="_ObjectNameLength"/>
+      <data name="_VersionLength" inType="win:UInt16"/>
+      <data name="Version" inType="win:AnsiString" length="_VersionLength"/>
+      <data name="_ReferrerLength" inType="win:UInt32"/>
+      <data name="Referrer" inType="win:AnsiString" length="_ReferrerLength"/>
+      <data name="_AcceptTypesLength" inType="win:UInt16"/>
+      <data name="AcceptTypes" inType="win:AnsiString" length="_AcceptTypesLength"/>
+      <data name="Flags" inType="win:UInt32"/>
+     </template>
+     <template tid="WININET_HANDLE_CLOSEDArgs">
+      <data name="HINTERNET" inType="win:Pointer"/>
+     </template>
+     <template tid="WININET_HANDLE_CREATE_FAILEDArgs">
+      <data name="HINTERNET" inType="win:Pointer"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="WININET_HTTP_REQUEST_HANDLE_CREATED108Args">
+      <data name="ConnectionHandle" inType="win:Pointer"/>
+      <data name="_ServerNameLength" inType="win:UInt16"/>
+      <data name="ServerName" inType="win:AnsiString" length="_ServerNameLength"/>
+      <data name="ServerPort" inType="win:UInt32"/>
+      <data name="_ServiceLength" inType="win:UInt16"/>
+      <data name="Service" inType="win:AnsiString" length="_ServiceLength"/>
+     </template>
+     <template tid="WININET_HTTP_REQUESTStopArgs">
+      <data name="RequestHandle" inType="win:Pointer"/>
+      <data name="SocketHandle" inType="win:Pointer"/>
+      <data name="_VerbLength" inType="win:UInt16"/>
+      <data name="Verb" inType="win:AnsiString" length="_VerbLength"/>
+      <data name="Cookie" inType="win:Boolean"/>
+     </template>
+     <template tid="WININET_HTTP_REQUESTFailArgs">
+      <data name="Handle" inType="win:Pointer"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="WININET_HTTP_RESPONSEStopArgs">
+      <data name="ResponseCode" inType="win:Int32"/>
+      <data name="RequestHandle" inType="win:Pointer"/>
+      <data name="SocketHandle" inType="win:Pointer"/>
+      <data name="_VerbLength" inType="win:UInt16"/>
+      <data name="Verb" inType="win:AnsiString" length="_VerbLength"/>
+      <data name="_ContentLengthStrLength" inType="win:UInt16"/>
+      <data name="ContentLength" inType="win:AnsiString" length="_ContentLengthStrLength"/>
+     </template>
+     <template tid="WININET_HTTP_CONNECTION_CLOSEDArgs">
+      <data name="ConnectionHandle" inType="win:Pointer"/>
+      <data name="SocketHandle" inType="win:Pointer"/>
+      <data name="_ReasonLength" inType="win:UInt16"/>
+      <data name="Reason" inType="win:AnsiString" length="_ReasonLength"/>
+     </template>
+     <template tid="WININET_KEEP_ALIVE_CONNECTION_REUSEDArgs">
+      <data name="ConnectionHandle" inType="win:Pointer"/>
+      <data name="SocketHandle" inType="win:Pointer"/>
+     </template>
+     <template tid="WININET_HTTP_RESPONSE_BODY_RECEIVEDArgs">
+      <data name="RequestHandle" inType="win:Pointer"/>
+     </template>
+     <template tid="WININET_REQUEST_HEADERArgs">
+      <data name="RequestHandle" inType="win:Pointer"/>
+      <data name="Length" inType="win:UInt16"/>
+      <data name="Headers" inType="win:AnsiString" length="Length"/>
+     </template>
+     <template tid="WININET_HTTP_RESPONSE_BODY_READ_ERRORArgs">
+      <data name="RequestHandle" inType="win:Pointer"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="WININET_TCP_CONNECTIONStartArgs">
+      <data name="_ServerNameLength" inType="win:UInt16"/>
+      <data name="ServerName" inType="win:AnsiString" length="_ServerNameLength"/>
+      <data name="ConnectionHandle" inType="win:Pointer"/>
+      <data name="SocketHandle" inType="win:Pointer"/>
+      <data name="LocalPort" inType="win:UInt32"/>
+     </template>
+     <template tid="WININET_TCP_CONNECTIONFailArgs">
+      <data name="_ServerNameLength" inType="win:UInt16"/>
+      <data name="ServerName" inType="win:AnsiString" length="_ServerNameLength"/>
+      <data name="ConnectionHandle" inType="win:Pointer"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="WININET_TCP_CONNECTIONStopArgs">
+      <data name="SocketHandle" inType="win:Pointer"/>
+     </template>
+     <template tid="WININET_DNS_QUERYStartArgs">
+      <data name="_HostNameLength" inType="win:UInt16"/>
+      <data name="HostName" inType="win:AnsiString" length="_HostNameLength"/>
+      <data name="RequestHandle" inType="win:Pointer"/>
+     </template>
+     <template tid="WININET_DNS_QUERYStopArgs">
+      <data name="_HostNameLength" inType="win:UInt16"/>
+      <data name="HostName" inType="win:AnsiString" length="_HostNameLength"/>
+      <data name="RequestHandle" inType="win:Pointer"/>
+      <data name="_AddressListLength" inType="win:UInt16"/>
+      <data name="AddressList" inType="win:AnsiString" length="_AddressListLength"/>
+     </template>
+     <template tid="WININET_DNS_QUERYFailArgs">
+      <data name="_HostNameLength" inType="win:UInt16"/>
+      <data name="HostName" inType="win:AnsiString" length="_HostNameLength"/>
+      <data name="RequestHandle" inType="win:Pointer"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="WININET_NETWORK_CHANGE_DETECTEDArgs">
+      <data name="Handle" inType="win:Pointer"/>
+     </template>
+     <template tid="Wininet_WebSocketUpgradeArgs">
+      <data name="CorrelationID" inType="win:GUID"/>
+      <data name="InternetFlags" inType="win:UInt32"/>
+      <data name="Length" inType="win:UInt16"/>
+      <data name="Headers" inType="win:AnsiString" length="Length"/>
+     </template>
+     <template tid="Wininet_WebSocketUpgrade401Args">
+      <data name="CorrelationID" inType="win:GUID"/>
+      <data name="ResponseCode" inType="win:Int32"/>
+      <data name="Length" inType="win:UInt16"/>
+      <data name="Headers" inType="win:AnsiString" length="Length"/>
+     </template>
+     <template tid="Wininet_WebSocketSessionStartArgs">
+      <data name="CorrelationID" inType="win:GUID"/>
+     </template>
+     <template tid="Wininet_WebSocketSessionStopArgs">
+      <data name="CorrelationID" inType="win:GUID"/>
+      <data name="Status" inType="win:UInt16"/>
+     </template>
+     <template tid="Wininet_WebSocketSessionArgs">
+      <data name="CorrelationID" inType="win:GUID"/>
+      <data name="Length" inType="win:Int64"/>
+      <data name="TruncatedLength" inType="win:UInt16"/>
+      <data name="TruncatedData" inType="win:UnicodeString" length="TruncatedLength"/>
+     </template>
+     <template tid="Wininet_WebSocketSession406Args">
+      <data name="CorrelationID" inType="win:GUID"/>
+      <data name="Length" inType="win:Int64"/>
+     </template>
+     <template tid="Wininet_WebSocketSession407Args">
+      <data name="CorrelationID" inType="win:GUID"/>
+      <data name="Status" inType="win:UInt16"/>
+      <data name="Length" inType="win:UInt32"/>
+      <data name="Reason" inType="win:AnsiString" length="Length"/>
+     </template>
+     <template tid="Wininet_WebSocketSession414Args">
+      <data name="CorrelationID" inType="win:GUID"/>
+      <data name="SequenceNumber" inType="win:UInt32"/>
+      <data name="PayloadByteLength" inType="win:UInt32"/>
+      <data name="Payload" inType="win:Binary" length="PayloadByteLength"/>
+     </template>
+     <template tid="WININET_COOKIE_HEADER_RECEIVEDArgs">
+      <data name="URLLength" inType="win:UInt32"/>
+      <data name="URL" inType="win:AnsiString" length="URLLength"/>
+     </template>
+     <template tid="WININET_COOKIE_STOREDArgs">
+      <data name="_DomainLength" inType="win:UInt16"/>
+      <data name="Domain" inType="win:AnsiString" length="_DomainLength"/>
+      <data name="_PathLength" inType="win:UInt16"/>
+      <data name="Path" inType="win:AnsiString" length="_PathLength"/>
+      <data name="_NameLength" inType="win:UInt16"/>
+      <data name="Name" inType="win:AnsiString" length="_NameLength"/>
+      <data name="_ValueLength" inType="win:UInt16"/>
+      <data name="Value" inType="win:AnsiString" length="_ValueLength"/>
+     </template>
+     <template tid="WININET_AUTH_RESPONSE_RECEIVEDArgs">
+      <data name="RequestHandle" inType="win:Pointer"/>
+      <data name="_SchemeLength" inType="win:UInt16"/>
+      <data name="Scheme" inType="win:AnsiString" length="_SchemeLength"/>
+      <data name="IsProxy" inType="win:Boolean"/>
+     </template>
+     <template tid="WININET_AUTH_CLIENT_SETS_USERNAMEArgs">
+      <data name="RequestHandle" inType="win:Pointer"/>
+      <data name="IsProxy" inType="win:Boolean"/>
+     </template>
+     <template tid="WININET_HTTPS_SERVER_CERT_VALIDATEDArgs">
+      <data name="RequestHandle" inType="win:Pointer"/>
+      <data name="_CertHashLength" inType="win:UInt16"/>
+      <data name="CertHash" inType="win:AnsiString" length="_CertHashLength"/>
+      <data name="WarningFlags" inType="win:UInt32"/>
+     </template>
+     <template tid="WININET_HTTPS_CLIENT_CERT_SELECTEDArgs">
+      <data name="RequestHandle" inType="win:Pointer"/>
+      <data name="_CertHashLength" inType="win:UInt16"/>
+      <data name="CertHash" inType="win:AnsiString" length="_CertHashLength"/>
+     </template>
+     <template tid="WININET_AUTOPROXY_SEARCHStartArgs">
+      <data name="_ConnectionNameLength" inType="win:UInt16"/>
+      <data name="ConnectionName" inType="win:AnsiString" length="_ConnectionNameLength"/>
+      <data name="DetectFlags" inType="win:UInt32"/>
+     </template>
+     <template tid="WININET_AUTOPROXY_DHCPStartArgs">
+      <data name="_InterfaceLength" inType="win:UInt16"/>
+      <data name="Interface" inType="win:AnsiString" length="_InterfaceLength"/>
+     </template>
+     <template tid="WININET_AUTOPROXY_DHCPStopArgs">
+      <data name="_InterfaceLength" inType="win:UInt16"/>
+      <data name="Interface" inType="win:AnsiString" length="_InterfaceLength"/>
+      <data name="_ConfigurationURLLength" inType="win:UInt16"/>
+      <data name="ConfigurationURL" inType="win:AnsiString" length="_ConfigurationURLLength"/>
+     </template>
+     <template tid="WININET_AUTOPROXY_DHCPFailArgs">
+      <data name="_InterfaceLength" inType="win:UInt16"/>
+      <data name="Interface" inType="win:AnsiString" length="_InterfaceLength"/>
+      <data name="_ConfigurationURLLength" inType="win:UInt16"/>
+      <data name="ConfigurationURL" inType="win:AnsiString" length="_ConfigurationURLLength"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="WININET_AUTOPROXY_DNSStartArgs">
+      <data name="DetectFlags" inType="win:UInt32"/>
+     </template>
+     <template tid="WININET_AUTOPROXY_DNSStopArgs">
+      <data name="_ConfigurationURLLength" inType="win:UInt16"/>
+      <data name="ConfigurationURL" inType="win:AnsiString" length="_ConfigurationURLLength"/>
+      <data name="DetectFlags" inType="win:UInt32"/>
+     </template>
+     <template tid="WININET_AUTOPROXY_DNSFailArgs">
+      <data name="DetectFlags" inType="win:UInt32"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="WININET_AUTOPROXY_SEARCHFailArgs">
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="WININET_AUTOPROXY_DOWNLOADStartArgs">
+      <data name="_ConfigurationURLLength" inType="win:UInt16"/>
+      <data name="ConfigurationURL" inType="win:AnsiString" length="_ConfigurationURLLength"/>
+     </template>
+     <template tid="WININET_AUTOPROXY_DOWNLOADFailArgs">
+      <data name="_ConfigurationURLLength" inType="win:UInt16"/>
+      <data name="ConfigurationURL" inType="win:AnsiString" length="_ConfigurationURLLength"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="WININET_AUTOPROXY_DOWNLOADFail812Args">
+      <data name="_ConfigurationURLLength" inType="win:UInt16"/>
+      <data name="ConfigurationURL" inType="win:AnsiString" length="_ConfigurationURLLength"/>
+      <data name="_MIMETypeLength" inType="win:UInt16"/>
+      <data name="MIMEType" inType="win:AnsiString" length="_MIMETypeLength"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="WININET_AUTOPROXY_FIND_INFO_FOR_URLStartArgs">
+      <data name="_URLLength" inType="win:UInt16"/>
+      <data name="URL" inType="win:AnsiString" length="_URLLength"/>
+     </template>
+     <template tid="WININET_AUTOPROXY_FIND_INFO_FOR_URLStopArgs">
+      <data name="_URLLength" inType="win:UInt16"/>
+      <data name="URL" inType="win:AnsiString" length="_URLLength"/>
+      <data name="_ProxyStringLength" inType="win:UInt16"/>
+      <data name="ProxyString" inType="win:AnsiString" length="_ProxyStringLength"/>
+     </template>
+     <template tid="WININET_AUTOPROXY_FIND_INFO_FOR_URLFailArgs">
+      <data name="_URLLength" inType="win:UInt16"/>
+      <data name="URL" inType="win:AnsiString" length="_URLLength"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="WININET_AUTOPROXY_SWPADArgs">
+      <data name="WPADNetworkDecision" inType="win:UInt32" map="mapWPADNetworkDecision"/>
+      <data name="NetworkCount" inType="win:UInt32"/>
+     </template>
+     <template tid="WININET_AUTOPROXY_PERFTRACK_ALLStartArgs">
+      <data name="UniqueId" inType="win:UInt32"/>
+     </template>
+     <template tid="WININET_APPLICATION_OFFLINE_CHECKStartArgs">
+      <data name="AppPackageSid" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WININET_APPLICATION_OFFLINE_CHECKStopArgs">
+      <data name="Result" inType="win:UInt32"/>
+      <data name="Offline" inType="win:Boolean"/>
+     </template>
+     <template tid="WININET_TEST_EVENTArgs">
+      <data name="_TestStr0Length" inType="win:UInt8"/>
+      <data name="TestStr0" inType="win:AnsiString" length="_TestStr0Length"/>
+      <data name="_TestStr1Length" inType="win:UInt16"/>
+      <data name="TestStr1" inType="win:AnsiString" length="_TestStr1Length"/>
+      <data name="_TestStr2Length" inType="win:UInt32"/>
+      <data name="TestStr2" inType="win:AnsiString" length="_TestStr2Length"/>
+      <data name="_TestStr0WLength" inType="win:UInt8"/>
+      <data name="TestStr0W" inType="win:UnicodeString" length="_TestStr0WLength"/>
+      <data name="_TestStr1WLength" inType="win:UInt16"/>
+      <data name="TestStr1W" inType="win:UnicodeString" length="_TestStr1WLength"/>
+      <data name="_TestStr2WLength" inType="win:UInt32"/>
+      <data name="TestStr2W" inType="win:UnicodeString" length="_TestStr2WLength"/>
+      <data name="TestStrLength" inType="win:UInt16"/>
+      <data name="TestStr" inType="win:AnsiString" length="TestStrLength"/>
+      <data name="TestStrWLength" inType="win:UInt16"/>
+      <data name="TestStrW" inType="win:UnicodeString" length="TestStrWLength"/>
+     </template>
+     <template tid="Wininet_SendRequestStartArgs">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="AddressName" inType="win:AnsiString"/>
+     </template>
+     <template tid="Wininet_SendRequestStopArgs">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="StatusLineLength" inType="win:UInt32"/>
+      <data name="StatusLine" inType="win:AnsiString" length="StatusLineLength"/>
+     </template>
+     <template tid="Wininet_OfflineCacheLookupArgs">
+      <data name="Request" inType="win:Pointer"/>
+     </template>
+     <template tid="Wininet_AutodialIfNotLocalHostStartArgs">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="HostName" inType="win:AnsiString"/>
+     </template>
+     <template tid="Wininet_SendRequest_MainArgs">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="Size" inType="win:UInt32"/>
+     </template>
+     <template tid="Wininet_ConnectStopArgs">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="Socket" inType="win:UInt32"/>
+     </template>
+     <template tid="Wininet_GetaddrinfoStartArgs">
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="AddressName" inType="win:AnsiString"/>
+     </template>
+     <template tid="Wininet_GetaddrinfoStopArgs">
+      <data name="error" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="AddressName" inType="win:AnsiString"/>
+     </template>
+     <template tid="Wininet_DHCP_I252WPADStartArgs">
+      <data name="Order" inType="win:UInt32"/>
+      <data name="AddressName" inType="win:AnsiString"/>
+     </template>
+     <template tid="Wininet_DHCP_I252WPADStopArgs">
+      <data name="error" inType="win:UInt32"/>
+      <data name="AddressName" inType="win:AnsiString"/>
+     </template>
+     <template tid="Wininet_SelectStartArgs">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="Flags" inType="win:UInt32"/>
+     </template>
+     <template tid="Wininet_UsageLogRequestArgs">
+      <data name="URL" inType="win:AnsiString"/>
+      <data name="Verb" inType="win:AnsiString"/>
+      <data name="RequestHeaders" inType="win:AnsiString"/>
+      <data name="ResponseHeaders" inType="win:AnsiString"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="UsageLogRequestCache" inType="win:UInt32" map="mapUsageLogRequestCache"/>
+     </template>
+     <template tid="Wininet_UsageLogScavengeArgs">
+      <data name="URL" inType="win:AnsiString"/>
+     </template>
+     <template tid="Wininet_SocketConnectStartArgs">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="Socket" inType="win:UInt32"/>
+      <data name="SourcePort" inType="win:UInt32"/>
+      <data name="RemoteAddressIndex" inType="win:UInt32"/>
+     </template>
+     <template tid="Wininet_AppCacheLookupStartArgs">
+      <data name="URL" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Wininet_AppCacheLookupStopArgs">
+      <data name="ManifestURL" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Wininet_RequestPrioritySetArgs">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="OldPriority" inType="win:Int32"/>
+      <data name="NewPriority" inType="win:Int32"/>
+     </template>
+     <template tid="WININET_STREAM_DATA_INDICATEDArgs">
+      <data name="RequestHandle" inType="win:Pointer"/>
+      <data name="StreamId" inType="win:UInt32"/>
+      <data name="Size" inType="win:UInt32"/>
+      <data name="Headers" inType="win:Boolean"/>
+     </template>
+     <template tid="WININET_HTTP_REQUESTStartArgs_V1">
+      <data name="HINTERNET" inType="win:Pointer"/>
+      <data name="Context" inType="win:Pointer"/>
+     </template>
+     <template tid="WININET_AUTOPROXY_SEARCHStartArgs_V1">
+      <data name="_ConnectionNameLength" inType="win:UInt16"/>
+      <data name="ConnectionName" inType="win:UnicodeString" length="_ConnectionNameLength"/>
+      <data name="DetectFlags" inType="win:UInt32"/>
+     </template>
+     <template tid="WININET_AUTOPROXY_DHCPStartArgs_V1">
+      <data name="_InterfaceLength" inType="win:UInt16"/>
+      <data name="Interface" inType="win:UnicodeString" length="_InterfaceLength"/>
+     </template>
+     <template tid="WININET_AUTOPROXY_DHCPStopArgs_V1">
+      <data name="_InterfaceLength" inType="win:UInt16"/>
+      <data name="Interface" inType="win:UnicodeString" length="_InterfaceLength"/>
+      <data name="_ConfigurationURLLength" inType="win:UInt16"/>
+      <data name="ConfigurationURL" inType="win:UnicodeString" length="_ConfigurationURLLength"/>
+     </template>
+     <template tid="WININET_AUTOPROXY_DHCPFailArgs_V1">
+      <data name="_InterfaceLength" inType="win:UInt16"/>
+      <data name="Interface" inType="win:UnicodeString" length="_InterfaceLength"/>
+      <data name="_ConfigurationURLLength" inType="win:UInt16"/>
+      <data name="ConfigurationURL" inType="win:UnicodeString" length="_ConfigurationURLLength"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="WININET_AUTOPROXY_DNSStopArgs_V1">
+      <data name="_ConfigurationURLLength" inType="win:UInt16"/>
+      <data name="ConfigurationURL" inType="win:UnicodeString" length="_ConfigurationURLLength"/>
+      <data name="DetectFlags" inType="win:UInt32"/>
+     </template>
+     <template tid="WININET_AUTOPROXY_DOWNLOADStartArgs_V1">
+      <data name="_ConfigurationURLLength" inType="win:UInt16"/>
+      <data name="ConfigurationURL" inType="win:UnicodeString" length="_ConfigurationURLLength"/>
+     </template>
+     <template tid="WININET_AUTOPROXY_DOWNLOADFailArgs_V1">
+      <data name="_ConfigurationURLLength" inType="win:UInt16"/>
+      <data name="ConfigurationURL" inType="win:UnicodeString" length="_ConfigurationURLLength"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="WININET_AUTOPROXY_DOWNLOADFail812Args_V1">
+      <data name="_ConfigurationURLLength" inType="win:UInt16"/>
+      <data name="ConfigurationURL" inType="win:UnicodeString" length="_ConfigurationURLLength"/>
+      <data name="_MIMETypeLength" inType="win:UInt16"/>
+      <data name="MIMEType" inType="win:UnicodeString" length="_MIMETypeLength"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="WININET_AUTOPROXY_FIND_INFO_FOR_URLStartArgs_V1">
+      <data name="_URLLength" inType="win:UInt16"/>
+      <data name="URL" inType="win:UnicodeString" length="_URLLength"/>
+     </template>
+     <template tid="WININET_AUTOPROXY_FIND_INFO_FOR_URLStopArgs_V1">
+      <data name="_URLLength" inType="win:UInt16"/>
+      <data name="URL" inType="win:UnicodeString" length="_URLLength"/>
+      <data name="_ProxyStringLength" inType="win:UInt16"/>
+      <data name="ProxyString" inType="win:UnicodeString" length="_ProxyStringLength"/>
+     </template>
+     <template tid="WININET_AUTOPROXY_FIND_INFO_FOR_URLFailArgs_V1">
+      <data name="_URLLength" inType="win:UInt16"/>
+      <data name="URL" inType="win:UnicodeString" length="_URLLength"/>
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="Wininet_ConnectStopArgs_V1">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="Socket" inType="win:UInt32"/>
+      <data name="Protocol" inType="win:UInt32" map="maphttpProtocolType"/>
+      <data name="LocalAddressLength" inType="win:UInt32"/>
+      <data name="LocalAddress" inType="win:Binary" length="LocalAddressLength"/>
+      <data name="RemoteAddressLength" inType="win:UInt32"/>
+      <data name="RemoteAddress" inType="win:Binary" length="RemoteAddressLength"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_WININET_KEYWORD_HANDLES" value="WININET_KEYWORD_HANDLES"/>
+    <string id="keyword_WININET_KEYWORD_HTTP" value="WININET_KEYWORD_HTTP"/>
+    <string id="keyword_WININET_KEYWORD_CONNECTION" value="WININET_KEYWORD_CONNECTION"/>
+    <string id="keyword_WININET_KEYWORD_AUTH" value="WININET_KEYWORD_AUTH"/>
+    <string id="keyword_WININET_KEYWORD_HTTPS" value="WININET_KEYWORD_HTTPS"/>
+    <string id="keyword_WININET_KEYWORD_AUTOPROXY" value="WININET_KEYWORD_AUTOPROXY"/>
+    <string id="keyword_WININET_KEYWORD_COOKIES" value="WININET_KEYWORD_COOKIES"/>
+    <string id="keyword_WININET_KEYWORD_IE" value="WININET_KEYWORD_IE"/>
+    <string id="keyword_WININET_KEYWORD_AOAC" value="WININET_KEYWORD_AOAC"/>
+    <string id="keyword_WININET_KEYWORD_SEND" value="WININET_KEYWORD_SEND"/>
+    <string id="keyword_WININET_KEYWORD_RECEIVE" value="WININET_KEYWORD_RECEIVE"/>
+    <string id="keyword_WININET_KEYWORD_MOBILE" value="WININET_KEYWORD_MOBILE"/>
+    <string id="keyword_keyword_20000000000" value="keyword_20000000000"/>
+    <string id="keyword_keyword_40000000000" value="keyword_40000000000"/>
+    <string id="task_WININET_ROOT_HANDLE_CREATED" value="WININET_ROOT_HANDLE_CREATED"/>
+    <string id="task_WININET_OPEN_URL_HANDLE_CREATED" value="WININET_OPEN_URL_HANDLE_CREATED"/>
+    <string id="task_WININET_CONNECT_HANDLE_CREATED" value="WININET_CONNECT_HANDLE_CREATED"/>
+    <string id="task_WININET_HTTP_REQUEST_HANDLE_CREATED" value="WININET_HTTP_REQUEST_HANDLE_CREATED"/>
+    <string id="task_WININET_HANDLE_CLOSED" value="WININET_HANDLE_CLOSED"/>
+    <string id="task_WININET_HANDLE_CREATE_FAILED" value="WININET_HANDLE_CREATE_FAILED"/>
+    <string id="task_WININET_HANDLE_CLOSE_FAILED" value="WININET_HANDLE_CLOSE_FAILED"/>
+    <string id="task_WININET_HTTP_REQUEST" value="WININET_HTTP_REQUEST"/>
+    <string id="opcode_WININET_HTTP_REQUESTFail" value="Fail"/>
+    <string id="task_WININET_HTTP_RESPONSE" value="WININET_HTTP_RESPONSE"/>
+    <string id="opcode_WININET_HTTP_RESPONSEFail" value="Fail"/>
+    <string id="task_WININET_HTTP_CONNECTION_CLOSED" value="WININET_HTTP_CONNECTION_CLOSED"/>
+    <string id="task_WININET_KEEP_ALIVE_CONNECTION_REUSED" value="WININET_KEEP_ALIVE_CONNECTION_REUSED"/>
+    <string id="task_WININET_KEEP_ALIVE_CONNECTION_POOLED" value="WININET_KEEP_ALIVE_CONNECTION_POOLED"/>
+    <string id="task_WININET_KEEP_ALIVE_CONNECTION_CLOSED" value="WININET_KEEP_ALIVE_CONNECTION_CLOSED"/>
+    <string id="task_WININET_HTTP_RESPONSE_BODY_RECEIVED" value="WININET_HTTP_RESPONSE_BODY_RECEIVED"/>
+    <string id="task_WININET_TCP_CONNECTION" value="WININET_TCP_CONNECTION"/>
+    <string id="opcode_WININET_TCP_CONNECTIONFail" value="Fail"/>
+    <string id="task_WININET_DNS_QUERY" value="WININET_DNS_QUERY"/>
+    <string id="opcode_WININET_DNS_QUERYFail" value="Fail"/>
+    <string id="task_WININET_NETWORK_CHANGE_DETECTED" value="WININET_NETWORK_CHANGE_DETECTED"/>
+    <string id="task_WININET_COOKIE_HEADER_RECEIVED" value="WININET_COOKIE_HEADER_RECEIVED"/>
+    <string id="task_WININET_COOKIE_STORED" value="WININET_COOKIE_STORED"/>
+    <string id="task_WININET_COOKIE_DELETED" value="WININET_COOKIE_DELETED"/>
+    <string id="task_WININET_COOKIE_BLOCKED" value="WININET_COOKIE_BLOCKED"/>
+    <string id="task_WININET_COOKIE_P3P_REJECTED" value="WININET_COOKIE_P3P_REJECTED"/>
+    <string id="task_WININET_COOKIE_REQUEST_HEADER_CREATED" value="WININET_COOKIE_REQUEST_HEADER_CREATED"/>
+    <string id="task_WININET_COOKIE_ADDED_TO_HEADER" value="WININET_COOKIE_ADDED_TO_HEADER"/>
+    <string id="task_WININET_AUTH_RESPONSE_RECEIVED" value="WININET_AUTH_RESPONSE_RECEIVED"/>
+    <string id="task_WININET_AUTH_CLIENT_SETS_USERNAME" value="WININET_AUTH_CLIENT_SETS_USERNAME"/>
+    <string id="task_WININET_AUTH_CLIENT_SETS_PASSWORD" value="WININET_AUTH_CLIENT_SETS_PASSWORD"/>
+    <string id="task_WININET_AUTH_USING_CACHED_CREDS" value="WININET_AUTH_USING_CACHED_CREDS"/>
+    <string id="task_WININET_AUTH_USING_DEFAULT_CREDS" value="WININET_AUTH_USING_DEFAULT_CREDS"/>
+    <string id="task_WININET_AUTH_CLIENT_ADD_HEADERS" value="WININET_AUTH_CLIENT_ADD_HEADERS"/>
+    <string id="task_WININET_HTTPS_NEGOTIATION" value="WININET_HTTPS_NEGOTIATION"/>
+    <string id="opcode_WININET_HTTPS_NEGOTIATIONFail" value="Fail"/>
+    <string id="task_WININET_HTTPS_SERVER_CERT_ERROR" value="WININET_HTTPS_SERVER_CERT_ERROR"/>
+    <string id="task_WININET_HTTPS_SERVER_CERT_VALIDATED" value="WININET_HTTPS_SERVER_CERT_VALIDATED"/>
+    <string id="task_WININET_HTTPS_CLIENT_CERT_REQUIRED" value="WININET_HTTPS_CLIENT_CERT_REQUIRED"/>
+    <string id="task_WININET_HTTPS_CLIENT_CERT_UNAVAILABLE" value="WININET_HTTPS_CLIENT_CERT_UNAVAILABLE"/>
+    <string id="task_WININET_HTTPS_CLIENT_CERT_SELECTED" value="WININET_HTTPS_CLIENT_CERT_SELECTED"/>
+    <string id="task_WININET_HTTPS_RENEGOTIATION" value="WININET_HTTPS_RENEGOTIATION"/>
+    <string id="opcode_WININET_HTTPS_RENEGOTIATIONFail" value="Fail"/>
+    <string id="task_WININET_AUTOPROXY_SEARCH" value="WININET_AUTOPROXY_SEARCH"/>
+    <string id="opcode_WININET_AUTOPROXY_SEARCHFail" value="Fail"/>
+    <string id="task_WININET_AUTOPROXY_DHCP" value="WININET_AUTOPROXY_DHCP"/>
+    <string id="opcode_WININET_AUTOPROXY_DHCPFail" value="Fail"/>
+    <string id="task_WININET_AUTOPROXY_DNS" value="WININET_AUTOPROXY_DNS"/>
+    <string id="opcode_WININET_AUTOPROXY_DNSFail" value="Fail"/>
+    <string id="task_WININET_AUTOPROXY_DOWNLOAD" value="WININET_AUTOPROXY_DOWNLOAD"/>
+    <string id="opcode_WININET_AUTOPROXY_DOWNLOADFail" value="Fail"/>
+    <string id="task_WININET_AUTOPROXY_FIND_INFO_FOR_URL" value="WININET_AUTOPROXY_FIND_INFO_FOR_URL"/>
+    <string id="opcode_WININET_AUTOPROXY_FIND_INFO_FOR_URLFail" value="Fail"/>
+    <string id="task_WININET_TEST_EVENT" value="WININET_TEST_EVENT"/>
+    <string id="task_WININET_BLOCKING_AUTOPROXY_DETERMINATION" value="WININET_BLOCKING_AUTOPROXY_DETERMINATION"/>
+    <string id="task_WININET_TRANSFER" value="WININET_TRANSFER"/>
+    <string id="task_WININET_AUTOPROXY_SWPAD" value="WININET_AUTOPROXY_SWPAD"/>
+    <string id="task_WININET_REQUEST_HEADER" value="WININET_REQUEST_HEADER"/>
+    <string id="task_WININET_RESPONSE_HEADER" value="WININET_RESPONSE_HEADER"/>
+    <string id="task_WININET_REQUEST_HEADER_OPTIONAL" value="WININET_REQUEST_HEADER_OPTIONAL"/>
+    <string id="task_Wininet_SendRequest" value="Wininet_SendRequest"/>
+    <string id="task_Wininet_OfflineCacheLookup" value="Wininet_OfflineCacheLookup"/>
+    <string id="task_Wininet_OfflineCacheHit" value="Wininet_OfflineCacheHit"/>
+    <string id="task_Wininet_OfflineCacheMiss" value="Wininet_OfflineCacheMiss"/>
+    <string id="task_Wininet_PreNet_CacheLookup" value="Wininet_PreNet_CacheLookup"/>
+    <string id="task_Wininet_PreNet_CacheHit" value="Wininet_PreNet_CacheHit"/>
+    <string id="task_Wininet_PreNet_CacheMiss" value="Wininet_PreNet_CacheMiss"/>
+    <string id="task_Wininet_PostNet_CacheLookup" value="Wininet_PostNet_CacheLookup"/>
+    <string id="task_Wininet_PostNet_CacheHit" value="Wininet_PostNet_CacheHit"/>
+    <string id="task_Wininet_PostNet_CacheMiss" value="Wininet_PostNet_CacheMiss"/>
+    <string id="task_Wininet_AutodialIfNotLocalHost" value="Wininet_AutodialIfNotLocalHost"/>
+    <string id="task_Wininet_ResolveHost" value="Wininet_ResolveHost"/>
+    <string id="task_Wininet_SendRequest_Main" value="Wininet_SendRequest_Main"/>
+    <string id="task_Wininet_SendRequest_Extra" value="Wininet_SendRequest_Extra"/>
+    <string id="task_Wininet_SendRequest_CRLF" value="Wininet_SendRequest_CRLF"/>
+    <string id="task_Wininet_ReadData" value="Wininet_ReadData"/>
+    <string id="task_Wininet_ReadDataPostReceiveBuf" value="Wininet_ReadDataPostReceiveBuf"/>
+    <string id="task_Wininet_SendRequest_PostReceiveBuf" value="Wininet_SendRequest_PostReceiveBuf"/>
+    <string id="task_Wininet_DrainResponsePostReceiveBuf" value="Wininet_DrainResponsePostReceiveBuf"/>
+    <string id="task_Wininet_Connect" value="Wininet_Connect"/>
+    <string id="task_Wininet_LookupConnection" value="Wininet_LookupConnection"/>
+    <string id="task_Wininet_Redirect" value="Wininet_Redirect"/>
+    <string id="task_Wininet_Getaddrinfo" value="Wininet_Getaddrinfo"/>
+    <string id="task_Wininet_DHCP_I252WPAD" value="Wininet_DHCP_I252WPAD"/>
+    <string id="task_Wininet_Select" value="Wininet_Select"/>
+    <string id="task_Wininet_UsageLogRequest" value="Wininet_UsageLogRequest"/>
+    <string id="task_Wininet_UsageLogScavenge" value="Wininet_UsageLogScavenge"/>
+    <string id="task_Wininet_SocketConnect" value="Wininet_SocketConnect"/>
+    <string id="task_Wininet_AppCacheLookup" value="Wininet_AppCacheLookup"/>
+    <string id="task_Wininet_RequestPrioritySet" value="Wininet_RequestPrioritySet"/>
+    <string id="task_WININET_AUTOPROXY_PERFTRACK_HOST_IP_LOOKUP" value="WININET_AUTOPROXY_PERFTRACK_HOST_IP_LOOKUP"/>
+    <string id="task_WININET_AUTOPROXY_PERFTRACK_SWPAD_LOOKUP" value="WININET_AUTOPROXY_PERFTRACK_SWPAD_LOOKUP"/>
+    <string id="task_WININET_AUTOPROXY_PERFTRACK_KNOWN_DETECTION" value="WININET_AUTOPROXY_PERFTRACK_KNOWN_DETECTION"/>
+    <string id="task_WININET_AUTOPROXY_PERFTRACK_UNKNOWN_DETECTION" value="WININET_AUTOPROXY_PERFTRACK_UNKNOWN_DETECTION"/>
+    <string id="task_WININET_AUTOPROXY_PERFTRACK_SCRIPT_DOWNLOAD" value="WININET_AUTOPROXY_PERFTRACK_SCRIPT_DOWNLOAD"/>
+    <string id="task_WININET_AUTOPROXY_PERFTRACK_ALL" value="WININET_AUTOPROXY_PERFTRACK_ALL"/>
+    <string id="task_WININET_HTTP_RESPONSE_BODY_READ_ERROR" value="WININET_HTTP_RESPONSE_BODY_READ_ERROR"/>
+    <string id="task_WININET_STREAM_DATA_INDICATED" value="WININET_STREAM_DATA_INDICATED"/>
+    <string id="task_WININET_APPLICATION_OFFLINE_CHECK" value="WININET_APPLICATION_OFFLINE_CHECK"/>
+    <string id="task_Wininet_WebSocketUpgrade" value="Wininet_WebSocketUpgrade"/>
+    <string id="task_Wininet_WebSocketSession" value="Wininet_WebSocketSession"/>
+    <string id="map_mapWPADNetworkDecisionWPAD_NETWORK_DECISION_OFF" value="WPAD_NETWORK_DECISION_OFF"/>
+    <string id="map_mapWPADNetworkDecisionWPAD_NETWORK_DECISION_ON" value="WPAD_NETWORK_DECISION_ON"/>
+    <string id="map_mapWPADNetworkDecisionWPAD_NETWORK_DECISION_UNKNOWN" value="WPAD_NETWORK_DECISION_UNKNOWN"/>
+    <string id="map_mapWPADNetworkDecisionWPAD_NETWORK_DECISION_UNKNOWN" value="WPAD_NETWORK_DECISION_UNKNOWN"/>
+    <string id="map_mapUsageLogRequestCacheMissed" value="Missed"/>
+    <string id="map_mapUsageLogRequestCacheHit" value="Hit"/>
+    <string id="map_mapUsageLogRequestCacheStale-Modified" value="Stale-Modified"/>
+    <string id="map_mapUsageLogRequestCacheStale-NotModified" value="Stale-NotModified"/>
+    <string id="map_maphttpProtocolTypeHTTP" value="HTTP"/>
+    <string id="map_maphttpProtocolTypeSPDY3" value="SPDY3"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

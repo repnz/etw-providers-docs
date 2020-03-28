@@ -1,0 +1,69 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Setup" guid="{75ebc33e-997f-49cf-b49f-ecc50184b75d}" resourceFileName="Microsoft-Windows-Setup" messageFileName="Microsoft-Windows-Setup" symbol="MicrosoftWindowsSetup" source="Xml" >
+    <keywords>
+     <keyword name="keyPerformance" message="$(string.keyword_keyPerformance)" mask="0x1"/>
+     <keyword name="keySysprep" message="$(string.keyword_keySysprep)" mask="0x2"/>
+     <keyword name="keyword_800000000000" message="$(string.keyword_keyword_800000000000)" mask="0x800000000000"/>
+    </keywords>
+    <tasks>
+     <task name="ExecuteSetupPhase" message="$(string.task_ExecuteSetupPhase)" value="1000"/>
+     <task name="SysprepSpecialize" message="$(string.task_SysprepSpecialize)" value="2000"/>
+     <task name="Setupinformation" message="$(string.task_Setupinformation)" value="3000"/>
+     <task name="OSinformation" message="$(string.task_OSinformation)" value="4000"/>
+    </tasks>
+    <events>
+     <event value="1001" symbol="ExecuteSetupPhaseStart" version="0" task="ExecuteSetupPhase" opcode="win:Start" level="win:Informational" keywords="keyPerformance keyword_800000000000" template="ExecuteSetupPhaseStartArgs"/>
+     <event value="1002" symbol="ExecuteSetupPhaseStop" version="0" task="ExecuteSetupPhase" opcode="win:Stop" level="win:Informational" keywords="keyPerformance keyword_800000000000" template="ExecuteSetupPhaseStopArgs"/>
+     <event value="2001" symbol="SysprepSpecializeStart" version="0" task="SysprepSpecialize" opcode="win:Start" level="win:Informational" keywords="keyPerformance keySysprep keyword_800000000000"/>
+     <event value="2002" symbol="SysprepSpecializeStop" version="0" task="SysprepSpecialize" opcode="win:Stop" level="win:Informational" keywords="keyPerformance keySysprep keyword_800000000000" template="ExecuteSetupPhaseStopArgs"/>
+     <event value="2003" symbol="Setupinformation" version="0" task="Setupinformation" level="win:Informational" keywords="keyword_800000000000" template="SetupinformationArgs"/>
+     <event value="2004" symbol="OSinformation" version="0" task="OSinformation" level="win:Informational" keywords="keyword_800000000000" template="OSinformationArgs"/>
+    </events>
+    <templates>
+     <template tid="ExecuteSetupPhaseStartArgs">
+      <data name="SetupPhase" inType="win:UInt32"/>
+     </template>
+     <template tid="ExecuteSetupPhaseStopArgs">
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="SetupinformationArgs">
+      <data name="HostOSName" inType="win:UnicodeString"/>
+      <data name="Installwasanupgrade" inType="win:Boolean"/>
+      <data name="HostOSwasWindowsPE" inType="win:Boolean"/>
+      <data name="HostOSmajorversion" inType="win:UInt32"/>
+      <data name="HostOSminorversion" inType="win:UInt32"/>
+      <data name="HostOSbuildversion" inType="win:UInt32"/>
+      <data name="HostOSservicepackName" inType="win:UnicodeString"/>
+      <data name="HostOSservicepackmajorversion" inType="win:UInt32"/>
+      <data name="HostOSservicepackminorversion" inType="win:UInt32"/>
+     </template>
+     <template tid="OSinformationArgs">
+      <data name="OSName" inType="win:UnicodeString"/>
+      <data name="OSEditionID" inType="win:UnicodeString"/>
+      <data name="OSmajorversion" inType="win:UInt32"/>
+      <data name="OSminorversion" inType="win:UInt32"/>
+      <data name="OSbuildversion" inType="win:UInt32"/>
+      <data name="OSservicepackName" inType="win:UnicodeString"/>
+      <data name="OSservicepackmajorversion" inType="win:UInt32"/>
+      <data name="OSservicepackminorversion" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_keyPerformance" value="keyPerformance"/>
+    <string id="keyword_keySysprep" value="keySysprep"/>
+    <string id="keyword_keyword_800000000000" value="keyword_800000000000"/>
+    <string id="task_ExecuteSetupPhase" value="ExecuteSetupPhase"/>
+    <string id="task_SysprepSpecialize" value="SysprepSpecialize"/>
+    <string id="task_Setupinformation" value="Setupinformation"/>
+    <string id="task_OSinformation" value="OSinformation"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

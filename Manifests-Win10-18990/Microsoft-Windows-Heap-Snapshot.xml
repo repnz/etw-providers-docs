@@ -1,0 +1,36 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Heap-Snapshot" guid="{901d2afa-4ff6-46d7-8d0e-53645e1a47f5}" resourceFileName="Microsoft-Windows-Heap-Snapshot" messageFileName="Microsoft-Windows-Heap-Snapshot" symbol="MicrosoftWindowsHeapSnapshot" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <events>
+     <event value="100" symbol="task_0_V1" version="1" task="task_0" level="win:Always" template="task_0Args_V1"/>
+     <event value="200" symbol="task_0200_V1" version="1" task="task_0" level="win:Always" template="task_0200Args_V1"/>
+    </events>
+    <templates>
+     <template tid="task_0Args_V1">
+      <data name="HeapSnapshotInstance" inType="win:UInt32"/>
+      <data name="HeapSnapshotSequence" inType="win:UInt32"/>
+      <data name="HeapSnapshotBufferLen" inType="win:UInt32"/>
+      <data name="HeapSnapshotBuffer" inType="win:Binary" length="HeapSnapshotBufferLen"/>
+     </template>
+     <template tid="task_0200Args_V1">
+      <data name="HeapSnapshotInstance" inType="win:UInt32"/>
+      <data name="TotalData" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_task_0" value="task_0"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

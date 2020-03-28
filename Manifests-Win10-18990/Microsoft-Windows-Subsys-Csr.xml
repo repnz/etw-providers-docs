@@ -1,0 +1,45 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Subsys-Csr" guid="{e8316a2d-0d94-4f52-85dd-1e15b66c5891}" resourceFileName="Microsoft-Windows-Subsys-Csr" messageFileName="Microsoft-Windows-Subsys-Csr" symbol="MicrosoftWindowsSubsysCsr" source="Xml" >
+    <keywords>
+     <keyword name="csr:Diagnostics" message="$(string.keyword_csr:Diagnostics)" mask="0x10000"/>
+    </keywords>
+    <tasks>
+     <task name="csr:ShutdownProcesses" message="$(string.task_csr:ShutdownProcesses)" value="1"/>
+     <task name="csr:ShutdownProcess" message="$(string.task_csr:ShutdownProcess)" value="3"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="csr:ShutdownProcessesStart" version="0" task="csr:ShutdownProcesses" opcode="win:Start" level="win:Informational" keywords="csr:Diagnostics"/>
+     <event value="2" symbol="csr:ShutdownProcessesStop" version="0" task="csr:ShutdownProcesses" opcode="win:Stop" level="win:Informational" keywords="csr:Diagnostics"/>
+     <event value="3" symbol="csr:ShutdownProcessStart" version="0" task="csr:ShutdownProcess" opcode="win:Start" level="win:Informational" keywords="csr:Diagnostics" template="csr:ShutdownProcessStartArgs"/>
+     <event value="4" symbol="csr:ShutdownProcessStop" version="0" task="csr:ShutdownProcess" opcode="win:Stop" level="win:Informational" keywords="csr:Diagnostics" template="csr:ShutdownProcessStopArgs"/>
+     <event value="4" symbol="csr:ShutdownProcessStop_V1" version="1" task="csr:ShutdownProcess" opcode="win:Stop" level="win:Informational" keywords="csr:Diagnostics" template="csr:ShutdownProcessStopArgs_V1"/>
+    </events>
+    <templates>
+     <template tid="csr:ShutdownProcessStartArgs">
+      <data name="ProcessId" inType="win:UInt32"/>
+      <data name="Level" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+     </template>
+     <template tid="csr:ShutdownProcessStopArgs">
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="csr:ShutdownProcessStopArgs_V1">
+      <data name="Status" inType="win:UInt32"/>
+      <data name="ProcessId" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_csr:Diagnostics" value="csr:Diagnostics"/>
+    <string id="task_csr:ShutdownProcesses" value="csr:ShutdownProcesses"/>
+    <string id="task_csr:ShutdownProcess" value="csr:ShutdownProcess"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

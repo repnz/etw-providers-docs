@@ -1,0 +1,148 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Kernel-Memory" guid="{d1d93ef7-e1f2-4f45-9943-03d245fe6c00}" resourceFileName="Microsoft-Windows-Kernel-Memory" messageFileName="Microsoft-Windows-Kernel-Memory" symbol="MicrosoftWindowsKernelMemory" source="Xml" >
+    <keywords>
+     <keyword name="KERNEL_MEM_KEYWORD_MEMINFO" message="$(string.keyword_KERNEL_MEM_KEYWORD_MEMINFO)" mask="0x20"/>
+     <keyword name="KERNEL_MEM_KEYWORD_MEMINFO_EX" message="$(string.keyword_KERNEL_MEM_KEYWORD_MEMINFO_EX)" mask="0x40"/>
+     <keyword name="KERNEL_MEM_KEYWORD_WS_SWAP" message="$(string.keyword_KERNEL_MEM_KEYWORD_WS_SWAP)" mask="0x80"/>
+     <keyword name="KERNEL_MEM_KEYWORD_ACG" message="$(string.keyword_KERNEL_MEM_KEYWORD_ACG)" mask="0x100"/>
+     <keyword name="KERNEL_MEM_KEYWORD_PHYSICAL_ALLOC" message="$(string.keyword_KERNEL_MEM_KEYWORD_PHYSICAL_ALLOC)" mask="0x200"/>
+     <keyword name="KERNEL_MEM_KEYWORD_MEMINFO_NODE" message="$(string.keyword_KERNEL_MEM_KEYWORD_MEMINFO_NODE)" mask="0x400"/>
+    </keywords>
+    <tasks>
+     <task name="MemInfo" message="$(string.task_MemInfo)" value="1"/>
+     <task name="MemInfoWS" message="$(string.task_MemInfoWS)" value="2"/>
+     <task name="MemInfoSessionWS" message="$(string.task_MemInfoSessionWS)" value="3"/>
+     <task name="WorkingSetOutSwap" message="$(string.task_WorkingSetOutSwap)" value="4"/>
+     <task name="WorkingSetInSwap" message="$(string.task_WorkingSetInSwap)" value="5"/>
+     <task name="Acg" message="$(string.task_Acg)" value="6"/>
+     <task name="MdlAllocation" message="$(string.task_MdlAllocation)" value="7"/>
+     <task name="ContAllocation" message="$(string.task_ContAllocation)" value="8"/>
+     <task name="MemInfoNode" message="$(string.task_MemInfoNode)" value="9"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="MemInfo_V1" version="1" task="MemInfo" level="win:Informational" keywords="KERNEL_MEM_KEYWORD_MEMINFO" template="MemInfoArgs_V1"/>
+     <event value="2" symbol="MemInfoWS" version="0" task="MemInfoWS" level="win:Informational" keywords="KERNEL_MEM_KEYWORD_MEMINFO_EX" template="MemInfoWSArgs"/>
+     <event value="2" symbol="MemInfoWS_V1" version="1" task="MemInfoWS" level="win:Informational" keywords="KERNEL_MEM_KEYWORD_MEMINFO_EX" template="MemInfoWSArgs"/>
+     <event value="2" symbol="MemInfoWS_V2" version="2" task="MemInfoWS" level="win:Informational" keywords="KERNEL_MEM_KEYWORD_MEMINFO_EX" template="MemInfoWSArgs"/>
+     <event value="3" symbol="MemInfoSessionWS" version="0" task="MemInfoSessionWS" level="win:Informational" keywords="KERNEL_MEM_KEYWORD_MEMINFO_EX" template="MemInfoSessionWSArgs"/>
+     <event value="3" symbol="MemInfoSessionWS_V1" version="1" task="MemInfoSessionWS" level="win:Informational" keywords="KERNEL_MEM_KEYWORD_MEMINFO_EX" template="MemInfoSessionWSArgs"/>
+     <event value="3" symbol="MemInfoSessionWS_V2" version="2" task="MemInfoSessionWS" level="win:Informational" keywords="KERNEL_MEM_KEYWORD_MEMINFO_EX" template="MemInfoSessionWSArgs"/>
+     <event value="4" symbol="WorkingSetOutSwapStart" version="0" task="WorkingSetOutSwap" opcode="win:Start" level="win:Informational" keywords="KERNEL_MEM_KEYWORD_WS_SWAP" template="WorkingSetOutSwapStartArgs"/>
+     <event value="4" symbol="WorkingSetOutSwapStart_V1" version="1" task="WorkingSetOutSwap" opcode="win:Start" level="win:Informational" keywords="KERNEL_MEM_KEYWORD_WS_SWAP" template="WorkingSetOutSwapStartArgs_V1"/>
+     <event value="5" symbol="WorkingSetOutSwapStop" version="0" task="WorkingSetOutSwap" opcode="win:Stop" level="win:Informational" keywords="KERNEL_MEM_KEYWORD_WS_SWAP" template="WorkingSetOutSwapStopArgs"/>
+     <event value="5" symbol="WorkingSetOutSwapStop_V1" version="1" task="WorkingSetOutSwap" opcode="win:Stop" level="win:Informational" keywords="KERNEL_MEM_KEYWORD_WS_SWAP" template="WorkingSetOutSwapStopArgs_V1"/>
+     <event value="6" symbol="WorkingSetInSwapStart" version="0" task="WorkingSetInSwap" opcode="win:Start" level="win:Informational" keywords="KERNEL_MEM_KEYWORD_WS_SWAP" template="WorkingSetOutSwapStartArgs"/>
+     <event value="6" symbol="WorkingSetInSwapStart_V1" version="1" task="WorkingSetInSwap" opcode="win:Start" level="win:Informational" keywords="KERNEL_MEM_KEYWORD_WS_SWAP" template="WorkingSetOutSwapStartArgs_V1"/>
+     <event value="7" symbol="WorkingSetInSwapStop" version="0" task="WorkingSetInSwap" opcode="win:Stop" level="win:Informational" keywords="KERNEL_MEM_KEYWORD_WS_SWAP" template="WorkingSetInSwapStopArgs"/>
+     <event value="8" symbol="Acg" version="0" task="Acg" level="win:Informational" keywords="KERNEL_MEM_KEYWORD_ACG" template="AcgArgs"/>
+     <event value="9" symbol="WorkingSetInSwap" version="0" task="WorkingSetInSwap" level="win:Informational" keywords="KERNEL_MEM_KEYWORD_WS_SWAP" template="WorkingSetInSwapStopArgs"/>
+     <event value="10" symbol="MdlAllocation" version="0" task="MdlAllocation" level="win:Informational" keywords="KERNEL_MEM_KEYWORD_PHYSICAL_ALLOC" template="MdlAllocationArgs"/>
+     <event value="11" symbol="ContAllocation" version="0" task="ContAllocation" level="win:Informational" keywords="KERNEL_MEM_KEYWORD_PHYSICAL_ALLOC" template="ContAllocationArgs"/>
+     <event value="12" symbol="MemInfoNode" version="0" task="MemInfoNode" level="win:Informational" keywords="KERNEL_MEM_KEYWORD_MEMINFO_NODE" template="MemInfoNodeArgs"/>
+    </events>
+    <templates>
+     <template tid="MemInfoWSArgs">
+      <data name="Count" inType="win:UInt32"/>
+      <data name="WSCommitInfo" inType="win:AnsiString" count="Count"/>
+     </template>
+     <template tid="MemInfoSessionWSArgs">
+      <data name="Count" inType="win:UInt32"/>
+      <data name="SessionWSCommitInfo" inType="win:AnsiString" count="Count"/>
+     </template>
+     <template tid="WorkingSetOutSwapStartArgs">
+      <data name="ProcessId" inType="win:UInt32"/>
+     </template>
+     <template tid="WorkingSetOutSwapStopArgs">
+      <data name="ProcessId" inType="win:UInt32"/>
+      <data name="Status" inType="win:HexInt32"/>
+      <data name="PagesProcessed" inType="win:UInt32"/>
+     </template>
+     <template tid="WorkingSetInSwapStopArgs">
+      <data name="ProcessId" inType="win:UInt32"/>
+      <data name="Status" inType="win:HexInt32"/>
+     </template>
+     <template tid="AcgArgs">
+      <data name="AcgFlag" inType="win:UInt32"/>
+     </template>
+     <template tid="MdlAllocationArgs">
+      <data name="DurationInMicroseconds" inType="win:UInt64"/>
+      <data name="TotalBytes" inType="win:UInt64"/>
+      <data name="LowAddress" inType="win:UInt64"/>
+      <data name="HighAddress" inType="win:UInt64"/>
+      <data name="SkipBytes" inType="win:UInt64"/>
+      <data name="MemoryDescriptorList" inType="win:Pointer"/>
+      <data name="IdealNode" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+     </template>
+     <template tid="ContAllocationArgs">
+      <data name="DurationInMicroseconds" inType="win:UInt64"/>
+      <data name="TotalBytes" inType="win:UInt64"/>
+      <data name="LowAddress" inType="win:UInt64"/>
+      <data name="HighAddress" inType="win:UInt64"/>
+      <data name="Boundary" inType="win:UInt64"/>
+      <data name="PhysicalAddress" inType="win:UInt64"/>
+      <data name="MappedAddress" inType="win:Pointer"/>
+      <data name="AllocatedFromPool" inType="win:Boolean"/>
+      <data name="ProtectionMask" inType="win:UInt32"/>
+      <data name="PreferredNode" inType="win:UInt32"/>
+     </template>
+     <template tid="MemInfoNodeArgs">
+      <data name="PartitionId" inType="win:UInt32"/>
+      <data name="Count" inType="win:UInt32"/>
+      <data name="MemoryNodeInfo" inType="win:Int8" count="Count"/>
+     </template>
+     <template tid="MemInfoArgs_V1">
+      <data name="PriorityLevels" inType="win:UInt8"/>
+      <data name="ZeroPageCount" inType="win:Pointer"/>
+      <data name="FreePageCount" inType="win:Pointer"/>
+      <data name="ModifiedPageCount" inType="win:Pointer"/>
+      <data name="ModifiedNoWritePageCount" inType="win:Pointer"/>
+      <data name="BadPageCount" inType="win:Pointer"/>
+      <data name="StandbyPageCounts" inType="win:Pointer" count="PriorityLevels"/>
+      <data name="RepurposedPageCounts" inType="win:Pointer" count="PriorityLevels"/>
+      <data name="ModifiedPageCountPageFile" inType="win:Pointer"/>
+      <data name="PagedPoolPageCount" inType="win:Pointer"/>
+      <data name="NonPagedPoolPageCount" inType="win:Pointer"/>
+      <data name="MdlPageCount" inType="win:Pointer"/>
+      <data name="CommitPageCount" inType="win:Pointer"/>
+     </template>
+     <template tid="WorkingSetOutSwapStartArgs_V1">
+      <data name="ProcessId" inType="win:UInt32"/>
+      <data name="Flags" inType="win:HexInt32"/>
+     </template>
+     <template tid="WorkingSetOutSwapStopArgs_V1">
+      <data name="ProcessId" inType="win:UInt32"/>
+      <data name="Status" inType="win:HexInt32"/>
+      <data name="PagesProcessed" inType="win:Pointer"/>
+      <data name="WriteCombinePagesProcessed" inType="win:Pointer"/>
+      <data name="UncachedPagesProcessed" inType="win:Pointer"/>
+      <data name="CleanPagesProcessed" inType="win:Pointer"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_KERNEL_MEM_KEYWORD_MEMINFO" value="KERNEL_MEM_KEYWORD_MEMINFO"/>
+    <string id="keyword_KERNEL_MEM_KEYWORD_MEMINFO_EX" value="KERNEL_MEM_KEYWORD_MEMINFO_EX"/>
+    <string id="keyword_KERNEL_MEM_KEYWORD_WS_SWAP" value="KERNEL_MEM_KEYWORD_WS_SWAP"/>
+    <string id="keyword_KERNEL_MEM_KEYWORD_ACG" value="KERNEL_MEM_KEYWORD_ACG"/>
+    <string id="keyword_KERNEL_MEM_KEYWORD_PHYSICAL_ALLOC" value="KERNEL_MEM_KEYWORD_PHYSICAL_ALLOC"/>
+    <string id="keyword_KERNEL_MEM_KEYWORD_MEMINFO_NODE" value="KERNEL_MEM_KEYWORD_MEMINFO_NODE"/>
+    <string id="task_MemInfo" value="MemInfo"/>
+    <string id="task_MemInfoWS" value="MemInfoWS"/>
+    <string id="task_MemInfoSessionWS" value="MemInfoSessionWS"/>
+    <string id="task_WorkingSetOutSwap" value="WorkingSetOutSwap"/>
+    <string id="task_WorkingSetInSwap" value="WorkingSetInSwap"/>
+    <string id="task_Acg" value="Acg"/>
+    <string id="task_MdlAllocation" value="MdlAllocation"/>
+    <string id="task_ContAllocation" value="ContAllocation"/>
+    <string id="task_MemInfoNode" value="MemInfoNode"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

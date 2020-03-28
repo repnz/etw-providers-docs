@@ -1,0 +1,1614 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Search-Core" guid="{49c2c27c-fe2d-40bf-8c4e-c3fb518037e7}" resourceFileName="Microsoft-Windows-Search-Core" messageFileName="Microsoft-Windows-Search-Core" symbol="MicrosoftWindowsSearchCore" source="Xml" >
+    <keywords>
+     <keyword name="Performance" message="$(string.keyword_Performance)" mask="0x1"/>
+     <keyword name="GroupPolicy" message="$(string.keyword_GroupPolicy)" mask="0x2"/>
+     <keyword name="Indexing" message="$(string.keyword_Indexing)" mask="0x4"/>
+     <keyword name="IndexingItem" message="$(string.keyword_IndexingItem)" mask="0x8"/>
+     <keyword name="IndexingChunk" message="$(string.keyword_IndexingChunk)" mask="0x10"/>
+     <keyword name="Querying" message="$(string.keyword_Querying)" mask="0x20"/>
+     <keyword name="ReservedKeyword1" message="$(string.keyword_ReservedKeyword1)" mask="0x40"/>
+     <keyword name="ReservedKeyword2" message="$(string.keyword_ReservedKeyword2)" mask="0x80"/>
+     <keyword name="Common" message="$(string.keyword_Common)" mask="0x100"/>
+     <keyword name="Service" message="$(string.keyword_Service)" mask="0x200"/>
+     <keyword name="Gatherer" message="$(string.keyword_Gatherer)" mask="0x400"/>
+     <keyword name="CPL" message="$(string.keyword_CPL)" mask="0x2000"/>
+     <keyword name="ProtocolHost" message="$(string.keyword_ProtocolHost)" mask="0x4000"/>
+     <keyword name="FilterHost" message="$(string.keyword_FilterHost)" mask="0x8000"/>
+     <keyword name="Wordbreakers" message="$(string.keyword_Wordbreakers)" mask="0x10000"/>
+     <keyword name="CSM" message="$(string.keyword_CSM)" mask="0x20000"/>
+     <keyword name="PropStorePI" message="$(string.keyword_PropStorePI)" mask="0x40000"/>
+     <keyword name="PTypePI" message="$(string.keyword_PTypePI)" mask="0x80000"/>
+     <keyword name="IndexPI" message="$(string.keyword_IndexPI)" mask="0x100000"/>
+     <keyword name="USN" message="$(string.keyword_USN)" mask="0x200000"/>
+     <keyword name="Backoff" message="$(string.keyword_Backoff)" mask="0x400000"/>
+     <keyword name="ReservedKeyword5" message="$(string.keyword_ReservedKeyword5)" mask="0x800000"/>
+     <keyword name="ReservedKeyword6" message="$(string.keyword_ReservedKeyword6)" mask="0x1000000"/>
+     <keyword name="ReservedKeyword7" message="$(string.keyword_ReservedKeyword7)" mask="0x2000000"/>
+     <keyword name="ReservedKeyword8" message="$(string.keyword_ReservedKeyword8)" mask="0x4000000"/>
+     <keyword name="ReservedKeyword9" message="$(string.keyword_ReservedKeyword9)" mask="0x8000000"/>
+    </keywords>
+    <tasks>
+     <task name="Crawl" message="$(string.task_Crawl)" value="1"/>
+     <task name="IncCrawl" message="$(string.task_IncCrawl)" value="2"/>
+     <task name="BackOff_Mem" message="$(string.task_BackOff_Mem)" value="3"/>
+     <task name="BackOff_Bat" message="$(string.task_BackOff_Bat)" value="4"/>
+     <task name="BackOff_Act" message="$(string.task_BackOff_Act)" value="5"/>
+     <task name="BackOff_IOR" message="$(string.task_BackOff_IOR)" value="6"/>
+     <task name="BackOff_Ntf" message="$(string.task_BackOff_Ntf)" value="7"/>
+     <task name="BackOff_CPU" message="$(string.task_BackOff_CPU)" value="8"/>
+     <task name="Index_File" message="$(string.task_Index_File)" value="9"/>
+     <task name="USN_Notify" message="$(string.task_USN_Notify)" value="10"/>
+     <task name="USN_Notify_Filtered" message="$(string.task_USN_Notify_Filtered)" value="11"/>
+     <task name="Catalog_Monitor" message="$(string.task_Catalog_Monitor)" value="12"/>
+     <task name="Index_Merge" message="$(string.task_Index_Merge)" value="13"/>
+     <task name="Index_Commit" message="$(string.task_Index_Commit)" value="14"/>
+     <task name="MapiEmailItem" message="$(string.task_MapiEmailItem)" value="15"/>
+     <task name="CSCDocument" message="$(string.task_CSCDocument)" value="16"/>
+     <task name="RetrieveValue" message="$(string.task_RetrieveValue)" value="17"/>
+     <task name="MapiOpenMessage" message="$(string.task_MapiOpenMessage)" value="18"/>
+     <task name="MapiGetAttachmentFromMessage" message="$(string.task_MapiGetAttachmentFromMessage)" value="19"/>
+     <task name="MapiEnumerateAttachments" message="$(string.task_MapiEnumerateAttachments)" value="20"/>
+     <task name="MapiGetMapiFpsPropVals" message="$(string.task_MapiGetMapiFpsPropVals)" value="21"/>
+     <task name="IndexItemInit" message="$(string.task_IndexItemInit)" value="22"/>
+     <task name="IndexItemSetStatus" message="$(string.task_IndexItemSetStatus)" value="23"/>
+     <task name="OnDataChange" message="$(string.task_OnDataChange)" value="24"/>
+     <task name="IndexItemDataComplete" message="$(string.task_IndexItemDataComplete)" value="25"/>
+     <task name="HighPriorityItemBoost" message="$(string.task_HighPriorityItemBoost)" value="26"/>
+     <task name="HighPriorityThreadBoost" message="$(string.task_HighPriorityThreadBoost)" value="27"/>
+     <task name="HighPriorityMergeBoost" message="$(string.task_HighPriorityMergeBoost)" value="28"/>
+     <task name="ClientQuery" message="$(string.task_ClientQuery)" value="29"/>
+     <task name="IndexItemEnd" message="$(string.task_IndexItemEnd)" value="30"/>
+     <task name="MergeItem" message="$(string.task_MergeItem)" value="31"/>
+     <task name="MergeThread" message="$(string.task_MergeThread)" value="32"/>
+     <task name="IndexItemPushToFile" message="$(string.task_IndexItemPushToFile)" value="33"/>
+     <task name="ClientGetNextRows" message="$(string.task_ClientGetNextRows)" value="34"/>
+     <task name="FilterOplockBreak" message="$(string.task_FilterOplockBreak)" value="35"/>
+     <task name="BackoffThreadWait" message="$(string.task_BackoffThreadWait)" value="36"/>
+     <task name="BackoffReason" message="$(string.task_BackoffReason)" value="37"/>
+     <task name="FilterOplockFail" message="$(string.task_FilterOplockFail)" value="38"/>
+     <task name="ServiceStatusUpdate" message="$(string.task_ServiceStatusUpdate)" value="39"/>
+     <task name="SearchIndexer" message="$(string.task_SearchIndexer)" value="40"/>
+     <task name="SearchProtocolHost" message="$(string.task_SearchProtocolHost)" value="41"/>
+     <task name="SearchFilterHost" message="$(string.task_SearchFilterHost)" value="42"/>
+     <task name="StatusChange_PostToStatusThread" message="$(string.task_StatusChange_PostToStatusThread)" value="43"/>
+     <task name="StatusChange_ProcessInStatusThread" message="$(string.task_StatusChange_ProcessInStatusThread)" value="44"/>
+     <task name="StatusThread" message="$(string.task_StatusThread)" value="45"/>
+     <task name="StatusChange_AppendToGathererQueue" message="$(string.task_StatusChange_AppendToGathererQueue)" value="46"/>
+     <task name="StatusChange_AppendCrawlToGathererQueue" message="$(string.task_StatusChange_AppendCrawlToGathererQueue)" value="48"/>
+     <task name="StatusChange_RemoveFromGathererQueue" message="$(string.task_StatusChange_RemoveFromGathererQueue)" value="49"/>
+     <task name="Gatherer_AdviseStatus" message="$(string.task_Gatherer_AdviseStatus)" value="50"/>
+     <task name="Gatherer_RequestStatusChange" message="$(string.task_Gatherer_RequestStatusChange)" value="51"/>
+     <task name="GatherProject_AdviseStatusChange" message="$(string.task_GatherProject_AdviseStatusChange)" value="52"/>
+     <task name="GatherProject_AdviseRequestStatus" message="$(string.task_GatherProject_AdviseRequestStatus)" value="53"/>
+     <task name="GatherProject_PrepareStatusChange" message="$(string.task_GatherProject_PrepareStatusChange)" value="54"/>
+     <task name="AliasTable_InitSDIDCache" message="$(string.task_AliasTable_InitSDIDCache)" value="55"/>
+     <task name="WID_SDID_Cache_Initialize" message="$(string.task_WID_SDID_Cache_Initialize)" value="56"/>
+     <task name="WID_SDID_Cache_Write" message="$(string.task_WID_SDID_Cache_Write)" value="57"/>
+     <task name="WID_SDID_Cache_SwitchToFull" message="$(string.task_WID_SDID_Cache_SwitchToFull)" value="58"/>
+     <task name="Startup_Search_Service_Duration" message="$(string.task_Startup_Search_Service_Duration)" value="60"/>
+     <task name="Shutdown_Search_Service_Duration" message="$(string.task_Shutdown_Search_Service_Duration)" value="61"/>
+     <task name="Startup_CSearchService_Init" message="$(string.task_Startup_CSearchService_Init)" value="62"/>
+     <task name="Startup_CDcomService_Init" message="$(string.task_Startup_CDcomService_Init)" value="63"/>
+     <task name="Startup_CDcomService_ServiceStart" message="$(string.task_Startup_CDcomService_ServiceStart)" value="64"/>
+     <task name="Startup_CDcomService_ServiceMain" message="$(string.task_Startup_CDcomService_ServiceMain)" value="65"/>
+     <task name="Startup_RecoverIfNecessary" message="$(string.task_Startup_RecoverIfNecessary)" value="66"/>
+     <task name="Startup_RecoverDataFiles" message="$(string.task_Startup_RecoverDataFiles)" value="67"/>
+     <task name="Startup_RecoverDataFiles_RemoveDir" message="$(string.task_Startup_RecoverDataFiles_RemoveDir)" value="68"/>
+     <task name="Startup_MoveDataFiles" message="$(string.task_Startup_MoveDataFiles)" value="69"/>
+     <task name="Startup_MoveDataFiles_CopyDir" message="$(string.task_Startup_MoveDataFiles_CopyDir)" value="70"/>
+     <task name="Startup_MoveDataFiles_RemoveDir" message="$(string.task_Startup_MoveDataFiles_RemoveDir)" value="71"/>
+     <task name="Startup_ReplaceDirectoryPrefixInValue" message="$(string.task_Startup_ReplaceDirectoryPrefixInValue)" value="72"/>
+     <task name="Startup_SysPrepInProgress" message="$(string.task_Startup_SysPrepInProgress)" value="73"/>
+     <task name="Startup_GuiSetupInProgress" message="$(string.task_Startup_GuiSetupInProgress)" value="74"/>
+     <task name="Startup_CDcomService_IsIdleServiceMode" message="$(string.task_Startup_CDcomService_IsIdleServiceMode)" value="75"/>
+     <task name="Startup_CSearchService_Init2" message="$(string.task_Startup_CSearchService_Init2)" value="76"/>
+     <task name="Startup_SetupWorkingDirectory" message="$(string.task_Startup_SetupWorkingDirectory)" value="77"/>
+     <task name="Startup_SetupWorkingDirectory_RemovePath" message="$(string.task_Startup_SetupWorkingDirectory_RemovePath)" value="78"/>
+     <task name="Startup_CheckAndCleanup" message="$(string.task_Startup_CheckAndCleanup)" value="79"/>
+     <task name="Startup_CSearchServiceObj_Initialize" message="$(string.task_Startup_CSearchServiceObj_Initialize)" value="80"/>
+     <task name="Startup_CGatherModule_Init" message="$(string.task_Startup_CGatherModule_Init)" value="81"/>
+     <task name="Startup_CGatheringService_Init" message="$(string.task_Startup_CGatheringService_Init)" value="82"/>
+     <task name="Startup_InitialIndexSetup" message="$(string.task_Startup_InitialIndexSetup)" value="84"/>
+     <task name="Setup_DeletePreviousUsersSettingsKey" message="$(string.task_Setup_DeletePreviousUsersSettingsKey)" value="85"/>
+     <task name="Setup_SetCompletedSuccessfully" message="$(string.task_Setup_SetCompletedSuccessfully)" value="86"/>
+     <task name="Setup_Phase" message="$(string.task_Setup_Phase)" value="87"/>
+     <task name="Setup_CatalogSetupSucceeded" message="$(string.task_Setup_CatalogSetupSucceeded)" value="88"/>
+     <task name="Setup_CatalogSetupFailed" message="$(string.task_Setup_CatalogSetupFailed)" value="89"/>
+     <task name="Setup_CleanupStarted" message="$(string.task_Setup_CleanupStarted)" value="90"/>
+     <task name="Setup_CleanupRemoveDir" message="$(string.task_Setup_CleanupRemoveDir)" value="91"/>
+     <task name="Setup_CleanupSucceeded" message="$(string.task_Setup_CleanupSucceeded)" value="92"/>
+     <task name="Setup_CleanupFailed" message="$(string.task_Setup_CleanupFailed)" value="93"/>
+     <task name="Crawl_InitializeNew" message="$(string.task_Crawl_InitializeNew)" value="94"/>
+     <task name="Crawl_Initialize" message="$(string.task_Crawl_Initialize)" value="95"/>
+     <task name="Crawl_Initialize_Load" message="$(string.task_Crawl_Initialize_Load)" value="96"/>
+     <task name="Crawl_AddStartPage" message="$(string.task_Crawl_AddStartPage)" value="97"/>
+     <task name="Crawl_RemoveStartPage" message="$(string.task_Crawl_RemoveStartPage)" value="98"/>
+     <task name="Crawl_IsDone" message="$(string.task_Crawl_IsDone)" value="99"/>
+     <task name="Transactions_IterateHistory" message="$(string.task_Transactions_IterateHistory)" value="100"/>
+     <task name="Transactions_IterateHistory_Modify" message="$(string.task_Transactions_IterateHistory_Modify)" value="101"/>
+     <task name="Transactions_IterateHistory_Delete" message="$(string.task_Transactions_IterateHistory_Delete)" value="102"/>
+     <task name="Transactions_UpdateFailures" message="$(string.task_Transactions_UpdateFailures)" value="103"/>
+     <task name="GatherLog_Transaction" message="$(string.task_GatherLog_Transaction)" value="104"/>
+     <task name="GatherLog_Crawl" message="$(string.task_GatherLog_Crawl)" value="105"/>
+     <task name="Gatherer_OnDataChange" message="$(string.task_Gatherer_OnDataChange)" value="106"/>
+     <task name="Gatherer_OnDataChange_Failed" message="$(string.task_Gatherer_OnDataChange_Failed)" value="108"/>
+     <task name="OnDataChange_Failed" message="$(string.task_OnDataChange_Failed)" value="109"/>
+     <task name="RobotThread_BeforeGetNewTransaction" message="$(string.task_RobotThread_BeforeGetNewTransaction)" value="112"/>
+     <task name="RobotThread_ProcessNewTransaction" message="$(string.task_RobotThread_ProcessNewTransaction)" value="113"/>
+     <task name="RobotThread_FilterDriver_Init_Failed" message="$(string.task_RobotThread_FilterDriver_Init_Failed)" value="114"/>
+     <task name="RobotThread_IsHistoryIterator" message="$(string.task_RobotThread_IsHistoryIterator)" value="115"/>
+     <task name="RobotThread_IsWildcardTransaction" message="$(string.task_RobotThread_IsWildcardTransaction)" value="116"/>
+     <task name="RobotThread_IsIteratorByStartAddress" message="$(string.task_RobotThread_IsIteratorByStartAddress)" value="117"/>
+     <task name="RobotThread_IsHistoryIteratorUpdateFailures" message="$(string.task_RobotThread_IsHistoryIteratorUpdateFailures)" value="118"/>
+     <task name="RobotThread_ProcessAnnotation_Failed" message="$(string.task_RobotThread_ProcessAnnotation_Failed)" value="119"/>
+     <task name="RobotThread_GetStandardProperties_Failed" message="$(string.task_RobotThread_GetStandardProperties_Failed)" value="120"/>
+     <task name="RobotThread_TransactionNotModified" message="$(string.task_RobotThread_TransactionNotModified)" value="121"/>
+     <task name="RobotThread_CatalogResetRequested" message="$(string.task_RobotThread_CatalogResetRequested)" value="122"/>
+     <task name="CEnumSearchRoots_Constructor" message="$(string.task_CEnumSearchRoots_Constructor)" value="123"/>
+     <task name="CEnumSearchRoots_Destructor" message="$(string.task_CEnumSearchRoots_Destructor)" value="124"/>
+     <task name="CEnumSearchRoots_Reset" message="$(string.task_CEnumSearchRoots_Reset)" value="125"/>
+     <task name="CEnumSearchRoots_Clone" message="$(string.task_CEnumSearchRoots_Clone)" value="126"/>
+     <task name="CEnumSearchRoots_Next" message="$(string.task_CEnumSearchRoots_Next)" value="127"/>
+     <task name="CEnumSearchRoots_Next_Fetch" message="$(string.task_CEnumSearchRoots_Next_Fetch)" value="128"/>
+     <task name="CEnumSearchRoots_Skip" message="$(string.task_CEnumSearchRoots_Skip)" value="129"/>
+     <task name="CEnumSearchScopeRules_Constructor" message="$(string.task_CEnumSearchScopeRules_Constructor)" value="130"/>
+     <task name="CEnumSearchScopeRules_Destructor" message="$(string.task_CEnumSearchScopeRules_Destructor)" value="131"/>
+     <task name="CEnumSearchScopeRules_Reset" message="$(string.task_CEnumSearchScopeRules_Reset)" value="132"/>
+     <task name="CEnumSearchScopeRules_Clone" message="$(string.task_CEnumSearchScopeRules_Clone)" value="133"/>
+     <task name="CEnumSearchScopeRules_Next" message="$(string.task_CEnumSearchScopeRules_Next)" value="134"/>
+     <task name="CEnumSearchScopeRules_Next_Fetch" message="$(string.task_CEnumSearchScopeRules_Next_Fetch)" value="135"/>
+     <task name="CEnumSearchScopeRules_Skip" message="$(string.task_CEnumSearchScopeRules_Skip)" value="136"/>
+     <task name="CSearchCrawlScopeManager_Constructor" message="$(string.task_CSearchCrawlScopeManager_Constructor)" value="137"/>
+     <task name="CSearchCrawlScopeManager_Destructor" message="$(string.task_CSearchCrawlScopeManager_Destructor)" value="138"/>
+     <task name="CSearchCrawlScopeManager_IncludedInCrawlScope" message="$(string.task_CSearchCrawlScopeManager_IncludedInCrawlScope)" value="139"/>
+     <task name="CSearchCrawlScopeManager_AddDefaultScopeRule" message="$(string.task_CSearchCrawlScopeManager_AddDefaultScopeRule)" value="140"/>
+     <task name="CSearchCrawlScopeManager_AddHierarchicalScope" message="$(string.task_CSearchCrawlScopeManager_AddHierarchicalScope)" value="141"/>
+     <task name="CSearchCrawlScopeManager_AddRoot" message="$(string.task_CSearchCrawlScopeManager_AddRoot)" value="142"/>
+     <task name="CSearchCrawlScopeManager_AddUserScopeRule" message="$(string.task_CSearchCrawlScopeManager_AddUserScopeRule)" value="143"/>
+     <task name="CSearchCrawlScopeManager_EnumerateRoots" message="$(string.task_CSearchCrawlScopeManager_EnumerateRoots)" value="144"/>
+     <task name="CSearchCrawlScopeManager_EnumerateScopeRules" message="$(string.task_CSearchCrawlScopeManager_EnumerateScopeRules)" value="145"/>
+     <task name="CSearchCrawlScopeManager_GetParentScopeVersionId" message="$(string.task_CSearchCrawlScopeManager_GetParentScopeVersionId)" value="146"/>
+     <task name="CSearchCrawlScopeManager_HasChildScopeRule" message="$(string.task_CSearchCrawlScopeManager_HasChildScopeRule)" value="147"/>
+     <task name="CSearchCrawlScopeManager_HasParentScopeRule" message="$(string.task_CSearchCrawlScopeManager_HasParentScopeRule)" value="148"/>
+     <task name="CSearchCrawlScopeManager_IncludedInCrawlScopeEx" message="$(string.task_CSearchCrawlScopeManager_IncludedInCrawlScopeEx)" value="149"/>
+     <task name="CSearchCrawlScopeManager_RemoveDefaultScopeRule" message="$(string.task_CSearchCrawlScopeManager_RemoveDefaultScopeRule)" value="150"/>
+     <task name="CSearchCrawlScopeManager_RemoveRoot" message="$(string.task_CSearchCrawlScopeManager_RemoveRoot)" value="151"/>
+     <task name="CSearchCrawlScopeManager_RemoveScopeRule" message="$(string.task_CSearchCrawlScopeManager_RemoveScopeRule)" value="152"/>
+     <task name="CSearchCrawlScopeManager_RevertToDefaultScopes" message="$(string.task_CSearchCrawlScopeManager_RevertToDefaultScopes)" value="153"/>
+     <task name="CSearchCrawlScopeManager_SaveAll" message="$(string.task_CSearchCrawlScopeManager_SaveAll)" value="154"/>
+     <task name="CSearchRoot_put_RootURL" message="$(string.task_CSearchRoot_put_RootURL)" value="155"/>
+     <task name="CSearchRoot_get_RootURL" message="$(string.task_CSearchRoot_get_RootURL)" value="156"/>
+     <task name="CSearchRoot_get_AuthenticationType" message="$(string.task_CSearchRoot_get_AuthenticationType)" value="157"/>
+     <task name="CSearchRoot_get_EnumerationDepth" message="$(string.task_CSearchRoot_get_EnumerationDepth)" value="158"/>
+     <task name="CSearchRoot_get_FollowDirectories" message="$(string.task_CSearchRoot_get_FollowDirectories)" value="159"/>
+     <task name="CSearchRoot_get_HostDepth" message="$(string.task_CSearchRoot_get_HostDepth)" value="160"/>
+     <task name="CSearchRoot_get_IsHierarchical" message="$(string.task_CSearchRoot_get_IsHierarchical)" value="161"/>
+     <task name="CSearchRoot_get_ProvidesNotifications" message="$(string.task_CSearchRoot_get_ProvidesNotifications)" value="162"/>
+     <task name="CSearchRoot_get_Schedule" message="$(string.task_CSearchRoot_get_Schedule)" value="163"/>
+     <task name="CSearchRoot_get_UseNotificationsOnly" message="$(string.task_CSearchRoot_get_UseNotificationsOnly)" value="164"/>
+     <task name="CSearchRoot_put_AuthenticationType" message="$(string.task_CSearchRoot_put_AuthenticationType)" value="165"/>
+     <task name="CSearchRoot_put_EnumerationDepth" message="$(string.task_CSearchRoot_put_EnumerationDepth)" value="166"/>
+     <task name="CSearchRoot_put_FollowDirectories" message="$(string.task_CSearchRoot_put_FollowDirectories)" value="167"/>
+     <task name="CSearchRoot_put_HostDepth" message="$(string.task_CSearchRoot_put_HostDepth)" value="168"/>
+     <task name="CSearchRoot_put_IsHierarchical" message="$(string.task_CSearchRoot_put_IsHierarchical)" value="169"/>
+     <task name="CSearchRoot_put_ProvidesNotifications" message="$(string.task_CSearchRoot_put_ProvidesNotifications)" value="170"/>
+     <task name="CSearchRoot_put_Schedule" message="$(string.task_CSearchRoot_put_Schedule)" value="171"/>
+     <task name="CSearchRoot_put_UseNotificationsOnly" message="$(string.task_CSearchRoot_put_UseNotificationsOnly)" value="172"/>
+     <task name="CSearchScopeRule_get_IsDefault" message="$(string.task_CSearchScopeRule_get_IsDefault)" value="174"/>
+     <task name="CSearchScopeRule_get_IsIncluded" message="$(string.task_CSearchScopeRule_get_IsIncluded)" value="175"/>
+     <task name="CSearchScopeRule_get_PatternOrURL" message="$(string.task_CSearchScopeRule_get_PatternOrURL)" value="176"/>
+     <task name="StatusChange_QueueLocked" message="$(string.task_StatusChange_QueueLocked)" value="177"/>
+     <task name="StatusChange_QueueUnlocked" message="$(string.task_StatusChange_QueueUnlocked)" value="178"/>
+     <task name="Backoff_MemoryCheck" message="$(string.task_Backoff_MemoryCheck)" value="179"/>
+     <task name="Backoff_BatteryPolicyCheck" message="$(string.task_Backoff_BatteryPolicyCheck)" value="180"/>
+     <task name="Backoff_BatteryCheck" message="$(string.task_Backoff_BatteryCheck)" value="181"/>
+     <task name="Backoff_LowDiskCheck" message="$(string.task_Backoff_LowDiskCheck)" value="182"/>
+     <task name="Backoff_UserActivityCheck" message="$(string.task_Backoff_UserActivityCheck)" value="183"/>
+     <task name="Backoff_HighCPUCheck" message="$(string.task_Backoff_HighCPUCheck)" value="184"/>
+     <task name="Backoff_HighIOCheck" message="$(string.task_Backoff_HighIOCheck)" value="185"/>
+     <task name="Backoff_HighNotificationsCheck" message="$(string.task_Backoff_HighNotificationsCheck)" value="186"/>
+     <task name="Backoff_PendingNotificationsCheck" message="$(string.task_Backoff_PendingNotificationsCheck)" value="187"/>
+     <task name="Backoff_AllowNewItemsCheck" message="$(string.task_Backoff_AllowNewItemsCheck)" value="188"/>
+     <task name="Backoff_State" message="$(string.task_Backoff_State)" value="189"/>
+     <task name="ProtocolHostObjConstructor" message="$(string.task_ProtocolHostObjConstructor)" value="190"/>
+     <task name="ProtocolHostObjInit" message="$(string.task_ProtocolHostObjInit)" value="191"/>
+     <task name="ProtocolHostStarted" message="$(string.task_ProtocolHostStarted)" value="192"/>
+     <task name="ProtocolHostTerminating" message="$(string.task_ProtocolHostTerminating)" value="193"/>
+     <task name="ProtocolHostStopped" message="$(string.task_ProtocolHostStopped)" value="194"/>
+     <task name="ProtocolHostStoppedAlready" message="$(string.task_ProtocolHostStoppedAlready)" value="195"/>
+     <task name="ProtocolHostTerminatingInDestructor" message="$(string.task_ProtocolHostTerminatingInDestructor)" value="196"/>
+     <task name="ProtocolHostKilledInDestructor" message="$(string.task_ProtocolHostKilledInDestructor)" value="197"/>
+     <task name="ProtocolHostStoppedInDestructor" message="$(string.task_ProtocolHostStoppedInDestructor)" value="198"/>
+     <task name="ProtocolHostNameConflict_Killing" message="$(string.task_ProtocolHostNameConflict_Killing)" value="199"/>
+     <task name="ProtocolHostNameConflict_FailedToKill" message="$(string.task_ProtocolHostNameConflict_FailedToKill)" value="200"/>
+     <task name="ProtocolHostNameConflict_Killed" message="$(string.task_ProtocolHostNameConflict_Killed)" value="201"/>
+     <task name="FilterHostStarting" message="$(string.task_FilterHostStarting)" value="202"/>
+     <task name="FilterHostStarted" message="$(string.task_FilterHostStarted)" value="203"/>
+     <task name="FilterHostStopping" message="$(string.task_FilterHostStopping)" value="204"/>
+     <task name="FilterHostHung" message="$(string.task_FilterHostHung)" value="205"/>
+     <task name="FilterHostStopped" message="$(string.task_FilterHostStopped)" value="206"/>
+     <task name="ProtocolHostKilled" message="$(string.task_ProtocolHostKilled)" value="207"/>
+     <task name="ProtocolHostObjDestructor" message="$(string.task_ProtocolHostObjDestructor)" value="208"/>
+     <task name="Gatherer_OnDataChange_Track_Url" message="$(string.task_Gatherer_OnDataChange_Track_Url)" value="209"/>
+     <task name="Gatherer_DocIdTable_GetNewId" message="$(string.task_Gatherer_DocIdTable_GetNewId)" value="210"/>
+     <task name="Gatherer_DocIdTable_UndeleteId" message="$(string.task_Gatherer_DocIdTable_UndeleteId)" value="211"/>
+     <task name="Gatherer_DocIdTable_DeleteId" message="$(string.task_Gatherer_DocIdTable_DeleteId)" value="212"/>
+     <task name="Gatherer_DocIdTable_GetMaxId" message="$(string.task_Gatherer_DocIdTable_GetMaxId)" value="213"/>
+     <task name="Gatherer_DocIdTable_SetMaxId" message="$(string.task_Gatherer_DocIdTable_SetMaxId)" value="214"/>
+     <task name="WID_SDID_Cache_NumberItems" message="$(string.task_WID_SDID_Cache_NumberItems)" value="215"/>
+     <task name="Gatherer_Queues_QueueLength" message="$(string.task_Gatherer_Queues_QueueLength)" value="216"/>
+     <task name="ClientStartFetch" message="$(string.task_ClientStartFetch)" value="217"/>
+     <task name="ClientFetched" message="$(string.task_ClientFetched)" value="218"/>
+     <task name="ServerGetRows" message="$(string.task_ServerGetRows)" value="219"/>
+     <task name="ServerQueryRelease" message="$(string.task_ServerQueryRelease)" value="220"/>
+     <task name="CreatePhysCursor" message="$(string.task_CreatePhysCursor)" value="221"/>
+     <task name="CreatePhysCursorRange" message="$(string.task_CreatePhysCursorRange)" value="222"/>
+     <task name="Merge" message="$(string.task_Merge)" value="223"/>
+     <task name="CreateWLCursor" message="$(string.task_CreateWLCursor)" value="224"/>
+     <task name="CreateWLCursorRange" message="$(string.task_CreateWLCursorRange)" value="225"/>
+     <task name="ServerQuery" message="$(string.task_ServerQuery)" value="226"/>
+     <task name="ServerQuery_Send" message="$(string.task_ServerQuery_Send)" value="227"/>
+     <task name="ServerQuery_Received" message="$(string.task_ServerQuery_Received)" value="228"/>
+     <task name="ClientQuery_Send" message="$(string.task_ClientQuery_Send)" value="229"/>
+     <task name="ClientQuery_Received" message="$(string.task_ClientQuery_Received)" value="230"/>
+     <task name="ServerQuery_Create" message="$(string.task_ServerQuery_Create)" value="231"/>
+     <task name="RobotThread_LangAutoDetection_Start" message="$(string.task_RobotThread_LangAutoDetection_Start)" value="232"/>
+     <task name="RobotThread_LangAutoDetection_Stop" message="$(string.task_RobotThread_LangAutoDetection_Stop)" value="233"/>
+     <task name="RobotThread_LangAutoDetection_Succeed" message="$(string.task_RobotThread_LangAutoDetection_Succeed)" value="234"/>
+     <task name="RobotThread_LangAutoDetection_Fail" message="$(string.task_RobotThread_LangAutoDetection_Fail)" value="235"/>
+     <task name="Service_Status_Notify" message="$(string.task_Service_Status_Notify)" value="236"/>
+     <task name="ServerQuery_ForcePublish" message="$(string.task_ServerQuery_ForcePublish)" value="238"/>
+     <task name="Wordlist_Publish" message="$(string.task_Wordlist_Publish)" value="239"/>
+     <task name="Flush_Schedule" message="$(string.task_Flush_Schedule)" value="240"/>
+     <task name="CBPool_ForceFlush" message="$(string.task_CBPool_ForceFlush)" value="241"/>
+     <task name="DocAborted_ForcePublish" message="$(string.task_DocAborted_ForcePublish)" value="242"/>
+     <task name="DocAborted_CBOverflow" message="$(string.task_DocAborted_CBOverflow)" value="243"/>
+     <task name="Wordlist_BeginResourceFailed_CBOverflow" message="$(string.task_Wordlist_BeginResourceFailed_CBOverflow)" value="244"/>
+     <task name="Wordlist_BeginResourceFailed_DocInError" message="$(string.task_Wordlist_BeginResourceFailed_DocInError)" value="245"/>
+     <task name="Wordlist_BeginResource_InvalidatedPreviousDoc" message="$(string.task_Wordlist_BeginResource_InvalidatedPreviousDoc)" value="246"/>
+     <task name="ClientQuery_Rowset_Reuse" message="$(string.task_ClientQuery_Rowset_Reuse)" value="247"/>
+     <task name="ServerQuery_DeferredProperty" message="$(string.task_ServerQuery_DeferredProperty)" value="248"/>
+     <task name="ScopeManager_Init" message="$(string.task_ScopeManager_Init)" value="249"/>
+     <task name="ScopeManager_Retrieved" message="$(string.task_ScopeManager_Retrieved)" value="250"/>
+     <task name="ScopeManager_SwitchToFull" message="$(string.task_ScopeManager_SwitchToFull)" value="251"/>
+     <task name="ScopeManager_Write" message="$(string.task_ScopeManager_Write)" value="252"/>
+     <task name="Prioritization_Request" message="$(string.task_Prioritization_Request)" value="253"/>
+     <task name="Prioritization_Complete" message="$(string.task_Prioritization_Complete)" value="254"/>
+     <task name="Prioritization_Statistics" message="$(string.task_Prioritization_Statistics)" value="255"/>
+     <task name="JET_IO_Low_Priority_Change" message="$(string.task_JET_IO_Low_Priority_Change)" value="256"/>
+     <task name="Gather_Transaction_Failure_Code" message="$(string.task_Gather_Transaction_Failure_Code)" value="257"/>
+     <task name="ETWLogging" message="$(string.task_ETWLogging)" value="258"/>
+     <task name="ETWLoggingFailure" message="$(string.task_ETWLoggingFailure)" value="259"/>
+     <task name="ETWLoggingItem" message="$(string.task_ETWLoggingItem)" value="260"/>
+     <task name="ETWLoggingItemFailure" message="$(string.task_ETWLoggingItemFailure)" value="261"/>
+     <task name="USN_Notify_Journal_Wrap" message="$(string.task_USN_Notify_Journal_Wrap)" value="262"/>
+     <task name="GathererRecover" message="$(string.task_GathererRecover)" value="263"/>
+     <task name="ValueIndexCreation" message="$(string.task_ValueIndexCreation)" value="264"/>
+     <task name="ValueIndexSeek" message="$(string.task_ValueIndexSeek)" value="265"/>
+     <task name="FreeCursor" message="$(string.task_FreeCursor)" value="266"/>
+     <task name="ReuseRestriction" message="$(string.task_ReuseRestriction)" value="267"/>
+     <task name="GetQueryStatusEx" message="$(string.task_GetQueryStatusEx)" value="268"/>
+     <task name="CreateWordBreaker" message="$(string.task_CreateWordBreaker)" value="269"/>
+     <task name="ReleaseWordBreaker" message="$(string.task_ReleaseWordBreaker)" value="270"/>
+     <task name="CreateStemmer" message="$(string.task_CreateStemmer)" value="271"/>
+     <task name="ReleaseStemmer" message="$(string.task_ReleaseStemmer)" value="272"/>
+     <task name="CreateCatalog" message="$(string.task_CreateCatalog)" value="273"/>
+     <task name="DeleteCatalog" message="$(string.task_DeleteCatalog)" value="274"/>
+     <task name="RobotThread_GetWordBreaker" message="$(string.task_RobotThread_GetWordBreaker)" value="275"/>
+     <task name="GetWordBreaker" message="$(string.task_GetWordBreaker)" value="276"/>
+     <task name="WordBreakerSelector_SubstituteLocale" message="$(string.task_WordBreakerSelector_SubstituteLocale)" value="277"/>
+     <task name="WordBreakerSelector_IncrementHistory" message="$(string.task_WordBreakerSelector_IncrementHistory)" value="278"/>
+     <task name="WordBreakerSelector_Fallback" message="$(string.task_WordBreakerSelector_Fallback)" value="279"/>
+     <task name="WordBreakerHistory_Save" message="$(string.task_WordBreakerHistory_Save)" value="280"/>
+     <task name="WordBreakerHistory_Load" message="$(string.task_WordBreakerHistory_Load)" value="281"/>
+     <task name="RobotThread_LangAutoDetection_Scores" message="$(string.task_RobotThread_LangAutoDetection_Scores)" value="282"/>
+     <task name="FileChangeTracker_APICall" message="$(string.task_FileChangeTracker_APICall)" value="283"/>
+     <task name="FileChangeTracker_ProcessUSN" message="$(string.task_FileChangeTracker_ProcessUSN)" value="284"/>
+     <task name="ScopeChangeNotification_OnChanged" message="$(string.task_ScopeChangeNotification_OnChanged)" value="285"/>
+     <task name="ScopeChangeNotification_Register" message="$(string.task_ScopeChangeNotification_Register)" value="286"/>
+     <task name="ScopeChangeNotification_Unregister" message="$(string.task_ScopeChangeNotification_Unregister)" value="287"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="CrawlStart" version="0" task="Crawl" opcode="win:Start" level="win:Informational" keywords="Performance Indexing Gatherer"/>
+     <event value="2" symbol="CrawlStop" version="0" task="Crawl" opcode="win:Stop" level="win:Informational" keywords="Performance Indexing Gatherer"/>
+     <event value="3" symbol="IncCrawlStart" version="0" task="IncCrawl" opcode="win:Start" level="win:Informational"/>
+     <event value="4" symbol="IncCrawlStop" version="0" task="IncCrawl" opcode="win:Stop" level="win:Informational"/>
+     <event value="5" symbol="BackOff_MemStart" version="0" task="BackOff_Mem" opcode="win:Start" level="win:Informational"/>
+     <event value="6" symbol="BackOff_MemStop" version="0" task="BackOff_Mem" opcode="win:Stop" level="win:Informational"/>
+     <event value="7" symbol="BackOff_BatStart" version="0" task="BackOff_Bat" opcode="win:Start" level="win:Informational"/>
+     <event value="8" symbol="BackOff_BatStop" version="0" task="BackOff_Bat" opcode="win:Stop" level="win:Informational"/>
+     <event value="9" symbol="BackOff_ActStart" version="0" task="BackOff_Act" opcode="win:Start" level="win:Informational"/>
+     <event value="10" symbol="BackOff_ActStop" version="0" task="BackOff_Act" opcode="win:Stop" level="win:Informational"/>
+     <event value="11" symbol="BackOff_IORStart" version="0" task="BackOff_IOR" opcode="win:Start" level="win:Informational"/>
+     <event value="12" symbol="BackOff_IORStop" version="0" task="BackOff_IOR" opcode="win:Stop" level="win:Informational"/>
+     <event value="13" symbol="BackOff_NtfStart" version="0" task="BackOff_Ntf" opcode="win:Start" level="win:Informational"/>
+     <event value="14" symbol="BackOff_NtfStop" version="0" task="BackOff_Ntf" opcode="win:Stop" level="win:Informational"/>
+     <event value="15" symbol="BackOff_CPUStart" version="0" task="BackOff_CPU" opcode="win:Start" level="win:Informational"/>
+     <event value="16" symbol="BackOff_CPUStop" version="0" task="BackOff_CPU" opcode="win:Stop" level="win:Informational"/>
+     <event value="17" symbol="Index_FileStart" version="0" task="Index_File" opcode="win:Start" level="win:Informational" keywords="Performance IndexingItem ProtocolHost" template="Index_FileStartArgs"/>
+     <event value="18" symbol="Index_FileStop" version="0" task="Index_File" opcode="win:Stop" level="win:Informational"/>
+     <event value="18" symbol="Index_FileStop_V1" version="1" task="Index_File" opcode="win:Stop" level="win:Informational" keywords="Performance IndexingItem ProtocolHost" template="Index_FileStopArgs_V1"/>
+     <event value="19" symbol="USN_Notify" version="0" task="USN_Notify" level="win:Informational" keywords="IndexingItem USN" template="USN_NotifyArgs"/>
+     <event value="21" symbol="USN_Notify_Filtered" version="0" task="USN_Notify_Filtered" level="win:Informational" keywords="IndexingItem USN" template="USN_NotifyArgs"/>
+     <event value="22" symbol="Catalog_MonitorStart" version="0" task="Catalog_Monitor" opcode="win:Start" level="win:Informational" keywords="Performance Indexing USN"/>
+     <event value="23" symbol="Catalog_MonitorStop" version="0" task="Catalog_Monitor" opcode="win:Stop" level="win:Informational" keywords="Performance Indexing USN"/>
+     <event value="24" symbol="Index_MergeStart" version="0" task="Index_Merge" opcode="win:Start" level="win:Informational" keywords="Performance Indexing IndexPI" template="Index_MergeStartArgs"/>
+     <event value="25" symbol="Index_MergeStop" version="0" task="Index_Merge" opcode="win:Stop" level="win:Informational" keywords="Performance Indexing IndexPI"/>
+     <event value="26" symbol="Index_CommitStart" version="0" task="Index_Commit" opcode="win:Start" level="win:Informational" keywords="Performance Indexing IndexPI" template="Index_MergeStartArgs"/>
+     <event value="27" symbol="Index_CommitStop" version="0" task="Index_Commit" opcode="win:Stop" level="win:Informational" keywords="Performance Indexing IndexPI"/>
+     <event value="28" symbol="MapiEmailItemStart" version="0" task="MapiEmailItem" opcode="win:Start" level="win:Informational"/>
+     <event value="29" symbol="MapiEmailItemStop" version="0" task="MapiEmailItem" opcode="win:Stop" level="win:Informational"/>
+     <event value="30" symbol="CSCDocumentStart" version="0" task="CSCDocument" opcode="win:Start" level="win:Informational"/>
+     <event value="31" symbol="CSCDocumentStop" version="0" task="CSCDocument" opcode="win:Stop" level="win:Informational"/>
+     <event value="32" symbol="RetrieveValueStart" version="0" task="RetrieveValue" opcode="win:Start" level="win:Informational" template="Index_MergeStartArgs"/>
+     <event value="33" symbol="RetrieveValueStop" version="0" task="RetrieveValue" opcode="win:Stop" level="win:Informational"/>
+     <event value="34" symbol="MapiOpenMessageStart" version="0" task="MapiOpenMessage" opcode="win:Start" level="win:Informational"/>
+     <event value="35" symbol="MapiOpenMessageStop" version="0" task="MapiOpenMessage" opcode="win:Stop" level="win:Informational"/>
+     <event value="36" symbol="MapiGetAttachmentFromMessageStart" version="0" task="MapiGetAttachmentFromMessage" opcode="win:Start" level="win:Informational"/>
+     <event value="37" symbol="MapiGetAttachmentFromMessageStop" version="0" task="MapiGetAttachmentFromMessage" opcode="win:Stop" level="win:Informational"/>
+     <event value="38" symbol="MapiEnumerateAttachmentsStart" version="0" task="MapiEnumerateAttachments" opcode="win:Start" level="win:Informational"/>
+     <event value="39" symbol="MapiEnumerateAttachmentsStop" version="0" task="MapiEnumerateAttachments" opcode="win:Stop" level="win:Informational"/>
+     <event value="40" symbol="MapiGetMapiFpsPropValsStop" version="0" task="MapiGetMapiFpsPropVals" opcode="win:Stop" level="win:Informational"/>
+     <event value="41" symbol="MapiGetMapiFpsPropValsStop41" version="0" task="MapiGetMapiFpsPropVals" opcode="win:Stop" level="win:Informational"/>
+     <event value="42" symbol="IndexItemInit" version="0" task="IndexItemInit" level="win:Informational" keywords="IndexingItem Gatherer" template="IndexItemInitArgs"/>
+     <event value="43" symbol="IndexItemSetStatus" version="0" task="IndexItemSetStatus" level="win:Informational" keywords="IndexingItem Gatherer" template="IndexItemInitArgs"/>
+     <event value="44" symbol="OnDataChange" version="0" task="OnDataChange" level="win:Informational" keywords="IndexingItem Gatherer" template="OnDataChangeArgs"/>
+     <event value="46" symbol="IndexItemDataComplete" version="0" task="IndexItemDataComplete" level="win:Informational" keywords="IndexingItem Gatherer" template="IndexItemInitArgs"/>
+     <event value="47" symbol="HighPriorityItemBoost" version="0" task="HighPriorityItemBoost" level="win:Informational" keywords="IndexingItem Gatherer" template="Index_MergeStartArgs"/>
+     <event value="48" symbol="HighPriorityThreadBoost" version="0" task="HighPriorityThreadBoost" level="win:Informational" template="Index_MergeStartArgs"/>
+     <event value="49" symbol="HighPriorityMergeBoost" version="0" task="HighPriorityMergeBoost" level="win:Informational" keywords="Indexing IndexPI" template="Index_MergeStartArgs"/>
+     <event value="50" symbol="ClientQueryStart" version="0" task="ClientQuery" opcode="win:Start" level="win:Informational" template="Index_FileStartArgs"/>
+     <event value="50" symbol="ClientQueryStart_V1" version="1" task="ClientQuery" opcode="win:Start" level="win:Informational" keywords="Performance Querying" template="ClientQueryStartArgs_V1"/>
+     <event value="51" symbol="ClientQueryStop" version="0" task="ClientQuery" opcode="win:Stop" level="win:Informational" template="Index_FileStartArgs"/>
+     <event value="51" symbol="ClientQueryStop_V1" version="1" task="ClientQuery" opcode="win:Stop" level="win:Informational" keywords="Performance Querying" template="ClientQueryStopArgs_V1"/>
+     <event value="52" symbol="IndexItemEnd" version="0" task="IndexItemEnd" level="win:Informational" keywords="IndexingItem Gatherer" template="IndexItemInitArgs"/>
+     <event value="53" symbol="MergeItemStart" version="0" task="MergeItem" opcode="win:Start" level="win:Informational" keywords="Indexing IndexPI" template="OnDataChangeArgs"/>
+     <event value="54" symbol="MergeThreadStart" version="0" task="MergeThread" opcode="win:Start" level="win:Informational" template="OnDataChangeArgs"/>
+     <event value="54" symbol="MergeThreadStart_V1" version="1" task="MergeThread" opcode="win:Start" level="win:Informational" keywords="Performance Indexing IndexPI" template="MergeThreadStartArgs_V1"/>
+     <event value="55" symbol="MergeThreadStop" version="0" task="MergeThread" opcode="win:Stop" level="win:Informational" template="OnDataChangeArgs"/>
+     <event value="55" symbol="MergeThreadStop_V1" version="1" task="MergeThread" opcode="win:Stop" level="win:Informational" keywords="Performance Indexing IndexPI" template="MergeThreadStartArgs_V1"/>
+     <event value="56" symbol="IndexItemPushToFile" version="0" task="IndexItemPushToFile" level="win:Informational" keywords="IndexingItem Gatherer" template="IndexItemInitArgs"/>
+     <event value="57" symbol="ClientGetNextRows" version="0" task="ClientGetNextRows" level="win:Informational" template="ClientGetNextRowsArgs"/>
+     <event value="58" symbol="FilterOplockBreak" version="0" task="FilterOplockBreak" level="win:Informational" template="Index_FileStartArgs"/>
+     <event value="59" symbol="BackoffThreadWaitStart" version="0" task="BackoffThreadWait" opcode="win:Start" level="win:Informational" keywords="Performance Backoff" template="Index_MergeStartArgs"/>
+     <event value="60" symbol="BackoffThreadWaitStop" version="0" task="BackoffThreadWait" opcode="win:Stop" level="win:Informational" keywords="Performance Backoff" template="Index_MergeStartArgs"/>
+     <event value="61" symbol="BackoffReason" version="0" task="BackoffReason" level="win:Informational" keywords="Backoff" template="Index_MergeStartArgs"/>
+     <event value="62" symbol="FilterOplockFail" version="0" task="FilterOplockFail" level="win:Informational" template="Index_FileStartArgs"/>
+     <event value="63" symbol="ServiceStatusUpdate" version="0" task="ServiceStatusUpdate" level="win:Informational" keywords="Service" template="ServiceStatusUpdateArgs"/>
+     <event value="64" symbol="SearchIndexerStart" version="0" task="SearchIndexer" opcode="win:Start" level="win:Informational" keywords="Service" template="Index_MergeStartArgs"/>
+     <event value="65" symbol="SearchIndexerStop" version="0" task="SearchIndexer" opcode="win:Stop" level="win:Informational" keywords="Service" template="Index_MergeStartArgs"/>
+     <event value="66" symbol="SearchProtocolHostStart" version="0" task="SearchProtocolHost" opcode="win:Start" level="win:Informational" keywords="ProtocolHost" template="Index_MergeStartArgs"/>
+     <event value="67" symbol="SearchProtocolHostStop" version="0" task="SearchProtocolHost" opcode="win:Stop" level="win:Informational" keywords="ProtocolHost" template="Index_MergeStartArgs"/>
+     <event value="68" symbol="SearchFilterHostStart" version="0" task="SearchFilterHost" opcode="win:Start" level="win:Informational" keywords="FilterHost" template="Index_MergeStartArgs"/>
+     <event value="69" symbol="SearchFilterHostStop" version="0" task="SearchFilterHost" opcode="win:Stop" level="win:Informational" keywords="FilterHost" template="Index_MergeStartArgs"/>
+     <event value="70" symbol="StatusChange_PostToStatusThread" version="0" task="StatusChange_PostToStatusThread" level="win:Informational" keywords="Gatherer" template="Index_MergeStartArgs"/>
+     <event value="71" symbol="StatusChange_ProcessInStatusThread" version="0" task="StatusChange_ProcessInStatusThread" level="win:Informational" keywords="Gatherer" template="Index_MergeStartArgs"/>
+     <event value="72" symbol="StatusThreadStart" version="0" task="StatusThread" opcode="win:Start" level="win:Informational" keywords="Gatherer"/>
+     <event value="73" symbol="StatusThreadStop" version="0" task="StatusThread" opcode="win:Stop" level="win:Informational" keywords="Gatherer"/>
+     <event value="74" symbol="StatusChange_AppendToGathererQueue" version="0" task="StatusChange_AppendToGathererQueue" level="win:Informational" keywords="Gatherer" template="Index_MergeStartArgs"/>
+     <event value="75" symbol="StatusChange_AppendCrawlToGathererQueue" version="0" task="StatusChange_AppendCrawlToGathererQueue" level="win:Informational" keywords="Gatherer" template="Index_MergeStartArgs"/>
+     <event value="76" symbol="StatusChange_RemoveFromGathererQueue" version="0" task="StatusChange_RemoveFromGathererQueue" level="win:Informational" keywords="Gatherer" template="Index_MergeStartArgs"/>
+     <event value="77" symbol="Gatherer_AdviseStatus" version="0" task="Gatherer_AdviseStatus" level="win:Informational" keywords="Gatherer" template="Gatherer_AdviseStatusArgs"/>
+     <event value="78" symbol="Gatherer_RequestStatusChange" version="0" task="Gatherer_RequestStatusChange" level="win:Informational" keywords="Gatherer" template="Gatherer_AdviseStatusArgs"/>
+     <event value="79" symbol="GatherProject_AdviseStatusChange_V1" version="1" task="GatherProject_AdviseStatusChange" level="win:Informational" keywords="Gatherer" template="GatherProject_AdviseStatusChangeArgs_V1"/>
+     <event value="80" symbol="GatherProject_AdviseRequestStatus" version="0" task="GatherProject_AdviseRequestStatus" level="win:Informational" keywords="Gatherer" template="Index_MergeStartArgs"/>
+     <event value="81" symbol="GatherProject_PrepareStatusChange" version="0" task="GatherProject_PrepareStatusChange" level="win:Informational" keywords="Gatherer" template="Index_MergeStartArgs"/>
+     <event value="82" symbol="AliasTable_InitSDIDCache" version="0" task="AliasTable_InitSDIDCache" level="win:Informational" keywords="IndexingItem Gatherer"/>
+     <event value="83" symbol="WID_SDID_Cache_Initialize" version="0" task="WID_SDID_Cache_Initialize" level="win:Informational" keywords="IndexingItem Gatherer" template="WID_SDID_Cache_InitializeArgs"/>
+     <event value="84" symbol="WID_SDID_Cache_Write" version="0" task="WID_SDID_Cache_Write" level="win:Informational" keywords="IndexingItem Gatherer" template="WID_SDID_Cache_WriteArgs"/>
+     <event value="85" symbol="WID_SDID_Cache_SwitchToFull" version="0" task="WID_SDID_Cache_SwitchToFull" level="win:Informational" keywords="IndexingItem Gatherer" template="Index_MergeStartArgs"/>
+     <event value="86" symbol="Backoff_MemoryCheck" version="0" task="Backoff_MemoryCheck" level="win:Informational" keywords="Backoff" template="Backoff_MemoryCheckArgs"/>
+     <event value="87" symbol="Backoff_BatteryPolicyCheck" version="0" task="Backoff_BatteryPolicyCheck" level="win:Informational" keywords="Backoff" template="Backoff_BatteryPolicyCheckArgs"/>
+     <event value="88" symbol="Backoff_BatteryCheck" version="0" task="Backoff_BatteryCheck" level="win:Informational" keywords="Backoff" template="Backoff_BatteryCheckArgs"/>
+     <event value="89" symbol="Backoff_LowDiskCheck" version="0" task="Backoff_LowDiskCheck" level="win:Informational" keywords="Backoff" template="Backoff_LowDiskCheckArgs"/>
+     <event value="90" symbol="Backoff_UserActivityCheck" version="0" task="Backoff_UserActivityCheck" level="win:Informational" keywords="Backoff" template="Backoff_UserActivityCheckArgs"/>
+     <event value="91" symbol="Backoff_HighCPUCheck" version="0" task="Backoff_HighCPUCheck" level="win:Informational" keywords="Backoff" template="Backoff_HighCPUCheckArgs"/>
+     <event value="92" symbol="Backoff_HighIOCheck" version="0" task="Backoff_HighIOCheck" level="win:Informational" keywords="Backoff" template="Backoff_HighIOCheckArgs"/>
+     <event value="93" symbol="Backoff_HighNotificationsCheck" version="0" task="Backoff_HighNotificationsCheck" level="win:Informational" keywords="Backoff" template="Backoff_HighNotificationsCheckArgs"/>
+     <event value="94" symbol="Backoff_PendingNotificationsCheck" version="0" task="Backoff_PendingNotificationsCheck" level="win:Informational" keywords="Backoff" template="Backoff_PendingNotificationsCheckArgs"/>
+     <event value="95" symbol="Backoff_AllowNewItemsCheck" version="0" task="Backoff_AllowNewItemsCheck" level="win:Informational" keywords="Backoff" template="Backoff_AllowNewItemsCheckArgs"/>
+     <event value="96" symbol="Backoff_State" version="0" task="Backoff_State" level="win:Informational" keywords="Backoff" template="Backoff_StateArgs"/>
+     <event value="97" symbol="ProtocolHostObjConstructor" version="0" task="ProtocolHostObjConstructor" level="win:Informational" keywords="Service"/>
+     <event value="98" symbol="ProtocolHostObjInit" version="0" task="ProtocolHostObjInit" level="win:Informational" keywords="Service" template="ProtocolHostObjInitArgs"/>
+     <event value="99" symbol="ProtocolHostTerminating" version="0" task="ProtocolHostTerminating" level="win:Informational" keywords="Service" template="ProtocolHostObjInitArgs"/>
+     <event value="100" symbol="ProtocolHostStarted" version="0" task="ProtocolHostStarted" level="win:Informational" keywords="Service" template="ProtocolHostObjInitArgs"/>
+     <event value="101" symbol="ProtocolHostStopped" version="0" task="ProtocolHostStopped" level="win:Informational" keywords="Service" template="ProtocolHostObjInitArgs"/>
+     <event value="102" symbol="ProtocolHostKilled" version="0" task="ProtocolHostKilled" level="win:Informational" keywords="Service" template="ProtocolHostObjInitArgs"/>
+     <event value="103" symbol="ProtocolHostStoppedAlready" version="0" task="ProtocolHostStoppedAlready" level="win:Informational" keywords="Service" template="ProtocolHostObjInitArgs"/>
+     <event value="104" symbol="ProtocolHostTerminatingInDestructor" version="0" task="ProtocolHostTerminatingInDestructor" level="win:Informational" keywords="Service" template="ProtocolHostObjInitArgs"/>
+     <event value="105" symbol="ProtocolHostKilledInDestructor" version="0" task="ProtocolHostKilledInDestructor" level="win:Informational" keywords="Service" template="ProtocolHostObjInitArgs"/>
+     <event value="106" symbol="ProtocolHostStoppedInDestructor" version="0" task="ProtocolHostStoppedInDestructor" level="win:Informational" keywords="Service" template="ProtocolHostObjInitArgs"/>
+     <event value="107" symbol="ProtocolHostObjDestructor" version="0" task="ProtocolHostObjDestructor" level="win:Informational" keywords="Service" template="ProtocolHostObjInitArgs"/>
+     <event value="108" symbol="ProtocolHostNameConflict_FailedToKill" version="0" task="ProtocolHostNameConflict_FailedToKill" level="win:Error" keywords="Service" template="ProtocolHostNameConflict_FailedToKillArgs"/>
+     <event value="109" symbol="ProtocolHostNameConflict_Killed" version="0" task="ProtocolHostNameConflict_Killed" level="win:Informational" keywords="Service" template="ProtocolHostNameConflict_FailedToKillArgs"/>
+     <event value="110" symbol="ProtocolHostNameConflict_Killing" version="0" task="ProtocolHostNameConflict_Killing" level="win:Informational" keywords="Service" template="ProtocolHostNameConflict_FailedToKillArgs"/>
+     <event value="111" symbol="FilterHostStarting" version="0" task="FilterHostStarting" level="win:Informational" keywords="Service"/>
+     <event value="112" symbol="FilterHostStarted" version="0" task="FilterHostStarted" level="win:Informational" keywords="Service" template="Index_MergeStartArgs"/>
+     <event value="113" symbol="FilterHostStopping" version="0" task="FilterHostStopping" level="win:Informational" keywords="Service" template="Index_MergeStartArgs"/>
+     <event value="114" symbol="FilterHostHung" version="0" task="FilterHostHung" level="win:Informational" keywords="Service" template="Index_MergeStartArgs"/>
+     <event value="115" symbol="FilterHostStopped" version="0" task="FilterHostStopped" level="win:Informational" keywords="Service" template="Index_MergeStartArgs"/>
+     <event value="116" symbol="Startup_CSearchService_Init" version="0" task="Startup_CSearchService_Init" level="win:Informational" keywords="Service"/>
+     <event value="117" symbol="Startup_CDcomService_Init" version="0" task="Startup_CDcomService_Init" level="win:Informational" keywords="Service"/>
+     <event value="118" symbol="Startup_CDcomService_ServiceStart" version="0" task="Startup_CDcomService_ServiceStart" level="win:Informational" keywords="Service"/>
+     <event value="119" symbol="Startup_CDcomService_ServiceMain" version="0" task="Startup_CDcomService_ServiceMain" level="win:Informational" keywords="Service"/>
+     <event value="120" symbol="Startup_RecoverIfNecessary" version="0" task="Startup_RecoverIfNecessary" level="win:Informational" keywords="Service"/>
+     <event value="121" symbol="Startup_RecoverDataFiles" version="0" task="Startup_RecoverDataFiles" level="win:Informational" keywords="Service"/>
+     <event value="122" symbol="Startup_RecoverDataFiles_RemoveDir" version="0" task="Startup_RecoverDataFiles_RemoveDir" level="win:Informational" keywords="Service" template="Startup_RecoverDataFiles_RemoveDirArgs"/>
+     <event value="123" symbol="Startup_MoveDataFiles" version="0" task="Startup_MoveDataFiles" level="win:Informational" keywords="Service" template="Startup_MoveDataFilesArgs"/>
+     <event value="124" symbol="Startup_MoveDataFiles_CopyDir" version="0" task="Startup_MoveDataFiles_CopyDir" level="win:Informational" keywords="Service" template="Startup_MoveDataFilesArgs"/>
+     <event value="125" symbol="Startup_MoveDataFiles_RemoveDir" version="0" task="Startup_MoveDataFiles_RemoveDir" level="win:Informational" keywords="Service" template="Startup_RecoverDataFiles_RemoveDirArgs"/>
+     <event value="126" symbol="Startup_ReplaceDirectoryPrefixInValue" version="0" task="Startup_ReplaceDirectoryPrefixInValue" level="win:Informational" keywords="Service" template="Startup_ReplaceDirectoryPrefixInValueArgs"/>
+     <event value="127" symbol="Startup_SysPrepInProgress" version="0" task="Startup_SysPrepInProgress" level="win:Informational" keywords="Service" template="Index_MergeStartArgs"/>
+     <event value="128" symbol="Startup_GuiSetupInProgress" version="0" task="Startup_GuiSetupInProgress" level="win:Informational" keywords="Service" template="Index_MergeStartArgs"/>
+     <event value="129" symbol="Startup_CDcomService_IsIdleServiceMode" version="0" task="Startup_CDcomService_IsIdleServiceMode" level="win:Informational" keywords="Service" template="Index_MergeStartArgs"/>
+     <event value="130" symbol="Startup_CSearchService_Init2" version="0" task="Startup_CSearchService_Init2" level="win:Informational" keywords="Service" template="Startup_CSearchService_Init2Args"/>
+     <event value="131" symbol="Startup_SetupWorkingDirectory" version="0" task="Startup_SetupWorkingDirectory" level="win:Informational" keywords="Service"/>
+     <event value="132" symbol="Startup_SetupWorkingDirectory_RemovePath" version="0" task="Startup_SetupWorkingDirectory_RemovePath" level="win:Informational" keywords="Service" template="Startup_RecoverDataFiles_RemoveDirArgs"/>
+     <event value="133" symbol="Startup_CheckAndCleanup" version="0" task="Startup_CheckAndCleanup" level="win:Informational" keywords="Service"/>
+     <event value="134" symbol="Startup_CSearchServiceObj_Initialize" version="0" task="Startup_CSearchServiceObj_Initialize" level="win:Informational" keywords="Service" template="Index_MergeStartArgs"/>
+     <event value="135" symbol="Startup_CGatherModule_Init" version="0" task="Startup_CGatherModule_Init" level="win:Informational" keywords="Service"/>
+     <event value="136" symbol="Startup_CGatheringService_InitStart" version="0" task="Startup_CGatheringService_Init" opcode="win:Start" level="win:Informational" keywords="Service" template="Startup_CGatheringService_InitStartArgs"/>
+     <event value="137" symbol="Startup_CGatheringService_InitStop" version="0" task="Startup_CGatheringService_Init" opcode="win:Stop" level="win:Informational" keywords="Service" template="Startup_CGatheringService_InitStopArgs"/>
+     <event value="138" symbol="Startup_InitialIndexSetup" version="0" task="Startup_InitialIndexSetup" level="win:Informational" keywords="Service"/>
+     <event value="139" symbol="Setup_DeletePreviousUsersSettingsKey" version="0" task="Setup_DeletePreviousUsersSettingsKey" level="win:Informational" keywords="Service"/>
+     <event value="140" symbol="Setup_SetCompletedSuccessfully" version="0" task="Setup_SetCompletedSuccessfully" level="win:Informational" keywords="Service" template="Index_MergeStartArgs"/>
+     <event value="141" symbol="Setup_Phase" version="0" task="Setup_Phase" level="win:Informational" keywords="Service" template="Index_MergeStartArgs"/>
+     <event value="142" symbol="Setup_CatalogSetupSucceeded" version="0" task="Setup_CatalogSetupSucceeded" level="win:Informational" keywords="Service"/>
+     <event value="143" symbol="Setup_CatalogSetupFailed" version="0" task="Setup_CatalogSetupFailed" level="win:Informational" keywords="Service" template="Setup_CatalogSetupFailedArgs"/>
+     <event value="144" symbol="Setup_CleanupStarted" version="0" task="Setup_CleanupStarted" level="win:Informational" keywords="Service"/>
+     <event value="145" symbol="Setup_CleanupRemoveDir" version="0" task="Setup_CleanupRemoveDir" level="win:Informational" keywords="Service" template="Startup_RecoverDataFiles_RemoveDirArgs"/>
+     <event value="146" symbol="Setup_CleanupSucceeded" version="0" task="Setup_CleanupSucceeded" level="win:Informational" keywords="Service"/>
+     <event value="147" symbol="Setup_CleanupFailed" version="0" task="Setup_CleanupFailed" level="win:Error" keywords="Service" template="Startup_CGatheringService_InitStopArgs"/>
+     <event value="148" symbol="Crawl_InitializeNew" version="0" task="Crawl_InitializeNew" level="win:Informational" keywords="Indexing Gatherer" template="Crawl_InitializeNewArgs"/>
+     <event value="149" symbol="Crawl_Initialize" version="0" task="Crawl_Initialize" level="win:Informational" keywords="Indexing Gatherer" template="Crawl_InitializeArgs"/>
+     <event value="150" symbol="Crawl_Initialize_Load" version="0" task="Crawl_Initialize_Load" level="win:Informational" keywords="Indexing Gatherer" template="Crawl_InitializeNewArgs"/>
+     <event value="151" symbol="Crawl_AddStartPage" version="0" task="Crawl_AddStartPage" level="win:Informational" keywords="Indexing Gatherer" template="Crawl_AddStartPageArgs"/>
+     <event value="152" symbol="Crawl_RemoveStartPage" version="0" task="Crawl_RemoveStartPage" level="win:Informational" keywords="Indexing Gatherer" template="Crawl_RemoveStartPageArgs"/>
+     <event value="153" symbol="Crawl_IsDone" version="0" task="Crawl_IsDone" level="win:Informational" keywords="Indexing Gatherer" template="Crawl_IsDoneArgs"/>
+     <event value="154" symbol="Transactions_IterateHistoryStart" version="0" task="Transactions_IterateHistory" opcode="win:Start" level="win:Informational" keywords="Indexing Gatherer" template="Transactions_IterateHistoryStartArgs"/>
+     <event value="155" symbol="Transactions_IterateHistoryStop" version="0" task="Transactions_IterateHistory" opcode="win:Stop" level="win:Informational" keywords="Indexing Gatherer" template="Transactions_IterateHistoryStopArgs"/>
+     <event value="156" symbol="Transactions_IterateHistory_Modify" version="0" task="Transactions_IterateHistory_Modify" level="win:Informational" keywords="IndexingItem Gatherer" template="Transactions_IterateHistory_ModifyArgs"/>
+     <event value="157" symbol="Transactions_IterateHistory_Delete" version="0" task="Transactions_IterateHistory_Delete" level="win:Informational" keywords="IndexingItem Gatherer" template="Transactions_IterateHistory_ModifyArgs"/>
+     <event value="158" symbol="Transactions_UpdateFailuresStart" version="0" task="Transactions_UpdateFailures" opcode="win:Start" level="win:Informational" keywords="Indexing Gatherer"/>
+     <event value="159" symbol="Transactions_UpdateFailuresStop" version="0" task="Transactions_UpdateFailures" opcode="win:Stop" level="win:Informational" keywords="Indexing Gatherer" template="Startup_CGatheringService_InitStopArgs"/>
+     <event value="160" symbol="GatherLog_Transaction" version="0" task="GatherLog_Transaction" level="win:Informational" keywords="IndexingItem Gatherer" template="GatherLog_TransactionArgs"/>
+     <event value="161" symbol="GatherLog_Crawl" version="0" task="GatherLog_Crawl" level="win:Informational" keywords="Indexing Gatherer" template="GatherLog_TransactionArgs"/>
+     <event value="162" symbol="Gatherer_OnDataChangeStart" version="0" task="Gatherer_OnDataChange" opcode="win:Start" level="win:Informational" keywords="IndexingItem Gatherer" template="Gatherer_OnDataChangeStartArgs"/>
+     <event value="163" symbol="Gatherer_OnDataChangeStop" version="0" task="Gatherer_OnDataChange" opcode="win:Stop" level="win:Informational" keywords="IndexingItem Gatherer" template="Gatherer_OnDataChangeStopArgs"/>
+     <event value="164" symbol="Gatherer_OnDataChange" version="0" task="Gatherer_OnDataChange" level="win:Informational" keywords="IndexingItem Gatherer" template="Gatherer_OnDataChangeArgs"/>
+     <event value="165" symbol="Gatherer_OnDataChange_Failed" version="0" task="Gatherer_OnDataChange_Failed" level="win:Error" keywords="IndexingItem Gatherer"/>
+     <event value="166" symbol="OnDataChange_Failed" version="0" task="OnDataChange_Failed" level="win:Error" keywords="IndexingItem Gatherer"/>
+     <event value="169" symbol="RobotThread_BeforeGetNewTransaction" version="0" task="RobotThread_BeforeGetNewTransaction" level="win:Informational" keywords="IndexingItem Gatherer"/>
+     <event value="170" symbol="RobotThread_ProcessNewTransaction" version="0" task="RobotThread_ProcessNewTransaction" level="win:Informational" keywords="IndexingItem Gatherer" template="IndexItemInitArgs"/>
+     <event value="171" symbol="RobotThread_FilterDriver_Init_Failed_V1" version="1" task="RobotThread_FilterDriver_Init_Failed" level="win:Error" keywords="IndexingItem Gatherer" template="RobotThread_FilterDriver_Init_FailedArgs_V1"/>
+     <event value="172" symbol="RobotThread_IsHistoryIterator_V1" version="1" task="RobotThread_IsHistoryIterator" level="win:Informational" keywords="IndexingItem Gatherer" template="RobotThread_FilterDriver_Init_FailedArgs_V1"/>
+     <event value="173" symbol="RobotThread_IsWildcardTransaction_V1" version="1" task="RobotThread_IsWildcardTransaction" level="win:Informational" keywords="IndexingItem Gatherer" template="RobotThread_FilterDriver_Init_FailedArgs_V1"/>
+     <event value="174" symbol="RobotThread_IsIteratorByStartAddress_V1" version="1" task="RobotThread_IsIteratorByStartAddress" level="win:Informational" keywords="IndexingItem Gatherer" template="RobotThread_FilterDriver_Init_FailedArgs_V1"/>
+     <event value="175" symbol="RobotThread_IsHistoryIteratorUpdateFailures_V1" version="1" task="RobotThread_IsHistoryIteratorUpdateFailures" level="win:Informational" keywords="IndexingItem Gatherer" template="RobotThread_FilterDriver_Init_FailedArgs_V1"/>
+     <event value="176" symbol="RobotThread_ProcessAnnotation_Failed_V1" version="1" task="RobotThread_ProcessAnnotation_Failed" level="win:Error" keywords="IndexingItem Gatherer" template="RobotThread_ProcessAnnotation_FailedArgs_V1"/>
+     <event value="177" symbol="RobotThread_GetStandardProperties_Failed_V1" version="1" task="RobotThread_GetStandardProperties_Failed" level="win:Error" keywords="IndexingItem Gatherer" template="RobotThread_ProcessAnnotation_FailedArgs_V1"/>
+     <event value="178" symbol="RobotThread_TransactionNotModified_V1" version="1" task="RobotThread_TransactionNotModified" level="win:Informational" keywords="IndexingItem Gatherer" template="RobotThread_FilterDriver_Init_FailedArgs_V1"/>
+     <event value="179" symbol="RobotThread_CatalogResetRequested_V1" version="1" task="RobotThread_CatalogResetRequested" level="win:Informational" keywords="IndexingItem Gatherer" template="RobotThread_FilterDriver_Init_FailedArgs_V1"/>
+     <event value="180" symbol="CEnumSearchRoots_Constructor" version="0" task="CEnumSearchRoots_Constructor" level="win:Informational" keywords="CSM"/>
+     <event value="181" symbol="CEnumSearchRoots_Destructor" version="0" task="CEnumSearchRoots_Destructor" level="win:Informational" keywords="CSM"/>
+     <event value="182" symbol="CEnumSearchRoots_DestructorStop" version="0" task="CEnumSearchRoots_Destructor" opcode="win:Stop" level="win:Informational" keywords="CSM"/>
+     <event value="183" symbol="CEnumSearchRoots_Reset" version="0" task="CEnumSearchRoots_Reset" level="win:Informational" keywords="CSM"/>
+     <event value="184" symbol="CEnumSearchRoots_CloneStart" version="0" task="CEnumSearchRoots_Clone" opcode="win:Start" level="win:Informational" keywords="CSM"/>
+     <event value="185" symbol="CEnumSearchRoots_CloneStop" version="0" task="CEnumSearchRoots_Clone" opcode="win:Stop" level="win:Informational" keywords="CSM" template="Startup_CGatheringService_InitStopArgs"/>
+     <event value="186" symbol="CEnumSearchRoots_NextStart" version="0" task="CEnumSearchRoots_Next" opcode="win:Start" level="win:Informational" keywords="CSM" template="CEnumSearchRoots_NextStartArgs"/>
+     <event value="187" symbol="CEnumSearchRoots_NextStop" version="0" task="CEnumSearchRoots_Next" opcode="win:Stop" level="win:Informational" keywords="CSM" template="CEnumSearchRoots_NextStopArgs"/>
+     <event value="188" symbol="CEnumSearchRoots_Next_Fetch" version="0" task="CEnumSearchRoots_Next_Fetch" level="win:Informational" keywords="CSM" template="CEnumSearchRoots_Next_FetchArgs"/>
+     <event value="189" symbol="CEnumSearchRoots_SkipStart" version="0" task="CEnumSearchRoots_Skip" opcode="win:Start" level="win:Informational" keywords="CSM"/>
+     <event value="190" symbol="CEnumSearchRoots_SkipStop" version="0" task="CEnumSearchRoots_Skip" opcode="win:Stop" level="win:Informational" keywords="CSM" template="Startup_CGatheringService_InitStopArgs"/>
+     <event value="191" symbol="CEnumSearchScopeRules_Constructor" version="0" task="CEnumSearchScopeRules_Constructor" level="win:Informational" keywords="CSM"/>
+     <event value="192" symbol="CEnumSearchScopeRules_DestructorStart" version="0" task="CEnumSearchScopeRules_Destructor" opcode="win:Start" level="win:Informational" keywords="CSM"/>
+     <event value="193" symbol="CEnumSearchScopeRules_DestructorStop" version="0" task="CEnumSearchScopeRules_Destructor" opcode="win:Stop" level="win:Informational" keywords="CSM"/>
+     <event value="194" symbol="CEnumSearchScopeRules_Reset" version="0" task="CEnumSearchScopeRules_Reset" level="win:Informational" keywords="CSM"/>
+     <event value="195" symbol="CEnumSearchScopeRules_CloneStart" version="0" task="CEnumSearchScopeRules_Clone" opcode="win:Start" level="win:Informational" keywords="CSM"/>
+     <event value="196" symbol="CEnumSearchScopeRules_CloneStop" version="0" task="CEnumSearchScopeRules_Clone" opcode="win:Stop" level="win:Informational" keywords="CSM" template="Startup_CGatheringService_InitStopArgs"/>
+     <event value="197" symbol="CEnumSearchScopeRules_NextStart" version="0" task="CEnumSearchScopeRules_Next" opcode="win:Start" level="win:Informational" keywords="CSM"/>
+     <event value="198" symbol="CEnumSearchScopeRules_NextStop" version="0" task="CEnumSearchScopeRules_Next" opcode="win:Stop" level="win:Informational" keywords="CSM" template="Startup_CGatheringService_InitStopArgs"/>
+     <event value="199" symbol="CEnumSearchScopeRules_Next_Fetch" version="0" task="CEnumSearchScopeRules_Next_Fetch" level="win:Informational" keywords="CSM" template="CEnumSearchScopeRules_Next_FetchArgs"/>
+     <event value="200" symbol="CEnumSearchScopeRules_SkipStart" version="0" task="CEnumSearchScopeRules_Skip" opcode="win:Start" level="win:Informational" keywords="CSM"/>
+     <event value="201" symbol="CEnumSearchScopeRules_SkipStop" version="0" task="CEnumSearchScopeRules_Skip" opcode="win:Stop" level="win:Informational" keywords="CSM" template="Startup_CGatheringService_InitStopArgs"/>
+     <event value="202" symbol="CSearchCrawlScopeManager_Constructor" version="0" task="CSearchCrawlScopeManager_Constructor" level="win:Informational" keywords="CSM"/>
+     <event value="203" symbol="CSearchCrawlScopeManager_Destructor" version="0" task="CSearchCrawlScopeManager_Destructor" level="win:Informational" keywords="CSM"/>
+     <event value="204" symbol="CSearchCrawlScopeManager_IncludedInCrawlScopeStart" version="0" task="CSearchCrawlScopeManager_IncludedInCrawlScope" opcode="win:Start" level="win:Informational" keywords="CSM" template="CSearchCrawlScopeManager_IncludedInCrawlScopeStartArgs"/>
+     <event value="205" symbol="CSearchCrawlScopeManager_IncludedInCrawlScopeStop" version="0" task="CSearchCrawlScopeManager_IncludedInCrawlScope" opcode="win:Stop" level="win:Informational" keywords="CSM" template="CSearchCrawlScopeManager_IncludedInCrawlScopeStopArgs"/>
+     <event value="206" symbol="CSearchCrawlScopeManager_AddDefaultScopeRuleStart" version="0" task="CSearchCrawlScopeManager_AddDefaultScopeRule" opcode="win:Start" level="win:Informational" keywords="CSM" template="CSearchCrawlScopeManager_AddDefaultScopeRuleStartArgs"/>
+     <event value="207" symbol="CSearchCrawlScopeManager_AddDefaultScopeRuleStop" version="0" task="CSearchCrawlScopeManager_AddDefaultScopeRule" opcode="win:Stop" level="win:Informational" keywords="CSM" template="Startup_CGatheringService_InitStopArgs"/>
+     <event value="208" symbol="CSearchCrawlScopeManager_AddHierarchicalScopeStart" version="0" task="CSearchCrawlScopeManager_AddHierarchicalScope" opcode="win:Start" level="win:Informational" keywords="CSM" template="CSearchCrawlScopeManager_AddHierarchicalScopeStartArgs"/>
+     <event value="209" symbol="CSearchCrawlScopeManager_AddHierarchicalScopeStop" version="0" task="CSearchCrawlScopeManager_AddHierarchicalScope" opcode="win:Stop" level="win:Informational" keywords="CSM" template="Startup_CGatheringService_InitStopArgs"/>
+     <event value="210" symbol="CSearchCrawlScopeManager_AddRootStart" version="0" task="CSearchCrawlScopeManager_AddRoot" opcode="win:Start" level="win:Informational" keywords="CSM" template="CEnumSearchRoots_Next_FetchArgs"/>
+     <event value="211" symbol="CSearchCrawlScopeManager_AddRootStop" version="0" task="CSearchCrawlScopeManager_AddRoot" opcode="win:Stop" level="win:Informational" keywords="CSM" template="Startup_CGatheringService_InitStopArgs"/>
+     <event value="212" symbol="CSearchCrawlScopeManager_AddUserScopeRuleStart" version="0" task="CSearchCrawlScopeManager_AddUserScopeRule" opcode="win:Start" level="win:Informational" keywords="CSM" template="CSearchCrawlScopeManager_AddUserScopeRuleStartArgs"/>
+     <event value="213" symbol="CSearchCrawlScopeManager_AddUserScopeRuleStop" version="0" task="CSearchCrawlScopeManager_AddUserScopeRule" opcode="win:Stop" level="win:Informational" keywords="CSM" template="Startup_CGatheringService_InitStopArgs"/>
+     <event value="214" symbol="CSearchCrawlScopeManager_EnumerateRootsStart" version="0" task="CSearchCrawlScopeManager_EnumerateRoots" opcode="win:Start" level="win:Informational" keywords="CSM"/>
+     <event value="215" symbol="CSearchCrawlScopeManager_EnumerateRootsStop" version="0" task="CSearchCrawlScopeManager_EnumerateRoots" opcode="win:Stop" level="win:Informational" keywords="CSM" template="Startup_CGatheringService_InitStopArgs"/>
+     <event value="216" symbol="CSearchCrawlScopeManager_EnumerateScopeRulesStart" version="0" task="CSearchCrawlScopeManager_EnumerateScopeRules" opcode="win:Start" level="win:Informational" keywords="CSM"/>
+     <event value="217" symbol="CSearchCrawlScopeManager_EnumerateScopeRulesStop" version="0" task="CSearchCrawlScopeManager_EnumerateScopeRules" opcode="win:Stop" level="win:Informational" keywords="CSM" template="Startup_CGatheringService_InitStopArgs"/>
+     <event value="218" symbol="CSearchCrawlScopeManager_GetParentScopeVersionIdStart" version="0" task="CSearchCrawlScopeManager_GetParentScopeVersionId" opcode="win:Start" level="win:Informational" keywords="CSM" template="CSearchCrawlScopeManager_IncludedInCrawlScopeStartArgs"/>
+     <event value="219" symbol="CSearchCrawlScopeManager_GetParentScopeVersionIdStop" version="0" task="CSearchCrawlScopeManager_GetParentScopeVersionId" opcode="win:Stop" level="win:Informational" keywords="CSM" template="CSearchCrawlScopeManager_GetParentScopeVersionIdStopArgs"/>
+     <event value="220" symbol="CSearchCrawlScopeManager_HasChildScopeRuleStart" version="0" task="CSearchCrawlScopeManager_HasChildScopeRule" opcode="win:Start" level="win:Informational" keywords="CSM" template="CSearchCrawlScopeManager_IncludedInCrawlScopeStartArgs"/>
+     <event value="221" symbol="CSearchCrawlScopeManager_HasChildScopeRuleStop" version="0" task="CSearchCrawlScopeManager_HasChildScopeRule" opcode="win:Stop" level="win:Informational" keywords="CSM" template="CSearchCrawlScopeManager_HasChildScopeRuleStopArgs"/>
+     <event value="222" symbol="CSearchCrawlScopeManager_HasParentScopeRuleStart" version="0" task="CSearchCrawlScopeManager_HasParentScopeRule" opcode="win:Start" level="win:Informational" keywords="CSM" template="CSearchCrawlScopeManager_IncludedInCrawlScopeStartArgs"/>
+     <event value="223" symbol="CSearchCrawlScopeManager_HasParentScopeRuleStop" version="0" task="CSearchCrawlScopeManager_HasParentScopeRule" opcode="win:Stop" level="win:Informational" keywords="CSM" template="CSearchCrawlScopeManager_HasParentScopeRuleStopArgs"/>
+     <event value="224" symbol="CSearchCrawlScopeManager_IncludedInCrawlScopeExStart" version="0" task="CSearchCrawlScopeManager_IncludedInCrawlScopeEx" opcode="win:Start" level="win:Informational" keywords="CSM" template="CSearchCrawlScopeManager_IncludedInCrawlScopeStartArgs"/>
+     <event value="225" symbol="CSearchCrawlScopeManager_IncludedInCrawlScopeExStop" version="0" task="CSearchCrawlScopeManager_IncludedInCrawlScopeEx" opcode="win:Stop" level="win:Informational" keywords="CSM" template="CSearchCrawlScopeManager_IncludedInCrawlScopeExStopArgs"/>
+     <event value="226" symbol="CSearchCrawlScopeManager_RemoveDefaultScopeRuleStart" version="0" task="CSearchCrawlScopeManager_RemoveDefaultScopeRule" opcode="win:Start" level="win:Informational" keywords="CSM" template="CSearchCrawlScopeManager_IncludedInCrawlScopeStartArgs"/>
+     <event value="227" symbol="CSearchCrawlScopeManager_RemoveDefaultScopeRuleStop" version="0" task="CSearchCrawlScopeManager_RemoveDefaultScopeRule" opcode="win:Stop" level="win:Informational" keywords="CSM" template="Startup_CGatheringService_InitStopArgs"/>
+     <event value="228" symbol="CSearchCrawlScopeManager_RemoveRootStart" version="0" task="CSearchCrawlScopeManager_RemoveRoot" opcode="win:Start" level="win:Informational" keywords="CSM" template="CEnumSearchRoots_Next_FetchArgs"/>
+     <event value="229" symbol="CSearchCrawlScopeManager_RemoveRootStop" version="0" task="CSearchCrawlScopeManager_RemoveRoot" opcode="win:Stop" level="win:Informational" keywords="CSM" template="Startup_CGatheringService_InitStopArgs"/>
+     <event value="230" symbol="CSearchCrawlScopeManager_RemoveScopeRuleStart" version="0" task="CSearchCrawlScopeManager_RemoveScopeRule" opcode="win:Start" level="win:Informational" keywords="CSM" template="CEnumSearchScopeRules_Next_FetchArgs"/>
+     <event value="231" symbol="CSearchCrawlScopeManager_RemoveScopeRuleStop" version="0" task="CSearchCrawlScopeManager_RemoveScopeRule" opcode="win:Stop" level="win:Informational" keywords="CSM" template="Startup_CGatheringService_InitStopArgs"/>
+     <event value="232" symbol="CSearchCrawlScopeManager_RevertToDefaultScopesStart" version="0" task="CSearchCrawlScopeManager_RevertToDefaultScopes" opcode="win:Start" level="win:Informational" keywords="CSM"/>
+     <event value="233" symbol="CSearchCrawlScopeManager_RevertToDefaultScopesStop" version="0" task="CSearchCrawlScopeManager_RevertToDefaultScopes" opcode="win:Stop" level="win:Informational" keywords="CSM" template="Startup_CGatheringService_InitStopArgs"/>
+     <event value="234" symbol="CSearchCrawlScopeManager_SaveAllStart" version="0" task="CSearchCrawlScopeManager_SaveAll" opcode="win:Start" level="win:Informational" keywords="CSM"/>
+     <event value="235" symbol="CSearchCrawlScopeManager_SaveAllStop" version="0" task="CSearchCrawlScopeManager_SaveAll" opcode="win:Stop" level="win:Informational" keywords="CSM" template="Startup_CGatheringService_InitStopArgs"/>
+     <event value="236" symbol="CSearchRoot_put_RootURL" version="0" task="CSearchRoot_put_RootURL" level="win:Informational" keywords="CSM" template="CEnumSearchRoots_Next_FetchArgs"/>
+     <event value="237" symbol="CSearchRoot_get_RootURL" version="0" task="CSearchRoot_get_RootURL" level="win:Informational" keywords="CSM" template="CSearchRoot_get_RootURLArgs"/>
+     <event value="238" symbol="CSearchRoot_get_AuthenticationType" version="0" task="CSearchRoot_get_AuthenticationType" level="win:Informational" keywords="CSM" template="CSearchRoot_get_AuthenticationTypeArgs"/>
+     <event value="239" symbol="CSearchRoot_get_EnumerationDepth" version="0" task="CSearchRoot_get_EnumerationDepth" level="win:Informational" keywords="CSM" template="CSearchRoot_get_AuthenticationTypeArgs"/>
+     <event value="240" symbol="CSearchRoot_get_FollowDirectories" version="0" task="CSearchRoot_get_FollowDirectories" level="win:Informational" keywords="CSM" template="CSearchRoot_get_FollowDirectoriesArgs"/>
+     <event value="241" symbol="CSearchRoot_get_HostDepth" version="0" task="CSearchRoot_get_HostDepth" level="win:Informational" keywords="CSM" template="CSearchRoot_get_AuthenticationTypeArgs"/>
+     <event value="242" symbol="CSearchRoot_get_IsHierarchical" version="0" task="CSearchRoot_get_IsHierarchical" level="win:Informational" keywords="CSM" template="CSearchRoot_get_FollowDirectoriesArgs"/>
+     <event value="243" symbol="CSearchRoot_get_ProvidesNotifications" version="0" task="CSearchRoot_get_ProvidesNotifications" level="win:Informational" keywords="CSM" template="CSearchRoot_get_FollowDirectoriesArgs"/>
+     <event value="244" symbol="CSearchRoot_get_Schedule" version="0" task="CSearchRoot_get_Schedule" level="win:Informational" keywords="CSM" template="CSearchRoot_get_ScheduleArgs"/>
+     <event value="245" symbol="CSearchRoot_get_UseNotificationsOnly" version="0" task="CSearchRoot_get_UseNotificationsOnly" level="win:Informational" keywords="CSM" template="CSearchRoot_get_FollowDirectoriesArgs"/>
+     <event value="246" symbol="CSearchRoot_put_AuthenticationType" version="0" task="CSearchRoot_put_AuthenticationType" level="win:Informational" keywords="CSM" template="Index_MergeStartArgs"/>
+     <event value="247" symbol="CSearchRoot_put_EnumerationDepth" version="0" task="CSearchRoot_put_EnumerationDepth" level="win:Informational" keywords="CSM" template="Index_MergeStartArgs"/>
+     <event value="248" symbol="CSearchRoot_put_FollowDirectories" version="0" task="CSearchRoot_put_FollowDirectories" level="win:Informational" keywords="CSM" template="CSearchRoot_put_FollowDirectoriesArgs"/>
+     <event value="249" symbol="CSearchRoot_put_HostDepth" version="0" task="CSearchRoot_put_HostDepth" level="win:Informational" keywords="CSM" template="Index_MergeStartArgs"/>
+     <event value="250" symbol="CSearchRoot_put_IsHierarchical" version="0" task="CSearchRoot_put_IsHierarchical" level="win:Informational" keywords="CSM" template="CSearchRoot_put_FollowDirectoriesArgs"/>
+     <event value="251" symbol="CSearchRoot_put_ProvidesNotifications" version="0" task="CSearchRoot_put_ProvidesNotifications" level="win:Informational" keywords="CSM" template="CSearchRoot_put_FollowDirectoriesArgs"/>
+     <event value="252" symbol="CSearchRoot_put_Schedule" version="0" task="CSearchRoot_put_Schedule" level="win:Informational" keywords="CSM" template="Index_FileStartArgs"/>
+     <event value="253" symbol="CSearchRoot_put_UseNotificationsOnly" version="0" task="CSearchRoot_put_UseNotificationsOnly" level="win:Informational" keywords="CSM" template="CSearchRoot_put_FollowDirectoriesArgs"/>
+     <event value="254" symbol="CSearchScopeRule_get_IsDefault" version="0" task="CSearchScopeRule_get_IsDefault" level="win:Informational" keywords="CSM" template="CSearchRoot_get_FollowDirectoriesArgs"/>
+     <event value="255" symbol="CSearchScopeRule_get_IsIncluded" version="0" task="CSearchScopeRule_get_IsIncluded" level="win:Informational" keywords="CSM" template="CSearchRoot_get_FollowDirectoriesArgs"/>
+     <event value="256" symbol="CSearchScopeRule_get_PatternOrURL" version="0" task="CSearchScopeRule_get_PatternOrURL" level="win:Informational" keywords="CSM" template="CSearchRoot_get_ScheduleArgs"/>
+     <event value="257" symbol="StatusChange_QueueLocked" version="0" task="StatusChange_QueueLocked" level="win:Informational" keywords="Service" template="Index_MergeStartArgs"/>
+     <event value="258" symbol="StatusChange_QueueUnlocked" version="0" task="StatusChange_QueueUnlocked" level="win:Informational" keywords="Service"/>
+     <event value="259" symbol="Gatherer_OnDataChange_Track_Url" version="0" task="Gatherer_OnDataChange_Track_Url" level="win:Informational" keywords="IndexingItem Gatherer" template="Gatherer_OnDataChange_Track_UrlArgs"/>
+     <event value="260" symbol="Gatherer_DocIdTable_GetNewId" version="0" task="Gatherer_DocIdTable_GetNewId" level="win:Informational" keywords="IndexingItem Gatherer" template="Gatherer_DocIdTable_GetNewIdArgs"/>
+     <event value="261" symbol="Gatherer_DocIdTable_UndeleteId" version="0" task="Gatherer_DocIdTable_UndeleteId" level="win:Informational" keywords="IndexingItem Gatherer" template="Gatherer_DocIdTable_GetNewIdArgs"/>
+     <event value="262" symbol="Gatherer_DocIdTable_DeleteId" version="0" task="Gatherer_DocIdTable_DeleteId" level="win:Informational" keywords="IndexingItem Gatherer" template="Gatherer_DocIdTable_GetNewIdArgs"/>
+     <event value="263" symbol="Gatherer_DocIdTable_GetMaxId" version="0" task="Gatherer_DocIdTable_GetMaxId" level="win:Informational" keywords="IndexingItem Gatherer" template="Gatherer_DocIdTable_GetNewIdArgs"/>
+     <event value="264" symbol="Gatherer_DocIdTable_SetMaxId" version="0" task="Gatherer_DocIdTable_SetMaxId" level="win:Informational" keywords="IndexingItem Gatherer" template="Gatherer_DocIdTable_GetNewIdArgs"/>
+     <event value="265" symbol="WID_SDID_Cache_NumberItems" version="0" task="WID_SDID_Cache_NumberItems" level="win:Informational" keywords="IndexingItem Gatherer" template="WID_SDID_Cache_NumberItemsArgs"/>
+     <event value="266" symbol="Gatherer_Queues_QueueLength" version="0" task="Gatherer_Queues_QueueLength" level="win:Informational" keywords="IndexingItem Gatherer" template="Gatherer_Queues_QueueLengthArgs"/>
+     <event value="267" symbol="Startup_Search_Service_DurationStart" version="0" task="Startup_Search_Service_Duration" opcode="win:Start" level="win:Informational" keywords="Performance Indexing"/>
+     <event value="268" symbol="Startup_Search_Service_DurationStop" version="0" task="Startup_Search_Service_Duration" opcode="win:Stop" level="win:Informational" keywords="Performance Indexing"/>
+     <event value="269" symbol="Shutdown_Search_Service_DurationStart" version="0" task="Shutdown_Search_Service_Duration" opcode="win:Start" level="win:Informational" keywords="Performance Indexing"/>
+     <event value="270" symbol="Shutdown_Search_Service_DurationStop" version="0" task="Shutdown_Search_Service_Duration" opcode="win:Stop" level="win:Informational" keywords="Performance Indexing"/>
+     <event value="271" symbol="ServerQueryRelease" version="0" task="ServerQueryRelease" level="win:Informational" keywords="Querying" template="ServerQueryReleaseArgs"/>
+     <event value="272" symbol="CreatePhysCursorStart" version="0" task="CreatePhysCursor" opcode="win:Start" level="win:Informational" keywords="Querying" template="CreatePhysCursorStartArgs"/>
+     <event value="273" symbol="CreatePhysCursorStop" version="0" task="CreatePhysCursor" opcode="win:Stop" level="win:Informational" keywords="Querying" template="CreatePhysCursorStopArgs"/>
+     <event value="274" symbol="CreatePhysCursorRangeStart" version="0" task="CreatePhysCursorRange" opcode="win:Start" level="win:Informational" keywords="Querying" template="CreatePhysCursorRangeStartArgs"/>
+     <event value="275" symbol="CreatePhysCursorRangeStop" version="0" task="CreatePhysCursorRange" opcode="win:Stop" level="win:Informational" keywords="Querying" template="CreatePhysCursorRangeStopArgs"/>
+     <event value="276" symbol="MergeStart" version="0" task="Merge" opcode="win:Start" level="win:Informational" keywords="Indexing" template="MergeStartArgs"/>
+     <event value="277" symbol="MergeStop" version="0" task="Merge" opcode="win:Stop" level="win:Informational" keywords="Indexing" template="CreatePhysCursorStopArgs"/>
+     <event value="278" symbol="CreateWLCursorStart" version="0" task="CreateWLCursor" opcode="win:Start" level="win:Informational" keywords="Querying" template="CreateWLCursorStartArgs"/>
+     <event value="279" symbol="CreateWLCursorStop" version="0" task="CreateWLCursor" opcode="win:Stop" level="win:Informational" keywords="Querying" template="CreateWLCursorStopArgs"/>
+     <event value="280" symbol="CreateWLCursorRangeStart" version="0" task="CreateWLCursorRange" opcode="win:Start" level="win:Informational" keywords="Querying" template="CreateWLCursorRangeStartArgs"/>
+     <event value="281" symbol="CreateWLCursorRangeStop" version="0" task="CreateWLCursorRange" opcode="win:Stop" level="win:Informational" keywords="Querying" template="CreateWLCursorRangeStopArgs"/>
+     <event value="282" symbol="ServerQueryStart" version="0" task="ServerQuery" opcode="win:Start" level="win:Informational" keywords="Querying" template="ServerQueryReleaseArgs"/>
+     <event value="283" symbol="ServerQuery_Send" version="0" task="ServerQuery_Send" level="win:Informational" keywords="Querying" template="ServerQuery_SendArgs"/>
+     <event value="284" symbol="ServerQuery_Received" version="0" task="ServerQuery_Received" level="win:Informational" keywords="Querying" template="ServerQuery_ReceivedArgs"/>
+     <event value="285" symbol="ClientQuery_Send" version="0" task="ClientQuery_Send" level="win:Informational" keywords="Querying" template="ClientQuery_SendArgs"/>
+     <event value="286" symbol="ClientQuery_Received" version="0" task="ClientQuery_Received" level="win:Informational" keywords="Querying" template="ClientQuery_ReceivedArgs"/>
+     <event value="287" symbol="ServerQueryStop" version="0" task="ServerQuery" opcode="win:Stop" level="win:Informational" keywords="Querying" template="ServerQueryReleaseArgs"/>
+     <event value="288" symbol="ServerQuery_Create" version="0" task="ServerQuery_Create" level="win:Informational" keywords="Querying" template="ServerQueryReleaseArgs"/>
+     <event value="289" symbol="ClientStartFetch" version="0" task="ClientStartFetch" level="win:Informational" keywords="Querying" template="ClientStartFetchArgs"/>
+     <event value="290" symbol="ClientFetched" version="0" task="ClientFetched" level="win:Informational" keywords="Querying" template="ClientFetchedArgs"/>
+     <event value="291" symbol="ServerGetRowsStart" version="0" task="ServerGetRows" opcode="win:Start" level="win:Informational" keywords="Querying" template="ServerGetRowsStartArgs"/>
+     <event value="292" symbol="ServerGetRowsStop" version="0" task="ServerGetRows" opcode="win:Stop" level="win:Informational" keywords="Querying" template="ServerGetRowsStopArgs"/>
+     <event value="293" symbol="RobotThread_LangAutoDetection_Start" version="0" task="RobotThread_LangAutoDetection_Start" opcode="win:Start" level="win:Informational" keywords="IndexingChunk Gatherer" template="RobotThread_LangAutoDetection_StartArgs"/>
+     <event value="294" symbol="RobotThread_LangAutoDetection_Stop" version="0" task="RobotThread_LangAutoDetection_Stop" opcode="win:Stop" level="win:Informational" keywords="IndexingChunk Gatherer" template="RobotThread_LangAutoDetection_StopArgs"/>
+     <event value="295" symbol="RobotThread_LangAutoDetection_Succeed" version="0" task="RobotThread_LangAutoDetection_Succeed" level="win:Informational" keywords="IndexingChunk Gatherer" template="RobotThread_LangAutoDetection_SucceedArgs"/>
+     <event value="296" symbol="RobotThread_LangAutoDetection_Fail" version="0" task="RobotThread_LangAutoDetection_Fail" level="win:Error" keywords="IndexingChunk Gatherer" template="Startup_CGatheringService_InitStopArgs"/>
+     <event value="297" symbol="Service_Status_NotifyStart" version="0" task="Service_Status_Notify" opcode="win:Start" level="win:Informational" keywords="Service" template="Index_MergeStartArgs"/>
+     <event value="298" symbol="Service_Status_NotifyStop" version="0" task="Service_Status_Notify" opcode="win:Stop" level="win:Informational" keywords="Service" template="Index_MergeStartArgs"/>
+     <event value="300" symbol="ServerQuery_ForcePublishStart" version="0" task="ServerQuery_ForcePublish" opcode="win:Start" level="win:Informational" keywords="Performance Indexing Querying IndexPI" template="ServerQueryReleaseArgs"/>
+     <event value="301" symbol="ServerQuery_ForcePublishStop" version="0" task="ServerQuery_ForcePublish" opcode="win:Stop" level="win:Informational" keywords="Performance Indexing Querying IndexPI" template="ServerQueryReleaseArgs"/>
+     <event value="302" symbol="Wordlist_PublishStart" version="0" task="Wordlist_Publish" opcode="win:Start" level="win:Informational" keywords="Performance Indexing IndexPI" template="Wordlist_PublishStartArgs"/>
+     <event value="303" symbol="Wordlist_PublishStop" version="0" task="Wordlist_Publish" opcode="win:Stop" level="win:Informational" keywords="Performance Indexing IndexPI" template="Wordlist_PublishStopArgs"/>
+     <event value="304" symbol="Flush_Schedule" version="0" task="Flush_Schedule" level="win:Informational" keywords="Indexing IndexPI" template="Flush_ScheduleArgs"/>
+     <event value="305" symbol="CBPool_ForceFlush" version="0" task="CBPool_ForceFlush" level="win:Informational" keywords="Indexing IndexPI" template="CBPool_ForceFlushArgs"/>
+     <event value="306" symbol="DocAborted_ForcePublish" version="0" task="DocAborted_ForcePublish" level="win:Informational" keywords="Indexing IndexPI" template="DocAborted_ForcePublishArgs"/>
+     <event value="307" symbol="DocAborted_CBOverflow" version="0" task="DocAborted_CBOverflow" level="win:Informational" keywords="Indexing IndexPI" template="DocAborted_ForcePublishArgs"/>
+     <event value="308" symbol="Wordlist_BeginResourceFailed_CBOverflow" version="0" task="Wordlist_BeginResourceFailed_CBOverflow" level="win:Informational" keywords="Indexing IndexPI" template="Wordlist_BeginResourceFailed_CBOverflowArgs"/>
+     <event value="309" symbol="Wordlist_BeginResourceFailed_DocInError" version="0" task="Wordlist_BeginResourceFailed_DocInError" level="win:Informational" keywords="Indexing IndexPI" template="DocAborted_ForcePublishArgs"/>
+     <event value="310" symbol="Wordlist_BeginResource_InvalidatedPreviousDoc" version="0" task="Wordlist_BeginResource_InvalidatedPreviousDoc" level="win:Informational" keywords="Indexing IndexPI" template="Wordlist_BeginResource_InvalidatedPreviousDocArgs"/>
+     <event value="311" symbol="ClientQuery_Rowset_Reuse" version="0" task="ClientQuery_Rowset_Reuse" level="win:Informational" keywords="Querying" template="Index_MergeStartArgs"/>
+     <event value="312" symbol="ServerQuery_DeferredProperty" version="0" task="ServerQuery_DeferredProperty" level="win:Informational" keywords="Querying" template="ServerQuery_DeferredPropertyArgs"/>
+     <event value="313" symbol="ScopeManager_Init" version="0" task="ScopeManager_Init" level="win:Informational" keywords="IndexingItem Gatherer" template="WID_SDID_Cache_InitializeArgs"/>
+     <event value="314" symbol="ScopeManager_Retrieved" version="0" task="ScopeManager_Retrieved" level="win:Informational" keywords="IndexingItem Gatherer" template="WID_SDID_Cache_NumberItemsArgs"/>
+     <event value="315" symbol="ScopeManager_SwitchToFull" version="0" task="ScopeManager_SwitchToFull" level="win:Informational" keywords="IndexingItem Gatherer" template="Index_MergeStartArgs"/>
+     <event value="316" symbol="ScopeManager_Write" version="0" task="ScopeManager_Write" level="win:Informational" keywords="IndexingItem Gatherer" template="ScopeManager_WriteArgs"/>
+     <event value="317" symbol="Prioritization_Request" version="0" task="Prioritization_Request" level="win:Informational" keywords="IndexingItem Gatherer" template="Prioritization_RequestArgs"/>
+     <event value="318" symbol="Prioritization_Complete" version="0" task="Prioritization_Complete" level="win:Informational" keywords="IndexingItem Gatherer" template="Prioritization_RequestArgs"/>
+     <event value="319" symbol="Prioritization_Statistics" version="0" task="Prioritization_Statistics" level="win:Informational" keywords="IndexingItem Gatherer" template="Prioritization_RequestArgs"/>
+     <event value="320" symbol="JET_IO_Low_Priority_Change" version="0" task="JET_IO_Low_Priority_Change" level="win:Informational" keywords="Performance Service PropStorePI" template="CSearchRoot_get_FollowDirectoriesArgs"/>
+     <event value="321" symbol="Gather_Transaction_Failure_Code" version="0" task="Gather_Transaction_Failure_Code" level="win:Informational" keywords="IndexingItem Gatherer" template="Gather_Transaction_Failure_CodeArgs"/>
+     <event value="322" symbol="ETWLogging" version="0" task="ETWLogging" level="win:Informational" keywords="Indexing" template="ETWLoggingArgs"/>
+     <event value="323" symbol="ETWLoggingFailure" version="0" task="ETWLoggingFailure" level="win:Informational" keywords="Indexing" template="ETWLoggingFailureArgs"/>
+     <event value="324" symbol="ETWLoggingItem" version="0" task="ETWLoggingItem" level="win:Informational" keywords="Indexing" template="ETWLoggingItemArgs"/>
+     <event value="325" symbol="ETWLoggingItemFailure" version="0" task="ETWLoggingItemFailure" level="win:Informational" keywords="Indexing" template="ETWLoggingItemFailureArgs"/>
+     <event value="326" symbol="USN_Notify_Journal_Wrap" version="0" task="USN_Notify_Journal_Wrap" level="win:Informational" keywords="USN" template="USN_Notify_Journal_WrapArgs"/>
+     <event value="327" symbol="GathererRecoverStart" version="0" task="GathererRecover" opcode="win:Start" level="win:Informational" keywords="Service Gatherer"/>
+     <event value="328" symbol="GathererRecoverStop" version="0" task="GathererRecover" opcode="win:Stop" level="win:Informational" keywords="Service Gatherer" template="Startup_CGatheringService_InitStopArgs"/>
+     <event value="329" symbol="ValueIndexCreationStart" version="0" task="ValueIndexCreation" opcode="win:Start" level="win:Informational" keywords="Indexing Querying" template="ValueIndexCreationStartArgs"/>
+     <event value="330" symbol="ValueIndexCreationStop" version="0" task="ValueIndexCreation" opcode="win:Stop" level="win:Informational" keywords="Indexing Querying" template="ValueIndexCreationStopArgs"/>
+     <event value="331" symbol="ValueIndexSeekStart" version="0" task="ValueIndexSeek" opcode="win:Start" level="win:Informational" keywords="Indexing Querying" template="ValueIndexSeekStartArgs"/>
+     <event value="332" symbol="ValueIndexSeekStop" version="0" task="ValueIndexSeek" opcode="win:Stop" level="win:Informational" keywords="Indexing Querying" template="ValueIndexSeekStopArgs"/>
+     <event value="333" symbol="ValueIndexSeekStart333" version="0" task="ValueIndexSeek" opcode="win:Start" level="win:Informational" keywords="Indexing Querying" template="ValueIndexSeekStart333Args"/>
+     <event value="334" symbol="ValueIndexSeekStop334" version="0" task="ValueIndexSeek" opcode="win:Stop" level="win:Informational" keywords="Indexing Querying" template="ValueIndexSeekStop334Args"/>
+     <event value="335" symbol="FreeCursor" version="0" task="FreeCursor" level="win:Informational" keywords="Querying" template="FreeCursorArgs"/>
+     <event value="336" symbol="ReuseRestriction" version="0" task="ReuseRestriction" level="win:Informational" keywords="Querying" template="ReuseRestrictionArgs"/>
+     <event value="337" symbol="GetQueryStatusExStart" version="0" task="GetQueryStatusEx" opcode="win:Start" level="win:Informational" keywords="Querying" template="ServerQueryReleaseArgs"/>
+     <event value="338" symbol="GetQueryStatusExStop" version="0" task="GetQueryStatusEx" opcode="win:Stop" level="win:Informational" keywords="Querying" template="ServerQueryReleaseArgs"/>
+     <event value="339" symbol="CreateWordBreakerStart" version="0" task="CreateWordBreaker" opcode="win:Start" level="win:Informational" keywords="Indexing" template="CreateWordBreakerStartArgs"/>
+     <event value="340" symbol="CreateWordBreakerStop" version="0" task="CreateWordBreaker" opcode="win:Stop" level="win:Informational" keywords="Indexing" template="CreateWordBreakerStartArgs"/>
+     <event value="341" symbol="ReleaseWordBreakerStart" version="0" task="ReleaseWordBreaker" opcode="win:Start" level="win:Informational" keywords="Indexing" template="CreateWordBreakerStartArgs"/>
+     <event value="342" symbol="ReleaseWordBreakerStop" version="0" task="ReleaseWordBreaker" opcode="win:Stop" level="win:Informational" keywords="Indexing" template="CreateWordBreakerStartArgs"/>
+     <event value="343" symbol="CreateStemmerStart" version="0" task="CreateStemmer" opcode="win:Start" level="win:Informational" keywords="Indexing" template="CreateWordBreakerStartArgs"/>
+     <event value="344" symbol="CreateStemmerStop" version="0" task="CreateStemmer" opcode="win:Stop" level="win:Informational" keywords="Indexing" template="CreateWordBreakerStartArgs"/>
+     <event value="345" symbol="ReleaseStemmerStart" version="0" task="ReleaseStemmer" opcode="win:Start" level="win:Informational" keywords="Indexing" template="CreateWordBreakerStartArgs"/>
+     <event value="346" symbol="ReleaseStemmerStop" version="0" task="ReleaseStemmer" opcode="win:Stop" level="win:Informational" keywords="Indexing" template="CreateWordBreakerStartArgs"/>
+     <event value="347" symbol="CreateCatalog" version="0" task="CreateCatalog" level="win:Informational" keywords="Service" template="Setup_CatalogSetupFailedArgs"/>
+     <event value="348" symbol="DeleteCatalog" version="0" task="DeleteCatalog" level="win:Informational" keywords="Service" template="Setup_CatalogSetupFailedArgs"/>
+     <event value="349" symbol="RobotThread_GetWordBreaker" version="0" task="RobotThread_GetWordBreaker" level="win:Informational" keywords="IndexingChunk Gatherer" template="RobotThread_GetWordBreakerArgs"/>
+     <event value="350" symbol="GetWordBreaker" version="0" task="GetWordBreaker" level="win:Informational" keywords="Indexing" template="CreateWordBreakerStartArgs"/>
+     <event value="351" symbol="WordBreakerSelector_IncrementHistory" version="0" task="WordBreakerSelector_IncrementHistory" level="win:Informational" keywords="IndexingChunk Gatherer" template="WordBreakerSelector_IncrementHistoryArgs"/>
+     <event value="352" symbol="WordBreakerSelector_SubstituteLocale" version="0" task="WordBreakerSelector_SubstituteLocale" level="win:Informational" keywords="IndexingChunk Gatherer" template="WordBreakerSelector_SubstituteLocaleArgs"/>
+     <event value="353" symbol="WordBreakerSelector_Fallback" version="0" task="WordBreakerSelector_Fallback" level="win:Informational" keywords="IndexingChunk Gatherer" template="RobotThread_LangAutoDetection_StopArgs"/>
+     <event value="354" symbol="WordBreakerHistory_Save" version="0" task="WordBreakerHistory_Save" level="win:Informational" keywords="IndexingChunk Gatherer" template="WordBreakerHistory_SaveArgs"/>
+     <event value="355" symbol="WordBreakerHistory_Load" version="0" task="WordBreakerHistory_Load" level="win:Informational" keywords="IndexingChunk Gatherer" template="WordBreakerHistory_SaveArgs"/>
+     <event value="356" symbol="RobotThread_LangAutoDetection_Scores" version="0" task="RobotThread_LangAutoDetection_Scores" level="win:Informational" keywords="IndexingChunk Gatherer" template="RobotThread_LangAutoDetection_ScoresArgs"/>
+     <event value="357" symbol="FileChangeTracker_APICallStart" version="0" task="FileChangeTracker_APICall" opcode="win:Start" level="win:Informational" keywords="IndexingChunk Gatherer"/>
+     <event value="358" symbol="FileChangeTracker_APICallStop" version="0" task="FileChangeTracker_APICall" opcode="win:Stop" level="win:Informational" keywords="IndexingChunk Gatherer" template="FileChangeTracker_APICallStopArgs"/>
+     <event value="359" symbol="FileChangeTracker_APICallStart359" version="0" task="FileChangeTracker_APICall" opcode="win:Start" level="win:Informational" keywords="IndexingChunk Gatherer"/>
+     <event value="360" symbol="FileChangeTracker_APICallStop360" version="0" task="FileChangeTracker_APICall" opcode="win:Stop" level="win:Informational" keywords="IndexingChunk Gatherer" template="FileChangeTracker_APICallStopArgs"/>
+     <event value="361" symbol="FileChangeTracker_APICallStart361" version="0" task="FileChangeTracker_APICall" opcode="win:Start" level="win:Informational" keywords="IndexingChunk Gatherer"/>
+     <event value="362" symbol="FileChangeTracker_APICallStop362" version="0" task="FileChangeTracker_APICall" opcode="win:Stop" level="win:Informational" keywords="IndexingChunk Gatherer" template="FileChangeTracker_APICallStopArgs"/>
+     <event value="363" symbol="FileChangeTracker_ProcessUSNStart" version="0" task="FileChangeTracker_ProcessUSN" opcode="win:Start" level="win:Informational" keywords="IndexingChunk Gatherer"/>
+     <event value="364" symbol="FileChangeTracker_ProcessUSNStop" version="0" task="FileChangeTracker_ProcessUSN" opcode="win:Stop" level="win:Informational" keywords="IndexingChunk Gatherer"/>
+     <event value="365" symbol="ScopeChangeNotification_OnChanged" version="0" task="ScopeChangeNotification_OnChanged" level="win:Informational" keywords="IndexingItem Gatherer" template="ScopeChangeNotification_OnChangedArgs"/>
+     <event value="366" symbol="ScopeChangeNotification_OnChanged366" version="0" task="ScopeChangeNotification_OnChanged" level="win:Informational" keywords="IndexingItem Gatherer" template="ScopeChangeNotification_OnChanged366Args"/>
+     <event value="367" symbol="ScopeChangeNotification_RegisterStart" version="0" task="ScopeChangeNotification_Register" opcode="win:Start" level="win:Informational" template="ScopeChangeNotification_RegisterStartArgs"/>
+     <event value="368" symbol="ScopeChangeNotification_RegisterStop" version="0" task="ScopeChangeNotification_Register" opcode="win:Stop" level="win:Informational"/>
+     <event value="369" symbol="ScopeChangeNotification_UnregisterStart" version="0" task="ScopeChangeNotification_Unregister" opcode="win:Start" level="win:Informational" template="ScopeChangeNotification_UnregisterStartArgs"/>
+     <event value="370" symbol="ScopeChangeNotification_UnregisterStop" version="0" task="ScopeChangeNotification_Unregister" opcode="win:Stop" level="win:Informational"/>
+    </events>
+    <templates>
+     <template tid="Index_FileStartArgs">
+      <data name="Description" inType="win:UnicodeString"/>
+     </template>
+     <template tid="USN_NotifyArgs">
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="Path" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Index_MergeStartArgs">
+      <data name="Value" inType="win:UInt32"/>
+     </template>
+     <template tid="IndexItemInitArgs">
+      <data name="ITrans" inType="win:UInt64"/>
+      <data name="ResID" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="Type" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="InternalFlags" inType="win:UInt32"/>
+      <data name="CrawlNumber" inType="win:UInt32"/>
+      <data name="CrawlType" inType="win:UInt32"/>
+      <data name="Extra1" inType="win:UInt32"/>
+      <data name="Extra2" inType="win:UInt32"/>
+      <data name="Extra3" inType="win:UInt32"/>
+      <data name="Path" inType="win:UnicodeString"/>
+     </template>
+     <template tid="OnDataChangeArgs">
+      <data name="Value" inType="win:UInt64"/>
+     </template>
+     <template tid="ClientGetNextRowsArgs">
+      <data name="Rowset" inType="win:UInt64"/>
+      <data name="Chapter" inType="win:UInt64"/>
+      <data name="RowsToSkip" inType="win:Int64"/>
+      <data name="RowsRequested" inType="win:Int64"/>
+      <data name="RowsReturned" inType="win:UInt64"/>
+     </template>
+     <template tid="ServiceStatusUpdateArgs">
+      <data name="WaitHint" inType="win:UInt32"/>
+      <data name="State" inType="win:UInt32"/>
+      <data name="CheckPoint" inType="win:UInt32"/>
+     </template>
+     <template tid="Gatherer_AdviseStatusArgs">
+      <data name="Status" inType="win:UInt32"/>
+      <data name="hrReason" inType="win:UInt32"/>
+     </template>
+     <template tid="WID_SDID_Cache_InitializeArgs">
+      <data name="IsCompact" inType="win:Boolean"/>
+      <data name="CacheCapacity" inType="win:UInt32"/>
+     </template>
+     <template tid="WID_SDID_Cache_WriteArgs">
+      <data name="MaxWID" inType="win:UInt32"/>
+      <data name="SDID" inType="win:UInt32"/>
+      <data name="IsCompact" inType="win:Boolean"/>
+      <data name="CacheCapacity" inType="win:UInt32"/>
+     </template>
+     <template tid="Backoff_MemoryCheckArgs">
+      <data name="MemAvail" inType="win:UInt32"/>
+      <data name="MemTreshold" inType="win:UInt32"/>
+      <data name="IsLow" inType="win:Boolean"/>
+     </template>
+     <template tid="Backoff_BatteryPolicyCheckArgs">
+      <data name="ACLineStatus" inType="win:UInt8"/>
+      <data name="BackOffOnBattery" inType="win:Boolean"/>
+      <data name="IsBackOffNeeded" inType="win:Boolean"/>
+     </template>
+     <template tid="Backoff_BatteryCheckArgs">
+      <data name="ACLineStatus" inType="win:UInt8"/>
+      <data name="BatteryFlag" inType="win:UInt8"/>
+      <data name="BatteryLifePercent" inType="win:UInt8"/>
+      <data name="LowBatteryThreshold" inType="win:UInt32"/>
+      <data name="IsLow" inType="win:Boolean"/>
+     </template>
+     <template tid="Backoff_LowDiskCheckArgs">
+      <data name="DiskAvail" inType="win:Double"/>
+      <data name="LowDiskThreshold" inType="win:UInt32"/>
+      <data name="IsLow" inType="win:Boolean"/>
+     </template>
+     <template tid="Backoff_UserActivityCheckArgs">
+      <data name="Interval" inType="win:UInt32"/>
+      <data name="IsUserActive" inType="win:Boolean"/>
+     </template>
+     <template tid="Backoff_HighCPUCheckArgs">
+      <data name="Idle" inType="win:Double"/>
+      <data name="MaxIdle" inType="win:UInt32"/>
+      <data name="IsHigh" inType="win:Boolean"/>
+     </template>
+     <template tid="Backoff_HighIOCheckArgs">
+      <data name="IORate" inType="win:UInt32"/>
+      <data name="HighIOThreshold" inType="win:UInt32"/>
+      <data name="IsHigh" inType="win:Boolean"/>
+     </template>
+     <template tid="Backoff_HighNotificationsCheckArgs">
+      <data name="NotificationRate" inType="win:UInt32"/>
+      <data name="HighNotificationThreshold" inType="win:UInt32"/>
+      <data name="IsHigh" inType="win:Boolean"/>
+     </template>
+     <template tid="Backoff_PendingNotificationsCheckArgs">
+      <data name="PendingNotifications" inType="win:UInt32"/>
+      <data name="NotificationsForceAtMost" inType="win:UInt32"/>
+      <data name="NotificationsForced" inType="win:Boolean"/>
+     </template>
+     <template tid="Backoff_AllowNewItemsCheckArgs">
+      <data name="LastIndexNewItemReason" inType="win:UInt32"/>
+      <data name="IndexNewItemReason" inType="win:UInt32"/>
+      <data name="BackoffReason" inType="win:UInt32"/>
+     </template>
+     <template tid="Backoff_StateArgs">
+      <data name="BackoffReason" inType="win:UInt32"/>
+      <data name="IndexNewItemReason" inType="win:UInt32"/>
+      <data name="AllReasons" inType="win:UInt32"/>
+      <data name="FeatureDisabled" inType="win:UInt32"/>
+      <data name="PowerSetting" inType="win:UInt32"/>
+      <data name="BackoffRecoveryIsON" inType="win:Boolean"/>
+      <data name="ProcessNotifications" inType="win:Boolean"/>
+      <data name="BackOffOnPendingNotifications" inType="win:Boolean"/>
+      <data name="PendingHiPriNotifications" inType="win:UInt32"/>
+      <data name="BackOffOnPowerSetting" inType="win:Boolean"/>
+      <data name="XPScreenSaverAndNoBattery" inType="win:Boolean"/>
+      <data name="EnablePHBackoff" inType="win:Boolean"/>
+      <data name="Merging" inType="win:Boolean"/>
+     </template>
+     <template tid="ProtocolHostObjInitArgs">
+      <data name="ProcessID" inType="win:UInt32"/>
+      <data name="SID" inType="win:UnicodeString"/>
+      <data name="IsProcessWow64" inType="win:Boolean"/>
+     </template>
+     <template tid="ProtocolHostNameConflict_FailedToKillArgs">
+      <data name="ProcessID" inType="win:UInt32"/>
+      <data name="SID" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Startup_RecoverDataFiles_RemoveDirArgs">
+      <data name="Path" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Startup_MoveDataFilesArgs">
+      <data name="OldPath" inType="win:UnicodeString"/>
+      <data name="NewPath" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Startup_ReplaceDirectoryPrefixInValueArgs">
+      <data name="Value" inType="win:UnicodeString"/>
+      <data name="OldPrefix" inType="win:UnicodeString"/>
+      <data name="NewPrefix" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Startup_CSearchService_Init2Args">
+      <data name="NoRun" inType="win:Boolean"/>
+      <data name="SystemSetupOver" inType="win:Boolean"/>
+     </template>
+     <template tid="Startup_CGatheringService_InitStartArgs">
+      <data name="NoRun" inType="win:Boolean"/>
+     </template>
+     <template tid="Startup_CGatheringService_InitStopArgs">
+      <data name="hr" inType="win:UInt32"/>
+     </template>
+     <template tid="Setup_CatalogSetupFailedArgs">
+      <data name="hr" inType="win:UInt32"/>
+      <data name="Message" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Crawl_InitializeNewArgs">
+      <data name="CrawlNo" inType="win:UInt32"/>
+      <data name="CrawlType" inType="win:UInt32"/>
+      <data name="FileName" inType="win:UnicodeString"/>
+      <data name="IsCatalogLevel" inType="win:Boolean"/>
+     </template>
+     <template tid="Crawl_InitializeArgs">
+      <data name="CrawlNo" inType="win:UInt32"/>
+     </template>
+     <template tid="Crawl_AddStartPageArgs">
+      <data name="CrawlNo" inType="win:UInt32"/>
+      <data name="StartPageName" inType="win:UnicodeString"/>
+      <data name="StartPageRefID" inType="win:UInt32"/>
+     </template>
+     <template tid="Crawl_RemoveStartPageArgs">
+      <data name="CrawlNo" inType="win:UInt32"/>
+      <data name="StartPageName" inType="win:UnicodeString"/>
+      <data name="StartPageRefID" inType="win:UInt32"/>
+      <data name="CrawlIsInProgress" inType="win:UInt32"/>
+     </template>
+     <template tid="Crawl_IsDoneArgs">
+      <data name="CrawlNo" inType="win:UInt32"/>
+      <data name="IsDone" inType="win:Boolean"/>
+     </template>
+     <template tid="Transactions_IterateHistoryStartArgs">
+      <data name="CrawlNo" inType="win:UInt32"/>
+      <data name="CrawlType" inType="win:UInt32"/>
+     </template>
+     <template tid="Transactions_IterateHistoryStopArgs">
+      <data name="CrawlNo" inType="win:UInt32"/>
+      <data name="hr" inType="win:UInt32"/>
+     </template>
+     <template tid="Transactions_IterateHistory_ModifyArgs">
+      <data name="CrawlNo" inType="win:UInt32"/>
+      <data name="URL" inType="win:UnicodeString"/>
+     </template>
+     <template tid="GatherLog_TransactionArgs">
+      <data name="hrCode" inType="win:UInt32"/>
+      <data name="URL" inType="win:UnicodeString"/>
+      <data name="TransactionType" inType="win:UInt32"/>
+      <data name="StartAddressId" inType="win:UInt32"/>
+      <data name="CrawlNo" inType="win:UInt32"/>
+      <data name="DocId" inType="win:UInt32"/>
+      <data name="hrTransactionError" inType="win:UInt32"/>
+      <data name="Description" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Gatherer_OnDataChangeStartArgs">
+      <data name="Resource" inType="win:UInt64"/>
+      <data name="ChangeAdvice" inType="win:UInt32"/>
+     </template>
+     <template tid="Gatherer_OnDataChangeStopArgs">
+      <data name="Resource" inType="win:UInt64"/>
+      <data name="hr" inType="win:UInt32"/>
+     </template>
+     <template tid="Gatherer_OnDataChangeArgs">
+      <data name="Resource" inType="win:UInt64"/>
+      <data name="TransactionURL" inType="win:UnicodeString"/>
+      <data name="TransactionType" inType="win:UInt32"/>
+     </template>
+     <template tid="CEnumSearchRoots_NextStartArgs">
+      <data name="ElementCount" inType="win:UInt32"/>
+     </template>
+     <template tid="CEnumSearchRoots_NextStopArgs">
+      <data name="hr" inType="win:UInt32"/>
+      <data name="ElementCount" inType="win:UInt32"/>
+     </template>
+     <template tid="CEnumSearchRoots_Next_FetchArgs">
+      <data name="SearchRootURL" inType="win:UnicodeString"/>
+     </template>
+     <template tid="CEnumSearchScopeRules_Next_FetchArgs">
+      <data name="ScopeRuleURL" inType="win:UnicodeString"/>
+     </template>
+     <template tid="CSearchCrawlScopeManager_IncludedInCrawlScopeStartArgs">
+      <data name="URL" inType="win:UnicodeString"/>
+     </template>
+     <template tid="CSearchCrawlScopeManager_IncludedInCrawlScopeStopArgs">
+      <data name="hr" inType="win:UInt32"/>
+      <data name="IsIncluded" inType="win:Boolean"/>
+     </template>
+     <template tid="CSearchCrawlScopeManager_AddDefaultScopeRuleStartArgs">
+      <data name="URL" inType="win:UnicodeString"/>
+      <data name="IsInclude" inType="win:Boolean"/>
+      <data name="FollowFlags" inType="win:UInt32"/>
+     </template>
+     <template tid="CSearchCrawlScopeManager_AddHierarchicalScopeStartArgs">
+      <data name="URL" inType="win:UnicodeString"/>
+      <data name="IsInclude" inType="win:Boolean"/>
+      <data name="IsDefault" inType="win:Boolean"/>
+      <data name="OverrideChildren" inType="win:Boolean"/>
+     </template>
+     <template tid="CSearchCrawlScopeManager_AddUserScopeRuleStartArgs">
+      <data name="URL" inType="win:UnicodeString"/>
+      <data name="IsInclude" inType="win:Boolean"/>
+      <data name="OverrideChildren" inType="win:Boolean"/>
+      <data name="FollowFlags" inType="win:UInt32"/>
+     </template>
+     <template tid="CSearchCrawlScopeManager_GetParentScopeVersionIdStopArgs">
+      <data name="hr" inType="win:UInt32"/>
+      <data name="ScopeId" inType="win:UInt32"/>
+     </template>
+     <template tid="CSearchCrawlScopeManager_HasChildScopeRuleStopArgs">
+      <data name="hr" inType="win:UInt32"/>
+      <data name="HasChildRule" inType="win:Boolean"/>
+     </template>
+     <template tid="CSearchCrawlScopeManager_HasParentScopeRuleStopArgs">
+      <data name="hr" inType="win:UInt32"/>
+      <data name="HasParentRule" inType="win:Boolean"/>
+     </template>
+     <template tid="CSearchCrawlScopeManager_IncludedInCrawlScopeExStopArgs">
+      <data name="hr" inType="win:UInt32"/>
+      <data name="IsIncluded" inType="win:Boolean"/>
+      <data name="Reason" inType="win:UInt32"/>
+     </template>
+     <template tid="CSearchRoot_get_RootURLArgs">
+      <data name="hr" inType="win:UInt32"/>
+      <data name="SearchRootURL" inType="win:UnicodeString"/>
+     </template>
+     <template tid="CSearchRoot_get_AuthenticationTypeArgs">
+      <data name="hr" inType="win:UInt32"/>
+      <data name="Value" inType="win:UInt32"/>
+     </template>
+     <template tid="CSearchRoot_get_FollowDirectoriesArgs">
+      <data name="hr" inType="win:UInt32"/>
+      <data name="Value" inType="win:Boolean"/>
+     </template>
+     <template tid="CSearchRoot_get_ScheduleArgs">
+      <data name="hr" inType="win:UInt32"/>
+      <data name="Value" inType="win:UnicodeString"/>
+     </template>
+     <template tid="CSearchRoot_put_FollowDirectoriesArgs">
+      <data name="Value" inType="win:Boolean"/>
+     </template>
+     <template tid="Gatherer_OnDataChange_Track_UrlArgs">
+      <data name="Resource" inType="win:UInt64"/>
+      <data name="TransactionURL" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Gatherer_DocIdTable_GetNewIdArgs">
+      <data name="WorkId" inType="win:UInt32"/>
+      <data name="hr" inType="win:UInt32"/>
+     </template>
+     <template tid="WID_SDID_Cache_NumberItemsArgs">
+      <data name="NumWID" inType="win:UInt32"/>
+     </template>
+     <template tid="Gatherer_Queues_QueueLengthArgs">
+      <data name="GathererCodeLocation" inType="win:UInt32"/>
+      <data name="TransactionsInFile" inType="win:UInt32"/>
+      <data name="TransactionsInMemory" inType="win:UInt32"/>
+      <data name="TransactionQueueLength" inType="win:UInt32"/>
+      <data name="TransactionsInFileNotifications" inType="win:UInt32"/>
+      <data name="TransactionsInMemoryNotifications" inType="win:UInt32"/>
+      <data name="TransactionQueueLengthNotifications" inType="win:UInt32"/>
+      <data name="TransactionsHighLimit" inType="win:UInt32"/>
+      <data name="TransactionsLowLimitPerCrawl" inType="win:UInt32"/>
+      <data name="TransactionsHighLimitPerCrawl" inType="win:UInt32"/>
+      <data name="TransactionsInIncrementalQueue" inType="win:UInt32"/>
+      <data name="TransactionsInNotificationQueue" inType="win:UInt32"/>
+      <data name="TansactionsInNotificationHighPriorityQueue" inType="win:UInt32"/>
+     </template>
+     <template tid="ServerQueryReleaseArgs">
+      <data name="Qid" inType="win:UInt32"/>
+     </template>
+     <template tid="CreatePhysCursorStartArgs">
+      <data name="ObjectWid" inType="win:UInt32"/>
+      <data name="KeyPid" inType="win:UInt32"/>
+      <data name="GroupPids" inType="win:UnicodeString"/>
+      <data name="KeyStr" inType="win:UnicodeString"/>
+     </template>
+     <template tid="CreatePhysCursorStopArgs">
+      <data name="ObjectWid" inType="win:UInt32"/>
+     </template>
+     <template tid="CreatePhysCursorRangeStartArgs">
+      <data name="ObjectWid" inType="win:UInt32"/>
+      <data name="KeyStartPid" inType="win:UInt32"/>
+      <data name="GroupPids" inType="win:UnicodeString"/>
+      <data name="KeyEndStr" inType="win:UnicodeString"/>
+     </template>
+     <template tid="CreatePhysCursorRangeStopArgs">
+      <data name="ObjectWid" inType="win:UInt32"/>
+      <data name="StackCount" inType="win:UInt32"/>
+     </template>
+     <template tid="MergeStartArgs">
+      <data name="ObjectWid" inType="win:UInt32"/>
+      <data name="UseQueryPerfOpt" inType="win:Boolean"/>
+      <data name="Restarted" inType="win:Boolean"/>
+      <data name="IndexIds" inType="win:UnicodeString"/>
+      <data name="TotalSizeInPages" inType="win:UInt32"/>
+      <data name="MaxWid" inType="win:UInt32"/>
+     </template>
+     <template tid="CreateWLCursorStartArgs">
+      <data name="WordListId" inType="win:UInt64"/>
+      <data name="KeyTargetPid" inType="win:UInt32"/>
+      <data name="KeyTargetStr" inType="win:UnicodeString"/>
+     </template>
+     <template tid="CreateWLCursorStopArgs">
+      <data name="WordListId" inType="win:UInt64"/>
+     </template>
+     <template tid="CreateWLCursorRangeStartArgs">
+      <data name="WordListId" inType="win:UInt64"/>
+      <data name="KeyStartPid" inType="win:UInt32"/>
+      <data name="GroupPids" inType="win:UnicodeString"/>
+      <data name="KeyEndStr" inType="win:UnicodeString"/>
+     </template>
+     <template tid="CreateWLCursorRangeStopArgs">
+      <data name="WordListId" inType="win:UInt64"/>
+      <data name="StackCount" inType="win:UInt32"/>
+     </template>
+     <template tid="ServerQuery_SendArgs">
+      <data name="Qid" inType="win:UInt32"/>
+      <data name="BytesSent" inType="win:UInt32"/>
+      <data name="MessageId" inType="win:Int32"/>
+     </template>
+     <template tid="ServerQuery_ReceivedArgs">
+      <data name="Qid" inType="win:UInt32"/>
+      <data name="BytesReceived" inType="win:UInt32"/>
+      <data name="MessageId" inType="win:Int32"/>
+     </template>
+     <template tid="ClientQuery_SendArgs">
+      <data name="BytesSent" inType="win:UInt32"/>
+      <data name="MessageId" inType="win:Int32"/>
+     </template>
+     <template tid="ClientQuery_ReceivedArgs">
+      <data name="BytesReceived" inType="win:UInt32"/>
+      <data name="MessageId" inType="win:Int32"/>
+     </template>
+     <template tid="ClientStartFetchArgs">
+      <data name="Rowset" inType="win:UInt64"/>
+      <data name="Chapter" inType="win:UInt64"/>
+      <data name="RowsRequested" inType="win:Int64"/>
+      <data name="RowSeekMethod" inType="win:Int32"/>
+      <data name="RowsToSkip" inType="win:Int64"/>
+      <data name="RowOffset" inType="win:Int32"/>
+      <data name="Bookmark" inType="win:UInt32"/>
+      <data name="Bookmarks" inType="win:UnicodeString"/>
+      <data name="Numerator" inType="win:UInt32"/>
+      <data name="Denominator" inType="win:UInt32"/>
+     </template>
+     <template tid="ClientFetchedArgs">
+      <data name="Rowset" inType="win:UInt64"/>
+      <data name="RowsReturned" inType="win:Int64"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="ServerGetRowsStartArgs">
+      <data name="Qid" inType="win:UInt32"/>
+      <data name="WidStart" inType="win:UInt32"/>
+      <data name="Chapter" inType="win:UInt32"/>
+      <data name="Depth" inType="win:UInt32"/>
+      <data name="RowOffset" inType="win:Int64"/>
+      <data name="RequestedRows" inType="win:UInt32"/>
+     </template>
+     <template tid="ServerGetRowsStopArgs">
+      <data name="Qid" inType="win:UInt32"/>
+      <data name="RowsTransferred" inType="win:UInt32"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="RobotThread_LangAutoDetection_StartArgs">
+      <data name="fmtid" inType="win:GUID"/>
+      <data name="pid" inType="win:UInt32"/>
+      <data name="TextPrefix" inType="win:UnicodeString"/>
+      <data name="TextLength" inType="win:UInt32"/>
+     </template>
+     <template tid="RobotThread_LangAutoDetection_StopArgs">
+      <data name="LocaleID" inType="win:UInt32"/>
+     </template>
+     <template tid="RobotThread_LangAutoDetection_SucceedArgs">
+      <data name="LocaleName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Wordlist_PublishStartArgs">
+      <data name="CBID" inType="win:UInt64"/>
+      <data name="DocCount" inType="win:UInt32"/>
+      <data name="BytesAvailable" inType="win:UInt64"/>
+     </template>
+     <template tid="Wordlist_PublishStopArgs">
+      <data name="CBID" inType="win:UInt64"/>
+     </template>
+     <template tid="Flush_ScheduleArgs">
+      <data name="Scheduled" inType="win:Boolean"/>
+      <data name="Reason" inType="win:UInt32"/>
+     </template>
+     <template tid="CBPool_ForceFlushArgs">
+      <data name="AvailableCBCount" inType="win:UInt32"/>
+      <data name="DirtyCBCount" inType="win:UInt32"/>
+      <data name="InUseCBCount" inType="win:UInt32"/>
+      <data name="PublishedCBCount" inType="win:UInt32"/>
+     </template>
+     <template tid="DocAborted_ForcePublishArgs">
+      <data name="DocID" inType="win:UInt32"/>
+     </template>
+     <template tid="Wordlist_BeginResourceFailed_CBOverflowArgs">
+      <data name="DocID" inType="win:UInt32"/>
+      <data name="BytesAvailable" inType="win:UInt32"/>
+     </template>
+     <template tid="Wordlist_BeginResource_InvalidatedPreviousDocArgs">
+      <data name="DocID" inType="win:UInt32"/>
+      <data name="CBID" inType="win:UInt64"/>
+     </template>
+     <template tid="ServerQuery_DeferredPropertyArgs">
+      <data name="DocID" inType="win:UInt32"/>
+      <data name="PropID" inType="win:UInt32"/>
+     </template>
+     <template tid="ScopeManager_WriteArgs">
+      <data name="MaxWID" inType="win:UInt32"/>
+      <data name="Scope" inType="win:UInt32"/>
+      <data name="IsCompact" inType="win:Boolean"/>
+      <data name="CacheCapacity" inType="win:UInt32"/>
+     </template>
+     <template tid="Prioritization_RequestArgs">
+      <data name="RequestID" inType="win:UInt64"/>
+      <data name="Priority" inType="win:UInt32"/>
+      <data name="Indexed" inType="win:UInt32"/>
+      <data name="OutstandingAdds" inType="win:UInt32"/>
+      <data name="OutstandingModifies" inType="win:UInt32"/>
+     </template>
+     <template tid="Gather_Transaction_Failure_CodeArgs">
+      <data name="Status" inType="win:UInt32"/>
+      <data name="URL" inType="win:UnicodeString"/>
+      <data name="DocID" inType="win:UInt32"/>
+      <data name="hr" inType="win:UInt32"/>
+     </template>
+     <template tid="ETWLoggingArgs">
+      <data name="Info" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ETWLoggingFailureArgs">
+      <data name="Hr" inType="win:UInt32"/>
+      <data name="Info" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ETWLoggingItemArgs">
+      <data name="DocID" inType="win:UInt32"/>
+      <data name="URL" inType="win:UnicodeString"/>
+      <data name="Info" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ETWLoggingItemFailureArgs">
+      <data name="Hr" inType="win:UInt32"/>
+      <data name="DocID" inType="win:UInt32"/>
+      <data name="URL" inType="win:UnicodeString"/>
+      <data name="Info" inType="win:UnicodeString"/>
+     </template>
+     <template tid="USN_Notify_Journal_WrapArgs">
+      <data name="Volume" inType="win:UnicodeString"/>
+      <data name="DesiredPosition" inType="win:Int64"/>
+      <data name="CurrentPosition" inType="win:Int64"/>
+      <data name="hr" inType="win:UInt32"/>
+     </template>
+     <template tid="ValueIndexCreationStartArgs">
+      <data name="Locale" inType="win:UInt32"/>
+      <data name="IdxName" inType="win:AnsiString"/>
+      <data name="IsShadow" inType="win:Boolean"/>
+      <data name="ColumnType" inType="win:UInt64"/>
+     </template>
+     <template tid="ValueIndexCreationStopArgs">
+      <data name="Locale" inType="win:UInt32"/>
+      <data name="IdxName" inType="win:AnsiString"/>
+      <data name="IsShadow" inType="win:Boolean"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="ValueIndexSeekStartArgs">
+      <data name="SeekType" inType="win:UnicodeString"/>
+      <data name="ColumnType" inType="win:UInt32"/>
+     </template>
+     <template tid="ValueIndexSeekStopArgs">
+      <data name="SeekType" inType="win:UnicodeString"/>
+      <data name="Result" inType="win:UInt32"/>
+     </template>
+     <template tid="ValueIndexSeekStart333Args">
+      <data name="HasStartVariant" inType="win:Boolean"/>
+      <data name="HasEndVariant" inType="win:Boolean"/>
+      <data name="ExcludeStartVariant" inType="win:Boolean"/>
+      <data name="ExcludeEndVariant" inType="win:Boolean"/>
+     </template>
+     <template tid="ValueIndexSeekStop334Args">
+      <data name="RangeSet" inType="win:UInt32"/>
+     </template>
+     <template tid="FreeCursorArgs">
+      <data name="Qid" inType="win:UInt32"/>
+      <data name="Cursor" inType="win:UInt32"/>
+     </template>
+     <template tid="ReuseRestrictionArgs">
+      <data name="WhereID" inType="win:UInt32"/>
+     </template>
+     <template tid="CreateWordBreakerStartArgs">
+      <data name="Locale" inType="win:UInt32"/>
+     </template>
+     <template tid="RobotThread_GetWordBreakerArgs">
+      <data name="fmtid" inType="win:GUID"/>
+      <data name="pid" inType="win:UInt32"/>
+      <data name="LocaleID" inType="win:UInt32"/>
+      <data name="LocaleSource" inType="win:UInt32"/>
+     </template>
+     <template tid="WordBreakerSelector_IncrementHistoryArgs">
+      <data name="LocaleID" inType="win:UInt32"/>
+      <data name="IncrementCallID" inType="win:UInt32"/>
+     </template>
+     <template tid="WordBreakerSelector_SubstituteLocaleArgs">
+      <data name="LocaleOriginal" inType="win:UInt32"/>
+      <data name="LocaleSubstitute" inType="win:UInt32"/>
+     </template>
+     <template tid="WordBreakerHistory_SaveArgs">
+      <data name="Data" inType="win:AnsiString"/>
+     </template>
+     <template tid="RobotThread_LangAutoDetection_ScoresArgs">
+      <data name="TextLength" inType="win:UInt32"/>
+      <data name="TopLCID" inType="win:UInt32"/>
+      <data name="TopScore" inType="win:UInt32"/>
+      <data name="SecondLCID" inType="win:UInt32"/>
+      <data name="SecondScore" inType="win:UInt32"/>
+     </template>
+     <template tid="FileChangeTracker_APICallStopArgs">
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="ScopeChangeNotification_OnChangedArgs">
+      <data name="ScopeId" inType="win:UInt32"/>
+      <data name="EventId" inType="win:GUID"/>
+      <data name="PackageFamilyName" inType="win:UnicodeString"/>
+      <data name="Path" inType="win:UnicodeString"/>
+      <data name="Result" inType="win:UInt32"/>
+      <data name="SuccessEvent" inType="win:Boolean"/>
+     </template>
+     <template tid="ScopeChangeNotification_OnChanged366Args">
+      <data name="ScopeId" inType="win:UInt32"/>
+     </template>
+     <template tid="ScopeChangeNotification_RegisterStartArgs">
+      <data name="UserSid" inType="win:UnicodeString"/>
+      <data name="PackageFamilyName" inType="win:UnicodeString"/>
+      <data name="EventId" inType="win:GUID"/>
+      <data name="Count" inType="win:UInt32"/>
+      <data name="Paths" inType="win:UnicodeString" count="Count"/>
+     </template>
+     <template tid="ScopeChangeNotification_UnregisterStartArgs">
+      <data name="UserSid" inType="win:UnicodeString"/>
+      <data name="PackageFamilyName" inType="win:UnicodeString"/>
+      <data name="EventId" inType="win:GUID"/>
+     </template>
+     <template tid="Index_FileStopArgs_V1">
+      <data name="UsesFilter" inType="win:Boolean"/>
+      <data name="UsesPropertyHandler" inType="win:Boolean"/>
+     </template>
+     <template tid="ClientQueryStartArgs_V1">
+      <data name="QueryText" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ClientQueryStopArgs_V1">
+      <data name="QueryText" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="MergeThreadStartArgs_V1">
+      <data name="Level" inType="win:UInt32"/>
+      <data name="Type" inType="win:UInt64"/>
+     </template>
+     <template tid="GatherProject_AdviseStatusChangeArgs_V1">
+      <data name="ProjectPtr" inType="win:UInt64"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="hrReason" inType="win:UInt32"/>
+     </template>
+     <template tid="RobotThread_FilterDriver_Init_FailedArgs_V1">
+      <data name="ITrans" inType="win:UInt64"/>
+     </template>
+     <template tid="RobotThread_ProcessAnnotation_FailedArgs_V1">
+      <data name="ITrans" inType="win:UInt64"/>
+      <data name="hr" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Performance" value="Performance"/>
+    <string id="keyword_GroupPolicy" value="GroupPolicy"/>
+    <string id="keyword_Indexing" value="Indexing"/>
+    <string id="keyword_IndexingItem" value="IndexingItem"/>
+    <string id="keyword_IndexingChunk" value="IndexingChunk"/>
+    <string id="keyword_Querying" value="Querying"/>
+    <string id="keyword_ReservedKeyword1" value="ReservedKeyword1"/>
+    <string id="keyword_ReservedKeyword2" value="ReservedKeyword2"/>
+    <string id="keyword_Common" value="Common"/>
+    <string id="keyword_Service" value="Service"/>
+    <string id="keyword_Gatherer" value="Gatherer"/>
+    <string id="keyword_CPL" value="CPL"/>
+    <string id="keyword_ProtocolHost" value="ProtocolHost"/>
+    <string id="keyword_FilterHost" value="FilterHost"/>
+    <string id="keyword_Wordbreakers" value="Wordbreakers"/>
+    <string id="keyword_CSM" value="CSM"/>
+    <string id="keyword_PropStorePI" value="PropStorePI"/>
+    <string id="keyword_PTypePI" value="PTypePI"/>
+    <string id="keyword_IndexPI" value="IndexPI"/>
+    <string id="keyword_USN" value="USN"/>
+    <string id="keyword_Backoff" value="Backoff"/>
+    <string id="keyword_ReservedKeyword5" value="ReservedKeyword5"/>
+    <string id="keyword_ReservedKeyword6" value="ReservedKeyword6"/>
+    <string id="keyword_ReservedKeyword7" value="ReservedKeyword7"/>
+    <string id="keyword_ReservedKeyword8" value="ReservedKeyword8"/>
+    <string id="keyword_ReservedKeyword9" value="ReservedKeyword9"/>
+    <string id="task_Crawl" value="Crawl"/>
+    <string id="task_IncCrawl" value="IncCrawl"/>
+    <string id="task_BackOff_Mem" value="BackOff_Mem"/>
+    <string id="task_BackOff_Bat" value="BackOff_Bat"/>
+    <string id="task_BackOff_Act" value="BackOff_Act"/>
+    <string id="task_BackOff_IOR" value="BackOff_IOR"/>
+    <string id="task_BackOff_Ntf" value="BackOff_Ntf"/>
+    <string id="task_BackOff_CPU" value="BackOff_CPU"/>
+    <string id="task_Index_File" value="Index_File"/>
+    <string id="task_USN_Notify" value="USN_Notify"/>
+    <string id="task_USN_Notify_Filtered" value="USN_Notify_Filtered"/>
+    <string id="task_Catalog_Monitor" value="Catalog_Monitor"/>
+    <string id="task_Index_Merge" value="Index_Merge"/>
+    <string id="task_Index_Commit" value="Index_Commit"/>
+    <string id="task_MapiEmailItem" value="MapiEmailItem"/>
+    <string id="task_CSCDocument" value="CSCDocument"/>
+    <string id="task_RetrieveValue" value="RetrieveValue"/>
+    <string id="task_MapiOpenMessage" value="MapiOpenMessage"/>
+    <string id="task_MapiGetAttachmentFromMessage" value="MapiGetAttachmentFromMessage"/>
+    <string id="task_MapiEnumerateAttachments" value="MapiEnumerateAttachments"/>
+    <string id="task_MapiGetMapiFpsPropVals" value="MapiGetMapiFpsPropVals"/>
+    <string id="task_IndexItemInit" value="IndexItemInit"/>
+    <string id="task_IndexItemSetStatus" value="IndexItemSetStatus"/>
+    <string id="task_OnDataChange" value="OnDataChange"/>
+    <string id="task_IndexItemDataComplete" value="IndexItemDataComplete"/>
+    <string id="task_HighPriorityItemBoost" value="HighPriorityItemBoost"/>
+    <string id="task_HighPriorityThreadBoost" value="HighPriorityThreadBoost"/>
+    <string id="task_HighPriorityMergeBoost" value="HighPriorityMergeBoost"/>
+    <string id="task_ClientQuery" value="ClientQuery"/>
+    <string id="task_IndexItemEnd" value="IndexItemEnd"/>
+    <string id="task_MergeItem" value="MergeItem"/>
+    <string id="task_MergeThread" value="MergeThread"/>
+    <string id="task_IndexItemPushToFile" value="IndexItemPushToFile"/>
+    <string id="task_ClientGetNextRows" value="ClientGetNextRows"/>
+    <string id="task_FilterOplockBreak" value="FilterOplockBreak"/>
+    <string id="task_BackoffThreadWait" value="BackoffThreadWait"/>
+    <string id="task_BackoffReason" value="BackoffReason"/>
+    <string id="task_FilterOplockFail" value="FilterOplockFail"/>
+    <string id="task_ServiceStatusUpdate" value="ServiceStatusUpdate"/>
+    <string id="task_SearchIndexer" value="SearchIndexer"/>
+    <string id="task_SearchProtocolHost" value="SearchProtocolHost"/>
+    <string id="task_SearchFilterHost" value="SearchFilterHost"/>
+    <string id="task_StatusChange_PostToStatusThread" value="StatusChange_PostToStatusThread"/>
+    <string id="task_StatusChange_ProcessInStatusThread" value="StatusChange_ProcessInStatusThread"/>
+    <string id="task_StatusThread" value="StatusThread"/>
+    <string id="task_StatusChange_AppendToGathererQueue" value="StatusChange_AppendToGathererQueue"/>
+    <string id="task_StatusChange_AppendCrawlToGathererQueue" value="StatusChange_AppendCrawlToGathererQueue"/>
+    <string id="task_StatusChange_RemoveFromGathererQueue" value="StatusChange_RemoveFromGathererQueue"/>
+    <string id="task_Gatherer_AdviseStatus" value="Gatherer_AdviseStatus"/>
+    <string id="task_Gatherer_RequestStatusChange" value="Gatherer_RequestStatusChange"/>
+    <string id="task_GatherProject_AdviseStatusChange" value="GatherProject_AdviseStatusChange"/>
+    <string id="task_GatherProject_AdviseRequestStatus" value="GatherProject_AdviseRequestStatus"/>
+    <string id="task_GatherProject_PrepareStatusChange" value="GatherProject_PrepareStatusChange"/>
+    <string id="task_AliasTable_InitSDIDCache" value="AliasTable_InitSDIDCache"/>
+    <string id="task_WID_SDID_Cache_Initialize" value="WID_SDID_Cache_Initialize"/>
+    <string id="task_WID_SDID_Cache_Write" value="WID_SDID_Cache_Write"/>
+    <string id="task_WID_SDID_Cache_SwitchToFull" value="WID_SDID_Cache_SwitchToFull"/>
+    <string id="task_Startup_Search_Service_Duration" value="Startup_Search_Service_Duration"/>
+    <string id="task_Shutdown_Search_Service_Duration" value="Shutdown_Search_Service_Duration"/>
+    <string id="task_Startup_CSearchService_Init" value="Startup_CSearchService_Init"/>
+    <string id="task_Startup_CDcomService_Init" value="Startup_CDcomService_Init"/>
+    <string id="task_Startup_CDcomService_ServiceStart" value="Startup_CDcomService_ServiceStart"/>
+    <string id="task_Startup_CDcomService_ServiceMain" value="Startup_CDcomService_ServiceMain"/>
+    <string id="task_Startup_RecoverIfNecessary" value="Startup_RecoverIfNecessary"/>
+    <string id="task_Startup_RecoverDataFiles" value="Startup_RecoverDataFiles"/>
+    <string id="task_Startup_RecoverDataFiles_RemoveDir" value="Startup_RecoverDataFiles_RemoveDir"/>
+    <string id="task_Startup_MoveDataFiles" value="Startup_MoveDataFiles"/>
+    <string id="task_Startup_MoveDataFiles_CopyDir" value="Startup_MoveDataFiles_CopyDir"/>
+    <string id="task_Startup_MoveDataFiles_RemoveDir" value="Startup_MoveDataFiles_RemoveDir"/>
+    <string id="task_Startup_ReplaceDirectoryPrefixInValue" value="Startup_ReplaceDirectoryPrefixInValue"/>
+    <string id="task_Startup_SysPrepInProgress" value="Startup_SysPrepInProgress"/>
+    <string id="task_Startup_GuiSetupInProgress" value="Startup_GuiSetupInProgress"/>
+    <string id="task_Startup_CDcomService_IsIdleServiceMode" value="Startup_CDcomService_IsIdleServiceMode"/>
+    <string id="task_Startup_CSearchService_Init2" value="Startup_CSearchService_Init2"/>
+    <string id="task_Startup_SetupWorkingDirectory" value="Startup_SetupWorkingDirectory"/>
+    <string id="task_Startup_SetupWorkingDirectory_RemovePath" value="Startup_SetupWorkingDirectory_RemovePath"/>
+    <string id="task_Startup_CheckAndCleanup" value="Startup_CheckAndCleanup"/>
+    <string id="task_Startup_CSearchServiceObj_Initialize" value="Startup_CSearchServiceObj_Initialize"/>
+    <string id="task_Startup_CGatherModule_Init" value="Startup_CGatherModule_Init"/>
+    <string id="task_Startup_CGatheringService_Init" value="Startup_CGatheringService_Init"/>
+    <string id="task_Startup_InitialIndexSetup" value="Startup_InitialIndexSetup"/>
+    <string id="task_Setup_DeletePreviousUsersSettingsKey" value="Setup_DeletePreviousUsersSettingsKey"/>
+    <string id="task_Setup_SetCompletedSuccessfully" value="Setup_SetCompletedSuccessfully"/>
+    <string id="task_Setup_Phase" value="Setup_Phase"/>
+    <string id="task_Setup_CatalogSetupSucceeded" value="Setup_CatalogSetupSucceeded"/>
+    <string id="task_Setup_CatalogSetupFailed" value="Setup_CatalogSetupFailed"/>
+    <string id="task_Setup_CleanupStarted" value="Setup_CleanupStarted"/>
+    <string id="task_Setup_CleanupRemoveDir" value="Setup_CleanupRemoveDir"/>
+    <string id="task_Setup_CleanupSucceeded" value="Setup_CleanupSucceeded"/>
+    <string id="task_Setup_CleanupFailed" value="Setup_CleanupFailed"/>
+    <string id="task_Crawl_InitializeNew" value="Crawl_InitializeNew"/>
+    <string id="task_Crawl_Initialize" value="Crawl_Initialize"/>
+    <string id="task_Crawl_Initialize_Load" value="Crawl_Initialize_Load"/>
+    <string id="task_Crawl_AddStartPage" value="Crawl_AddStartPage"/>
+    <string id="task_Crawl_RemoveStartPage" value="Crawl_RemoveStartPage"/>
+    <string id="task_Crawl_IsDone" value="Crawl_IsDone"/>
+    <string id="task_Transactions_IterateHistory" value="Transactions_IterateHistory"/>
+    <string id="task_Transactions_IterateHistory_Modify" value="Transactions_IterateHistory_Modify"/>
+    <string id="task_Transactions_IterateHistory_Delete" value="Transactions_IterateHistory_Delete"/>
+    <string id="task_Transactions_UpdateFailures" value="Transactions_UpdateFailures"/>
+    <string id="task_GatherLog_Transaction" value="GatherLog_Transaction"/>
+    <string id="task_GatherLog_Crawl" value="GatherLog_Crawl"/>
+    <string id="task_Gatherer_OnDataChange" value="Gatherer_OnDataChange"/>
+    <string id="task_Gatherer_OnDataChange_Failed" value="Gatherer_OnDataChange_Failed"/>
+    <string id="task_OnDataChange_Failed" value="OnDataChange_Failed"/>
+    <string id="task_RobotThread_BeforeGetNewTransaction" value="RobotThread_BeforeGetNewTransaction"/>
+    <string id="task_RobotThread_ProcessNewTransaction" value="RobotThread_ProcessNewTransaction"/>
+    <string id="task_RobotThread_FilterDriver_Init_Failed" value="RobotThread_FilterDriver_Init_Failed"/>
+    <string id="task_RobotThread_IsHistoryIterator" value="RobotThread_IsHistoryIterator"/>
+    <string id="task_RobotThread_IsWildcardTransaction" value="RobotThread_IsWildcardTransaction"/>
+    <string id="task_RobotThread_IsIteratorByStartAddress" value="RobotThread_IsIteratorByStartAddress"/>
+    <string id="task_RobotThread_IsHistoryIteratorUpdateFailures" value="RobotThread_IsHistoryIteratorUpdateFailures"/>
+    <string id="task_RobotThread_ProcessAnnotation_Failed" value="RobotThread_ProcessAnnotation_Failed"/>
+    <string id="task_RobotThread_GetStandardProperties_Failed" value="RobotThread_GetStandardProperties_Failed"/>
+    <string id="task_RobotThread_TransactionNotModified" value="RobotThread_TransactionNotModified"/>
+    <string id="task_RobotThread_CatalogResetRequested" value="RobotThread_CatalogResetRequested"/>
+    <string id="task_CEnumSearchRoots_Constructor" value="CEnumSearchRoots_Constructor"/>
+    <string id="task_CEnumSearchRoots_Destructor" value="CEnumSearchRoots_Destructor"/>
+    <string id="task_CEnumSearchRoots_Reset" value="CEnumSearchRoots_Reset"/>
+    <string id="task_CEnumSearchRoots_Clone" value="CEnumSearchRoots_Clone"/>
+    <string id="task_CEnumSearchRoots_Next" value="CEnumSearchRoots_Next"/>
+    <string id="task_CEnumSearchRoots_Next_Fetch" value="CEnumSearchRoots_Next_Fetch"/>
+    <string id="task_CEnumSearchRoots_Skip" value="CEnumSearchRoots_Skip"/>
+    <string id="task_CEnumSearchScopeRules_Constructor" value="CEnumSearchScopeRules_Constructor"/>
+    <string id="task_CEnumSearchScopeRules_Destructor" value="CEnumSearchScopeRules_Destructor"/>
+    <string id="task_CEnumSearchScopeRules_Reset" value="CEnumSearchScopeRules_Reset"/>
+    <string id="task_CEnumSearchScopeRules_Clone" value="CEnumSearchScopeRules_Clone"/>
+    <string id="task_CEnumSearchScopeRules_Next" value="CEnumSearchScopeRules_Next"/>
+    <string id="task_CEnumSearchScopeRules_Next_Fetch" value="CEnumSearchScopeRules_Next_Fetch"/>
+    <string id="task_CEnumSearchScopeRules_Skip" value="CEnumSearchScopeRules_Skip"/>
+    <string id="task_CSearchCrawlScopeManager_Constructor" value="CSearchCrawlScopeManager_Constructor"/>
+    <string id="task_CSearchCrawlScopeManager_Destructor" value="CSearchCrawlScopeManager_Destructor"/>
+    <string id="task_CSearchCrawlScopeManager_IncludedInCrawlScope" value="CSearchCrawlScopeManager_IncludedInCrawlScope"/>
+    <string id="task_CSearchCrawlScopeManager_AddDefaultScopeRule" value="CSearchCrawlScopeManager_AddDefaultScopeRule"/>
+    <string id="task_CSearchCrawlScopeManager_AddHierarchicalScope" value="CSearchCrawlScopeManager_AddHierarchicalScope"/>
+    <string id="task_CSearchCrawlScopeManager_AddRoot" value="CSearchCrawlScopeManager_AddRoot"/>
+    <string id="task_CSearchCrawlScopeManager_AddUserScopeRule" value="CSearchCrawlScopeManager_AddUserScopeRule"/>
+    <string id="task_CSearchCrawlScopeManager_EnumerateRoots" value="CSearchCrawlScopeManager_EnumerateRoots"/>
+    <string id="task_CSearchCrawlScopeManager_EnumerateScopeRules" value="CSearchCrawlScopeManager_EnumerateScopeRules"/>
+    <string id="task_CSearchCrawlScopeManager_GetParentScopeVersionId" value="CSearchCrawlScopeManager_GetParentScopeVersionId"/>
+    <string id="task_CSearchCrawlScopeManager_HasChildScopeRule" value="CSearchCrawlScopeManager_HasChildScopeRule"/>
+    <string id="task_CSearchCrawlScopeManager_HasParentScopeRule" value="CSearchCrawlScopeManager_HasParentScopeRule"/>
+    <string id="task_CSearchCrawlScopeManager_IncludedInCrawlScopeEx" value="CSearchCrawlScopeManager_IncludedInCrawlScopeEx"/>
+    <string id="task_CSearchCrawlScopeManager_RemoveDefaultScopeRule" value="CSearchCrawlScopeManager_RemoveDefaultScopeRule"/>
+    <string id="task_CSearchCrawlScopeManager_RemoveRoot" value="CSearchCrawlScopeManager_RemoveRoot"/>
+    <string id="task_CSearchCrawlScopeManager_RemoveScopeRule" value="CSearchCrawlScopeManager_RemoveScopeRule"/>
+    <string id="task_CSearchCrawlScopeManager_RevertToDefaultScopes" value="CSearchCrawlScopeManager_RevertToDefaultScopes"/>
+    <string id="task_CSearchCrawlScopeManager_SaveAll" value="CSearchCrawlScopeManager_SaveAll"/>
+    <string id="task_CSearchRoot_put_RootURL" value="CSearchRoot_put_RootURL"/>
+    <string id="task_CSearchRoot_get_RootURL" value="CSearchRoot_get_RootURL"/>
+    <string id="task_CSearchRoot_get_AuthenticationType" value="CSearchRoot_get_AuthenticationType"/>
+    <string id="task_CSearchRoot_get_EnumerationDepth" value="CSearchRoot_get_EnumerationDepth"/>
+    <string id="task_CSearchRoot_get_FollowDirectories" value="CSearchRoot_get_FollowDirectories"/>
+    <string id="task_CSearchRoot_get_HostDepth" value="CSearchRoot_get_HostDepth"/>
+    <string id="task_CSearchRoot_get_IsHierarchical" value="CSearchRoot_get_IsHierarchical"/>
+    <string id="task_CSearchRoot_get_ProvidesNotifications" value="CSearchRoot_get_ProvidesNotifications"/>
+    <string id="task_CSearchRoot_get_Schedule" value="CSearchRoot_get_Schedule"/>
+    <string id="task_CSearchRoot_get_UseNotificationsOnly" value="CSearchRoot_get_UseNotificationsOnly"/>
+    <string id="task_CSearchRoot_put_AuthenticationType" value="CSearchRoot_put_AuthenticationType"/>
+    <string id="task_CSearchRoot_put_EnumerationDepth" value="CSearchRoot_put_EnumerationDepth"/>
+    <string id="task_CSearchRoot_put_FollowDirectories" value="CSearchRoot_put_FollowDirectories"/>
+    <string id="task_CSearchRoot_put_HostDepth" value="CSearchRoot_put_HostDepth"/>
+    <string id="task_CSearchRoot_put_IsHierarchical" value="CSearchRoot_put_IsHierarchical"/>
+    <string id="task_CSearchRoot_put_ProvidesNotifications" value="CSearchRoot_put_ProvidesNotifications"/>
+    <string id="task_CSearchRoot_put_Schedule" value="CSearchRoot_put_Schedule"/>
+    <string id="task_CSearchRoot_put_UseNotificationsOnly" value="CSearchRoot_put_UseNotificationsOnly"/>
+    <string id="task_CSearchScopeRule_get_IsDefault" value="CSearchScopeRule_get_IsDefault"/>
+    <string id="task_CSearchScopeRule_get_IsIncluded" value="CSearchScopeRule_get_IsIncluded"/>
+    <string id="task_CSearchScopeRule_get_PatternOrURL" value="CSearchScopeRule_get_PatternOrURL"/>
+    <string id="task_StatusChange_QueueLocked" value="StatusChange_QueueLocked"/>
+    <string id="task_StatusChange_QueueUnlocked" value="StatusChange_QueueUnlocked"/>
+    <string id="task_Backoff_MemoryCheck" value="Backoff_MemoryCheck"/>
+    <string id="task_Backoff_BatteryPolicyCheck" value="Backoff_BatteryPolicyCheck"/>
+    <string id="task_Backoff_BatteryCheck" value="Backoff_BatteryCheck"/>
+    <string id="task_Backoff_LowDiskCheck" value="Backoff_LowDiskCheck"/>
+    <string id="task_Backoff_UserActivityCheck" value="Backoff_UserActivityCheck"/>
+    <string id="task_Backoff_HighCPUCheck" value="Backoff_HighCPUCheck"/>
+    <string id="task_Backoff_HighIOCheck" value="Backoff_HighIOCheck"/>
+    <string id="task_Backoff_HighNotificationsCheck" value="Backoff_HighNotificationsCheck"/>
+    <string id="task_Backoff_PendingNotificationsCheck" value="Backoff_PendingNotificationsCheck"/>
+    <string id="task_Backoff_AllowNewItemsCheck" value="Backoff_AllowNewItemsCheck"/>
+    <string id="task_Backoff_State" value="Backoff_State"/>
+    <string id="task_ProtocolHostObjConstructor" value="ProtocolHostObjConstructor"/>
+    <string id="task_ProtocolHostObjInit" value="ProtocolHostObjInit"/>
+    <string id="task_ProtocolHostStarted" value="ProtocolHostStarted"/>
+    <string id="task_ProtocolHostTerminating" value="ProtocolHostTerminating"/>
+    <string id="task_ProtocolHostStopped" value="ProtocolHostStopped"/>
+    <string id="task_ProtocolHostStoppedAlready" value="ProtocolHostStoppedAlready"/>
+    <string id="task_ProtocolHostTerminatingInDestructor" value="ProtocolHostTerminatingInDestructor"/>
+    <string id="task_ProtocolHostKilledInDestructor" value="ProtocolHostKilledInDestructor"/>
+    <string id="task_ProtocolHostStoppedInDestructor" value="ProtocolHostStoppedInDestructor"/>
+    <string id="task_ProtocolHostNameConflict_Killing" value="ProtocolHostNameConflict_Killing"/>
+    <string id="task_ProtocolHostNameConflict_FailedToKill" value="ProtocolHostNameConflict_FailedToKill"/>
+    <string id="task_ProtocolHostNameConflict_Killed" value="ProtocolHostNameConflict_Killed"/>
+    <string id="task_FilterHostStarting" value="FilterHostStarting"/>
+    <string id="task_FilterHostStarted" value="FilterHostStarted"/>
+    <string id="task_FilterHostStopping" value="FilterHostStopping"/>
+    <string id="task_FilterHostHung" value="FilterHostHung"/>
+    <string id="task_FilterHostStopped" value="FilterHostStopped"/>
+    <string id="task_ProtocolHostKilled" value="ProtocolHostKilled"/>
+    <string id="task_ProtocolHostObjDestructor" value="ProtocolHostObjDestructor"/>
+    <string id="task_Gatherer_OnDataChange_Track_Url" value="Gatherer_OnDataChange_Track_Url"/>
+    <string id="task_Gatherer_DocIdTable_GetNewId" value="Gatherer_DocIdTable_GetNewId"/>
+    <string id="task_Gatherer_DocIdTable_UndeleteId" value="Gatherer_DocIdTable_UndeleteId"/>
+    <string id="task_Gatherer_DocIdTable_DeleteId" value="Gatherer_DocIdTable_DeleteId"/>
+    <string id="task_Gatherer_DocIdTable_GetMaxId" value="Gatherer_DocIdTable_GetMaxId"/>
+    <string id="task_Gatherer_DocIdTable_SetMaxId" value="Gatherer_DocIdTable_SetMaxId"/>
+    <string id="task_WID_SDID_Cache_NumberItems" value="WID_SDID_Cache_NumberItems"/>
+    <string id="task_Gatherer_Queues_QueueLength" value="Gatherer_Queues_QueueLength"/>
+    <string id="task_ClientStartFetch" value="ClientStartFetch"/>
+    <string id="task_ClientFetched" value="ClientFetched"/>
+    <string id="task_ServerGetRows" value="ServerGetRows"/>
+    <string id="task_ServerQueryRelease" value="ServerQueryRelease"/>
+    <string id="task_CreatePhysCursor" value="CreatePhysCursor"/>
+    <string id="task_CreatePhysCursorRange" value="CreatePhysCursorRange"/>
+    <string id="task_Merge" value="Merge"/>
+    <string id="task_CreateWLCursor" value="CreateWLCursor"/>
+    <string id="task_CreateWLCursorRange" value="CreateWLCursorRange"/>
+    <string id="task_ServerQuery" value="ServerQuery"/>
+    <string id="task_ServerQuery_Send" value="ServerQuery_Send"/>
+    <string id="task_ServerQuery_Received" value="ServerQuery_Received"/>
+    <string id="task_ClientQuery_Send" value="ClientQuery_Send"/>
+    <string id="task_ClientQuery_Received" value="ClientQuery_Received"/>
+    <string id="task_ServerQuery_Create" value="ServerQuery_Create"/>
+    <string id="task_RobotThread_LangAutoDetection_Start" value="RobotThread_LangAutoDetection_Start"/>
+    <string id="task_RobotThread_LangAutoDetection_Stop" value="RobotThread_LangAutoDetection_Stop"/>
+    <string id="task_RobotThread_LangAutoDetection_Succeed" value="RobotThread_LangAutoDetection_Succeed"/>
+    <string id="task_RobotThread_LangAutoDetection_Fail" value="RobotThread_LangAutoDetection_Fail"/>
+    <string id="task_Service_Status_Notify" value="Service_Status_Notify"/>
+    <string id="task_ServerQuery_ForcePublish" value="ServerQuery_ForcePublish"/>
+    <string id="task_Wordlist_Publish" value="Wordlist_Publish"/>
+    <string id="task_Flush_Schedule" value="Flush_Schedule"/>
+    <string id="task_CBPool_ForceFlush" value="CBPool_ForceFlush"/>
+    <string id="task_DocAborted_ForcePublish" value="DocAborted_ForcePublish"/>
+    <string id="task_DocAborted_CBOverflow" value="DocAborted_CBOverflow"/>
+    <string id="task_Wordlist_BeginResourceFailed_CBOverflow" value="Wordlist_BeginResourceFailed_CBOverflow"/>
+    <string id="task_Wordlist_BeginResourceFailed_DocInError" value="Wordlist_BeginResourceFailed_DocInError"/>
+    <string id="task_Wordlist_BeginResource_InvalidatedPreviousDoc" value="Wordlist_BeginResource_InvalidatedPreviousDoc"/>
+    <string id="task_ClientQuery_Rowset_Reuse" value="ClientQuery_Rowset_Reuse"/>
+    <string id="task_ServerQuery_DeferredProperty" value="ServerQuery_DeferredProperty"/>
+    <string id="task_ScopeManager_Init" value="ScopeManager_Init"/>
+    <string id="task_ScopeManager_Retrieved" value="ScopeManager_Retrieved"/>
+    <string id="task_ScopeManager_SwitchToFull" value="ScopeManager_SwitchToFull"/>
+    <string id="task_ScopeManager_Write" value="ScopeManager_Write"/>
+    <string id="task_Prioritization_Request" value="Prioritization_Request"/>
+    <string id="task_Prioritization_Complete" value="Prioritization_Complete"/>
+    <string id="task_Prioritization_Statistics" value="Prioritization_Statistics"/>
+    <string id="task_JET_IO_Low_Priority_Change" value="JET_IO_Low_Priority_Change"/>
+    <string id="task_Gather_Transaction_Failure_Code" value="Gather_Transaction_Failure_Code"/>
+    <string id="task_ETWLogging" value="ETWLogging"/>
+    <string id="task_ETWLoggingFailure" value="ETWLoggingFailure"/>
+    <string id="task_ETWLoggingItem" value="ETWLoggingItem"/>
+    <string id="task_ETWLoggingItemFailure" value="ETWLoggingItemFailure"/>
+    <string id="task_USN_Notify_Journal_Wrap" value="USN_Notify_Journal_Wrap"/>
+    <string id="task_GathererRecover" value="GathererRecover"/>
+    <string id="task_ValueIndexCreation" value="ValueIndexCreation"/>
+    <string id="task_ValueIndexSeek" value="ValueIndexSeek"/>
+    <string id="task_FreeCursor" value="FreeCursor"/>
+    <string id="task_ReuseRestriction" value="ReuseRestriction"/>
+    <string id="task_GetQueryStatusEx" value="GetQueryStatusEx"/>
+    <string id="task_CreateWordBreaker" value="CreateWordBreaker"/>
+    <string id="task_ReleaseWordBreaker" value="ReleaseWordBreaker"/>
+    <string id="task_CreateStemmer" value="CreateStemmer"/>
+    <string id="task_ReleaseStemmer" value="ReleaseStemmer"/>
+    <string id="task_CreateCatalog" value="CreateCatalog"/>
+    <string id="task_DeleteCatalog" value="DeleteCatalog"/>
+    <string id="task_RobotThread_GetWordBreaker" value="RobotThread_GetWordBreaker"/>
+    <string id="task_GetWordBreaker" value="GetWordBreaker"/>
+    <string id="task_WordBreakerSelector_SubstituteLocale" value="WordBreakerSelector_SubstituteLocale"/>
+    <string id="task_WordBreakerSelector_IncrementHistory" value="WordBreakerSelector_IncrementHistory"/>
+    <string id="task_WordBreakerSelector_Fallback" value="WordBreakerSelector_Fallback"/>
+    <string id="task_WordBreakerHistory_Save" value="WordBreakerHistory_Save"/>
+    <string id="task_WordBreakerHistory_Load" value="WordBreakerHistory_Load"/>
+    <string id="task_RobotThread_LangAutoDetection_Scores" value="RobotThread_LangAutoDetection_Scores"/>
+    <string id="task_FileChangeTracker_APICall" value="FileChangeTracker_APICall"/>
+    <string id="task_FileChangeTracker_ProcessUSN" value="FileChangeTracker_ProcessUSN"/>
+    <string id="task_ScopeChangeNotification_OnChanged" value="ScopeChangeNotification_OnChanged"/>
+    <string id="task_ScopeChangeNotification_Register" value="ScopeChangeNotification_Register"/>
+    <string id="task_ScopeChangeNotification_Unregister" value="ScopeChangeNotification_Unregister"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

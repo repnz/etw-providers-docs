@@ -1,0 +1,79 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-MSFTEDIT" guid="{9640427c-7d03-4331-b8ee-fb77625bf381}" resourceFileName="Microsoft-Windows-MSFTEDIT" messageFileName="Microsoft-Windows-MSFTEDIT" symbol="MicrosoftWindowsMSFTEDIT" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="PlacingCaret" message="$(string.task_PlacingCaret)" value="1"/>
+     <task name="SelectingWord" message="$(string.task_SelectingWord)" value="2"/>
+     <task name="DismissingSelection" message="$(string.task_DismissingSelection)" value="3"/>
+     <task name="ShowGripper" message="$(string.task_ShowGripper)" value="4"/>
+     <task name="HideGripper" message="$(string.task_HideGripper)" value="5"/>
+     <task name="SingleTappingText" message="$(string.task_SingleTappingText)" value="6"/>
+     <task name="DoubleTappingText" message="$(string.task_DoubleTappingText)" value="7"/>
+     <task name="SelectionExtending" message="$(string.task_SelectionExtending)" value="8"/>
+     <task name="OnHandleDrag" message="$(string.task_OnHandleDrag)" value="9"/>
+     <task name="ChangeSelection" message="$(string.task_ChangeSelection)" value="10"/>
+     <task name="ComputeSnappingMode" message="$(string.task_ComputeSnappingMode)" value="11"/>
+     <task name="ExtendSelectionRange" message="$(string.task_ExtendSelectionRange)" value="12"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="PlacingCaretStart" version="0" task="PlacingCaret" opcode="win:Start" level="win:Informational" template="PlacingCaretStartArgs"/>
+     <event value="2" symbol="PlacingCaretStop" version="0" task="PlacingCaret" opcode="win:Stop" level="win:Informational" template="PlacingCaretStartArgs"/>
+     <event value="3" symbol="PlacingCaret" version="0" task="PlacingCaret" level="win:Informational"/>
+     <event value="4" symbol="SelectingWord" version="0" task="SelectingWord" level="win:Informational"/>
+     <event value="5" symbol="DismissingSelection" version="0" task="DismissingSelection" level="win:Informational"/>
+     <event value="6" symbol="ShowGripperStart" version="0" task="ShowGripper" opcode="win:Start" level="win:Informational" template="ShowGripperStartArgs"/>
+     <event value="7" symbol="ShowGripperStop" version="0" task="ShowGripper" opcode="win:Stop" level="win:Informational" template="ShowGripperStopArgs"/>
+     <event value="8" symbol="HideGripperStart" version="0" task="HideGripper" opcode="win:Start" level="win:Informational" template="ShowGripperStopArgs"/>
+     <event value="9" symbol="HideGripperStop" version="0" task="HideGripper" opcode="win:Stop" level="win:Informational" template="ShowGripperStopArgs"/>
+     <event value="10" symbol="SingleTappingText" version="0" task="SingleTappingText" level="win:Informational"/>
+     <event value="11" symbol="DoubleTappingText" version="0" task="DoubleTappingText" level="win:Informational"/>
+     <event value="12" symbol="SelectionExtendingStart" version="0" task="SelectionExtending" opcode="win:Start" level="win:Informational" template="PlacingCaretStartArgs"/>
+     <event value="13" symbol="SelectionExtendingStop" version="0" task="SelectionExtending" opcode="win:Stop" level="win:Informational" template="PlacingCaretStartArgs"/>
+     <event value="14" symbol="OnHandleDragStart" version="0" task="OnHandleDrag" opcode="win:Start" level="win:Informational"/>
+     <event value="15" symbol="OnHandleDragStop" version="0" task="OnHandleDrag" opcode="win:Stop" level="win:Informational"/>
+     <event value="16" symbol="ChangeSelectionStart" version="0" task="ChangeSelection" opcode="win:Start" level="win:Informational"/>
+     <event value="17" symbol="ChangeSelectionStop" version="0" task="ChangeSelection" opcode="win:Stop" level="win:Informational"/>
+     <event value="18" symbol="ComputeSnappingModeStart" version="0" task="ComputeSnappingMode" opcode="win:Start" level="win:Informational"/>
+     <event value="19" symbol="ComputeSnappingModeStop" version="0" task="ComputeSnappingMode" opcode="win:Stop" level="win:Informational"/>
+     <event value="20" symbol="ExtendSelectionRangeStart" version="0" task="ExtendSelectionRange" opcode="win:Start" level="win:Informational"/>
+     <event value="21" symbol="ExtendSelectionRangeStop" version="0" task="ExtendSelectionRange" opcode="win:Stop" level="win:Informational"/>
+    </events>
+    <templates>
+     <template tid="PlacingCaretStartArgs">
+      <data name="param1" inType="win:UInt32"/>
+      <data name="param2" inType="win:UInt32"/>
+     </template>
+     <template tid="ShowGripperStartArgs">
+      <data name="param1" inType="win:UInt32"/>
+      <data name="param2" inType="win:UInt32"/>
+      <data name="param3" inType="win:UInt32"/>
+     </template>
+     <template tid="ShowGripperStopArgs">
+      <data name="param" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_PlacingCaret" value="PlacingCaret"/>
+    <string id="task_SelectingWord" value="SelectingWord"/>
+    <string id="task_DismissingSelection" value="DismissingSelection"/>
+    <string id="task_ShowGripper" value="ShowGripper"/>
+    <string id="task_HideGripper" value="HideGripper"/>
+    <string id="task_SingleTappingText" value="SingleTappingText"/>
+    <string id="task_DoubleTappingText" value="DoubleTappingText"/>
+    <string id="task_SelectionExtending" value="SelectionExtending"/>
+    <string id="task_OnHandleDrag" value="OnHandleDrag"/>
+    <string id="task_ChangeSelection" value="ChangeSelection"/>
+    <string id="task_ComputeSnappingMode" value="ComputeSnappingMode"/>
+    <string id="task_ExtendSelectionRange" value="ExtendSelectionRange"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

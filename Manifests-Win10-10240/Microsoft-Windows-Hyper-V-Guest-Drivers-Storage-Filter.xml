@@ -1,0 +1,120 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Hyper-V-Guest-Drivers-Storage-Filter" guid="{0b9fdccc-451c-449c-9bd8-6756fcc6091a}" resourceFileName="Microsoft-Windows-Hyper-V-Guest-Drivers-Storage-Filter" messageFileName="Microsoft-Windows-Hyper-V-Guest-Drivers-Storage-Filter" symbol="MicrosoftWindowsHyperVGuestDriversStorageFilter" source="Xml" >
+    <keywords>
+     <keyword name="Reset" message="$(string.keyword_Reset)" mask="0x1"/>
+     <keyword name="PortNotification" message="$(string.keyword_PortNotification)" mask="0x2"/>
+     <keyword name="PauseResume" message="$(string.keyword_PauseResume)" mask="0x4"/>
+     <keyword name="IoPerfNotification" message="$(string.keyword_IoPerfNotification)" mask="0x8"/>
+     <keyword name="Config" message="$(string.keyword_Config)" mask="0x10"/>
+     <keyword name="Perf" message="$(string.keyword_Perf)" mask="0x20"/>
+     <keyword name="Logo_Performance" message="$(string.keyword_Logo_Performance)" mask="0x80000"/>
+     <keyword name="IO_Performance" message="$(string.keyword_IO_Performance)" mask="0x100000"/>
+     <keyword name="Read" message="$(string.keyword_Read)" mask="0x200000"/>
+     <keyword name="Write" message="$(string.keyword_Write)" mask="0x400000"/>
+     <keyword name="PagingRead" message="$(string.keyword_PagingRead)" mask="0x800000"/>
+     <keyword name="PagingWrite" message="$(string.keyword_PagingWrite)" mask="0x1000000"/>
+     <keyword name="LowMemoryRead" message="$(string.keyword_LowMemoryRead)" mask="0x2000000"/>
+     <keyword name="LowMemoryWrite" message="$(string.keyword_LowMemoryWrite)" mask="0x4000000"/>
+     <keyword name="NonReadWrite" message="$(string.keyword_NonReadWrite)" mask="0x8000000"/>
+     <keyword name="PassThrough" message="$(string.keyword_PassThrough)" mask="0x10000000"/>
+     <keyword name="Flush" message="$(string.keyword_Flush)" mask="0x20000000"/>
+     <keyword name="IOCTL" message="$(string.keyword_IOCTL)" mask="0x40000000"/>
+     <keyword name="WMI" message="$(string.keyword_WMI)" mask="0x80000000"/>
+     <keyword name="Power" message="$(string.keyword_Power)" mask="0x100000000"/>
+     <keyword name="PnP" message="$(string.keyword_PnP)" mask="0x200000000"/>
+     <keyword name="Enum" message="$(string.keyword_Enum)" mask="0x400000000"/>
+     <keyword name="Queue" message="$(string.keyword_Queue)" mask="0x800000000"/>
+     <keyword name="ISR" message="$(string.keyword_ISR)" mask="0x1000000000"/>
+     <keyword name="DPC" message="$(string.keyword_DPC)" mask="0x2000000000"/>
+     <keyword name="Timer" message="$(string.keyword_Timer)" mask="0x4000000000"/>
+     <keyword name="Protocol" message="$(string.keyword_Protocol)" mask="0x8000000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="Port" message="$(string.task_Port)" value="201">
+>
+      <opcodes>
+       <opcode name="Dispatchingofrequest." message="$(string.opcode_PortDispatchingofrequest.)" value="100"/>
+       <opcode name="Completionofrequest." message="$(string.opcode_PortCompletionofrequest.)" value="101"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="1" symbol="task_0" version="0" task="task_0" level="win:Warning" template="task_0Args"/>
+     <event value="2" symbol="task_02" version="0" task="task_0" level="win:Warning" template="task_0Args"/>
+     <event value="3" symbol="task_03" version="0" task="task_0" level="win:Informational" template="task_03Args"/>
+     <event value="4" symbol="task_04" version="0" task="task_0" level="win:Warning" template="task_03Args"/>
+     <event value="5" symbol="task_05" version="0" task="task_0" level="win:Warning"/>
+     <event value="202" symbol="PortDispatchingofrequest._V1" version="1" task="Port" opcode="Dispatchingofrequest." level="win:Verbose" keywords="Read" template="PortDispatchingofrequest.Args_V1"/>
+     <event value="203" symbol="PortDispatchingofrequest.203_V1" version="1" task="Port" opcode="Dispatchingofrequest." level="win:Verbose" keywords="Write" template="PortDispatchingofrequest.Args_V1"/>
+     <event value="208" symbol="PortCompletionofrequest._V1" version="1" task="Port" opcode="Completionofrequest." level="win:Verbose" keywords="Read Write PagingRead PagingWrite LowMemoryRead LowMemoryWrite" template="PortCompletionofrequest.Args_V1"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="NTStatus" inType="win:HexInt32"/>
+     </template>
+     <template tid="task_03Args">
+      <data name="Location" inType="win:UnicodeString"/>
+      <data name="NTStatus" inType="win:HexInt32"/>
+     </template>
+     <template tid="PortDispatchingofrequest.Args_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="Command" inType="win:UInt8"/>
+      <data name="LengthOfTransferinblocks" inType="win:UInt64"/>
+      <data name="LBA" inType="win:HexInt64"/>
+      <data name="OriginalIrp" inType="win:Pointer"/>
+     </template>
+     <template tid="PortCompletionofrequest.Args_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="NTStatus" inType="win:HexInt32"/>
+      <data name="SrbStatus" inType="win:UInt8"/>
+      <data name="ScsiStatus" inType="win:UInt8"/>
+      <data name="SenseKey" inType="win:UInt8"/>
+      <data name="AddSense" inType="win:UInt8"/>
+      <data name="AddSenseQ" inType="win:UInt8"/>
+      <data name="OriginalIrp" inType="win:Pointer"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Reset" value="Reset"/>
+    <string id="keyword_PortNotification" value="PortNotification"/>
+    <string id="keyword_PauseResume" value="PauseResume"/>
+    <string id="keyword_IoPerfNotification" value="IoPerfNotification"/>
+    <string id="keyword_Config" value="Config"/>
+    <string id="keyword_Perf" value="Perf"/>
+    <string id="keyword_Logo_Performance" value="Logo_Performance"/>
+    <string id="keyword_IO_Performance" value="IO_Performance"/>
+    <string id="keyword_Read" value="Read"/>
+    <string id="keyword_Write" value="Write"/>
+    <string id="keyword_PagingRead" value="PagingRead"/>
+    <string id="keyword_PagingWrite" value="PagingWrite"/>
+    <string id="keyword_LowMemoryRead" value="LowMemoryRead"/>
+    <string id="keyword_LowMemoryWrite" value="LowMemoryWrite"/>
+    <string id="keyword_NonReadWrite" value="NonReadWrite"/>
+    <string id="keyword_PassThrough" value="PassThrough"/>
+    <string id="keyword_Flush" value="Flush"/>
+    <string id="keyword_IOCTL" value="IOCTL"/>
+    <string id="keyword_WMI" value="WMI"/>
+    <string id="keyword_Power" value="Power"/>
+    <string id="keyword_PnP" value="PnP"/>
+    <string id="keyword_Enum" value="Enum"/>
+    <string id="keyword_Queue" value="Queue"/>
+    <string id="keyword_ISR" value="ISR"/>
+    <string id="keyword_DPC" value="DPC"/>
+    <string id="keyword_Timer" value="Timer"/>
+    <string id="keyword_Protocol" value="Protocol"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_Port" value="Port"/>
+    <string id="opcode_PortDispatchingofrequest." value="Dispatchingofrequest."/>
+    <string id="opcode_PortCompletionofrequest." value="Completionofrequest."/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

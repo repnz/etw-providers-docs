@@ -1,0 +1,114 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Windows-ApplicationModel-Store-SDK" guid="{ff79a477-c45f-4a52-8ae0-2b324346d4e4}" resourceFileName="Windows-ApplicationModel-Store-SDK" messageFileName="Windows-ApplicationModel-Store-SDK" symbol="WindowsApplicationModelStoreSDK" source="Xml" >
+    <keywords>
+     <keyword name="StorefrontClient" message="$(string.keyword_StorefrontClient)" mask="0x1"/>
+     <keyword name="Messages" message="$(string.keyword_Messages)" mask="0x2"/>
+     <keyword name="StorePurchaseApp" message="$(string.keyword_StorePurchaseApp)" mask="0x4"/>
+    </keywords>
+    <tasks>
+     <task name="StorefrontClient" message="$(string.task_StorefrontClient)" value="1"/>
+     <task name="StorefrontClient_2" message="$(string.task_StorefrontClient_2)" value="2"/>
+     <task name="StorefrontClient_3" message="$(string.task_StorefrontClient_3)" value="3"/>
+     <task name="StorefrontClient_4" message="$(string.task_StorefrontClient_4)" value="4"/>
+     <task name="StorefrontClient_5" message="$(string.task_StorefrontClient_5)" value="5"/>
+     <task name="StoreSDKModuleLoaded" message="$(string.task_StoreSDKModuleLoaded)" value="2000"/>
+     <task name="In_AppPurchase" message="$(string.task_In_AppPurchase)" value="2001">
+>
+      <opcodes>
+       <opcode name="Error" message="$(string.opcode_In_AppPurchaseError)" value="12"/>
+       <opcode name="Warning" message="$(string.opcode_In_AppPurchaseWarning)" value="13"/>
+       <opcode name="Info" message="$(string.opcode_In_AppPurchaseInfo)" value="14"/>
+       <opcode name="Verbose" message="$(string.opcode_In_AppPurchaseVerbose)" value="15"/>
+      </opcodes>
+     </task>
+     <task name="StorePurchaseApp" message="$(string.task_StorePurchaseApp)" value="3001">
+>
+      <opcodes>
+       <opcode name="Error" message="$(string.opcode_StorePurchaseAppError)" value="12"/>
+       <opcode name="Warning" message="$(string.opcode_StorePurchaseAppWarning)" value="13"/>
+       <opcode name="Info" message="$(string.opcode_StorePurchaseAppInfo)" value="14"/>
+       <opcode name="Verbose" message="$(string.opcode_StorePurchaseAppVerbose)" value="15"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="1" symbol="StorefrontClient" version="0" task="StorefrontClient" level="win:Error" keywords="StorefrontClient" template="StorefrontClientArgs"/>
+     <event value="2" symbol="StorefrontClient_2" version="0" task="StorefrontClient_2" level="win:Warning" keywords="StorefrontClient" template="StorefrontClient_2Args"/>
+     <event value="3" symbol="StorefrontClient_3" version="0" task="StorefrontClient_3" level="win:Warning" keywords="StorefrontClient" template="StorefrontClient_3Args"/>
+     <event value="4" symbol="StorefrontClient_4" version="0" task="StorefrontClient_4" level="win:Informational" keywords="StorefrontClient" template="StorefrontClient_3Args"/>
+     <event value="5" symbol="StorefrontClient_5" version="0" task="StorefrontClient_5" level="win:Verbose" keywords="StorefrontClient" template="StorefrontClient_3Args"/>
+     <event value="2000" symbol="StoreSDKModuleLoaded" version="0" task="StoreSDKModuleLoaded" level="win:Informational" keywords="Messages" template="StoreSDKModuleLoadedArgs"/>
+     <event value="2001" symbol="In_AppPurchaseVerbose" version="0" task="In_AppPurchase" opcode="Verbose" level="win:Verbose" keywords="Messages" template="In_AppPurchaseVerboseArgs"/>
+     <event value="2002" symbol="In_AppPurchaseInfo" version="0" task="In_AppPurchase" opcode="Info" level="win:Informational" keywords="Messages" template="In_AppPurchaseVerboseArgs"/>
+     <event value="2003" symbol="In_AppPurchaseWarning" version="0" task="In_AppPurchase" opcode="Warning" level="win:Warning" keywords="Messages" template="In_AppPurchaseVerboseArgs"/>
+     <event value="2004" symbol="In_AppPurchaseError" version="0" task="In_AppPurchase" opcode="Error" level="win:Error" keywords="Messages" template="In_AppPurchaseVerboseArgs"/>
+     <event value="3001" symbol="StorePurchaseAppVerbose" version="0" task="StorePurchaseApp" opcode="Verbose" level="win:Verbose" keywords="StorePurchaseApp" template="In_AppPurchaseVerboseArgs"/>
+     <event value="3002" symbol="StorePurchaseAppInfo" version="0" task="StorePurchaseApp" opcode="Info" level="win:Informational" keywords="StorePurchaseApp" template="In_AppPurchaseVerboseArgs"/>
+     <event value="3003" symbol="StorePurchaseAppWarning" version="0" task="StorePurchaseApp" opcode="Warning" level="win:Warning" keywords="StorePurchaseApp" template="In_AppPurchaseVerboseArgs"/>
+     <event value="3004" symbol="StorePurchaseAppError" version="0" task="StorePurchaseApp" opcode="Error" level="win:Error" keywords="StorePurchaseApp" template="In_AppPurchaseVerboseArgs"/>
+    </events>
+    <templates>
+     <template tid="StorefrontClientArgs">
+      <data name="Message" inType="win:UnicodeString"/>
+      <data name="LineNumber" inType="win:UInt32"/>
+      <data name="FileName" inType="win:UnicodeString"/>
+      <data name="Function" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:Int32"/>
+     </template>
+     <template tid="StorefrontClient_2Args">
+      <data name="Message" inType="win:UnicodeString"/>
+      <data name="LineNumber" inType="win:UInt32"/>
+      <data name="FileName" inType="win:UnicodeString"/>
+      <data name="Function" inType="win:UnicodeString"/>
+      <data name="ExceptionDetails" inType="win:UnicodeString"/>
+     </template>
+     <template tid="StorefrontClient_3Args">
+      <data name="Message" inType="win:UnicodeString"/>
+      <data name="LineNumber" inType="win:UInt32"/>
+      <data name="FileName" inType="win:UnicodeString"/>
+      <data name="MemberName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="StoreSDKModuleLoadedArgs">
+      <data name="ProcessName" inType="win:UnicodeString"/>
+      <data name="ModuleName" inType="win:UnicodeString"/>
+      <data name="BuildName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="In_AppPurchaseVerboseArgs">
+      <data name="Message" inType="win:UnicodeString"/>
+      <data name="Function" inType="win:AnsiString"/>
+      <data name="ErrorCode" inType="win:Int32"/>
+      <data name="Source" inType="win:AnsiString"/>
+      <data name="LineNumber" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_StorefrontClient" value="StorefrontClient"/>
+    <string id="keyword_Messages" value="Messages"/>
+    <string id="keyword_StorePurchaseApp" value="StorePurchaseApp"/>
+    <string id="task_StorefrontClient" value="StorefrontClient"/>
+    <string id="task_StorefrontClient_2" value="StorefrontClient_2"/>
+    <string id="task_StorefrontClient_3" value="StorefrontClient_3"/>
+    <string id="task_StorefrontClient_4" value="StorefrontClient_4"/>
+    <string id="task_StorefrontClient_5" value="StorefrontClient_5"/>
+    <string id="task_StoreSDKModuleLoaded" value="StoreSDKModuleLoaded"/>
+    <string id="task_In_AppPurchase" value="In_AppPurchase"/>
+    <string id="opcode_In_AppPurchaseError" value="Error"/>
+    <string id="opcode_In_AppPurchaseWarning" value="Warning"/>
+    <string id="opcode_In_AppPurchaseInfo" value="Info"/>
+    <string id="opcode_In_AppPurchaseVerbose" value="Verbose"/>
+    <string id="task_StorePurchaseApp" value="StorePurchaseApp"/>
+    <string id="opcode_StorePurchaseAppError" value="Error"/>
+    <string id="opcode_StorePurchaseAppWarning" value="Warning"/>
+    <string id="opcode_StorePurchaseAppInfo" value="Info"/>
+    <string id="opcode_StorePurchaseAppVerbose" value="Verbose"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

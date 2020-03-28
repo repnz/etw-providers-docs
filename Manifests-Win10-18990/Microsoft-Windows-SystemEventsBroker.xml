@@ -1,0 +1,115 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-SystemEventsBroker" guid="{b6bfcc79-a3af-4089-8d4d-0eecb1b80779}" resourceFileName="Microsoft-Windows-SystemEventsBroker" messageFileName="Microsoft-Windows-SystemEventsBroker" symbol="MicrosoftWindowsSystemEventsBroker" source="Xml" >
+    <keywords>
+     <keyword name="TraceSebEvent" message="$(string.keyword_TraceSebEvent)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="SebEvent" message="$(string.task_SebEvent)" value="1">
+>
+      <opcodes>
+       <opcode name="Create" message="$(string.opcode_SebEventCreate)" value="10"/>
+       <opcode name="Delete" message="$(string.opcode_SebEventDelete)" value="11"/>
+       <opcode name="Signal" message="$(string.opcode_SebEventSignal)" value="12"/>
+       <opcode name="Drop" message="$(string.opcode_SebEventDrop)" value="13"/>
+       <opcode name="SessionConnected" message="$(string.opcode_SebEventSessionConnected)" value="14"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <maps>
+     <valueMap name="SebEventType">
+      <map value="0x0" message="$(string.map_SebEventTypeSebSessionStart)"/>
+      <map value="0x1" message="$(string.map_SebEventTypeSebUserPresent)"/>
+      <map value="0x2" message="$(string.map_SebEventTypeSebUserPresentLevelUp)"/>
+      <map value="0x3" message="$(string.map_SebEventTypeSebUserPresentLevelDown)"/>
+      <map value="0x4" message="$(string.map_SebEventTypeSebInternetAvailable)"/>
+      <map value="0x5" message="$(string.map_SebEventTypeSebInternetAvailableLevelUp)"/>
+      <map value="0x6" message="$(string.map_SebEventTypeSebInternetAvailableLevelDown)"/>
+      <map value="0x7" message="$(string.map_SebEventTypeSebNetworkStateChange)"/>
+      <map value="0x8" message="$(string.map_SebEventTypeSebSMSMessage)"/>
+      <map value="0x9" message="$(string.map_SebEventTypeSebMobileOperatorNotification)"/>
+      <map value="0xa" message="$(string.map_SebEventTypeSebNetworkControlChannelTriggerReset)"/>
+      <map value="0xb" message="$(string.map_SebEventTypeSebSessionConnected)"/>
+      <map value="0xc" message="$(string.map_SebEventTypeSebSessionConnectedLevelUp)"/>
+      <map value="0xd" message="$(string.map_SebEventTypeSebSessionConnectedLevelDown)"/>
+      <map value="0xe" message="$(string.map_SebEventTypeSebBackgroundDownload)"/>
+      <map value="0xf" message="$(string.map_SebEventTypeSebPrint)"/>
+      <map value="0x10" message="$(string.map_SebEventTypeSebServiceComplete)"/>
+      <map value="0x11" message="$(string.map_SebEventTypeSebLockScreenAppAdded)"/>
+      <map value="0x12" message="$(string.map_SebEventTypeSebLockScreenAppRemoved)"/>
+      <map value="0x13" message="$(string.map_SebEventTypeSebTimeZoneChange)"/>
+      <map value="0x14" message="$(string.map_SebEventTypeSebNetworkOperatorHotSpotAuthEvent)"/>
+      <map value="0x15" message="$(string.map_SebEventTypeSebOEMPreInstall)"/>
+      <map value="0x16" message="$(string.map_SebEventTypeSebImmediate)"/>
+      <map value="0x17" message="$(string.map_SebEventTypeSebDisplayOn)"/>
+      <map value="0x18" message="$(string.map_SebEventTypeSebOnlineIdConnectedStateChange)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="15" symbol="SebEventCreate_V1" version="1" task="SebEvent" opcode="Create" level="win:Informational" keywords="TraceSebEvent" template="SebEventCreateArgs_V1"/>
+     <event value="16" symbol="SebEventDelete_V1" version="1" task="SebEvent" opcode="Delete" level="win:Informational" keywords="TraceSebEvent" template="SebEventDeleteArgs_V1"/>
+     <event value="17" symbol="SebEventSignal_V1" version="1" task="SebEvent" opcode="Signal" level="win:Informational" keywords="TraceSebEvent" template="SebEventDeleteArgs_V1"/>
+     <event value="18" symbol="SebEventDrop_V1" version="1" task="SebEvent" opcode="Drop" level="win:Informational" keywords="TraceSebEvent" template="SebEventDeleteArgs_V1"/>
+     <event value="19" symbol="SebEventSessionConnected_V1" version="1" task="SebEvent" opcode="SessionConnected" level="win:Informational" keywords="TraceSebEvent" template="SebEventSessionConnectedArgs_V1"/>
+     <event value="19" symbol="SebEventSessionConnected_V2" version="2" task="SebEvent" opcode="SessionConnected" level="win:Informational" keywords="TraceSebEvent" template="SebEventSessionConnectedArgs_V2"/>
+    </events>
+    <templates>
+     <template tid="SebEventCreateArgs_V1">
+      <data name="BrokeredEventId" inType="win:GUID"/>
+      <data name="UserSID" inType="win:SID"/>
+      <data name="EventType" inType="win:UInt32" map="SebEventType"/>
+     </template>
+     <template tid="SebEventDeleteArgs_V1">
+      <data name="BrokeredEventId" inType="win:GUID"/>
+     </template>
+     <template tid="SebEventSessionConnectedArgs_V1">
+      <data name="SessionID" inType="win:UInt32"/>
+      <data name="UserSID" inType="win:SID"/>
+     </template>
+     <template tid="SebEventSessionConnectedArgs_V2">
+      <data name="SessionID" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_TraceSebEvent" value="TraceSebEvent"/>
+    <string id="task_SebEvent" value="SebEvent"/>
+    <string id="opcode_SebEventCreate" value="Create"/>
+    <string id="opcode_SebEventDelete" value="Delete"/>
+    <string id="opcode_SebEventSignal" value="Signal"/>
+    <string id="opcode_SebEventDrop" value="Drop"/>
+    <string id="opcode_SebEventSessionConnected" value="SessionConnected"/>
+    <string id="map_SebEventTypeSebSessionStart" value="SebSessionStart"/>
+    <string id="map_SebEventTypeSebUserPresent" value="SebUserPresent"/>
+    <string id="map_SebEventTypeSebUserPresentLevelUp" value="SebUserPresentLevelUp"/>
+    <string id="map_SebEventTypeSebUserPresentLevelDown" value="SebUserPresentLevelDown"/>
+    <string id="map_SebEventTypeSebInternetAvailable" value="SebInternetAvailable"/>
+    <string id="map_SebEventTypeSebInternetAvailableLevelUp" value="SebInternetAvailableLevelUp"/>
+    <string id="map_SebEventTypeSebInternetAvailableLevelDown" value="SebInternetAvailableLevelDown"/>
+    <string id="map_SebEventTypeSebNetworkStateChange" value="SebNetworkStateChange"/>
+    <string id="map_SebEventTypeSebSMSMessage" value="SebSMSMessage"/>
+    <string id="map_SebEventTypeSebMobileOperatorNotification" value="SebMobileOperatorNotification"/>
+    <string id="map_SebEventTypeSebNetworkControlChannelTriggerReset" value="SebNetworkControlChannelTriggerReset"/>
+    <string id="map_SebEventTypeSebSessionConnected" value="SebSessionConnected"/>
+    <string id="map_SebEventTypeSebSessionConnectedLevelUp" value="SebSessionConnectedLevelUp"/>
+    <string id="map_SebEventTypeSebSessionConnectedLevelDown" value="SebSessionConnectedLevelDown"/>
+    <string id="map_SebEventTypeSebBackgroundDownload" value="SebBackgroundDownload"/>
+    <string id="map_SebEventTypeSebPrint" value="SebPrint"/>
+    <string id="map_SebEventTypeSebServiceComplete" value="SebServiceComplete"/>
+    <string id="map_SebEventTypeSebLockScreenAppAdded" value="SebLockScreenAppAdded"/>
+    <string id="map_SebEventTypeSebLockScreenAppRemoved" value="SebLockScreenAppRemoved"/>
+    <string id="map_SebEventTypeSebTimeZoneChange" value="SebTimeZoneChange"/>
+    <string id="map_SebEventTypeSebNetworkOperatorHotSpotAuthEvent" value="SebNetworkOperatorHotSpotAuthEvent"/>
+    <string id="map_SebEventTypeSebOEMPreInstall" value="SebOEMPreInstall"/>
+    <string id="map_SebEventTypeSebImmediate" value="SebImmediate"/>
+    <string id="map_SebEventTypeSebDisplayOn" value="SebDisplayOn"/>
+    <string id="map_SebEventTypeSebOnlineIdConnectedStateChange" value="SebOnlineIdConnectedStateChange"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

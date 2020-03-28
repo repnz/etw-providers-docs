@@ -1,0 +1,41 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-NetworkManagerTriggerProvider" guid="{9b307223-4e4d-4bf5-9be8-995cd8e7420b}" resourceFileName="Microsoft-Windows-NetworkManagerTriggerProvider" messageFileName="Microsoft-Windows-NetworkManagerTriggerProvider" symbol="MicrosoftWindowsNetworkManagerTriggerProvider" source="Xml" >
+    <keywords>
+     <keyword name="Keyword_FirstAddressArrivalEvent" message="$(string.keyword_Keyword_FirstAddressArrivalEvent)" mask="0x1"/>
+     <keyword name="Keyword_LastAddressRemovalEvent" message="$(string.keyword_Keyword_LastAddressRemovalEvent)" mask="0x2"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0">
+>
+      <opcodes>
+       <opcode name="Opcode_FirstAddressArrivalEvent" message="$(string.opcode_task_0Opcode_FirstAddressArrivalEvent)" value="100"/>
+       <opcode name="Opcode_LastAddressRemovalEvent" message="$(string.opcode_task_0Opcode_LastAddressRemovalEvent)" value="101"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="1" symbol="task_0Opcode_FirstAddressArrivalEvent" version="0" task="task_0" opcode="Opcode_FirstAddressArrivalEvent" level="win:Informational" keywords="Keyword_FirstAddressArrivalEvent" template="task_0Opcode_FirstAddressArrivalEventArgs"/>
+     <event value="2" symbol="task_0Opcode_LastAddressRemovalEvent" version="0" task="task_0" opcode="Opcode_LastAddressRemovalEvent" level="win:Informational" keywords="Keyword_LastAddressRemovalEvent" template="task_0Opcode_FirstAddressArrivalEventArgs"/>
+    </events>
+    <templates>
+     <template tid="task_0Opcode_FirstAddressArrivalEventArgs">
+      <data name="NetworkChangeGuid" inType="win:GUID"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Keyword_FirstAddressArrivalEvent" value="Keyword_FirstAddressArrivalEvent"/>
+    <string id="keyword_Keyword_LastAddressRemovalEvent" value="Keyword_LastAddressRemovalEvent"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="opcode_task_0Opcode_FirstAddressArrivalEvent" value="Opcode_FirstAddressArrivalEvent"/>
+    <string id="opcode_task_0Opcode_LastAddressRemovalEvent" value="Opcode_LastAddressRemovalEvent"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

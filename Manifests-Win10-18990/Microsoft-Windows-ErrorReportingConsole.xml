@@ -1,0 +1,33 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-ErrorReportingConsole" guid="{017247f2-7e96-11dc-8314-0800200c9a66}" resourceFileName="Microsoft-Windows-ErrorReportingConsole" messageFileName="Microsoft-Windows-ErrorReportingConsole" symbol="MicrosoftWindowsErrorReportingConsole" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="PrsCplPageLayout" message="$(string.task_PrsCplPageLayout)" value="105"/>
+     <task name="PrsReportDbPopulation" message="$(string.task_PrsReportDbPopulation)" value="111"/>
+    </tasks>
+    <events>
+     <event value="105" symbol="PrsCplPageLayoutStart" version="0" task="PrsCplPageLayout" opcode="win:Start" level="win:Informational" template="PrsCplPageLayoutStartArgs"/>
+     <event value="106" symbol="PrsCplPageLayoutStop" version="0" task="PrsCplPageLayout" opcode="win:Stop" level="win:Informational" template="PrsCplPageLayoutStartArgs"/>
+     <event value="111" symbol="PrsReportDbPopulationStart" version="0" task="PrsReportDbPopulation" opcode="win:Start" level="win:Informational"/>
+     <event value="112" symbol="PrsReportDbPopulationStop" version="0" task="PrsReportDbPopulation" opcode="win:Stop" level="win:Informational"/>
+    </events>
+    <templates>
+     <template tid="PrsCplPageLayoutStartArgs">
+      <data name="PageId" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_PrsCplPageLayout" value="PrsCplPageLayout"/>
+    <string id="task_PrsReportDbPopulation" value="PrsReportDbPopulation"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,157 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Kernel-Prefetch" guid="{5322d61a-9efa-4bc3-a3f9-14be95c144f8}" resourceFileName="Microsoft-Windows-Kernel-Prefetch" messageFileName="Microsoft-Windows-Kernel-Prefetch" symbol="MicrosoftWindowsKernelPrefetch" source="Xml" >
+    <keywords>
+     <keyword name="BasicInformation" message="$(string.keyword_BasicInformation)" mask="0x20"/>
+    </keywords>
+    <tasks>
+     <task name="PrefetchSections" message="$(string.task_PrefetchSections)" value="1"/>
+     <task name="PrefetchMetadata" message="$(string.task_PrefetchMetadata)" value="3"/>
+     <task name="OpenVolumes" message="$(string.task_OpenVolumes)" value="5"/>
+     <task name="EndTrace" message="$(string.task_EndTrace)" value="7"/>
+     <task name="ScenarioDecision" message="$(string.task_ScenarioDecision)" value="8"/>
+     <task name="GetReadLists" message="$(string.task_GetReadLists)" value="9"/>
+     <task name="AsyncWorker" message="$(string.task_AsyncWorker)" value="10"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="PrefetchSectionsStart" version="0" task="PrefetchSections" opcode="win:Start" level="win:Informational" keywords="BasicInformation" template="PrefetchSectionsStartArgs"/>
+     <event value="1" symbol="PrefetchSectionsStart_V1" version="1" task="PrefetchSections" opcode="win:Start" level="win:Informational" keywords="BasicInformation" template="PrefetchSectionsStartArgs_V1"/>
+     <event value="2" symbol="PrefetchSectionsStop" version="0" task="PrefetchSections" opcode="win:Stop" level="win:Informational" keywords="BasicInformation" template="PrefetchSectionsStopArgs"/>
+     <event value="2" symbol="PrefetchSectionsStop_V1" version="1" task="PrefetchSections" opcode="win:Stop" level="win:Informational" keywords="BasicInformation" template="PrefetchSectionsStopArgs_V1"/>
+     <event value="3" symbol="PrefetchMetadataStart" version="0" task="PrefetchMetadata" opcode="win:Start" level="win:Informational" keywords="BasicInformation" template="PrefetchMetadataStartArgs"/>
+     <event value="3" symbol="PrefetchMetadataStart_V1" version="1" task="PrefetchMetadata" opcode="win:Start" level="win:Informational" keywords="BasicInformation" template="PrefetchMetadataStartArgs_V1"/>
+     <event value="4" symbol="PrefetchMetadataStop" version="0" task="PrefetchMetadata" opcode="win:Stop" level="win:Informational" keywords="BasicInformation" template="PrefetchMetadataStartArgs"/>
+     <event value="4" symbol="PrefetchMetadataStop_V1" version="1" task="PrefetchMetadata" opcode="win:Stop" level="win:Informational" keywords="BasicInformation" template="PrefetchMetadataStartArgs_V1"/>
+     <event value="5" symbol="OpenVolumesStart" version="0" task="OpenVolumes" opcode="win:Start" level="win:Informational" keywords="BasicInformation" template="OpenVolumesStartArgs"/>
+     <event value="6" symbol="OpenVolumesStop" version="0" task="OpenVolumes" opcode="win:Stop" level="win:Informational" keywords="BasicInformation" template="OpenVolumesStartArgs"/>
+     <event value="7" symbol="EndTrace" version="0" task="EndTrace" level="win:Informational" keywords="BasicInformation" template="EndTraceArgs"/>
+     <event value="8" symbol="ScenarioDecision" version="0" task="ScenarioDecision" level="win:Informational" keywords="BasicInformation" template="ScenarioDecisionArgs"/>
+     <event value="8" symbol="ScenarioDecision_V1" version="1" task="ScenarioDecision" level="win:Informational" keywords="BasicInformation" template="ScenarioDecisionArgs_V1"/>
+     <event value="9" symbol="GetReadListsStart_V1" version="1" task="GetReadLists" opcode="win:Start" level="win:Informational" keywords="BasicInformation" template="GetReadListsStartArgs_V1"/>
+     <event value="10" symbol="GetReadListsStop_V1" version="1" task="GetReadLists" opcode="win:Stop" level="win:Informational" keywords="BasicInformation" template="OpenVolumesStartArgs"/>
+     <event value="11" symbol="AsyncWorkerStart" version="0" task="AsyncWorker" opcode="win:Start" level="win:Informational" keywords="BasicInformation" template="AsyncWorkerStartArgs"/>
+     <event value="12" symbol="AsyncWorkerStop" version="0" task="AsyncWorker" opcode="win:Stop" level="win:Informational" keywords="BasicInformation" template="OpenVolumesStartArgs"/>
+     <event value="13" symbol="AsyncWorker" version="0" task="AsyncWorker" level="win:Informational" keywords="BasicInformation" template="OpenVolumesStartArgs"/>
+    </events>
+    <templates>
+     <template tid="PrefetchSectionsStartArgs">
+      <data name="ScenarioNameLength" inType="win:UInt16"/>
+      <data name="ScenarioName" inType="win:UnicodeString" length="ScenarioNameLength"/>
+      <data name="ScenarioHashId" inType="win:UInt32"/>
+      <data name="ScenarioType" inType="win:UInt32"/>
+      <data name="PrefetchPhase" inType="win:UInt32"/>
+      <data name="PrefetchType" inType="win:UInt32"/>
+      <data name="IsTricklePhase" inType="win:UInt8"/>
+     </template>
+     <template tid="PrefetchSectionsStopArgs">
+      <data name="ScenarioNameLength" inType="win:UInt16"/>
+      <data name="ScenarioName" inType="win:UnicodeString" length="ScenarioNameLength"/>
+      <data name="ScenarioHashId" inType="win:UInt32"/>
+      <data name="ScenarioType" inType="win:UInt32"/>
+      <data name="PrefetchPhase" inType="win:UInt32"/>
+      <data name="PrefetchType" inType="win:UInt32"/>
+      <data name="IsTricklePhase" inType="win:UInt8"/>
+      <data name="NumPagesPrefetched" inType="win:UInt64"/>
+      <data name="NumReadLists" inType="win:UInt32"/>
+     </template>
+     <template tid="PrefetchMetadataStartArgs">
+      <data name="ScenarioNameLength" inType="win:UInt16"/>
+      <data name="ScenarioName" inType="win:UnicodeString" length="ScenarioNameLength"/>
+      <data name="ScenarioHashId" inType="win:UInt32"/>
+      <data name="ScenarioType" inType="win:UInt32"/>
+      <data name="PrefetchPhase" inType="win:UInt32"/>
+     </template>
+     <template tid="OpenVolumesStartArgs">
+      <data name="ScenarioNameLength" inType="win:UInt16"/>
+      <data name="ScenarioName" inType="win:UnicodeString" length="ScenarioNameLength"/>
+      <data name="ScenarioHashId" inType="win:UInt32"/>
+      <data name="ScenarioType" inType="win:UInt32"/>
+     </template>
+     <template tid="EndTraceArgs">
+      <data name="ScenarioNameLength" inType="win:UInt16"/>
+      <data name="ScenarioName" inType="win:UnicodeString" length="ScenarioNameLength"/>
+      <data name="ScenarioHashId" inType="win:UInt32"/>
+      <data name="ScenarioType" inType="win:UInt32"/>
+      <data name="EndReason" inType="win:UInt32"/>
+     </template>
+     <template tid="ScenarioDecisionArgs">
+      <data name="ScenarioNameLength" inType="win:UInt16"/>
+      <data name="ScenarioName" inType="win:UnicodeString" length="ScenarioNameLength"/>
+      <data name="ScenarioHashId" inType="win:UInt32"/>
+      <data name="ScenarioType" inType="win:UInt32"/>
+      <data name="ActionFlags" inType="win:UInt16"/>
+      <data name="TraceReason" inType="win:UInt8"/>
+      <data name="PrefetchReason" inType="win:UInt8"/>
+     </template>
+     <template tid="AsyncWorkerStartArgs">
+      <data name="ScenarioNameLength" inType="win:UInt16"/>
+      <data name="ScenarioName" inType="win:UnicodeString" length="ScenarioNameLength"/>
+      <data name="ScenarioHashId" inType="win:UInt32"/>
+      <data name="ScenarioType" inType="win:UInt32"/>
+      <data name="NumPhases" inType="win:UInt32"/>
+     </template>
+     <template tid="PrefetchSectionsStartArgs_V1">
+      <data name="ScenarioNameLength" inType="win:UInt16"/>
+      <data name="ScenarioName" inType="win:UnicodeString" length="ScenarioNameLength"/>
+      <data name="ScenarioHashId" inType="win:UInt32"/>
+      <data name="ScenarioType" inType="win:UInt32"/>
+      <data name="PrefetchPhaseMask" inType="win:UInt32"/>
+      <data name="PrefetchType" inType="win:UInt32"/>
+      <data name="IsTricklePhase" inType="win:UInt8"/>
+     </template>
+     <template tid="PrefetchSectionsStopArgs_V1">
+      <data name="ScenarioNameLength" inType="win:UInt16"/>
+      <data name="ScenarioName" inType="win:UnicodeString" length="ScenarioNameLength"/>
+      <data name="ScenarioHashId" inType="win:UInt32"/>
+      <data name="ScenarioType" inType="win:UInt32"/>
+      <data name="PrefetchPhaseMask" inType="win:UInt32"/>
+      <data name="PrefetchType" inType="win:UInt32"/>
+      <data name="IsTricklePhase" inType="win:UInt8"/>
+      <data name="NumPagesPrefetched" inType="win:UInt64"/>
+      <data name="NumReadLists" inType="win:UInt32"/>
+     </template>
+     <template tid="PrefetchMetadataStartArgs_V1">
+      <data name="ScenarioNameLength" inType="win:UInt16"/>
+      <data name="ScenarioName" inType="win:UnicodeString" length="ScenarioNameLength"/>
+      <data name="ScenarioHashId" inType="win:UInt32"/>
+      <data name="ScenarioType" inType="win:UInt32"/>
+      <data name="PrefetchPhaseMask" inType="win:UInt32"/>
+     </template>
+     <template tid="ScenarioDecisionArgs_V1">
+      <data name="ScenarioNameLength" inType="win:UInt16"/>
+      <data name="ScenarioName" inType="win:UnicodeString" length="ScenarioNameLength"/>
+      <data name="ScenarioHashId" inType="win:UInt32"/>
+      <data name="ScenarioType" inType="win:UInt32"/>
+      <data name="ActionFlags" inType="win:UInt16"/>
+      <data name="TraceReason" inType="win:UInt8"/>
+      <data name="PrefetchReason" inType="win:UInt8"/>
+      <data name="NumLaunches" inType="win:UInt32"/>
+      <data name="TimeSinceLastLaunchInS" inType="win:UInt32"/>
+     </template>
+     <template tid="GetReadListsStartArgs_V1">
+      <data name="ScenarioNameLength" inType="win:UInt16"/>
+      <data name="ScenarioName" inType="win:UnicodeString" length="ScenarioNameLength"/>
+      <data name="ScenarioHashId" inType="win:UInt32"/>
+      <data name="ScenarioType" inType="win:UInt32"/>
+      <data name="WorkItemsCount" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_BasicInformation" value="BasicInformation"/>
+    <string id="task_PrefetchSections" value="PrefetchSections"/>
+    <string id="task_PrefetchMetadata" value="PrefetchMetadata"/>
+    <string id="task_OpenVolumes" value="OpenVolumes"/>
+    <string id="task_EndTrace" value="EndTrace"/>
+    <string id="task_ScenarioDecision" value="ScenarioDecision"/>
+    <string id="task_GetReadLists" value="GetReadLists"/>
+    <string id="task_AsyncWorker" value="AsyncWorker"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

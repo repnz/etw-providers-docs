@@ -1,0 +1,592 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-NWiFi" guid="{0bd3506a-9030-4f76-9b88-3e8fe1f7cfb6}" resourceFileName="Microsoft-Windows-NWiFi" messageFileName="Microsoft-Windows-NWiFi" symbol="MicrosoftWindowsNWiFi" source="Xml" >
+    <keywords>
+     <keyword name="Init" message="$(string.keyword_Init)" mask="0x1"/>
+     <keyword name="Ioctls" message="$(string.keyword_Ioctls)" mask="0x2"/>
+     <keyword name="RSNA" message="$(string.keyword_RSNA)" mask="0x4"/>
+     <keyword name="AuthUpcall" message="$(string.keyword_AuthUpcall)" mask="0x8"/>
+     <keyword name="IODisp" message="$(string.keyword_IODisp)" mask="0x10"/>
+     <keyword name="NDISReq" message="$(string.keyword_NDISReq)" mask="0x20"/>
+     <keyword name="TKIPSec" message="$(string.keyword_TKIPSec)" mask="0x40"/>
+     <keyword name="Reset" message="$(string.keyword_Reset)" mask="0x80"/>
+     <keyword name="AssocMgr" message="$(string.keyword_AssocMgr)" mask="0x100"/>
+     <keyword name="LWF" message="$(string.keyword_LWF)" mask="0x200"/>
+     <keyword name="SOFTAP" message="$(string.keyword_SOFTAP)" mask="0x400"/>
+     <keyword name="PowerMgmt" message="$(string.keyword_PowerMgmt)" mask="0x800"/>
+     <keyword name="SleepResume" message="$(string.keyword_SleepResume)" mask="0x1000"/>
+     <keyword name="LwtDiagnostic" message="$(string.keyword_LwtDiagnostic)" mask="0x2000"/>
+     <keyword name="DisconnectedStandby" message="$(string.keyword_DisconnectedStandby)" mask="0x4000"/>
+     <keyword name="TelemetryReserved28" message="$(string.keyword_TelemetryReserved28)" mask="0x10000000"/>
+     <keyword name="Telemetry" message="$(string.keyword_Telemetry)" mask="0x20000000"/>
+     <keyword name="Measures" message="$(string.keyword_Measures)" mask="0x40000000"/>
+     <keyword name="CriticalData" message="$(string.keyword_CriticalData)" mask="0x80000000"/>
+     <keyword name="ut:SendPath" message="$(string.keyword_ut:SendPath)" mask="0x100000000"/>
+     <keyword name="ut:ReceivePath" message="$(string.keyword_ut:ReceivePath)" mask="0x200000000"/>
+     <keyword name="ut:L3ConnectPath" message="$(string.keyword_ut:L3ConnectPath)" mask="0x400000000"/>
+     <keyword name="ut:L2ConnectPath" message="$(string.keyword_ut:L2ConnectPath)" mask="0x800000000"/>
+     <keyword name="ut:ClosePath" message="$(string.keyword_ut:ClosePath)" mask="0x1000000000"/>
+     <keyword name="ut:Authentication" message="$(string.keyword_ut:Authentication)" mask="0x2000000000"/>
+     <keyword name="ut:Configuration" message="$(string.keyword_ut:Configuration)" mask="0x4000000000"/>
+     <keyword name="ut:Global" message="$(string.keyword_ut:Global)" mask="0x8000000000"/>
+     <keyword name="keyword_10000000000" message="$(string.keyword_keyword_10000000000)" mask="0x10000000000"/>
+     <keyword name="keyword_200000000000" message="$(string.keyword_keyword_200000000000)" mask="0x200000000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="Connecttosamenetworkonresume" message="$(string.task_Connecttosamenetworkonresume)" value="24000"/>
+     <task name="Connecttonetworkonresumeafterinterveningdisconnect" message="$(string.task_Connecttonetworkonresumeafterinterveningdisconnect)" value="24001"/>
+     <task name="EnterLowPowerState" message="$(string.task_EnterLowPowerState)" value="24002"/>
+     <task name="LeaveLowPowerState" message="$(string.task_LeaveLowPowerState)" value="24003"/>
+     <task name="StartingdevicenetworkatIMdriver" message="$(string.task_StartingdevicenetworkatIMdriver)" value="24004"/>
+     <task name="StoppingdevicenetworkatIMdriver" message="$(string.task_StoppingdevicenetworkatIMdriver)" value="24005"/>
+    </tasks>
+    <maps>
+     <valueMap name="BSSTypeMap">
+      <map value="0x1" message="$(string.map_BSSTypeMapinfrastructure)"/>
+      <map value="0x2" message="$(string.map_BSSTypeMapindependent)"/>
+      <map value="0x3" message="$(string.map_BSSTypeMapany)"/>
+     </valueMap>
+     <valueMap name="EndPointTypeMap">
+      <map value="0x0" message="$(string.map_EndPointTypeMapNo Security)"/>
+      <map value="0x1" message="$(string.map_EndPointTypeMapStandard Security)"/>
+      <map value="0x2" message="$(string.map_EndPointTypeMapIHV Security Endpoint)"/>
+     </valueMap>
+     <valueMap name="ResetTypeMap">
+      <map value="0x1" message="$(string.map_ResetTypeMapPHY)"/>
+      <map value="0x2" message="$(string.map_ResetTypeMapPHY)"/>
+      <map value="0x3" message="$(string.map_ResetTypeMapPHY/MAC)"/>
+     </valueMap>
+     <valueMap name="Dot11DirectionMap">
+      <map value="0x1" message="$(string.map_Dot11DirectionMapInbound)"/>
+      <map value="0x2" message="$(string.map_Dot11DirectionMapOutbound)"/>
+      <map value="0x3" message="$(string.map_Dot11DirectionMapBoth)"/>
+     </valueMap>
+     <valueMap name="ut:OpcodeMap">
+      <map value="0xb4" message="$(string.map_ut:OpcodeMapStart State)"/>
+      <map value="0xb5" message="$(string.map_ut:OpcodeMapEnd State)"/>
+      <map value="0xb6" message="$(string.map_ut:OpcodeMapClosed State)"/>
+      <map value="0xb7" message="$(string.map_ut:OpcodeMapOpen State)"/>
+      <map value="0xb8" message="$(string.map_ut:OpcodeMapConnect State)"/>
+      <map value="0xb9" message="$(string.map_ut:OpcodeMapListen State)"/>
+      <map value="0xba" message="$(string.map_ut:OpcodeMapAssociation State)"/>
+      <map value="0xbb" message="$(string.map_ut:OpcodeMapAuthentication State)"/>
+      <map value="0xbc" message="$(string.map_ut:OpcodeMapEstablished State)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="10000" symbol="task_0" version="0" task="task_0" level="win:Informational" keywords="Init" template="task_0Args"/>
+     <event value="10001" symbol="task_010001" version="0" task="task_0" level="win:Informational" keywords="Ioctls" template="task_010001Args"/>
+     <event value="10002" symbol="task_010002" version="0" task="task_0" level="win:Warning" keywords="Ioctls" template="task_010002Args"/>
+     <event value="10003" symbol="task_010003" version="0" task="task_0" level="win:Error" keywords="Ioctls" template="task_010002Args"/>
+     <event value="10004" symbol="task_010004" version="0" task="task_0" level="win:Error" keywords="Ioctls Telemetry" template="task_010004Args"/>
+     <event value="10005" symbol="task_010005" version="0" task="task_0" level="win:Informational" keywords="Ioctls ut:Configuration" template="task_010005Args"/>
+     <event value="10006" symbol="task_010006" version="0" task="task_0" level="win:Error" keywords="Ioctls ut:Configuration" template="task_010002Args"/>
+     <event value="10007" symbol="task_010007" version="0" task="task_0" level="win:Informational" keywords="Ioctls ut:Configuration" template="task_010007Args"/>
+     <event value="10008" symbol="task_010008" version="0" task="task_0" level="win:Informational" keywords="Ioctls ut:Configuration" template="task_010008Args"/>
+     <event value="10009" symbol="task_010009" version="0" task="task_0" level="win:Informational" keywords="Ioctls ut:Configuration" template="task_010009Args"/>
+     <event value="10010" symbol="task_010010" version="0" task="task_0" level="win:Informational" keywords="Ioctls ut:Configuration" template="task_010010Args"/>
+     <event value="10011" symbol="task_010011" version="0" task="task_0" level="win:Informational" keywords="Ioctls ut:Configuration" template="task_010010Args"/>
+     <event value="10012" symbol="task_010012" version="0" task="task_0" level="win:Informational" keywords="RSNA LwtDiagnostic ut:ReceivePath ut:Authentication" template="task_010012Args"/>
+     <event value="10013" symbol="task_010013" version="0" task="task_0" level="win:Warning" keywords="RSNA ut:ReceivePath ut:Authentication keyword_10000000000" template="task_010013Args"/>
+     <event value="10014" symbol="task_010014" version="0" task="task_0" level="win:Warning" keywords="RSNA LwtDiagnostic ut:ReceivePath ut:Authentication" template="task_010014Args"/>
+     <event value="10015" symbol="task_010015" version="0" task="task_0" level="win:Informational" keywords="RSNA LwtDiagnostic ut:ReceivePath ut:Authentication" template="task_010015Args"/>
+     <event value="10016" symbol="task_010016" version="0" task="task_0" level="win:Informational" keywords="RSNA LwtDiagnostic ut:ReceivePath ut:Authentication" template="task_010015Args"/>
+     <event value="10017" symbol="task_010017" version="0" task="task_0" level="win:Informational" keywords="RSNA LwtDiagnostic ut:ReceivePath ut:Authentication" template="task_010015Args"/>
+     <event value="10018" symbol="task_010018" version="0" task="task_0" level="win:Informational" keywords="RSNA LwtDiagnostic ut:ReceivePath ut:Authentication" template="task_010015Args"/>
+     <event value="10019" symbol="task_010019" version="0" task="task_0" level="win:Informational" keywords="RSNA LwtDiagnostic ut:SendPath ut:Authentication" template="task_010019Args"/>
+     <event value="10020" symbol="task_010020" version="0" task="task_0" level="win:Informational" keywords="RSNA LwtDiagnostic ut:ReceivePath ut:Authentication" template="task_010012Args"/>
+     <event value="10021" symbol="task_010021" version="0" task="task_0" level="win:Informational" keywords="RSNA LwtDiagnostic ut:SendPath ut:Authentication" template="task_010019Args"/>
+     <event value="10022" symbol="task_010022" version="0" task="task_0" level="win:Error" keywords="RSNA LwtDiagnostic ut:ReceivePath ut:Authentication" template="task_010002Args"/>
+     <event value="10023" symbol="task_010023" version="0" task="task_0" level="win:Error" keywords="RSNA LwtDiagnostic ut:ReceivePath ut:Authentication keyword_10000000000" template="task_010002Args"/>
+     <event value="10024" symbol="task_010024" version="0" task="task_0" level="win:Informational" keywords="RSNA LwtDiagnostic ut:ReceivePath ut:Authentication" template="task_010012Args"/>
+     <event value="10025" symbol="task_010025" version="0" task="task_0" level="win:Informational" keywords="RSNA LwtDiagnostic ut:SendPath ut:Authentication" template="task_010019Args"/>
+     <event value="10026" symbol="task_010026" version="0" task="task_0" level="win:Error" keywords="RSNA LwtDiagnostic ut:Configuration" template="task_010002Args"/>
+     <event value="10027" symbol="task_010027" version="0" task="task_0" level="win:Informational" keywords="AuthUpcall ut:ReceivePath ut:Authentication" template="task_010027Args"/>
+     <event value="10028" symbol="task_010028" version="0" task="task_0" level="win:Informational" keywords="IODisp ut:SendPath ut:Authentication" template="task_010019Args"/>
+     <event value="10029" symbol="task_010029" version="0" task="task_0" level="win:Error" keywords="NDISReq ut:Configuration" template="task_010029Args"/>
+     <event value="10030" symbol="task_010030" version="0" task="task_0" level="win:Error" keywords="NDISReq ut:Configuration" template="task_010030Args"/>
+     <event value="10031" symbol="task_010031" version="0" task="task_0" level="win:Informational" keywords="NDISReq ut:Configuration" template="task_010030Args"/>
+     <event value="10032" symbol="task_010032" version="0" task="task_0" level="win:Informational" keywords="NDISReq ut:Configuration" template="task_010030Args"/>
+     <event value="10033" symbol="task_010033" version="0" task="task_0" level="win:Informational" keywords="TKIPSec LwtDiagnostic ut:Authentication" template="task_010033Args"/>
+     <event value="10034" symbol="task_010034" version="0" task="task_0" level="win:Informational" keywords="Ioctls ut:Authentication" template="task_010034Args"/>
+     <event value="10035" symbol="task_010035" version="0" task="task_0" level="win:Informational" keywords="Ioctls ut:Authentication" template="task_010035Args"/>
+     <event value="10036" symbol="task_010036" version="0" task="task_0" level="win:Informational" keywords="Ioctls ut:Authentication" template="task_010035Args"/>
+     <event value="10037" symbol="task_010037" version="0" task="task_0" level="win:Informational" keywords="Reset ut:Configuration" template="task_010037Args"/>
+     <event value="10038" symbol="task_010038" version="0" task="task_0" level="win:Informational" keywords="Reset ut:Configuration" template="task_010038Args"/>
+     <event value="10039" symbol="task_010039" version="0" task="task_0" level="win:Error" keywords="Reset ut:Configuration" template="task_010002Args"/>
+     <event value="10040" symbol="task_0Start" version="0" task="task_0" opcode="win:Start" level="win:Informational" keywords="AssocMgr ut:L2ConnectPath" template="task_010033Args"/>
+     <event value="10041" symbol="task_0Stop" version="0" task="task_0" opcode="win:Stop" level="win:Informational" keywords="AssocMgr ut:L2ConnectPath" template="task_0StopArgs"/>
+     <event value="10042" symbol="task_010042" version="0" task="task_0" level="win:Informational" keywords="AssocMgr ut:ClosePath" template="task_010042Args"/>
+     <event value="10043" symbol="task_010043" version="0" task="task_0" level="win:Informational" keywords="AssocMgr" template="task_010012Args"/>
+     <event value="10044" symbol="task_010044" version="0" task="task_0" level="win:Informational" keywords="AssocMgr" template="task_010044Args"/>
+     <event value="10045" symbol="task_010045" version="0" task="task_0" level="win:Warning" keywords="AssocMgr ut:Authentication" template="task_010045Args"/>
+     <event value="10046" symbol="task_010046" version="0" task="task_0" level="win:Informational" keywords="AssocMgr ut:Authentication" template="task_010046Args"/>
+     <event value="10047" symbol="task_010047" version="0" task="task_0" level="win:Informational" keywords="AssocMgr ut:Authentication" template="task_010045Args"/>
+     <event value="10048" symbol="task_010048" version="0" task="task_0" level="win:Error" keywords="AssocMgr ut:Configuration" template="task_010002Args"/>
+     <event value="10049" symbol="task_010049" version="0" task="task_0" level="win:Informational" keywords="AssocMgr ut:L2ConnectPath" template="task_010049Args"/>
+     <event value="10050" symbol="task_010050" version="0" task="task_0" level="win:Informational" keywords="AssocMgr ut:L2ConnectPath" template="task_010002Args"/>
+     <event value="10051" symbol="task_010051" version="0" task="task_0" level="win:Error" keywords="AssocMgr ut:L2ConnectPath" template="task_010051Args"/>
+     <event value="10052" symbol="task_010052" version="0" task="task_0" level="win:Error" keywords="AssocMgr ut:L2ConnectPath" template="task_010051Args"/>
+     <event value="10053" symbol="task_010053" version="0" task="task_0" level="win:Informational" keywords="AssocMgr ut:L2ConnectPath" template="task_010049Args"/>
+     <event value="10054" symbol="task_010054" version="0" task="task_0" level="win:Informational" keywords="AssocMgr ut:ClosePath" template="task_010012Args"/>
+     <event value="10055" symbol="task_010055" version="0" task="task_0" level="win:Informational" keywords="AssocMgr ut:ClosePath" template="task_010002Args"/>
+     <event value="10056" symbol="task_010056" version="0" task="task_0" level="win:Informational" keywords="AssocMgr ut:ClosePath" template="task_010002Args"/>
+     <event value="10057" symbol="task_010057" version="0" task="task_0" level="win:Informational" keywords="LWF ut:Configuration" template="task_010057Args"/>
+     <event value="10058" symbol="task_010058" version="0" task="task_0" level="win:Error" keywords="LWF ut:Configuration" template="task_010058Args"/>
+     <event value="10059" symbol="task_010059" version="0" task="task_0" level="win:Informational" keywords="TKIPSec ut:Authentication" template="task_010012Args"/>
+     <event value="10060" symbol="task_010060" version="0" task="task_0" level="win:Informational" keywords="ut:Authentication" template="task_010060Args"/>
+     <event value="10061" symbol="task_010061" version="0" task="task_0" level="win:Informational" keywords="ut:Authentication" template="task_010061Args"/>
+     <event value="10062" symbol="task_0Start10062" version="0" task="task_0" opcode="win:Start" level="win:Informational" keywords="AssocMgr ut:L2ConnectPath" template="task_0Start10062Args"/>
+     <event value="10063" symbol="task_0Stop10063" version="0" task="task_0" opcode="win:Stop" level="win:Informational" keywords="AssocMgr ut:L2ConnectPath" template="task_0Stop10063Args"/>
+     <event value="10064" symbol="task_010064" version="0" task="task_0" level="win:Informational" keywords="AssocMgr ut:ClosePath" template="task_010012Args"/>
+     <event value="10066" symbol="StartingdevicenetworkatIMdriverStart" version="0" task="StartingdevicenetworkatIMdriver" opcode="win:Start" level="win:Informational" keywords="SOFTAP" template="StartingdevicenetworkatIMdriverStartArgs"/>
+     <event value="10067" symbol="StartingdevicenetworkatIMdriverStop" version="0" task="StartingdevicenetworkatIMdriver" opcode="win:Stop" level="win:Informational" keywords="SOFTAP" template="StartingdevicenetworkatIMdriverStartArgs"/>
+     <event value="10068" symbol="StartingdevicenetworkatIMdriverStop10068" version="0" task="StartingdevicenetworkatIMdriver" opcode="win:Stop" level="win:Error" keywords="SOFTAP" template="StartingdevicenetworkatIMdriverStop10068Args"/>
+     <event value="10069" symbol="StoppingdevicenetworkatIMdriverStart" version="0" task="StoppingdevicenetworkatIMdriver" opcode="win:Start" level="win:Informational" keywords="SOFTAP" template="StartingdevicenetworkatIMdriverStartArgs"/>
+     <event value="10070" symbol="StoppingdevicenetworkatIMdriverStop" version="0" task="StoppingdevicenetworkatIMdriver" opcode="win:Stop" level="win:Informational" keywords="SOFTAP" template="StartingdevicenetworkatIMdriverStartArgs"/>
+     <event value="10071" symbol="StoppingdevicenetworkatIMdriverStop10071" version="0" task="StoppingdevicenetworkatIMdriver" opcode="win:Stop" level="win:Informational" keywords="SOFTAP" template="StartingdevicenetworkatIMdriverStop10068Args"/>
+     <event value="10072" symbol="task_010072" version="0" task="task_0" level="win:Informational" keywords="PowerMgmt" template="task_010072Args"/>
+     <event value="10073" symbol="EnterLowPowerState" version="0" task="EnterLowPowerState" level="win:Informational" keywords="SleepResume" template="EnterLowPowerStateArgs"/>
+     <event value="10074" symbol="LeaveLowPowerState" version="0" task="LeaveLowPowerState" level="win:Informational" keywords="SleepResume" template="task_0Start10062Args"/>
+     <event value="10075" symbol="task_010075" version="0" task="task_0" level="win:Informational" keywords="AssocMgr" template="task_010002Args"/>
+     <event value="10076" symbol="task_010076" version="0" task="task_0" level="win:Informational" keywords="AssocMgr" template="task_010002Args"/>
+     <event value="10077" symbol="task_010077" version="0" task="task_0" level="win:Informational" keywords="AssocMgr" template="task_010077Args"/>
+     <event value="10078" symbol="task_010078" version="0" task="task_0" level="win:Informational" keywords="DisconnectedStandby" template="task_010078Args"/>
+     <event value="10079" symbol="task_010079" version="0" task="task_0" level="win:Informational" keywords="DisconnectedStandby" template="task_010079Args"/>
+     <event value="10080" symbol="task_010080" version="0" task="task_0" level="win:Informational" keywords="DisconnectedStandby" template="task_010078Args"/>
+     <event value="10081" symbol="task_010081" version="0" task="task_0" level="win:Informational" keywords="DisconnectedStandby" template="task_0Start10062Args"/>
+     <event value="10082" symbol="task_010082" version="0" task="task_0" level="win:Informational" keywords="DisconnectedStandby" template="task_0Start10062Args"/>
+     <event value="10083" symbol="task_010083" version="0" task="task_0" level="win:Informational" keywords="DisconnectedStandby" template="task_0Start10062Args"/>
+     <event value="10084" symbol="task_010084" version="0" task="task_0" level="win:Warning" keywords="AssocMgr ut:L2ConnectPath" template="task_010084Args"/>
+     <event value="10085" symbol="task_010085" version="0" task="task_0" level="win:Warning" keywords="AssocMgr ut:L2ConnectPath" template="task_010085Args"/>
+     <event value="10086" symbol="task_010086" version="0" task="task_0" level="win:Warning" keywords="AssocMgr ut:L2ConnectPath" template="task_010086Args"/>
+     <event value="10087" symbol="task_010087" version="0" task="task_0" level="win:Warning" keywords="AssocMgr ut:L2ConnectPath" template="task_010087Args"/>
+     <event value="10088" symbol="task_010088" version="0" task="task_0" level="win:Warning" keywords="AssocMgr ut:L2ConnectPath" template="task_010088Args"/>
+     <event value="10089" symbol="task_010089" version="0" task="task_0" level="win:Warning" keywords="AssocMgr ut:L2ConnectPath" template="task_010089Args"/>
+     <event value="10090" symbol="task_010090" version="0" task="task_0" level="win:Warning" keywords="AssocMgr ut:L2ConnectPath" template="task_010090Args"/>
+     <event value="20000" symbol="ConnecttosamenetworkonresumeStart" version="0" task="Connecttosamenetworkonresume" opcode="win:Start" level="win:Informational" template="ConnecttosamenetworkonresumeStartArgs"/>
+     <event value="20001" symbol="ConnecttonetworkonresumeafterinterveningdisconnectStart" version="0" task="Connecttonetworkonresumeafterinterveningdisconnect" opcode="win:Start" level="win:Informational" template="ConnecttosamenetworkonresumeStartArgs"/>
+     <event value="20002" symbol="ConnecttosamenetworkonresumeStop" version="0" task="Connecttosamenetworkonresume" opcode="win:Stop" level="win:Informational" template="ConnecttosamenetworkonresumeStartArgs"/>
+     <event value="20003" symbol="ConnecttonetworkonresumeafterinterveningdisconnectStop" version="0" task="Connecttonetworkonresumeafterinterveningdisconnect" opcode="win:Stop" level="win:Informational" template="ConnecttosamenetworkonresumeStartArgs"/>
+     <event value="20004" symbol="ConnecttosamenetworkonresumeStop20004" version="0" task="Connecttosamenetworkonresume" opcode="win:Stop" level="win:Informational" template="ConnecttosamenetworkonresumeStartArgs"/>
+     <event value="20005" symbol="ConnecttonetworkonresumeafterinterveningdisconnectStop20005" version="0" task="Connecttonetworkonresumeafterinterveningdisconnect" opcode="win:Stop" level="win:Informational" template="ConnecttosamenetworkonresumeStartArgs"/>
+     <event value="20006" symbol="ConnecttosamenetworkonresumeStart20006" version="0" task="Connecttosamenetworkonresume" opcode="win:Start" level="win:Informational" template="ConnecttosamenetworkonresumeStartArgs"/>
+     <event value="20007" symbol="ConnecttonetworkonresumeafterinterveningdisconnectStart20007" version="0" task="Connecttonetworkonresumeafterinterveningdisconnect" opcode="win:Start" level="win:Informational" template="ConnecttosamenetworkonresumeStartArgs"/>
+     <event value="20008" symbol="ConnecttonetworkonresumeafterinterveningdisconnectStop20008" version="0" task="Connecttonetworkonresumeafterinterveningdisconnect" opcode="win:Stop" level="win:Informational" template="ConnecttosamenetworkonresumeStartArgs"/>
+     <event value="20009" symbol="ConnecttosamenetworkonresumeStop20009" version="0" task="Connecttosamenetworkonresume" opcode="win:Stop" level="win:Informational" template="ConnecttosamenetworkonresumeStartArgs"/>
+     <event value="20010" symbol="ConnecttonetworkonresumeafterinterveningdisconnectStop20010" version="0" task="Connecttonetworkonresumeafterinterveningdisconnect" opcode="win:Stop" level="win:Informational" template="ConnecttosamenetworkonresumeStartArgs"/>
+     <event value="20011" symbol="ConnecttosamenetworkonresumeStart20011" version="0" task="Connecttosamenetworkonresume" opcode="win:Start" level="win:Informational" template="ConnecttosamenetworkonresumeStartArgs"/>
+     <event value="20012" symbol="ConnecttonetworkonresumeafterinterveningdisconnectStart20012" version="0" task="Connecttonetworkonresumeafterinterveningdisconnect" opcode="win:Start" level="win:Informational" template="ConnecttosamenetworkonresumeStartArgs"/>
+     <event value="20013" symbol="ConnecttosamenetworkonresumeStop20013" version="0" task="Connecttosamenetworkonresume" opcode="win:Stop" level="win:Informational" template="ConnecttosamenetworkonresumeStartArgs"/>
+     <event value="20014" symbol="ConnecttonetworkonresumeafterinterveningdisconnectStop20014" version="0" task="Connecttonetworkonresumeafterinterveningdisconnect" opcode="win:Stop" level="win:Informational" template="ConnecttosamenetworkonresumeStartArgs"/>
+     <event value="20015" symbol="ConnecttonetworkonresumeafterinterveningdisconnectStop20015" version="0" task="Connecttonetworkonresumeafterinterveningdisconnect" opcode="win:Stop" level="win:Informational" template="ConnecttosamenetworkonresumeStartArgs"/>
+     <event value="20016" symbol="ConnecttosamenetworkonresumeStart20016" version="0" task="Connecttosamenetworkonresume" opcode="win:Start" level="win:Informational" template="ConnecttosamenetworkonresumeStartArgs"/>
+     <event value="20017" symbol="ConnecttosamenetworkonresumeStart20017" version="0" task="Connecttosamenetworkonresume" opcode="win:Start" level="win:Informational" template="ConnecttosamenetworkonresumeStartArgs"/>
+     <event value="60001" symbol="task_060001" version="0" task="task_0" level="win:Error" template="task_060001Args"/>
+     <event value="60002" symbol="task_060002" version="0" task="task_0" level="win:Warning" template="task_060002Args"/>
+     <event value="60003" symbol="task_060003" version="0" task="task_0" level="win:Informational" keywords="keyword_200000000000" template="task_060003Args"/>
+     <event value="60004" symbol="task_060004" version="0" task="task_0" level="win:Informational" template="task_060004Args"/>
+     <event value="60101" symbol="task_060101" version="0" task="task_0" level="win:Informational" template="task_060101Args"/>
+     <event value="60102" symbol="task_060102" version="0" task="task_0" level="win:Informational" template="task_060102Args"/>
+     <event value="60103" symbol="task_060103" version="0" task="task_0" level="win:Informational" template="task_060103Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="ContextHandle" inType="win:Pointer"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="ResetStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="task_010001Args">
+      <data name="ContextHandle" inType="win:Pointer"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="Function" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="Length" inType="win:UInt32"/>
+     </template>
+     <template tid="task_010002Args">
+      <data name="ContextHandle" inType="win:Pointer"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_010004Args">
+      <data name="ContextHandle" inType="win:Pointer"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="AlgorithmId" inType="win:UInt32"/>
+     </template>
+     <template tid="task_010005Args">
+      <data name="ContextHandle" inType="win:Pointer"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="SSIDCount" inType="win:UInt32"/>
+      <data name="SSIDList" inType="win:UInt8" count="SSIDCount"/>
+     </template>
+     <template tid="task_010007Args">
+      <data name="ContextHandle" inType="win:Pointer"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="BSSType" inType="win:UInt32" map="BSSTypeMap"/>
+     </template>
+     <template tid="task_010008Args">
+      <data name="ContextHandle" inType="win:Pointer"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="BSSIDCount" inType="win:UInt32"/>
+      <data name="BSSIDList" inType="win:Binary" count="BSSIDCount"/>
+     </template>
+     <template tid="task_010009Args">
+      <data name="ContextHandle" inType="win:Pointer"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="AuthCount" inType="win:UInt32"/>
+      <data name="AuthAlgorithm" inType="win:UInt32" count="AuthCount"/>
+     </template>
+     <template tid="task_010010Args">
+      <data name="ContextHandle" inType="win:Pointer"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="Value" inType="win:Boolean"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_010012Args">
+      <data name="ContextHandle" inType="win:Pointer"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+     </template>
+     <template tid="task_010013Args">
+      <data name="ContextHandle" inType="win:Pointer"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="ExpectedCounter" inType="win:UInt64"/>
+      <data name="ReceivedCounter" inType="win:UInt64"/>
+     </template>
+     <template tid="task_010014Args">
+      <data name="ContextHandle" inType="win:Pointer"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="ExpectedVer" inType="win:UInt32"/>
+      <data name="ReceivedVer" inType="win:UInt32"/>
+     </template>
+     <template tid="task_010015Args">
+      <data name="ContextHandle" inType="win:Pointer"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="FrameSequence" inType="win:UInt32"/>
+      <data name="SrcMAC" inType="win:Binary"/>
+      <data name="DestMAC" inType="win:Binary"/>
+     </template>
+     <template tid="task_010019Args">
+      <data name="ContextHandle" inType="win:Pointer"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="SrcMAC" inType="win:Binary"/>
+      <data name="DestMAC" inType="win:Binary"/>
+     </template>
+     <template tid="task_010027Args">
+      <data name="FrameSequence" inType="win:UInt32"/>
+      <data name="SrcMAC" inType="win:Binary"/>
+      <data name="DestMAC" inType="win:Binary"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_010029Args">
+      <data name="Adapter" inType="win:Pointer"/>
+      <data name="OID" inType="win:UInt32"/>
+      <data name="PowerState" inType="win:UInt32"/>
+      <data name="bBlockOidsDueToLowPowerState" inType="win:Boolean"/>
+     </template>
+     <template tid="task_010030Args">
+      <data name="Adapter" inType="win:Pointer"/>
+      <data name="OID" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_010033Args">
+      <data name="ContextHandle" inType="win:Pointer"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="MAC" inType="win:Binary"/>
+     </template>
+     <template tid="task_010034Args">
+      <data name="ContextHandle" inType="win:Pointer"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="EndPointType" inType="win:UInt8" map="EndPointTypeMap"/>
+     </template>
+     <template tid="task_010035Args">
+      <data name="ContextHandle" inType="win:Pointer"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="Enabled" inType="win:Boolean"/>
+     </template>
+     <template tid="task_010037Args">
+      <data name="ContextHandle" inType="win:Pointer"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="ResetType" inType="win:UInt8" map="ResetTypeMap"/>
+      <data name="MAC" inType="win:Binary"/>
+      <data name="DefaultMIB" inType="win:Boolean"/>
+     </template>
+     <template tid="task_010038Args">
+      <data name="ContextHandle" inType="win:Pointer"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="ResetType" inType="win:UInt8"/>
+      <data name="MAC" inType="win:Binary"/>
+      <data name="DefaultMIB" inType="win:Boolean"/>
+     </template>
+     <template tid="task_0StopArgs">
+      <data name="ContextHandle" inType="win:Pointer"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="MAC" inType="win:Binary"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_010042Args">
+      <data name="ContextHandle" inType="win:Pointer"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="MAC" inType="win:Binary"/>
+      <data name="Reason" inType="win:UInt32"/>
+     </template>
+     <template tid="task_010044Args">
+      <data name="ContextHandle" inType="win:Pointer"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="SessionId" inType="win:UInt32"/>
+     </template>
+     <template tid="task_010045Args">
+      <data name="ContextHandle" inType="win:Pointer"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="MAC" inType="win:Binary"/>
+     </template>
+     <template tid="task_010046Args">
+      <data name="ContextHandle" inType="win:Pointer"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="MAC" inType="win:Binary"/>
+      <data name="Controlled" inType="win:Boolean"/>
+      <data name="Authorized" inType="win:Boolean"/>
+     </template>
+     <template tid="task_010049Args">
+      <data name="ContextHandle" inType="win:Pointer"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="Irp" inType="win:Pointer"/>
+     </template>
+     <template tid="task_010051Args">
+      <data name="ContextHandle" inType="win:Pointer"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="PowerState" inType="win:UInt32"/>
+     </template>
+     <template tid="task_010057Args">
+      <data name="ContextHandle" inType="win:Pointer"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="OldPowerState" inType="win:UInt32"/>
+      <data name="NewPowerState" inType="win:UInt32"/>
+      <data name="Halting" inType="win:Boolean"/>
+     </template>
+     <template tid="task_010058Args">
+      <data name="ContextHandle" inType="win:Pointer"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="ConfiguredOpMode" inType="win:UInt32"/>
+      <data name="IMSupportedOpModes" inType="win:UInt32"/>
+      <data name="MiniPortSupportedOpModes" inType="win:UInt32"/>
+     </template>
+     <template tid="task_010060Args">
+      <data name="Addr" inType="win:Binary"/>
+      <data name="CipherAlgoId" inType="win:UInt32"/>
+      <data name="Direction" inType="win:UInt8" map="Dot11DirectionMap"/>
+      <data name="Len" inType="win:UInt32"/>
+     </template>
+     <template tid="task_010061Args">
+      <data name="Index" inType="win:UInt32"/>
+      <data name="CipherAlgoId" inType="win:UInt32"/>
+      <data name="Direction" inType="win:UInt8"/>
+      <data name="Len" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0Start10062Args">
+      <data name="AdapterGuid" inType="win:GUID"/>
+     </template>
+     <template tid="task_0Stop10063Args">
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="StartingdevicenetworkatIMdriverStartArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="ContextHandle" inType="win:Pointer"/>
+      <data name="MAC" inType="win:AnsiString"/>
+      <data name="SSID" inType="win:AnsiString"/>
+     </template>
+     <template tid="StartingdevicenetworkatIMdriverStop10068Args">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="ContextHandle" inType="win:Pointer"/>
+      <data name="MAC" inType="win:AnsiString"/>
+      <data name="SSID" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_010072Args">
+      <data name="PowerMgmtMode" inType="win:UInt32"/>
+      <data name="PowerMgmtModeSupported" inType="win:Boolean"/>
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="MAC" inType="win:Binary"/>
+      <data name="SSID" inType="win:AnsiString"/>
+     </template>
+     <template tid="EnterLowPowerStateArgs">
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="Halted" inType="win:Boolean"/>
+      <data name="NewPowerState" inType="win:UInt32"/>
+     </template>
+     <template tid="task_010077Args">
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="TxUnicastCount" inType="win:Int32"/>
+      <data name="RxUnicastCount" inType="win:Int32"/>
+      <data name="TxBroadcastCount" inType="win:Int32"/>
+      <data name="RxBroadcastCount" inType="win:Int32"/>
+      <data name="TxMulticastCount" inType="win:Int32"/>
+      <data name="RxMulticastCount" inType="win:Int32"/>
+      <data name="TimeDiffMs" inType="win:UInt64"/>
+     </template>
+     <template tid="task_010078Args">
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="SessionId" inType="win:Int32"/>
+      <data name="Reason" inType="win:Int32"/>
+      <data name="StatusCode" inType="win:Int32"/>
+      <data name="SecurityEndpoint" inType="win:Int32"/>
+     </template>
+     <template tid="task_010079Args">
+      <data name="AdapterGuid" inType="win:GUID"/>
+      <data name="DisconnectInStandby" inType="win:Int32"/>
+      <data name="EnforceDs" inType="win:Int32"/>
+     </template>
+     <template tid="task_010084Args">
+      <data name="StatusAnnotation" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="Context1" inType="win:UInt32"/>
+     </template>
+     <template tid="task_010085Args">
+      <data name="Status" inType="win:UInt32"/>
+      <data name="Initialized" inType="win:UInt32"/>
+      <data name="State" inType="win:UInt32"/>
+      <data name="Counter" inType="win:UInt32"/>
+      <data name="LocalSendConfirm" inType="win:UInt32"/>
+      <data name="PeerSendConfirm" inType="win:UInt32"/>
+     </template>
+     <template tid="task_010086Args">
+      <data name="BufferAnnotation" inType="win:UnicodeString"/>
+      <data name="BufferLength" inType="win:UInt32"/>
+     </template>
+     <template tid="task_010087Args">
+      <data name="LogLine" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_010088Args">
+      <data name="CommitFrameError" inType="win:AnsiString"/>
+      <data name="CommitFrameSize" inType="win:UInt32"/>
+      <data name="MinCommitFrameSize" inType="win:UInt32"/>
+      <data name="AlgorithmNumber" inType="win:UInt32"/>
+      <data name="ExpectedAlgorithmNumber" inType="win:UInt32"/>
+      <data name="TransactionId" inType="win:UInt32"/>
+      <data name="ExpectedTransactionId" inType="win:UInt32"/>
+     </template>
+     <template tid="task_010089Args">
+      <data name="Status" inType="win:UInt32"/>
+      <data name="Context1" inType="win:UInt32"/>
+     </template>
+     <template tid="task_010090Args">
+      <data name="StatusAnnotation" inType="win:UnicodeString"/>
+      <data name="Context1" inType="win:UInt32"/>
+      <data name="Context2" inType="win:UInt32"/>
+     </template>
+     <template tid="ConnecttosamenetworkonresumeStartArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+     </template>
+     <template tid="task_060001Args">
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Context" inType="win:UInt32"/>
+     </template>
+     <template tid="task_060002Args">
+      <data name="WarningCode" inType="win:UInt32"/>
+      <data name="Location" inType="win:UInt32"/>
+      <data name="Context" inType="win:UInt32"/>
+     </template>
+     <template tid="task_060003Args">
+      <data name="NextState" inType="win:UInt8" map="ut:OpcodeMap"/>
+      <data name="Context" inType="win:UInt32"/>
+     </template>
+     <template tid="task_060004Args">
+      <data name="Context" inType="win:UInt32"/>
+      <data name="UpdateReasonCode" inType="win:UInt32"/>
+     </template>
+     <template tid="task_060101Args">
+      <data name="SourceAddress" inType="win:UInt32"/>
+      <data name="SourcePort" inType="win:UInt32"/>
+      <data name="DestinationAddress" inType="win:UInt32"/>
+      <data name="DestinationPort" inType="win:UInt32"/>
+      <data name="Protocol" inType="win:UInt32"/>
+      <data name="ReferenceContext" inType="win:UInt32"/>
+     </template>
+     <template tid="task_060102Args">
+      <data name="SourceAddress" inType="win:Binary"/>
+      <data name="SourcePort" inType="win:UInt32"/>
+      <data name="DestinationAddress" inType="win:Binary"/>
+      <data name="DestinationPort" inType="win:UInt32"/>
+      <data name="Protocol" inType="win:UInt32"/>
+      <data name="ReferenceContext" inType="win:UInt32"/>
+     </template>
+     <template tid="task_060103Args">
+      <data name="IfGuid" inType="win:GUID"/>
+      <data name="IfIndex" inType="win:UInt32"/>
+      <data name="IfLuid" inType="win:UInt64"/>
+      <data name="ReferenceContext" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Init" value="Init"/>
+    <string id="keyword_Ioctls" value="Ioctls"/>
+    <string id="keyword_RSNA" value="RSNA"/>
+    <string id="keyword_AuthUpcall" value="AuthUpcall"/>
+    <string id="keyword_IODisp" value="IODisp"/>
+    <string id="keyword_NDISReq" value="NDISReq"/>
+    <string id="keyword_TKIPSec" value="TKIPSec"/>
+    <string id="keyword_Reset" value="Reset"/>
+    <string id="keyword_AssocMgr" value="AssocMgr"/>
+    <string id="keyword_LWF" value="LWF"/>
+    <string id="keyword_SOFTAP" value="SOFTAP"/>
+    <string id="keyword_PowerMgmt" value="PowerMgmt"/>
+    <string id="keyword_SleepResume" value="SleepResume"/>
+    <string id="keyword_LwtDiagnostic" value="LwtDiagnostic"/>
+    <string id="keyword_DisconnectedStandby" value="DisconnectedStandby"/>
+    <string id="keyword_TelemetryReserved28" value="TelemetryReserved28"/>
+    <string id="keyword_Telemetry" value="Telemetry"/>
+    <string id="keyword_Measures" value="Measures"/>
+    <string id="keyword_CriticalData" value="CriticalData"/>
+    <string id="keyword_ut:SendPath" value="ut:SendPath"/>
+    <string id="keyword_ut:ReceivePath" value="ut:ReceivePath"/>
+    <string id="keyword_ut:L3ConnectPath" value="ut:L3ConnectPath"/>
+    <string id="keyword_ut:L2ConnectPath" value="ut:L2ConnectPath"/>
+    <string id="keyword_ut:ClosePath" value="ut:ClosePath"/>
+    <string id="keyword_ut:Authentication" value="ut:Authentication"/>
+    <string id="keyword_ut:Configuration" value="ut:Configuration"/>
+    <string id="keyword_ut:Global" value="ut:Global"/>
+    <string id="keyword_keyword_10000000000" value="keyword_10000000000"/>
+    <string id="keyword_keyword_200000000000" value="keyword_200000000000"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_Connecttosamenetworkonresume" value="Connecttosamenetworkonresume"/>
+    <string id="task_Connecttonetworkonresumeafterinterveningdisconnect" value="Connecttonetworkonresumeafterinterveningdisconnect"/>
+    <string id="task_EnterLowPowerState" value="EnterLowPowerState"/>
+    <string id="task_LeaveLowPowerState" value="LeaveLowPowerState"/>
+    <string id="task_StartingdevicenetworkatIMdriver" value="StartingdevicenetworkatIMdriver"/>
+    <string id="task_StoppingdevicenetworkatIMdriver" value="StoppingdevicenetworkatIMdriver"/>
+    <string id="map_BSSTypeMapinfrastructure" value="infrastructure"/>
+    <string id="map_BSSTypeMapindependent" value="independent"/>
+    <string id="map_BSSTypeMapany" value="any"/>
+    <string id="map_EndPointTypeMapNo Security" value="No Security"/>
+    <string id="map_EndPointTypeMapStandard Security" value="Standard Security"/>
+    <string id="map_EndPointTypeMapIHV Security Endpoint" value="IHV Security Endpoint"/>
+    <string id="map_ResetTypeMapPHY" value="PHY"/>
+    <string id="map_ResetTypeMapPHY" value="PHY"/>
+    <string id="map_ResetTypeMapPHY/MAC" value="PHY/MAC"/>
+    <string id="map_Dot11DirectionMapInbound" value="Inbound"/>
+    <string id="map_Dot11DirectionMapOutbound" value="Outbound"/>
+    <string id="map_Dot11DirectionMapBoth" value="Both"/>
+    <string id="map_ut:OpcodeMapStart State" value="Start State"/>
+    <string id="map_ut:OpcodeMapEnd State" value="End State"/>
+    <string id="map_ut:OpcodeMapClosed State" value="Closed State"/>
+    <string id="map_ut:OpcodeMapOpen State" value="Open State"/>
+    <string id="map_ut:OpcodeMapConnect State" value="Connect State"/>
+    <string id="map_ut:OpcodeMapListen State" value="Listen State"/>
+    <string id="map_ut:OpcodeMapAssociation State" value="Association State"/>
+    <string id="map_ut:OpcodeMapAuthentication State" value="Authentication State"/>
+    <string id="map_ut:OpcodeMapEstablished State" value="Established State"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

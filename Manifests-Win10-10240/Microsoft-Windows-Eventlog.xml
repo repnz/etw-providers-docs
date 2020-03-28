@@ -1,0 +1,194 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Eventlog" guid="{fc65ddd8-d6ef-4962-83d5-6e5cfe9ce148}" resourceFileName="Microsoft-Windows-Eventlog" messageFileName="Microsoft-Windows-Eventlog" symbol="MicrosoftWindowsEventlog" source="Xml" >
+    <keywords>
+     <keyword name="el:Availability" message="$(string.keyword_el:Availability)" mask="0x20000"/>
+     <keyword name="el:Settings" message="$(string.keyword_el:Settings)" mask="0x40000"/>
+     <keyword name="el:SystemAvailability" message="$(string.keyword_el:SystemAvailability)" mask="0x80000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="Servicestartup" message="$(string.task_Servicestartup)" value="100"/>
+     <task name="Eventprocessing" message="$(string.task_Eventprocessing)" value="101"/>
+     <task name="Serviceshutdown" message="$(string.task_Serviceshutdown)" value="103"/>
+     <task name="Logclear" message="$(string.task_Logclear)" value="104"/>
+     <task name="Logautomaticbackup" message="$(string.task_Logautomaticbackup)" value="105"/>
+     <task name="SystemAbnormalShutdown" message="$(string.task_SystemAbnormalShutdown)" value="108"/>
+    </tasks>
+    <maps>
+     <valueMap name="DroppedEventReasons">
+      <map value="0x20" message="$(string.map_DroppedEventReasonsEvents were lost because there were no free buffers. Flushing to disk could not catch up with incoming events.)"/>
+      <map value="0x21" message="$(string.map_DroppedEventReasonsOne or more buffers were dropped because a real time consumer could not catch up.)"/>
+      <map value="0x22" message="$(string.map_DroppedEventReasonsThe real time backup file was corrupt due to improper shutdown.)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="20" symbol="Servicestartup" version="0" task="Servicestartup" level="win:Error" keywords="el:Availability" template="ServicestartupArgs"/>
+     <event value="21" symbol="Servicestartup21" version="0" task="Servicestartup" level="win:Error" keywords="el:Availability el:Settings" template="Servicestartup21Args"/>
+     <event value="22" symbol="Servicestartup22" version="0" task="Servicestartup" level="win:Error" keywords="el:Availability" template="ServicestartupArgs"/>
+     <event value="23" symbol="Servicestartup23" version="0" task="Servicestartup" level="win:Error" keywords="el:Availability" template="ServicestartupArgs"/>
+     <event value="25" symbol="Servicestartup25" version="0" task="Servicestartup" level="win:Informational" keywords="el:Availability" template="Servicestartup25Args"/>
+     <event value="26" symbol="Servicestartup26" version="0" task="Servicestartup" level="win:Informational" keywords="el:Availability" template="Servicestartup25Args"/>
+     <event value="27" symbol="Servicestartup27" version="0" task="Servicestartup" level="win:Warning" keywords="el:Availability el:Settings" template="Servicestartup27Args"/>
+     <event value="28" symbol="Servicestartup28" version="0" task="Servicestartup" level="win:Warning" keywords="el:Availability el:Settings" template="Servicestartup28Args"/>
+     <event value="29" symbol="task_0" version="0" task="task_0" level="win:Critical" keywords="el:Availability" template="Servicestartup28Args"/>
+     <event value="30" symbol="Servicestartup30" version="0" task="Servicestartup" level="win:Error" keywords="el:Availability" template="Servicestartup30Args"/>
+     <event value="31" symbol="Servicestartup31" version="0" task="Servicestartup" level="win:Warning" keywords="el:Availability el:Settings" template="Servicestartup28Args"/>
+     <event value="40" symbol="task_040" version="0" task="task_0" level="win:Error" keywords="el:Availability" template="Servicestartup28Args"/>
+     <event value="100" symbol="Eventprocessing" version="0" task="Eventprocessing" level="win:Error" keywords="el:Availability" template="EventprocessingArgs"/>
+     <event value="102" symbol="Eventprocessing102" version="0" task="Eventprocessing" level="win:Error" keywords="el:Availability" template="Eventprocessing102Args"/>
+     <event value="103" symbol="Eventprocessing103" version="0" task="Eventprocessing" level="win:Error" template="Eventprocessing103Args"/>
+     <event value="104" symbol="Logclear" version="0" task="Logclear" level="win:Informational" template="LogclearArgs"/>
+     <event value="105" symbol="Logautomaticbackup" version="0" task="Logautomaticbackup" level="win:Informational" template="LogautomaticbackupArgs"/>
+     <event value="106" symbol="task_0106" version="0" task="task_0" level="win:Error" keywords="el:Availability" template="task_0106Args"/>
+     <event value="107" symbol="task_0107" version="0" task="task_0" level="win:Error" template="task_0107Args"/>
+     <event value="108" symbol="SystemAbnormalShutdown" version="0" task="SystemAbnormalShutdown" level="win:Informational" keywords="el:SystemAvailability" template="SystemAbnormalShutdownArgs"/>
+     <event value="109" symbol="Eventprocessing109" version="0" task="Eventprocessing" level="win:Error" keywords="el:Availability" template="Eventprocessing109Args"/>
+     <event value="110" symbol="EventprocessingStart" version="0" task="Eventprocessing" opcode="win:Start" level="win:Verbose" template="EventprocessingStartArgs"/>
+     <event value="111" symbol="EventprocessingStop" version="0" task="Eventprocessing" opcode="win:Stop" level="win:Verbose" template="EventprocessingStopArgs"/>
+     <event value="112" symbol="EventprocessingStop112" version="0" task="Eventprocessing" opcode="win:Stop" level="win:Verbose" template="EventprocessingStop112Args"/>
+     <event value="1100" symbol="Serviceshutdown" version="0" task="Serviceshutdown" level="win:Informational"/>
+     <event value="1101" symbol="Eventprocessing1101" version="0" task="Eventprocessing" level="win:Error" template="Eventprocessing1101Args"/>
+     <event value="1102" symbol="Logclear1102" version="0" task="Logclear" level="win:Informational" template="Logclear1102Args"/>
+     <event value="1103" symbol="Eventprocessing1103" version="0" task="Eventprocessing" level="win:Informational" template="Eventprocessing1103Args"/>
+     <event value="1104" symbol="Eventprocessing1104" version="0" task="Eventprocessing" level="win:Error"/>
+     <event value="1105" symbol="Logautomaticbackup1105" version="0" task="Logautomaticbackup" level="win:Informational" template="LogautomaticbackupArgs"/>
+     <event value="1106" symbol="Eventprocessing1106" version="0" task="Eventprocessing" level="win:Error" template="Eventprocessing1106Args"/>
+     <event value="1107" symbol="Eventprocessing1107" version="0" task="Eventprocessing" level="win:Error" template="Eventprocessing102Args"/>
+     <event value="1108" symbol="Eventprocessing1108" version="0" task="Eventprocessing" level="win:Error" template="EventprocessingArgs"/>
+     <event value="6000" symbol="task_06000" version="0" task="task_0" level="win:Informational" template="task_0106Args"/>
+    </events>
+    <templates>
+     <template tid="ServicestartupArgs">
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="Path" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Servicestartup21Args">
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="ChannelPath" inType="win:UnicodeString"/>
+      <data name="ConfigProperty" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Servicestartup25Args">
+      <data name="ChannelPath" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Servicestartup27Args">
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="ChannelPath" inType="win:UnicodeString"/>
+      <data name="NewLogFilePath" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Servicestartup28Args">
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="ChannelPath" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Servicestartup30Args">
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="ChannelPath" inType="win:UnicodeString"/>
+      <data name="PublisherGuid" inType="win:GUID"/>
+     </template>
+     <template tid="EventprocessingArgs">
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="EventID" inType="win:UInt16"/>
+      <data name="PubID" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Eventprocessing102Args">
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="EventID" inType="win:UInt16"/>
+      <data name="PublisherName" inType="win:UnicodeString"/>
+      <data name="PublisherGuid" inType="win:GUID"/>
+      <data name="ProcessID" inType="win:UInt32"/>
+     </template>
+     <template tid="Eventprocessing103Args">
+      <data name="Reason" inType="win:UInt8" map="DroppedEventReasons"/>
+      <data name="SessionName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="LogclearArgs">
+      <data name="SubjectUserName" inType="win:UnicodeString"/>
+      <data name="SubjectDomainName" inType="win:UnicodeString"/>
+      <data name="Channel" inType="win:UnicodeString"/>
+      <data name="BackupPath" inType="win:UnicodeString"/>
+     </template>
+     <template tid="LogautomaticbackupArgs">
+      <data name="Channel" inType="win:UnicodeString"/>
+      <data name="BackupPath" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0106Args">
+      <data name="Channel" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0107Args">
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="ProviderName" inType="win:UnicodeString"/>
+      <data name="PublisherGuid" inType="win:GUID"/>
+     </template>
+     <template tid="SystemAbnormalShutdownArgs">
+      <data name="ShutdownTime" inType="win:SYSTEMTIME"/>
+      <data name="ActualMaxInterval" inType="win:UInt32"/>
+      <data name="DiskPmDisabledMaxInterval" inType="win:UInt32"/>
+      <data name="DiskPmEnabledFlag" inType="win:UInt32"/>
+      <data name="DiskPmEnabledMaxInterval" inType="win:UInt32"/>
+      <data name="TimestampForced" inType="win:UInt32"/>
+      <data name="DiskPmPolicy" inType="win:UInt32"/>
+      <data name="BiasValid" inType="win:UInt32"/>
+      <data name="StartBias" inType="win:UInt32"/>
+     </template>
+     <template tid="Eventprocessing109Args">
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="EventID" inType="win:UInt16"/>
+      <data name="PublisherName" inType="win:UnicodeString"/>
+      <data name="PublisherGuid" inType="win:GUID"/>
+      <data name="ProcessID" inType="win:UInt32"/>
+      <data name="EventName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="EventprocessingStartArgs">
+      <data name="PublisherGuid" inType="win:GUID"/>
+      <data name="PublisherName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="EventprocessingStopArgs">
+      <data name="PublisherGuid" inType="win:GUID"/>
+      <data name="PublisherName" inType="win:UnicodeString"/>
+      <data name="EventMetaDataCount" inType="win:UInt32"/>
+     </template>
+     <template tid="EventprocessingStop112Args">
+      <data name="PublisherGuid" inType="win:GUID"/>
+      <data name="PublisherName" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="Eventprocessing1101Args">
+      <data name="Reason" inType="win:UInt8"/>
+     </template>
+     <template tid="Logclear1102Args">
+      <data name="SubjectUserSid" inType="win:SID"/>
+      <data name="SubjectUserName" inType="win:UnicodeString"/>
+      <data name="SubjectDomainName" inType="win:UnicodeString"/>
+      <data name="SubjectLogonId" inType="win:HexInt64"/>
+     </template>
+     <template tid="Eventprocessing1103Args">
+      <data name="PercentFull" inType="win:UInt32"/>
+     </template>
+     <template tid="Eventprocessing1106Args">
+      <data name="Reason" inType="win:HexInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_el:Availability" value="el:Availability"/>
+    <string id="keyword_el:Settings" value="el:Settings"/>
+    <string id="keyword_el:SystemAvailability" value="el:SystemAvailability"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_Servicestartup" value="Servicestartup"/>
+    <string id="task_Eventprocessing" value="Eventprocessing"/>
+    <string id="task_Serviceshutdown" value="Serviceshutdown"/>
+    <string id="task_Logclear" value="Logclear"/>
+    <string id="task_Logautomaticbackup" value="Logautomaticbackup"/>
+    <string id="task_SystemAbnormalShutdown" value="SystemAbnormalShutdown"/>
+    <string id="map_DroppedEventReasonsEvents were lost because there were no free buffers. Flushing to disk could not catch up with incoming events." value="Events were lost because there were no free buffers. Flushing to disk could not catch up with incoming events."/>
+    <string id="map_DroppedEventReasonsOne or more buffers were dropped because a real time consumer could not catch up." value="One or more buffers were dropped because a real time consumer could not catch up."/>
+    <string id="map_DroppedEventReasonsThe real time backup file was corrupt due to improper shutdown." value="The real time backup file was corrupt due to improper shutdown."/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

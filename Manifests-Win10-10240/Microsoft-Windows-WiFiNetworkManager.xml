@@ -1,0 +1,771 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-WiFiNetworkManager" guid="{e5c16d49-2464-4382-bb20-97a4b5465db9}" resourceFileName="Microsoft-Windows-WiFiNetworkManager" messageFileName="Microsoft-Windows-WiFiNetworkManager" symbol="MicrosoftWindowsWiFiNetworkManager" source="Xml" >
+    <keywords>
+     <keyword name="ScnEvt" message="$(string.keyword_ScnEvt)" mask="0x1"/>
+     <keyword name="PwrEvt" message="$(string.keyword_PwrEvt)" mask="0x2"/>
+     <keyword name="SvcEvt" message="$(string.keyword_SvcEvt)" mask="0x4"/>
+     <keyword name="NtfEvt" message="$(string.keyword_NtfEvt)" mask="0x8"/>
+     <keyword name="ConEvt" message="$(string.keyword_ConEvt)" mask="0x10"/>
+     <keyword name="PrfEvt" message="$(string.keyword_PrfEvt)" mask="0x20"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <maps>
+     <valueMap name="MAP_WIFI_NOTIF_TYPE_TO_STRING">
+      <map value="0x0" message="$(string.map_MAP_WIFI_NOTIF_TYPE_TO_STRINGWIFI_NOTIF_TYPE_POWER)"/>
+      <map value="0x1" message="$(string.map_MAP_WIFI_NOTIF_TYPE_TO_STRINGWIFI_NOTIF_TYPE_CONNECTION)"/>
+      <map value="0x2" message="$(string.map_MAP_WIFI_NOTIF_TYPE_TO_STRINGWIFI_NOTIF_TYPE_AVAILABLE)"/>
+      <map value="0x3" message="$(string.map_MAP_WIFI_NOTIF_TYPE_TO_STRINGWIFI_NOTIF_TYPE_PREFERRED)"/>
+      <map value="0x4" message="$(string.map_MAP_WIFI_NOTIF_TYPE_TO_STRINGWIFI_NOTIF_TYPE_CONN_COMPLETE)"/>
+      <map value="0x5" message="$(string.map_MAP_WIFI_NOTIF_TYPE_TO_STRINGWIFI_NOTIF_TYPE_INTERFACE)"/>
+      <map value="0x6" message="$(string.map_MAP_WIFI_NOTIF_TYPE_TO_STRINGWIFI_NOTIF_TYPE_UI_REQUEST)"/>
+     </valueMap>
+     <valueMap name="MAP_DOT11_CIPHER_TO_STRING">
+      <map value="0x0" message="$(string.map_MAP_DOT11_CIPHER_TO_STRINGDOT11_CIPHER_ALGO_NONE)"/>
+      <map value="0x1" message="$(string.map_MAP_DOT11_CIPHER_TO_STRINGDOT11_CIPHER_ALGO_WEP40)"/>
+      <map value="0x2" message="$(string.map_MAP_DOT11_CIPHER_TO_STRINGDOT11_CIPHER_ALGO_TKIP)"/>
+      <map value="0x4" message="$(string.map_MAP_DOT11_CIPHER_TO_STRINGDOT11_CIPHER_ALGO_CCMP)"/>
+      <map value="0x5" message="$(string.map_MAP_DOT11_CIPHER_TO_STRINGDOT11_CIPHER_ALGO_WEP104)"/>
+      <map value="0x6" message="$(string.map_MAP_DOT11_CIPHER_TO_STRINGDOT11_CIPHER_ALGO_BIP)"/>
+      <map value="0x101" message="$(string.map_MAP_DOT11_CIPHER_TO_STRINGDOT11_CIPHER_ALGO_WEP)"/>
+     </valueMap>
+     <valueMap name="MAP_TRIGGER_TO_STRING">
+      <map value="0x1" message="$(string.map_MAP_TRIGGER_TO_STRINGWiFiPowerFlagUser)"/>
+      <map value="0x2" message="$(string.map_MAP_TRIGGER_TO_STRINGWiFiPowerFlagSoftAP)"/>
+      <map value="0x4" message="$(string.map_MAP_TRIGGER_TO_STRINGWiFiPowerFlagVoip)"/>
+      <map value="0x8" message="$(string.map_MAP_TRIGGER_TO_STRINGWiFiPowerFlagP2P)"/>
+      <map value="0x100" message="$(string.map_MAP_TRIGGER_TO_STRINGWiFiPowerFlagBacklight)"/>
+      <map value="0x200" message="$(string.map_MAP_TRIGGER_TO_STRINGWiFiPowerFlagAC)"/>
+      <map value="0x400" message="$(string.map_MAP_TRIGGER_TO_STRINGWiFiPowerFlagActivity)"/>
+      <map value="0x800" message="$(string.map_MAP_TRIGGER_TO_STRINGWiFiPowerFlagScan)"/>
+      <map value="0x1000" message="$(string.map_MAP_TRIGGER_TO_STRINGWiFiPowerFlagPeriodicScan)"/>
+      <map value="0x2000" message="$(string.map_MAP_TRIGGER_TO_STRINGWiFiPowerFlagBatterySaver)"/>
+      <map value="0x4000" message="$(string.map_MAP_TRIGGER_TO_STRINGWiFiPowerFlagNetworkAvailable)"/>
+      <map value="0x8000" message="$(string.map_MAP_TRIGGER_TO_STRINGWiFiPowerFlagConnecting)"/>
+      <map value="0x10000" message="$(string.map_MAP_TRIGGER_TO_STRINGWiFiPowerFlagProbing)"/>
+     </valueMap>
+     <valueMap name="MAP_MSM_NOTIF_TO_STRING">
+      <map value="0x0" message="$(string.map_MAP_MSM_NOTIF_TO_STRINGwlan_notification_msm_start)"/>
+      <map value="0x1" message="$(string.map_MAP_MSM_NOTIF_TO_STRINGwlan_notification_msm_associating)"/>
+      <map value="0x2" message="$(string.map_MAP_MSM_NOTIF_TO_STRINGwlan_notification_msm_associated)"/>
+      <map value="0x3" message="$(string.map_MAP_MSM_NOTIF_TO_STRINGwlan_notification_msm_authenticating)"/>
+      <map value="0x4" message="$(string.map_MAP_MSM_NOTIF_TO_STRINGwlan_notification_msm_connected)"/>
+      <map value="0x5" message="$(string.map_MAP_MSM_NOTIF_TO_STRINGwlan_notification_msm_roaming_start)"/>
+      <map value="0x6" message="$(string.map_MAP_MSM_NOTIF_TO_STRINGwlan_notification_msm_roaming_end)"/>
+      <map value="0x7" message="$(string.map_MAP_MSM_NOTIF_TO_STRINGwlan_notification_msm_radio_state_change)"/>
+      <map value="0x8" message="$(string.map_MAP_MSM_NOTIF_TO_STRINGwlan_notification_msm_signal_quality_change)"/>
+      <map value="0x9" message="$(string.map_MAP_MSM_NOTIF_TO_STRINGwlan_notification_msm_disassociating)"/>
+      <map value="0xa" message="$(string.map_MAP_MSM_NOTIF_TO_STRINGwlan_notification_msm_disconnected)"/>
+      <map value="0xb" message="$(string.map_MAP_MSM_NOTIF_TO_STRINGwlan_notification_msm_peer_join)"/>
+      <map value="0xc" message="$(string.map_MAP_MSM_NOTIF_TO_STRINGwlan_notification_msm_peer_leave)"/>
+      <map value="0xd" message="$(string.map_MAP_MSM_NOTIF_TO_STRINGwlan_notification_msm_adapter_removal)"/>
+      <map value="0xe" message="$(string.map_MAP_MSM_NOTIF_TO_STRINGwlan_notification_msm_adapter_operation_mode_change)"/>
+     </valueMap>
+     <valueMap name="MAP_NIC_STATE_TO_STRING">
+      <map value="0x0" message="$(string.map_MAP_NIC_STATE_TO_STRINGWIFI_NIC_GOING_TO_D2)"/>
+      <map value="0x1" message="$(string.map_MAP_NIC_STATE_TO_STRINGWIFI_NIC_GOING_TO_D0)"/>
+      <map value="0x2" message="$(string.map_MAP_NIC_STATE_TO_STRINGWIFI_NIC_IN_D2)"/>
+      <map value="0x3" message="$(string.map_MAP_NIC_STATE_TO_STRINGWIFI_NIC_IN_D0)"/>
+     </valueMap>
+     <valueMap name="MAP_AOAC_LEVEL_TO_STRING">
+      <map value="0x0" message="$(string.map_MAP_AOAC_LEVEL_TO_STRINGWIFI_AOAC_NONE)"/>
+      <map value="0x1" message="$(string.map_MAP_AOAC_LEVEL_TO_STRINGWIFI_AOAC_PARTIAL)"/>
+      <map value="0x2" message="$(string.map_MAP_AOAC_LEVEL_TO_STRINGWIFI_AOAC_FULL)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="0" symbol="task_0" version="0" task="task_0" level="win:Error" template="task_0Args"/>
+     <event value="1" symbol="task_01" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+     <event value="2" symbol="task_02" version="0" task="task_0" level="win:Verbose" template="task_0Args"/>
+     <event value="100" symbol="task_0100" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="102" symbol="task_0102" version="0" task="task_0" level="win:Verbose"/>
+     <event value="103" symbol="task_0103" version="0" task="task_0" level="win:Verbose"/>
+     <event value="104" symbol="task_0104" version="0" task="task_0" level="win:Informational"/>
+     <event value="105" symbol="task_0105" version="0" task="task_0" level="win:Informational"/>
+     <event value="106" symbol="task_0106" version="0" task="task_0" level="win:Informational" template="task_0106Args"/>
+     <event value="107" symbol="task_0107" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="108" symbol="task_0108" version="0" task="task_0" level="win:Error"/>
+     <event value="109" symbol="task_0109" version="0" task="task_0" level="win:Informational"/>
+     <event value="200" symbol="task_0200" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="201" symbol="task_0201" version="0" task="task_0" level="win:Informational" template="task_0201Args"/>
+     <event value="202" symbol="task_0202" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="203" symbol="task_0203" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="204" symbol="task_0204" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="205" symbol="task_0205" version="0" task="task_0" level="win:Informational"/>
+     <event value="206" symbol="task_0206" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="207" symbol="task_0207" version="0" task="task_0" level="win:Informational"/>
+     <event value="208" symbol="task_0208" version="0" task="task_0" level="win:Informational"/>
+     <event value="209" symbol="task_0209" version="0" task="task_0" level="win:Informational"/>
+     <event value="210" symbol="task_0210" version="0" task="task_0" level="win:Informational"/>
+     <event value="211" symbol="task_0211" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="212" symbol="task_0212" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="213" symbol="task_0213" version="0" task="task_0" level="win:Informational"/>
+     <event value="214" symbol="task_0214" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="215" symbol="task_0215" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="216" symbol="task_0216" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="217" symbol="task_0217" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="218" symbol="task_0218" version="0" task="task_0" level="win:Informational"/>
+     <event value="219" symbol="task_0219" version="0" task="task_0" level="win:Error" template="task_0219Args"/>
+     <event value="220" symbol="task_0220" version="0" task="task_0" level="win:Error"/>
+     <event value="221" symbol="task_0221" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="222" symbol="task_0222" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="223" symbol="task_0223" version="0" task="task_0" level="win:Informational"/>
+     <event value="224" symbol="task_0224" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="225" symbol="task_0225" version="0" task="task_0" level="win:Error"/>
+     <event value="226" symbol="task_0226" version="0" task="task_0" level="win:Error"/>
+     <event value="227" symbol="task_0227" version="0" task="task_0" level="win:Error"/>
+     <event value="228" symbol="task_0228" version="0" task="task_0" level="win:Error"/>
+     <event value="229" symbol="task_0229" version="0" task="task_0" level="win:Error"/>
+     <event value="230" symbol="task_0230" version="0" task="task_0" level="win:Error"/>
+     <event value="231" symbol="task_0231" version="0" task="task_0" level="win:Informational"/>
+     <event value="232" symbol="task_0232" version="0" task="task_0" level="win:Informational"/>
+     <event value="300" symbol="task_0300" version="0" task="task_0" level="win:Error" keywords="ScnEvt" template="task_0100Args"/>
+     <event value="301" symbol="task_0301" version="0" task="task_0" level="win:Informational" keywords="ScnEvt" template="task_0100Args"/>
+     <event value="302" symbol="task_0302" version="0" task="task_0" level="win:Error" keywords="ScnEvt"/>
+     <event value="303" symbol="task_0303" version="0" task="task_0" level="win:Informational" keywords="ScnEvt"/>
+     <event value="304" symbol="task_0304" version="0" task="task_0" level="win:Informational" keywords="ScnEvt"/>
+     <event value="305" symbol="task_0305" version="0" task="task_0" level="win:Error" keywords="ScnEvt" template="task_0100Args"/>
+     <event value="306" symbol="task_0306" version="0" task="task_0" level="win:Error" keywords="ScnEvt" template="task_0100Args"/>
+     <event value="307" symbol="task_0307" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="308" symbol="task_0308" version="0" task="task_0" level="win:Informational"/>
+     <event value="309" symbol="task_0309" version="0" task="task_0" level="win:Informational"/>
+     <event value="310" symbol="task_0310" version="0" task="task_0" level="win:Informational"/>
+     <event value="311" symbol="task_0311" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="312" symbol="task_0312" version="0" task="task_0" level="win:Informational"/>
+     <event value="313" symbol="task_0313" version="0" task="task_0" level="win:Informational" keywords="ScnEvt"/>
+     <event value="314" symbol="task_0314" version="0" task="task_0" level="win:Informational" keywords="ScnEvt" template="task_0314Args"/>
+     <event value="315" symbol="task_0315" version="0" task="task_0" level="win:Informational" keywords="ScnEvt"/>
+     <event value="316" symbol="task_0316" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="317" symbol="task_0317" version="0" task="task_0" level="win:Error" template="task_0317Args"/>
+     <event value="318" symbol="task_0318" version="0" task="task_0" level="win:Informational"/>
+     <event value="319" symbol="task_0319" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="320" symbol="task_0320" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="321" symbol="task_0321" version="0" task="task_0" level="win:Error"/>
+     <event value="322" symbol="task_0322" version="0" task="task_0" level="win:Error" keywords="ScnEvt" template="task_0100Args"/>
+     <event value="323" symbol="task_0323" version="0" task="task_0" level="win:Informational" template="task_0323Args"/>
+     <event value="324" symbol="task_0324" version="0" task="task_0" level="win:Informational" template="task_0324Args"/>
+     <event value="325" symbol="task_0325" version="0" task="task_0" level="win:Informational" template="task_0324Args"/>
+     <event value="326" symbol="task_0326" version="0" task="task_0" level="win:Informational" template="task_0314Args"/>
+     <event value="327" symbol="task_0327" version="0" task="task_0" level="win:Informational" template="task_0324Args"/>
+     <event value="328" symbol="task_0328" version="0" task="task_0" level="win:Informational" keywords="ScnEvt"/>
+     <event value="329" symbol="task_0329" version="0" task="task_0" level="win:Informational" keywords="ScnEvt"/>
+     <event value="330" symbol="task_0330" version="0" task="task_0" level="win:Informational" keywords="ScnEvt"/>
+     <event value="331" symbol="task_0331" version="0" task="task_0" level="win:Informational" template="task_0324Args"/>
+     <event value="332" symbol="task_0332" version="0" task="task_0" level="win:Informational" keywords="ScnEvt"/>
+     <event value="333" symbol="task_0333" version="0" task="task_0" level="win:Informational" keywords="ScnEvt" template="task_0100Args"/>
+     <event value="334" symbol="task_0334" version="0" task="task_0" level="win:Informational" keywords="ScnEvt"/>
+     <event value="335" symbol="task_0335" version="0" task="task_0" level="win:Informational" keywords="ScnEvt"/>
+     <event value="336" symbol="task_0336" version="0" task="task_0" level="win:Informational" keywords="ScnEvt"/>
+     <event value="400" symbol="task_0400" version="0" task="task_0" level="win:Informational"/>
+     <event value="401" symbol="task_0401" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="402" symbol="task_0402" version="0" task="task_0" level="win:Informational"/>
+     <event value="403" symbol="task_0403" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="404" symbol="task_0404" version="0" task="task_0" level="win:Informational" template="task_0201Args"/>
+     <event value="405" symbol="task_0405" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="406" symbol="task_0406" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="407" symbol="task_0407" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="408" symbol="task_0408" version="0" task="task_0" level="win:Error" template="task_0408Args"/>
+     <event value="409" symbol="task_0409" version="0" task="task_0" level="win:Informational"/>
+     <event value="410" symbol="task_0410" version="0" task="task_0" level="win:Informational"/>
+     <event value="600" symbol="task_0600" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="601" symbol="task_0601" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="602" symbol="task_0602" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="603" symbol="task_0603" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="604" symbol="task_0604" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="605" symbol="task_0605" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="606" symbol="task_0606" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="607" symbol="task_0607" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="608" symbol="task_0608" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="609" symbol="task_0609" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="610" symbol="task_0610" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="1000" symbol="task_01000" version="0" task="task_0" level="win:Informational"/>
+     <event value="1001" symbol="task_01001" version="0" task="task_0" level="win:Informational"/>
+     <event value="1002" symbol="task_01002" version="0" task="task_0" level="win:Informational"/>
+     <event value="1003" symbol="task_01003" version="0" task="task_0" level="win:Error"/>
+     <event value="1004" symbol="task_01004" version="0" task="task_0" level="win:Error"/>
+     <event value="1005" symbol="task_01005" version="0" task="task_0" level="win:Error"/>
+     <event value="1006" symbol="task_01006" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="1007" symbol="task_01007" version="0" task="task_0" level="win:Error"/>
+     <event value="1008" symbol="task_01008" version="0" task="task_0" level="win:Informational"/>
+     <event value="1009" symbol="task_01009" version="0" task="task_0" level="win:Informational"/>
+     <event value="1010" symbol="task_01010" version="0" task="task_0" level="win:Informational"/>
+     <event value="1011" symbol="task_01011" version="0" task="task_0" level="win:Error"/>
+     <event value="1012" symbol="task_01012" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="1013" symbol="task_01013" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="1014" symbol="task_01014" version="0" task="task_0" level="win:Informational"/>
+     <event value="1015" symbol="task_01015" version="0" task="task_0" level="win:Error"/>
+     <event value="1016" symbol="task_01016" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="1017" symbol="task_01017" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="1018" symbol="task_01018" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="1019" symbol="task_01019" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="1020" symbol="task_01020" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="1021" symbol="task_01021" version="0" task="task_0" level="win:Error" template="task_0201Args"/>
+     <event value="1022" symbol="task_01022" version="0" task="task_0" level="win:Error" template="task_0201Args"/>
+     <event value="1023" symbol="task_01023" version="0" task="task_0" level="win:Error" template="task_0201Args"/>
+     <event value="1024" symbol="task_01024" version="0" task="task_0" level="win:Error" template="task_01024Args"/>
+     <event value="1025" symbol="task_01025" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="1026" symbol="task_01026" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="1027" symbol="task_01027" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="1028" symbol="task_01028" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="1029" symbol="task_01029" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="1030" symbol="task_01030" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="1031" symbol="task_01031" version="0" task="task_0" level="win:Error" template="task_0317Args"/>
+     <event value="1032" symbol="task_01032" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="1033" symbol="task_01033" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="1034" symbol="task_01034" version="0" task="task_0" level="win:Informational" template="task_0201Args"/>
+     <event value="1035" symbol="task_01035" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="1036" symbol="task_01036" version="0" task="task_0" level="win:Error"/>
+     <event value="1037" symbol="task_01037" version="0" task="task_0" level="win:Informational"/>
+     <event value="1038" symbol="task_01038" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="1039" symbol="task_01039" version="0" task="task_0" level="win:Informational"/>
+     <event value="1040" symbol="task_01040" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="1041" symbol="task_01041" version="0" task="task_0" level="win:Error"/>
+     <event value="1042" symbol="task_01042" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="1043" symbol="task_01043" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="1044" symbol="task_01044" version="0" task="task_0" level="win:Informational"/>
+     <event value="1045" symbol="task_01045" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="1046" symbol="task_01046" version="0" task="task_0" level="win:Informational"/>
+     <event value="1047" symbol="task_01047" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="1400" symbol="task_01400" version="0" task="task_0" level="win:Error" template="task_0201Args"/>
+     <event value="1401" symbol="task_01401" version="0" task="task_0" level="win:Error" template="task_01401Args"/>
+     <event value="1402" symbol="task_01402" version="0" task="task_0" level="win:Informational" template="task_01402Args"/>
+     <event value="1403" symbol="task_01403" version="0" task="task_0" level="win:Informational" template="task_01403Args"/>
+     <event value="1404" symbol="task_01404" version="0" task="task_0" level="win:Informational" template="task_01402Args"/>
+     <event value="1405" symbol="task_01405" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="1406" symbol="task_01406" version="0" task="task_0" level="win:Informational" template="task_01406Args"/>
+     <event value="1407" symbol="task_01407" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="1408" symbol="task_01408" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="1500" symbol="task_01500" version="0" task="task_0" level="win:Error" template="task_01401Args"/>
+     <event value="1501" symbol="task_01501" version="0" task="task_0" level="win:Informational"/>
+     <event value="1502" symbol="task_01502" version="0" task="task_0" level="win:Error"/>
+     <event value="1503" symbol="task_01503" version="0" task="task_0" level="win:Error" keywords="PwrEvt" template="task_01401Args"/>
+     <event value="1504" symbol="task_01504" version="0" task="task_0" level="win:Error" keywords="PwrEvt"/>
+     <event value="1505" symbol="task_01505" version="0" task="task_0" level="win:Error" keywords="PwrEvt"/>
+     <event value="1506" symbol="task_01506" version="0" task="task_0" level="win:Error" keywords="PwrEvt"/>
+     <event value="1507" symbol="task_01507" version="0" task="task_0" level="win:Error"/>
+     <event value="1508" symbol="task_01508" version="0" task="task_0" level="win:Informational" keywords="PwrEvt" template="task_01401Args"/>
+     <event value="1509" symbol="task_01509" version="0" task="task_0" level="win:Informational" keywords="PwrEvt" template="task_0201Args"/>
+     <event value="1510" symbol="task_01510" version="0" task="task_0" level="win:Informational"/>
+     <event value="1511" symbol="task_01511" version="0" task="task_0" level="win:Informational" keywords="PwrEvt" template="task_0201Args"/>
+     <event value="1512" symbol="task_01512" version="0" task="task_0" level="win:Informational" keywords="PwrEvt" template="task_01401Args"/>
+     <event value="1513" symbol="task_01513" version="0" task="task_0" level="win:Informational" keywords="PwrEvt"/>
+     <event value="1600" symbol="task_01600" version="0" task="task_0" level="win:Error" template="task_01600Args"/>
+     <event value="1601" symbol="task_01601" version="0" task="task_0" level="win:Informational" template="task_01600Args"/>
+     <event value="1602" symbol="task_01602" version="0" task="task_0" level="win:Informational" template="task_01602Args"/>
+     <event value="1603" symbol="task_01603" version="0" task="task_0" level="win:Informational" template="task_01603Args"/>
+     <event value="1604" symbol="task_01604" version="0" task="task_0" level="win:Informational" template="task_01604Args"/>
+     <event value="1605" symbol="task_01605" version="0" task="task_0" level="win:Informational" template="task_01605Args"/>
+     <event value="1606" symbol="task_01606" version="0" task="task_0" level="win:Informational" template="task_01606Args"/>
+     <event value="1607" symbol="task_01607" version="0" task="task_0" level="win:Informational" template="task_01606Args"/>
+     <event value="1608" symbol="task_01608" version="0" task="task_0" level="win:Informational" keywords="ScnEvt" template="task_01608Args"/>
+     <event value="1609" symbol="task_01609" version="0" task="task_0" level="win:Informational" keywords="ScnEvt" template="task_01609Args"/>
+     <event value="1610" symbol="task_01610" version="0" task="task_0" level="win:Informational" keywords="ScnEvt" template="task_01610Args"/>
+     <event value="1611" symbol="task_01611" version="0" task="task_0" level="win:Informational" keywords="ScnEvt" template="task_0100Args"/>
+     <event value="1612" symbol="task_01612" version="0" task="task_0" level="win:Informational" keywords="ScnEvt" template="task_01612Args"/>
+     <event value="1613" symbol="task_01613" version="0" task="task_0" level="win:Informational" keywords="ScnEvt" template="task_01612Args"/>
+     <event value="1614" symbol="task_01614" version="0" task="task_0" level="win:Informational" keywords="ScnEvt" template="task_01612Args"/>
+     <event value="1615" symbol="task_01615" version="0" task="task_0" level="win:Informational" keywords="ScnEvt" template="task_01612Args"/>
+     <event value="1616" symbol="task_01616" version="0" task="task_0" level="win:Informational" keywords="ScnEvt" template="task_01612Args"/>
+     <event value="1617" symbol="task_01617" version="0" task="task_0" level="win:Informational" template="task_01600Args"/>
+     <event value="1618" symbol="task_01618" version="0" task="task_0" level="win:Informational" template="task_01618Args"/>
+     <event value="1619" symbol="task_01619" version="0" task="task_0" level="win:Informational"/>
+     <event value="1620" symbol="task_01620" version="0" task="task_0" level="win:Informational" template="task_01620Args"/>
+     <event value="1621" symbol="task_01621" version="0" task="task_0" level="win:Informational"/>
+     <event value="1622" symbol="task_01622" version="0" task="task_0" level="win:Informational" template="task_01622Args"/>
+     <event value="1623" symbol="task_01623" version="0" task="task_0" level="win:Informational"/>
+     <event value="1624" symbol="task_01624" version="0" task="task_0" level="win:Informational" template="task_01620Args"/>
+     <event value="1625" symbol="task_01625" version="0" task="task_0" level="win:Informational" template="task_01620Args"/>
+     <event value="1626" symbol="task_01626" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="1627" symbol="task_01627" version="0" task="task_0" level="win:Informational" template="task_01627Args"/>
+     <event value="1628" symbol="task_01628" version="0" task="task_0" level="win:Informational" template="task_01628Args"/>
+     <event value="1629" symbol="task_01629" version="0" task="task_0" level="win:Informational" template="task_01629Args"/>
+     <event value="1630" symbol="task_01630" version="0" task="task_0" level="win:Informational" template="task_01606Args"/>
+     <event value="1631" symbol="task_01631" version="0" task="task_0" level="win:Informational" template="task_01631Args"/>
+     <event value="1632" symbol="task_01632" version="0" task="task_0" level="win:Informational" template="task_01632Args"/>
+     <event value="1633" symbol="task_01633" version="0" task="task_0" level="win:Informational" template="task_01629Args"/>
+     <event value="1634" symbol="task_01634" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="1635" symbol="task_01635" version="0" task="task_0" level="win:Informational" template="task_01629Args"/>
+     <event value="1636" symbol="task_01636" version="0" task="task_0" level="win:Informational" template="task_01636Args"/>
+     <event value="1637" symbol="task_01637" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="1638" symbol="task_01638" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="1639" symbol="task_01639" version="0" task="task_0" level="win:Informational" template="task_0201Args"/>
+     <event value="1640" symbol="task_01640" version="0" task="task_0" level="win:Informational"/>
+     <event value="1641" symbol="task_01641" version="0" task="task_0" level="win:Informational" template="task_01627Args"/>
+     <event value="1642" symbol="task_01642" version="0" task="task_0" level="win:Informational" template="task_0219Args"/>
+     <event value="1643" symbol="task_01643" version="0" task="task_0" level="win:Informational" template="task_01643Args"/>
+     <event value="1644" symbol="task_01644" version="0" task="task_0" level="win:Informational" template="task_01612Args"/>
+     <event value="1645" symbol="task_01645" version="0" task="task_0" level="win:Informational" template="task_01612Args"/>
+     <event value="1646" symbol="task_01646" version="0" task="task_0" level="win:Informational" template="task_01612Args"/>
+     <event value="1647" symbol="task_01647" version="0" task="task_0" level="win:Informational" template="task_01612Args"/>
+     <event value="1648" symbol="task_01648" version="0" task="task_0" level="win:Informational" template="task_01612Args"/>
+     <event value="1649" symbol="task_01649" version="0" task="task_0" level="win:Informational" template="task_01643Args"/>
+     <event value="1650" symbol="task_01650" version="0" task="task_0" level="win:Informational" template="task_01606Args"/>
+     <event value="1651" symbol="task_01651" version="0" task="task_0" level="win:Informational" template="task_01643Args"/>
+     <event value="1652" symbol="task_01652" version="0" task="task_0" level="win:Informational" template="task_0201Args"/>
+     <event value="1653" symbol="task_01653" version="0" task="task_0" level="win:Informational" template="task_01606Args"/>
+     <event value="1654" symbol="task_01654" version="0" task="task_0" level="win:Informational" template="task_01606Args"/>
+     <event value="1655" symbol="task_01655" version="0" task="task_0" level="win:Informational" template="task_01612Args"/>
+     <event value="1656" symbol="task_01656" version="0" task="task_0" level="win:Informational" template="task_0201Args"/>
+     <event value="1657" symbol="task_01657" version="0" task="task_0" level="win:Informational" template="task_01606Args"/>
+     <event value="1658" symbol="task_01658" version="0" task="task_0" level="win:Informational" template="task_01658Args"/>
+     <event value="1659" symbol="task_01659" version="0" task="task_0" level="win:Informational" template="task_01659Args"/>
+     <event value="1660" symbol="task_01660" version="0" task="task_0" level="win:Informational" template="task_01612Args"/>
+     <event value="1661" symbol="task_01661" version="0" task="task_0" level="win:Informational" template="task_01612Args"/>
+     <event value="1662" symbol="task_01662" version="0" task="task_0" level="win:Informational" template="task_01612Args"/>
+     <event value="1663" symbol="task_01663" version="0" task="task_0" level="win:Informational" template="task_01600Args"/>
+     <event value="1664" symbol="task_01664" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="1666" symbol="task_01666" version="0" task="task_0" level="win:Informational" template="task_01666Args"/>
+     <event value="1667" symbol="task_01667" version="0" task="task_0" level="win:Informational" template="task_01606Args"/>
+     <event value="1668" symbol="task_01668" version="0" task="task_0" level="win:Informational" template="task_0201Args"/>
+     <event value="1670" symbol="task_01670" version="0" task="task_0" level="win:Informational" template="task_01606Args"/>
+     <event value="1671" symbol="task_01671" version="0" task="task_0" level="win:Informational" template="task_01606Args"/>
+     <event value="1672" symbol="task_01672" version="0" task="task_0" level="win:Informational" template="task_01606Args"/>
+     <event value="1673" symbol="task_01673" version="0" task="task_0" level="win:Informational" template="task_01606Args"/>
+     <event value="1674" symbol="task_01674" version="0" task="task_0" level="win:Informational" template="task_01606Args"/>
+     <event value="1675" symbol="task_01675" version="0" task="task_0" level="win:Informational" template="task_0201Args"/>
+     <event value="1676" symbol="task_01676" version="0" task="task_0" level="win:Informational" template="task_01606Args"/>
+     <event value="1677" symbol="task_01677" version="0" task="task_0" level="win:Informational" template="task_01677Args"/>
+     <event value="1700" symbol="task_01700" version="0" task="task_0" level="win:Informational" template="task_01700Args"/>
+     <event value="1701" symbol="task_01701" version="0" task="task_0" level="win:Informational" template="task_01701Args"/>
+     <event value="1702" symbol="task_01702" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="1703" symbol="task_01703" version="0" task="task_0" level="win:Informational" template="task_01703Args"/>
+     <event value="1704" symbol="task_01704" version="0" task="task_0" level="win:Informational" template="task_01704Args"/>
+     <event value="1705" symbol="task_01705" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="1706" symbol="task_01706" version="0" task="task_0" level="win:Informational" template="task_01706Args"/>
+     <event value="1707" symbol="task_01707" version="0" task="task_0" level="win:Informational"/>
+     <event value="1708" symbol="task_01708" version="0" task="task_0" level="win:Informational"/>
+     <event value="1709" symbol="task_01709" version="0" task="task_0" level="win:Error"/>
+     <event value="1710" symbol="task_01710" version="0" task="task_0" level="win:Warning" template="task_01706Args"/>
+     <event value="1711" symbol="task_01711" version="0" task="task_0" level="win:Error"/>
+     <event value="1712" symbol="task_01712" version="0" task="task_0" level="win:Informational"/>
+     <event value="1713" symbol="task_01713" version="0" task="task_0" level="win:Informational" template="task_01627Args"/>
+     <event value="1714" symbol="task_01714" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="1900" symbol="task_01900" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="1901" symbol="task_01901" version="0" task="task_0" level="win:Error" template="task_01901Args"/>
+     <event value="1902" symbol="task_01902" version="0" task="task_0" level="win:Informational"/>
+     <event value="2000" symbol="task_02000" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="2001" symbol="task_02001" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="2002" symbol="task_02002" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="2003" symbol="task_02003" version="0" task="task_0" level="win:Error"/>
+     <event value="2004" symbol="task_02004" version="0" task="task_0" level="win:Error" template="task_01901Args"/>
+     <event value="2100" symbol="task_02100" version="0" task="task_0" level="win:Error" template="task_0201Args"/>
+     <event value="2101" symbol="task_02101" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="2102" symbol="task_02102" version="0" task="task_0" level="win:Error"/>
+     <event value="2103" symbol="task_02103" version="0" task="task_0" level="win:Informational"/>
+     <event value="2104" symbol="task_02104" version="0" task="task_0" level="win:Error"/>
+     <event value="2105" symbol="task_02105" version="0" task="task_0" level="win:Informational"/>
+     <event value="2106" symbol="task_02106" version="0" task="task_0" level="win:Error" template="task_01901Args"/>
+     <event value="2107" symbol="task_02107" version="0" task="task_0" level="win:Error" template="task_01901Args"/>
+     <event value="2108" symbol="task_02108" version="0" task="task_0" level="win:Informational"/>
+     <event value="2109" symbol="task_02109" version="0" task="task_0" level="win:Informational"/>
+     <event value="2110" symbol="task_02110" version="0" task="task_0" level="win:Informational"/>
+     <event value="2111" symbol="task_02111" version="0" task="task_0" level="win:Informational" template="task_02111Args"/>
+     <event value="2112" symbol="task_02112" version="0" task="task_0" level="win:Informational"/>
+     <event value="2113" symbol="task_02113" version="0" task="task_0" level="win:Informational"/>
+     <event value="2114" symbol="task_02114" version="0" task="task_0" level="win:Error" template="task_01901Args"/>
+     <event value="2115" symbol="task_02115" version="0" task="task_0" level="win:Error" template="task_01901Args"/>
+     <event value="2116" symbol="task_02116" version="0" task="task_0" level="win:Informational"/>
+     <event value="2117" symbol="task_02117" version="0" task="task_0" level="win:Informational"/>
+     <event value="2118" symbol="task_02118" version="0" task="task_0" level="win:Informational"/>
+     <event value="2119" symbol="task_02119" version="0" task="task_0" level="win:Informational"/>
+     <event value="2120" symbol="task_02120" version="0" task="task_0" level="win:Error" template="task_01901Args"/>
+     <event value="2200" symbol="task_02200" version="0" task="task_0" level="win:Informational" template="task_02200Args"/>
+     <event value="2201" symbol="task_02201" version="0" task="task_0" level="win:Error"/>
+     <event value="2202" symbol="task_02202" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="2203" symbol="task_02203" version="0" task="task_0" level="win:Error" template="task_01632Args"/>
+     <event value="2204" symbol="task_02204" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="2205" symbol="task_02205" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="2206" symbol="task_02206" version="0" task="task_0" level="win:Informational"/>
+     <event value="2207" symbol="task_02207" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="2208" symbol="task_02208" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="2209" symbol="task_02209" version="0" task="task_0" level="win:Error" template="task_01627Args"/>
+     <event value="2300" symbol="task_02300" version="0" task="task_0" level="win:Error"/>
+     <event value="2301" symbol="task_02301" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="2302" symbol="task_02302" version="0" task="task_0" level="win:Informational"/>
+     <event value="2303" symbol="task_02303" version="0" task="task_0" level="win:Informational"/>
+     <event value="2304" symbol="task_02304" version="0" task="task_0" level="win:Error" template="task_01901Args"/>
+     <event value="2305" symbol="task_02305" version="0" task="task_0" level="win:Informational" template="task_0324Args"/>
+     <event value="2306" symbol="task_02306" version="0" task="task_0" level="win:Error"/>
+     <event value="2307" symbol="task_02307" version="0" task="task_0" level="win:Error" template="task_0201Args"/>
+     <event value="2308" symbol="task_02308" version="0" task="task_0" level="win:Informational"/>
+     <event value="2309" symbol="task_02309" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="2310" symbol="task_02310" version="0" task="task_0" level="win:Informational"/>
+     <event value="2311" symbol="task_02311" version="0" task="task_0" level="win:Informational" template="task_0100Args"/>
+     <event value="2312" symbol="task_02312" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="2313" symbol="task_02313" version="0" task="task_0" level="win:Error"/>
+     <event value="2314" symbol="task_02314" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="2400" symbol="task_02400" version="0" task="task_0" level="win:Informational"/>
+     <event value="2401" symbol="task_02401" version="0" task="task_0" level="win:Informational"/>
+     <event value="2402" symbol="task_02402" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="2403" symbol="task_02403" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="2404" symbol="task_02404" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="2405" symbol="task_02405" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="2406" symbol="task_02406" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="2407" symbol="task_02407" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="2408" symbol="task_02408" version="0" task="task_0" level="win:Error" template="task_0201Args"/>
+     <event value="2409" symbol="task_02409" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+     <event value="2410" symbol="task_02410" version="0" task="task_0" level="win:Error" template="task_0100Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="Message" inType="win:Pointer"/>
+     </template>
+     <template tid="task_0100Args">
+      <data name="dwValue" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0106Args">
+      <data name="type" inType="win:UInt32" map="MAP_WIFI_NOTIF_TYPE_TO_STRING"/>
+      <data name="state" inType="win:UInt32"/>
+      <data name="error" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0201Args">
+      <data name="dwValue1" inType="win:UInt32"/>
+      <data name="dwValue2" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0219Args">
+      <data name="dwValue1" inType="win:UInt32"/>
+      <data name="dwValue2" inType="win:UInt32"/>
+      <data name="dwValue3" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0314Args">
+      <data name="ssidLen" inType="win:UInt32"/>
+      <data name="ssid" inType="win:Binary" length="ssidLen"/>
+     </template>
+     <template tid="task_0317Args">
+      <data name="dwValue" inType="win:UInt32"/>
+      <data name="ssidLen" inType="win:UInt32"/>
+      <data name="ssid" inType="win:Binary" length="ssidLen"/>
+     </template>
+     <template tid="task_0323Args">
+      <data name="algo" inType="win:UInt32"/>
+      <data name="cipher" inType="win:UInt32" map="MAP_DOT11_CIPHER_TO_STRING"/>
+      <data name="secure" inType="win:UInt32"/>
+      <data name="signal" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0324Args">
+      <data name="szConnName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0408Args">
+      <data name="szString" inType="win:UnicodeString"/>
+      <data name="dwValue" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01024Args">
+      <data name="port" inType="win:UInt32"/>
+      <data name="winerror" inType="win:UInt32"/>
+      <data name="reasoncode" inType="win:UInt32"/>
+      <data name="eaptype" inType="win:UInt32"/>
+      <data name="string" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_01401Args">
+      <data name="Error" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01402Args">
+      <data name="trigger" inType="win:UInt32"/>
+      <data name="active" inType="win:UInt32"/>
+      <data name="delayed" inType="win:UInt32"/>
+      <data name="timer" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01403Args">
+      <data name="trigger" inType="win:UInt32" map="MAP_TRIGGER_TO_STRING"/>
+      <data name="active" inType="win:UInt32"/>
+      <data name="delayed" inType="win:UInt32"/>
+      <data name="timer" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01406Args">
+      <data name="active" inType="win:UInt32"/>
+      <data name="delayed" inType="win:UInt32"/>
+      <data name="timer" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01600Args">
+      <data name="szString" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_01602Args">
+      <data name="szString1" inType="win:UnicodeString"/>
+      <data name="dwValue1" inType="win:UInt32"/>
+      <data name="dwValue2" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01603Args">
+      <data name="dwValue1" inType="win:UInt32"/>
+      <data name="dwValue2" inType="win:UInt32"/>
+      <data name="dwValue3" inType="win:UInt32"/>
+      <data name="dwValue4" inType="win:UInt32"/>
+      <data name="dwValue5" inType="win:UInt32"/>
+      <data name="dwValue6" inType="win:UInt32"/>
+      <data name="dwValue7" inType="win:UInt32"/>
+      <data name="dwValue8" inType="win:UInt32"/>
+      <data name="dwValue9" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01604Args">
+      <data name="wsSource" inType="win:UnicodeString"/>
+      <data name="wsConnName" inType="win:UnicodeString"/>
+      <data name="szNotifType" inType="win:AnsiString"/>
+      <data name="szNotifState" inType="win:AnsiString"/>
+      <data name="dwType" inType="win:UInt32"/>
+      <data name="dwState" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01605Args">
+      <data name="dwValue1" inType="win:UInt32"/>
+      <data name="dwValue2" inType="win:UInt32"/>
+      <data name="dwValue3" inType="win:UInt32"/>
+      <data name="dwValue4" inType="win:UInt32"/>
+      <data name="dwValue5" inType="win:UInt32"/>
+      <data name="Ssid" inType="win:AnsiString"/>
+     </template>
+     <template tid="task_01606Args">
+      <data name="szString" inType="win:AnsiString"/>
+      <data name="dwValue1" inType="win:UInt32"/>
+      <data name="dwValue2" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01608Args">
+      <data name="dwIndex" inType="win:UInt32"/>
+      <data name="szNetwork" inType="win:AnsiString"/>
+      <data name="dwAuth" inType="win:UInt32"/>
+      <data name="dwCipher" inType="win:UInt32"/>
+      <data name="dwQuality" inType="win:UInt32"/>
+      <data name="dwFlags" inType="win:UInt32"/>
+      <data name="Score" inType="win:Float"/>
+      <data name="dwCPSize" inType="win:UInt32"/>
+      <data name="dwCPOffset" inType="win:UInt32"/>
+      <data name="dwCredSize" inType="win:UInt32"/>
+      <data name="dwCredOffset" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01609Args">
+      <data name="QueryType" inType="win:UInt32"/>
+      <data name="QuerySources" inType="win:UInt32"/>
+      <data name="dwNetworkOut" inType="win:UInt32"/>
+      <data name="dwNetworksIn" inType="win:UInt32"/>
+      <data name="dwFlags" inType="win:UInt32"/>
+      <data name="dwACEnabled" inType="win:UInt32"/>
+      <data name="ConfScanTO" inType="win:UInt32"/>
+      <data name="MinLinkQ" inType="win:UInt32"/>
+      <data name="MinScore" inType="win:Float"/>
+      <data name="dwScoreWt" inType="win:UInt32"/>
+      <data name="dwSignalWt" inType="win:UInt32"/>
+      <data name="OverlapP" inType="win:UInt32"/>
+      <data name="dwRetries" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01610Args">
+      <data name="AllNetworks" inType="win:UInt32"/>
+      <data name="ConnNetworks" inType="win:UInt32"/>
+      <data name="dwGblFlags" inType="win:UInt32"/>
+      <data name="dwMngFlags" inType="win:UInt32"/>
+      <data name="dwUserFlags" inType="win:UInt32"/>
+      <data name="dwWPSFlags" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01612Args">
+      <data name="dwIndex1" inType="win:UInt32"/>
+      <data name="dwIndex2" inType="win:UInt32"/>
+      <data name="szNetwork" inType="win:AnsiString"/>
+      <data name="dwAuth" inType="win:UInt32"/>
+      <data name="dwCipher" inType="win:UInt32"/>
+      <data name="LinkQ" inType="win:UInt32"/>
+      <data name="Score" inType="win:Float"/>
+      <data name="dwFlags" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01618Args">
+      <data name="dwIndex1" inType="win:UInt32"/>
+      <data name="dwIndex2" inType="win:UInt32"/>
+      <data name="szNetwork" inType="win:AnsiString"/>
+      <data name="dwAuth" inType="win:UInt32"/>
+      <data name="dwCipher" inType="win:UInt32"/>
+      <data name="szType" inType="win:AnsiString"/>
+      <data name="szState" inType="win:AnsiString"/>
+      <data name="LinkQ" inType="win:UInt32"/>
+      <data name="Score" inType="win:Float"/>
+      <data name="dwCfgWt" inType="win:UInt32"/>
+      <data name="dwCalcWt" inType="win:UInt32"/>
+      <data name="dwCfgFlags" inType="win:UInt32"/>
+      <data name="dwProfFlags" inType="win:UInt32"/>
+      <data name="dwCPLength" inType="win:UInt32"/>
+      <data name="dwCredLength" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01620Args">
+      <data name="dwIndex" inType="win:UInt32"/>
+      <data name="szNetwork" inType="win:AnsiString"/>
+      <data name="wsConnection" inType="win:UnicodeString"/>
+      <data name="dwCfgWt" inType="win:UInt32"/>
+      <data name="dwCalcWt" inType="win:UInt32"/>
+      <data name="dwProfFlags" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01622Args">
+      <data name="szString1" inType="win:AnsiString"/>
+      <data name="szString2" inType="win:AnsiString"/>
+      <data name="wszString" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_01627Args">
+      <data name="dwValue" inType="win:UInt32"/>
+      <data name="szString" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_01628Args">
+      <data name="wszStatus" inType="win:UnicodeString"/>
+      <data name="Ssid" inType="win:AnsiString"/>
+      <data name="bUserNetwork" inType="win:Boolean"/>
+      <data name="bACProfile" inType="win:Boolean"/>
+      <data name="dwProfFlags" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01629Args">
+      <data name="szString1" inType="win:AnsiString"/>
+      <data name="szString2" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_01631Args">
+      <data name="szNetwork" inType="win:AnsiString"/>
+      <data name="szState" inType="win:AnsiString"/>
+      <data name="dwRetries" inType="win:UInt32"/>
+      <data name="dwBackoffMin" inType="win:UInt32"/>
+      <data name="dwBackoffRng" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01632Args">
+      <data name="szString" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_01636Args">
+      <data name="dwValue1" inType="win:UInt32"/>
+      <data name="dwValue2" inType="win:UInt32"/>
+      <data name="dwValue3" inType="win:UInt32"/>
+      <data name="dwValue4" inType="win:UInt32"/>
+      <data name="dwValue5" inType="win:UInt32"/>
+      <data name="dwValue6" inType="win:UInt32"/>
+      <data name="dwValue7" inType="win:UInt32"/>
+      <data name="dwValue8" inType="win:UInt32"/>
+      <data name="dwValue9" inType="win:UInt32"/>
+      <data name="dwValue10" inType="win:UInt32"/>
+      <data name="dwValue11" inType="win:UInt32"/>
+      <data name="dwValue12" inType="win:UInt32"/>
+      <data name="dwValue13" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01643Args">
+      <data name="szString" inType="win:AnsiString"/>
+      <data name="BSSID" inType="win:Binary"/>
+      <data name="dwValue1" inType="win:UInt32"/>
+      <data name="dwValue2" inType="win:UInt32"/>
+      <data name="dwValue3" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01658Args">
+      <data name="Type" inType="win:UInt32"/>
+      <data name="Context" inType="win:UInt32"/>
+      <data name="szNetwork" inType="win:AnsiString"/>
+      <data name="Score" inType="win:Float"/>
+      <data name="flightId" inType="win:UInt64"/>
+      <data name="networkId" inType="win:UInt64"/>
+      <data name="DataNeeded" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01659Args">
+      <data name="Context1" inType="win:UInt32"/>
+      <data name="PCD" inType="win:Float"/>
+      <data name="Context2" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01666Args">
+      <data name="dwIndex1" inType="win:UInt32"/>
+      <data name="dwIndex2" inType="win:UInt32"/>
+      <data name="szReason" inType="win:AnsiString"/>
+      <data name="szNetwork" inType="win:AnsiString"/>
+      <data name="dwAuth" inType="win:UInt32"/>
+      <data name="dwCipher" inType="win:UInt32"/>
+      <data name="LinkQ" inType="win:UInt32"/>
+      <data name="Score" inType="win:Float"/>
+      <data name="dwFlags" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01677Args">
+      <data name="bQueryTM" inType="win:Boolean"/>
+      <data name="bScmEnabled" inType="win:Boolean"/>
+      <data name="bCredEnabled" inType="win:Boolean"/>
+      <data name="bCPEnabled" inType="win:Boolean"/>
+      <data name="dwTMFlags" inType="win:UInt32"/>
+      <data name="bCloudEnabled" inType="win:Boolean"/>
+     </template>
+     <template tid="task_01700Args">
+      <data name="notif" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01701Args">
+      <data name="notif" inType="win:UInt32" map="MAP_MSM_NOTIF_TO_STRING"/>
+     </template>
+     <template tid="task_01703Args">
+      <data name="state" inType="win:UInt32" map="MAP_NIC_STATE_TO_STRING"/>
+     </template>
+     <template tid="task_01704Args">
+      <data name="level" inType="win:UInt32" map="MAP_AOAC_LEVEL_TO_STRING"/>
+     </template>
+     <template tid="task_01706Args">
+      <data name="state" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01901Args">
+      <data name="hr" inType="win:UInt32"/>
+     </template>
+     <template tid="task_02111Args">
+      <data name="ssid" inType="win:UnicodeString"/>
+      <data name="bssid" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_02200Args">
+      <data name="szConnName" inType="win:UnicodeString"/>
+      <data name="dwValue" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_ScnEvt" value="ScnEvt"/>
+    <string id="keyword_PwrEvt" value="PwrEvt"/>
+    <string id="keyword_SvcEvt" value="SvcEvt"/>
+    <string id="keyword_NtfEvt" value="NtfEvt"/>
+    <string id="keyword_ConEvt" value="ConEvt"/>
+    <string id="keyword_PrfEvt" value="PrfEvt"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="map_MAP_WIFI_NOTIF_TYPE_TO_STRINGWIFI_NOTIF_TYPE_POWER" value="WIFI_NOTIF_TYPE_POWER"/>
+    <string id="map_MAP_WIFI_NOTIF_TYPE_TO_STRINGWIFI_NOTIF_TYPE_CONNECTION" value="WIFI_NOTIF_TYPE_CONNECTION"/>
+    <string id="map_MAP_WIFI_NOTIF_TYPE_TO_STRINGWIFI_NOTIF_TYPE_AVAILABLE" value="WIFI_NOTIF_TYPE_AVAILABLE"/>
+    <string id="map_MAP_WIFI_NOTIF_TYPE_TO_STRINGWIFI_NOTIF_TYPE_PREFERRED" value="WIFI_NOTIF_TYPE_PREFERRED"/>
+    <string id="map_MAP_WIFI_NOTIF_TYPE_TO_STRINGWIFI_NOTIF_TYPE_CONN_COMPLETE" value="WIFI_NOTIF_TYPE_CONN_COMPLETE"/>
+    <string id="map_MAP_WIFI_NOTIF_TYPE_TO_STRINGWIFI_NOTIF_TYPE_INTERFACE" value="WIFI_NOTIF_TYPE_INTERFACE"/>
+    <string id="map_MAP_WIFI_NOTIF_TYPE_TO_STRINGWIFI_NOTIF_TYPE_UI_REQUEST" value="WIFI_NOTIF_TYPE_UI_REQUEST"/>
+    <string id="map_MAP_DOT11_CIPHER_TO_STRINGDOT11_CIPHER_ALGO_NONE" value="DOT11_CIPHER_ALGO_NONE"/>
+    <string id="map_MAP_DOT11_CIPHER_TO_STRINGDOT11_CIPHER_ALGO_WEP40" value="DOT11_CIPHER_ALGO_WEP40"/>
+    <string id="map_MAP_DOT11_CIPHER_TO_STRINGDOT11_CIPHER_ALGO_TKIP" value="DOT11_CIPHER_ALGO_TKIP"/>
+    <string id="map_MAP_DOT11_CIPHER_TO_STRINGDOT11_CIPHER_ALGO_CCMP" value="DOT11_CIPHER_ALGO_CCMP"/>
+    <string id="map_MAP_DOT11_CIPHER_TO_STRINGDOT11_CIPHER_ALGO_WEP104" value="DOT11_CIPHER_ALGO_WEP104"/>
+    <string id="map_MAP_DOT11_CIPHER_TO_STRINGDOT11_CIPHER_ALGO_BIP" value="DOT11_CIPHER_ALGO_BIP"/>
+    <string id="map_MAP_DOT11_CIPHER_TO_STRINGDOT11_CIPHER_ALGO_WEP" value="DOT11_CIPHER_ALGO_WEP"/>
+    <string id="map_MAP_TRIGGER_TO_STRINGWiFiPowerFlagUser" value="WiFiPowerFlagUser"/>
+    <string id="map_MAP_TRIGGER_TO_STRINGWiFiPowerFlagSoftAP" value="WiFiPowerFlagSoftAP"/>
+    <string id="map_MAP_TRIGGER_TO_STRINGWiFiPowerFlagVoip" value="WiFiPowerFlagVoip"/>
+    <string id="map_MAP_TRIGGER_TO_STRINGWiFiPowerFlagP2P" value="WiFiPowerFlagP2P"/>
+    <string id="map_MAP_TRIGGER_TO_STRINGWiFiPowerFlagBacklight" value="WiFiPowerFlagBacklight"/>
+    <string id="map_MAP_TRIGGER_TO_STRINGWiFiPowerFlagAC" value="WiFiPowerFlagAC"/>
+    <string id="map_MAP_TRIGGER_TO_STRINGWiFiPowerFlagActivity" value="WiFiPowerFlagActivity"/>
+    <string id="map_MAP_TRIGGER_TO_STRINGWiFiPowerFlagScan" value="WiFiPowerFlagScan"/>
+    <string id="map_MAP_TRIGGER_TO_STRINGWiFiPowerFlagPeriodicScan" value="WiFiPowerFlagPeriodicScan"/>
+    <string id="map_MAP_TRIGGER_TO_STRINGWiFiPowerFlagBatterySaver" value="WiFiPowerFlagBatterySaver"/>
+    <string id="map_MAP_TRIGGER_TO_STRINGWiFiPowerFlagNetworkAvailable" value="WiFiPowerFlagNetworkAvailable"/>
+    <string id="map_MAP_TRIGGER_TO_STRINGWiFiPowerFlagConnecting" value="WiFiPowerFlagConnecting"/>
+    <string id="map_MAP_TRIGGER_TO_STRINGWiFiPowerFlagProbing" value="WiFiPowerFlagProbing"/>
+    <string id="map_MAP_MSM_NOTIF_TO_STRINGwlan_notification_msm_start" value="wlan_notification_msm_start"/>
+    <string id="map_MAP_MSM_NOTIF_TO_STRINGwlan_notification_msm_associating" value="wlan_notification_msm_associating"/>
+    <string id="map_MAP_MSM_NOTIF_TO_STRINGwlan_notification_msm_associated" value="wlan_notification_msm_associated"/>
+    <string id="map_MAP_MSM_NOTIF_TO_STRINGwlan_notification_msm_authenticating" value="wlan_notification_msm_authenticating"/>
+    <string id="map_MAP_MSM_NOTIF_TO_STRINGwlan_notification_msm_connected" value="wlan_notification_msm_connected"/>
+    <string id="map_MAP_MSM_NOTIF_TO_STRINGwlan_notification_msm_roaming_start" value="wlan_notification_msm_roaming_start"/>
+    <string id="map_MAP_MSM_NOTIF_TO_STRINGwlan_notification_msm_roaming_end" value="wlan_notification_msm_roaming_end"/>
+    <string id="map_MAP_MSM_NOTIF_TO_STRINGwlan_notification_msm_radio_state_change" value="wlan_notification_msm_radio_state_change"/>
+    <string id="map_MAP_MSM_NOTIF_TO_STRINGwlan_notification_msm_signal_quality_change" value="wlan_notification_msm_signal_quality_change"/>
+    <string id="map_MAP_MSM_NOTIF_TO_STRINGwlan_notification_msm_disassociating" value="wlan_notification_msm_disassociating"/>
+    <string id="map_MAP_MSM_NOTIF_TO_STRINGwlan_notification_msm_disconnected" value="wlan_notification_msm_disconnected"/>
+    <string id="map_MAP_MSM_NOTIF_TO_STRINGwlan_notification_msm_peer_join" value="wlan_notification_msm_peer_join"/>
+    <string id="map_MAP_MSM_NOTIF_TO_STRINGwlan_notification_msm_peer_leave" value="wlan_notification_msm_peer_leave"/>
+    <string id="map_MAP_MSM_NOTIF_TO_STRINGwlan_notification_msm_adapter_removal" value="wlan_notification_msm_adapter_removal"/>
+    <string id="map_MAP_MSM_NOTIF_TO_STRINGwlan_notification_msm_adapter_operation_mode_change" value="wlan_notification_msm_adapter_operation_mode_change"/>
+    <string id="map_MAP_NIC_STATE_TO_STRINGWIFI_NIC_GOING_TO_D2" value="WIFI_NIC_GOING_TO_D2"/>
+    <string id="map_MAP_NIC_STATE_TO_STRINGWIFI_NIC_GOING_TO_D0" value="WIFI_NIC_GOING_TO_D0"/>
+    <string id="map_MAP_NIC_STATE_TO_STRINGWIFI_NIC_IN_D2" value="WIFI_NIC_IN_D2"/>
+    <string id="map_MAP_NIC_STATE_TO_STRINGWIFI_NIC_IN_D0" value="WIFI_NIC_IN_D0"/>
+    <string id="map_MAP_AOAC_LEVEL_TO_STRINGWIFI_AOAC_NONE" value="WIFI_AOAC_NONE"/>
+    <string id="map_MAP_AOAC_LEVEL_TO_STRINGWIFI_AOAC_PARTIAL" value="WIFI_AOAC_PARTIAL"/>
+    <string id="map_MAP_AOAC_LEVEL_TO_STRINGWIFI_AOAC_FULL" value="WIFI_AOAC_FULL"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

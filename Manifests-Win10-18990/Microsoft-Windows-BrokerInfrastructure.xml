@@ -1,0 +1,646 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-BrokerInfrastructure" guid="{e6835967-e0d2-41fb-bcec-58387404e25a}" resourceFileName="Microsoft-Windows-BrokerInfrastructure" messageFileName="Microsoft-Windows-BrokerInfrastructure" symbol="MicrosoftWindowsBrokerInfrastructure" source="Xml" >
+    <keywords>
+     <keyword name="BackgroundTask" message="$(string.keyword_BackgroundTask)" mask="0x1"/>
+     <keyword name="PDC" message="$(string.keyword_PDC)" mask="0x2"/>
+     <keyword name="LowOverheadDiag" message="$(string.keyword_LowOverheadDiag)" mask="0x4"/>
+     <keyword name="Package" message="$(string.keyword_Package)" mask="0x8"/>
+     <keyword name="Watchdog" message="$(string.keyword_Watchdog)" mask="0x10"/>
+     <keyword name="Session" message="$(string.keyword_Session)" mask="0x20"/>
+     <keyword name="SleepStudy" message="$(string.keyword_SleepStudy)" mask="0x40"/>
+    </keywords>
+    <tasks>
+     <task name="BackgroundTask" message="$(string.task_BackgroundTask)" value="100">
+>
+      <opcodes>
+       <opcode name="TaskThrottledCpu" message="$(string.opcode_BackgroundTaskTaskThrottledCpu)" value="100"/>
+       <opcode name="TaskThrottledNet" message="$(string.opcode_BackgroundTaskTaskThrottledNet)" value="101"/>
+       <opcode name="TaskForcedCompletion" message="$(string.opcode_BackgroundTaskTaskForcedCompletion)" value="102"/>
+       <opcode name="TaskLatched" message="$(string.opcode_BackgroundTaskTaskLatched)" value="103"/>
+       <opcode name="TaskUnlatched" message="$(string.opcode_BackgroundTaskTaskUnlatched)" value="104"/>
+       <opcode name="TaskDropped" message="$(string.opcode_BackgroundTaskTaskDropped)" value="105"/>
+       <opcode name="TaskBufferedPolicy" message="$(string.opcode_BackgroundTaskTaskBufferedPolicy)" value="106"/>
+       <opcode name="TaskBufferedPackageState" message="$(string.opcode_BackgroundTaskTaskBufferedPackageState)" value="107"/>
+       <opcode name="TaskUnbuffered" message="$(string.opcode_BackgroundTaskTaskUnbuffered)" value="108"/>
+       <opcode name="TaskCanceled" message="$(string.opcode_BackgroundTaskTaskCanceled)" value="109"/>
+       <opcode name="TaskUnregistered" message="$(string.opcode_BackgroundTaskTaskUnregistered)" value="110"/>
+       <opcode name="TaskActivationFailed" message="$(string.opcode_BackgroundTaskTaskActivationFailed)" value="113"/>
+       <opcode name="TaskWatchdog" message="$(string.opcode_BackgroundTaskTaskWatchdog)" value="116"/>
+      </opcodes>
+     </task>
+     <task name="BackgroundTaskProxy" message="$(string.task_BackgroundTaskProxy)" value="101"/>
+     <task name="TriggerSignal" message="$(string.task_TriggerSignal)" value="102"/>
+     <task name="ConditionChange" message="$(string.task_ConditionChange)" value="103"/>
+     <task name="PackageStateChange" message="$(string.task_PackageStateChange)" value="104"/>
+     <task name="PdcReference" message="$(string.task_PdcReference)" value="105">
+>
+      <opcodes>
+       <opcode name="Acquire" message="$(string.opcode_PdcReferenceAcquire)" value="111"/>
+       <opcode name="Release" message="$(string.opcode_PdcReferenceRelease)" value="112"/>
+      </opcodes>
+     </task>
+     <task name="BackgroundTaskPerfTrack" message="$(string.task_BackgroundTaskPerfTrack)" value="106"/>
+     <task name="BackgroundTaskInstance" message="$(string.task_BackgroundTaskInstance)" value="107"/>
+     <task name="Package" message="$(string.task_Package)" value="108">
+>
+      <opcodes>
+       <opcode name="PackageWatchdog" message="$(string.opcode_PackagePackageWatchdog)" value="114"/>
+      </opcodes>
+     </task>
+     <task name="WatchdogIteration" message="$(string.task_WatchdogIteration)" value="109">
+>
+      <opcodes>
+       <opcode name="WatchdogIteration" message="$(string.opcode_WatchdogIterationWatchdogIteration)" value="115"/>
+      </opcodes>
+     </task>
+     <task name="WatchdogIterationPerfTrack" message="$(string.task_WatchdogIterationPerfTrack)" value="110">
+>
+      <opcodes>
+       <opcode name="WatchdogIteration" message="$(string.opcode_WatchdogIterationPerfTrackWatchdogIteration)" value="115"/>
+      </opcodes>
+     </task>
+     <task name="SessionStateTransition" message="$(string.task_SessionStateTransition)" value="111">
+>
+      <opcodes>
+       <opcode name="SessionStateTransition" message="$(string.opcode_SessionStateTransitionSessionStateTransition)" value="117"/>
+      </opcodes>
+     </task>
+     <task name="WorkItemBlockingDisconnectedStandby" message="$(string.task_WorkItemBlockingDisconnectedStandby)" value="112">
+>
+      <opcodes>
+       <opcode name="WorkItemBlockingDisconnectedStandby" message="$(string.opcode_WorkItemBlockingDisconnectedStandbyWorkItemBlockingDisconnectedStandby)" value="118"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <maps>
+     <valueMap name="EventSqmType">
+      <map value="0x0" message="$(string.map_EventSqmTypeunknown)"/>
+      <map value="0x1" message="$(string.map_EventSqmTypeSMS received)"/>
+      <map value="0x2" message="$(string.map_EventSqmTypeuser present)"/>
+      <map value="0x3" message="$(string.map_EventSqmTypeuser away)"/>
+      <map value="0x4" message="$(string.map_EventSqmTypenetwork state change)"/>
+      <map value="0x5" message="$(string.map_EventSqmTypenetwork channel reset)"/>
+      <map value="0x6" message="$(string.map_EventSqmTypeInternet available)"/>
+      <map value="0x7" message="$(string.map_EventSqmTypesession connected)"/>
+      <map value="0x8" message="$(string.map_EventSqmTypeservicing complete)"/>
+      <map value="0x9" message="$(string.map_EventSqmTypeadded to lock screen)"/>
+      <map value="0xa" message="$(string.map_EventSqmTyperemoved from lock screen)"/>
+      <map value="0xb" message="$(string.map_EventSqmTypetime zone change)"/>
+      <map value="0xc" message="$(string.map_EventSqmTypeonline ID state change)"/>
+      <map value="0x5a" message="$(string.map_EventSqmTypenetwork operator trigger)"/>
+      <map value="0x5b" message="$(string.map_EventSqmTypenetwork operator hotspot trigger)"/>
+      <map value="0x64" message="$(string.map_EventSqmTypeunknown)"/>
+      <map value="0x65" message="$(string.map_EventSqmTypeSMS received)"/>
+      <map value="0x66" message="$(string.map_EventSqmTypeuser present)"/>
+      <map value="0x67" message="$(string.map_EventSqmTypeuser away)"/>
+      <map value="0x68" message="$(string.map_EventSqmTypenetwork state change)"/>
+      <map value="0x69" message="$(string.map_EventSqmTypenetwork channel reset)"/>
+      <map value="0x6a" message="$(string.map_EventSqmTypeInternet available)"/>
+      <map value="0x6b" message="$(string.map_EventSqmTypesession connected)"/>
+      <map value="0x6c" message="$(string.map_EventSqmTypeservicing complete)"/>
+      <map value="0x6d" message="$(string.map_EventSqmTypeadded to lock screen)"/>
+      <map value="0x6e" message="$(string.map_EventSqmTyperemoved from lock screen)"/>
+      <map value="0x6f" message="$(string.map_EventSqmTypetime zone change)"/>
+      <map value="0x70" message="$(string.map_EventSqmTypeonline ID state change)"/>
+      <map value="0xc8" message="$(string.map_EventSqmTypetime trigger)"/>
+      <map value="0xc9" message="$(string.map_EventSqmTypemaintenance trigger)"/>
+      <map value="0x12c" message="$(string.map_EventSqmTypepush notification trigger)"/>
+      <map value="0x190" message="$(string.map_EventSqmTypenetwork keepalive)"/>
+      <map value="0x191" message="$(string.map_EventSqmTypepush notification task trigger)"/>
+     </valueMap>
+     <valueMap name="ConditionValueType">
+      <map value="0x0" message="$(string.map_ConditionValueTypefalse)"/>
+      <map value="0x1" message="$(string.map_ConditionValueTypetrue)"/>
+      <map value="0x2" message="$(string.map_ConditionValueTypean invalid state)"/>
+      <map value="0x3" message="$(string.map_ConditionValueTypean unknown state)"/>
+     </valueMap>
+     <valueMap name="PackageStateChangeType">
+      <map value="0x0" message="$(string.map_PackageStateChangeTypeservicing in progress)"/>
+      <map value="0x1" message="$(string.map_PackageStateChangeTypeservicing in progress)"/>
+      <map value="0x2" message="$(string.map_PackageStateChangeTypeservicing complete)"/>
+      <map value="0x3" message="$(string.map_PackageStateChangeTypeuninstalled)"/>
+      <map value="0x4" message="$(string.map_PackageStateChangeTypeterminated (new background tasks will be buffered))"/>
+      <map value="0x5" message="$(string.map_PackageStateChangeTypeunbuffer buffered background tasks)"/>
+      <map value="0x6" message="$(string.map_PackageStateChangeTypeterminated)"/>
+      <map value="0x7" message="$(string.map_PackageStateChangeTypeterminated (running background tasks will not be canceled))"/>
+     </valueMap>
+     <valueMap name="UnbufferingReasonType">
+      <map value="0x0" message="$(string.map_UnbufferingReasonTypeone or more of the task's conditions was not in the desired state)"/>
+      <map value="0x1" message="$(string.map_UnbufferingReasonTypethe task's application package was being serviced)"/>
+      <map value="0x2" message="$(string.map_UnbufferingReasonTypethe task's application package was being terminated)"/>
+      <map value="0x3" message="$(string.map_UnbufferingReasonTypethe task could not execute while the computer was using its battery)"/>
+      <map value="0x4" message="$(string.map_UnbufferingReasonTypean instance of the task was already running)"/>
+      <map value="0x5" message="$(string.map_UnbufferingReasonTypethe task could not execute while the computer was being refreshed)"/>
+      <map value="0x6" message="$(string.map_UnbufferingReasonTypethe task's application package was subject to resource policy)"/>
+      <map value="0x7" message="$(string.map_UnbufferingReasonTypethe task's application package was being uninstalled)"/>
+      <map value="0x8" message="$(string.map_UnbufferingReasonTypethe task could not execute during Quiet Hours)"/>
+      <map value="0x9" message="$(string.map_UnbufferingReasonTypethe task was subject to service extension policy)"/>
+      <map value="0xa" message="$(string.map_UnbufferingReasonTypethe task could not execute when a WER Report for the application package is being collected)"/>
+     </valueMap>
+     <valueMap name="DeletionReasonType">
+      <map value="0x0" message="$(string.map_DeletionReasonTypethe entry point no longer exists in the task's application package)"/>
+      <map value="0x1" message="$(string.map_DeletionReasonTypethe task is a one-shot task that was activated)"/>
+      <map value="0x2" message="$(string.map_DeletionReasonTypethe task's trigger (or one of its conditions) was deleted)"/>
+      <map value="0x3" message="$(string.map_DeletionReasonTypethe task was explicitly unregistered)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="BackgroundTaskStart" version="0" task="BackgroundTask" opcode="win:Start" level="win:Informational" keywords="BackgroundTask LowOverheadDiag" template="BackgroundTaskStartArgs"/>
+     <event value="1" symbol="BackgroundTaskStart_V1" version="1" task="BackgroundTask" opcode="win:Start" level="win:Informational" keywords="BackgroundTask LowOverheadDiag" template="BackgroundTaskStartArgs_V1"/>
+     <event value="2" symbol="BackgroundTaskStop" version="0" task="BackgroundTask" opcode="win:Stop" level="win:Informational" keywords="BackgroundTask LowOverheadDiag" template="BackgroundTaskStopArgs"/>
+     <event value="2" symbol="BackgroundTaskStop_V1" version="1" task="BackgroundTask" opcode="win:Stop" level="win:Informational" keywords="BackgroundTask LowOverheadDiag" template="BackgroundTaskStopArgs_V1"/>
+     <event value="2" symbol="BackgroundTaskStop_V2" version="2" task="BackgroundTask" opcode="win:Stop" level="win:Informational" keywords="BackgroundTask LowOverheadDiag" template="BackgroundTaskStopArgs_V2"/>
+     <event value="2" symbol="BackgroundTaskStop_V3" version="3" task="BackgroundTask" opcode="win:Stop" level="win:Informational" keywords="BackgroundTask LowOverheadDiag" template="BackgroundTaskStopArgs_V3"/>
+     <event value="3" symbol="BackgroundTaskProxy" version="0" task="BackgroundTaskProxy" level="win:Informational" keywords="BackgroundTask" template="BackgroundTaskProxyArgs"/>
+     <event value="4" symbol="BackgroundTaskTaskThrottledCpu" version="0" task="BackgroundTask" opcode="TaskThrottledCpu" level="win:Informational" keywords="BackgroundTask LowOverheadDiag" template="BackgroundTaskTaskThrottledCpuArgs"/>
+     <event value="4" symbol="BackgroundTaskTaskThrottledCpu_V1" version="1" task="BackgroundTask" opcode="TaskThrottledCpu" level="win:Informational" keywords="BackgroundTask LowOverheadDiag" template="BackgroundTaskTaskThrottledCpuArgs"/>
+     <event value="5" symbol="BackgroundTaskTaskThrottledNet" version="0" task="BackgroundTask" opcode="TaskThrottledNet" level="win:Informational" keywords="BackgroundTask LowOverheadDiag" template="BackgroundTaskTaskThrottledCpuArgs"/>
+     <event value="5" symbol="BackgroundTaskTaskThrottledNet_V1" version="1" task="BackgroundTask" opcode="TaskThrottledNet" level="win:Informational" keywords="BackgroundTask LowOverheadDiag" template="BackgroundTaskTaskThrottledCpuArgs"/>
+     <event value="6" symbol="BackgroundTaskTaskForcedCompletion" version="0" task="BackgroundTask" opcode="TaskForcedCompletion" level="win:Informational" keywords="BackgroundTask" template="BackgroundTaskTaskThrottledCpuArgs"/>
+     <event value="7" symbol="TriggerSignalStart" version="0" task="TriggerSignal" opcode="win:Start" level="win:Informational" keywords="BackgroundTask" template="TriggerSignalStartArgs"/>
+     <event value="8" symbol="TriggerSignalStop" version="0" task="TriggerSignal" opcode="win:Stop" level="win:Informational" keywords="BackgroundTask" template="TriggerSignalStartArgs"/>
+     <event value="9" symbol="ConditionChangeStart" version="0" task="ConditionChange" opcode="win:Start" level="win:Informational" keywords="BackgroundTask" template="ConditionChangeStartArgs"/>
+     <event value="10" symbol="ConditionChangeStop" version="0" task="ConditionChange" opcode="win:Stop" level="win:Informational" keywords="BackgroundTask" template="ConditionChangeStopArgs"/>
+     <event value="11" symbol="PackageStateChangeStart" version="0" task="PackageStateChange" opcode="win:Start" level="win:Informational" keywords="BackgroundTask" template="PackageStateChangeStartArgs"/>
+     <event value="11" symbol="PackageStateChangeStart_V1" version="1" task="PackageStateChange" opcode="win:Start" level="win:Informational" keywords="BackgroundTask" template="PackageStateChangeStartArgs_V1"/>
+     <event value="12" symbol="PackageStateChangeStop" version="0" task="PackageStateChange" opcode="win:Stop" level="win:Informational" keywords="BackgroundTask" template="PackageStateChangeStopArgs"/>
+     <event value="12" symbol="PackageStateChangeStop_V1" version="1" task="PackageStateChange" opcode="win:Stop" level="win:Informational" keywords="BackgroundTask" template="PackageStateChangeStartArgs_V1"/>
+     <event value="13" symbol="BackgroundTaskTaskLatched" version="0" task="BackgroundTask" opcode="TaskLatched" level="win:Informational" keywords="BackgroundTask" template="BackgroundTaskTaskLatchedArgs"/>
+     <event value="14" symbol="BackgroundTaskTaskUnlatched" version="0" task="BackgroundTask" opcode="TaskUnlatched" level="win:Informational" keywords="BackgroundTask" template="BackgroundTaskTaskUnlatchedArgs"/>
+     <event value="15" symbol="BackgroundTaskTaskDropped" version="0" task="BackgroundTask" opcode="TaskDropped" level="win:Informational" keywords="BackgroundTask" template="BackgroundTaskTaskUnlatchedArgs"/>
+     <event value="16" symbol="BackgroundTaskTaskBufferedPolicy" version="0" task="BackgroundTask" opcode="TaskBufferedPolicy" level="win:Informational" keywords="BackgroundTask" template="BackgroundTaskTaskUnlatchedArgs"/>
+     <event value="17" symbol="BackgroundTaskTaskBufferedPackageState" version="0" task="BackgroundTask" opcode="TaskBufferedPackageState" level="win:Informational" keywords="BackgroundTask" template="BackgroundTaskTaskBufferedPackageStateArgs"/>
+     <event value="18" symbol="BackgroundTaskTaskUnbuffered" version="0" task="BackgroundTask" opcode="TaskUnbuffered" level="win:Informational" keywords="BackgroundTask" template="BackgroundTaskTaskUnbufferedArgs"/>
+     <event value="19" symbol="BackgroundTaskTaskCanceled" version="0" task="BackgroundTask" opcode="TaskCanceled" level="win:Informational" keywords="BackgroundTask" template="BackgroundTaskTaskCanceledArgs"/>
+     <event value="19" symbol="BackgroundTaskTaskCanceled_V1" version="1" task="BackgroundTask" opcode="TaskCanceled" level="win:Informational" keywords="BackgroundTask" template="BackgroundTaskTaskCanceledArgs_V1"/>
+     <event value="20" symbol="BackgroundTaskTaskUnregistered" version="0" task="BackgroundTask" opcode="TaskUnregistered" level="win:Informational" keywords="BackgroundTask" template="BackgroundTaskTaskUnregisteredArgs"/>
+     <event value="21" symbol="BackgroundTaskTaskActivationFailed" version="0" task="BackgroundTask" opcode="TaskActivationFailed" level="win:Informational" keywords="BackgroundTask" template="BackgroundTaskTaskActivationFailedArgs"/>
+     <event value="22" symbol="BackgroundTaskInstanceDCStop" version="0" task="BackgroundTaskInstance" opcode="win:DC_Stop" level="win:Informational" keywords="BackgroundTask" template="BackgroundTaskInstanceDCStopArgs"/>
+     <event value="22" symbol="BackgroundTaskInstanceDCStop_V1" version="1" task="BackgroundTaskInstance" opcode="win:DC_Stop" level="win:Informational" keywords="BackgroundTask" template="BackgroundTaskInstanceDCStopArgs_V1"/>
+     <event value="23" symbol="BackgroundTaskDCStop" version="0" task="BackgroundTask" opcode="win:DC_Stop" level="win:Informational" keywords="BackgroundTask" template="BackgroundTaskDCStopArgs"/>
+     <event value="23" symbol="BackgroundTaskDCStop_V1" version="1" task="BackgroundTask" opcode="win:DC_Stop" level="win:Informational" keywords="BackgroundTask" template="BackgroundTaskDCStopArgs"/>
+     <event value="24" symbol="PackageDCStop" version="0" task="Package" opcode="win:DC_Stop" level="win:Informational" keywords="Package" template="PackageDCStopArgs"/>
+     <event value="24" symbol="PackageDCStop_V1" version="1" task="Package" opcode="win:DC_Stop" level="win:Informational" keywords="Package" template="PackageDCStopArgs_V1"/>
+     <event value="25" symbol="PackagePackageWatchdog" version="0" task="Package" opcode="PackageWatchdog" level="win:Error" keywords="Watchdog" template="PackagePackageWatchdogArgs"/>
+     <event value="26" symbol="WatchdogIteration" version="0" task="WatchdogIteration" opcode="WatchdogIteration" level="win:Informational" keywords="Watchdog" template="WatchdogIterationArgs"/>
+     <event value="26" symbol="WatchdogIteration_V1" version="1" task="WatchdogIteration" opcode="WatchdogIteration" level="win:Informational" keywords="Watchdog" template="WatchdogIterationArgs_V1"/>
+     <event value="27" symbol="BackgroundTaskTaskWatchdog" version="0" task="BackgroundTask" opcode="TaskWatchdog" level="win:Error" keywords="Watchdog" template="BackgroundTaskTaskWatchdogArgs"/>
+     <event value="27" symbol="BackgroundTaskTaskWatchdog_V1" version="1" task="BackgroundTask" opcode="TaskWatchdog" level="win:Error" keywords="Watchdog" template="BackgroundTaskTaskWatchdogArgs"/>
+     <event value="27" symbol="BackgroundTaskTaskWatchdog_V2" version="2" task="BackgroundTask" opcode="TaskWatchdog" level="win:Error" keywords="Watchdog" template="BackgroundTaskTaskWatchdogArgs_V2"/>
+     <event value="28" symbol="SessionStateTransition" version="0" task="SessionStateTransition" opcode="SessionStateTransition" level="win:Informational" keywords="Session" template="SessionStateTransitionArgs"/>
+     <event value="100" symbol="BackgroundTaskPerfTrackStop" version="0" task="BackgroundTaskPerfTrack" opcode="win:Stop" level="win:Informational" template="BackgroundTaskPerfTrackStopArgs"/>
+     <event value="101" symbol="WatchdogIterationPerfTrackWatchdogIteration" version="0" task="WatchdogIterationPerfTrack" opcode="WatchdogIteration" level="win:Informational" template="WatchdogIterationPerfTrackWatchdogIterationArgs"/>
+     <event value="200" symbol="PdcReferenceAcquire" version="0" task="PdcReference" opcode="Acquire" level="win:Informational" keywords="PDC" template="PdcReferenceAcquireArgs"/>
+     <event value="201" symbol="PdcReferenceRelease" version="0" task="PdcReference" opcode="Release" level="win:Informational" keywords="PDC" template="PdcReferenceAcquireArgs"/>
+     <event value="300" symbol="WorkItemBlockingDisconnectedStandby" version="0" task="WorkItemBlockingDisconnectedStandby" opcode="WorkItemBlockingDisconnectedStandby" level="win:Informational" keywords="SleepStudy" template="WorkItemBlockingDisconnectedStandbyArgs"/>
+    </events>
+    <templates>
+     <template tid="BackgroundTaskStartArgs">
+      <data name="EntryPointLength" inType="win:UInt16"/>
+      <data name="TaskEntryPoint" inType="win:UnicodeString" length="EntryPointLength"/>
+      <data name="NameLength" inType="win:UInt16"/>
+      <data name="TaskName" inType="win:UnicodeString" length="NameLength"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="InstanceId" inType="win:GUID"/>
+      <data name="ApplicationId" inType="win:UInt64"/>
+      <data name="PsmActivationType" inType="win:UInt32"/>
+      <data name="CriticalActivation" inType="win:Boolean"/>
+      <data name="TriggerEventId" inType="win:GUID"/>
+      <data name="TriggerEventType" inType="win:UInt32" map="EventSqmType"/>
+     </template>
+     <template tid="BackgroundTaskStopArgs">
+      <data name="WorkItemId" inType="win:GUID"/>
+      <data name="BrokerId" inType="win:GUID"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="TaskExecuted" inType="win:Boolean"/>
+      <data name="Result" inType="win:UInt32"/>
+      <data name="UserSid" inType="win:SID"/>
+      <data name="PackageFullName" inType="win:UnicodeString"/>
+      <data name="EntryPointLength" inType="win:UInt16"/>
+      <data name="EntryPoint" inType="win:UnicodeString" length="EntryPointLength"/>
+      <data name="ApplicationId" inType="win:UInt64"/>
+      <data name="CpuThrottleCount" inType="win:UInt16"/>
+      <data name="NetThrottleCount" inType="win:UInt16"/>
+     </template>
+     <template tid="BackgroundTaskProxyArgs">
+      <data name="WorkItemId" inType="win:GUID"/>
+      <data name="BrokerId" inType="win:GUID"/>
+      <data name="StateName" inType="win:UInt64"/>
+     </template>
+     <template tid="BackgroundTaskTaskThrottledCpuArgs">
+      <data name="PackageFullName" inType="win:UnicodeString"/>
+      <data name="EntryPointLength" inType="win:UInt16"/>
+      <data name="EntryPoint" inType="win:UnicodeString" length="EntryPointLength"/>
+      <data name="UserSid" inType="win:SID"/>
+     </template>
+     <template tid="TriggerSignalStartArgs">
+      <data name="EventId" inType="win:GUID"/>
+      <data name="EventType" inType="win:UInt32"/>
+     </template>
+     <template tid="ConditionChangeStartArgs">
+      <data name="EventId" inType="win:GUID"/>
+      <data name="EventType" inType="win:UInt32"/>
+      <data name="OldState" inType="win:UInt32" map="ConditionValueType"/>
+      <data name="NewState" inType="win:Boolean"/>
+     </template>
+     <template tid="ConditionChangeStopArgs">
+      <data name="EventId" inType="win:GUID"/>
+      <data name="EventType" inType="win:UInt32"/>
+      <data name="OldState" inType="win:UInt32"/>
+      <data name="NewState" inType="win:Boolean"/>
+     </template>
+     <template tid="PackageStateChangeStartArgs">
+      <data name="PackageFullName" inType="win:UnicodeString"/>
+      <data name="UserAccountName" inType="win:UnicodeString"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="PackageState" inType="win:UInt32"/>
+     </template>
+     <template tid="PackageStateChangeStopArgs">
+      <data name="PackageFullName" inType="win:UnicodeString"/>
+      <data name="UserAccountName" inType="win:UnicodeString"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="PackageState" inType="win:UInt32" map="PackageStateChangeType"/>
+     </template>
+     <template tid="BackgroundTaskTaskLatchedArgs">
+      <data name="EntryPointLength" inType="win:UInt16"/>
+      <data name="TaskEntryPoint" inType="win:UnicodeString" length="EntryPointLength"/>
+      <data name="NameLength" inType="win:UInt16"/>
+      <data name="TaskName" inType="win:UnicodeString" length="NameLength"/>
+      <data name="ConditionType" inType="win:UInt32"/>
+      <data name="ConditionValue" inType="win:UInt32"/>
+      <data name="ConditionDesiredValue" inType="win:Boolean"/>
+     </template>
+     <template tid="BackgroundTaskTaskUnlatchedArgs">
+      <data name="EntryPointLength" inType="win:UInt16"/>
+      <data name="TaskEntryPoint" inType="win:UnicodeString" length="EntryPointLength"/>
+      <data name="NameLength" inType="win:UInt16"/>
+      <data name="TaskName" inType="win:UnicodeString" length="NameLength"/>
+     </template>
+     <template tid="BackgroundTaskTaskBufferedPackageStateArgs">
+      <data name="EntryPointLength" inType="win:UInt16"/>
+      <data name="TaskEntryPoint" inType="win:UnicodeString" length="EntryPointLength"/>
+      <data name="NameLength" inType="win:UInt16"/>
+      <data name="TaskName" inType="win:UnicodeString" length="NameLength"/>
+      <data name="BufferingReason" inType="win:UInt32"/>
+     </template>
+     <template tid="BackgroundTaskTaskUnbufferedArgs">
+      <data name="EntryPointLength" inType="win:UInt16"/>
+      <data name="TaskEntryPoint" inType="win:UnicodeString" length="EntryPointLength"/>
+      <data name="NameLength" inType="win:UInt16"/>
+      <data name="TaskName" inType="win:UnicodeString" length="NameLength"/>
+      <data name="BufferingReason" inType="win:UInt32" map="UnbufferingReasonType"/>
+     </template>
+     <template tid="BackgroundTaskTaskCanceledArgs">
+      <data name="EntryPointLength" inType="win:UInt16"/>
+      <data name="TaskEntryPoint" inType="win:UnicodeString" length="EntryPointLength"/>
+      <data name="NameLength" inType="win:UInt16"/>
+      <data name="TaskName" inType="win:UnicodeString" length="NameLength"/>
+      <data name="InstanceId" inType="win:GUID"/>
+      <data name="SessionId" inType="win:UInt32"/>
+     </template>
+     <template tid="BackgroundTaskTaskUnregisteredArgs">
+      <data name="EntryPointLength" inType="win:UInt16"/>
+      <data name="TaskEntryPoint" inType="win:UnicodeString" length="EntryPointLength"/>
+      <data name="NameLength" inType="win:UInt16"/>
+      <data name="TaskName" inType="win:UnicodeString" length="NameLength"/>
+      <data name="DeletionReason" inType="win:UInt32" map="DeletionReasonType"/>
+     </template>
+     <template tid="BackgroundTaskTaskActivationFailedArgs">
+      <data name="EntryPointLength" inType="win:UInt16"/>
+      <data name="TaskEntryPoint" inType="win:UnicodeString" length="EntryPointLength"/>
+      <data name="NameLength" inType="win:UInt16"/>
+      <data name="TaskName" inType="win:UnicodeString" length="NameLength"/>
+      <data name="Result" inType="win:UInt32"/>
+     </template>
+     <template tid="BackgroundTaskInstanceDCStopArgs">
+      <data name="WorkItemId" inType="win:GUID"/>
+      <data name="ApplicationId" inType="win:UInt64"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="PsmActivationType" inType="win:UInt32"/>
+      <data name="CpuThrottleCount" inType="win:UInt16"/>
+      <data name="NetThrottleCount" inType="win:UInt16"/>
+      <data name="PackageFullName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="BackgroundTaskDCStopArgs">
+      <data name="WorkItemId" inType="win:GUID"/>
+      <data name="BrokerId" inType="win:GUID"/>
+      <data name="TriggerEventId" inType="win:GUID"/>
+      <data name="TriggerEventType" inType="win:UInt32"/>
+      <data name="CriticalActivation" inType="win:Boolean"/>
+      <data name="EntryPointLength" inType="win:UInt16"/>
+      <data name="EntryPoint" inType="win:UnicodeString" length="EntryPointLength"/>
+      <data name="NameLength" inType="win:UInt16"/>
+      <data name="TaskName" inType="win:UnicodeString" length="NameLength"/>
+      <data name="PackageFullName" inType="win:UnicodeString"/>
+      <data name="UserSid" inType="win:SID"/>
+      <data name="ConditionCount" inType="win:UInt16"/>
+      <data name="ConditinalEvent" inType="win:Boolean" count="ConditionCount"/>
+     </template>
+     <template tid="PackageDCStopArgs">
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="StateFlags" inType="win:UInt32"/>
+      <data name="ActiveTaskCount" inType="win:UInt32"/>
+      <data name="LockScreen" inType="win:Boolean"/>
+      <data name="PackageFullName" inType="win:UnicodeString"/>
+      <data name="UserSid" inType="win:SID"/>
+     </template>
+     <template tid="PackagePackageWatchdogArgs">
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="StateFlags" inType="win:UInt32"/>
+      <data name="ActiveTaskCount" inType="win:UInt32"/>
+      <data name="LockScreen" inType="win:Boolean"/>
+      <data name="PackageFullName" inType="win:UnicodeString"/>
+      <data name="UserSid" inType="win:SID"/>
+      <data name="ActiveTasks" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WatchdogIterationArgs">
+      <data name="Duration" inType="win:UInt32"/>
+      <data name="Iteration" inType="win:UInt32"/>
+      <data name="ActivitySummary" inType="win:UInt32"/>
+      <data name="ActivityFilter" inType="win:UInt32"/>
+      <data name="HangDetected" inType="win:Boolean"/>
+      <data name="EventType" inType="win:UInt32"/>
+      <data name="PackageFullName" inType="win:UnicodeString"/>
+      <data name="EntryPoint" inType="win:UnicodeString"/>
+      <data name="InstanceId" inType="win:GUID"/>
+      <data name="CycleTime" inType="win:UInt64"/>
+      <data name="NetTokens" inType="win:UInt64"/>
+     </template>
+     <template tid="BackgroundTaskTaskWatchdogArgs">
+      <data name="EntryPointLength" inType="win:UInt16"/>
+      <data name="TaskEntryPoint" inType="win:UnicodeString" length="EntryPointLength"/>
+      <data name="NameLength" inType="win:UInt16"/>
+      <data name="TaskName" inType="win:UnicodeString" length="NameLength"/>
+      <data name="PackageFullName" inType="win:UnicodeString"/>
+      <data name="InstanceId" inType="win:GUID"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="UserSid" inType="win:SID"/>
+      <data name="LockScreen" inType="win:Boolean"/>
+     </template>
+     <template tid="SessionStateTransitionArgs">
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="TransitionId" inType="win:UInt32"/>
+      <data name="Transition" inType="win:UInt32"/>
+     </template>
+     <template tid="BackgroundTaskPerfTrackStopArgs">
+      <data name="ElapsedTime" inType="win:UInt32"/>
+      <data name="TaskThrottleCount" inType="win:UInt32"/>
+      <data name="EventType" inType="win:UInt32"/>
+      <data name="PackageFullName" inType="win:UnicodeString"/>
+      <data name="EntryPoint" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WatchdogIterationPerfTrackWatchdogIterationArgs">
+      <data name="Duration" inType="win:UInt32"/>
+      <data name="ActivitySummary" inType="win:UInt32"/>
+      <data name="EventTypeAndBitfield" inType="win:UInt32"/>
+      <data name="PackageFullName" inType="win:UnicodeString"/>
+      <data name="EntryPoint" inType="win:UnicodeString"/>
+     </template>
+     <template tid="PdcReferenceAcquireArgs">
+      <data name="ActivityType" inType="win:UInt32"/>
+      <data name="PackageFullName" inType="win:UnicodeString"/>
+      <data name="NameLength" inType="win:UInt16"/>
+      <data name="TaskName" inType="win:UnicodeString" length="NameLength"/>
+     </template>
+     <template tid="WorkItemBlockingDisconnectedStandbyArgs">
+      <data name="WorkItemId" inType="win:GUID"/>
+      <data name="EntryPointLength" inType="win:UInt16"/>
+      <data name="EntryPoint" inType="win:UnicodeString" length="EntryPointLength"/>
+      <data name="NameLength" inType="win:UInt16"/>
+      <data name="TaskName" inType="win:UnicodeString" length="NameLength"/>
+      <data name="PackageFullName" inType="win:UnicodeString"/>
+      <data name="UserSid" inType="win:SID"/>
+      <data name="TriggerEventType" inType="win:UInt32"/>
+      <data name="ScenarioInstanceId" inType="win:UInt16"/>
+      <data name="AlwaysAllowed" inType="win:Boolean"/>
+      <data name="VoipApp" inType="win:Boolean"/>
+     </template>
+     <template tid="BackgroundTaskStartArgs_V1">
+      <data name="EntryPointLength" inType="win:UInt16"/>
+      <data name="TaskEntryPoint" inType="win:UnicodeString" length="EntryPointLength"/>
+      <data name="NameLength" inType="win:UInt16"/>
+      <data name="TaskName" inType="win:UnicodeString" length="NameLength"/>
+      <data name="UserContextId" inType="win:UInt64"/>
+      <data name="InstanceId" inType="win:GUID"/>
+      <data name="ApplicationId" inType="win:UInt64"/>
+      <data name="PsmActivationType" inType="win:UInt32"/>
+      <data name="CriticalActivation" inType="win:Boolean"/>
+      <data name="TriggerEventId" inType="win:GUID"/>
+      <data name="TriggerEventType" inType="win:UInt32"/>
+     </template>
+     <template tid="BackgroundTaskStopArgs_V1">
+      <data name="WorkItemId" inType="win:GUID"/>
+      <data name="BrokerId" inType="win:GUID"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="TaskExecuted" inType="win:Boolean"/>
+      <data name="Result" inType="win:UInt32"/>
+      <data name="UserSid" inType="win:SID"/>
+      <data name="PackageFullName" inType="win:UnicodeString"/>
+      <data name="EntryPointLength" inType="win:UInt16"/>
+      <data name="EntryPoint" inType="win:UnicodeString" length="EntryPointLength"/>
+      <data name="ApplicationId" inType="win:UInt64"/>
+      <data name="CpuThrottleCount" inType="win:UInt16"/>
+      <data name="NetThrottleCount" inType="win:UInt16"/>
+      <data name="WatchdogDuration" inType="win:UInt32"/>
+      <data name="WatchdogIteration" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt16"/>
+     </template>
+     <template tid="PackageStateChangeStartArgs_V1">
+      <data name="PackageFullName" inType="win:UnicodeString"/>
+      <data name="UserAccountName" inType="win:UnicodeString"/>
+      <data name="UserContextId" inType="win:UInt64"/>
+      <data name="PackageState" inType="win:UInt32"/>
+     </template>
+     <template tid="BackgroundTaskTaskCanceledArgs_V1">
+      <data name="EntryPointLength" inType="win:UInt16"/>
+      <data name="TaskEntryPoint" inType="win:UnicodeString" length="EntryPointLength"/>
+      <data name="NameLength" inType="win:UInt16"/>
+      <data name="TaskName" inType="win:UnicodeString" length="NameLength"/>
+      <data name="InstanceId" inType="win:GUID"/>
+      <data name="UserContextId" inType="win:UInt64"/>
+     </template>
+     <template tid="BackgroundTaskInstanceDCStopArgs_V1">
+      <data name="WorkItemId" inType="win:GUID"/>
+      <data name="ApplicationId" inType="win:UInt64"/>
+      <data name="UserContextId" inType="win:UInt64"/>
+      <data name="PsmActivationType" inType="win:UInt32"/>
+      <data name="CpuThrottleCount" inType="win:UInt16"/>
+      <data name="NetThrottleCount" inType="win:UInt16"/>
+      <data name="PackageFullName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="PackageDCStopArgs_V1">
+      <data name="UserContextId" inType="win:UInt64"/>
+      <data name="StateFlags" inType="win:UInt32"/>
+      <data name="ActiveTaskCount" inType="win:UInt32"/>
+      <data name="LockScreen" inType="win:Boolean"/>
+      <data name="PackageFullName" inType="win:UnicodeString"/>
+      <data name="UserSid" inType="win:SID"/>
+     </template>
+     <template tid="WatchdogIterationArgs_V1">
+      <data name="Duration" inType="win:UInt32"/>
+      <data name="Iteration" inType="win:UInt32"/>
+      <data name="ActivitySummary" inType="win:UInt32"/>
+      <data name="ActivityFilter" inType="win:UInt32"/>
+      <data name="HangDetected" inType="win:Boolean"/>
+      <data name="EventType" inType="win:UInt32"/>
+      <data name="PackageFullName" inType="win:UnicodeString"/>
+      <data name="EntryPoint" inType="win:UnicodeString"/>
+      <data name="InstanceId" inType="win:GUID"/>
+      <data name="CycleTime" inType="win:UInt64"/>
+      <data name="NetTokens" inType="win:UInt64"/>
+      <data name="PolicyVersion" inType="win:UInt8"/>
+     </template>
+     <template tid="BackgroundTaskStopArgs_V2">
+      <data name="WorkItemId" inType="win:GUID"/>
+      <data name="BrokerId" inType="win:GUID"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="TaskExecuted" inType="win:Boolean"/>
+      <data name="Result" inType="win:UInt32"/>
+      <data name="UserSid" inType="win:SID"/>
+      <data name="PackageFullName" inType="win:UnicodeString"/>
+      <data name="EntryPointLength" inType="win:UInt16"/>
+      <data name="EntryPoint" inType="win:UnicodeString" length="EntryPointLength"/>
+      <data name="ApplicationId" inType="win:UInt64"/>
+      <data name="CpuThrottleCount" inType="win:UInt16"/>
+      <data name="NetThrottleCount" inType="win:UInt16"/>
+      <data name="Flags" inType="win:UInt16"/>
+     </template>
+     <template tid="BackgroundTaskTaskWatchdogArgs_V2">
+      <data name="EntryPointLength" inType="win:UInt16"/>
+      <data name="TaskEntryPoint" inType="win:UnicodeString" length="EntryPointLength"/>
+      <data name="NameLength" inType="win:UInt16"/>
+      <data name="TaskName" inType="win:UnicodeString" length="NameLength"/>
+      <data name="PackageFullName" inType="win:UnicodeString"/>
+      <data name="InstanceId" inType="win:GUID"/>
+      <data name="UserContextId" inType="win:UInt64"/>
+      <data name="UserSid" inType="win:SID"/>
+      <data name="LockScreen" inType="win:Boolean"/>
+     </template>
+     <template tid="BackgroundTaskStopArgs_V3">
+      <data name="WorkItemId" inType="win:GUID"/>
+      <data name="BrokerId" inType="win:GUID"/>
+      <data name="UserContextId" inType="win:UInt64"/>
+      <data name="TaskExecuted" inType="win:Boolean"/>
+      <data name="Result" inType="win:UInt32"/>
+      <data name="UserSid" inType="win:SID"/>
+      <data name="PackageFullName" inType="win:UnicodeString"/>
+      <data name="EntryPointLength" inType="win:UInt16"/>
+      <data name="EntryPoint" inType="win:UnicodeString" length="EntryPointLength"/>
+      <data name="ApplicationId" inType="win:UInt64"/>
+      <data name="CpuThrottleCount" inType="win:UInt16"/>
+      <data name="NetThrottleCount" inType="win:UInt16"/>
+      <data name="Flags" inType="win:UInt16"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_BackgroundTask" value="BackgroundTask"/>
+    <string id="keyword_PDC" value="PDC"/>
+    <string id="keyword_LowOverheadDiag" value="LowOverheadDiag"/>
+    <string id="keyword_Package" value="Package"/>
+    <string id="keyword_Watchdog" value="Watchdog"/>
+    <string id="keyword_Session" value="Session"/>
+    <string id="keyword_SleepStudy" value="SleepStudy"/>
+    <string id="task_BackgroundTask" value="BackgroundTask"/>
+    <string id="opcode_BackgroundTaskTaskThrottledCpu" value="TaskThrottledCpu"/>
+    <string id="opcode_BackgroundTaskTaskThrottledNet" value="TaskThrottledNet"/>
+    <string id="opcode_BackgroundTaskTaskForcedCompletion" value="TaskForcedCompletion"/>
+    <string id="opcode_BackgroundTaskTaskLatched" value="TaskLatched"/>
+    <string id="opcode_BackgroundTaskTaskUnlatched" value="TaskUnlatched"/>
+    <string id="opcode_BackgroundTaskTaskDropped" value="TaskDropped"/>
+    <string id="opcode_BackgroundTaskTaskBufferedPolicy" value="TaskBufferedPolicy"/>
+    <string id="opcode_BackgroundTaskTaskBufferedPackageState" value="TaskBufferedPackageState"/>
+    <string id="opcode_BackgroundTaskTaskUnbuffered" value="TaskUnbuffered"/>
+    <string id="opcode_BackgroundTaskTaskCanceled" value="TaskCanceled"/>
+    <string id="opcode_BackgroundTaskTaskUnregistered" value="TaskUnregistered"/>
+    <string id="opcode_BackgroundTaskTaskActivationFailed" value="TaskActivationFailed"/>
+    <string id="opcode_BackgroundTaskTaskWatchdog" value="TaskWatchdog"/>
+    <string id="task_BackgroundTaskProxy" value="BackgroundTaskProxy"/>
+    <string id="task_TriggerSignal" value="TriggerSignal"/>
+    <string id="task_ConditionChange" value="ConditionChange"/>
+    <string id="task_PackageStateChange" value="PackageStateChange"/>
+    <string id="task_PdcReference" value="PdcReference"/>
+    <string id="opcode_PdcReferenceAcquire" value="Acquire"/>
+    <string id="opcode_PdcReferenceRelease" value="Release"/>
+    <string id="task_BackgroundTaskPerfTrack" value="BackgroundTaskPerfTrack"/>
+    <string id="task_BackgroundTaskInstance" value="BackgroundTaskInstance"/>
+    <string id="task_Package" value="Package"/>
+    <string id="opcode_PackagePackageWatchdog" value="PackageWatchdog"/>
+    <string id="task_WatchdogIteration" value="WatchdogIteration"/>
+    <string id="opcode_WatchdogIterationWatchdogIteration" value="WatchdogIteration"/>
+    <string id="task_WatchdogIterationPerfTrack" value="WatchdogIterationPerfTrack"/>
+    <string id="opcode_WatchdogIterationPerfTrackWatchdogIteration" value="WatchdogIteration"/>
+    <string id="task_SessionStateTransition" value="SessionStateTransition"/>
+    <string id="opcode_SessionStateTransitionSessionStateTransition" value="SessionStateTransition"/>
+    <string id="task_WorkItemBlockingDisconnectedStandby" value="WorkItemBlockingDisconnectedStandby"/>
+    <string id="opcode_WorkItemBlockingDisconnectedStandbyWorkItemBlockingDisconnectedStandby" value="WorkItemBlockingDisconnectedStandby"/>
+    <string id="map_EventSqmTypeunknown" value="unknown"/>
+    <string id="map_EventSqmTypeSMS received" value="SMS received"/>
+    <string id="map_EventSqmTypeuser present" value="user present"/>
+    <string id="map_EventSqmTypeuser away" value="user away"/>
+    <string id="map_EventSqmTypenetwork state change" value="network state change"/>
+    <string id="map_EventSqmTypenetwork channel reset" value="network channel reset"/>
+    <string id="map_EventSqmTypeInternet available" value="Internet available"/>
+    <string id="map_EventSqmTypesession connected" value="session connected"/>
+    <string id="map_EventSqmTypeservicing complete" value="servicing complete"/>
+    <string id="map_EventSqmTypeadded to lock screen" value="added to lock screen"/>
+    <string id="map_EventSqmTyperemoved from lock screen" value="removed from lock screen"/>
+    <string id="map_EventSqmTypetime zone change" value="time zone change"/>
+    <string id="map_EventSqmTypeonline ID state change" value="online ID state change"/>
+    <string id="map_EventSqmTypenetwork operator trigger" value="network operator trigger"/>
+    <string id="map_EventSqmTypenetwork operator hotspot trigger" value="network operator hotspot trigger"/>
+    <string id="map_EventSqmTypeunknown" value="unknown"/>
+    <string id="map_EventSqmTypeSMS received" value="SMS received"/>
+    <string id="map_EventSqmTypeuser present" value="user present"/>
+    <string id="map_EventSqmTypeuser away" value="user away"/>
+    <string id="map_EventSqmTypenetwork state change" value="network state change"/>
+    <string id="map_EventSqmTypenetwork channel reset" value="network channel reset"/>
+    <string id="map_EventSqmTypeInternet available" value="Internet available"/>
+    <string id="map_EventSqmTypesession connected" value="session connected"/>
+    <string id="map_EventSqmTypeservicing complete" value="servicing complete"/>
+    <string id="map_EventSqmTypeadded to lock screen" value="added to lock screen"/>
+    <string id="map_EventSqmTyperemoved from lock screen" value="removed from lock screen"/>
+    <string id="map_EventSqmTypetime zone change" value="time zone change"/>
+    <string id="map_EventSqmTypeonline ID state change" value="online ID state change"/>
+    <string id="map_EventSqmTypetime trigger" value="time trigger"/>
+    <string id="map_EventSqmTypemaintenance trigger" value="maintenance trigger"/>
+    <string id="map_EventSqmTypepush notification trigger" value="push notification trigger"/>
+    <string id="map_EventSqmTypenetwork keepalive" value="network keepalive"/>
+    <string id="map_EventSqmTypepush notification task trigger" value="push notification task trigger"/>
+    <string id="map_ConditionValueTypefalse" value="false"/>
+    <string id="map_ConditionValueTypetrue" value="true"/>
+    <string id="map_ConditionValueTypean invalid state" value="an invalid state"/>
+    <string id="map_ConditionValueTypean unknown state" value="an unknown state"/>
+    <string id="map_PackageStateChangeTypeservicing in progress" value="servicing in progress"/>
+    <string id="map_PackageStateChangeTypeservicing in progress" value="servicing in progress"/>
+    <string id="map_PackageStateChangeTypeservicing complete" value="servicing complete"/>
+    <string id="map_PackageStateChangeTypeuninstalled" value="uninstalled"/>
+    <string id="map_PackageStateChangeTypeterminated (new background tasks will be buffered)" value="terminated (new background tasks will be buffered)"/>
+    <string id="map_PackageStateChangeTypeunbuffer buffered background tasks" value="unbuffer buffered background tasks"/>
+    <string id="map_PackageStateChangeTypeterminated" value="terminated"/>
+    <string id="map_PackageStateChangeTypeterminated (running background tasks will not be canceled)" value="terminated (running background tasks will not be canceled)"/>
+    <string id="map_UnbufferingReasonTypeone or more of the task's conditions was not in the desired state" value="one or more of the task's conditions was not in the desired state"/>
+    <string id="map_UnbufferingReasonTypethe task's application package was being serviced" value="the task's application package was being serviced"/>
+    <string id="map_UnbufferingReasonTypethe task's application package was being terminated" value="the task's application package was being terminated"/>
+    <string id="map_UnbufferingReasonTypethe task could not execute while the computer was using its battery" value="the task could not execute while the computer was using its battery"/>
+    <string id="map_UnbufferingReasonTypean instance of the task was already running" value="an instance of the task was already running"/>
+    <string id="map_UnbufferingReasonTypethe task could not execute while the computer was being refreshed" value="the task could not execute while the computer was being refreshed"/>
+    <string id="map_UnbufferingReasonTypethe task's application package was subject to resource policy" value="the task's application package was subject to resource policy"/>
+    <string id="map_UnbufferingReasonTypethe task's application package was being uninstalled" value="the task's application package was being uninstalled"/>
+    <string id="map_UnbufferingReasonTypethe task could not execute during Quiet Hours" value="the task could not execute during Quiet Hours"/>
+    <string id="map_UnbufferingReasonTypethe task was subject to service extension policy" value="the task was subject to service extension policy"/>
+    <string id="map_UnbufferingReasonTypethe task could not execute when a WER Report for the application package is being collected" value="the task could not execute when a WER Report for the application package is being collected"/>
+    <string id="map_DeletionReasonTypethe entry point no longer exists in the task's application package" value="the entry point no longer exists in the task's application package"/>
+    <string id="map_DeletionReasonTypethe task is a one-shot task that was activated" value="the task is a one-shot task that was activated"/>
+    <string id="map_DeletionReasonTypethe task's trigger (or one of its conditions) was deleted" value="the task's trigger (or one of its conditions) was deleted"/>
+    <string id="map_DeletionReasonTypethe task was explicitly unregistered" value="the task was explicitly unregistered"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,95 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Privacy-Auditing" guid="{d67fbb76-d18a-5ae3-24a3-8c1db52d6c62}" resourceFileName="Microsoft-Windows-Privacy-Auditing" messageFileName="Microsoft-Windows-Privacy-Auditing" symbol="MicrosoftWindowsPrivacyAuditing" source="Xml" >
+    <keywords>
+     <keyword name="SystemGlobal" message="$(string.keyword_SystemGlobal)" mask="0x1"/>
+     <keyword name="UserGlobal" message="$(string.keyword_UserGlobal)" mask="0x2"/>
+     <keyword name="UserApp" message="$(string.keyword_UserApp)" mask="0x4"/>
+     <keyword name="Failure" message="$(string.keyword_Failure)" mask="0x40"/>
+    </keywords>
+    <tasks>
+     <task name="ValueChanged" message="$(string.task_ValueChanged)" value="10"/>
+     <task name="DefaultConsentCreated" message="$(string.task_DefaultConsentCreated)" value="20"/>
+     <task name="CapabilityConsentProvisioned" message="$(string.task_CapabilityConsentProvisioned)" value="30"/>
+     <task name="PromptAnswered" message="$(string.task_PromptAnswered)" value="40"/>
+    </tasks>
+    <events>
+     <event value="1000" symbol="ValueChanged" version="0" task="ValueChanged" level="win:Informational" keywords="SystemGlobal" template="ValueChangedArgs"/>
+     <event value="1001" symbol="ValueChanged1001" version="0" task="ValueChanged" level="win:Error" keywords="SystemGlobal Failure" template="ValueChangedArgs"/>
+     <event value="1002" symbol="ValueChanged1002" version="0" task="ValueChanged" level="win:Informational" keywords="UserGlobal" template="ValueChangedArgs"/>
+     <event value="1003" symbol="ValueChanged1003" version="0" task="ValueChanged" level="win:Error" keywords="UserGlobal Failure" template="ValueChangedArgs"/>
+     <event value="1004" symbol="ValueChanged1004" version="0" task="ValueChanged" level="win:Informational" keywords="UserApp" template="ValueChangedArgs"/>
+     <event value="1005" symbol="ValueChanged1005" version="0" task="ValueChanged" level="win:Error" keywords="UserApp Failure" template="ValueChangedArgs"/>
+     <event value="1006" symbol="DefaultConsentCreated" version="0" task="DefaultConsentCreated" level="win:Informational" keywords="SystemGlobal" template="DefaultConsentCreatedArgs"/>
+     <event value="1007" symbol="DefaultConsentCreated1007" version="0" task="DefaultConsentCreated" level="win:Error" keywords="SystemGlobal Failure" template="DefaultConsentCreatedArgs"/>
+     <event value="1008" symbol="DefaultConsentCreated1008" version="0" task="DefaultConsentCreated" level="win:Informational" keywords="UserGlobal" template="DefaultConsentCreatedArgs"/>
+     <event value="1009" symbol="DefaultConsentCreated1009" version="0" task="DefaultConsentCreated" level="win:Error" keywords="UserGlobal Failure" template="DefaultConsentCreatedArgs"/>
+     <event value="1010" symbol="DefaultConsentCreated1010" version="0" task="DefaultConsentCreated" level="win:Informational" keywords="UserApp" template="DefaultConsentCreatedArgs"/>
+     <event value="1011" symbol="DefaultConsentCreated1011" version="0" task="DefaultConsentCreated" level="win:Error" keywords="UserApp Failure" template="DefaultConsentCreatedArgs"/>
+     <event value="1012" symbol="CapabilityConsentProvisioned" version="0" task="CapabilityConsentProvisioned" level="win:Informational" keywords="UserApp" template="CapabilityConsentProvisionedArgs"/>
+     <event value="1013" symbol="CapabilityConsentProvisioned1013" version="0" task="CapabilityConsentProvisioned" level="win:Error" keywords="UserApp Failure" template="CapabilityConsentProvisionedArgs"/>
+     <event value="1014" symbol="PromptAnswered" version="0" task="PromptAnswered" level="win:Informational" keywords="UserApp" template="PromptAnsweredArgs"/>
+     <event value="1015" symbol="PromptAnswered1015" version="0" task="PromptAnswered" level="win:Error" keywords="UserApp Failure" template="PromptAnsweredArgs"/>
+    </events>
+    <templates>
+     <template tid="ValueChangedArgs">
+      <data name="CallerUserSid" inType="win:UnicodeString"/>
+      <data name="CallerProcessName" inType="win:UnicodeString"/>
+      <data name="CallerAppPackageFamilyName" inType="win:UnicodeString"/>
+      <data name="OldConsentValue" inType="win:UnicodeString"/>
+      <data name="NewConsentValue" inType="win:UnicodeString"/>
+      <data name="SetByHigherAuthority" inType="win:Boolean"/>
+      <data name="EffectiveConsentValue" inType="win:UnicodeString"/>
+      <data name="TargetUserSid" inType="win:UnicodeString"/>
+      <data name="ConsentID" inType="win:UnicodeString"/>
+      <data name="AppPackageFamilyName" inType="win:UnicodeString"/>
+      <data name="HResult" inType="win:HexInt32"/>
+      <data name="SettingName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="DefaultConsentCreatedArgs">
+      <data name="NewConsentValue" inType="win:UnicodeString"/>
+      <data name="TargetUserSid" inType="win:UnicodeString"/>
+      <data name="ConsentID" inType="win:UnicodeString"/>
+      <data name="AppPackageFamilyName" inType="win:UnicodeString"/>
+      <data name="HResult" inType="win:HexInt32"/>
+      <data name="SettingName" inType="win:UnicodeString"/>
+      <data name="Migrated" inType="win:Boolean"/>
+      <data name="Suppressed" inType="win:Boolean"/>
+     </template>
+     <template tid="CapabilityConsentProvisionedArgs">
+      <data name="NewConsentValue" inType="win:UnicodeString"/>
+      <data name="TargetUserSid" inType="win:UnicodeString"/>
+      <data name="AppPackageFamilyName" inType="win:UnicodeString"/>
+      <data name="HResult" inType="win:HexInt32"/>
+      <data name="SettingName" inType="win:UnicodeString"/>
+      <data name="Migrated" inType="win:Boolean"/>
+     </template>
+     <template tid="PromptAnsweredArgs">
+      <data name="NewConsentValue" inType="win:UnicodeString"/>
+      <data name="TargetUserSid" inType="win:UnicodeString"/>
+      <data name="ConsentID" inType="win:UnicodeString"/>
+      <data name="AppPackageFamilyName" inType="win:UnicodeString"/>
+      <data name="HResult" inType="win:HexInt32"/>
+      <data name="SettingName" inType="win:UnicodeString"/>
+      <data name="AutoAccepted" inType="win:Boolean"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_SystemGlobal" value="SystemGlobal"/>
+    <string id="keyword_UserGlobal" value="UserGlobal"/>
+    <string id="keyword_UserApp" value="UserApp"/>
+    <string id="keyword_Failure" value="Failure"/>
+    <string id="task_ValueChanged" value="ValueChanged"/>
+    <string id="task_DefaultConsentCreated" value="DefaultConsentCreated"/>
+    <string id="task_CapabilityConsentProvisioned" value="CapabilityConsentProvisioned"/>
+    <string id="task_PromptAnswered" value="PromptAnswered"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

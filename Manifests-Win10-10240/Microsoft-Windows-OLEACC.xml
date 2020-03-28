@@ -1,0 +1,41 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-OLEACC" guid="{19d2c934-ee9b-49e5-aaeb-9cce721d2c65}" resourceFileName="Microsoft-Windows-OLEACC" messageFileName="Microsoft-Windows-OLEACC" symbol="MicrosoftWindowsOLEACC" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="OLEACC_IAccessibleErrors" message="$(string.task_OLEACC_IAccessibleErrors)" value="1"/>
+     <task name="OLEACC_ClientApiCall" message="$(string.task_OLEACC_ClientApiCall)" value="2"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="OLEACC_IAccessibleErrors" version="0" task="OLEACC_IAccessibleErrors" level="win:Informational" template="OLEACC_IAccessibleErrorsArgs"/>
+     <event value="2" symbol="OLEACC_ClientApiCallStart" version="0" task="OLEACC_ClientApiCall" opcode="win:Start" level="win:Verbose" template="OLEACC_ClientApiCallStartArgs"/>
+     <event value="3" symbol="OLEACC_ClientApiCallStop" version="0" task="OLEACC_ClientApiCall" opcode="win:Stop" level="win:Verbose" template="OLEACC_ClientApiCallStartArgs"/>
+    </events>
+    <templates>
+     <template tid="OLEACC_IAccessibleErrorsArgs">
+      <data name="Method" inType="win:UnicodeString"/>
+      <data name="Hresult" inType="win:UInt32"/>
+      <data name="Details" inType="win:UnicodeString"/>
+      <data name="SourceHwnd" inType="win:UnicodeString"/>
+      <data name="Provider" inType="win:UnicodeString"/>
+     </template>
+     <template tid="OLEACC_ClientApiCallStartArgs">
+      <data name="MethodIndex" inType="win:UInt32"/>
+      <data name="Object" inType="win:Pointer"/>
+      <data name="Parameter" inType="win:Int32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_OLEACC_IAccessibleErrors" value="OLEACC_IAccessibleErrors"/>
+    <string id="task_OLEACC_ClientApiCall" value="OLEACC_ClientApiCall"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

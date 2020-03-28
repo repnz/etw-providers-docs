@@ -1,0 +1,121 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-VerifyHardwareSecurity" guid="{f3f53c76-b06d-4f15-b412-61164a0d2b73}" resourceFileName="Microsoft-Windows-VerifyHardwareSecurity" messageFileName="Microsoft-Windows-VerifyHardwareSecurity" symbol="MicrosoftWindowsVerifyHardwareSecurity" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="CheckGeneric" message="$(string.task_CheckGeneric)" value="1">
+>
+      <opcodes>
+       <opcode name="reportCheck" message="$(string.opcode_CheckGenericreportCheck)" value="106"/>
+      </opcodes>
+     </task>
+     <task name="CheckSecureBootEnabled" message="$(string.task_CheckSecureBootEnabled)" value="2">
+>
+      <opcodes>
+       <opcode name="securebootEnabledFailedCheck" message="$(string.opcode_CheckSecureBootEnabledsecurebootEnabledFailedCheck)" value="100"/>
+       <opcode name="securebootEnabledFailedToCheck" message="$(string.opcode_CheckSecureBootEnabledsecurebootEnabledFailedToCheck)" value="101"/>
+      </opcodes>
+     </task>
+     <task name="CheckCertificates" message="$(string.task_CheckCertificates)" value="3">
+>
+      <opcodes>
+       <opcode name="certsFailedCheck" message="$(string.opcode_CheckCertificatescertsFailedCheck)" value="102"/>
+       <opcode name="certsFailedToCheck" message="$(string.opcode_CheckCertificatescertsFailedToCheck)" value="103"/>
+      </opcodes>
+     </task>
+     <task name="CheckSecureBootPolicy" message="$(string.task_CheckSecureBootPolicy)" value="4">
+>
+      <opcodes>
+       <opcode name="securebootPolicyFailedCheck" message="$(string.opcode_CheckSecureBootPolicysecurebootPolicyFailedCheck)" value="104"/>
+       <opcode name="securebootPolicyFailedToCheck" message="$(string.opcode_CheckSecureBootPolicysecurebootPolicyFailedToCheck)" value="105"/>
+      </opcodes>
+     </task>
+     <task name="CheckHostLockdownPolicy" message="$(string.task_CheckHostLockdownPolicy)" value="5">
+>
+      <opcodes>
+       <opcode name="HostLockdownCheck" message="$(string.opcode_CheckHostLockdownPolicyHostLockdownCheck)" value="107"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <maps>
+     <bitMap name="checksMap">
+      <map value="0x1" message="$(string.map_checksMapChecking if secureboot is enabled)"/>
+      <map value="0x2" message="$(string.map_checksMapChecking if any known test certificates/keys are present in EFI db)"/>
+      <map value="0x4" message="$(string.map_checksMapChecking if secureboot policy is not production)"/>
+     </bitMap>
+    </maps>
+    <events>
+     <event value="3001" symbol="CheckGenericEPORTCHECKeportCheck" version="0" task="CheckGeneric" opcode="reportCheck" level="win:Informational" template="CheckGenericEPORTCHECKeportCheckArgs"/>
+     <event value="3002" symbol="CheckSecureBootEnabledECUREBOOTENABLEDFAILEDCHECKecurebootEnabledFailedCheck" version="0" task="CheckSecureBootEnabled" opcode="securebootEnabledFailedCheck" level="win:Error"/>
+     <event value="3003" symbol="CheckSecureBootEnabledECUREBOOTENABLEDFAILEDTOCHECKecurebootEnabledFailedToCheck" version="0" task="CheckSecureBootEnabled" opcode="securebootEnabledFailedToCheck" level="win:Warning" template="CheckSecureBootEnabledECUREBOOTENABLEDFAILEDTOCHECKecurebootEnabledFailedToCheckArgs"/>
+     <event value="3004" symbol="CheckCertificatesERTSFAILEDCHECKertsFailedCheck" version="0" task="CheckCertificates" opcode="certsFailedCheck" level="win:Error" template="CheckCertificatesERTSFAILEDCHECKertsFailedCheckArgs"/>
+     <event value="3005" symbol="CheckCertificatesERTSFAILEDTOCHECKertsFailedToCheck" version="0" task="CheckCertificates" opcode="certsFailedToCheck" level="win:Warning" template="CheckSecureBootEnabledECUREBOOTENABLEDFAILEDTOCHECKecurebootEnabledFailedToCheckArgs"/>
+     <event value="3006" symbol="CheckSecureBootPolicyECUREBOOTPOLICYFAILEDCHECKecurebootPolicyFailedCheck" version="0" task="CheckSecureBootPolicy" opcode="securebootPolicyFailedCheck" level="win:Error"/>
+     <event value="3007" symbol="CheckSecureBootPolicyECUREBOOTPOLICYFAILEDTOCHECKecurebootPolicyFailedToCheck" version="0" task="CheckSecureBootPolicy" opcode="securebootPolicyFailedToCheck" level="win:Warning" template="CheckSecureBootEnabledECUREBOOTENABLEDFAILEDTOCHECKecurebootEnabledFailedToCheckArgs"/>
+     <event value="3008" symbol="CheckHostLockdownPolicyHostLockdownCheck" version="0" task="CheckHostLockdownPolicy" opcode="HostLockdownCheck" level="win:Informational" template="CheckHostLockdownPolicyHostLockdownCheckArgs"/>
+     <event value="3009" symbol="CheckHostLockdownPolicyHostLockdownCheck3009" version="0" task="CheckHostLockdownPolicy" opcode="HostLockdownCheck" level="win:Error" template="CheckHostLockdownPolicyHostLockdownCheck3009Args"/>
+     <event value="3010" symbol="CheckHostLockdownPolicyHostLockdownCheck3010" version="0" task="CheckHostLockdownPolicy" opcode="HostLockdownCheck" level="win:Error" template="CheckHostLockdownPolicyHostLockdownCheckArgs"/>
+     <event value="3011" symbol="CheckHostLockdownPolicyHostLockdownCheck3011" version="0" task="CheckHostLockdownPolicy" opcode="HostLockdownCheck" level="win:Error" template="CheckHostLockdownPolicyHostLockdownCheck3011Args"/>
+     <event value="3012" symbol="CheckHostLockdownPolicyHostLockdownCheck3012" version="0" task="CheckHostLockdownPolicy" opcode="HostLockdownCheck" level="win:Informational" template="CheckHostLockdownPolicyHostLockdownCheckArgs"/>
+     <event value="3013" symbol="CheckHostLockdownPolicyHostLockdownCheck3013" version="0" task="CheckHostLockdownPolicy" opcode="HostLockdownCheck" level="win:Informational" template="CheckHostLockdownPolicyHostLockdownCheckArgs"/>
+    </events>
+    <templates>
+     <template tid="CheckGenericEPORTCHECKeportCheckArgs">
+      <data name="CurrentCheckBit" inType="win:UInt32" map="checksMap"/>
+     </template>
+     <template tid="CheckSecureBootEnabledECUREBOOTENABLEDFAILEDTOCHECKecurebootEnabledFailedToCheckArgs">
+      <data name="hr" inType="win:Int32"/>
+     </template>
+     <template tid="CheckCertificatesERTSFAILEDCHECKertsFailedCheckArgs">
+      <data name="name" inType="win:UnicodeString"/>
+      <data name="database" inType="win:UnicodeString"/>
+      <data name="bytes" inType="win:Binary"/>
+     </template>
+     <template tid="CheckHostLockdownPolicyHostLockdownCheckArgs">
+      <data name="HostProvider" inType="win:UnicodeString"/>
+      <data name="ModulePath" inType="win:UnicodeString"/>
+      <data name="Method" inType="win:UnicodeString"/>
+      <data name="InternalName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="CheckHostLockdownPolicyHostLockdownCheck3009Args">
+      <data name="HostProvider" inType="win:UnicodeString"/>
+      <data name="ModulePath" inType="win:UnicodeString"/>
+      <data name="Method" inType="win:UnicodeString"/>
+      <data name="InternalName" inType="win:UnicodeString"/>
+      <data name="hr" inType="win:Int32"/>
+     </template>
+     <template tid="CheckHostLockdownPolicyHostLockdownCheck3011Args">
+      <data name="HostProvider" inType="win:UnicodeString"/>
+      <data name="ModulePath" inType="win:UnicodeString"/>
+      <data name="Method" inType="win:UnicodeString"/>
+      <data name="hr" inType="win:Int32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_CheckGeneric" value="CheckGeneric"/>
+    <string id="opcode_CheckGenericreportCheck" value="reportCheck"/>
+    <string id="task_CheckSecureBootEnabled" value="CheckSecureBootEnabled"/>
+    <string id="opcode_CheckSecureBootEnabledsecurebootEnabledFailedCheck" value="securebootEnabledFailedCheck"/>
+    <string id="opcode_CheckSecureBootEnabledsecurebootEnabledFailedToCheck" value="securebootEnabledFailedToCheck"/>
+    <string id="task_CheckCertificates" value="CheckCertificates"/>
+    <string id="opcode_CheckCertificatescertsFailedCheck" value="certsFailedCheck"/>
+    <string id="opcode_CheckCertificatescertsFailedToCheck" value="certsFailedToCheck"/>
+    <string id="task_CheckSecureBootPolicy" value="CheckSecureBootPolicy"/>
+    <string id="opcode_CheckSecureBootPolicysecurebootPolicyFailedCheck" value="securebootPolicyFailedCheck"/>
+    <string id="opcode_CheckSecureBootPolicysecurebootPolicyFailedToCheck" value="securebootPolicyFailedToCheck"/>
+    <string id="task_CheckHostLockdownPolicy" value="CheckHostLockdownPolicy"/>
+    <string id="opcode_CheckHostLockdownPolicyHostLockdownCheck" value="HostLockdownCheck"/>
+    <string id="map_checksMapChecking if secureboot is enabled" value="Checking if secureboot is enabled"/>
+    <string id="map_checksMapChecking if any known test certificates/keys are present in EFI db" value="Checking if any known test certificates/keys are present in EFI db"/>
+    <string id="map_checksMapChecking if secureboot policy is not production" value="Checking if secureboot policy is not production"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

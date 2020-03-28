@@ -1,0 +1,140 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Resource-Exhaustion-Detector" guid="{9988748e-c2e8-4054-85f6-0c3e1cad2470}" resourceFileName="Microsoft-Windows-Resource-Exhaustion-Detector" messageFileName="Microsoft-Windows-Resource-Exhaustion-Detector" symbol="MicrosoftWindowsResourceExhaustionDetector" source="Xml" >
+    <keywords>
+     <keyword name="RDR_DET_KEYWORD_LIFECYCLE" message="$(string.keyword_RDR_DET_KEYWORD_LIFECYCLE)" mask="0x10000000"/>
+     <keyword name="RDR_DET_KEYWORD_MEMORY_EXHAUSTION" message="$(string.keyword_RDR_DET_KEYWORD_MEMORY_EXHAUSTION)" mask="0x20000000"/>
+     <keyword name="RDR_DET_KEYWORD_HEAP_LEAK_DETECTION" message="$(string.keyword_RDR_DET_KEYWORD_HEAP_LEAK_DETECTION)" mask="0x40000000"/>
+    </keywords>
+    <tasks>
+     <task name="LifecycleEvents" message="$(string.task_LifecycleEvents)" value="1">
+>
+      <opcodes>
+       <opcode name="Eventsloggedwhentheresourceexhaustiondetectorisstarted." message="$(string.opcode_LifecycleEventsEventsloggedwhentheresourceexhaustiondetectorisstarted.)" value="11"/>
+       <opcode name="Eventsloggedwhentheresourceexhaustiondetectorisstopped." message="$(string.opcode_LifecycleEventsEventsloggedwhentheresourceexhaustiondetectorisstopped.)" value="12"/>
+       <opcode name="Eventsloggedafteramemoryallocation." message="$(string.opcode_LifecycleEventsEventsloggedafteramemoryallocation.)" value="13"/>
+      </opcodes>
+     </task>
+     <task name="ResourceExhaustionDetectionEvents" message="$(string.task_ResourceExhaustionDetectionEvents)" value="2">
+>
+      <opcodes>
+       <opcode name="Eventsloggedwhenaproblemisdetected." message="$(string.opcode_ResourceExhaustionDetectionEventsEventsloggedwhenaproblemisdetected.)" value="22"/>
+      </opcodes>
+     </task>
+     <task name="ResourceExhaustionDiagnosisEvents" message="$(string.task_ResourceExhaustionDiagnosisEvents)" value="3">
+>
+      <opcodes>
+       <opcode name="Containstheresultsofthediagnosis." message="$(string.opcode_ResourceExhaustionDiagnosisEventsContainstheresultsofthediagnosis.)" value="33"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="1001" symbol="LifecycleEventsEventsloggedwhentheresourceexhaustiondetectorisstarted." version="0" task="LifecycleEvents" opcode="Eventsloggedwhentheresourceexhaustiondetectorisstarted." level="win:Informational" keywords="RDR_DET_KEYWORD_LIFECYCLE"/>
+     <event value="1002" symbol="LifecycleEventsEventsloggedwhentheresourceexhaustiondetectorisstopped." version="0" task="LifecycleEvents" opcode="Eventsloggedwhentheresourceexhaustiondetectorisstopped." level="win:Informational" keywords="RDR_DET_KEYWORD_LIFECYCLE"/>
+     <event value="1003" symbol="ResourceExhaustionDetectionEventsEventsloggedwhenaproblemisdetected." version="0" task="ResourceExhaustionDetectionEvents" opcode="Eventsloggedwhenaproblemisdetected." level="win:Warning" keywords="RDR_DET_KEYWORD_MEMORY_EXHAUSTION" template="ResourceExhaustionDetectionEventsEventsloggedwhenaproblemisdetected.Args"/>
+     <event value="1005" symbol="LifecycleEventsEventsloggedwhentheresourceexhaustiondetectorisstarted.1005" version="0" task="LifecycleEvents" opcode="Eventsloggedwhentheresourceexhaustiondetectorisstarted." level="win:Error" keywords="RDR_DET_KEYWORD_LIFECYCLE" template="LifecycleEventsEventsloggedwhentheresourceexhaustiondetectorisstarted.1005Args"/>
+     <event value="1006" symbol="LifecycleEventsEventsloggedwhentheresourceexhaustiondetectorisstopped.1006" version="0" task="LifecycleEvents" opcode="Eventsloggedwhentheresourceexhaustiondetectorisstopped." level="win:Error" keywords="RDR_DET_KEYWORD_LIFECYCLE" template="LifecycleEventsEventsloggedwhentheresourceexhaustiondetectorisstarted.1005Args"/>
+     <event value="1007" symbol="LifecycleEventsEventsloggedafteramemoryallocation." version="0" task="LifecycleEvents" opcode="Eventsloggedafteramemoryallocation." level="win:Error" keywords="RDR_DET_KEYWORD_LIFECYCLE" template="LifecycleEventsEventsloggedafteramemoryallocation.Args"/>
+     <event value="1008" symbol="ResourceExhaustionDiagnosisEventsContainstheresultsofthediagnosis." version="0" task="ResourceExhaustionDiagnosisEvents" opcode="Containstheresultsofthediagnosis." level="win:Error" keywords="RDR_DET_KEYWORD_MEMORY_EXHAUSTION" template="LifecycleEventsEventsloggedwhentheresourceexhaustiondetectorisstarted.1005Args"/>
+     <event value="2004" symbol="ResourceExhaustionDiagnosisEventsContainstheresultsofthediagnosis.2004" version="0" task="ResourceExhaustionDiagnosisEvents" opcode="Containstheresultsofthediagnosis." level="win:Warning" keywords="RDR_DET_KEYWORD_MEMORY_EXHAUSTION" template="ResourceExhaustionDiagnosisEventsContainstheresultsofthediagnosis.2004Args"/>
+    </events>
+    <templates>
+     <template tid="ResourceExhaustionDetectionEventsEventsloggedwhenaproblemisdetected.Args">
+      <data name="SystemCommitLimit" inType="win:UInt64"/>
+      <data name="SystemCommitCharge" inType="win:UInt64"/>
+     </template>
+     <template tid="LifecycleEventsEventsloggedwhentheresourceexhaustiondetectorisstarted.1005Args">
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="LifecycleEventsEventsloggedafteramemoryallocation.Args">
+      <data name="RequestSize" inType="win:UInt64"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="ResourceExhaustionDiagnosisEventsContainstheresultsofthediagnosis.2004Args">
+      <data name="SystemCommitLimit" inType="win:UInt64"/>
+      <data name="SystemCommitCharge" inType="win:UInt64"/>
+      <data name="ProcessCommitCharge" inType="win:UInt64"/>
+      <data name="PagedPoolUsage" inType="win:UInt64"/>
+      <data name="PhysicalMemorySize" inType="win:UInt64"/>
+      <data name="PhysicalMemoryUsage" inType="win:UInt64"/>
+      <data name="NonPagedPoolUsage" inType="win:UInt64"/>
+      <data name="TotalProcesses" inType="win:UInt32"/>
+      <data name="PagedPoolTag_1" inType="win:UnicodeString"/>
+      <data name="PagedPoolUsed_1" inType="win:UInt64"/>
+      <data name="PagedPoolTag_2" inType="win:UnicodeString"/>
+      <data name="PagedPoolUsed_2" inType="win:UInt64"/>
+      <data name="PagedPoolTag_3" inType="win:UnicodeString"/>
+      <data name="PagedPoolUsed_3" inType="win:UInt64"/>
+      <data name="NonPagedPoolTag_1" inType="win:UnicodeString"/>
+      <data name="NonPagedPoolUsed_1" inType="win:UInt64"/>
+      <data name="NonPagedPoolTag_2" inType="win:UnicodeString"/>
+      <data name="NonPagedPoolUsed_2" inType="win:UInt64"/>
+      <data name="NonPagedPoolTag_3" inType="win:UnicodeString"/>
+      <data name="NonPagedPoolUsed_3" inType="win:UInt64"/>
+      <data name="Process_1_Name" inType="win:UnicodeString"/>
+      <data name="Process_1_ID" inType="win:UInt32"/>
+      <data name="Process_1_CreationTime" inType="win:FILETIME"/>
+      <data name="Process_1_CommitCharge" inType="win:UInt64"/>
+      <data name="Process_1_HandleCount" inType="win:UInt32"/>
+      <data name="Process_1_Version" inType="win:UnicodeString"/>
+      <data name="Process_1_TypeInfo" inType="win:UInt32"/>
+      <data name="Process_2_Name" inType="win:UnicodeString"/>
+      <data name="Process_2_ID" inType="win:UInt32"/>
+      <data name="Process_2_CreationTime" inType="win:FILETIME"/>
+      <data name="Process_2_CommitCharge" inType="win:UInt64"/>
+      <data name="Process_2_HandleCount" inType="win:UInt32"/>
+      <data name="Process_2_Version" inType="win:UnicodeString"/>
+      <data name="Process_2_TypeInfo" inType="win:UInt32"/>
+      <data name="Process_3_Name" inType="win:UnicodeString"/>
+      <data name="Process_3_ID" inType="win:UInt32"/>
+      <data name="Process_3_CreationTime" inType="win:FILETIME"/>
+      <data name="Process_3_CommitCharge" inType="win:UInt64"/>
+      <data name="Process_3_HandleCount" inType="win:UInt32"/>
+      <data name="Process_3_Version" inType="win:UnicodeString"/>
+      <data name="Process_3_TypeInfo" inType="win:UInt32"/>
+      <data name="Process_4_Name" inType="win:UnicodeString"/>
+      <data name="Process_4_ID" inType="win:UInt32"/>
+      <data name="Process_4_CreationTime" inType="win:FILETIME"/>
+      <data name="Process_4_CommitCharge" inType="win:UInt64"/>
+      <data name="Process_4_HandleCount" inType="win:UInt32"/>
+      <data name="Process_4_Version" inType="win:UnicodeString"/>
+      <data name="Process_4_TypeInfo" inType="win:UInt32"/>
+      <data name="Process_5_Name" inType="win:UnicodeString"/>
+      <data name="Process_5_ID" inType="win:UInt32"/>
+      <data name="Process_5_CreationTime" inType="win:FILETIME"/>
+      <data name="Process_5_CommitCharge" inType="win:UInt64"/>
+      <data name="Process_5_HandleCount" inType="win:UInt32"/>
+      <data name="Process_5_Version" inType="win:UnicodeString"/>
+      <data name="Process_5_TypeInfo" inType="win:UInt32"/>
+      <data name="Process_6_Name" inType="win:UnicodeString"/>
+      <data name="Process_6_ID" inType="win:UInt32"/>
+      <data name="Process_6_CreationTime" inType="win:FILETIME"/>
+      <data name="Process_6_CommitCharge" inType="win:UInt64"/>
+      <data name="Process_6_HandleCount" inType="win:UInt32"/>
+      <data name="Process_6_Version" inType="win:UnicodeString"/>
+      <data name="Process_6_TypeInfo" inType="win:UInt32"/>
+      <data name="EventGenerationTime" inType="win:FILETIME"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_RDR_DET_KEYWORD_LIFECYCLE" value="RDR_DET_KEYWORD_LIFECYCLE"/>
+    <string id="keyword_RDR_DET_KEYWORD_MEMORY_EXHAUSTION" value="RDR_DET_KEYWORD_MEMORY_EXHAUSTION"/>
+    <string id="keyword_RDR_DET_KEYWORD_HEAP_LEAK_DETECTION" value="RDR_DET_KEYWORD_HEAP_LEAK_DETECTION"/>
+    <string id="task_LifecycleEvents" value="LifecycleEvents"/>
+    <string id="opcode_LifecycleEventsEventsloggedwhentheresourceexhaustiondetectorisstarted." value="Eventsloggedwhentheresourceexhaustiondetectorisstarted."/>
+    <string id="opcode_LifecycleEventsEventsloggedwhentheresourceexhaustiondetectorisstopped." value="Eventsloggedwhentheresourceexhaustiondetectorisstopped."/>
+    <string id="opcode_LifecycleEventsEventsloggedafteramemoryallocation." value="Eventsloggedafteramemoryallocation."/>
+    <string id="task_ResourceExhaustionDetectionEvents" value="ResourceExhaustionDetectionEvents"/>
+    <string id="opcode_ResourceExhaustionDetectionEventsEventsloggedwhenaproblemisdetected." value="Eventsloggedwhenaproblemisdetected."/>
+    <string id="task_ResourceExhaustionDiagnosisEvents" value="ResourceExhaustionDiagnosisEvents"/>
+    <string id="opcode_ResourceExhaustionDiagnosisEventsContainstheresultsofthediagnosis." value="Containstheresultsofthediagnosis."/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

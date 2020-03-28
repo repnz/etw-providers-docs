@@ -1,0 +1,65 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-SPB-HIDI2C" guid="{991f8fe6-249d-44d6-b93d-5a3060c1dedb}" resourceFileName="Microsoft-Windows-SPB-HIDI2C" messageFileName="Microsoft-Windows-SPB-HIDI2C" symbol="MicrosoftWindowsSPBHIDI2C" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="EnumerationoftheHIDI2Cdriver" message="$(string.task_EnumerationoftheHIDI2Cdriver)" value="1"/>
+     <task name="IOrequestflowviatheHIDI2Cdriver" message="$(string.task_IOrequestflowviatheHIDI2Cdriver)" value="2">
+>
+      <opcodes>
+       <opcode name="IoSpbReadDispatch" message="$(string.opcode_IOrequestflowviatheHIDI2CdriverIoSpbReadDispatch)" value="10"/>
+       <opcode name="IoSpbReadComplete" message="$(string.opcode_IOrequestflowviatheHIDI2CdriverIoSpbReadComplete)" value="11"/>
+       <opcode name="IoForwardToCompletionQueue" message="$(string.opcode_IOrequestflowviatheHIDI2CdriverIoForwardToCompletionQueue)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="CommandrequestsintheHIDI2Cdriver" message="$(string.task_CommandrequestsintheHIDI2Cdriver)" value="3"/>
+    </tasks>
+    <events>
+     <event value="1000" symbol="EnumerationoftheHIDI2Cdriver_V1" version="1" task="EnumerationoftheHIDI2Cdriver" level="win:Informational" template="EnumerationoftheHIDI2CdriverArgs_V1"/>
+     <event value="1001" symbol="EnumerationoftheHIDI2Cdriver1001_V1" version="1" task="EnumerationoftheHIDI2Cdriver" level="win:Error" template="EnumerationoftheHIDI2CdriverArgs_V1"/>
+     <event value="1002" symbol="EnumerationoftheHIDI2Cdriver1002_V1" version="1" task="EnumerationoftheHIDI2Cdriver" level="win:Error" template="EnumerationoftheHIDI2CdriverArgs_V1"/>
+     <event value="1003" symbol="EnumerationoftheHIDI2Cdriver1003_V1" version="1" task="EnumerationoftheHIDI2Cdriver" level="win:Error" template="EnumerationoftheHIDI2CdriverArgs_V1"/>
+     <event value="1010" symbol="IOrequestflowviatheHIDI2CdriverStart_V1" version="1" task="IOrequestflowviatheHIDI2Cdriver" opcode="win:Start" level="win:Informational"/>
+     <event value="1011" symbol="IOrequestflowviatheHIDI2CdriverIoSpbReadDispatch_V1" version="1" task="IOrequestflowviatheHIDI2Cdriver" opcode="IoSpbReadDispatch" level="win:Informational" template="IOrequestflowviatheHIDI2CdriverIoSpbReadDispatchArgs_V1"/>
+     <event value="1012" symbol="IOrequestflowviatheHIDI2CdriverIoSpbReadComplete_V1" version="1" task="IOrequestflowviatheHIDI2Cdriver" opcode="IoSpbReadComplete" level="win:Informational" template="IOrequestflowviatheHIDI2CdriverIoSpbReadDispatchArgs_V1"/>
+     <event value="1013" symbol="IOrequestflowviatheHIDI2CdriverIoForwardToCompletionQueue_V1" version="1" task="IOrequestflowviatheHIDI2Cdriver" opcode="IoForwardToCompletionQueue" level="win:Informational" template="IOrequestflowviatheHIDI2CdriverIoForwardToCompletionQueueArgs_V1"/>
+     <event value="1014" symbol="IOrequestflowviatheHIDI2CdriverStop_V1" version="1" task="IOrequestflowviatheHIDI2Cdriver" opcode="win:Stop" level="win:Informational" template="IOrequestflowviatheHIDI2CdriverIoForwardToCompletionQueueArgs_V1"/>
+     <event value="1020" symbol="CommandrequestsintheHIDI2Cdriver_V1" version="1" task="CommandrequestsintheHIDI2Cdriver" level="win:Informational" template="CommandrequestsintheHIDI2CdriverArgs_V1"/>
+     <event value="1021" symbol="CommandrequestsintheHIDI2Cdriver1021_V1" version="1" task="CommandrequestsintheHIDI2Cdriver" level="win:Informational" template="CommandrequestsintheHIDI2CdriverArgs_V1"/>
+    </events>
+    <templates>
+     <template tid="EnumerationoftheHIDI2CdriverArgs_V1">
+      <data name="DeviceObject" inType="win:Pointer"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="IOrequestflowviatheHIDI2CdriverIoSpbReadDispatchArgs_V1">
+      <data name="SpbIoTarget" inType="win:Pointer"/>
+      <data name="SpbRequest" inType="win:Pointer"/>
+     </template>
+     <template tid="IOrequestflowviatheHIDI2CdriverIoForwardToCompletionQueueArgs_V1">
+      <data name="HidReadRequest" inType="win:Pointer"/>
+     </template>
+     <template tid="CommandrequestsintheHIDI2CdriverArgs_V1">
+      <data name="SpbIoTarget" inType="win:Pointer"/>
+      <data name="Opcode" inType="win:UInt16"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_EnumerationoftheHIDI2Cdriver" value="EnumerationoftheHIDI2Cdriver"/>
+    <string id="task_IOrequestflowviatheHIDI2Cdriver" value="IOrequestflowviatheHIDI2Cdriver"/>
+    <string id="opcode_IOrequestflowviatheHIDI2CdriverIoSpbReadDispatch" value="IoSpbReadDispatch"/>
+    <string id="opcode_IOrequestflowviatheHIDI2CdriverIoSpbReadComplete" value="IoSpbReadComplete"/>
+    <string id="opcode_IOrequestflowviatheHIDI2CdriverIoForwardToCompletionQueue" value="IoForwardToCompletionQueue"/>
+    <string id="task_CommandrequestsintheHIDI2Cdriver" value="CommandrequestsintheHIDI2Cdriver"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

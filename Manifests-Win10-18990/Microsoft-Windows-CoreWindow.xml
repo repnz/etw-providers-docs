@@ -1,0 +1,47 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-CoreWindow" guid="{a3d95055-34cc-4e4a-b99f-ec88f5370495}" resourceFileName="Microsoft-Windows-CoreWindow" messageFileName="Microsoft-Windows-CoreWindow" symbol="MicrosoftWindowsCoreWindow" source="Xml" >
+    <keywords>
+     <keyword name="Failure" message="$(string.keyword_Failure)" mask="0x1"/>
+     <keyword name="Informational" message="$(string.keyword_Informational)" mask="0x2"/>
+     <keyword name="Diagnostic" message="$(string.keyword_Diagnostic)" mask="0x4"/>
+     <keyword name="Performance" message="$(string.keyword_Performance)" mask="0x8"/>
+     <keyword name="CoreWindowInternal" message="$(string.keyword_CoreWindowInternal)" mask="0x10"/>
+    </keywords>
+    <tasks>
+     <task name="CreateCoreWindow" message="$(string.task_CreateCoreWindow)" value="1"/>
+     <task name="PointerDown" message="$(string.task_PointerDown)" value="3"/>
+     <task name="PointerEnter" message="$(string.task_PointerEnter)" value="4"/>
+    </tasks>
+    <events>
+     <event value="1001" symbol="CreateCoreWindowStart" version="0" task="CreateCoreWindow" opcode="win:Start" level="win:Informational" keywords="Performance"/>
+     <event value="1002" symbol="CreateCoreWindowStop" version="0" task="CreateCoreWindow" opcode="win:Stop" level="win:Informational" keywords="Performance"/>
+     <event value="1003" symbol="PointerDownStart" version="0" task="PointerDown" opcode="win:Start" level="win:Informational" keywords="Performance" template="PointerDownStartArgs"/>
+     <event value="1004" symbol="PointerDownStop" version="0" task="PointerDown" opcode="win:Stop" level="win:Informational" keywords="Performance" template="PointerDownStartArgs"/>
+     <event value="1005" symbol="PointerEnterStart" version="0" task="PointerEnter" opcode="win:Start" level="win:Informational" keywords="Performance" template="PointerDownStartArgs"/>
+     <event value="1006" symbol="PointerEnterStop" version="0" task="PointerEnter" opcode="win:Stop" level="win:Informational" keywords="Performance" template="PointerDownStartArgs"/>
+    </events>
+    <templates>
+     <template tid="PointerDownStartArgs">
+      <data name="PointerId" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Failure" value="Failure"/>
+    <string id="keyword_Informational" value="Informational"/>
+    <string id="keyword_Diagnostic" value="Diagnostic"/>
+    <string id="keyword_Performance" value="Performance"/>
+    <string id="keyword_CoreWindowInternal" value="CoreWindowInternal"/>
+    <string id="task_CreateCoreWindow" value="CreateCoreWindow"/>
+    <string id="task_PointerDown" value="PointerDown"/>
+    <string id="task_PointerEnter" value="PointerEnter"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

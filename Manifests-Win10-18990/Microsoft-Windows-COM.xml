@@ -1,0 +1,30 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-COM" guid="{d4263c98-310c-4d97-ba39-b55354f08584}" resourceFileName="Microsoft-Windows-COM" messageFileName="Microsoft-Windows-COM" symbol="MicrosoftWindowsCOM" source="Xml" >
+    <keywords>
+     <keyword name="COM_CLASSNOTREG_ERROR" message="$(string.keyword_COM_CLASSNOTREG_ERROR)" mask="0x10"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="task_0" version="0" task="task_0" level="win:Informational" keywords="COM_CLASSNOTREG_ERROR" template="task_0Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="CLSID" inType="win:GUID"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_COM_CLASSNOTREG_ERROR" value="COM_CLASSNOTREG_ERROR"/>
+    <string id="task_task_0" value="task_0"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

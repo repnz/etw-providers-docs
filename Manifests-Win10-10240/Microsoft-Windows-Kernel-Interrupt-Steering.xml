@@ -1,0 +1,68 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Kernel-Interrupt-Steering" guid="{951b41ea-c830-44dc-a671-e2c9958809b8}" resourceFileName="Microsoft-Windows-Kernel-Interrupt-Steering" messageFileName="Microsoft-Windows-Kernel-Interrupt-Steering" symbol="MicrosoftWindowsKernelInterruptSteering" source="Xml" >
+    <keywords>
+     <keyword name="IntSteer" message="$(string.keyword_IntSteer)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="InterruptSteeringMaskRundown" message="$(string.task_InterruptSteeringMaskRundown)" value="1"/>
+     <task name="InterruptSteeringMaskChange" message="$(string.task_InterruptSteeringMaskChange)" value="2"/>
+     <task name="InterruptSteeringStateRundown" message="$(string.task_InterruptSteeringStateRundown)" value="3"/>
+     <task name="InterruptSteeringStateConnect" message="$(string.task_InterruptSteeringStateConnect)" value="4"/>
+     <task name="InterruptSteeringStateDisconnect" message="$(string.task_InterruptSteeringStateDisconnect)" value="5"/>
+     <task name="InterruptSteeringStateRetarget" message="$(string.task_InterruptSteeringStateRetarget)" value="6"/>
+     <task name="InterruptSteeringProcRundown" message="$(string.task_InterruptSteeringProcRundown)" value="7"/>
+     <task name="InterruptSteeringProcChange" message="$(string.task_InterruptSteeringProcChange)" value="8"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="InterruptSteeringMaskRundown" version="0" task="InterruptSteeringMaskRundown" level="win:Informational" keywords="IntSteer" template="InterruptSteeringMaskRundownArgs"/>
+     <event value="2" symbol="InterruptSteeringMaskChange" version="0" task="InterruptSteeringMaskChange" level="win:Informational" keywords="IntSteer" template="InterruptSteeringMaskRundownArgs"/>
+     <event value="3" symbol="InterruptSteeringStateRundown" version="0" task="InterruptSteeringStateRundown" level="win:Informational" keywords="IntSteer" template="InterruptSteeringStateRundownArgs"/>
+     <event value="4" symbol="InterruptSteeringStateConnect" version="0" task="InterruptSteeringStateConnect" level="win:Informational" keywords="IntSteer" template="InterruptSteeringStateRundownArgs"/>
+     <event value="5" symbol="InterruptSteeringStateDisconnect" version="0" task="InterruptSteeringStateDisconnect" level="win:Informational" keywords="IntSteer" template="InterruptSteeringStateRundownArgs"/>
+     <event value="6" symbol="InterruptSteeringStateRetarget" version="0" task="InterruptSteeringStateRetarget" level="win:Informational" keywords="IntSteer" template="InterruptSteeringStateRundownArgs"/>
+     <event value="7" symbol="InterruptSteeringProcRundown" version="0" task="InterruptSteeringProcRundown" level="win:Informational" keywords="IntSteer" template="InterruptSteeringProcRundownArgs"/>
+     <event value="8" symbol="InterruptSteeringProcChange" version="0" task="InterruptSteeringProcChange" level="win:Informational" keywords="IntSteer" template="InterruptSteeringProcRundownArgs"/>
+    </events>
+    <templates>
+     <template tid="InterruptSteeringMaskRundownArgs">
+      <data name="LoadPercent" inType="win:UInt32"/>
+      <data name="GsivCount" inType="win:UInt32"/>
+      <data name="MaskCount" inType="win:UInt32"/>
+      <data name="GroupCount" inType="win:UInt16"/>
+      <data name="Mask" inType="win:Pointer" count="GroupCount"/>
+     </template>
+     <template tid="InterruptSteeringStateRundownArgs">
+      <data name="Gsiv" inType="win:UInt32"/>
+      <data name="NewTarget" inType="win:UInt32"/>
+      <data name="OldTarget" inType="win:UInt32"/>
+      <data name="Vector" inType="win:UInt32"/>
+      <data name="ServiceRoutine" inType="win:Pointer"/>
+      <data name="IsrLoad" inType="win:UInt32"/>
+      <data name="DpcLoad" inType="win:UInt32"/>
+     </template>
+     <template tid="InterruptSteeringProcRundownArgs">
+      <data name="ProcIndex" inType="win:UInt32"/>
+      <data name="DeviceInterrupts" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_IntSteer" value="IntSteer"/>
+    <string id="task_InterruptSteeringMaskRundown" value="InterruptSteeringMaskRundown"/>
+    <string id="task_InterruptSteeringMaskChange" value="InterruptSteeringMaskChange"/>
+    <string id="task_InterruptSteeringStateRundown" value="InterruptSteeringStateRundown"/>
+    <string id="task_InterruptSteeringStateConnect" value="InterruptSteeringStateConnect"/>
+    <string id="task_InterruptSteeringStateDisconnect" value="InterruptSteeringStateDisconnect"/>
+    <string id="task_InterruptSteeringStateRetarget" value="InterruptSteeringStateRetarget"/>
+    <string id="task_InterruptSteeringProcRundown" value="InterruptSteeringProcRundown"/>
+    <string id="task_InterruptSteeringProcChange" value="InterruptSteeringProcChange"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,214 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Network-Setup" guid="{a111f1c2-5923-47c0-9a68-d0bafb577901}" resourceFileName="Microsoft-Windows-Network-Setup" messageFileName="Microsoft-Windows-Network-Setup" symbol="MicrosoftWindowsNetworkSetup" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="Runservice" message="$(string.task_Runservice)" value="1"/>
+     <task name="Transaction" message="$(string.task_Transaction)" value="2"/>
+     <task name="ExternalAPI" message="$(string.task_ExternalAPI)" value="3"/>
+     <task name="Plugincallback" message="$(string.task_Plugincallback)" value="4"/>
+     <task name="Calculatebindings" message="$(string.task_Calculatebindings)" value="5"/>
+     <task name="Commitchanges" message="$(string.task_Commitchanges)" value="6"/>
+     <task name="Operation" message="$(string.task_Operation)" value="7"/>
+     <task name="INetCfgAPI" message="$(string.task_INetCfgAPI)" value="8"/>
+     <task name="INetCfgNotifyObject" message="$(string.task_INetCfgNotifyObject)" value="9"/>
+    </tasks>
+    <maps>
+     <valueMap name="mapNetSetupApiRoutine">
+      <map value="0x1" message="$(string.map_mapNetSetupApiRoutineNetSetupInitialize)"/>
+      <map value="0x2" message="$(string.map_mapNetSetupApiRoutineNetSetupRollback)"/>
+      <map value="0x3" message="$(string.map_mapNetSetupApiRoutineNetSetupCommit)"/>
+      <map value="0x4" message="$(string.map_mapNetSetupApiRoutineNetSetupClose)"/>
+      <map value="0x5" message="$(string.map_mapNetSetupApiRoutineNetSetupCreateObject)"/>
+      <map value="0x6" message="$(string.map_mapNetSetupApiRoutineNetSetupDeleteObject)"/>
+      <map value="0x7" message="$(string.map_mapNetSetupApiRoutineNetSetupGetObjectPropertyKeys)"/>
+      <map value="0x8" message="$(string.map_mapNetSetupApiRoutineNetSetupGetObjectProperties)"/>
+      <map value="0x9" message="$(string.map_mapNetSetupApiRoutineNetSetupFreeObjectProperties)"/>
+      <map value="0xa" message="$(string.map_mapNetSetupApiRoutineNetSetupSetObjectProperties)"/>
+      <map value="0xb" message="$(string.map_mapNetSetupApiRoutineNetSetupGetObjects)"/>
+      <map value="0xc" message="$(string.map_mapNetSetupApiRoutineNetSetupFreeObjects)"/>
+      <map value="0xd" message="$(string.map_mapNetSetupApiRoutineNetSetupValidateTransaction)"/>
+     </valueMap>
+     <valueMap name="mapOperationType">
+      <map value="0x0" message="$(string.map_mapOperationTypeInitialize transaction)"/>
+      <map value="0x2" message="$(string.map_mapOperationTypePrepare transaction)"/>
+      <map value="0x3" message="$(string.map_mapOperationTypeCommit transaction)"/>
+      <map value="0x4" message="$(string.map_mapOperationTypeRollback transaction)"/>
+      <map value="0x5" message="$(string.map_mapOperationTypeValidate transaction)"/>
+      <map value="0xa" message="$(string.map_mapOperationTypeCreate object)"/>
+      <map value="0xb" message="$(string.map_mapOperationTypeDelete object)"/>
+      <map value="0xc" message="$(string.map_mapOperationTypeModify object)"/>
+     </valueMap>
+     <valueMap name="mapLegacyPluginApiType">
+      <map value="0xa" message="$(string.map_mapLegacyPluginApiTypeDllRegisterServer)"/>
+      <map value="0xb" message="$(string.map_mapLegacyPluginApiTypeDllUnregisterServer)"/>
+      <map value="0x14" message="$(string.map_mapLegacyPluginApiTypeWSHGetWinsockMapping)"/>
+      <map value="0x32" message="$(string.map_mapLegacyPluginApiTypeIUnknown::QueryInterface)"/>
+      <map value="0x65" message="$(string.map_mapLegacyPluginApiTypeINetCfgComponentControl::Initialize)"/>
+      <map value="0x66" message="$(string.map_mapLegacyPluginApiTypeINetCfgComponentControl::ApplyRegistryChanges)"/>
+      <map value="0x67" message="$(string.map_mapLegacyPluginApiTypeINetCfgComponentControl::ApplyPnpChanges)"/>
+      <map value="0x68" message="$(string.map_mapLegacyPluginApiTypeINetCfgComponentControl::CancelChanges)"/>
+      <map value="0xc9" message="$(string.map_mapLegacyPluginApiTypeINetCfgComponentSetup::Install)"/>
+      <map value="0xca" message="$(string.map_mapLegacyPluginApiTypeINetCfgComponentSetup::Upgrade)"/>
+      <map value="0xcb" message="$(string.map_mapLegacyPluginApiTypeINetCfgComponentSetup::ReadAnswerFile)"/>
+      <map value="0xcc" message="$(string.map_mapLegacyPluginApiTypeINetCfgComponentSetup::Removing)"/>
+      <map value="0x12d" message="$(string.map_mapLegacyPluginApiTypeINetCfgComponentPropertyUi::QueryPropertyUi)"/>
+      <map value="0x12e" message="$(string.map_mapLegacyPluginApiTypeINetCfgComponentPropertyUi::SetContext)"/>
+      <map value="0x12f" message="$(string.map_mapLegacyPluginApiTypeINetCfgComponentPropertyUi::MergePropPages)"/>
+      <map value="0x130" message="$(string.map_mapLegacyPluginApiTypeINetCfgComponentPropertyUi::ValidateProperties)"/>
+      <map value="0x131" message="$(string.map_mapLegacyPluginApiTypeINetCfgComponentPropertyUi::ApplyProperties)"/>
+      <map value="0x132" message="$(string.map_mapLegacyPluginApiTypeINetCfgComponentPropertyUi::CancelProperties)"/>
+      <map value="0x191" message="$(string.map_mapLegacyPluginApiTypeINetCfgComponentNotifyBinding::QueryBindingPath)"/>
+      <map value="0x192" message="$(string.map_mapLegacyPluginApiTypeINetCfgComponentNotifyBinding::NotifyBindingPath)"/>
+      <map value="0x1f5" message="$(string.map_mapLegacyPluginApiTypeINetCfgComponentNotifyGlobal::GetSupportedNotifications)"/>
+      <map value="0x1f6" message="$(string.map_mapLegacyPluginApiTypeINetCfgComponentNotifyGlobal::SysQueryBindingPath)"/>
+      <map value="0x1f7" message="$(string.map_mapLegacyPluginApiTypeINetCfgComponentNotifyGlobal::SysNotifyBindingPath)"/>
+      <map value="0x1f8" message="$(string.map_mapLegacyPluginApiTypeINetCfgComponentNotifyGlobal::SysNotifyComponent)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="100" symbol="RunserviceStart" version="0" task="Runservice" opcode="win:Start" level="win:Informational"/>
+     <event value="101" symbol="Runservice" version="0" task="Runservice" level="win:Informational"/>
+     <event value="102" symbol="Runservice102" version="0" task="Runservice" level="win:Error" template="Runservice102Args"/>
+     <event value="110" symbol="Runservice110" version="0" task="Runservice" level="win:Informational"/>
+     <event value="111" symbol="Runservice111" version="0" task="Runservice" level="win:Informational"/>
+     <event value="112" symbol="Runservice112" version="0" task="Runservice" level="win:Informational"/>
+     <event value="113" symbol="RunserviceStop" version="0" task="Runservice" opcode="win:Stop" level="win:Informational"/>
+     <event value="200" symbol="TransactionStart" version="0" task="Transaction" opcode="win:Start" level="win:Informational" template="TransactionStartArgs"/>
+     <event value="201" symbol="TransactionStop" version="0" task="Transaction" opcode="win:Stop" level="win:Informational" template="TransactionStopArgs"/>
+     <event value="202" symbol="CalculatebindingsStart" version="0" task="Calculatebindings" opcode="win:Start" level="win:Informational" template="TransactionStopArgs"/>
+     <event value="203" symbol="CalculatebindingsStop" version="0" task="Calculatebindings" opcode="win:Stop" level="win:Informational" template="TransactionStopArgs"/>
+     <event value="204" symbol="CommitchangesStart" version="0" task="Commitchanges" opcode="win:Start" level="win:Informational" template="TransactionStopArgs"/>
+     <event value="205" symbol="CommitchangesStop" version="0" task="Commitchanges" opcode="win:Stop" level="win:Informational" template="TransactionStopArgs"/>
+     <event value="300" symbol="ExternalAPIStart" version="0" task="ExternalAPI" opcode="win:Start" level="win:Informational" template="ExternalAPIStartArgs"/>
+     <event value="301" symbol="ExternalAPIStop" version="0" task="ExternalAPI" opcode="win:Stop" level="win:Informational" template="ExternalAPIStopArgs"/>
+     <event value="400" symbol="PlugincallbackStart" version="0" task="Plugincallback" opcode="win:Start" level="win:Informational" template="PlugincallbackStartArgs"/>
+     <event value="401" symbol="PlugincallbackStop" version="0" task="Plugincallback" opcode="win:Stop" level="win:Informational" template="PlugincallbackStopArgs"/>
+     <event value="500" symbol="OperationStart" version="0" task="Operation" opcode="win:Start" level="win:Informational" template="OperationStartArgs"/>
+     <event value="501" symbol="OperationStop" version="0" task="Operation" opcode="win:Stop" level="win:Informational" template="OperationStopArgs"/>
+     <event value="600" symbol="INetCfgAPIStart" version="0" task="INetCfgAPI" opcode="win:Start" level="win:Informational" template="INetCfgAPIStartArgs"/>
+     <event value="601" symbol="INetCfgAPIStop" version="0" task="INetCfgAPI" opcode="win:Stop" level="win:Informational" template="Runservice102Args"/>
+     <event value="700" symbol="INetCfgNotifyObjectStart" version="0" task="INetCfgNotifyObject" opcode="win:Start" level="win:Informational" template="INetCfgNotifyObjectStartArgs"/>
+     <event value="701" symbol="INetCfgNotifyObjectStop" version="0" task="INetCfgNotifyObject" opcode="win:Stop" level="win:Informational" template="Runservice102Args"/>
+     <event value="702" symbol="INetCfgNotifyObjectStop702" version="0" task="INetCfgNotifyObject" opcode="win:Stop" level="win:Warning" template="Runservice102Args"/>
+    </events>
+    <templates>
+     <template tid="Runservice102Args">
+      <data name="Code" inType="win:Int32"/>
+     </template>
+     <template tid="TransactionStartArgs">
+      <data name="TransactionGuid" inType="win:GUID"/>
+      <data name="EnvironmentType" inType="win:UInt32"/>
+     </template>
+     <template tid="TransactionStopArgs">
+      <data name="TransactionGuid" inType="win:GUID"/>
+     </template>
+     <template tid="ExternalAPIStartArgs">
+      <data name="TransactionGuid" inType="win:GUID"/>
+      <data name="Api" inType="win:UInt32" map="mapNetSetupApiRoutine"/>
+     </template>
+     <template tid="ExternalAPIStopArgs">
+      <data name="TransactionGuid" inType="win:GUID"/>
+      <data name="Api" inType="win:UInt32"/>
+      <data name="Code" inType="win:Int32"/>
+     </template>
+     <template tid="PlugincallbackStartArgs">
+      <data name="TransactionGuid" inType="win:GUID"/>
+      <data name="PluginId" inType="win:UInt32"/>
+      <data name="PluginName" inType="win:UnicodeString"/>
+      <data name="Api" inType="win:UInt32"/>
+     </template>
+     <template tid="PlugincallbackStopArgs">
+      <data name="TransactionGuid" inType="win:GUID"/>
+      <data name="Output" inType="win:UInt32"/>
+      <data name="Code" inType="win:Int32"/>
+     </template>
+     <template tid="OperationStartArgs">
+      <data name="TransactionGuid" inType="win:GUID"/>
+      <data name="OperationType" inType="win:UInt32" map="mapOperationType"/>
+      <data name="ObjectType" inType="win:UInt32"/>
+      <data name="ObjectId" inType="win:GUID"/>
+      <data name="PropertyBufferSize" inType="win:UInt16"/>
+      <data name="PropertyBuffer" inType="win:Binary" length="PropertyBufferSize"/>
+     </template>
+     <template tid="OperationStopArgs">
+      <data name="TransactionGuid" inType="win:GUID"/>
+      <data name="Code" inType="win:Int32"/>
+     </template>
+     <template tid="INetCfgAPIStartArgs">
+      <data name="Api" inType="win:UInt32"/>
+     </template>
+     <template tid="INetCfgNotifyObjectStartArgs">
+      <data name="TransactionGuid" inType="win:GUID"/>
+      <data name="ComponentId" inType="win:UnicodeString"/>
+      <data name="Api" inType="win:UInt32" map="mapLegacyPluginApiType"/>
+      <data name="Parameter1" inType="win:UInt32"/>
+      <data name="Parameter2" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_Runservice" value="Runservice"/>
+    <string id="task_Transaction" value="Transaction"/>
+    <string id="task_ExternalAPI" value="ExternalAPI"/>
+    <string id="task_Plugincallback" value="Plugincallback"/>
+    <string id="task_Calculatebindings" value="Calculatebindings"/>
+    <string id="task_Commitchanges" value="Commitchanges"/>
+    <string id="task_Operation" value="Operation"/>
+    <string id="task_INetCfgAPI" value="INetCfgAPI"/>
+    <string id="task_INetCfgNotifyObject" value="INetCfgNotifyObject"/>
+    <string id="map_mapNetSetupApiRoutineNetSetupInitialize" value="NetSetupInitialize"/>
+    <string id="map_mapNetSetupApiRoutineNetSetupRollback" value="NetSetupRollback"/>
+    <string id="map_mapNetSetupApiRoutineNetSetupCommit" value="NetSetupCommit"/>
+    <string id="map_mapNetSetupApiRoutineNetSetupClose" value="NetSetupClose"/>
+    <string id="map_mapNetSetupApiRoutineNetSetupCreateObject" value="NetSetupCreateObject"/>
+    <string id="map_mapNetSetupApiRoutineNetSetupDeleteObject" value="NetSetupDeleteObject"/>
+    <string id="map_mapNetSetupApiRoutineNetSetupGetObjectPropertyKeys" value="NetSetupGetObjectPropertyKeys"/>
+    <string id="map_mapNetSetupApiRoutineNetSetupGetObjectProperties" value="NetSetupGetObjectProperties"/>
+    <string id="map_mapNetSetupApiRoutineNetSetupFreeObjectProperties" value="NetSetupFreeObjectProperties"/>
+    <string id="map_mapNetSetupApiRoutineNetSetupSetObjectProperties" value="NetSetupSetObjectProperties"/>
+    <string id="map_mapNetSetupApiRoutineNetSetupGetObjects" value="NetSetupGetObjects"/>
+    <string id="map_mapNetSetupApiRoutineNetSetupFreeObjects" value="NetSetupFreeObjects"/>
+    <string id="map_mapNetSetupApiRoutineNetSetupValidateTransaction" value="NetSetupValidateTransaction"/>
+    <string id="map_mapOperationTypeInitialize transaction" value="Initialize transaction"/>
+    <string id="map_mapOperationTypePrepare transaction" value="Prepare transaction"/>
+    <string id="map_mapOperationTypeCommit transaction" value="Commit transaction"/>
+    <string id="map_mapOperationTypeRollback transaction" value="Rollback transaction"/>
+    <string id="map_mapOperationTypeValidate transaction" value="Validate transaction"/>
+    <string id="map_mapOperationTypeCreate object" value="Create object"/>
+    <string id="map_mapOperationTypeDelete object" value="Delete object"/>
+    <string id="map_mapOperationTypeModify object" value="Modify object"/>
+    <string id="map_mapLegacyPluginApiTypeDllRegisterServer" value="DllRegisterServer"/>
+    <string id="map_mapLegacyPluginApiTypeDllUnregisterServer" value="DllUnregisterServer"/>
+    <string id="map_mapLegacyPluginApiTypeWSHGetWinsockMapping" value="WSHGetWinsockMapping"/>
+    <string id="map_mapLegacyPluginApiTypeIUnknown::QueryInterface" value="IUnknown::QueryInterface"/>
+    <string id="map_mapLegacyPluginApiTypeINetCfgComponentControl::Initialize" value="INetCfgComponentControl::Initialize"/>
+    <string id="map_mapLegacyPluginApiTypeINetCfgComponentControl::ApplyRegistryChanges" value="INetCfgComponentControl::ApplyRegistryChanges"/>
+    <string id="map_mapLegacyPluginApiTypeINetCfgComponentControl::ApplyPnpChanges" value="INetCfgComponentControl::ApplyPnpChanges"/>
+    <string id="map_mapLegacyPluginApiTypeINetCfgComponentControl::CancelChanges" value="INetCfgComponentControl::CancelChanges"/>
+    <string id="map_mapLegacyPluginApiTypeINetCfgComponentSetup::Install" value="INetCfgComponentSetup::Install"/>
+    <string id="map_mapLegacyPluginApiTypeINetCfgComponentSetup::Upgrade" value="INetCfgComponentSetup::Upgrade"/>
+    <string id="map_mapLegacyPluginApiTypeINetCfgComponentSetup::ReadAnswerFile" value="INetCfgComponentSetup::ReadAnswerFile"/>
+    <string id="map_mapLegacyPluginApiTypeINetCfgComponentSetup::Removing" value="INetCfgComponentSetup::Removing"/>
+    <string id="map_mapLegacyPluginApiTypeINetCfgComponentPropertyUi::QueryPropertyUi" value="INetCfgComponentPropertyUi::QueryPropertyUi"/>
+    <string id="map_mapLegacyPluginApiTypeINetCfgComponentPropertyUi::SetContext" value="INetCfgComponentPropertyUi::SetContext"/>
+    <string id="map_mapLegacyPluginApiTypeINetCfgComponentPropertyUi::MergePropPages" value="INetCfgComponentPropertyUi::MergePropPages"/>
+    <string id="map_mapLegacyPluginApiTypeINetCfgComponentPropertyUi::ValidateProperties" value="INetCfgComponentPropertyUi::ValidateProperties"/>
+    <string id="map_mapLegacyPluginApiTypeINetCfgComponentPropertyUi::ApplyProperties" value="INetCfgComponentPropertyUi::ApplyProperties"/>
+    <string id="map_mapLegacyPluginApiTypeINetCfgComponentPropertyUi::CancelProperties" value="INetCfgComponentPropertyUi::CancelProperties"/>
+    <string id="map_mapLegacyPluginApiTypeINetCfgComponentNotifyBinding::QueryBindingPath" value="INetCfgComponentNotifyBinding::QueryBindingPath"/>
+    <string id="map_mapLegacyPluginApiTypeINetCfgComponentNotifyBinding::NotifyBindingPath" value="INetCfgComponentNotifyBinding::NotifyBindingPath"/>
+    <string id="map_mapLegacyPluginApiTypeINetCfgComponentNotifyGlobal::GetSupportedNotifications" value="INetCfgComponentNotifyGlobal::GetSupportedNotifications"/>
+    <string id="map_mapLegacyPluginApiTypeINetCfgComponentNotifyGlobal::SysQueryBindingPath" value="INetCfgComponentNotifyGlobal::SysQueryBindingPath"/>
+    <string id="map_mapLegacyPluginApiTypeINetCfgComponentNotifyGlobal::SysNotifyBindingPath" value="INetCfgComponentNotifyGlobal::SysNotifyBindingPath"/>
+    <string id="map_mapLegacyPluginApiTypeINetCfgComponentNotifyGlobal::SysNotifyComponent" value="INetCfgComponentNotifyGlobal::SysNotifyComponent"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

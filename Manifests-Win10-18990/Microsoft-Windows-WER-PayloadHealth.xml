@@ -1,0 +1,52 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-WER-PayloadHealth" guid="{4afddfde-002d-51ac-c109-c3b7897858d0}" resourceFileName="Microsoft-Windows-WER-PayloadHealth" messageFileName="Microsoft-Windows-WER-PayloadHealth" symbol="MicrosoftWindowsWERPayloadHealth" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="WER_PAYLOAD_HEALTH" message="$(string.task_WER_PAYLOAD_HEALTH)" value="1"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="WER_PAYLOAD_HEALTH" version="0" task="WER_PAYLOAD_HEALTH" level="win:Informational" template="WER_PAYLOAD_HEALTHArgs"/>
+     <event value="2" symbol="WER_PAYLOAD_HEALTH2" version="0" task="WER_PAYLOAD_HEALTH" level="win:Informational" template="WER_PAYLOAD_HEALTH2Args"/>
+     <event value="3" symbol="WER_PAYLOAD_HEALTH3" version="0" task="WER_PAYLOAD_HEALTH" level="win:Informational" template="WER_PAYLOAD_HEALTH3Args"/>
+     <event value="4" symbol="WER_PAYLOAD_HEALTH4" version="0" task="WER_PAYLOAD_HEALTH" level="win:Informational" template="WER_PAYLOAD_HEALTH3Args"/>
+    </events>
+    <templates>
+     <template tid="WER_PAYLOAD_HEALTHArgs">
+      <data name="UploadDuration" inType="win:UInt32"/>
+      <data name="PayloadSize" inType="win:UInt64"/>
+      <data name="Protocol" inType="win:UnicodeString"/>
+      <data name="Stage" inType="win:UnicodeString"/>
+      <data name="BytesUploaded" inType="win:UInt64"/>
+      <data name="ServerName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WER_PAYLOAD_HEALTH2Args">
+      <data name="HttpExchangeResult" inType="win:UInt32"/>
+      <data name="UploadDuration" inType="win:UInt32"/>
+      <data name="PayloadSize" inType="win:UInt64"/>
+      <data name="Protocol" inType="win:UnicodeString"/>
+      <data name="Stage" inType="win:UnicodeString"/>
+      <data name="RequestStatusCode" inType="win:UInt32"/>
+      <data name="BytesUploaded" inType="win:UInt64"/>
+      <data name="ServerName" inType="win:UnicodeString"/>
+      <data name="TransportHr" inType="win:UInt32"/>
+     </template>
+     <template tid="WER_PAYLOAD_HEALTH3Args">
+      <data name="HttpExchangeResult" inType="win:UInt32"/>
+      <data name="LastBlockId" inType="win:UInt32"/>
+      <data name="TotalBytesUploaded" inType="win:UInt64"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_WER_PAYLOAD_HEALTH" value="WER_PAYLOAD_HEALTH"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

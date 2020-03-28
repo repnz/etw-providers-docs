@@ -1,0 +1,94 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-SruMon" guid="{c8dbf506-e3d3-4822-930d-84c557eb6247}" resourceFileName="Microsoft-Windows-SruMon" messageFileName="Microsoft-Windows-SruMon" symbol="MicrosoftWindowsSruMon" source="Xml" >
+    <keywords>
+     <keyword name="KeywordSruMonDebugTrace" message="$(string.keyword_KeywordSruMonDebugTrace)" mask="0x1"/>
+     <keyword name="KeywordSruMonDebugSequenceTrace" message="$(string.keyword_KeywordSruMonDebugSequenceTrace)" mask="0x2"/>
+     <keyword name="KeywordSruMonDebugSequenceErrorTrace" message="$(string.keyword_KeywordSruMonDebugSequenceErrorTrace)" mask="0x4"/>
+     <keyword name="KeywordSruMonDebugDBResetTrace" message="$(string.keyword_KeywordSruMonDebugDBResetTrace)" mask="0x8"/>
+     <keyword name="KeywordSruMonNWAggregationTrace" message="$(string.keyword_KeywordSruMonNWAggregationTrace)" mask="0x10"/>
+     <keyword name="keyword_200000000000" message="$(string.keyword_keyword_200000000000)" mask="0x200000000000"/>
+    </keywords>
+    <tasks>
+     <task name="SruMonDebugTrace" message="$(string.task_SruMonDebugTrace)" value="1001"/>
+     <task name="SruMonDebugSequenceTrace" message="$(string.task_SruMonDebugSequenceTrace)" value="1002"/>
+     <task name="SruMonDebugSequenceErrorTrace" message="$(string.task_SruMonDebugSequenceErrorTrace)" value="1003"/>
+     <task name="SruMonNWAggregationTrace" message="$(string.task_SruMonNWAggregationTrace)" value="1004"/>
+    </tasks>
+    <events>
+     <event value="2001" symbol="SruMonDebugTrace" version="0" task="SruMonDebugTrace" level="win:Verbose" keywords="KeywordSruMonDebugTrace" template="SruMonDebugTraceArgs"/>
+     <event value="2002" symbol="SruMonDebugTrace2002" version="0" task="SruMonDebugTrace" level="win:Error" keywords="KeywordSruMonDebugTrace KeywordSruMonDebugSequenceTrace" template="SruMonDebugTrace2002Args"/>
+     <event value="2003" symbol="SruMonDebugTrace2003" version="0" task="SruMonDebugTrace" level="win:Error" keywords="KeywordSruMonDebugTrace KeywordSruMonDebugSequenceTrace" template="SruMonDebugTrace2003Args"/>
+     <event value="2004" symbol="SruMonDebugTrace2004" version="0" task="SruMonDebugTrace" level="win:Verbose" keywords="KeywordSruMonDebugTrace" template="SruMonDebugTrace2004Args"/>
+     <event value="2005" symbol="SruMonDebugTrace2005" version="0" task="SruMonDebugTrace" level="win:Error" keywords="KeywordSruMonDebugTrace KeywordSruMonDebugSequenceTrace" template="SruMonDebugTrace2003Args"/>
+     <event value="2006" symbol="SruMonDebugSequenceTrace" version="0" task="SruMonDebugSequenceTrace" level="win:Verbose" keywords="KeywordSruMonDebugSequenceTrace KeywordSruMonDebugSequenceErrorTrace" template="SruMonDebugSequenceTraceArgs"/>
+     <event value="2007" symbol="SruMonDebugSequenceTrace2007" version="0" task="SruMonDebugSequenceTrace" level="win:Verbose" keywords="KeywordSruMonDebugSequenceTrace KeywordSruMonDebugSequenceErrorTrace" template="SruMonDebugSequenceTraceArgs"/>
+     <event value="2008" symbol="SruMonDebugSequenceTrace2008" version="0" task="SruMonDebugSequenceTrace" level="win:Verbose" keywords="KeywordSruMonDebugSequenceTrace KeywordSruMonDebugSequenceErrorTrace" template="SruMonDebugSequenceTrace2008Args"/>
+     <event value="2009" symbol="SruMonDebugSequenceErrorTrace" version="0" task="SruMonDebugSequenceErrorTrace" level="win:Error" keywords="KeywordSruMonDebugSequenceErrorTrace KeywordSruMonDebugDBResetTrace KeywordSruMonNWAggregationTrace" template="SruMonDebugSequenceErrorTraceArgs"/>
+     <event value="2010" symbol="SruMonNWAggregationTrace" version="0" task="SruMonNWAggregationTrace" level="win:Verbose" keywords="KeywordSruMonNWAggregationTrace" template="SruMonNWAggregationTraceArgs"/>
+     <event value="2011" symbol="SruMonNWAggregationTrace2011" version="0" task="SruMonNWAggregationTrace" level="win:Verbose" keywords="KeywordSruMonNWAggregationTrace" template="SruMonDebugSequenceTraceArgs"/>
+     <event value="2012" symbol="SruMonNWAggregationTrace2012" version="0" task="SruMonNWAggregationTrace" level="win:Verbose" keywords="KeywordSruMonNWAggregationTrace keyword_200000000000" template="SruMonNWAggregationTrace2012Args"/>
+    </events>
+    <templates>
+     <template tid="SruMonDebugTraceArgs">
+      <data name="_DebugString" inType="win:UnicodeString"/>
+     </template>
+     <template tid="SruMonDebugTrace2002Args">
+      <data name="_FunctionName" inType="win:UnicodeString"/>
+      <data name="_Status" inType="win:UInt32"/>
+     </template>
+     <template tid="SruMonDebugTrace2003Args">
+      <data name="_FunctionName" inType="win:UnicodeString"/>
+      <data name="_HR" inType="win:Int32"/>
+     </template>
+     <template tid="SruMonDebugTrace2004Args">
+      <data name="_TableName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="SruMonDebugSequenceTraceArgs">
+      <data name="_FunctionName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="SruMonDebugSequenceTrace2008Args">
+      <data name="_Status" inType="win:UnicodeString"/>
+     </template>
+     <template tid="SruMonDebugSequenceErrorTraceArgs">
+      <data name="_Reset" inType="win:UnicodeString"/>
+     </template>
+     <template tid="SruMonNWAggregationTraceArgs">
+      <data name="_FunctionName" inType="win:UnicodeString"/>
+      <data name="_ApplicationName" inType="win:UnicodeString"/>
+      <data name="_InterfaceLuid" inType="win:UInt64"/>
+      <data name="_Costed" inType="win:Boolean"/>
+      <data name="_BytesSent" inType="win:UInt64"/>
+      <data name="_BytesReceived" inType="win:UInt64"/>
+     </template>
+     <template tid="SruMonNWAggregationTrace2012Args">
+      <data name="_InterfaceGuid" inType="win:GUID"/>
+      <data name="_InterfaceLuid" inType="win:UInt64"/>
+      <data name="_Application" inType="win:UnicodeString"/>
+      <data name="_ProfileId" inType="win:UInt64"/>
+      <data name="_ProfileFlags" inType="win:UInt64"/>
+      <data name="_BytesSent" inType="win:UInt64"/>
+      <data name="_BytesReceived" inType="win:UInt64"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_KeywordSruMonDebugTrace" value="KeywordSruMonDebugTrace"/>
+    <string id="keyword_KeywordSruMonDebugSequenceTrace" value="KeywordSruMonDebugSequenceTrace"/>
+    <string id="keyword_KeywordSruMonDebugSequenceErrorTrace" value="KeywordSruMonDebugSequenceErrorTrace"/>
+    <string id="keyword_KeywordSruMonDebugDBResetTrace" value="KeywordSruMonDebugDBResetTrace"/>
+    <string id="keyword_KeywordSruMonNWAggregationTrace" value="KeywordSruMonNWAggregationTrace"/>
+    <string id="keyword_keyword_200000000000" value="keyword_200000000000"/>
+    <string id="task_SruMonDebugTrace" value="SruMonDebugTrace"/>
+    <string id="task_SruMonDebugSequenceTrace" value="SruMonDebugSequenceTrace"/>
+    <string id="task_SruMonDebugSequenceErrorTrace" value="SruMonDebugSequenceErrorTrace"/>
+    <string id="task_SruMonNWAggregationTrace" value="SruMonNWAggregationTrace"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

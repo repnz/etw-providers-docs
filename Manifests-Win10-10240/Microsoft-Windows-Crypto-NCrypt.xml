@@ -1,0 +1,141 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Crypto-NCrypt" guid="{e8ed09dc-100c-45e2-9fc8-b53399ec1f70}" resourceFileName="Microsoft-Windows-Crypto-NCrypt" messageFileName="Microsoft-Windows-Crypto-NCrypt" symbol="MicrosoftWindowsCryptoNCrypt" source="Xml" >
+    <keywords>
+     <keyword name="ETW_KEYWORD_NCRYPT_OPERATION" message="$(string.keyword_ETW_KEYWORD_NCRYPT_OPERATION)" mask="0x1"/>
+     <keyword name="ETW_KEYWORD_PROTECT_OPERATION" message="$(string.keyword_ETW_KEYWORD_PROTECT_OPERATION)" mask="0x2"/>
+    </keywords>
+    <tasks>
+     <task name="OperationFailure" message="$(string.task_OperationFailure)" value="1"/>
+     <task name="OpenProviderFailure" message="$(string.task_OpenProviderFailure)" value="2"/>
+     <task name="OpenKeyFailure" message="$(string.task_OpenKeyFailure)" value="3"/>
+     <task name="KeyCreationFailure" message="$(string.task_KeyCreationFailure)" value="4"/>
+     <task name="OperationFailure_5" message="$(string.task_OperationFailure_5)" value="5"/>
+     <task name="OperationFailure_6" message="$(string.task_OperationFailure_6)" value="6"/>
+     <task name="OperationFailure_7" message="$(string.task_OperationFailure_7)" value="7"/>
+     <task name="OperationFailure_8" message="$(string.task_OperationFailure_8)" value="8"/>
+    </tasks>
+    <maps>
+     <valueMap name="NCryptOperationType">
+      <map value="0x1" message="$(string.map_NCryptOperationTypeCREATE KEY)"/>
+      <map value="0x2" message="$(string.map_NCryptOperationTypeOPEN KEY)"/>
+      <map value="0x3" message="$(string.map_NCryptOperationTypeDELETE KEY)"/>
+      <map value="0x4" message="$(string.map_NCryptOperationTypeENCRYPT)"/>
+      <map value="0x5" message="$(string.map_NCryptOperationTypeDECRYPT)"/>
+      <map value="0x6" message="$(string.map_NCryptOperationTypeSIGN HASH)"/>
+      <map value="0x7" message="$(string.map_NCryptOperationTypeVERIFY SIGNATURE)"/>
+      <map value="0x8" message="$(string.map_NCryptOperationTypeSECRET AGREEMENT)"/>
+      <map value="0x9" message="$(string.map_NCryptOperationTypeDERIVE KEY)"/>
+      <map value="0xa" message="$(string.map_NCryptOperationTypeKEY DERIVATION)"/>
+      <map value="0xb" message="$(string.map_NCryptOperationTypeKEY FINALIZE)"/>
+      <map value="0xc" message="$(string.map_NCryptOperationTypeEXPORT KEY)"/>
+      <map value="0xd" message="$(string.map_NCryptOperationTypeIMPORT KEY)"/>
+     </valueMap>
+     <valueMap name="RecipientType">
+      <map value="0x1" message="$(string.map_RecipientTypeKEY TRANSPORT)"/>
+      <map value="0x2" message="$(string.map_RecipientTypeKEY AGREEMENT)"/>
+      <map value="0x3" message="$(string.map_RecipientTypeSYMMETRIC KEY ENCRYPTION)"/>
+      <map value="0x4" message="$(string.map_RecipientTypePASSWORD ENCRYPTION)"/>
+      <map value="0x5" message="$(string.map_RecipientTypeOTHER)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="OperationFailure" version="0" task="OperationFailure" level="win:Error" keywords="ETW_KEYWORD_NCRYPT_OPERATION" template="OperationFailureArgs"/>
+     <event value="2" symbol="OpenProviderFailure" version="0" task="OpenProviderFailure" level="win:Error" keywords="ETW_KEYWORD_NCRYPT_OPERATION" template="OpenProviderFailureArgs"/>
+     <event value="3" symbol="OpenKeyFailure" version="0" task="OpenKeyFailure" level="win:Error" keywords="ETW_KEYWORD_NCRYPT_OPERATION" template="OpenKeyFailureArgs"/>
+     <event value="4" symbol="KeyCreationFailure" version="0" task="KeyCreationFailure" level="win:Error" keywords="ETW_KEYWORD_NCRYPT_OPERATION" template="KeyCreationFailureArgs"/>
+     <event value="5" symbol="OperationFailure_5" version="0" task="OperationFailure_5" level="win:Error" keywords="ETW_KEYWORD_PROTECT_OPERATION" template="OperationFailure_5Args"/>
+     <event value="6" symbol="OperationFailure_6" version="0" task="OperationFailure_6" level="win:Error" keywords="ETW_KEYWORD_PROTECT_OPERATION" template="OperationFailure_6Args"/>
+     <event value="7" symbol="OperationFailure_7" version="0" task="OperationFailure_7" level="win:Error" keywords="ETW_KEYWORD_PROTECT_OPERATION" template="OperationFailure_7Args"/>
+     <event value="8" symbol="OperationFailure_8" version="0" task="OperationFailure_8" level="win:Error" keywords="ETW_KEYWORD_PROTECT_OPERATION" template="OperationFailure_7Args"/>
+    </events>
+    <templates>
+     <template tid="OperationFailureArgs">
+      <data name="OperationType" inType="win:UInt32" map="NCryptOperationType"/>
+      <data name="ProviderName" inType="win:UnicodeString"/>
+      <data name="KeyName" inType="win:UnicodeString"/>
+      <data name="KeyType" inType="win:UnicodeString"/>
+      <data name="AlgorithmName" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:HexInt32"/>
+      <data name="ProcessName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="OpenProviderFailureArgs">
+      <data name="ProviderName" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:HexInt32"/>
+      <data name="ProcessName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="OpenKeyFailureArgs">
+      <data name="ProviderName" inType="win:UnicodeString"/>
+      <data name="KeyName" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:HexInt32"/>
+      <data name="ProcessName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="KeyCreationFailureArgs">
+      <data name="ProviderName" inType="win:UnicodeString"/>
+      <data name="KeyName" inType="win:UnicodeString"/>
+      <data name="AlgorithmName" inType="win:UnicodeString"/>
+      <data name="Flags" inType="win:HexInt32"/>
+      <data name="Status" inType="win:HexInt32"/>
+      <data name="ProcessName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="OperationFailure_5Args">
+      <data name="ProtectorName" inType="win:UnicodeString"/>
+      <data name="ProtectorAttributes" inType="win:UnicodeString"/>
+      <data name="Flags" inType="win:HexInt32"/>
+      <data name="Status" inType="win:HexInt32"/>
+      <data name="ProcessName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="OperationFailure_6Args">
+      <data name="ProtectorName" inType="win:UnicodeString"/>
+      <data name="RecipientType" inType="win:UInt32" map="RecipientType"/>
+      <data name="Flags" inType="win:HexInt32"/>
+      <data name="Status" inType="win:HexInt32"/>
+      <data name="ProcessName" inType="win:UnicodeString"/>
+      <data name="KeyIdLength" inType="win:UInt32"/>
+      <data name="KeyId" inType="win:Binary" length="KeyIdLength"/>
+     </template>
+     <template tid="OperationFailure_7Args">
+      <data name="Flags" inType="win:HexInt32"/>
+      <data name="Status" inType="win:HexInt32"/>
+      <data name="ProcessName" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_ETW_KEYWORD_NCRYPT_OPERATION" value="ETW_KEYWORD_NCRYPT_OPERATION"/>
+    <string id="keyword_ETW_KEYWORD_PROTECT_OPERATION" value="ETW_KEYWORD_PROTECT_OPERATION"/>
+    <string id="task_OperationFailure" value="OperationFailure"/>
+    <string id="task_OpenProviderFailure" value="OpenProviderFailure"/>
+    <string id="task_OpenKeyFailure" value="OpenKeyFailure"/>
+    <string id="task_KeyCreationFailure" value="KeyCreationFailure"/>
+    <string id="task_OperationFailure_5" value="OperationFailure_5"/>
+    <string id="task_OperationFailure_6" value="OperationFailure_6"/>
+    <string id="task_OperationFailure_7" value="OperationFailure_7"/>
+    <string id="task_OperationFailure_8" value="OperationFailure_8"/>
+    <string id="map_NCryptOperationTypeCREATE KEY" value="CREATE KEY"/>
+    <string id="map_NCryptOperationTypeOPEN KEY" value="OPEN KEY"/>
+    <string id="map_NCryptOperationTypeDELETE KEY" value="DELETE KEY"/>
+    <string id="map_NCryptOperationTypeENCRYPT" value="ENCRYPT"/>
+    <string id="map_NCryptOperationTypeDECRYPT" value="DECRYPT"/>
+    <string id="map_NCryptOperationTypeSIGN HASH" value="SIGN HASH"/>
+    <string id="map_NCryptOperationTypeVERIFY SIGNATURE" value="VERIFY SIGNATURE"/>
+    <string id="map_NCryptOperationTypeSECRET AGREEMENT" value="SECRET AGREEMENT"/>
+    <string id="map_NCryptOperationTypeDERIVE KEY" value="DERIVE KEY"/>
+    <string id="map_NCryptOperationTypeKEY DERIVATION" value="KEY DERIVATION"/>
+    <string id="map_NCryptOperationTypeKEY FINALIZE" value="KEY FINALIZE"/>
+    <string id="map_NCryptOperationTypeEXPORT KEY" value="EXPORT KEY"/>
+    <string id="map_NCryptOperationTypeIMPORT KEY" value="IMPORT KEY"/>
+    <string id="map_RecipientTypeKEY TRANSPORT" value="KEY TRANSPORT"/>
+    <string id="map_RecipientTypeKEY AGREEMENT" value="KEY AGREEMENT"/>
+    <string id="map_RecipientTypeSYMMETRIC KEY ENCRYPTION" value="SYMMETRIC KEY ENCRYPTION"/>
+    <string id="map_RecipientTypePASSWORD ENCRYPTION" value="PASSWORD ENCRYPTION"/>
+    <string id="map_RecipientTypeOTHER" value="OTHER"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

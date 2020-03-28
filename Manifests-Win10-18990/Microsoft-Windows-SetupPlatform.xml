@@ -1,0 +1,55 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-SetupPlatform" guid="{530fb9b9-c515-4472-9313-fb346f9255e3}" resourceFileName="Microsoft-Windows-SetupPlatform" messageFileName="Microsoft-Windows-SetupPlatform" symbol="MicrosoftWindowsSetupPlatform" source="Xml" >
+    <keywords>
+     <keyword name="keyPerformance" message="$(string.keyword_keyPerformance)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="Runoperation" message="$(string.task_Runoperation)" value="1000"/>
+     <task name="Onlinegather" message="$(string.task_Onlinegather)" value="1001"/>
+     <task name="Offlinegather" message="$(string.task_Offlinegather)" value="1002"/>
+     <task name="InstallWindowsTask" message="$(string.task_InstallWindowsTask)" value="1003"/>
+    </tasks>
+    <events>
+     <event value="1001" symbol="RunoperationStart" version="0" task="Runoperation" opcode="win:Start" level="win:Informational" keywords="keyPerformance" template="RunoperationStartArgs"/>
+     <event value="1002" symbol="RunoperationStop" version="0" task="Runoperation" opcode="win:Stop" level="win:Informational" keywords="keyPerformance" template="RunoperationStartArgs"/>
+     <event value="1003" symbol="OnlinegatherStart" version="0" task="Onlinegather" opcode="win:Start" level="win:Informational" keywords="keyPerformance" template="OnlinegatherStartArgs"/>
+     <event value="1004" symbol="OnlinegatherStop" version="0" task="Onlinegather" opcode="win:Stop" level="win:Informational" keywords="keyPerformance" template="OnlinegatherStartArgs"/>
+     <event value="1005" symbol="OfflinegatherStart" version="0" task="Offlinegather" opcode="win:Start" level="win:Informational" keywords="keyPerformance"/>
+     <event value="1006" symbol="OfflinegatherStop" version="0" task="Offlinegather" opcode="win:Stop" level="win:Informational" keywords="keyPerformance"/>
+     <event value="2005" symbol="InstallWindowsTask" version="0" task="InstallWindowsTask" level="win:Informational" template="InstallWindowsTaskArgs"/>
+    </events>
+    <templates>
+     <template tid="RunoperationStartArgs">
+      <data name="Operation" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="OnlinegatherStartArgs">
+      <data name="OfflineWinDir" inType="win:UnicodeString"/>
+      <data name="MachineSpecific" inType="win:UInt32"/>
+     </template>
+     <template tid="InstallWindowsTaskArgs">
+      <data name="Installationchoice" inType="win:UInt32"/>
+      <data name="HostOSMajorversion" inType="win:UInt32"/>
+      <data name="HostOSMinorversion" inType="win:UInt32"/>
+      <data name="HostOSBuildnumber" inType="win:UInt32"/>
+      <data name="HostOSServicepackmajornumber" inType="win:UInt32"/>
+      <data name="HostOSServicepackminornumber" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_keyPerformance" value="keyPerformance"/>
+    <string id="task_Runoperation" value="Runoperation"/>
+    <string id="task_Onlinegather" value="Onlinegather"/>
+    <string id="task_Offlinegather" value="Offlinegather"/>
+    <string id="task_InstallWindowsTask" value="InstallWindowsTask"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

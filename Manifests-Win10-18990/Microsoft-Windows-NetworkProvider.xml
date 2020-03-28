@@ -1,0 +1,134 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-NetworkProvider" guid="{1e9a4978-78c2-441e-8858-75b5d1326bc5}" resourceFileName="Microsoft-Windows-NetworkProvider" messageFileName="Microsoft-Windows-NetworkProvider" symbol="MicrosoftWindowsNetworkProvider" source="Xml" >
+    <keywords>
+     <keyword name="UncHardening" message="$(string.keyword_UncHardening)" mask="0x100"/>
+    </keywords>
+    <tasks>
+     <task name="UNCHardeningConfiguration" message="$(string.task_UNCHardeningConfiguration)" value="11">
+>
+      <opcodes>
+       <opcode name="UnsupportedRegistryValueType" message="$(string.opcode_UNCHardeningConfigurationUnsupportedRegistryValueType)" value="11"/>
+       <opcode name="InvalidUNCPath" message="$(string.opcode_UNCHardeningConfigurationInvalidUNCPath)" value="12"/>
+       <opcode name="UnsupportedUNCPath" message="$(string.opcode_UNCHardeningConfigurationUnsupportedUNCPath)" value="13"/>
+       <opcode name="InvalidSyntax" message="$(string.opcode_UNCHardeningConfigurationInvalidSyntax)" value="14"/>
+       <opcode name="UnsupportedPropertyName" message="$(string.opcode_UNCHardeningConfigurationUnsupportedPropertyName)" value="15"/>
+       <opcode name="UnsupportedPropertyValue" message="$(string.opcode_UNCHardeningConfigurationUnsupportedPropertyValue)" value="16"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <maps>
+     <valueMap name="RegValueType">
+      <map value="0x0" message="$(string.map_RegValueTypeREG_NONE)"/>
+      <map value="0x1" message="$(string.map_RegValueTypeREG_SZ)"/>
+      <map value="0x2" message="$(string.map_RegValueTypeREG_EXPAND_SZ)"/>
+      <map value="0x3" message="$(string.map_RegValueTypeREG_BINARY)"/>
+      <map value="0x4" message="$(string.map_RegValueTypeREG_DWORD)"/>
+      <map value="0x7" message="$(string.map_RegValueTypeREG_MULTI_SZ)"/>
+      <map value="0xb" message="$(string.map_RegValueTypeREG_QWORD)"/>
+     </valueMap>
+     <valueMap name="MupCskvExpectedToken">
+      <map value="0x1" message="$(string.map_MupCskvExpectedToken<Property>)"/>
+      <map value="0x2" message="$(string.map_MupCskvExpectedToken=)"/>
+      <map value="0x3" message="$(string.map_MupCskvExpectedToken<Value>)"/>
+      <map value="0x4" message="$(string.map_MupCskvExpectedToken<Integer>)"/>
+      <map value="0x5" message="$(string.map_MupCskvExpectedToken<Quoted String>)"/>
+      <map value="0x6" message="$(string.map_MupCskvExpectedToken,)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1000" symbol="UNCHardeningConfigurationUnsupportedRegistryValueType" version="0" task="UNCHardeningConfiguration" opcode="UnsupportedRegistryValueType" level="win:Error" keywords="UncHardening" template="UNCHardeningConfigurationUnsupportedRegistryValueTypeArgs"/>
+     <event value="1001" symbol="UNCHardeningConfigurationInvalidUNCPath" version="0" task="UNCHardeningConfiguration" opcode="InvalidUNCPath" level="win:Error" keywords="UncHardening" template="UNCHardeningConfigurationInvalidUNCPathArgs"/>
+     <event value="1002" symbol="UNCHardeningConfigurationUnsupportedUNCPath" version="0" task="UNCHardeningConfiguration" opcode="UnsupportedUNCPath" level="win:Error" keywords="UncHardening" template="UNCHardeningConfigurationInvalidUNCPathArgs"/>
+     <event value="1003" symbol="UNCHardeningConfigurationUnsupportedPropertyName" version="0" task="UNCHardeningConfiguration" opcode="UnsupportedPropertyName" level="win:Warning" keywords="UncHardening" template="UNCHardeningConfigurationUnsupportedPropertyNameArgs"/>
+     <event value="1004" symbol="UNCHardeningConfigurationUnsupportedPropertyName1004" version="0" task="UNCHardeningConfiguration" opcode="UnsupportedPropertyName" level="win:Warning" keywords="UncHardening" template="UNCHardeningConfigurationUnsupportedPropertyName1004Args"/>
+     <event value="1005" symbol="UNCHardeningConfigurationUnsupportedPropertyValue" version="0" task="UNCHardeningConfiguration" opcode="UnsupportedPropertyValue" level="win:Error" keywords="UncHardening" template="UNCHardeningConfigurationUnsupportedPropertyName1004Args"/>
+     <event value="1006" symbol="UNCHardeningConfigurationInvalidSyntax" version="0" task="UNCHardeningConfiguration" opcode="InvalidSyntax" level="win:Error" keywords="UncHardening" template="UNCHardeningConfigurationInvalidUNCPathArgs"/>
+     <event value="1007" symbol="UNCHardeningConfigurationInvalidSyntax1007" version="0" task="UNCHardeningConfiguration" opcode="InvalidSyntax" level="win:Error" keywords="UncHardening" template="UNCHardeningConfigurationInvalidSyntax1007Args"/>
+     <event value="1008" symbol="UNCHardeningConfigurationInvalidSyntax1008" version="0" task="UNCHardeningConfiguration" opcode="InvalidSyntax" level="win:Error" keywords="UncHardening" template="UNCHardeningConfigurationInvalidSyntax1008Args"/>
+     <event value="1009" symbol="UNCHardeningConfigurationInvalidSyntax1009" version="0" task="UNCHardeningConfiguration" opcode="InvalidSyntax" level="win:Error" keywords="UncHardening" template="UNCHardeningConfigurationInvalidSyntax1008Args"/>
+    </events>
+    <templates>
+     <template tid="UNCHardeningConfigurationUnsupportedRegistryValueTypeArgs">
+      <data name="RegistryKeyLength" inType="win:UInt16"/>
+      <data name="RegistryKey" inType="win:UnicodeString" length="RegistryKeyLength"/>
+      <data name="RegistryValueNameLength" inType="win:UInt16"/>
+      <data name="RegistryValueName" inType="win:UnicodeString" length="RegistryValueNameLength"/>
+      <data name="RegistryValueType" inType="win:UInt32" map="RegValueType"/>
+     </template>
+     <template tid="UNCHardeningConfigurationInvalidUNCPathArgs">
+      <data name="UncPathLength" inType="win:UInt16"/>
+      <data name="UncPath" inType="win:UnicodeString" length="UncPathLength"/>
+      <data name="UncHardeningConfigurationLength" inType="win:UInt32"/>
+      <data name="UncHardeningConfiguration" inType="win:UnicodeString" length="UncHardeningConfigurationLength"/>
+     </template>
+     <template tid="UNCHardeningConfigurationUnsupportedPropertyNameArgs">
+      <data name="UncPathLength" inType="win:UInt16"/>
+      <data name="UncPath" inType="win:UnicodeString" length="UncPathLength"/>
+      <data name="UncHardeningConfigurationLength" inType="win:UInt32"/>
+      <data name="UncHardeningConfiguration" inType="win:UnicodeString" length="UncHardeningConfigurationLength"/>
+      <data name="PropertyNameLength" inType="win:UInt16"/>
+      <data name="PropertyName" inType="win:UnicodeString" length="PropertyNameLength"/>
+      <data name="PropertyValue" inType="win:UInt64"/>
+     </template>
+     <template tid="UNCHardeningConfigurationUnsupportedPropertyName1004Args">
+      <data name="UncPathLength" inType="win:UInt16"/>
+      <data name="UncPath" inType="win:UnicodeString" length="UncPathLength"/>
+      <data name="UncHardeningConfigurationLength" inType="win:UInt32"/>
+      <data name="UncHardeningConfiguration" inType="win:UnicodeString" length="UncHardeningConfigurationLength"/>
+      <data name="PropertyNameLength" inType="win:UInt16"/>
+      <data name="PropertyName" inType="win:UnicodeString" length="PropertyNameLength"/>
+      <data name="PropertyValueLength" inType="win:UInt16"/>
+      <data name="PropertyValue" inType="win:UnicodeString" length="PropertyValueLength"/>
+     </template>
+     <template tid="UNCHardeningConfigurationInvalidSyntax1007Args">
+      <data name="UncPathLength" inType="win:UInt16"/>
+      <data name="UncPath" inType="win:UnicodeString" length="UncPathLength"/>
+      <data name="UncHardeningConfigurationLength" inType="win:UInt32"/>
+      <data name="UncHardeningConfiguration" inType="win:UnicodeString" length="UncHardeningConfigurationLength"/>
+      <data name="ExpectedToken" inType="win:UInt32" map="MupCskvExpectedToken"/>
+      <data name="FoundTokenLength" inType="win:UInt16"/>
+      <data name="FoundToken" inType="win:UnicodeString" length="FoundTokenLength"/>
+     </template>
+     <template tid="UNCHardeningConfigurationInvalidSyntax1008Args">
+      <data name="UncPathLength" inType="win:UInt16"/>
+      <data name="UncPath" inType="win:UnicodeString" length="UncPathLength"/>
+      <data name="UncHardeningConfigurationLength" inType="win:UInt32"/>
+      <data name="UncHardeningConfiguration" inType="win:UnicodeString" length="UncHardeningConfigurationLength"/>
+      <data name="ExpectedToken" inType="win:UInt32"/>
+      <data name="FoundTokenLength" inType="win:UInt16"/>
+      <data name="FoundToken" inType="win:UnicodeString" length="FoundTokenLength"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_UncHardening" value="UncHardening"/>
+    <string id="task_UNCHardeningConfiguration" value="UNCHardeningConfiguration"/>
+    <string id="opcode_UNCHardeningConfigurationUnsupportedRegistryValueType" value="UnsupportedRegistryValueType"/>
+    <string id="opcode_UNCHardeningConfigurationInvalidUNCPath" value="InvalidUNCPath"/>
+    <string id="opcode_UNCHardeningConfigurationUnsupportedUNCPath" value="UnsupportedUNCPath"/>
+    <string id="opcode_UNCHardeningConfigurationInvalidSyntax" value="InvalidSyntax"/>
+    <string id="opcode_UNCHardeningConfigurationUnsupportedPropertyName" value="UnsupportedPropertyName"/>
+    <string id="opcode_UNCHardeningConfigurationUnsupportedPropertyValue" value="UnsupportedPropertyValue"/>
+    <string id="map_RegValueTypeREG_NONE" value="REG_NONE"/>
+    <string id="map_RegValueTypeREG_SZ" value="REG_SZ"/>
+    <string id="map_RegValueTypeREG_EXPAND_SZ" value="REG_EXPAND_SZ"/>
+    <string id="map_RegValueTypeREG_BINARY" value="REG_BINARY"/>
+    <string id="map_RegValueTypeREG_DWORD" value="REG_DWORD"/>
+    <string id="map_RegValueTypeREG_MULTI_SZ" value="REG_MULTI_SZ"/>
+    <string id="map_RegValueTypeREG_QWORD" value="REG_QWORD"/>
+    <string id="map_MupCskvExpectedToken<Property>" value="<Property>"/>
+    <string id="map_MupCskvExpectedToken=" value="="/>
+    <string id="map_MupCskvExpectedToken<Value>" value="<Value>"/>
+    <string id="map_MupCskvExpectedToken<Integer>" value="<Integer>"/>
+    <string id="map_MupCskvExpectedToken<Quoted String>" value="<Quoted String>"/>
+    <string id="map_MupCskvExpectedToken," value=","/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

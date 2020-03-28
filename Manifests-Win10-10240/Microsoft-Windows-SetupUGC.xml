@@ -1,0 +1,48 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-SetupUGC" guid="{75ebc33e-0870-49e5-bdce-9d7028279489}" resourceFileName="Microsoft-Windows-SetupUGC" messageFileName="Microsoft-Windows-SetupUGC" symbol="MicrosoftWindowsSetupUGC" source="Xml" >
+    <keywords>
+     <keyword name="keyPerformance" message="$(string.keyword_keyPerformance)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="RunSetupUGC" message="$(string.task_RunSetupUGC)" value="1000"/>
+     <task name="RunningProcessorsforPass" message="$(string.task_RunningProcessorsforPass)" value="2000"/>
+     <task name="RunningProcessor" message="$(string.task_RunningProcessor)" value="3000"/>
+    </tasks>
+    <events>
+     <event value="1001" symbol="RunSetupUGCStart" version="0" task="RunSetupUGC" opcode="win:Start" level="win:Informational" keywords="keyPerformance" template="RunSetupUGCStartArgs"/>
+     <event value="1002" symbol="RunSetupUGCStop" version="0" task="RunSetupUGC" opcode="win:Stop" level="win:Informational" keywords="keyPerformance" template="RunSetupUGCStopArgs"/>
+     <event value="2001" symbol="RunningProcessorsforPassStart" version="0" task="RunningProcessorsforPass" opcode="win:Start" level="win:Informational" keywords="keyPerformance" template="RunningProcessorsforPassStartArgs"/>
+     <event value="2002" symbol="RunningProcessorsforPassStop" version="0" task="RunningProcessorsforPass" opcode="win:Stop" level="win:Informational" keywords="keyPerformance" template="RunSetupUGCStopArgs"/>
+     <event value="3001" symbol="RunningProcessorStart" version="0" task="RunningProcessor" opcode="win:Start" level="win:Informational" keywords="keyPerformance" template="RunningProcessorStartArgs"/>
+     <event value="3002" symbol="RunningProcessorStop" version="0" task="RunningProcessor" opcode="win:Stop" level="win:Informational" keywords="keyPerformance" template="RunSetupUGCStopArgs"/>
+    </events>
+    <templates>
+     <template tid="RunSetupUGCStartArgs">
+      <data name="CommandLine" inType="win:UnicodeString"/>
+     </template>
+     <template tid="RunSetupUGCStopArgs">
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="RunningProcessorsforPassStartArgs">
+      <data name="Pass" inType="win:UnicodeString"/>
+     </template>
+     <template tid="RunningProcessorStartArgs">
+      <data name="Processor" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_keyPerformance" value="keyPerformance"/>
+    <string id="task_RunSetupUGC" value="RunSetupUGC"/>
+    <string id="task_RunningProcessorsforPass" value="RunningProcessorsforPass"/>
+    <string id="task_RunningProcessor" value="RunningProcessor"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

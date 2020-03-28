@@ -1,0 +1,80 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Dwm-Redir" guid="{7d99f6a4-1bec-4c09-9703-3aaa8148347f}" resourceFileName="Microsoft-Windows-Dwm-Redir" messageFileName="Microsoft-Windows-Dwm-Redir" symbol="MicrosoftWindowsDwmRedir" source="Xml" >
+    <keywords>
+     <keyword name="DwmRedir" message="$(string.keyword_DwmRedir)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="RedirGetSharedHandle" message="$(string.task_RedirGetSharedHandle)" value="1"/>
+     <task name="RedirUpdateSharedSurface" message="$(string.task_RedirUpdateSharedSurface)" value="2"/>
+     <task name="RedirAsyncFlush" message="$(string.task_RedirAsyncFlush)" value="3"/>
+     <task name="RedirDxResize" message="$(string.task_RedirDxResize)" value="4"/>
+     <task name="RedirDwmUpdate" message="$(string.task_RedirDwmUpdate)" value="7"/>
+     <task name="RedirSetLivePreviewExcludeHwnd" message="$(string.task_RedirSetLivePreviewExcludeHwnd)" value="8"/>
+     <task name="RedirProcessLogicalSurface" message="$(string.task_RedirProcessLogicalSurface)" value="9"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="RedirGetSharedHandle" version="0" task="RedirGetSharedHandle" level="win:Informational" keywords="DwmRedir" template="RedirGetSharedHandleArgs"/>
+     <event value="2" symbol="RedirUpdateSharedSurface" version="0" task="RedirUpdateSharedSurface" level="win:Informational" keywords="DwmRedir" template="RedirGetSharedHandleArgs"/>
+     <event value="3" symbol="RedirAsyncFlush" version="0" task="RedirAsyncFlush" level="win:Informational" keywords="DwmRedir" template="RedirAsyncFlushArgs"/>
+     <event value="4" symbol="RedirDxResize" version="0" task="RedirDxResize" level="win:Informational" keywords="DwmRedir" template="RedirDxResizeArgs"/>
+     <event value="7" symbol="RedirDwmUpdate" version="0" task="RedirDwmUpdate" level="win:Informational" keywords="DwmRedir" template="RedirDwmUpdateArgs"/>
+     <event value="8" symbol="RedirSetLivePreviewExcludeHwnd" version="0" task="RedirSetLivePreviewExcludeHwnd" level="win:Informational" keywords="DwmRedir" template="RedirSetLivePreviewExcludeHwndArgs"/>
+     <event value="9" symbol="RedirProcessLogicalSurface" version="0" task="RedirProcessLogicalSurface" level="win:Informational" keywords="DwmRedir" template="RedirProcessLogicalSurfaceArgs"/>
+    </events>
+    <templates>
+     <template tid="RedirGetSharedHandleArgs">
+      <data name="FlipChain" inType="win:UInt32"/>
+      <data name="SerialNumber" inType="win:UInt32"/>
+      <data name="BuffersEmpty" inType="win:UInt32"/>
+      <data name="Index" inType="win:UInt32"/>
+      <data name="IndexUnconfirmed" inType="win:UInt32"/>
+      <data name="hSurface" inType="win:Pointer"/>
+     </template>
+     <template tid="RedirAsyncFlushArgs">
+      <data name="ProcessID" inType="win:UInt32"/>
+      <data name="AsyncFlushType" inType="win:UInt32"/>
+     </template>
+     <template tid="RedirDxResizeArgs">
+      <data name="Hwnd" inType="win:Pointer"/>
+      <data name="xSizeOld" inType="win:UInt32"/>
+      <data name="ySizeOld" inType="win:UInt32"/>
+      <data name="formatOld" inType="win:Pointer"/>
+      <data name="xSizeNew" inType="win:UInt32"/>
+      <data name="ySizeNew" inType="win:UInt32"/>
+      <data name="formatNew" inType="win:Pointer"/>
+     </template>
+     <template tid="RedirDwmUpdateArgs">
+      <data name="Hwnd" inType="win:Pointer"/>
+      <data name="MessageId" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+     </template>
+     <template tid="RedirSetLivePreviewExcludeHwndArgs">
+      <data name="hwnd" inType="win:Pointer"/>
+      <data name="fExcludedFromLivePreview" inType="win:Boolean"/>
+     </template>
+     <template tid="RedirProcessLogicalSurfaceArgs">
+      <data name="logicalSurfaceHandle" inType="win:UInt64"/>
+      <data name="spriteHandle" inType="win:UInt64"/>
+      <data name="windowHandle" inType="win:UInt64"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_DwmRedir" value="DwmRedir"/>
+    <string id="task_RedirGetSharedHandle" value="RedirGetSharedHandle"/>
+    <string id="task_RedirUpdateSharedSurface" value="RedirUpdateSharedSurface"/>
+    <string id="task_RedirAsyncFlush" value="RedirAsyncFlush"/>
+    <string id="task_RedirDxResize" value="RedirDxResize"/>
+    <string id="task_RedirDwmUpdate" value="RedirDwmUpdate"/>
+    <string id="task_RedirSetLivePreviewExcludeHwnd" value="RedirSetLivePreviewExcludeHwnd"/>
+    <string id="task_RedirProcessLogicalSurface" value="RedirProcessLogicalSurface"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

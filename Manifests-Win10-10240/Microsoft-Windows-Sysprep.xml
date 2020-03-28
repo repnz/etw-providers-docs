@@ -1,0 +1,91 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Sysprep" guid="{75ebc33e-77b8-4ba8-9474-4f4a9db2f5c6}" resourceFileName="Microsoft-Windows-Sysprep" messageFileName="Microsoft-Windows-Sysprep" symbol="MicrosoftWindowsSysprep" source="Xml" >
+    <keywords>
+     <keyword name="keyPerformance" message="$(string.keyword_keyPerformance)" mask="0x1"/>
+     <keyword name="keySysprep" message="$(string.keyword_keySysprep)" mask="0x2"/>
+    </keywords>
+    <tasks>
+     <task name="RunRegistryDlls" message="$(string.task_RunRegistryDlls)" value="1000"/>
+     <task name="CallExternalProviderFunction" message="$(string.task_CallExternalProviderFunction)" value="2000"/>
+     <task name="Loadactionmeta_datafile" message="$(string.task_Loadactionmeta_datafile)" value="3000"/>
+     <task name="Createlistofactionsforacomponent" message="$(string.task_Createlistofactionsforacomponent)" value="4000"/>
+     <task name="Deletingfile(s)ofapattern" message="$(string.task_Deletingfile(s)ofapattern)" value="5000"/>
+     <task name="Deleteadirectory" message="$(string.task_Deleteadirectory)" value="6000"/>
+     <task name="Executeanentirephase" message="$(string.task_Executeanentirephase)" value="7000"/>
+    </tasks>
+    <events>
+     <event value="1001" symbol="RunRegistryDllsStart" version="0" task="RunRegistryDlls" opcode="win:Start" level="win:Informational" keywords="keyPerformance keySysprep" template="RunRegistryDllsStartArgs"/>
+     <event value="1002" symbol="RunRegistryDllsStop" version="0" task="RunRegistryDlls" opcode="win:Stop" level="win:Informational" keywords="keyPerformance keySysprep" template="RunRegistryDllsStopArgs"/>
+     <event value="2001" symbol="CallExternalProviderFunctionStart" version="0" task="CallExternalProviderFunction" opcode="win:Start" level="win:Informational" keywords="keyPerformance keySysprep" template="CallExternalProviderFunctionStartArgs"/>
+     <event value="2002" symbol="CallExternalProviderFunctionStop" version="0" task="CallExternalProviderFunction" opcode="win:Stop" level="win:Informational" keywords="keyPerformance keySysprep" template="CallExternalProviderFunctionStartArgs"/>
+     <event value="3001" symbol="Loadactionmeta_datafileStart" version="0" task="Loadactionmeta_datafile" opcode="win:Start" level="win:Informational" keywords="keyPerformance keySysprep" template="Loadactionmeta_datafileStartArgs"/>
+     <event value="3002" symbol="Loadactionmeta_datafileStop" version="0" task="Loadactionmeta_datafile" opcode="win:Stop" level="win:Informational" keywords="keyPerformance keySysprep" template="Loadactionmeta_datafileStartArgs"/>
+     <event value="4001" symbol="CreatelistofactionsforacomponentStart" version="0" task="Createlistofactionsforacomponent" opcode="win:Start" level="win:Informational" keywords="keyPerformance keySysprep" template="CreatelistofactionsforacomponentStartArgs"/>
+     <event value="4002" symbol="CreatelistofactionsforacomponentStop" version="0" task="Createlistofactionsforacomponent" opcode="win:Stop" level="win:Informational" keywords="keyPerformance keySysprep" template="CreatelistofactionsforacomponentStartArgs"/>
+     <event value="5001" symbol="Deletingfile(s)ofapatternStart" version="0" task="Deletingfile(s)ofapattern" opcode="win:Start" level="win:Informational" keywords="keyPerformance keySysprep" template="Deletingfile(s)ofapatternStartArgs"/>
+     <event value="5002" symbol="Deletingfile(s)ofapatternStop" version="0" task="Deletingfile(s)ofapattern" opcode="win:Stop" level="win:Informational" keywords="keyPerformance keySysprep" template="Deletingfile(s)ofapatternStopArgs"/>
+     <event value="6001" symbol="DeleteadirectoryStart" version="0" task="Deleteadirectory" opcode="win:Start" level="win:Informational" keywords="keyPerformance keySysprep" template="DeleteadirectoryStartArgs"/>
+     <event value="6002" symbol="DeleteadirectoryStop" version="0" task="Deleteadirectory" opcode="win:Stop" level="win:Informational" keywords="keyPerformance keySysprep" template="DeleteadirectoryStopArgs"/>
+     <event value="7001" symbol="ExecuteanentirephaseStart" version="0" task="Executeanentirephase" opcode="win:Start" level="win:Informational" keywords="keyPerformance keySysprep" template="ExecuteanentirephaseStartArgs"/>
+     <event value="7002" symbol="ExecuteanentirephaseStop" version="0" task="Executeanentirephase" opcode="win:Stop" level="win:Informational" keywords="keyPerformance keySysprep" template="RunRegistryDllsStopArgs"/>
+    </events>
+    <templates>
+     <template tid="RunRegistryDllsStartArgs">
+      <data name="BasePath" inType="win:UnicodeString"/>
+      <data name="Phase" inType="win:UnicodeString"/>
+     </template>
+     <template tid="RunRegistryDllsStopArgs">
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="CallExternalProviderFunctionStartArgs">
+      <data name="DllName" inType="win:UnicodeString"/>
+      <data name="FunctionName" inType="win:AnsiString"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="Loadactionmeta_datafileStartArgs">
+      <data name="ActionFilePath" inType="win:UnicodeString"/>
+     </template>
+     <template tid="CreatelistofactionsforacomponentStartArgs">
+      <data name="ComponentName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Deletingfile(s)ofapatternStartArgs">
+      <data name="DirectoryPath" inType="win:UnicodeString"/>
+      <data name="FilePattern" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Deletingfile(s)ofapatternStopArgs">
+      <data name="DirectoryPath" inType="win:UnicodeString"/>
+      <data name="FilePattern" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="DeleteadirectoryStartArgs">
+      <data name="DirectoryPath" inType="win:UnicodeString"/>
+     </template>
+     <template tid="DeleteadirectoryStopArgs">
+      <data name="DirectoryPath" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="ExecuteanentirephaseStartArgs">
+      <data name="Phase" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_keyPerformance" value="keyPerformance"/>
+    <string id="keyword_keySysprep" value="keySysprep"/>
+    <string id="task_RunRegistryDlls" value="RunRegistryDlls"/>
+    <string id="task_CallExternalProviderFunction" value="CallExternalProviderFunction"/>
+    <string id="task_Loadactionmeta_datafile" value="Loadactionmeta_datafile"/>
+    <string id="task_Createlistofactionsforacomponent" value="Createlistofactionsforacomponent"/>
+    <string id="task_Deletingfile(s)ofapattern" value="Deletingfile(s)ofapattern"/>
+    <string id="task_Deleteadirectory" value="Deleteadirectory"/>
+    <string id="task_Executeanentirephase" value="Executeanentirephase"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

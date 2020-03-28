@@ -1,0 +1,193 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-SystemSettingsThreshold" guid="{8bcdf442-3070-4118-8c94-e8843be363b3}" resourceFileName="Microsoft-Windows-SystemSettingsThreshold" messageFileName="Microsoft-Windows-SystemSettingsThreshold" symbol="MicrosoftWindowsSystemSettingsThreshold" source="Xml" >
+    <keywords>
+     <keyword name="PersonalizationPage" message="$(string.keyword_PersonalizationPage)" mask="0x10000"/>
+     <keyword name="WorkplacePage" message="$(string.keyword_WorkplacePage)" mask="0x20000"/>
+    </keywords>
+    <tasks>
+     <task name="SystemSettingsStartup" message="$(string.task_SystemSettingsStartup)" value="100"/>
+     <task name="SystemSettingsWaitSSDismiss" message="$(string.task_SystemSettingsWaitSSDismiss)" value="105"/>
+     <task name="SystemSettingPageLoad" message="$(string.task_SystemSettingPageLoad)" value="110"/>
+     <task name="SystemSettingsNavLinkPopulate" message="$(string.task_SystemSettingsNavLinkPopulate)" value="111"/>
+     <task name="SystemSettingRadiosTurnOn" message="$(string.task_SystemSettingRadiosTurnOn)" value="120"/>
+     <task name="SystemSettingRadiosTurnOff" message="$(string.task_SystemSettingRadiosTurnOff)" value="130"/>
+     <task name="NotificationsPageLoad" message="$(string.task_NotificationsPageLoad)" value="200"/>
+     <task name="NotificationsPageInfo" message="$(string.task_NotificationsPageInfo)" value="210"/>
+     <task name="LockScreen_Refresh" message="$(string.task_LockScreen_Refresh)" value="240"/>
+     <task name="StartMenu_Refresh" message="$(string.task_StartMenu_Refresh)" value="241"/>
+     <task name="PersonalizationPage_ColorUpdate" message="$(string.task_PersonalizationPage_ColorUpdate)" value="242"/>
+     <task name="PersonalizationPage_LockScreenUpdate" message="$(string.task_PersonalizationPage_LockScreenUpdate)" value="244"/>
+     <task name="PersonalizationPage_PageInit" message="$(string.task_PersonalizationPage_PageInit)" value="246"/>
+     <task name="PersonalizationPage_TattooUpdate" message="$(string.task_PersonalizationPage_TattooUpdate)" value="248"/>
+     <task name="RoamingSettingPageLoad" message="$(string.task_RoamingSettingPageLoad)" value="250"/>
+     <task name="RoamingSettingChange" message="$(string.task_RoamingSettingChange)" value="251"/>
+     <task name="SearchPageLoad" message="$(string.task_SearchPageLoad)" value="300"/>
+     <task name="HomeGroupPage_SharingProgress" message="$(string.task_HomeGroupPage_SharingProgress)" value="350"/>
+     <task name="ShareSettingsLoad" message="$(string.task_ShareSettingsLoad)" value="400"/>
+     <task name="ShareSettingsClearHistory" message="$(string.task_ShareSettingsClearHistory)" value="402"/>
+     <task name="DevicePageFirstResponse" message="$(string.task_DevicePageFirstResponse)" value="450"/>
+     <task name="DevicePageDeviceEnumeration" message="$(string.task_DevicePageDeviceEnumeration)" value="460"/>
+     <task name="AccessibilityPageHighContrast" message="$(string.task_AccessibilityPageHighContrast)" value="470"/>
+     <task name="AccessibilityPageScaling" message="$(string.task_AccessibilityPageScaling)" value="480"/>
+     <task name="AccountPictureChange" message="$(string.task_AccountPictureChange)" value="490"/>
+     <task name="CorpDeviceRegistration" message="$(string.task_CorpDeviceRegistration)" value="500"/>
+     <task name="CorpDeviceManagement" message="$(string.task_CorpDeviceManagement)" value="501"/>
+     <task name="DisplaySettingsIdentify" message="$(string.task_DisplaySettingsIdentify)" value="512"/>
+     <task name="AdminFlowDialogFlyout" message="$(string.task_AdminFlowDialogFlyout)" value="520"/>
+     <task name="InternetSharing" message="$(string.task_InternetSharing)" value="600"/>
+    </tasks>
+    <maps>
+     <valueMap name="WPNCORE_APP_TYPE">
+      <map value="0x10000000" message="$(string.map_WPNCORE_APP_TYPEImmersive App)"/>
+      <map value="0x20000000" message="$(string.map_WPNCORE_APP_TYPEDesktop App)"/>
+      <map value="0x30000000" message="$(string.map_WPNCORE_APP_TYPESystem Component)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="101" symbol="SystemSettingsStartupStart" version="0" task="SystemSettingsStartup" opcode="win:Start" level="win:Informational"/>
+     <event value="102" symbol="SystemSettingsStartupStop" version="0" task="SystemSettingsStartup" opcode="win:Stop" level="win:Informational"/>
+     <event value="103" symbol="SystemSettingsStartupStop103" version="0" task="SystemSettingsStartup" opcode="win:Stop" level="win:Informational" template="SystemSettingsStartupStop103Args"/>
+     <event value="106" symbol="SystemSettingsWaitSSDismissStart" version="0" task="SystemSettingsWaitSSDismiss" opcode="win:Start" level="win:Informational"/>
+     <event value="107" symbol="SystemSettingsWaitSSDismissStop" version="0" task="SystemSettingsWaitSSDismiss" opcode="win:Stop" level="win:Informational"/>
+     <event value="111" symbol="SystemSettingPageLoadStart" version="0" task="SystemSettingPageLoad" opcode="win:Start" level="win:Informational" template="SystemSettingsStartupStop103Args"/>
+     <event value="112" symbol="SystemSettingPageLoadStop" version="0" task="SystemSettingPageLoad" opcode="win:Stop" level="win:Informational" template="SystemSettingsStartupStop103Args"/>
+     <event value="113" symbol="SystemSettingsNavLinkPopulateStart" version="0" task="SystemSettingsNavLinkPopulate" opcode="win:Start" level="win:Informational"/>
+     <event value="114" symbol="SystemSettingsNavLinkPopulateStop" version="0" task="SystemSettingsNavLinkPopulate" opcode="win:Stop" level="win:Informational"/>
+     <event value="119" symbol="SystemSettingPageLoad" version="0" task="SystemSettingPageLoad" level="win:Informational" template="SystemSettingsStartupStop103Args"/>
+     <event value="121" symbol="SystemSettingRadiosTurnOnStart" version="0" task="SystemSettingRadiosTurnOn" opcode="win:Start" level="win:Informational"/>
+     <event value="131" symbol="SystemSettingRadiosTurnOffStart" version="0" task="SystemSettingRadiosTurnOff" opcode="win:Start" level="win:Informational"/>
+     <event value="201" symbol="NotificationsPageLoadStart" version="0" task="NotificationsPageLoad" opcode="win:Start" level="win:Informational"/>
+     <event value="202" symbol="NotificationsPageLoadStop" version="0" task="NotificationsPageLoad" opcode="win:Stop" level="win:Informational"/>
+     <event value="211" symbol="NotificationsPageInfo" version="0" task="NotificationsPageInfo" level="win:Informational" template="NotificationsPageInfoArgs"/>
+     <event value="212" symbol="NotificationsPageInfo212" version="0" task="NotificationsPageInfo" level="win:Informational" template="NotificationsPageInfoArgs"/>
+     <event value="213" symbol="NotificationsPageInfo213" version="0" task="NotificationsPageInfo" level="win:Informational" template="NotificationsPageInfo213Args"/>
+     <event value="214" symbol="NotificationsPageInfo214" version="0" task="NotificationsPageInfo" level="win:Informational" template="NotificationsPageInfoArgs"/>
+     <event value="215" symbol="NotificationsPageInfo215" version="0" task="NotificationsPageInfo" level="win:Informational" template="NotificationsPageInfoArgs"/>
+     <event value="216" symbol="NotificationsPageInfo216" version="0" task="NotificationsPageInfo" level="win:Informational" template="NotificationsPageInfo216Args"/>
+     <event value="217" symbol="NotificationsPageInfo217" version="0" task="NotificationsPageInfo" level="win:Informational"/>
+     <event value="218" symbol="NotificationsPageInfo218" version="0" task="NotificationsPageInfo" level="win:Informational" template="NotificationsPageInfoArgs"/>
+     <event value="219" symbol="NotificationsPageInfo219" version="0" task="NotificationsPageInfo" level="win:Informational" template="NotificationsPageInfoArgs"/>
+     <event value="240" symbol="LockScreen_Refresh" version="0" task="LockScreen_Refresh" level="win:Informational"/>
+     <event value="241" symbol="StartMenu_Refresh" version="0" task="StartMenu_Refresh" level="win:Informational"/>
+     <event value="242" symbol="PersonalizationPage_ColorUpdateStart" version="0" task="PersonalizationPage_ColorUpdate" opcode="win:Start" level="win:Informational" keywords="PersonalizationPage"/>
+     <event value="243" symbol="PersonalizationPage_ColorUpdateStop" version="0" task="PersonalizationPage_ColorUpdate" opcode="win:Stop" level="win:Informational" keywords="PersonalizationPage"/>
+     <event value="244" symbol="PersonalizationPage_LockScreenUpdateStart" version="0" task="PersonalizationPage_LockScreenUpdate" opcode="win:Start" level="win:Informational" keywords="PersonalizationPage" template="PersonalizationPage_LockScreenUpdateStartArgs"/>
+     <event value="245" symbol="PersonalizationPage_LockScreenUpdateStop" version="0" task="PersonalizationPage_LockScreenUpdate" opcode="win:Stop" level="win:Informational" keywords="PersonalizationPage" template="PersonalizationPage_LockScreenUpdateStartArgs"/>
+     <event value="246" symbol="PersonalizationPage_PageInitStart" version="0" task="PersonalizationPage_PageInit" opcode="win:Start" level="win:Informational" keywords="PersonalizationPage" template="PersonalizationPage_PageInitStartArgs"/>
+     <event value="247" symbol="PersonalizationPage_PageInitStop" version="0" task="PersonalizationPage_PageInit" opcode="win:Stop" level="win:Informational" keywords="PersonalizationPage" template="PersonalizationPage_PageInitStartArgs"/>
+     <event value="248" symbol="PersonalizationPage_TattooUpdateStart" version="0" task="PersonalizationPage_TattooUpdate" opcode="win:Start" level="win:Informational" keywords="PersonalizationPage"/>
+     <event value="249" symbol="PersonalizationPage_TattooUpdateStop" version="0" task="PersonalizationPage_TattooUpdate" opcode="win:Stop" level="win:Informational" keywords="PersonalizationPage"/>
+     <event value="250" symbol="RoamingSettingPageLoad" version="0" task="RoamingSettingPageLoad" level="win:Informational"/>
+     <event value="251" symbol="RoamingSettingChangeStart" version="0" task="RoamingSettingChange" opcode="win:Start" level="win:Informational"/>
+     <event value="252" symbol="RoamingSettingChangeStop" version="0" task="RoamingSettingChange" opcode="win:Stop" level="win:Informational"/>
+     <event value="301" symbol="SearchPageLoadStart" version="0" task="SearchPageLoad" opcode="win:Start" level="win:Informational"/>
+     <event value="302" symbol="SearchPageLoadStop" version="0" task="SearchPageLoad" opcode="win:Stop" level="win:Informational"/>
+     <event value="350" symbol="HomeGroupPage_SharingProgressStart" version="0" task="HomeGroupPage_SharingProgress" opcode="win:Start" level="win:Informational"/>
+     <event value="351" symbol="HomeGroupPage_SharingProgressStop" version="0" task="HomeGroupPage_SharingProgress" opcode="win:Stop" level="win:Informational"/>
+     <event value="400" symbol="ShareSettingsLoadStart" version="0" task="ShareSettingsLoad" opcode="win:Start" level="win:Informational"/>
+     <event value="401" symbol="ShareSettingsLoadStop" version="0" task="ShareSettingsLoad" opcode="win:Stop" level="win:Informational"/>
+     <event value="402" symbol="ShareSettingsClearHistoryStart" version="0" task="ShareSettingsClearHistory" opcode="win:Start" level="win:Informational"/>
+     <event value="403" symbol="ShareSettingsClearHistoryStop" version="0" task="ShareSettingsClearHistory" opcode="win:Stop" level="win:Informational"/>
+     <event value="451" symbol="DevicePageFirstResponseStart" version="0" task="DevicePageFirstResponse" opcode="win:Start" level="win:Informational"/>
+     <event value="452" symbol="DevicePageFirstResponseStop" version="0" task="DevicePageFirstResponse" opcode="win:Stop" level="win:Informational"/>
+     <event value="461" symbol="DevicePageDeviceEnumerationStart" version="0" task="DevicePageDeviceEnumeration" opcode="win:Start" level="win:Informational"/>
+     <event value="462" symbol="DevicePageDeviceEnumerationStop" version="0" task="DevicePageDeviceEnumeration" opcode="win:Stop" level="win:Informational"/>
+     <event value="471" symbol="AccessibilityPageHighContrastStart" version="0" task="AccessibilityPageHighContrast" opcode="win:Start" level="win:Informational"/>
+     <event value="472" symbol="AccessibilityPageHighContrastStop" version="0" task="AccessibilityPageHighContrast" opcode="win:Stop" level="win:Informational"/>
+     <event value="473" symbol="AccessibilityPageHighContrastStart473" version="0" task="AccessibilityPageHighContrast" opcode="win:Start" level="win:Informational"/>
+     <event value="474" symbol="AccessibilityPageHighContrastStop474" version="0" task="AccessibilityPageHighContrast" opcode="win:Stop" level="win:Informational"/>
+     <event value="481" symbol="AccessibilityPageScalingStart" version="0" task="AccessibilityPageScaling" opcode="win:Start" level="win:Informational"/>
+     <event value="482" symbol="AccessibilityPageScalingStop" version="0" task="AccessibilityPageScaling" opcode="win:Stop" level="win:Informational"/>
+     <event value="483" symbol="AccessibilityPageScalingStart483" version="0" task="AccessibilityPageScaling" opcode="win:Start" level="win:Informational"/>
+     <event value="484" symbol="AccessibilityPageScalingStop484" version="0" task="AccessibilityPageScaling" opcode="win:Stop" level="win:Informational"/>
+     <event value="490" symbol="AccountPictureChangeStart" version="0" task="AccountPictureChange" opcode="win:Start" level="win:Informational"/>
+     <event value="491" symbol="AccountPictureChangeStop" version="0" task="AccountPictureChange" opcode="win:Stop" level="win:Informational"/>
+     <event value="500" symbol="CorpDeviceRegistrationStop" version="0" task="CorpDeviceRegistration" opcode="win:Stop" level="win:Informational" keywords="WorkplacePage" template="CorpDeviceRegistrationStopArgs"/>
+     <event value="501" symbol="CorpDeviceRegistrationStop501" version="0" task="CorpDeviceRegistration" opcode="win:Stop" level="win:Informational" keywords="WorkplacePage" template="CorpDeviceRegistrationStopArgs"/>
+     <event value="510" symbol="CorpDeviceManagementStop" version="0" task="CorpDeviceManagement" opcode="win:Stop" level="win:Informational" keywords="WorkplacePage" template="CorpDeviceRegistrationStopArgs"/>
+     <event value="511" symbol="CorpDeviceManagementStop511" version="0" task="CorpDeviceManagement" opcode="win:Stop" level="win:Informational" keywords="WorkplacePage" template="CorpDeviceRegistrationStopArgs"/>
+     <event value="512" symbol="DisplaySettingsIdentifyStart" version="0" task="DisplaySettingsIdentify" opcode="win:Start" level="win:Informational"/>
+     <event value="513" symbol="DisplaySettingsIdentifyStop" version="0" task="DisplaySettingsIdentify" opcode="win:Stop" level="win:Informational"/>
+     <event value="521" symbol="AdminFlowDialogFlyoutStart" version="0" task="AdminFlowDialogFlyout" opcode="win:Start" level="win:Informational" template="AdminFlowDialogFlyoutStartArgs"/>
+     <event value="522" symbol="AdminFlowDialogFlyoutStop" version="0" task="AdminFlowDialogFlyout" opcode="win:Stop" level="win:Informational" template="AdminFlowDialogFlyoutStartArgs"/>
+     <event value="600" symbol="InternetSharingStart" version="0" task="InternetSharing" opcode="win:Start" level="win:Informational"/>
+     <event value="601" symbol="InternetSharingStop" version="0" task="InternetSharing" opcode="win:Stop" level="win:Informational"/>
+    </events>
+    <templates>
+     <template tid="SystemSettingsStartupStop103Args">
+      <data name="SettingProvider" inType="win:GUID"/>
+      <data name="SettingPage" inType="win:UnicodeString"/>
+     </template>
+     <template tid="NotificationsPageInfoArgs">
+      <data name="isEnabled" inType="win:Boolean"/>
+     </template>
+     <template tid="NotificationsPageInfo213Args">
+      <data name="AppID" inType="win:UnicodeString"/>
+      <data name="isEnabled" inType="win:Boolean"/>
+      <data name="AppType" inType="win:UInt32" map="WPNCORE_APP_TYPE"/>
+     </template>
+     <template tid="NotificationsPageInfo216Args">
+      <data name="AppUserModelID" inType="win:UnicodeString"/>
+      <data name="PackageFamilyName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="PersonalizationPage_LockScreenUpdateStartArgs">
+      <data name="AutoColorFlag" inType="win:UInt32"/>
+     </template>
+     <template tid="PersonalizationPage_PageInitStartArgs">
+      <data name="PageIdentifier" inType="win:UnicodeString"/>
+     </template>
+     <template tid="CorpDeviceRegistrationStopArgs">
+      <data name="ResultCode" inType="win:UInt32"/>
+      <data name="CorpDeviceOperationPhase" inType="win:UInt32"/>
+     </template>
+     <template tid="AdminFlowDialogFlyoutStartArgs">
+      <data name="FlowId" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_PersonalizationPage" value="PersonalizationPage"/>
+    <string id="keyword_WorkplacePage" value="WorkplacePage"/>
+    <string id="task_SystemSettingsStartup" value="SystemSettingsStartup"/>
+    <string id="task_SystemSettingsWaitSSDismiss" value="SystemSettingsWaitSSDismiss"/>
+    <string id="task_SystemSettingPageLoad" value="SystemSettingPageLoad"/>
+    <string id="task_SystemSettingsNavLinkPopulate" value="SystemSettingsNavLinkPopulate"/>
+    <string id="task_SystemSettingRadiosTurnOn" value="SystemSettingRadiosTurnOn"/>
+    <string id="task_SystemSettingRadiosTurnOff" value="SystemSettingRadiosTurnOff"/>
+    <string id="task_NotificationsPageLoad" value="NotificationsPageLoad"/>
+    <string id="task_NotificationsPageInfo" value="NotificationsPageInfo"/>
+    <string id="task_LockScreen_Refresh" value="LockScreen_Refresh"/>
+    <string id="task_StartMenu_Refresh" value="StartMenu_Refresh"/>
+    <string id="task_PersonalizationPage_ColorUpdate" value="PersonalizationPage_ColorUpdate"/>
+    <string id="task_PersonalizationPage_LockScreenUpdate" value="PersonalizationPage_LockScreenUpdate"/>
+    <string id="task_PersonalizationPage_PageInit" value="PersonalizationPage_PageInit"/>
+    <string id="task_PersonalizationPage_TattooUpdate" value="PersonalizationPage_TattooUpdate"/>
+    <string id="task_RoamingSettingPageLoad" value="RoamingSettingPageLoad"/>
+    <string id="task_RoamingSettingChange" value="RoamingSettingChange"/>
+    <string id="task_SearchPageLoad" value="SearchPageLoad"/>
+    <string id="task_HomeGroupPage_SharingProgress" value="HomeGroupPage_SharingProgress"/>
+    <string id="task_ShareSettingsLoad" value="ShareSettingsLoad"/>
+    <string id="task_ShareSettingsClearHistory" value="ShareSettingsClearHistory"/>
+    <string id="task_DevicePageFirstResponse" value="DevicePageFirstResponse"/>
+    <string id="task_DevicePageDeviceEnumeration" value="DevicePageDeviceEnumeration"/>
+    <string id="task_AccessibilityPageHighContrast" value="AccessibilityPageHighContrast"/>
+    <string id="task_AccessibilityPageScaling" value="AccessibilityPageScaling"/>
+    <string id="task_AccountPictureChange" value="AccountPictureChange"/>
+    <string id="task_CorpDeviceRegistration" value="CorpDeviceRegistration"/>
+    <string id="task_CorpDeviceManagement" value="CorpDeviceManagement"/>
+    <string id="task_DisplaySettingsIdentify" value="DisplaySettingsIdentify"/>
+    <string id="task_AdminFlowDialogFlyout" value="AdminFlowDialogFlyout"/>
+    <string id="task_InternetSharing" value="InternetSharing"/>
+    <string id="map_WPNCORE_APP_TYPEImmersive App" value="Immersive App"/>
+    <string id="map_WPNCORE_APP_TYPEDesktop App" value="Desktop App"/>
+    <string id="map_WPNCORE_APP_TYPESystem Component" value="System Component"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

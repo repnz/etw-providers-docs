@@ -1,0 +1,978 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-PDC" guid="{a6bf0deb-3659-40ad-9f81-e25af62ce3c7}" resourceFileName="Microsoft-Windows-PDC" messageFileName="Microsoft-Windows-PDC" symbol="MicrosoftWindowsPDC" source="Xml" >
+    <keywords>
+     <keyword name="PdcErrors" message="$(string.keyword_PdcErrors)" mask="0x1"/>
+     <keyword name="notifications" message="$(string.keyword_notifications)" mask="0x2"/>
+     <keyword name="clients" message="$(string.keyword_clients)" mask="0x4"/>
+     <keyword name="activators" message="$(string.keyword_activators)" mask="0x8"/>
+     <keyword name="Cs" message="$(string.keyword_Cs)" mask="0x10"/>
+     <keyword name="suspendresume" message="$(string.keyword_suspendresume)" mask="0x20"/>
+     <keyword name="tasks" message="$(string.keyword_tasks)" mask="0x40"/>
+     <keyword name="CsDiag" message="$(string.keyword_CsDiag)" mask="0x80"/>
+     <keyword name="SPM" message="$(string.keyword_SPM)" mask="0x100"/>
+     <keyword name="sleepstudy" message="$(string.keyword_sleepstudy)" mask="0x200"/>
+     <keyword name="PdcClient" message="$(string.keyword_PdcClient)" mask="0x400"/>
+    </keywords>
+    <tasks>
+     <task name="ActivatorRegistration" message="$(string.task_ActivatorRegistration)" value="1"/>
+     <task name="ActivatorDeregistration" message="$(string.task_ActivatorDeregistration)" value="2"/>
+     <task name="NotificationRegistration" message="$(string.task_NotificationRegistration)" value="3"/>
+     <task name="NotificationDeregistration" message="$(string.task_NotificationDeregistration)" value="4"/>
+     <task name="ResiliencyClientRegistration" message="$(string.task_ResiliencyClientRegistration)" value="5"/>
+     <task name="ResiliencyClientDeregistration" message="$(string.task_ResiliencyClientDeregistration)" value="6"/>
+     <task name="ActivatorAcknowledgement" message="$(string.task_ActivatorAcknowledgement)" value="7"/>
+     <task name="ActivatorMessage" message="$(string.task_ActivatorMessage)" value="8"/>
+     <task name="ActivatorClientAcknowledgement" message="$(string.task_ActivatorClientAcknowledgement)" value="9"/>
+     <task name="NotificationStarted" message="$(string.task_NotificationStarted)" value="10"/>
+     <task name="ControlNotification" message="$(string.task_ControlNotification)" value="11"/>
+     <task name="InvalidNotification" message="$(string.task_InvalidNotification)" value="12"/>
+     <task name="NotificationReceived" message="$(string.task_NotificationReceived)" value="13"/>
+     <task name="NotificationAllClientResponded" message="$(string.task_NotificationAllClientResponded)" value="14"/>
+     <task name="NotificationCallback" message="$(string.task_NotificationCallback)" value="15"/>
+     <task name="NotificationMessage" message="$(string.task_NotificationMessage)" value="16"/>
+     <task name="ActivatorReceive" message="$(string.task_ActivatorReceive)" value="17"/>
+     <task name="ActivatorSend" message="$(string.task_ActivatorSend)" value="18"/>
+     <task name="ResiliencyClient" message="$(string.task_ResiliencyClient)" value="19"/>
+     <task name="ResiliencyMessage" message="$(string.task_ResiliencyMessage)" value="20"/>
+     <task name="ResiliencyReceive" message="$(string.task_ResiliencyReceive)" value="21"/>
+     <task name="ResiliencySend" message="$(string.task_ResiliencySend)" value="22"/>
+     <task name="ResiliencyReference" message="$(string.task_ResiliencyReference)" value="23"/>
+     <task name="ResiliencyDereference" message="$(string.task_ResiliencyDereference)" value="24"/>
+     <task name="CsEnterPhase" message="$(string.task_CsEnterPhase)" value="26"/>
+     <task name="CsExitPhase" message="$(string.task_CsExitPhase)" value="27"/>
+     <task name="CsDisplayState" message="$(string.task_CsDisplayState)" value="28"/>
+     <task name="CsMonitorRequestEnter" message="$(string.task_CsMonitorRequestEnter)" value="29"/>
+     <task name="CsMonitorRequestExit" message="$(string.task_CsMonitorRequestExit)" value="30"/>
+     <task name="CsMonitorContext" message="$(string.task_CsMonitorContext)" value="31"/>
+     <task name="CsMonitorHandler" message="$(string.task_CsMonitorHandler)" value="32"/>
+     <task name="CsMonitorControl" message="$(string.task_CsMonitorControl)" value="33"/>
+     <task name="CsPowerButtonHandler" message="$(string.task_CsPowerButtonHandler)" value="34"/>
+     <task name="CsPowerButtonConsumed" message="$(string.task_CsPowerButtonConsumed)" value="35"/>
+     <task name="CsDisplayNotification" message="$(string.task_CsDisplayNotification)" value="36"/>
+     <task name="CsEnterExit" message="$(string.task_CsEnterExit)" value="37"/>
+     <task name="CsEnableInput" message="$(string.task_CsEnableInput)" value="38"/>
+     <task name="CsDisableInput" message="$(string.task_CsDisableInput)" value="39"/>
+     <task name="CsSuspendResumeHandler" message="$(string.task_CsSuspendResumeHandler)" value="40"/>
+     <task name="CsSessionConnect" message="$(string.task_CsSessionConnect)" value="41"/>
+     <task name="CsConnectionEvent" message="$(string.task_CsConnectionEvent)" value="42"/>
+     <task name="PdcInit" message="$(string.task_PdcInit)" value="43"/>
+     <task name="SuspendResumeRegistration" message="$(string.task_SuspendResumeRegistration)" value="44"/>
+     <task name="SuspendResumeDeregistration" message="$(string.task_SuspendResumeDeregistration)" value="45"/>
+     <task name="SuspendResumeReceive" message="$(string.task_SuspendResumeReceive)" value="46"/>
+     <task name="SuspendResumeSend" message="$(string.task_SuspendResumeSend)" value="47"/>
+     <task name="SuspendResumeMessage" message="$(string.task_SuspendResumeMessage)" value="48"/>
+     <task name="SuspendAppsEnter" message="$(string.task_SuspendAppsEnter)" value="49"/>
+     <task name="SuspendAppsExit" message="$(string.task_SuspendAppsExit)" value="50"/>
+     <task name="ResumeAppsEnter" message="$(string.task_ResumeAppsEnter)" value="51"/>
+     <task name="ResumeAppsExit" message="$(string.task_ResumeAppsExit)" value="52"/>
+     <task name="SuspendSvcsEnter" message="$(string.task_SuspendSvcsEnter)" value="53"/>
+     <task name="SuspendSvcsExit" message="$(string.task_SuspendSvcsExit)" value="54"/>
+     <task name="ResumeSvcsEnter" message="$(string.task_ResumeSvcsEnter)" value="55"/>
+     <task name="ResumeSvcsExit" message="$(string.task_ResumeSvcsExit)" value="56"/>
+     <task name="SuspendResumeCallback" message="$(string.task_SuspendResumeCallback)" value="57"/>
+     <task name="SuspendResumeStarted" message="$(string.task_SuspendResumeStarted)" value="58"/>
+     <task name="SuspendeResumeAllClientsResponded" message="$(string.task_SuspendeResumeAllClientsResponded)" value="59"/>
+     <task name="CsSuspendResumeEvent" message="$(string.task_CsSuspendResumeEvent)" value="60"/>
+     <task name="EnterConnectedStandbyStart" message="$(string.task_EnterConnectedStandbyStart)" value="61"/>
+     <task name="EnterConnectedStandbyEnd" message="$(string.task_EnterConnectedStandbyEnd)" value="62"/>
+     <task name="ExitFromConnectedStandbyStart" message="$(string.task_ExitFromConnectedStandbyStart)" value="63"/>
+     <task name="ExitFromConnectedStandbyEnd" message="$(string.task_ExitFromConnectedStandbyEnd)" value="64"/>
+     <task name="AbortConnectedStandbyStart" message="$(string.task_AbortConnectedStandbyStart)" value="65"/>
+     <task name="AbortConnectedStandbyEnd" message="$(string.task_AbortConnectedStandbyEnd)" value="66"/>
+     <task name="PdcStateChange" message="$(string.task_PdcStateChange)" value="67"/>
+     <task name="PdcScreenOffRequest" message="$(string.task_PdcScreenOffRequest)" value="68"/>
+     <task name="PdcScreenOffDisabled" message="$(string.task_PdcScreenOffDisabled)" value="69"/>
+     <task name="ActivatorRegistrationRundown" message="$(string.task_ActivatorRegistrationRundown)" value="70"/>
+     <task name="NotificationRegistrationRundown" message="$(string.task_NotificationRegistrationRundown)" value="71"/>
+     <task name="ResiliencyClientRegistrationRundown" message="$(string.task_ResiliencyClientRegistrationRundown)" value="72"/>
+     <task name="CsFilterInput" message="$(string.task_CsFilterInput)" value="73"/>
+     <task name="TaskRegistration" message="$(string.task_TaskRegistration)" value="74"/>
+     <task name="TaskDeregistration" message="$(string.task_TaskDeregistration)" value="75"/>
+     <task name="TaskMessage" message="$(string.task_TaskMessage)" value="76"/>
+     <task name="TaskReceive" message="$(string.task_TaskReceive)" value="77"/>
+     <task name="TaskSend" message="$(string.task_TaskSend)" value="78"/>
+     <task name="TaskRundown" message="$(string.task_TaskRundown)" value="79"/>
+     <task name="TaskReference" message="$(string.task_TaskReference)" value="80"/>
+     <task name="TaskDereference" message="$(string.task_TaskDereference)" value="81"/>
+     <task name="DisplayOffStart" message="$(string.task_DisplayOffStart)" value="82"/>
+     <task name="DisplayOffEnd" message="$(string.task_DisplayOffEnd)" value="83"/>
+     <task name="DisplayOffAbort" message="$(string.task_DisplayOffAbort)" value="84"/>
+     <task name="EnterConnectedStandbyAbort" message="$(string.task_EnterConnectedStandbyAbort)" value="85"/>
+     <task name="ActivationStatistics" message="$(string.task_ActivationStatistics)" value="86"/>
+     <task name="SpmClientRegistration" message="$(string.task_SpmClientRegistration)" value="87"/>
+     <task name="SpmClientDeregistration" message="$(string.task_SpmClientDeregistration)" value="88"/>
+     <task name="SpmClientMessage" message="$(string.task_SpmClientMessage)" value="89"/>
+     <task name="SpmClientReceive" message="$(string.task_SpmClientReceive)" value="90"/>
+     <task name="SpmClientSend" message="$(string.task_SpmClientSend)" value="91"/>
+     <task name="SpmClientRundown" message="$(string.task_SpmClientRundown)" value="92"/>
+     <task name="SpmScenarioStateChange" message="$(string.task_SpmScenarioStateChange)" value="93"/>
+     <task name="SpmScenarioDependencyRundown" message="$(string.task_SpmScenarioDependencyRundown)" value="94"/>
+     <task name="SpmClientInformationRundown" message="$(string.task_SpmClientInformationRundown)" value="95"/>
+     <task name="SpmScenarioRundown" message="$(string.task_SpmScenarioRundown)" value="96"/>
+     <task name="SpmScenarioAccountingRundown" message="$(string.task_SpmScenarioAccountingRundown)" value="97"/>
+     <task name="SpmClientControlStateChange" message="$(string.task_SpmClientControlStateChange)" value="98"/>
+     <task name="SpmClientControlStateRundown" message="$(string.task_SpmClientControlStateRundown)" value="99"/>
+     <task name="PhaseAccounting" message="$(string.task_PhaseAccounting)" value="100"/>
+     <task name="ClientVerboseRundown" message="$(string.task_ClientVerboseRundown)" value="101"/>
+     <task name="ActivatorActiveTooLong" message="$(string.task_ActivatorActiveTooLong)" value="102"/>
+     <task name="SpmScenarioAccountingSnapshot" message="$(string.task_SpmScenarioAccountingSnapshot)" value="103"/>
+     <task name="SpmScenarioActivityRundown" message="$(string.task_SpmScenarioActivityRundown)" value="104"/>
+     <task name="PpmProfileClientRegistration" message="$(string.task_PpmProfileClientRegistration)" value="105"/>
+     <task name="PpmProfileClientDeregistration" message="$(string.task_PpmProfileClientDeregistration)" value="106"/>
+     <task name="PpmProfileClientReference" message="$(string.task_PpmProfileClientReference)" value="107"/>
+     <task name="PpmProfileClientDereference" message="$(string.task_PpmProfileClientDereference)" value="108"/>
+     <task name="PDCV2ActivationClientRegister" message="$(string.task_PDCV2ActivationClientRegister)" value="109"/>
+     <task name="PDCV2ActivationClientActivate" message="$(string.task_PDCV2ActivationClientActivate)" value="110"/>
+     <task name="PDCV2ActivationClientRenewActivation" message="$(string.task_PDCV2ActivationClientRenewActivation)" value="111"/>
+     <task name="PDCV2ActivationClientDeactivate" message="$(string.task_PDCV2ActivationClientDeactivate)" value="112"/>
+     <task name="PDCV2ActivationClientUnregister" message="$(string.task_PDCV2ActivationClientUnregister)" value="113"/>
+     <task name="PDCV2ActivationClientCallback" message="$(string.task_PDCV2ActivationClientCallback)" value="114"/>
+     <task name="PDCV2ActivationClientSetBrokeredProcessID" message="$(string.task_PDCV2ActivationClientSetBrokeredProcessID)" value="115"/>
+     <task name="PDCSignalClassWakeDetails" message="$(string.task_PDCSignalClassWakeDetails)" value="116"/>
+     <task name="PDCSignalClassMonitorOffDetails" message="$(string.task_PDCSignalClassMonitorOffDetails)" value="117"/>
+     <task name="PdcPhaseReferenced" message="$(string.task_PdcPhaseReferenced)" value="118"/>
+     <task name="PdcPhaseDereferenced" message="$(string.task_PdcPhaseDereferenced)" value="119"/>
+     <task name="PdcTargetPhaseSelected" message="$(string.task_PdcTargetPhaseSelected)" value="120"/>
+     <task name="PdcTargetPhaseReached" message="$(string.task_PdcTargetPhaseReached)" value="121"/>
+     <task name="PdcPhaseNotificationsStateChanged" message="$(string.task_PdcPhaseNotificationsStateChanged)" value="122"/>
+     <task name="PdcPhaseRundown" message="$(string.task_PdcPhaseRundown)" value="123"/>
+     <task name="PdcPhaseAccountingRundown" message="$(string.task_PdcPhaseAccountingRundown)" value="124"/>
+     <task name="PdcPhaseNotificationCallback" message="$(string.task_PdcPhaseNotificationCallback)" value="125"/>
+     <task name="PdcSIdleUpdateNotification" message="$(string.task_PdcSIdleUpdateNotification)" value="126"/>
+     <task name="PdcInvalidArgumentToFunction" message="$(string.task_PdcInvalidArgumentToFunction)" value="127"/>
+    </tasks>
+    <maps>
+     <valueMap name="MapPdcPhases">
+      <map value="0x0" message="$(string.map_MapPdcPhasesNo CS Phase)"/>
+      <map value="0x1" message="$(string.map_MapPdcPhasesConnection Phase)"/>
+      <map value="0x2" message="$(string.map_MapPdcPhasesShell Phase)"/>
+      <map value="0x3" message="$(string.map_MapPdcPhasesPLM Phase)"/>
+      <map value="0x4" message="$(string.map_MapPdcPhasesMaintenance Phase)"/>
+      <map value="0x5" message="$(string.map_MapPdcPhasesDAM Phase)"/>
+      <map value="0x6" message="$(string.map_MapPdcPhasesLow Power Phase)"/>
+      <map value="0x7" message="$(string.map_MapPdcPhasesResiliency Notification Phase)"/>
+      <map value="0x8" message="$(string.map_MapPdcPhasesResiliency Phase)"/>
+      <map value="0x9" message="$(string.map_MapPdcPhasesInvalid Phase)"/>
+     </valueMap>
+     <valueMap name="MapPdcPhaseNotificationsState">
+      <map value="0x0" message="$(string.map_MapPdcPhaseNotificationsStateNone)"/>
+      <map value="0x1" message="$(string.map_MapPdcPhaseNotificationsStateExit Complete)"/>
+      <map value="0x2" message="$(string.map_MapPdcPhaseNotificationsStateExit Pending)"/>
+      <map value="0x3" message="$(string.map_MapPdcPhaseNotificationsStateEnter Pending)"/>
+      <map value="0x4" message="$(string.map_MapPdcPhaseNotificationsStateEnter Complete)"/>
+      <map value="0x5" message="$(string.map_MapPdcPhaseNotificationsStateFailed)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="ActivatorRegistration" version="0" task="ActivatorRegistration" level="win:Always" keywords="activators CsDiag" template="ActivatorRegistrationArgs"/>
+     <event value="2" symbol="ActivatorDeregistration" version="0" task="ActivatorDeregistration" level="win:Always" keywords="activators" template="ActivatorDeregistrationArgs"/>
+     <event value="3" symbol="NotificationRegistration" version="0" task="NotificationRegistration" level="win:Always" keywords="notifications" template="ActivatorRegistrationArgs"/>
+     <event value="4" symbol="NotificationDeregistration" version="0" task="NotificationDeregistration" level="win:Always" keywords="notifications" template="ActivatorDeregistrationArgs"/>
+     <event value="5" symbol="ResiliencyClientRegistration" version="0" task="ResiliencyClientRegistration" level="win:Always" keywords="clients" template="ActivatorDeregistrationArgs"/>
+     <event value="6" symbol="ResiliencyClientDeregistration" version="0" task="ResiliencyClientDeregistration" level="win:Always" keywords="clients" template="ActivatorDeregistrationArgs"/>
+     <event value="7" symbol="ActivatorMessage" version="0" task="ActivatorMessage" level="win:Always" keywords="activators" template="ActivatorMessageArgs"/>
+     <event value="8" symbol="ActivatorAcknowledgement" version="0" task="ActivatorAcknowledgement" level="win:Always" keywords="activators" template="ActivatorAcknowledgementArgs"/>
+     <event value="9" symbol="ActivatorClientAcknowledgement" version="0" task="ActivatorClientAcknowledgement" level="win:Always" keywords="activators" template="ActivatorClientAcknowledgementArgs"/>
+     <event value="10" symbol="NotificationStarted" version="0" task="NotificationStarted" level="win:Always" keywords="notifications CsDiag" template="NotificationStartedArgs"/>
+     <event value="11" symbol="ControlNotification" version="0" task="ControlNotification" level="win:Always" keywords="notifications" template="ControlNotificationArgs"/>
+     <event value="12" symbol="InvalidNotification" version="0" task="InvalidNotification" level="win:Always" keywords="PdcErrors notifications" template="InvalidNotificationArgs"/>
+     <event value="13" symbol="NotificationReceived" version="0" task="NotificationReceived" level="win:Always" keywords="notifications CsDiag" template="NotificationReceivedArgs"/>
+     <event value="14" symbol="NotificationAllClientResponded" version="0" task="NotificationAllClientResponded" level="win:Always" keywords="notifications" template="NotificationAllClientRespondedArgs"/>
+     <event value="15" symbol="NotificationCallback" version="0" task="NotificationCallback" level="win:Always" keywords="notifications" template="NotificationAllClientRespondedArgs"/>
+     <event value="16" symbol="NotificationMessage" version="0" task="NotificationMessage" level="win:Always" keywords="notifications CsDiag" template="NotificationMessageArgs"/>
+     <event value="17" symbol="ActivatorReceive" version="0" task="ActivatorReceive" level="win:Always" keywords="activators" template="ActivatorReceiveArgs"/>
+     <event value="18" symbol="ActivatorSend" version="0" task="ActivatorSend" level="win:Always" keywords="activators" template="ActivatorReceiveArgs"/>
+     <event value="19" symbol="ResiliencyClient" version="0" task="ResiliencyClient" level="win:Always" keywords="clients" template="ResiliencyClientArgs"/>
+     <event value="20" symbol="ResiliencyMessage" version="0" task="ResiliencyMessage" level="win:Always" keywords="clients" template="ResiliencyMessageArgs"/>
+     <event value="21" symbol="ResiliencyReceive" version="0" task="ResiliencyReceive" level="win:Always" keywords="clients" template="ActivatorReceiveArgs"/>
+     <event value="22" symbol="ResiliencySend" version="0" task="ResiliencySend" level="win:Always" keywords="clients" template="ActivatorReceiveArgs"/>
+     <event value="23" symbol="ResiliencyReference" version="0" task="ResiliencyReference" level="win:Always" keywords="clients CsDiag" template="ResiliencyReferenceArgs"/>
+     <event value="24" symbol="ResiliencyDereference" version="0" task="ResiliencyDereference" level="win:Always" keywords="clients CsDiag" template="ResiliencyReferenceArgs"/>
+     <event value="25" symbol="CsEnterPhase" version="0" task="CsEnterPhase" level="win:Always" keywords="Cs CsDiag" template="CsEnterPhaseArgs"/>
+     <event value="26" symbol="CsExitPhase" version="0" task="CsExitPhase" level="win:Always" keywords="Cs CsDiag" template="CsEnterPhaseArgs"/>
+     <event value="27" symbol="CsDisplayState" version="0" task="CsDisplayState" level="win:Always" keywords="Cs" template="CsDisplayStateArgs"/>
+     <event value="28" symbol="CsMonitorRequestEnter" version="0" task="CsMonitorRequestEnter" level="win:Always" keywords="Cs" template="CsMonitorRequestEnterArgs"/>
+     <event value="29" symbol="CsMonitorRequestExit" version="0" task="CsMonitorRequestExit" level="win:Always" keywords="Cs" template="CsMonitorRequestExitArgs"/>
+     <event value="30" symbol="CsMonitorContext" version="0" task="CsMonitorContext" level="win:Always" keywords="Cs" template="CsMonitorContextArgs"/>
+     <event value="30" symbol="CsMonitorContext_V1" version="1" task="CsMonitorContext" level="win:Always" keywords="Cs" template="CsMonitorContextArgs_V1"/>
+     <event value="31" symbol="CsMonitorHandler" version="0" task="CsMonitorHandler" level="win:Always" keywords="Cs CsDiag" template="CsMonitorHandlerArgs"/>
+     <event value="32" symbol="CsMonitorControl" version="0" task="CsMonitorControl" level="win:Always" keywords="Cs"/>
+     <event value="33" symbol="CsPowerButtonHandler" version="0" task="CsPowerButtonHandler" level="win:Always" keywords="Cs"/>
+     <event value="34" symbol="CsPowerButtonConsumed" version="0" task="CsPowerButtonConsumed" level="win:Always" keywords="Cs CsDiag"/>
+     <event value="35" symbol="CsDisplayNotification" version="0" task="CsDisplayNotification" level="win:Always" keywords="Cs CsDiag"/>
+     <event value="36" symbol="CsEnterExit" version="0" task="CsEnterExit" level="win:Always" keywords="Cs" template="CsMonitorHandlerArgs"/>
+     <event value="37" symbol="CsEnableInput" version="0" task="CsEnableInput" level="win:Always" keywords="Cs"/>
+     <event value="38" symbol="CsDisableInput" version="0" task="CsDisableInput" level="win:Always" keywords="Cs"/>
+     <event value="39" symbol="CsSuspendResumeHandler" version="0" task="CsSuspendResumeHandler" level="win:Always" keywords="Cs" template="CsSuspendResumeHandlerArgs"/>
+     <event value="40" symbol="CsSessionConnect" version="0" task="CsSessionConnect" level="win:Always" keywords="Cs" template="CsSessionConnectArgs"/>
+     <event value="41" symbol="CsConnectionEvent" version="0" task="CsConnectionEvent" level="win:Always" keywords="Cs"/>
+     <event value="42" symbol="PdcInit" version="0" task="PdcInit" level="win:Always" keywords="Cs" template="PdcInitArgs"/>
+     <event value="43" symbol="SuspendResumeRegistration" version="0" task="SuspendResumeRegistration" level="win:Always" keywords="suspendresume" template="SuspendResumeRegistrationArgs"/>
+     <event value="44" symbol="SuspendResumeDeregistration" version="0" task="SuspendResumeDeregistration" level="win:Always" keywords="suspendresume" template="SuspendResumeRegistrationArgs"/>
+     <event value="45" symbol="SuspendResumeReceive" version="0" task="SuspendResumeReceive" level="win:Always" keywords="suspendresume" template="ActivatorReceiveArgs"/>
+     <event value="46" symbol="SuspendResumeSend" version="0" task="SuspendResumeSend" level="win:Always" keywords="suspendresume" template="ActivatorReceiveArgs"/>
+     <event value="47" symbol="SuspendResumeMessage" version="0" task="SuspendResumeMessage" level="win:Always" keywords="suspendresume" template="SuspendResumeMessageArgs"/>
+     <event value="48" symbol="SuspendAppsEnter" version="0" task="SuspendAppsEnter" level="win:Always" keywords="suspendresume"/>
+     <event value="49" symbol="SuspendAppsExit" version="0" task="SuspendAppsExit" level="win:Always" keywords="suspendresume"/>
+     <event value="50" symbol="SuspendSvcsEnter" version="0" task="SuspendSvcsEnter" level="win:Always" keywords="suspendresume"/>
+     <event value="51" symbol="SuspendSvcsExit" version="0" task="SuspendSvcsExit" level="win:Always" keywords="suspendresume"/>
+     <event value="52" symbol="ResumeAppsEnter" version="0" task="ResumeAppsEnter" level="win:Always" keywords="suspendresume"/>
+     <event value="53" symbol="ResumeAppsExit" version="0" task="ResumeAppsExit" level="win:Always" keywords="suspendresume"/>
+     <event value="54" symbol="ResumeSvcsEnter" version="0" task="ResumeSvcsEnter" level="win:Always" keywords="suspendresume"/>
+     <event value="55" symbol="ResumeSvcsExit" version="0" task="ResumeSvcsExit" level="win:Always" keywords="suspendresume"/>
+     <event value="56" symbol="SuspendResumeCallback" version="0" task="SuspendResumeCallback" level="win:Always" keywords="suspendresume" template="NotificationAllClientRespondedArgs"/>
+     <event value="57" symbol="SuspendResumeStarted" version="0" task="SuspendResumeStarted" level="win:Always" keywords="suspendresume" template="SuspendResumeStartedArgs"/>
+     <event value="58" symbol="NotificationReceived58" version="0" task="NotificationReceived" level="win:Always" keywords="suspendresume" template="NotificationReceivedArgs"/>
+     <event value="59" symbol="InvalidNotification59" version="0" task="InvalidNotification" level="win:Always" keywords="PdcErrors suspendresume" template="InvalidNotificationArgs"/>
+     <event value="60" symbol="SuspendeResumeAllClientsResponded" version="0" task="SuspendeResumeAllClientsResponded" level="win:Always" keywords="suspendresume" template="NotificationAllClientRespondedArgs"/>
+     <event value="61" symbol="CsSuspendResumeEvent" version="0" task="CsSuspendResumeEvent" level="win:Always" keywords="suspendresume" template="CsSuspendResumeEventArgs"/>
+     <event value="62" symbol="EnterConnectedStandbyStart" version="0" task="EnterConnectedStandbyStart" level="win:Informational" keywords="Cs CsDiag"/>
+     <event value="63" symbol="EnterConnectedStandbyEnd" version="0" task="EnterConnectedStandbyEnd" level="win:Informational" keywords="Cs CsDiag" template="EnterConnectedStandbyEndArgs"/>
+     <event value="64" symbol="ExitFromConnectedStandbyStart" version="0" task="ExitFromConnectedStandbyStart" level="win:Informational" keywords="Cs CsDiag" template="ExitFromConnectedStandbyStartArgs"/>
+     <event value="64" symbol="ExitFromConnectedStandbyStart_V1" version="1" task="ExitFromConnectedStandbyStart" level="win:Informational" keywords="Cs CsDiag"/>
+     <event value="65" symbol="ExitFromConnectedStandbyEnd" version="0" task="ExitFromConnectedStandbyEnd" level="win:Informational" keywords="Cs CsDiag sleepstudy" template="ExitFromConnectedStandbyEndArgs"/>
+     <event value="66" symbol="AbortConnectedStandbyStart" version="0" task="AbortConnectedStandbyStart" level="win:Informational" keywords="Cs"/>
+     <event value="67" symbol="AbortConnectedStandbyEnd" version="0" task="AbortConnectedStandbyEnd" level="win:Informational" keywords="Cs"/>
+     <event value="68" symbol="PdcStateChange" version="0" task="PdcStateChange" level="win:Always" keywords="Cs" template="PdcStateChangeArgs"/>
+     <event value="69" symbol="PdcScreenOffRequest" version="0" task="PdcScreenOffRequest" level="win:Always" keywords="Cs" template="NotificationAllClientRespondedArgs"/>
+     <event value="70" symbol="PdcScreenOffDisabled" version="0" task="PdcScreenOffDisabled" level="win:Always" keywords="Cs"/>
+     <event value="71" symbol="ActivatorRegistrationRundown" version="0" task="ActivatorRegistrationRundown" level="win:Always" keywords="activators CsDiag" template="ActivatorRegistrationRundownArgs"/>
+     <event value="72" symbol="NotificationRegistrationRundown" version="0" task="NotificationRegistrationRundown" level="win:Always" keywords="notifications CsDiag" template="NotificationRegistrationRundownArgs"/>
+     <event value="73" symbol="ResiliencyClientRegistrationRundown" version="0" task="ResiliencyClientRegistrationRundown" level="win:Always" keywords="clients CsDiag" template="ResiliencyClientRegistrationRundownArgs"/>
+     <event value="74" symbol="CsFilterInput" version="0" task="CsFilterInput" level="win:Always" keywords="Cs"/>
+     <event value="75" symbol="TaskRegistration" version="0" task="TaskRegistration" level="win:Always" keywords="tasks" template="ActivatorRegistrationArgs"/>
+     <event value="76" symbol="TaskDeregistration" version="0" task="TaskDeregistration" level="win:Always" keywords="tasks" template="ActivatorDeregistrationArgs"/>
+     <event value="77" symbol="TaskMessage" version="0" task="TaskMessage" level="win:Always" keywords="tasks" template="TaskMessageArgs"/>
+     <event value="78" symbol="TaskReceive" version="0" task="TaskReceive" level="win:Always" keywords="tasks" template="ActivatorReceiveArgs"/>
+     <event value="79" symbol="TaskSend" version="0" task="TaskSend" level="win:Always" keywords="tasks" template="ActivatorReceiveArgs"/>
+     <event value="80" symbol="TaskRundown" version="0" task="TaskRundown" level="win:Always" keywords="tasks" template="TaskRundownArgs"/>
+     <event value="81" symbol="TaskReference" version="0" task="TaskReference" level="win:Always" keywords="tasks CsDiag" template="TaskReferenceArgs"/>
+     <event value="82" symbol="TaskDereference" version="0" task="TaskDereference" level="win:Always" keywords="tasks" template="TaskReferenceArgs"/>
+     <event value="83" symbol="DisplayOffStart" version="0" task="DisplayOffStart" level="win:Informational" keywords="Cs CsDiag" template="DisplayOffStartArgs"/>
+     <event value="84" symbol="DisplayOffEnd" version="0" task="DisplayOffEnd" level="win:Informational" keywords="Cs CsDiag"/>
+     <event value="85" symbol="DisplayOffAbort" version="0" task="DisplayOffAbort" level="win:Informational" keywords="Cs CsDiag" template="DisplayOffAbortArgs"/>
+     <event value="86" symbol="EnterConnectedStandbyAbort" version="0" task="EnterConnectedStandbyAbort" level="win:Informational" keywords="Cs CsDiag"/>
+     <event value="87" symbol="ActivationStatistics" version="0" task="ActivationStatistics" level="win:Informational" keywords="Cs CsDiag sleepstudy" template="ActivationStatisticsArgs"/>
+     <event value="88" symbol="SpmClientRegistration" version="0" task="SpmClientRegistration" level="win:Always" keywords="SPM" template="ActivatorRegistrationArgs"/>
+     <event value="89" symbol="SpmClientDeregistration" version="0" task="SpmClientDeregistration" level="win:Always" keywords="SPM" template="ActivatorDeregistrationArgs"/>
+     <event value="90" symbol="SpmClientMessage" version="0" task="SpmClientMessage" level="win:Always" keywords="SPM" template="SpmClientMessageArgs"/>
+     <event value="91" symbol="SpmClientReceive" version="0" task="SpmClientReceive" level="win:Always" keywords="SPM" template="ActivatorReceiveArgs"/>
+     <event value="92" symbol="SpmClientSend" version="0" task="SpmClientSend" level="win:Always" keywords="SPM" template="ActivatorReceiveArgs"/>
+     <event value="93" symbol="SpmClientRundown" version="0" task="SpmClientRundown" level="win:Always" keywords="SPM" template="SpmClientRundownArgs"/>
+     <event value="94" symbol="SpmScenarioStateChange" version="0" task="SpmScenarioStateChange" level="win:Always" keywords="SPM" template="SpmScenarioStateChangeArgs"/>
+     <event value="95" symbol="SpmScenarioDependencyRundown" version="0" task="SpmScenarioDependencyRundown" level="win:Always" keywords="SPM" template="SpmScenarioDependencyRundownArgs"/>
+     <event value="96" symbol="SpmClientInformationRundown" version="0" task="SpmClientInformationRundown" level="win:Always" keywords="SPM" template="SpmClientInformationRundownArgs"/>
+     <event value="97" symbol="SpmScenarioRundown" version="0" task="SpmScenarioRundown" level="win:Always" keywords="SPM" template="SpmScenarioRundownArgs"/>
+     <event value="97" symbol="SpmScenarioRundown_V1" version="1" task="SpmScenarioRundown" level="win:Always" keywords="SPM" template="SpmScenarioRundownArgs_V1"/>
+     <event value="98" symbol="SpmScenarioAccountingRundown" version="0" task="SpmScenarioAccountingRundown" level="win:Always" keywords="SPM" template="SpmScenarioAccountingRundownArgs"/>
+     <event value="99" symbol="SpmClientControlStateChange" version="0" task="SpmClientControlStateChange" level="win:Always" keywords="SPM" template="SpmClientControlStateChangeArgs"/>
+     <event value="100" symbol="SpmClientControlStateRundown" version="0" task="SpmClientControlStateRundown" level="win:Always" keywords="SPM" template="SpmClientControlStateRundownArgs"/>
+     <event value="101" symbol="PhaseAccounting" version="0" task="PhaseAccounting" level="win:Informational" keywords="sleepstudy" template="PhaseAccountingArgs"/>
+     <event value="102" symbol="ClientVerboseRundown" version="0" task="ClientVerboseRundown" level="win:Informational" keywords="sleepstudy" template="ClientVerboseRundownArgs"/>
+     <event value="103" symbol="ActivatorActiveTooLong" version="0" task="ActivatorActiveTooLong" level="win:Informational" keywords="activators Cs CsDiag" template="ActivatorActiveTooLongArgs"/>
+     <event value="104" symbol="SpmScenarioAccountingSnapshot" version="0" task="SpmScenarioAccountingSnapshot" level="win:Always" keywords="sleepstudy" template="SpmScenarioAccountingRundownArgs"/>
+     <event value="105" symbol="SpmScenarioActivityRundown" version="0" task="SpmScenarioActivityRundown" level="win:Informational" keywords="SPM" template="SpmScenarioActivityRundownArgs"/>
+     <event value="106" symbol="PpmProfileClientRegistration" version="0" task="PpmProfileClientRegistration" level="win:Always" keywords="SPM" template="PpmProfileClientRegistrationArgs"/>
+     <event value="107" symbol="PpmProfileClientDeregistration" version="0" task="PpmProfileClientDeregistration" level="win:Always" keywords="SPM" template="ActivatorDeregistrationArgs"/>
+     <event value="108" symbol="PpmProfileClientReference" version="0" task="PpmProfileClientReference" level="win:Always" keywords="SPM" template="PpmProfileClientReferenceArgs"/>
+     <event value="109" symbol="PpmProfileClientDereference" version="0" task="PpmProfileClientDereference" level="win:Always" keywords="SPM" template="PpmProfileClientReferenceArgs"/>
+     <event value="110" symbol="PDCV2ActivationClientRegister" version="0" task="PDCV2ActivationClientRegister" level="win:Always" keywords="PdcClient" template="PDCV2ActivationClientRegisterArgs"/>
+     <event value="111" symbol="PDCV2ActivationClientActivate" version="0" task="PDCV2ActivationClientActivate" level="win:Always" keywords="PdcClient" template="PDCV2ActivationClientActivateArgs"/>
+     <event value="112" symbol="PDCV2ActivationClientRenewActivation" version="0" task="PDCV2ActivationClientRenewActivation" level="win:Always" keywords="PdcClient" template="PDCV2ActivationClientRenewActivationArgs"/>
+     <event value="113" symbol="PDCV2ActivationClientDeactivate" version="0" task="PDCV2ActivationClientDeactivate" level="win:Always" keywords="PdcClient" template="PDCV2ActivationClientDeactivateArgs"/>
+     <event value="114" symbol="PDCV2ActivationClientUnregister" version="0" task="PDCV2ActivationClientUnregister" level="win:Always" keywords="PdcClient" template="PDCV2ActivationClientRegisterArgs"/>
+     <event value="115" symbol="PDCV2ActivationClientCallback" version="0" task="PDCV2ActivationClientCallback" level="win:Always" keywords="PdcClient" template="PDCV2ActivationClientCallbackArgs"/>
+     <event value="116" symbol="PDCV2ActivationClientSetBrokeredProcessID" version="0" task="PDCV2ActivationClientSetBrokeredProcessID" level="win:Always" keywords="PdcClient" template="PDCV2ActivationClientSetBrokeredProcessIDArgs"/>
+     <event value="117" symbol="PDCSignalClassWakeDetails" version="0" task="PDCSignalClassWakeDetails" level="win:Informational" keywords="Cs CsDiag sleepstudy PdcClient" template="PDCSignalClassWakeDetailsArgs"/>
+     <event value="117" symbol="PDCSignalClassWakeDetails_V1" version="1" task="PDCSignalClassWakeDetails" level="win:Informational" keywords="Cs CsDiag sleepstudy PdcClient" template="PDCSignalClassWakeDetailsArgs_V1"/>
+     <event value="118" symbol="PDCSignalClassMonitorOffDetails" version="0" task="PDCSignalClassMonitorOffDetails" level="win:Informational" keywords="Cs CsDiag sleepstudy PdcClient" template="PDCSignalClassWakeDetailsArgs"/>
+     <event value="118" symbol="PDCSignalClassMonitorOffDetails_V1" version="1" task="PDCSignalClassMonitorOffDetails" level="win:Informational" keywords="Cs CsDiag sleepstudy PdcClient" template="PDCSignalClassWakeDetailsArgs_V1"/>
+     <event value="119" symbol="PdcPhaseReferenced" version="0" task="PdcPhaseReferenced" level="win:Always" keywords="Cs CsDiag" template="PdcPhaseReferencedArgs"/>
+     <event value="120" symbol="PdcPhaseDereferenced" version="0" task="PdcPhaseDereferenced" level="win:Always" keywords="Cs CsDiag" template="PdcPhaseDereferencedArgs"/>
+     <event value="121" symbol="PdcTargetPhaseSelected" version="0" task="PdcTargetPhaseSelected" level="win:Always" keywords="Cs CsDiag" template="PdcTargetPhaseSelectedArgs"/>
+     <event value="122" symbol="PdcTargetPhaseReached" version="0" task="PdcTargetPhaseReached" level="win:Always" keywords="Cs CsDiag" template="PdcTargetPhaseReachedArgs"/>
+     <event value="123" symbol="PdcPhaseNotificationsStateChanged" version="0" task="PdcPhaseNotificationsStateChanged" level="win:Always" keywords="Cs CsDiag" template="PdcPhaseNotificationsStateChangedArgs"/>
+     <event value="124" symbol="PdcPhaseRundown" version="0" task="PdcPhaseRundown" level="win:Always" keywords="Cs CsDiag" template="PdcPhaseRundownArgs"/>
+     <event value="125" symbol="PdcPhaseAccountingRundown" version="0" task="PdcPhaseAccountingRundown" level="win:Always" keywords="Cs CsDiag" template="PdcPhaseAccountingRundownArgs"/>
+     <event value="126" symbol="PdcPhaseNotificationCallback" version="0" task="PdcPhaseNotificationCallback" level="win:Always" keywords="Cs CsDiag" template="PdcPhaseNotificationCallbackArgs"/>
+     <event value="127" symbol="PdcSIdleUpdateNotification" version="0" task="PdcSIdleUpdateNotification" level="win:Always" template="PdcSIdleUpdateNotificationArgs"/>
+     <event value="128" symbol="PdcInvalidArgumentToFunction" version="0" task="PdcInvalidArgumentToFunction" level="win:Always" template="PdcInvalidArgumentToFunctionArgs"/>
+    </events>
+    <templates>
+     <template tid="ActivatorRegistrationArgs">
+      <data name="Client" inType="win:Pointer"/>
+      <data name="PdcId" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="ClientNameLength" inType="win:UInt32"/>
+      <data name="ClientName" inType="win:UnicodeString" length="ClientNameLength"/>
+     </template>
+     <template tid="ActivatorDeregistrationArgs">
+      <data name="Client" inType="win:Pointer"/>
+      <data name="PdcId" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="ActivatorMessageArgs">
+      <data name="Message" inType="win:Pointer"/>
+      <data name="StatusActive" inType="win:UInt32"/>
+      <data name="ActivityType" inType="win:UInt32"/>
+     </template>
+     <template tid="ActivatorAcknowledgementArgs">
+      <data name="Status" inType="win:UInt32"/>
+      <data name="State" inType="win:UInt32"/>
+     </template>
+     <template tid="ActivatorClientAcknowledgementArgs">
+      <data name="Client" inType="win:Pointer"/>
+      <data name="State" inType="win:UInt32"/>
+     </template>
+     <template tid="NotificationStartedArgs">
+      <data name="Type" inType="win:UInt32"/>
+      <data name="ClientContext" inType="win:Pointer"/>
+      <data name="PdcSequence" inType="win:UInt32"/>
+      <data name="Value" inType="win:UInt32"/>
+      <data name="WaitTime" inType="win:UInt32"/>
+     </template>
+     <template tid="ControlNotificationArgs">
+      <data name="Type" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+     </template>
+     <template tid="InvalidNotificationArgs">
+      <data name="Client" inType="win:Pointer"/>
+      <data name="AssumedPdcSequence" inType="win:UInt32"/>
+      <data name="ReceivedPdcSequence" inType="win:UInt32"/>
+     </template>
+     <template tid="NotificationReceivedArgs">
+      <data name="Client" inType="win:Pointer"/>
+      <data name="PdcSequence" inType="win:UInt32"/>
+     </template>
+     <template tid="NotificationAllClientRespondedArgs">
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="NotificationMessageArgs">
+      <data name="Client" inType="win:Pointer"/>
+      <data name="Message" inType="win:Pointer"/>
+      <data name="Control" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="PdcSequence" inType="win:UInt32"/>
+     </template>
+     <template tid="ActivatorReceiveArgs">
+      <data name="Client" inType="win:Pointer"/>
+      <data name="SendReceive" inType="win:UInt32"/>
+     </template>
+     <template tid="ResiliencyClientArgs">
+      <data name="Client" inType="win:Pointer"/>
+      <data name="Port" inType="win:Pointer"/>
+      <data name="ResiliencyType" inType="win:UInt32"/>
+      <data name="References" inType="win:UInt64"/>
+      <data name="TransactionId" inType="win:UInt32"/>
+      <data name="CurrentState" inType="win:UInt32"/>
+      <data name="NextState" inType="win:UInt32"/>
+     </template>
+     <template tid="ResiliencyMessageArgs">
+      <data name="Message" inType="win:Pointer"/>
+      <data name="TransactionId" inType="win:UInt32"/>
+      <data name="ClientState" inType="win:UInt32"/>
+      <data name="ClientStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="ResiliencyReferenceArgs">
+      <data name="ActivatorToken" inType="win:Pointer"/>
+      <data name="Client" inType="win:Pointer"/>
+      <data name="ReferenceDereference" inType="win:UInt32"/>
+     </template>
+     <template tid="CsEnterPhaseArgs">
+      <data name="Phase" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="CsDisplayStateArgs">
+      <data name="On" inType="win:UInt32"/>
+     </template>
+     <template tid="CsMonitorRequestEnterArgs">
+      <data name="On" inType="win:UInt32"/>
+      <data name="Console" inType="win:UInt32"/>
+     </template>
+     <template tid="CsMonitorRequestExitArgs">
+      <data name="At" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="CsMonitorContextArgs">
+      <data name="ConnectedSessionCount" inType="win:UInt32"/>
+      <data name="ConsoleSessionId" inType="win:UInt32"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="OnRequestCurrent" inType="win:UInt32"/>
+      <data name="OnRequestProcessed" inType="win:UInt32"/>
+      <data name="OffRequestCurrent" inType="win:UInt32"/>
+      <data name="OffRequestProcessed" inType="win:UInt32"/>
+     </template>
+     <template tid="CsMonitorHandlerArgs">
+      <data name="At" inType="win:UInt32"/>
+     </template>
+     <template tid="CsSuspendResumeHandlerArgs">
+      <data name="Suspend" inType="win:UInt32"/>
+     </template>
+     <template tid="CsSessionConnectArgs">
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="Console" inType="win:UInt32"/>
+      <data name="Connected" inType="win:UInt32"/>
+     </template>
+     <template tid="PdcInitArgs">
+      <data name="AoAc" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="SuspendResumeRegistrationArgs">
+      <data name="Process" inType="win:Pointer"/>
+      <data name="Session" inType="win:UInt32"/>
+      <data name="Client" inType="win:Pointer"/>
+      <data name="PdcId" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="SuspendResumeMessageArgs">
+      <data name="Message" inType="win:Pointer"/>
+      <data name="TransactionId" inType="win:UInt32"/>
+      <data name="PowerEvent" inType="win:UInt32"/>
+     </template>
+     <template tid="SuspendResumeStartedArgs">
+      <data name="Type" inType="win:UInt32"/>
+      <data name="Session" inType="win:UInt32"/>
+      <data name="Iteration" inType="win:UInt32"/>
+      <data name="ClientContext" inType="win:Pointer"/>
+      <data name="PdcSequence" inType="win:UInt32"/>
+      <data name="Value" inType="win:UInt32"/>
+      <data name="WaitTime" inType="win:UInt32"/>
+     </template>
+     <template tid="CsSuspendResumeEventArgs">
+      <data name="Session" inType="win:UInt32"/>
+      <data name="Suspend" inType="win:UInt32"/>
+      <data name="AppsSvcs" inType="win:UInt32"/>
+      <data name="User" inType="win:UInt32"/>
+     </template>
+     <template tid="EnterConnectedStandbyEndArgs">
+      <data name="DisableInputToPLMEntry" inType="win:UInt32"/>
+      <data name="DisableInputToDAMEntry" inType="win:UInt32"/>
+      <data name="DisableInputToLowPowerEpochEntry" inType="win:UInt32"/>
+      <data name="PhaseTimesConnection" inType="win:UInt32"/>
+      <data name="PhaseTimesPresence" inType="win:UInt32"/>
+      <data name="PhaseTimesPlmAndResiliencyNotification" inType="win:UInt32"/>
+      <data name="PhaseTimesMaintenance" inType="win:UInt32"/>
+      <data name="PhaseTimesDamAndLowPower" inType="win:UInt32"/>
+     </template>
+     <template tid="ExitFromConnectedStandbyStartArgs">
+      <data name="ExitReason" inType="win:UInt32"/>
+     </template>
+     <template tid="ExitFromConnectedStandbyEndArgs">
+      <data name="ResiliencyExitToLowPowerEpochEntry" inType="win:UInt32"/>
+      <data name="ResiliencyExitToDAMEntry" inType="win:UInt32"/>
+      <data name="ResiliencyExitToPLMEntry" inType="win:UInt32"/>
+      <data name="PhaseTimesResiliencyAndResiliencyNotification" inType="win:UInt32"/>
+      <data name="PhaseTimesLowPowerAndDam" inType="win:UInt32"/>
+      <data name="PhaseTimesPlmAndPresence" inType="win:UInt32"/>
+      <data name="PhaseTimesConnectionAndMaintenanceAndScreenOn" inType="win:UInt32"/>
+      <data name="CsDuration" inType="win:UInt32"/>
+     </template>
+     <template tid="PdcStateChangeArgs">
+      <data name="NewState" inType="win:UInt32"/>
+      <data name="OldState" inType="win:UInt32"/>
+     </template>
+     <template tid="ActivatorRegistrationRundownArgs">
+      <data name="Client" inType="win:Pointer"/>
+      <data name="PdcId" inType="win:UInt32"/>
+      <data name="ResiliencyClientCount" inType="win:UInt32"/>
+      <data name="ResiliencyContext" inType="win:UInt16" count="ResiliencyClientCount"/>
+      <data name="ClientNameLength" inType="win:UInt32"/>
+      <data name="ClientName" inType="win:UnicodeString" length="ClientNameLength"/>
+     </template>
+     <template tid="NotificationRegistrationRundownArgs">
+      <data name="Client" inType="win:Pointer"/>
+      <data name="PdcId" inType="win:UInt32"/>
+      <data name="Type" inType="win:UInt32"/>
+      <data name="ClientNameLength" inType="win:UInt32"/>
+      <data name="ClientName" inType="win:UnicodeString" length="ClientNameLength"/>
+     </template>
+     <template tid="ResiliencyClientRegistrationRundownArgs">
+      <data name="Client" inType="win:Pointer"/>
+      <data name="ClientReferences" inType="win:UInt64"/>
+      <data name="CurrentState" inType="win:UInt32"/>
+      <data name="Type" inType="win:UInt32"/>
+     </template>
+     <template tid="TaskMessageArgs">
+      <data name="Message" inType="win:Pointer"/>
+      <data name="StatusActive" inType="win:UInt32"/>
+     </template>
+     <template tid="TaskRundownArgs">
+      <data name="Client" inType="win:Pointer"/>
+      <data name="PdcId" inType="win:UInt32"/>
+      <data name="ReferenceCount" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="ClientNameLength" inType="win:UInt32"/>
+      <data name="ClientName" inType="win:UnicodeString" length="ClientNameLength"/>
+     </template>
+     <template tid="TaskReferenceArgs">
+      <data name="TaskClient" inType="win:Pointer"/>
+      <data name="At" inType="win:UInt32"/>
+      <data name="ReferenceDereference" inType="win:UInt32"/>
+     </template>
+     <template tid="DisplayOffStartArgs">
+      <data name="EnterReason" inType="win:UInt32"/>
+     </template>
+     <template tid="DisplayOffAbortArgs">
+      <data name="AbortReason" inType="win:UInt32"/>
+     </template>
+     <template tid="ActivationStatisticsArgs">
+      <data name="TimeActivated" inType="win:UInt32"/>
+      <data name="ConnectedStandbyTimeAndActivationCount" inType="win:UInt32"/>
+      <data name="ClientIdAndFlags" inType="win:UInt32"/>
+      <data name="MaxActivationDuration" inType="win:UInt32"/>
+     </template>
+     <template tid="SpmClientMessageArgs">
+      <data name="PdcMessage" inType="win:Pointer"/>
+      <data name="Client" inType="win:Pointer"/>
+      <data name="PdcId" inType="win:UInt32"/>
+      <data name="OperationStatus" inType="win:UInt32"/>
+      <data name="Active" inType="win:Boolean"/>
+      <data name="ReferenceCount" inType="win:UInt32"/>
+     </template>
+     <template tid="SpmClientRundownArgs">
+      <data name="Client" inType="win:Pointer"/>
+      <data name="PdcId" inType="win:UInt32"/>
+      <data name="Active" inType="win:Boolean"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="ClientNameLength" inType="win:UInt32"/>
+      <data name="ClientName" inType="win:UnicodeString" length="ClientNameLength"/>
+     </template>
+     <template tid="SpmScenarioStateChangeArgs">
+      <data name="Scenario" inType="win:Pointer"/>
+      <data name="PreviousState" inType="win:UInt8"/>
+      <data name="NextState" inType="win:UInt8"/>
+     </template>
+     <template tid="SpmScenarioDependencyRundownArgs">
+      <data name="Scenario" inType="win:Pointer"/>
+      <data name="Type" inType="win:UInt8"/>
+      <data name="ClientIdCount" inType="win:UInt32"/>
+      <data name="ClientIdList" inType="win:UInt8" count="ClientIdCount"/>
+     </template>
+     <template tid="SpmClientInformationRundownArgs">
+      <data name="ClientId" inType="win:UInt32"/>
+      <data name="TestClient" inType="win:Boolean"/>
+      <data name="ClientNameLength" inType="win:UInt32"/>
+      <data name="ClientName" inType="win:UnicodeString" length="ClientNameLength"/>
+     </template>
+     <template tid="SpmScenarioRundownArgs">
+      <data name="Scenario" inType="win:Pointer"/>
+      <data name="Guid" inType="win:GUID"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="State" inType="win:UInt8"/>
+      <data name="ScenarioNameLength" inType="win:UInt32"/>
+      <data name="ScenarioName" inType="win:UnicodeString" length="ScenarioNameLength"/>
+     </template>
+     <template tid="SpmScenarioAccountingRundownArgs">
+      <data name="Scenario" inType="win:Pointer"/>
+      <data name="DripsTimeInUs" inType="win:UInt64"/>
+      <data name="DripsTranstions" inType="win:UInt64"/>
+      <data name="PlatformIdleTimeInUs" inType="win:UInt64"/>
+      <data name="PlatformIdleTranstions" inType="win:UInt64"/>
+      <data name="StateCount" inType="win:UInt32"/>
+      <data name="States" inType="win:Int32" count="StateCount"/>
+     </template>
+     <template tid="SpmClientControlStateChangeArgs">
+      <data name="PdcId" inType="win:UInt32"/>
+      <data name="PreviousState" inType="win:UInt8"/>
+      <data name="NextState" inType="win:UInt8"/>
+     </template>
+     <template tid="SpmClientControlStateRundownArgs">
+      <data name="PdcId" inType="win:UInt32"/>
+      <data name="ReferenceCount" inType="win:UInt32"/>
+      <data name="ClientNameLength" inType="win:UInt32"/>
+      <data name="ClientName" inType="win:UnicodeString" length="ClientNameLength"/>
+     </template>
+     <template tid="PhaseAccountingArgs">
+      <data name="DataCount" inType="win:UInt32"/>
+      <data name="Data" inType="win:AnsiString" count="DataCount"/>
+     </template>
+     <template tid="ClientVerboseRundownArgs">
+      <data name="ClientId" inType="win:UInt32"/>
+      <data name="ClientFlags" inType="win:UInt32"/>
+      <data name="ClientNameLength" inType="win:UInt32"/>
+      <data name="ClientName" inType="win:UnicodeString" length="ClientNameLength"/>
+     </template>
+     <template tid="ActivatorActiveTooLongArgs">
+      <data name="TimeContinuouslyActive" inType="win:UInt32"/>
+      <data name="ClientIdAndActivityTypeAndOnAc" inType="win:UInt32"/>
+      <data name="UserClientProcess" inType="win:UInt32"/>
+     </template>
+     <template tid="SpmScenarioActivityRundownArgs">
+      <data name="Scenario" inType="win:Pointer"/>
+      <data name="ActiveCount" inType="win:UInt64"/>
+      <data name="MaxActiveTime" inType="win:UInt64"/>
+      <data name="MinActiveTime" inType="win:UInt64"/>
+      <data name="TotalActiveTime" inType="win:UInt64"/>
+     </template>
+     <template tid="PpmProfileClientRegistrationArgs">
+      <data name="Client" inType="win:Pointer"/>
+      <data name="PdcId" inType="win:UInt32"/>
+      <data name="ProfileGuid" inType="win:GUID"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="ClientNameLength" inType="win:UInt32"/>
+      <data name="ClientName" inType="win:UnicodeString" length="ClientNameLength"/>
+     </template>
+     <template tid="PpmProfileClientReferenceArgs">
+      <data name="Client" inType="win:Pointer"/>
+      <data name="Acquire" inType="win:Boolean"/>
+     </template>
+     <template tid="PDCV2ActivationClientRegisterArgs">
+      <data name="ClientId" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="PdcVersion" inType="win:UInt32"/>
+      <data name="ModuleNameLength" inType="win:UInt32"/>
+      <data name="ModuleName" inType="win:UnicodeString" length="ModuleNameLength"/>
+     </template>
+     <template tid="PDCV2ActivationClientActivateArgs">
+      <data name="ClientId" inType="win:UInt32"/>
+      <data name="TaskNameLength" inType="win:UInt32"/>
+      <data name="TaskName" inType="win:UnicodeString" length="TaskNameLength"/>
+      <data name="SubTaskLength" inType="win:UInt32"/>
+      <data name="SubTaskName" inType="win:UnicodeString" length="SubTaskLength"/>
+      <data name="ActivationCount" inType="win:UInt32"/>
+      <data name="ActivationsUpCounter" inType="win:UInt32"/>
+      <data name="ExpectedMaximumDuration" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="ActivationHandle" inType="win:Pointer"/>
+      <data name="PdcVersion" inType="win:UInt32"/>
+      <data name="ModuleNameLength" inType="win:UInt32"/>
+      <data name="ModuleName" inType="win:UnicodeString" length="ModuleNameLength"/>
+     </template>
+     <template tid="PDCV2ActivationClientRenewActivationArgs">
+      <data name="ClientId" inType="win:UInt32"/>
+      <data name="TaskNameLength" inType="win:UInt32"/>
+      <data name="TaskName" inType="win:UnicodeString" length="TaskNameLength"/>
+      <data name="SubTaskLength" inType="win:UInt32"/>
+      <data name="SubTaskName" inType="win:UnicodeString" length="SubTaskLength"/>
+      <data name="ExpectedMaximumDuration" inType="win:UInt32"/>
+      <data name="ActivationCount" inType="win:UInt32"/>
+      <data name="ActivationsUpCounter" inType="win:UInt32"/>
+      <data name="ActivationDuration" inType="win:UInt64"/>
+      <data name="RenewalUpCounter" inType="win:UInt32"/>
+      <data name="ErrorDetail" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="ActivationHandle" inType="win:Pointer"/>
+      <data name="ModuleNameLength" inType="win:UInt32"/>
+      <data name="ModuleName" inType="win:UnicodeString" length="ModuleNameLength"/>
+      <data name="BrokeredForPID" inType="win:UInt32"/>
+     </template>
+     <template tid="PDCV2ActivationClientDeactivateArgs">
+      <data name="ClientId" inType="win:UInt32"/>
+      <data name="TaskNameLength" inType="win:UInt32"/>
+      <data name="TaskName" inType="win:UnicodeString" length="TaskNameLength"/>
+      <data name="SubTaskLength" inType="win:UInt32"/>
+      <data name="SubTaskName" inType="win:UnicodeString" length="SubTaskLength"/>
+      <data name="ActivationCount" inType="win:UInt32"/>
+      <data name="ActivationsUpCounter" inType="win:UInt32"/>
+      <data name="ActivationDuration" inType="win:UInt64"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="ActivationHandle" inType="win:Pointer"/>
+      <data name="PdcVersion" inType="win:UInt32"/>
+      <data name="ModuleNameLength" inType="win:UInt32"/>
+      <data name="ModuleName" inType="win:UnicodeString" length="ModuleNameLength"/>
+      <data name="BrokeredForPID" inType="win:UInt32"/>
+     </template>
+     <template tid="PDCV2ActivationClientCallbackArgs">
+      <data name="ClientId" inType="win:UInt32"/>
+      <data name="TaskNameLength" inType="win:UInt32"/>
+      <data name="TaskName" inType="win:UnicodeString" length="TaskNameLength"/>
+      <data name="SubTaskLength" inType="win:UInt32"/>
+      <data name="SubTaskName" inType="win:UnicodeString" length="SubTaskLength"/>
+      <data name="CallbackReason" inType="win:UInt32"/>
+      <data name="ActivationCount" inType="win:UInt32"/>
+      <data name="ActivationsUpCounter" inType="win:UInt32"/>
+      <data name="ActivationDuration" inType="win:UInt64"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="ActivationHandle" inType="win:Pointer"/>
+      <data name="RenewalUpCounter" inType="win:UInt32"/>
+      <data name="PdcVersion" inType="win:UInt32"/>
+      <data name="ModuleNameLength" inType="win:UInt32"/>
+      <data name="ModuleName" inType="win:UnicodeString" length="ModuleNameLength"/>
+      <data name="BrokeredForPID" inType="win:UInt32"/>
+     </template>
+     <template tid="PDCV2ActivationClientSetBrokeredProcessIDArgs">
+      <data name="ClientId" inType="win:UInt32"/>
+      <data name="TaskNameLength" inType="win:UInt32"/>
+      <data name="TaskName" inType="win:UnicodeString" length="TaskNameLength"/>
+      <data name="SubTaskLength" inType="win:UInt32"/>
+      <data name="SubTaskName" inType="win:UnicodeString" length="SubTaskLength"/>
+      <data name="ExpectedMaximumDuration" inType="win:UInt32"/>
+      <data name="ActivationCount" inType="win:UInt32"/>
+      <data name="ActivationsUpCounter" inType="win:UInt32"/>
+      <data name="ActivationDuration" inType="win:UInt64"/>
+      <data name="RenewalUpCounter" inType="win:UInt32"/>
+      <data name="BrokeredForPID" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="ActivationHandle" inType="win:Pointer"/>
+      <data name="ModuleNameLength" inType="win:UInt32"/>
+      <data name="ModuleName" inType="win:UnicodeString" length="ModuleNameLength"/>
+     </template>
+     <template tid="PDCSignalClassWakeDetailsArgs">
+      <data name="ScenarioInstanceId" inType="win:UInt8"/>
+      <data name="RequestType" inType="win:UInt32"/>
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="ClassId" inType="win:GUID"/>
+      <data name="ProviderId" inType="win:GUID"/>
+      <data name="DiagStringLength" inType="win:UInt32"/>
+      <data name="DiagString" inType="win:UnicodeString" length="DiagStringLength"/>
+     </template>
+     <template tid="PdcPhaseReferencedArgs">
+      <data name="Phase" inType="win:UInt8" map="MapPdcPhases"/>
+      <data name="CountChange" inType="win:Int32"/>
+      <data name="ReferenceCount" inType="win:Int32"/>
+      <data name="WasWorkItemQueued" inType="win:Boolean"/>
+     </template>
+     <template tid="PdcPhaseDereferencedArgs">
+      <data name="Phase" inType="win:UInt8"/>
+      <data name="CountChange" inType="win:Int32"/>
+      <data name="ReferenceCount" inType="win:Int32"/>
+      <data name="WasWorkItemQueued" inType="win:Boolean"/>
+     </template>
+     <template tid="PdcTargetPhaseSelectedArgs">
+      <data name="PreviousTargetPhase" inType="win:UInt8"/>
+      <data name="NewTargetPhase" inType="win:UInt8"/>
+      <data name="CurrentPhase" inType="win:UInt8"/>
+     </template>
+     <template tid="PdcTargetPhaseReachedArgs">
+      <data name="Phase" inType="win:UInt8"/>
+     </template>
+     <template tid="PdcPhaseNotificationsStateChangedArgs">
+      <data name="Phase" inType="win:UInt8"/>
+      <data name="PreviousState" inType="win:UInt8" map="MapPdcPhaseNotificationsState"/>
+      <data name="NewState" inType="win:UInt8"/>
+     </template>
+     <template tid="PdcPhaseRundownArgs">
+      <data name="Phase" inType="win:UInt8"/>
+      <data name="ReferenceCount" inType="win:Int32"/>
+      <data name="IsHandlerEngaged" inType="win:Boolean"/>
+      <data name="NotificationsState" inType="win:UInt8"/>
+      <data name="NotificationsStatus" inType="win:UInt32"/>
+      <data name="PdcSequenceId" inType="win:UInt32"/>
+      <data name="EntryWaitTimeInSeconds" inType="win:UInt32"/>
+      <data name="EntryWatchdogTimeoutInSeconds" inType="win:UInt32"/>
+     </template>
+     <template tid="PdcPhaseAccountingRundownArgs">
+      <data name="Phase" inType="win:UInt8"/>
+      <data name="EngageCount" inType="win:UInt32"/>
+      <data name="EngageHandlerTotalTime" inType="win:UInt64"/>
+      <data name="EngageHandlerNotificationsTotalTime" inType="win:UInt64"/>
+      <data name="DisengageCount" inType="win:UInt32"/>
+      <data name="DisengageHandlerTotalTime" inType="win:UInt64"/>
+      <data name="DisengageHandlerNotificationsTotalTime" inType="win:UInt64"/>
+      <data name="PhaseTotalTime" inType="win:UInt64"/>
+     </template>
+     <template tid="PdcPhaseNotificationCallbackArgs">
+      <data name="CurrentPhase" inType="win:UInt8"/>
+      <data name="CurrentPhaseNotificationsState" inType="win:UInt8"/>
+      <data name="CurrentPhaseNotificationsStatus" inType="win:UInt32"/>
+      <data name="CurrentPhasePdcSequence" inType="win:UInt32"/>
+      <data name="CallbackStatus" inType="win:UInt32"/>
+      <data name="CallbackPdcSequence" inType="win:UInt32"/>
+     </template>
+     <template tid="PdcSIdleUpdateNotificationArgs">
+      <data name="SystemIdle" inType="win:Boolean"/>
+     </template>
+     <template tid="PdcInvalidArgumentToFunctionArgs">
+      <data name="FunctionNameLength" inType="win:UInt32"/>
+      <data name="FunctionName" inType="win:UnicodeString" length="FunctionNameLength"/>
+      <data name="ArgumentNameLength" inType="win:UInt32"/>
+      <data name="ArgumentName" inType="win:UnicodeString" length="ArgumentNameLength"/>
+     </template>
+     <template tid="CsMonitorContextArgs_V1">
+      <data name="ConnectedSessionCount" inType="win:UInt32"/>
+      <data name="ConsoleSessionId" inType="win:UInt32"/>
+      <data name="SessionId" inType="win:UInt32"/>
+      <data name="OnRequestCurrent" inType="win:UInt32"/>
+      <data name="OnRequestProcessed" inType="win:UInt32"/>
+      <data name="OffRequestCurrent" inType="win:UInt32"/>
+      <data name="OffRequestProcessed" inType="win:UInt32"/>
+      <data name="BlockingActive" inType="win:Boolean"/>
+      <data name="BlockingScenarioCount" inType="win:UInt32"/>
+      <data name="BlockingEscapeCount" inType="win:UInt32"/>
+      <data name="BlockingPowerPressCount" inType="win:UInt32"/>
+     </template>
+     <template tid="SpmScenarioRundownArgs_V1">
+      <data name="Scenario" inType="win:Pointer"/>
+      <data name="Guid" inType="win:GUID"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="State" inType="win:UInt8"/>
+      <data name="ScenarioNameLength" inType="win:UInt32"/>
+      <data name="ScenarioName" inType="win:UnicodeString" length="ScenarioNameLength"/>
+      <data name="ProfileGuid" inType="win:GUID"/>
+     </template>
+     <template tid="PDCSignalClassWakeDetailsArgs_V1">
+      <data name="ScenarioInstanceId" inType="win:UInt8"/>
+      <data name="RequestType" inType="win:UInt32"/>
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="ClassId" inType="win:GUID"/>
+      <data name="ProviderId" inType="win:GUID"/>
+      <data name="DiagStringLength" inType="win:UInt32"/>
+      <data name="DiagString" inType="win:UnicodeString" length="DiagStringLength"/>
+      <data name="ScenarioInstanceIdV2" inType="win:UInt64"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_PdcErrors" value="PdcErrors"/>
+    <string id="keyword_notifications" value="notifications"/>
+    <string id="keyword_clients" value="clients"/>
+    <string id="keyword_activators" value="activators"/>
+    <string id="keyword_Cs" value="Cs"/>
+    <string id="keyword_suspendresume" value="suspendresume"/>
+    <string id="keyword_tasks" value="tasks"/>
+    <string id="keyword_CsDiag" value="CsDiag"/>
+    <string id="keyword_SPM" value="SPM"/>
+    <string id="keyword_sleepstudy" value="sleepstudy"/>
+    <string id="keyword_PdcClient" value="PdcClient"/>
+    <string id="task_ActivatorRegistration" value="ActivatorRegistration"/>
+    <string id="task_ActivatorDeregistration" value="ActivatorDeregistration"/>
+    <string id="task_NotificationRegistration" value="NotificationRegistration"/>
+    <string id="task_NotificationDeregistration" value="NotificationDeregistration"/>
+    <string id="task_ResiliencyClientRegistration" value="ResiliencyClientRegistration"/>
+    <string id="task_ResiliencyClientDeregistration" value="ResiliencyClientDeregistration"/>
+    <string id="task_ActivatorAcknowledgement" value="ActivatorAcknowledgement"/>
+    <string id="task_ActivatorMessage" value="ActivatorMessage"/>
+    <string id="task_ActivatorClientAcknowledgement" value="ActivatorClientAcknowledgement"/>
+    <string id="task_NotificationStarted" value="NotificationStarted"/>
+    <string id="task_ControlNotification" value="ControlNotification"/>
+    <string id="task_InvalidNotification" value="InvalidNotification"/>
+    <string id="task_NotificationReceived" value="NotificationReceived"/>
+    <string id="task_NotificationAllClientResponded" value="NotificationAllClientResponded"/>
+    <string id="task_NotificationCallback" value="NotificationCallback"/>
+    <string id="task_NotificationMessage" value="NotificationMessage"/>
+    <string id="task_ActivatorReceive" value="ActivatorReceive"/>
+    <string id="task_ActivatorSend" value="ActivatorSend"/>
+    <string id="task_ResiliencyClient" value="ResiliencyClient"/>
+    <string id="task_ResiliencyMessage" value="ResiliencyMessage"/>
+    <string id="task_ResiliencyReceive" value="ResiliencyReceive"/>
+    <string id="task_ResiliencySend" value="ResiliencySend"/>
+    <string id="task_ResiliencyReference" value="ResiliencyReference"/>
+    <string id="task_ResiliencyDereference" value="ResiliencyDereference"/>
+    <string id="task_CsEnterPhase" value="CsEnterPhase"/>
+    <string id="task_CsExitPhase" value="CsExitPhase"/>
+    <string id="task_CsDisplayState" value="CsDisplayState"/>
+    <string id="task_CsMonitorRequestEnter" value="CsMonitorRequestEnter"/>
+    <string id="task_CsMonitorRequestExit" value="CsMonitorRequestExit"/>
+    <string id="task_CsMonitorContext" value="CsMonitorContext"/>
+    <string id="task_CsMonitorHandler" value="CsMonitorHandler"/>
+    <string id="task_CsMonitorControl" value="CsMonitorControl"/>
+    <string id="task_CsPowerButtonHandler" value="CsPowerButtonHandler"/>
+    <string id="task_CsPowerButtonConsumed" value="CsPowerButtonConsumed"/>
+    <string id="task_CsDisplayNotification" value="CsDisplayNotification"/>
+    <string id="task_CsEnterExit" value="CsEnterExit"/>
+    <string id="task_CsEnableInput" value="CsEnableInput"/>
+    <string id="task_CsDisableInput" value="CsDisableInput"/>
+    <string id="task_CsSuspendResumeHandler" value="CsSuspendResumeHandler"/>
+    <string id="task_CsSessionConnect" value="CsSessionConnect"/>
+    <string id="task_CsConnectionEvent" value="CsConnectionEvent"/>
+    <string id="task_PdcInit" value="PdcInit"/>
+    <string id="task_SuspendResumeRegistration" value="SuspendResumeRegistration"/>
+    <string id="task_SuspendResumeDeregistration" value="SuspendResumeDeregistration"/>
+    <string id="task_SuspendResumeReceive" value="SuspendResumeReceive"/>
+    <string id="task_SuspendResumeSend" value="SuspendResumeSend"/>
+    <string id="task_SuspendResumeMessage" value="SuspendResumeMessage"/>
+    <string id="task_SuspendAppsEnter" value="SuspendAppsEnter"/>
+    <string id="task_SuspendAppsExit" value="SuspendAppsExit"/>
+    <string id="task_ResumeAppsEnter" value="ResumeAppsEnter"/>
+    <string id="task_ResumeAppsExit" value="ResumeAppsExit"/>
+    <string id="task_SuspendSvcsEnter" value="SuspendSvcsEnter"/>
+    <string id="task_SuspendSvcsExit" value="SuspendSvcsExit"/>
+    <string id="task_ResumeSvcsEnter" value="ResumeSvcsEnter"/>
+    <string id="task_ResumeSvcsExit" value="ResumeSvcsExit"/>
+    <string id="task_SuspendResumeCallback" value="SuspendResumeCallback"/>
+    <string id="task_SuspendResumeStarted" value="SuspendResumeStarted"/>
+    <string id="task_SuspendeResumeAllClientsResponded" value="SuspendeResumeAllClientsResponded"/>
+    <string id="task_CsSuspendResumeEvent" value="CsSuspendResumeEvent"/>
+    <string id="task_EnterConnectedStandbyStart" value="EnterConnectedStandbyStart"/>
+    <string id="task_EnterConnectedStandbyEnd" value="EnterConnectedStandbyEnd"/>
+    <string id="task_ExitFromConnectedStandbyStart" value="ExitFromConnectedStandbyStart"/>
+    <string id="task_ExitFromConnectedStandbyEnd" value="ExitFromConnectedStandbyEnd"/>
+    <string id="task_AbortConnectedStandbyStart" value="AbortConnectedStandbyStart"/>
+    <string id="task_AbortConnectedStandbyEnd" value="AbortConnectedStandbyEnd"/>
+    <string id="task_PdcStateChange" value="PdcStateChange"/>
+    <string id="task_PdcScreenOffRequest" value="PdcScreenOffRequest"/>
+    <string id="task_PdcScreenOffDisabled" value="PdcScreenOffDisabled"/>
+    <string id="task_ActivatorRegistrationRundown" value="ActivatorRegistrationRundown"/>
+    <string id="task_NotificationRegistrationRundown" value="NotificationRegistrationRundown"/>
+    <string id="task_ResiliencyClientRegistrationRundown" value="ResiliencyClientRegistrationRundown"/>
+    <string id="task_CsFilterInput" value="CsFilterInput"/>
+    <string id="task_TaskRegistration" value="TaskRegistration"/>
+    <string id="task_TaskDeregistration" value="TaskDeregistration"/>
+    <string id="task_TaskMessage" value="TaskMessage"/>
+    <string id="task_TaskReceive" value="TaskReceive"/>
+    <string id="task_TaskSend" value="TaskSend"/>
+    <string id="task_TaskRundown" value="TaskRundown"/>
+    <string id="task_TaskReference" value="TaskReference"/>
+    <string id="task_TaskDereference" value="TaskDereference"/>
+    <string id="task_DisplayOffStart" value="DisplayOffStart"/>
+    <string id="task_DisplayOffEnd" value="DisplayOffEnd"/>
+    <string id="task_DisplayOffAbort" value="DisplayOffAbort"/>
+    <string id="task_EnterConnectedStandbyAbort" value="EnterConnectedStandbyAbort"/>
+    <string id="task_ActivationStatistics" value="ActivationStatistics"/>
+    <string id="task_SpmClientRegistration" value="SpmClientRegistration"/>
+    <string id="task_SpmClientDeregistration" value="SpmClientDeregistration"/>
+    <string id="task_SpmClientMessage" value="SpmClientMessage"/>
+    <string id="task_SpmClientReceive" value="SpmClientReceive"/>
+    <string id="task_SpmClientSend" value="SpmClientSend"/>
+    <string id="task_SpmClientRundown" value="SpmClientRundown"/>
+    <string id="task_SpmScenarioStateChange" value="SpmScenarioStateChange"/>
+    <string id="task_SpmScenarioDependencyRundown" value="SpmScenarioDependencyRundown"/>
+    <string id="task_SpmClientInformationRundown" value="SpmClientInformationRundown"/>
+    <string id="task_SpmScenarioRundown" value="SpmScenarioRundown"/>
+    <string id="task_SpmScenarioAccountingRundown" value="SpmScenarioAccountingRundown"/>
+    <string id="task_SpmClientControlStateChange" value="SpmClientControlStateChange"/>
+    <string id="task_SpmClientControlStateRundown" value="SpmClientControlStateRundown"/>
+    <string id="task_PhaseAccounting" value="PhaseAccounting"/>
+    <string id="task_ClientVerboseRundown" value="ClientVerboseRundown"/>
+    <string id="task_ActivatorActiveTooLong" value="ActivatorActiveTooLong"/>
+    <string id="task_SpmScenarioAccountingSnapshot" value="SpmScenarioAccountingSnapshot"/>
+    <string id="task_SpmScenarioActivityRundown" value="SpmScenarioActivityRundown"/>
+    <string id="task_PpmProfileClientRegistration" value="PpmProfileClientRegistration"/>
+    <string id="task_PpmProfileClientDeregistration" value="PpmProfileClientDeregistration"/>
+    <string id="task_PpmProfileClientReference" value="PpmProfileClientReference"/>
+    <string id="task_PpmProfileClientDereference" value="PpmProfileClientDereference"/>
+    <string id="task_PDCV2ActivationClientRegister" value="PDCV2ActivationClientRegister"/>
+    <string id="task_PDCV2ActivationClientActivate" value="PDCV2ActivationClientActivate"/>
+    <string id="task_PDCV2ActivationClientRenewActivation" value="PDCV2ActivationClientRenewActivation"/>
+    <string id="task_PDCV2ActivationClientDeactivate" value="PDCV2ActivationClientDeactivate"/>
+    <string id="task_PDCV2ActivationClientUnregister" value="PDCV2ActivationClientUnregister"/>
+    <string id="task_PDCV2ActivationClientCallback" value="PDCV2ActivationClientCallback"/>
+    <string id="task_PDCV2ActivationClientSetBrokeredProcessID" value="PDCV2ActivationClientSetBrokeredProcessID"/>
+    <string id="task_PDCSignalClassWakeDetails" value="PDCSignalClassWakeDetails"/>
+    <string id="task_PDCSignalClassMonitorOffDetails" value="PDCSignalClassMonitorOffDetails"/>
+    <string id="task_PdcPhaseReferenced" value="PdcPhaseReferenced"/>
+    <string id="task_PdcPhaseDereferenced" value="PdcPhaseDereferenced"/>
+    <string id="task_PdcTargetPhaseSelected" value="PdcTargetPhaseSelected"/>
+    <string id="task_PdcTargetPhaseReached" value="PdcTargetPhaseReached"/>
+    <string id="task_PdcPhaseNotificationsStateChanged" value="PdcPhaseNotificationsStateChanged"/>
+    <string id="task_PdcPhaseRundown" value="PdcPhaseRundown"/>
+    <string id="task_PdcPhaseAccountingRundown" value="PdcPhaseAccountingRundown"/>
+    <string id="task_PdcPhaseNotificationCallback" value="PdcPhaseNotificationCallback"/>
+    <string id="task_PdcSIdleUpdateNotification" value="PdcSIdleUpdateNotification"/>
+    <string id="task_PdcInvalidArgumentToFunction" value="PdcInvalidArgumentToFunction"/>
+    <string id="map_MapPdcPhasesNo CS Phase" value="No CS Phase"/>
+    <string id="map_MapPdcPhasesConnection Phase" value="Connection Phase"/>
+    <string id="map_MapPdcPhasesShell Phase" value="Shell Phase"/>
+    <string id="map_MapPdcPhasesPLM Phase" value="PLM Phase"/>
+    <string id="map_MapPdcPhasesMaintenance Phase" value="Maintenance Phase"/>
+    <string id="map_MapPdcPhasesDAM Phase" value="DAM Phase"/>
+    <string id="map_MapPdcPhasesLow Power Phase" value="Low Power Phase"/>
+    <string id="map_MapPdcPhasesResiliency Notification Phase" value="Resiliency Notification Phase"/>
+    <string id="map_MapPdcPhasesResiliency Phase" value="Resiliency Phase"/>
+    <string id="map_MapPdcPhasesInvalid Phase" value="Invalid Phase"/>
+    <string id="map_MapPdcPhaseNotificationsStateNone" value="None"/>
+    <string id="map_MapPdcPhaseNotificationsStateExit Complete" value="Exit Complete"/>
+    <string id="map_MapPdcPhaseNotificationsStateExit Pending" value="Exit Pending"/>
+    <string id="map_MapPdcPhaseNotificationsStateEnter Pending" value="Enter Pending"/>
+    <string id="map_MapPdcPhaseNotificationsStateEnter Complete" value="Enter Complete"/>
+    <string id="map_MapPdcPhaseNotificationsStateFailed" value="Failed"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

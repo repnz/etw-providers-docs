@@ -1,0 +1,130 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Battery" guid="{59819d0a-adaf-46b2-8d7c-990bc39c7c15}" resourceFileName="Microsoft-Windows-Battery" messageFileName="Microsoft-Windows-Battery" symbol="MicrosoftWindowsBattery" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="SystemBatteryStatusChange" message="$(string.task_SystemBatteryStatusChange)" value="1"/>
+     <task name="SystemBatteryStatusRundown" message="$(string.task_SystemBatteryStatusRundown)" value="2"/>
+     <task name="BatteryBayRundown" message="$(string.task_BatteryBayRundown)" value="3"/>
+     <task name="BixUpdated" message="$(string.task_BixUpdated)" value="4"/>
+     <task name="BixRundown" message="$(string.task_BixRundown)" value="5"/>
+     <task name="BifUpdated" message="$(string.task_BifUpdated)" value="6"/>
+     <task name="BifRundown" message="$(string.task_BifRundown)" value="7"/>
+     <task name="BstUpdated" message="$(string.task_BstUpdated)" value="8"/>
+     <task name="BstRundown" message="$(string.task_BstRundown)" value="9"/>
+     <task name="BtpSet" message="$(string.task_BtpSet)" value="10"/>
+     <task name="BtpRundown" message="$(string.task_BtpRundown)" value="11"/>
+     <task name="AcpiNotify" message="$(string.task_AcpiNotify)" value="12"/>
+     <task name="BatteryPercentRemaining" message="$(string.task_BatteryPercentRemaining)" value="13"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="SystemBatteryStatusChange" version="0" task="SystemBatteryStatusChange" level="win:Informational" template="SystemBatteryStatusChangeArgs"/>
+     <event value="2" symbol="SystemBatteryStatusRundown" version="0" task="SystemBatteryStatusRundown" level="win:Informational" template="SystemBatteryStatusChangeArgs"/>
+     <event value="3" symbol="BatteryBayRundown" version="0" task="BatteryBayRundown" level="win:Informational" template="BatteryBayRundownArgs"/>
+     <event value="4" symbol="BixUpdated" version="0" task="BixUpdated" level="win:Informational" template="BixUpdatedArgs"/>
+     <event value="5" symbol="BixRundown" version="0" task="BixRundown" level="win:Informational" template="BixUpdatedArgs"/>
+     <event value="6" symbol="BifUpdated" version="0" task="BifUpdated" level="win:Informational" template="BifUpdatedArgs"/>
+     <event value="7" symbol="BifRundown" version="0" task="BifRundown" level="win:Informational" template="BifUpdatedArgs"/>
+     <event value="8" symbol="BstUpdated" version="0" task="BstUpdated" level="win:Informational" template="BstUpdatedArgs"/>
+     <event value="9" symbol="BstRundown" version="0" task="BstRundown" level="win:Informational" template="BstUpdatedArgs"/>
+     <event value="10" symbol="BtpSet" version="0" task="BtpSet" level="win:Informational" template="BtpSetArgs"/>
+     <event value="11" symbol="BtpRundown" version="0" task="BtpRundown" level="win:Informational" template="BtpSetArgs"/>
+     <event value="12" symbol="AcpiNotify" version="0" task="AcpiNotify" level="win:Informational" template="AcpiNotifyArgs"/>
+     <event value="13" symbol="BatteryPercentRemaining" version="0" task="BatteryPercentRemaining" level="win:Informational" template="BatteryPercentRemainingArgs"/>
+    </events>
+    <templates>
+     <template tid="SystemBatteryStatusChangeArgs">
+      <data name="BatteryPresent" inType="win:Boolean"/>
+      <data name="PowerState" inType="win:UInt32"/>
+      <data name="Capacity" inType="win:UInt32"/>
+     </template>
+     <template tid="BatteryBayRundownArgs">
+      <data name="Handle" inType="win:Pointer"/>
+      <data name="BatteryPresent" inType="win:Boolean"/>
+     </template>
+     <template tid="BixUpdatedArgs">
+      <data name="Handle" inType="win:Pointer"/>
+      <data name="Revision" inType="win:UInt32"/>
+      <data name="PowerUnit" inType="win:UInt32"/>
+      <data name="DesignCapacity" inType="win:UInt32"/>
+      <data name="LastFullChargeCapacity" inType="win:UInt32"/>
+      <data name="BatteryTechnology" inType="win:UInt32"/>
+      <data name="DesignVoltage" inType="win:UInt32"/>
+      <data name="WarningDesignCapacity" inType="win:UInt32"/>
+      <data name="LowDesignCapacity" inType="win:UInt32"/>
+      <data name="CapacityGranularity1" inType="win:UInt32"/>
+      <data name="CapacityGranularity2" inType="win:UInt32"/>
+      <data name="CycleCount" inType="win:UInt32"/>
+      <data name="MeasurementAccuracy" inType="win:UInt32"/>
+      <data name="MaxSamplingTime" inType="win:UInt32"/>
+      <data name="MinSamplingTIme" inType="win:UInt32"/>
+      <data name="MaxAveragingInterval" inType="win:UInt32"/>
+      <data name="MinAveragingInterval" inType="win:UInt32"/>
+      <data name="ModelNumber" inType="win:AnsiString"/>
+      <data name="SerialNumber" inType="win:AnsiString"/>
+      <data name="BatteryType" inType="win:AnsiString"/>
+      <data name="OemInformation" inType="win:AnsiString"/>
+     </template>
+     <template tid="BifUpdatedArgs">
+      <data name="Handle" inType="win:Pointer"/>
+      <data name="PowerUnit" inType="win:UInt32"/>
+      <data name="DesignCapacity" inType="win:UInt32"/>
+      <data name="LastFullChargeCapacity" inType="win:UInt32"/>
+      <data name="BatteryTechnology" inType="win:UInt32"/>
+      <data name="DesignVoltage" inType="win:UInt32"/>
+      <data name="WarningDesignCapacity" inType="win:UInt32"/>
+      <data name="LowDesignCapacity" inType="win:UInt32"/>
+      <data name="CapacityGranularity1" inType="win:UInt32"/>
+      <data name="CapacityGranularity2" inType="win:UInt32"/>
+      <data name="ModelNumber" inType="win:AnsiString"/>
+      <data name="SerialNumber" inType="win:AnsiString"/>
+      <data name="BatteryType" inType="win:AnsiString"/>
+      <data name="OemInformation" inType="win:AnsiString"/>
+     </template>
+     <template tid="BstUpdatedArgs">
+      <data name="Handle" inType="win:Pointer"/>
+      <data name="State" inType="win:UInt32"/>
+      <data name="PresentRate" inType="win:UInt32"/>
+      <data name="RemainingCapacity" inType="win:UInt32"/>
+      <data name="PresentVoltage" inType="win:UInt32"/>
+     </template>
+     <template tid="BtpSetArgs">
+      <data name="Handle" inType="win:Pointer"/>
+      <data name="TripPoint" inType="win:UInt32"/>
+     </template>
+     <template tid="AcpiNotifyArgs">
+      <data name="Handle" inType="win:Pointer"/>
+      <data name="Notification" inType="win:UInt32"/>
+     </template>
+     <template tid="BatteryPercentRemainingArgs">
+      <data name="RemainingPercentage" inType="win:UInt32"/>
+      <data name="PercentageChange" inType="win:Int32"/>
+      <data name="AcDc" inType="win:UInt32"/>
+      <data name="ElapsedTimeMs" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_SystemBatteryStatusChange" value="SystemBatteryStatusChange"/>
+    <string id="task_SystemBatteryStatusRundown" value="SystemBatteryStatusRundown"/>
+    <string id="task_BatteryBayRundown" value="BatteryBayRundown"/>
+    <string id="task_BixUpdated" value="BixUpdated"/>
+    <string id="task_BixRundown" value="BixRundown"/>
+    <string id="task_BifUpdated" value="BifUpdated"/>
+    <string id="task_BifRundown" value="BifRundown"/>
+    <string id="task_BstUpdated" value="BstUpdated"/>
+    <string id="task_BstRundown" value="BstRundown"/>
+    <string id="task_BtpSet" value="BtpSet"/>
+    <string id="task_BtpRundown" value="BtpRundown"/>
+    <string id="task_AcpiNotify" value="AcpiNotify"/>
+    <string id="task_BatteryPercentRemaining" value="BatteryPercentRemaining"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

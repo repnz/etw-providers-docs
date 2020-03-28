@@ -1,0 +1,827 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-WFP" guid="{0c478c5b-0351-41b1-8c58-4a6737da32e3}" resourceFileName="Microsoft-Windows-WFP" messageFileName="Microsoft-Windows-WFP" symbol="MicrosoftWindowsWFP" source="Xml" >
+    <keywords>
+     <keyword name="ut:Transfer" message="$(string.keyword_ut:Transfer)" mask="0x1"/>
+     <keyword name="ut:AOAC" message="$(string.keyword_ut:AOAC)" mask="0x10"/>
+     <keyword name="ut:SendPath" message="$(string.keyword_ut:SendPath)" mask="0x100000000"/>
+     <keyword name="ut:ReceivePath" message="$(string.keyword_ut:ReceivePath)" mask="0x200000000"/>
+     <keyword name="ut:L3ConnectPath" message="$(string.keyword_ut:L3ConnectPath)" mask="0x400000000"/>
+     <keyword name="ut:L2ConnectPath" message="$(string.keyword_ut:L2ConnectPath)" mask="0x800000000"/>
+     <keyword name="ut:ClosePath" message="$(string.keyword_ut:ClosePath)" mask="0x1000000000"/>
+     <keyword name="ut:Authentication" message="$(string.keyword_ut:Authentication)" mask="0x2000000000"/>
+     <keyword name="ut:Configuration" message="$(string.keyword_ut:Configuration)" mask="0x4000000000"/>
+     <keyword name="ut:Global" message="$(string.keyword_ut:Global)" mask="0x8000000000"/>
+     <keyword name="keyword_10000000000" message="$(string.keyword_keyword_10000000000)" mask="0x10000000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <maps>
+     <valueMap name="DirectionMap">
+      <map value="0x3900" message="$(string.map_DirectionMapInbound)"/>
+      <map value="0x3901" message="$(string.map_DirectionMapOutbound)"/>
+      <map value="0x3902" message="$(string.map_DirectionMapForward)"/>
+      <map value="0x3903" message="$(string.map_DirectionMapBidirectional)"/>
+     </valueMap>
+     <valueMap name="KeyModMap">
+      <map value="0x0" message="$(string.map_KeyModMapNONE)"/>
+      <map value="0x1" message="$(string.map_KeyModMapIKEv1)"/>
+      <map value="0x2" message="$(string.map_KeyModMapIKEv2)"/>
+      <map value="0x3" message="$(string.map_KeyModMapAuthIP)"/>
+     </valueMap>
+     <valueMap name="AuthTypeMap">
+      <map value="0x0" message="$(string.map_AuthTypeMapNONE)"/>
+      <map value="0x1" message="$(string.map_AuthTypeMapMD5)"/>
+      <map value="0x2" message="$(string.map_AuthTypeMapSHA-1)"/>
+      <map value="0x3" message="$(string.map_AuthTypeMapSHA-256)"/>
+      <map value="0x4" message="$(string.map_AuthTypeMapAES-GCM-128)"/>
+      <map value="0x5" message="$(string.map_AuthTypeMapAES-GCM-192)"/>
+      <map value="0x6" message="$(string.map_AuthTypeMapAES-GCM-256)"/>
+      <map value="0x7" message="$(string.map_AuthTypeMapAES-GMAC-128)"/>
+      <map value="0x8" message="$(string.map_AuthTypeMapAES-GMAC-192)"/>
+      <map value="0x9" message="$(string.map_AuthTypeMapAES-GMAC-256)"/>
+     </valueMap>
+     <valueMap name="CipherTypeMap">
+      <map value="0x0" message="$(string.map_CipherTypeMapNONE)"/>
+      <map value="0x1" message="$(string.map_CipherTypeMapDES)"/>
+      <map value="0x2" message="$(string.map_CipherTypeMap3DES)"/>
+      <map value="0x3" message="$(string.map_CipherTypeMapAES-CBC-128)"/>
+      <map value="0x4" message="$(string.map_CipherTypeMapAES-CBC-192)"/>
+      <map value="0x5" message="$(string.map_CipherTypeMapAES-CBC-256)"/>
+      <map value="0x6" message="$(string.map_CipherTypeMapAES-GCM-128)"/>
+      <map value="0x7" message="$(string.map_CipherTypeMapAES-GCM-192)"/>
+      <map value="0x8" message="$(string.map_CipherTypeMapAES-GCM-256)"/>
+     </valueMap>
+     <valueMap name="ModeMap">
+      <map value="0x1" message="$(string.map_ModeMapTransport Mode)"/>
+      <map value="0x2" message="$(string.map_ModeMapTunnel Mode)"/>
+     </valueMap>
+     <valueMap name="RoleMap">
+      <map value="0x1" message="$(string.map_RoleMapInitiator)"/>
+      <map value="0x2" message="$(string.map_RoleMapResponder)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1001" symbol="task_0" version="0" task="task_0" level="win:Informational" keywords="ut:AOAC keyword_10000000000" template="task_0Args"/>
+     <event value="1001" symbol="task_0_V1" version="1" task="task_0" level="win:Informational" keywords="ut:AOAC keyword_10000000000" template="task_0Args_V1"/>
+     <event value="1001" symbol="task_0_V2" version="2" task="task_0" level="win:Informational" keywords="ut:AOAC keyword_10000000000" template="task_0Args_V2"/>
+     <event value="1003" symbol="task_01003" version="0" task="task_0" level="win:Informational" keywords="ut:AOAC keyword_10000000000" template="task_01003Args"/>
+     <event value="1005" symbol="task_01005" version="0" task="task_0" level="win:Informational" keywords="ut:Authentication" template="task_01005Args"/>
+     <event value="1005" symbol="task_01005_V1" version="1" task="task_0" level="win:Informational" keywords="ut:Authentication" template="task_01005Args_V1"/>
+     <event value="1007" symbol="task_01007" version="0" task="task_0" level="win:Informational" template="task_01007Args"/>
+     <event value="1007" symbol="task_01007_V1" version="1" task="task_0" level="win:Informational" template="task_01007Args_V1"/>
+     <event value="1009" symbol="task_01009" version="0" task="task_0" level="win:Informational" keywords="ut:Authentication" template="task_01009Args"/>
+     <event value="1011" symbol="task_01011" version="0" task="task_0" level="win:Informational" keywords="keyword_10000000000" template="task_01011Args"/>
+     <event value="1013" symbol="task_01013" version="0" task="task_0" level="win:Informational" keywords="ut:Authentication" template="task_01013Args"/>
+     <event value="1013" symbol="task_01013_V1" version="1" task="task_0" level="win:Informational" keywords="ut:Authentication" template="task_01013Args_V1"/>
+     <event value="1014" symbol="task_01014" version="0" task="task_0" level="win:Informational" keywords="ut:Authentication" template="task_01014Args"/>
+     <event value="1015" symbol="task_01015" version="0" task="task_0" level="win:Informational" keywords="ut:Authentication" template="task_01015Args"/>
+     <event value="1016" symbol="task_01016" version="0" task="task_0" level="win:Informational" keywords="ut:Authentication" template="task_01016Args"/>
+     <event value="1017" symbol="task_01017" version="0" task="task_0" level="win:Informational" keywords="ut:Authentication" template="task_01017Args"/>
+     <event value="1018" symbol="task_01018" version="0" task="task_0" level="win:Informational" keywords="ut:Authentication" template="task_01018Args"/>
+     <event value="1019" symbol="task_01019" version="0" task="task_0" level="win:Informational" keywords="ut:Authentication" template="task_01019Args"/>
+     <event value="1020" symbol="task_01020" version="0" task="task_0" level="win:Informational" keywords="ut:Configuration"/>
+     <event value="1021" symbol="task_01021" version="0" task="task_0" level="win:Informational" keywords="ut:Configuration"/>
+     <event value="1022" symbol="task_01022" version="0" task="task_0" level="win:Informational" keywords="ut:Configuration"/>
+     <event value="1023" symbol="task_01023" version="0" task="task_0" level="win:Informational" keywords="ut:SendPath" template="task_01023Args"/>
+     <event value="1024" symbol="task_01024" version="0" task="task_0" level="win:Informational" keywords="ut:SendPath" template="task_01024Args"/>
+     <event value="1025" symbol="task_01025" version="0" task="task_0" level="win:Informational" keywords="ut:ReceivePath" template="task_01025Args"/>
+     <event value="1026" symbol="task_01026" version="0" task="task_0" level="win:Informational" keywords="ut:Global" template="task_01026Args"/>
+     <event value="1027" symbol="task_01027" version="0" task="task_0" level="win:Informational" keywords="ut:Authentication" template="task_01027Args"/>
+     <event value="1027" symbol="task_01027_V1" version="1" task="task_0" level="win:Informational" keywords="ut:Authentication" template="task_01027Args_V1"/>
+     <event value="1028" symbol="task_01028" version="0" task="task_0" level="win:Informational" keywords="ut:Authentication" template="task_01028Args"/>
+     <event value="1028" symbol="task_01028_V1" version="1" task="task_0" level="win:Informational" keywords="ut:Authentication" template="task_01028Args_V1"/>
+     <event value="1029" symbol="task_01029" version="0" task="task_0" level="win:Informational" keywords="keyword_10000000000" template="task_01029Args"/>
+     <event value="1029" symbol="task_01029_V1" version="1" task="task_0" level="win:Informational" keywords="keyword_10000000000" template="task_01029Args_V1"/>
+     <event value="1030" symbol="task_01030" version="0" task="task_0" level="win:Warning" keywords="ut:Configuration" template="task_01030Args"/>
+     <event value="1031" symbol="task_01031" version="0" task="task_0" level="win:Informational" keywords="ut:Global" template="task_01031Args"/>
+     <event value="1032" symbol="task_01032" version="0" task="task_0" level="win:Informational" keywords="ut:Global" template="task_01031Args"/>
+     <event value="1033" symbol="task_01033" version="0" task="task_0" level="win:Informational" keywords="ut:Global" template="task_01033Args"/>
+     <event value="1034" symbol="task_01034" version="0" task="task_0" level="win:Informational" keywords="ut:Global" template="task_01033Args"/>
+     <event value="1035" symbol="task_01035" version="0" task="task_0" level="win:Informational" keywords="ut:Global" template="task_01035Args"/>
+     <event value="1036" symbol="task_01036" version="0" task="task_0" level="win:Informational" keywords="ut:Global" template="task_01035Args"/>
+     <event value="1037" symbol="task_01037" version="0" task="task_0" level="win:Informational" keywords="ut:Global" template="task_01037Args"/>
+     <event value="1038" symbol="task_01038" version="0" task="task_0" level="win:Informational" keywords="ut:Global" template="task_01037Args"/>
+     <event value="1039" symbol="task_01039" version="0" task="task_0" level="win:Informational" keywords="ut:Global" template="task_01039Args"/>
+     <event value="1040" symbol="task_01040" version="0" task="task_0" level="win:Informational" keywords="ut:Global" template="task_01039Args"/>
+     <event value="1041" symbol="task_01041" version="0" task="task_0" level="win:Informational" keywords="ut:Global" template="task_01037Args"/>
+     <event value="1042" symbol="task_01042" version="0" task="task_0" level="win:Informational" keywords="ut:Global"/>
+     <event value="1043" symbol="task_01043" version="0" task="task_0" level="win:Informational" keywords="ut:Authentication" template="task_01043Args"/>
+     <event value="1044" symbol="task_01044" version="0" task="task_0" level="win:Informational" keywords="ut:ReceivePath" template="task_01044Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="Timestamp" inType="win:FILETIME"/>
+      <data name="LocalAddressLength" inType="win:UInt32"/>
+      <data name="LocalAddress" inType="win:Binary" length="LocalAddressLength"/>
+      <data name="RemoteAddressLength" inType="win:UInt32"/>
+      <data name="RemoteAddress" inType="win:Binary" length="RemoteAddressLength"/>
+      <data name="ScopeId" inType="win:UInt32"/>
+      <data name="AppId" inType="win:UnicodeString"/>
+      <data name="UserSID" inType="win:SID"/>
+      <data name="ReauthReason" inType="win:UInt32"/>
+      <data name="OriginalProfile" inType="win:UInt32"/>
+      <data name="CurrentProfile" inType="win:UInt32"/>
+      <data name="PacketDirection" inType="win:UInt32" map="DirectionMap"/>
+      <data name="Loopback" inType="win:Boolean"/>
+      <data name="FilterId" inType="win:UInt64"/>
+      <data name="LayerId" inType="win:UInt16"/>
+     </template>
+     <template tid="task_01003Args">
+      <data name="Timestamp" inType="win:FILETIME"/>
+      <data name="LocalAddressLength" inType="win:UInt32"/>
+      <data name="LocalAddress" inType="win:Binary" length="LocalAddressLength"/>
+      <data name="RemoteAddressLength" inType="win:UInt32"/>
+      <data name="RemoteAddress" inType="win:Binary" length="RemoteAddressLength"/>
+      <data name="ScopeId" inType="win:UInt32"/>
+      <data name="AppId" inType="win:UnicodeString"/>
+      <data name="UserSID" inType="win:SID"/>
+      <data name="FailureStatus" inType="win:UInt32"/>
+      <data name="Direction" inType="win:UInt32"/>
+      <data name="SPI" inType="win:UInt32"/>
+      <data name="FilterId" inType="win:UInt64"/>
+      <data name="LayerId" inType="win:UInt16"/>
+     </template>
+     <template tid="task_01005Args">
+      <data name="Timestamp" inType="win:FILETIME"/>
+      <data name="LocalAddressLength" inType="win:UInt32"/>
+      <data name="LocalAddress" inType="win:Binary" length="LocalAddressLength"/>
+      <data name="RemoteAddressLength" inType="win:UInt32"/>
+      <data name="RemoteAddress" inType="win:Binary" length="RemoteAddressLength"/>
+      <data name="ScopeId" inType="win:UInt32"/>
+      <data name="AppId" inType="win:UnicodeString"/>
+      <data name="UserSID" inType="win:SID"/>
+      <data name="LocalSpn" inType="win:UnicodeString"/>
+      <data name="PeerSpn" inType="win:UnicodeString"/>
+      <data name="LocalGroupSidCount" inType="win:UInt32"/>
+      <data name="LocalGroupSidLength" inType="win:UInt32"/>
+      <data name="LocalGroupSids" inType="win:UnicodeString" count="LocalGroupSidLength"/>
+      <data name="RemoteGroupSidCount" inType="win:UInt32"/>
+      <data name="RemoteGroupSidLength" inType="win:UInt32"/>
+      <data name="RemoteGroupSids" inType="win:UnicodeString" count="RemoteGroupSidLength"/>
+      <data name="FailureErrorCode" inType="win:UInt32"/>
+      <data name="FailurePoint" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="KeyingModuleType" inType="win:UInt32"/>
+      <data name="MmState" inType="win:UInt32"/>
+      <data name="SaRole" inType="win:UInt32"/>
+      <data name="MMAuthMethod" inType="win:UInt32"/>
+      <data name="EndCertHash" inType="win:Binary"/>
+      <data name="MMId" inType="win:UInt64"/>
+      <data name="MMFilterId" inType="win:UInt64"/>
+     </template>
+     <template tid="task_01007Args">
+      <data name="Timestamp" inType="win:FILETIME"/>
+      <data name="LocalAddressLength" inType="win:UInt32"/>
+      <data name="LocalAddress" inType="win:Binary" length="LocalAddressLength"/>
+      <data name="RemoteAddressLength" inType="win:UInt32"/>
+      <data name="RemoteAddress" inType="win:Binary" length="RemoteAddressLength"/>
+      <data name="ScopeId" inType="win:UInt32"/>
+      <data name="AppId" inType="win:UnicodeString"/>
+      <data name="UserSID" inType="win:SID"/>
+      <data name="FailureErrorCode" inType="win:UInt32"/>
+      <data name="FailurePoint" inType="win:UInt32"/>
+      <data name="KeyingModuleType" inType="win:UInt32"/>
+      <data name="QMState" inType="win:UInt32"/>
+      <data name="SaRole" inType="win:UInt32"/>
+      <data name="SaTrafficType" inType="win:UInt32"/>
+      <data name="QMFilterId" inType="win:UInt64"/>
+     </template>
+     <template tid="task_01009Args">
+      <data name="Timestamp" inType="win:FILETIME"/>
+      <data name="LocalAddressLength" inType="win:UInt32"/>
+      <data name="LocalAddress" inType="win:Binary" length="LocalAddressLength"/>
+      <data name="RemoteAddressLength" inType="win:UInt32"/>
+      <data name="RemoteAddress" inType="win:Binary" length="RemoteAddressLength"/>
+      <data name="ScopeId" inType="win:UInt32"/>
+      <data name="AppId" inType="win:UnicodeString"/>
+      <data name="UserSID" inType="win:SID"/>
+      <data name="LocalSpn" inType="win:UnicodeString"/>
+      <data name="PeerSpn" inType="win:UnicodeString"/>
+      <data name="LocalGroupSidCount" inType="win:UInt32"/>
+      <data name="LocalGroupSidLength" inType="win:UInt32"/>
+      <data name="LocalGroupSids" inType="win:UnicodeString" count="LocalGroupSidLength"/>
+      <data name="RemoteGroupSidCount" inType="win:UInt32"/>
+      <data name="RemoteGroupSidLength" inType="win:UInt32"/>
+      <data name="RemoteGroupSids" inType="win:UnicodeString" count="RemoteGroupSidLength"/>
+      <data name="FailureErrorCode" inType="win:UInt32"/>
+      <data name="FailurePoint" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="EMState" inType="win:UInt32"/>
+      <data name="SaRole" inType="win:UInt32"/>
+      <data name="EMAuthMethod" inType="win:UInt32"/>
+      <data name="EndCertHash" inType="win:Binary"/>
+      <data name="MMId" inType="win:UInt64"/>
+      <data name="QMFilterId" inType="win:UInt64"/>
+     </template>
+     <template tid="task_01011Args">
+      <data name="Timestamp" inType="win:FILETIME"/>
+      <data name="LocalAddressLength" inType="win:UInt32"/>
+      <data name="LocalAddress" inType="win:Binary" length="LocalAddressLength"/>
+      <data name="RemoteAddressLength" inType="win:UInt32"/>
+      <data name="RemoteAddress" inType="win:Binary" length="RemoteAddressLength"/>
+      <data name="ScopeId" inType="win:UInt32"/>
+      <data name="AppId" inType="win:UnicodeString"/>
+      <data name="UserSID" inType="win:SID"/>
+      <data name="InternetHostAddress" inType="win:UInt32"/>
+      <data name="CorpnetHostAddress" inType="win:UInt32"/>
+      <data name="FailureStatus" inType="win:UInt32"/>
+      <data name="Direction" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01013Args">
+      <data name="MainModeLocalAddressLength" inType="win:UInt32"/>
+      <data name="MainModeLocalAddress" inType="win:Binary" length="MainModeLocalAddressLength"/>
+      <data name="MainModePeerAddressLength" inType="win:UInt32"/>
+      <data name="MainModePeerAddress" inType="win:Binary" length="MainModePeerAddressLength"/>
+      <data name="KeyingModule" inType="win:UInt32"/>
+      <data name="SaLuid" inType="win:UInt64"/>
+     </template>
+     <template tid="task_01014Args">
+      <data name="LocalSpn" inType="win:UnicodeString"/>
+      <data name="PeerSpn" inType="win:UnicodeString"/>
+      <data name="MainModeLocalAddressLength" inType="win:UInt32"/>
+      <data name="MainModeLocalAddress" inType="win:Binary" length="MainModeLocalAddressLength"/>
+      <data name="MainModePeerAddressLength" inType="win:UInt32"/>
+      <data name="MainModePeerAddress" inType="win:Binary" length="MainModePeerAddressLength"/>
+      <data name="KeyingModule" inType="win:UInt32"/>
+      <data name="AuthenticationMethodType" inType="win:UInt32"/>
+      <data name="EncryptionAlgorithm" inType="win:UInt32"/>
+      <data name="AuthenticationAlgorithm" inType="win:UInt32"/>
+      <data name="DiffieHellmanGroup" inType="win:UInt32"/>
+      <data name="LifetimeMinutes" inType="win:UInt32"/>
+      <data name="QMLimit" inType="win:UInt32"/>
+      <data name="Role" inType="win:UInt32"/>
+      <data name="Impersonation" inType="win:UInt32"/>
+      <data name="MMFilterId" inType="win:UInt64"/>
+      <data name="SaLuid" inType="win:UInt64"/>
+     </template>
+     <template tid="task_01015Args">
+      <data name="LocalCertDnSubject" inType="win:UnicodeString"/>
+      <data name="LocalCertShaThumbprintLength" inType="win:UInt32"/>
+      <data name="LocalCertShaThumbprint" inType="win:Binary" length="LocalCertShaThumbprintLength"/>
+      <data name="LocalCertDnIssuer" inType="win:UnicodeString"/>
+      <data name="LocalCertDnRoot" inType="win:UnicodeString"/>
+      <data name="PeerCertDnSubject" inType="win:UnicodeString"/>
+      <data name="PeerCertShaThumbprintLength" inType="win:UInt32"/>
+      <data name="PeerCertShaThumbprint" inType="win:Binary" length="PeerCertShaThumbprintLength"/>
+      <data name="PeerCertDnIssuer" inType="win:UnicodeString"/>
+      <data name="PeerCertDnRoot" inType="win:UnicodeString"/>
+      <data name="MainModeLocalAddressLength" inType="win:UInt32"/>
+      <data name="MainModeLocalAddress" inType="win:Binary" length="MainModeLocalAddressLength"/>
+      <data name="MainModePeerAddressLength" inType="win:UInt32"/>
+      <data name="MainModePeerAddress" inType="win:Binary" length="MainModePeerAddressLength"/>
+      <data name="KeyingModule" inType="win:UInt32"/>
+      <data name="AuthenticationMethodType" inType="win:UInt32"/>
+      <data name="EncryptionAlgorithm" inType="win:UInt32"/>
+      <data name="AuthenticationAlgorithm" inType="win:UInt32"/>
+      <data name="DiffieHellmanGroup" inType="win:UInt32"/>
+      <data name="LifetimeMinutes" inType="win:UInt32"/>
+      <data name="QMLimit" inType="win:UInt32"/>
+      <data name="Role" inType="win:UInt32"/>
+      <data name="Impersonation" inType="win:UInt32"/>
+      <data name="MMFilterId" inType="win:UInt64"/>
+      <data name="SaLuid" inType="win:UInt64"/>
+     </template>
+     <template tid="task_01016Args">
+      <data name="LocalCertDnSubject" inType="win:UnicodeString"/>
+      <data name="LocalCertShaThumbprintLength" inType="win:UInt32"/>
+      <data name="LocalCertShaThumbprint" inType="win:Binary" length="LocalCertShaThumbprintLength"/>
+      <data name="LocalCertDnIssuer" inType="win:UnicodeString"/>
+      <data name="LocalCertDnRoot" inType="win:UnicodeString"/>
+      <data name="PeerCertDnSubject" inType="win:UnicodeString"/>
+      <data name="PeerCertShaThumbprintLength" inType="win:UInt32"/>
+      <data name="PeerCertShaThumbprint" inType="win:Binary" length="PeerCertShaThumbprintLength"/>
+      <data name="PeerCertDnIssuer" inType="win:UnicodeString"/>
+      <data name="PeerCertDnRoot" inType="win:UnicodeString"/>
+      <data name="MainModeLocalAddressLength" inType="win:UInt32"/>
+      <data name="MainModeLocalAddress" inType="win:Binary" length="MainModeLocalAddressLength"/>
+      <data name="MainModePeerAddressLength" inType="win:UInt32"/>
+      <data name="MainModePeerAddress" inType="win:Binary" length="MainModePeerAddressLength"/>
+      <data name="EncryptionAlgorithm" inType="win:UInt32"/>
+      <data name="AuthenticationAlgorithm" inType="win:UInt32"/>
+      <data name="DiffieHellmanGroup" inType="win:UInt32"/>
+      <data name="LifetimeMinutes" inType="win:UInt32"/>
+      <data name="QMLimit" inType="win:UInt32"/>
+      <data name="Role" inType="win:UInt32"/>
+      <data name="Impersonation" inType="win:UInt32"/>
+      <data name="MMFilterId" inType="win:UInt64"/>
+      <data name="SaLuid" inType="win:UInt64"/>
+      <data name="LocalUmCertDnSubject" inType="win:UnicodeString"/>
+      <data name="LocalUmCertShaThumbprintLength" inType="win:UInt32"/>
+      <data name="LocalUmCertShaThumbprint" inType="win:Binary" length="LocalUmCertShaThumbprintLength"/>
+      <data name="LocalUmCertDnIssuer" inType="win:UnicodeString"/>
+      <data name="LocalUmCertDnRoot" inType="win:UnicodeString"/>
+      <data name="PeerUmCertDnSubject" inType="win:UnicodeString"/>
+      <data name="PeerUmCertShaThumbprintLength" inType="win:UInt32"/>
+      <data name="PeerUmCertShaThumbprint" inType="win:Binary" length="PeerUmCertShaThumbprintLength"/>
+      <data name="PeerUmCertDnIssuer" inType="win:UnicodeString"/>
+      <data name="PeerUmCertDnRoot" inType="win:UnicodeString"/>
+      <data name="UMImpersonation" inType="win:UInt32"/>
+      <data name="QMFilterId" inType="win:UInt64"/>
+     </template>
+     <template tid="task_01017Args">
+      <data name="LocalCertDnSubject" inType="win:UnicodeString"/>
+      <data name="LocalCertShaThumbprintLength" inType="win:UInt32"/>
+      <data name="LocalCertShaThumbprint" inType="win:Binary" length="LocalCertShaThumbprintLength"/>
+      <data name="LocalCertDnIssuer" inType="win:UnicodeString"/>
+      <data name="LocalCertDnRoot" inType="win:UnicodeString"/>
+      <data name="PeerCertDnSubject" inType="win:UnicodeString"/>
+      <data name="PeerCertShaThumbprintLength" inType="win:UInt32"/>
+      <data name="PeerCertShaThumbprint" inType="win:Binary" length="PeerCertShaThumbprintLength"/>
+      <data name="PeerCertDnIssuer" inType="win:UnicodeString"/>
+      <data name="PeerCertDnRoot" inType="win:UnicodeString"/>
+      <data name="MainModeLocalAddressLength" inType="win:UInt32"/>
+      <data name="MainModeLocalAddress" inType="win:Binary" length="MainModeLocalAddressLength"/>
+      <data name="MainModePeerAddressLength" inType="win:UInt32"/>
+      <data name="MainModePeerAddress" inType="win:Binary" length="MainModePeerAddressLength"/>
+      <data name="EncryptionAlgorithm" inType="win:UInt32"/>
+      <data name="AuthenticationAlgorithm" inType="win:UInt32"/>
+      <data name="DiffieHellmanGroup" inType="win:UInt32"/>
+      <data name="LifetimeMinutes" inType="win:UInt32"/>
+      <data name="QMLimit" inType="win:UInt32"/>
+      <data name="Role" inType="win:UInt32"/>
+      <data name="Impersonation" inType="win:UInt32"/>
+      <data name="MMFilterId" inType="win:UInt64"/>
+      <data name="SaLuid" inType="win:UInt64"/>
+      <data name="UMLocalSPN" inType="win:UnicodeString"/>
+      <data name="UMPeerSPN" inType="win:UnicodeString"/>
+      <data name="UMAuthenticationMethodType" inType="win:UInt32"/>
+      <data name="UMImpersonation" inType="win:UInt32"/>
+      <data name="QMFilterId" inType="win:UInt64"/>
+     </template>
+     <template tid="task_01018Args">
+      <data name="LocalSPN" inType="win:UnicodeString"/>
+      <data name="PeerSPN" inType="win:UnicodeString"/>
+      <data name="MainModeLocalAddressLength" inType="win:UInt32"/>
+      <data name="MainModeLocalAddress" inType="win:Binary" length="MainModeLocalAddressLength"/>
+      <data name="MainModePeerAddressLength" inType="win:UInt32"/>
+      <data name="MainModePeerAddress" inType="win:Binary" length="MainModePeerAddressLength"/>
+      <data name="AuthenticationMethodType" inType="win:UInt32"/>
+      <data name="EncryptionAlgorithm" inType="win:UInt32"/>
+      <data name="AuthenticationAlgorithm" inType="win:UInt32"/>
+      <data name="DiffieHellmanGroup" inType="win:UInt32"/>
+      <data name="LifetimeMinutes" inType="win:UInt32"/>
+      <data name="QMLimit" inType="win:UInt32"/>
+      <data name="Role" inType="win:UInt32"/>
+      <data name="Impersonation" inType="win:UInt32"/>
+      <data name="MMFilterId" inType="win:UInt64"/>
+      <data name="SaLuid" inType="win:UInt64"/>
+      <data name="LocalUmCertDnSubject" inType="win:UnicodeString"/>
+      <data name="LocalUmCertShaThumbprintLength" inType="win:UInt32"/>
+      <data name="LocalUmCertShaThumbprint" inType="win:Binary" length="LocalUmCertShaThumbprintLength"/>
+      <data name="LocalUmCertDnIssuer" inType="win:UnicodeString"/>
+      <data name="LocalUmCertDnRoot" inType="win:UnicodeString"/>
+      <data name="PeerUmCertDnSubject" inType="win:UnicodeString"/>
+      <data name="PeerUmCertShaThumbprintLength" inType="win:UInt32"/>
+      <data name="PeerUmCertShaThumbprint" inType="win:Binary" length="PeerUmCertShaThumbprintLength"/>
+      <data name="PeerUmCertDnIssuer" inType="win:UnicodeString"/>
+      <data name="PeerUmCertDnRoot" inType="win:UnicodeString"/>
+      <data name="UMImpersonation" inType="win:UInt32"/>
+      <data name="QMFilterId" inType="win:UInt64"/>
+     </template>
+     <template tid="task_01019Args">
+      <data name="LocalSpn" inType="win:UnicodeString"/>
+      <data name="PeerSpn" inType="win:UnicodeString"/>
+      <data name="MainModeLocalAddressLength" inType="win:UInt32"/>
+      <data name="MainModeLocalAddress" inType="win:Binary" length="MainModeLocalAddressLength"/>
+      <data name="MainModePeerAddressLength" inType="win:UInt32"/>
+      <data name="MainModePeerAddress" inType="win:Binary" length="MainModePeerAddressLength"/>
+      <data name="AuthenticationMethodType" inType="win:UInt32"/>
+      <data name="EncryptionAlgorithm" inType="win:UInt32"/>
+      <data name="AuthenticationAlgorithm" inType="win:UInt32"/>
+      <data name="DiffieHellmanGroup" inType="win:UInt32"/>
+      <data name="LifetimeMinutes" inType="win:UInt32"/>
+      <data name="QMLimit" inType="win:UInt32"/>
+      <data name="Role" inType="win:UInt32"/>
+      <data name="Impersonation" inType="win:UInt32"/>
+      <data name="MMFilterId" inType="win:UInt64"/>
+      <data name="SaLuid" inType="win:UInt64"/>
+      <data name="UMLocalSPN" inType="win:UnicodeString"/>
+      <data name="UMPeerSPN" inType="win:UnicodeString"/>
+      <data name="UMAuthenticationMethodType" inType="win:UInt32"/>
+      <data name="UMImpersonation" inType="win:UInt32"/>
+      <data name="QMFilterId" inType="win:UInt64"/>
+     </template>
+     <template tid="task_01023Args">
+      <data name="KeyingModule" inType="win:AnsiString"/>
+      <data name="AcquireContext" inType="win:UInt64"/>
+      <data name="LocalAddressLength" inType="win:UInt32"/>
+      <data name="LocalAddress" inType="win:Binary" length="LocalAddressLength"/>
+      <data name="RemoteAddressLength" inType="win:UInt32"/>
+      <data name="RemoteAddress" inType="win:Binary" length="RemoteAddressLength"/>
+      <data name="Mode" inType="win:UnicodeString"/>
+      <data name="FilterId" inType="win:UInt64"/>
+      <data name="IPProtocol" inType="win:UInt32"/>
+      <data name="InterfaceLuid" inType="win:UInt64"/>
+      <data name="ProfileId" inType="win:UInt32"/>
+      <data name="LocalUdpEncapPort" inType="win:UInt16"/>
+      <data name="RemoteUdpEncapPort" inType="win:UInt16"/>
+      <data name="MMTargetName" inType="win:UnicodeString"/>
+      <data name="EMTargetName" inType="win:UnicodeString"/>
+      <data name="NumTokens" inType="win:UInt32"/>
+      <data name="Token1Type" inType="win:UnicodeString"/>
+      <data name="Token1Principal" inType="win:UnicodeString"/>
+      <data name="Token1Mode" inType="win:UnicodeString"/>
+      <data name="Token1" inType="win:UInt64"/>
+      <data name="Token2Type" inType="win:UnicodeString"/>
+      <data name="Token2Principal" inType="win:UnicodeString"/>
+      <data name="Token2Mode" inType="win:UnicodeString"/>
+      <data name="Token2" inType="win:UInt64"/>
+      <data name="Token3Type" inType="win:UnicodeString"/>
+      <data name="Token3Principal" inType="win:UnicodeString"/>
+      <data name="Token3Mode" inType="win:UnicodeString"/>
+      <data name="Token3" inType="win:UInt64"/>
+      <data name="Token4Type" inType="win:UnicodeString"/>
+      <data name="Token4Principal" inType="win:UnicodeString"/>
+      <data name="Token4Mode" inType="win:UnicodeString"/>
+      <data name="Token4" inType="win:UInt64"/>
+      <data name="VirtualIfTunnelId" inType="win:UInt64"/>
+      <data name="TrafficSelectorId" inType="win:UInt64"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="RekeySPI" inType="win:UInt32"/>
+      <data name="OrigVirtualIfTunnelId" inType="win:UInt64"/>
+      <data name="PacketLocalAddressLength" inType="win:UInt32"/>
+      <data name="PacketLocalAddress" inType="win:Binary" length="PacketLocalAddressLength"/>
+      <data name="PacketRemoteAddressLength" inType="win:UInt32"/>
+      <data name="PacketRemoteAddress" inType="win:Binary" length="PacketRemoteAddressLength"/>
+      <data name="PacketIPProtocol" inType="win:UInt32"/>
+      <data name="PacketInterfaceLuid" inType="win:UInt64"/>
+      <data name="PacketProfileId" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01024Args">
+      <data name="ICookie" inType="win:AnsiString"/>
+      <data name="RCookie" inType="win:AnsiString"/>
+      <data name="ExchangeType" inType="win:AnsiString"/>
+      <data name="Length" inType="win:UInt32"/>
+      <data name="NextPayload" inType="win:AnsiString"/>
+      <data name="Flags" inType="win:UInt8"/>
+      <data name="MessageID" inType="win:UInt32"/>
+      <data name="LocalAddress" inType="win:UnicodeString"/>
+      <data name="LocalPort" inType="win:UInt32"/>
+      <data name="LocalProtocol" inType="win:UInt32"/>
+      <data name="RemoteAddress" inType="win:UnicodeString"/>
+      <data name="RemotePort" inType="win:UInt32"/>
+      <data name="RemoteProtocol" inType="win:UInt32"/>
+      <data name="InterfaceLuid" inType="win:UInt64"/>
+     </template>
+     <template tid="task_01025Args">
+      <data name="ICookie" inType="win:AnsiString"/>
+      <data name="RCookie" inType="win:AnsiString"/>
+      <data name="ExchangeType" inType="win:AnsiString"/>
+      <data name="Length" inType="win:UInt32"/>
+      <data name="NextPayload" inType="win:AnsiString"/>
+      <data name="Flags" inType="win:UInt8"/>
+      <data name="MessageID" inType="win:UInt32"/>
+      <data name="LocalAddress" inType="win:UnicodeString"/>
+      <data name="LocalPort" inType="win:UInt32"/>
+      <data name="LocalProtocol" inType="win:UInt32"/>
+      <data name="RemoteAddress" inType="win:UnicodeString"/>
+      <data name="RemotePort" inType="win:UInt32"/>
+      <data name="RemoteProtocol" inType="win:UInt32"/>
+      <data name="InterfaceLuid" inType="win:UInt64"/>
+      <data name="ProfileId" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01026Args">
+      <data name="Function" inType="win:AnsiString"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01027Args">
+      <data name="LocalAddressLength" inType="win:UInt32"/>
+      <data name="LocalAddress" inType="win:Binary" length="LocalAddressLength"/>
+      <data name="LocalAddressMask" inType="win:UnicodeString"/>
+      <data name="LocalTunnelEndpointLength" inType="win:UInt32"/>
+      <data name="LocalTunnelEndpoint" inType="win:Binary" length="LocalTunnelEndpointLength"/>
+      <data name="RemoteAddressLength" inType="win:UInt32"/>
+      <data name="RemoteAddress" inType="win:Binary" length="RemoteAddressLength"/>
+      <data name="RemoteAddressMask" inType="win:UnicodeString"/>
+      <data name="RemoteTunnelEndpointLength" inType="win:UInt32"/>
+      <data name="RemoteTunnelEndpoint" inType="win:Binary" length="RemoteTunnelEndpointLength"/>
+      <data name="IPProtocol" inType="win:UInt32"/>
+      <data name="QMSaLuid" inType="win:UInt64"/>
+      <data name="VirtualIFTunnelId" inType="win:UInt64"/>
+      <data name="VirtualIFTrafficSelectorId" inType="win:UInt64"/>
+     </template>
+     <template tid="task_01028Args">
+      <data name="LocalAddressLength" inType="win:UInt32"/>
+      <data name="LocalAddress" inType="win:Binary" length="LocalAddressLength"/>
+      <data name="LocalAddressMask" inType="win:UnicodeString"/>
+      <data name="LocalTunnelEndpointLength" inType="win:UInt32"/>
+      <data name="LocalTunnelEndpoint" inType="win:Binary" length="LocalTunnelEndpointLength"/>
+      <data name="RemoteAddressLength" inType="win:UInt32"/>
+      <data name="RemoteAddress" inType="win:Binary" length="RemoteAddressLength"/>
+      <data name="RemoteAddressMask" inType="win:UnicodeString"/>
+      <data name="RemoteTunnelEndpointLength" inType="win:UInt32"/>
+      <data name="RemoteTunnelEndpoint" inType="win:Binary" length="RemoteTunnelEndpointLength"/>
+      <data name="IPProtocol" inType="win:UInt32"/>
+      <data name="KeyingModuleName" inType="win:UInt8" map="KeyModMap"/>
+      <data name="AHAuthType" inType="win:UInt8"/>
+      <data name="ESPAuthType" inType="win:UInt8" map="AuthTypeMap"/>
+      <data name="ESPCipherType" inType="win:UInt8" map="CipherTypeMap"/>
+      <data name="LifetimeSeconds" inType="win:UInt32"/>
+      <data name="LifetimeKilobytes" inType="win:UInt32"/>
+      <data name="LifetimePackets" inType="win:UInt32"/>
+      <data name="Mode" inType="win:UInt8" map="ModeMap"/>
+      <data name="Role" inType="win:UInt8" map="RoleMap"/>
+      <data name="TransportFilterId" inType="win:UInt64"/>
+      <data name="MMSaLuid" inType="win:UInt64"/>
+      <data name="QMSaLuid" inType="win:UInt64"/>
+      <data name="InboundSPI" inType="win:UInt32"/>
+      <data name="OutboundSPI" inType="win:UInt32"/>
+      <data name="VirtualIFTunnelId" inType="win:UInt64"/>
+      <data name="VirtualIFTrafficSelectorId" inType="win:UInt64"/>
+     </template>
+     <template tid="task_01029Args">
+      <data name="Timestamp" inType="win:FILETIME"/>
+      <data name="LocalAddressLength" inType="win:UInt32"/>
+      <data name="LocalAddress" inType="win:Binary" length="LocalAddressLength"/>
+      <data name="RemoteAddressLength" inType="win:UInt32"/>
+      <data name="RemoteAddress" inType="win:Binary" length="RemoteAddressLength"/>
+      <data name="EtherType" inType="win:UInt16"/>
+      <data name="MediaType" inType="win:UInt32"/>
+      <data name="InterfaceType" inType="win:UInt32"/>
+      <data name="VlanTag" inType="win:UInt16"/>
+      <data name="FilterId" inType="win:UInt64"/>
+      <data name="LayerId" inType="win:UInt16"/>
+     </template>
+     <template tid="task_01030Args">
+      <data name="ProcessId" inType="win:UInt32"/>
+      <data name="TxnTimeInMSec" inType="win:UInt32"/>
+      <data name="CommitTimeInMSec" inType="win:UInt32"/>
+      <data name="WatchdogTimeoutInMSec" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01031Args">
+      <data name="Counter" inType="win:UInt32"/>
+      <data name="FilePath" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_01033Args">
+      <data name="Counter" inType="win:UInt32"/>
+      <data name="AppSID" inType="win:SID"/>
+     </template>
+     <template tid="task_01035Args">
+      <data name="Counter" inType="win:UInt32"/>
+      <data name="SecurityDescriptor" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_01037Args">
+      <data name="Counter" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01039Args">
+      <data name="Counter" inType="win:UInt32"/>
+      <data name="LocalAddressLength" inType="win:UInt32"/>
+      <data name="LocalAddress" inType="win:Binary" length="LocalAddressLength"/>
+      <data name="RemoteAddressLength" inType="win:UInt32"/>
+      <data name="RemoteAddress" inType="win:Binary" length="RemoteAddressLength"/>
+      <data name="IPProtocol" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01043Args">
+      <data name="MainModeLocalAddressLength" inType="win:UInt32"/>
+      <data name="MainModeLocalAddress" inType="win:Binary" length="MainModeLocalAddressLength"/>
+      <data name="MainModePeerAddressLength" inType="win:UInt32"/>
+      <data name="MainModePeerAddress" inType="win:Binary" length="MainModePeerAddressLength"/>
+      <data name="KeyingModule" inType="win:UInt32"/>
+      <data name="AuthenticationMethodType" inType="win:UInt32"/>
+      <data name="EncryptionAlgorithm" inType="win:UInt32"/>
+      <data name="AuthenticationAlgorithm" inType="win:UInt32"/>
+      <data name="DiffieHellmanGroup" inType="win:UInt32"/>
+      <data name="LifetimeMinutes" inType="win:UInt32"/>
+      <data name="QMLimit" inType="win:UInt32"/>
+      <data name="Role" inType="win:UInt32"/>
+      <data name="Impersonation" inType="win:UInt32"/>
+      <data name="MMFilterId" inType="win:UInt64"/>
+      <data name="SaLuid" inType="win:UInt64"/>
+      <data name="ProviderContextKey" inType="win:GUID"/>
+      <data name="VirtualIfTunnelId" inType="win:UInt64"/>
+      <data name="ICookie" inType="win:UInt64"/>
+      <data name="RCookie" inType="win:UInt64"/>
+     </template>
+     <template tid="task_01044Args">
+      <data name="Timestamp" inType="win:FILETIME"/>
+      <data name="LocalAddressLength" inType="win:UInt32"/>
+      <data name="LocalAddress" inType="win:Binary" length="LocalAddressLength"/>
+      <data name="RemoteAddressLength" inType="win:UInt32"/>
+      <data name="RemoteAddress" inType="win:Binary" length="RemoteAddressLength"/>
+      <data name="ScopeId" inType="win:UInt32"/>
+      <data name="AppId" inType="win:UnicodeString"/>
+      <data name="UserSID" inType="win:SID"/>
+      <data name="SPI" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0Args_V1">
+      <data name="Timestamp" inType="win:FILETIME"/>
+      <data name="LocalAddressLength" inType="win:UInt32"/>
+      <data name="LocalAddress" inType="win:Binary" length="LocalAddressLength"/>
+      <data name="RemoteAddressLength" inType="win:UInt32"/>
+      <data name="RemoteAddress" inType="win:Binary" length="RemoteAddressLength"/>
+      <data name="ScopeId" inType="win:UInt32"/>
+      <data name="AppId" inType="win:UnicodeString"/>
+      <data name="UserSID" inType="win:SID"/>
+      <data name="ReauthReason" inType="win:UInt32"/>
+      <data name="OriginalProfile" inType="win:UInt32"/>
+      <data name="CurrentProfile" inType="win:UInt32"/>
+      <data name="PacketDirection" inType="win:UInt32"/>
+      <data name="Loopback" inType="win:Boolean"/>
+      <data name="FilterId" inType="win:UInt64"/>
+      <data name="LayerId" inType="win:UInt16"/>
+      <data name="vSwitchId" inType="win:UnicodeString"/>
+      <data name="SourcevSwitchPort" inType="win:UInt32"/>
+      <data name="DestinationvSwitchPort" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01005Args_V1">
+      <data name="Timestamp" inType="win:FILETIME"/>
+      <data name="LocalAddressLength" inType="win:UInt32"/>
+      <data name="LocalAddress" inType="win:Binary" length="LocalAddressLength"/>
+      <data name="RemoteAddressLength" inType="win:UInt32"/>
+      <data name="RemoteAddress" inType="win:Binary" length="RemoteAddressLength"/>
+      <data name="ScopeId" inType="win:UInt32"/>
+      <data name="AppId" inType="win:UnicodeString"/>
+      <data name="UserSID" inType="win:SID"/>
+      <data name="LocalSpn" inType="win:UnicodeString"/>
+      <data name="PeerSpn" inType="win:UnicodeString"/>
+      <data name="LocalGroupSidCount" inType="win:UInt32"/>
+      <data name="LocalGroupSidLength" inType="win:UInt32"/>
+      <data name="LocalGroupSids" inType="win:UnicodeString" count="LocalGroupSidLength"/>
+      <data name="RemoteGroupSidCount" inType="win:UInt32"/>
+      <data name="RemoteGroupSidLength" inType="win:UInt32"/>
+      <data name="RemoteGroupSids" inType="win:UnicodeString" count="RemoteGroupSidLength"/>
+      <data name="FailureErrorCode" inType="win:UInt32"/>
+      <data name="FailurePoint" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="KeyingModuleType" inType="win:UInt32"/>
+      <data name="MmState" inType="win:UInt32"/>
+      <data name="SaRole" inType="win:UInt32"/>
+      <data name="MMAuthMethod" inType="win:UInt32"/>
+      <data name="EndCertHash" inType="win:Binary"/>
+      <data name="MMId" inType="win:UInt64"/>
+      <data name="MMFilterId" inType="win:UInt64"/>
+      <data name="ProviderContextKey" inType="win:GUID"/>
+     </template>
+     <template tid="task_01007Args_V1">
+      <data name="Timestamp" inType="win:FILETIME"/>
+      <data name="LocalAddressLength" inType="win:UInt32"/>
+      <data name="LocalAddress" inType="win:Binary" length="LocalAddressLength"/>
+      <data name="RemoteAddressLength" inType="win:UInt32"/>
+      <data name="RemoteAddress" inType="win:Binary" length="RemoteAddressLength"/>
+      <data name="ScopeId" inType="win:UInt32"/>
+      <data name="AppId" inType="win:UnicodeString"/>
+      <data name="UserSID" inType="win:SID"/>
+      <data name="FailureErrorCode" inType="win:UInt32"/>
+      <data name="FailurePoint" inType="win:UInt32"/>
+      <data name="KeyingModuleType" inType="win:UInt32"/>
+      <data name="QMState" inType="win:UInt32"/>
+      <data name="SaRole" inType="win:UInt32"/>
+      <data name="SaTrafficType" inType="win:UInt32"/>
+      <data name="QMFilterId" inType="win:UInt64"/>
+      <data name="MMSaLuid" inType="win:UInt64"/>
+      <data name="MMProviderContextKey" inType="win:GUID"/>
+     </template>
+     <template tid="task_01013Args_V1">
+      <data name="MainModeLocalAddressLength" inType="win:UInt32"/>
+      <data name="MainModeLocalAddress" inType="win:Binary" length="MainModeLocalAddressLength"/>
+      <data name="MainModePeerAddressLength" inType="win:UInt32"/>
+      <data name="MainModePeerAddress" inType="win:Binary" length="MainModePeerAddressLength"/>
+      <data name="KeyingModule" inType="win:UInt32"/>
+      <data name="SaLuid" inType="win:UInt64"/>
+      <data name="ICookie" inType="win:UInt64"/>
+      <data name="RCookie" inType="win:UInt64"/>
+     </template>
+     <template tid="task_01027Args_V1">
+      <data name="LocalAddressLength" inType="win:UInt32"/>
+      <data name="LocalAddress" inType="win:Binary" length="LocalAddressLength"/>
+      <data name="LocalAddressMask" inType="win:UnicodeString"/>
+      <data name="LocalTunnelEndpointLength" inType="win:UInt32"/>
+      <data name="LocalTunnelEndpoint" inType="win:Binary" length="LocalTunnelEndpointLength"/>
+      <data name="RemoteAddressLength" inType="win:UInt32"/>
+      <data name="RemoteAddress" inType="win:Binary" length="RemoteAddressLength"/>
+      <data name="RemoteAddressMask" inType="win:UnicodeString"/>
+      <data name="RemoteTunnelEndpointLength" inType="win:UInt32"/>
+      <data name="RemoteTunnelEndpoint" inType="win:Binary" length="RemoteTunnelEndpointLength"/>
+      <data name="IPProtocol" inType="win:UInt32"/>
+      <data name="QMSaLuid" inType="win:UInt64"/>
+      <data name="VirtualIFTunnelId" inType="win:UInt64"/>
+      <data name="VirtualIFTrafficSelectorId" inType="win:UInt64"/>
+      <data name="InboundSPI" inType="win:UInt32"/>
+      <data name="OutboundSPI" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01028Args_V1">
+      <data name="LocalAddressLength" inType="win:UInt32"/>
+      <data name="LocalAddress" inType="win:Binary" length="LocalAddressLength"/>
+      <data name="LocalAddressMask" inType="win:UnicodeString"/>
+      <data name="LocalTunnelEndpointLength" inType="win:UInt32"/>
+      <data name="LocalTunnelEndpoint" inType="win:Binary" length="LocalTunnelEndpointLength"/>
+      <data name="RemoteAddressLength" inType="win:UInt32"/>
+      <data name="RemoteAddress" inType="win:Binary" length="RemoteAddressLength"/>
+      <data name="RemoteAddressMask" inType="win:UnicodeString"/>
+      <data name="RemoteTunnelEndpointLength" inType="win:UInt32"/>
+      <data name="RemoteTunnelEndpoint" inType="win:Binary" length="RemoteTunnelEndpointLength"/>
+      <data name="IPProtocol" inType="win:UInt32"/>
+      <data name="KeyingModuleName" inType="win:UInt8"/>
+      <data name="AHAuthType" inType="win:UInt8"/>
+      <data name="ESPAuthType" inType="win:UInt8"/>
+      <data name="ESPCipherType" inType="win:UInt8"/>
+      <data name="LifetimeSeconds" inType="win:UInt32"/>
+      <data name="LifetimeKilobytes" inType="win:UInt32"/>
+      <data name="LifetimePackets" inType="win:UInt32"/>
+      <data name="Mode" inType="win:UInt8"/>
+      <data name="Role" inType="win:UInt8"/>
+      <data name="TransportFilterId" inType="win:UInt64"/>
+      <data name="MMSaLuid" inType="win:UInt64"/>
+      <data name="QMSaLuid" inType="win:UInt64"/>
+      <data name="InboundSPI" inType="win:UInt32"/>
+      <data name="OutboundSPI" inType="win:UInt32"/>
+      <data name="VirtualIFTunnelId" inType="win:UInt64"/>
+      <data name="VirtualIFTrafficSelectorId" inType="win:UInt64"/>
+      <data name="RekeySPI" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01029Args_V1">
+      <data name="Timestamp" inType="win:FILETIME"/>
+      <data name="LocalAddressLength" inType="win:UInt32"/>
+      <data name="LocalAddress" inType="win:Binary" length="LocalAddressLength"/>
+      <data name="RemoteAddressLength" inType="win:UInt32"/>
+      <data name="RemoteAddress" inType="win:Binary" length="RemoteAddressLength"/>
+      <data name="EtherType" inType="win:UInt16"/>
+      <data name="MediaType" inType="win:UInt32"/>
+      <data name="InterfaceType" inType="win:UInt32"/>
+      <data name="VlanTag" inType="win:UInt16"/>
+      <data name="FilterId" inType="win:UInt64"/>
+      <data name="LayerId" inType="win:UInt16"/>
+      <data name="vSwitchId" inType="win:UnicodeString"/>
+      <data name="SourcevSwitchPort" inType="win:UInt32"/>
+      <data name="DestinationvSwitchPort" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0Args_V2">
+      <data name="Timestamp" inType="win:FILETIME"/>
+      <data name="LocalAddressLength" inType="win:UInt32"/>
+      <data name="LocalAddress" inType="win:Binary" length="LocalAddressLength"/>
+      <data name="RemoteAddressLength" inType="win:UInt32"/>
+      <data name="RemoteAddress" inType="win:Binary" length="RemoteAddressLength"/>
+      <data name="ScopeId" inType="win:UInt32"/>
+      <data name="AppId" inType="win:UnicodeString"/>
+      <data name="UserSID" inType="win:SID"/>
+      <data name="ReauthReason" inType="win:UInt32"/>
+      <data name="OriginalProfile" inType="win:UInt32"/>
+      <data name="CurrentProfile" inType="win:UInt32"/>
+      <data name="PacketDirection" inType="win:UInt32"/>
+      <data name="Loopback" inType="win:Boolean"/>
+      <data name="FilterId" inType="win:UInt64"/>
+      <data name="LayerId" inType="win:UInt16"/>
+      <data name="vSwitchId" inType="win:UnicodeString"/>
+      <data name="SourcevSwitchPort" inType="win:UInt32"/>
+      <data name="DestinationvSwitchPort" inType="win:UInt32"/>
+      <data name="EnterpriseId" inType="win:UnicodeString"/>
+      <data name="PolicyFlags" inType="win:UInt64"/>
+      <data name="EffectiveName" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_ut:Transfer" value="ut:Transfer"/>
+    <string id="keyword_ut:AOAC" value="ut:AOAC"/>
+    <string id="keyword_ut:SendPath" value="ut:SendPath"/>
+    <string id="keyword_ut:ReceivePath" value="ut:ReceivePath"/>
+    <string id="keyword_ut:L3ConnectPath" value="ut:L3ConnectPath"/>
+    <string id="keyword_ut:L2ConnectPath" value="ut:L2ConnectPath"/>
+    <string id="keyword_ut:ClosePath" value="ut:ClosePath"/>
+    <string id="keyword_ut:Authentication" value="ut:Authentication"/>
+    <string id="keyword_ut:Configuration" value="ut:Configuration"/>
+    <string id="keyword_ut:Global" value="ut:Global"/>
+    <string id="keyword_keyword_10000000000" value="keyword_10000000000"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="map_DirectionMapInbound" value="Inbound"/>
+    <string id="map_DirectionMapOutbound" value="Outbound"/>
+    <string id="map_DirectionMapForward" value="Forward"/>
+    <string id="map_DirectionMapBidirectional" value="Bidirectional"/>
+    <string id="map_KeyModMapNONE" value="NONE"/>
+    <string id="map_KeyModMapIKEv1" value="IKEv1"/>
+    <string id="map_KeyModMapIKEv2" value="IKEv2"/>
+    <string id="map_KeyModMapAuthIP" value="AuthIP"/>
+    <string id="map_AuthTypeMapNONE" value="NONE"/>
+    <string id="map_AuthTypeMapMD5" value="MD5"/>
+    <string id="map_AuthTypeMapSHA-1" value="SHA-1"/>
+    <string id="map_AuthTypeMapSHA-256" value="SHA-256"/>
+    <string id="map_AuthTypeMapAES-GCM-128" value="AES-GCM-128"/>
+    <string id="map_AuthTypeMapAES-GCM-192" value="AES-GCM-192"/>
+    <string id="map_AuthTypeMapAES-GCM-256" value="AES-GCM-256"/>
+    <string id="map_AuthTypeMapAES-GMAC-128" value="AES-GMAC-128"/>
+    <string id="map_AuthTypeMapAES-GMAC-192" value="AES-GMAC-192"/>
+    <string id="map_AuthTypeMapAES-GMAC-256" value="AES-GMAC-256"/>
+    <string id="map_CipherTypeMapNONE" value="NONE"/>
+    <string id="map_CipherTypeMapDES" value="DES"/>
+    <string id="map_CipherTypeMap3DES" value="3DES"/>
+    <string id="map_CipherTypeMapAES-CBC-128" value="AES-CBC-128"/>
+    <string id="map_CipherTypeMapAES-CBC-192" value="AES-CBC-192"/>
+    <string id="map_CipherTypeMapAES-CBC-256" value="AES-CBC-256"/>
+    <string id="map_CipherTypeMapAES-GCM-128" value="AES-GCM-128"/>
+    <string id="map_CipherTypeMapAES-GCM-192" value="AES-GCM-192"/>
+    <string id="map_CipherTypeMapAES-GCM-256" value="AES-GCM-256"/>
+    <string id="map_ModeMapTransport Mode" value="Transport Mode"/>
+    <string id="map_ModeMapTunnel Mode" value="Tunnel Mode"/>
+    <string id="map_RoleMapInitiator" value="Initiator"/>
+    <string id="map_RoleMapResponder" value="Responder"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

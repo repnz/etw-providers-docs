@@ -1,0 +1,63 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Security-UserConsentVerifier" guid="{40783728-8921-45d0-b231-919037b4b4fd}" resourceFileName="Microsoft-Windows-Security-UserConsentVerifier" messageFileName="Microsoft-Windows-Security-UserConsentVerifier" symbol="MicrosoftWindowsSecurityUserConsentVerifier" source="Xml" >
+    <keywords>
+     <keyword name="UCV" message="$(string.keyword_UCV)" mask="0x1"/>
+     <keyword name="Biometrics" message="$(string.keyword_Biometrics)" mask="0x2"/>
+     <keyword name="Fingerprint" message="$(string.keyword_Fingerprint)" mask="0x4"/>
+    </keywords>
+    <tasks>
+     <task name="Verification" message="$(string.task_Verification)" value="1">
+>
+      <opcodes>
+       <opcode name="Result" message="$(string.opcode_VerificationResult)" value="10"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <maps>
+     <valueMap name="VerificationResultMap">
+      <map value="0x1" message="$(string.map_VerificationResultMapA device required for consent verification is not present.)"/>
+      <map value="0x2" message="$(string.map_VerificationResultMapThe user has not configured their account for consent verification.)"/>
+      <map value="0x3" message="$(string.map_VerificationResultMapConsent verification is disabled by system policy.)"/>
+      <map value="0x4" message="$(string.map_VerificationResultMapThe device required for consent verification is currently busy.)"/>
+      <map value="0x5" message="$(string.map_VerificationResultMapThe maximum number of verification attempts was exceeded.)"/>
+      <map value="0x6" message="$(string.map_VerificationResultMapThe consent verification operation was canceled by the user.)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="100" symbol="VerificationResult" version="0" task="Verification" opcode="Result" level="win:Informational" keywords="UCV Biometrics Fingerprint" template="VerificationResultArgs"/>
+     <event value="101" symbol="VerificationResult101" version="0" task="Verification" opcode="Result" level="win:Error" keywords="UCV Biometrics Fingerprint" template="VerificationResult101Args"/>
+    </events>
+    <templates>
+     <template tid="VerificationResultArgs">
+      <data name="AppName" inType="win:UnicodeString"/>
+      <data name="AppMessage" inType="win:UnicodeString"/>
+     </template>
+     <template tid="VerificationResult101Args">
+      <data name="AppName" inType="win:UnicodeString"/>
+      <data name="AppMessage" inType="win:UnicodeString"/>
+      <data name="VerificationResult" inType="win:UInt32" map="VerificationResultMap"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_UCV" value="UCV"/>
+    <string id="keyword_Biometrics" value="Biometrics"/>
+    <string id="keyword_Fingerprint" value="Fingerprint"/>
+    <string id="task_Verification" value="Verification"/>
+    <string id="opcode_VerificationResult" value="Result"/>
+    <string id="map_VerificationResultMapA device required for consent verification is not present." value="A device required for consent verification is not present."/>
+    <string id="map_VerificationResultMapThe user has not configured their account for consent verification." value="The user has not configured their account for consent verification."/>
+    <string id="map_VerificationResultMapConsent verification is disabled by system policy." value="Consent verification is disabled by system policy."/>
+    <string id="map_VerificationResultMapThe device required for consent verification is currently busy." value="The device required for consent verification is currently busy."/>
+    <string id="map_VerificationResultMapThe maximum number of verification attempts was exceeded." value="The maximum number of verification attempts was exceeded."/>
+    <string id="map_VerificationResultMapThe consent verification operation was canceled by the user." value="The consent verification operation was canceled by the user."/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

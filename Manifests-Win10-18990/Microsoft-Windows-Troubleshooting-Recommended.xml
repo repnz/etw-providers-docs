@@ -1,0 +1,42 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Troubleshooting-Recommended" guid="{4969de67-439c-516f-f805-a82a4f905730}" resourceFileName="Microsoft-Windows-Troubleshooting-Recommended" messageFileName="Microsoft-Windows-Troubleshooting-Recommended" symbol="MicrosoftWindowsTroubleshootingRecommended" source="Xml" >
+    <keywords>
+     <keyword name="admin" message="$(string.keyword_admin)" mask="0x400000000"/>
+     <keyword name="lifecycle" message="$(string.keyword_lifecycle)" mask="0x800000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="task_0" version="0" task="task_0" level="win:Informational" keywords="admin" template="task_0Args"/>
+     <event value="101" symbol="task_0101" version="0" task="task_0" level="win:Informational" keywords="lifecycle" template="task_0Args"/>
+     <event value="102" symbol="task_0102" version="0" task="task_0" level="win:Error" keywords="lifecycle" template="task_0102Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="Title" inType="win:UnicodeString"/>
+      <data name="LearnMoreURL" inType="win:UnicodeString"/>
+      <data name="Type" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0102Args">
+      <data name="Title" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="LearnMoreURL" inType="win:UnicodeString"/>
+      <data name="Type" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_admin" value="admin"/>
+    <string id="keyword_lifecycle" value="lifecycle"/>
+    <string id="task_task_0" value="task_0"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,29 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-RTWorkQueue-Extended" guid="{83faaa86-63c8-4dd8-a2da-fbadddfc0655}" resourceFileName="Microsoft-Windows-RTWorkQueue-Extended" messageFileName="Microsoft-Windows-RTWorkQueue-Extended" symbol="MicrosoftWindowsRTWorkQueueExtended" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="WorkQueue:QueueExtended" message="$(string.task_WorkQueue:QueueExtended)" value="100"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="WorkQueue:QueueExtended" version="0" task="WorkQueue:QueueExtended" level="win:Informational" template="WorkQueue:QueueExtendedArgs"/>
+    </events>
+    <templates>
+     <template tid="WorkQueue:QueueExtendedArgs">
+      <data name="AsyncResult" inType="win:Pointer"/>
+      <data name="AsyncResultVTable" inType="win:Pointer"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_WorkQueue:QueueExtended" value="WorkQueue:QueueExtended"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

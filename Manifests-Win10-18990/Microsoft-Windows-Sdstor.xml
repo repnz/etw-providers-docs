@@ -1,0 +1,63 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Sdstor" guid="{afe654eb-0a83-4eb4-948f-d4510ec39c30}" resourceFileName="Microsoft-Windows-Sdstor" messageFileName="Microsoft-Windows-Sdstor" symbol="MicrosoftWindowsSdstor" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="Io" message="$(string.task_Io)" value="1"/>
+     <task name="PackedCommand" message="$(string.task_PackedCommand)" value="2"/>
+     <task name="HighPriorityInterrupt" message="$(string.task_HighPriorityInterrupt)" value="3"/>
+     <task name="Flush" message="$(string.task_Flush)" value="4"/>
+     <task name="Discard" message="$(string.task_Discard)" value="5"/>
+    </tasks>
+    <events>
+     <event value="100" symbol="Io" version="0" task="Io" level="win:Informational" template="IoArgs"/>
+     <event value="101" symbol="PackedCommand" version="0" task="PackedCommand" level="win:Informational" template="PackedCommandArgs"/>
+     <event value="102" symbol="PackedCommand102" version="0" task="PackedCommand" level="win:Informational" template="PackedCommandArgs"/>
+     <event value="103" symbol="HighPriorityInterrupt" version="0" task="HighPriorityInterrupt" level="win:Informational"/>
+     <event value="104" symbol="HighPriorityInterrupt104" version="0" task="HighPriorityInterrupt" level="win:Informational"/>
+     <event value="105" symbol="HighPriorityInterrupt105" version="0" task="HighPriorityInterrupt" level="win:Informational" template="HighPriorityInterrupt105Args"/>
+     <event value="106" symbol="Flush" version="0" task="Flush" level="win:Informational"/>
+     <event value="107" symbol="Discard" version="0" task="Discard" level="win:Informational" template="DiscardArgs"/>
+    </events>
+    <templates>
+     <template tid="IoArgs">
+      <data name="Port" inType="win:UInt8"/>
+      <data name="Bus" inType="win:UInt8"/>
+      <data name="Target" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="RequestDuration" inType="win:UInt64"/>
+      <data name="CDBLength" inType="win:UInt32"/>
+      <data name="CDB" inType="win:Binary" length="CDBLength"/>
+      <data name="SrbStatus" inType="win:UInt8"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="OriginalIrp" inType="win:Pointer"/>
+     </template>
+     <template tid="PackedCommandArgs">
+      <data name="PackedCommandCount" inType="win:UInt32"/>
+      <data name="NumIrpsPacked" inType="win:UInt32"/>
+     </template>
+     <template tid="HighPriorityInterrupt105Args">
+      <data name="ResultCode" inType="win:UInt32"/>
+     </template>
+     <template tid="DiscardArgs">
+      <data name="LBA" inType="win:UInt64"/>
+      <data name="Length" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_Io" value="Io"/>
+    <string id="task_PackedCommand" value="PackedCommand"/>
+    <string id="task_HighPriorityInterrupt" value="HighPriorityInterrupt"/>
+    <string id="task_Flush" value="Flush"/>
+    <string id="task_Discard" value="Discard"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

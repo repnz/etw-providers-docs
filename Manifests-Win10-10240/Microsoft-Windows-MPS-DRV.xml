@@ -1,0 +1,32 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-MPS-DRV" guid="{50bd1bfd-936b-4db3-86be-e25b96c25898}" resourceFileName="Microsoft-Windows-MPS-DRV" messageFileName="Microsoft-Windows-MPS-DRV" symbol="MicrosoftWindowsMPSDRV" source="Xml" >
+    <keywords>
+     <keyword name="Driver" message="$(string.keyword_Driver)" mask="0x20000"/>
+    </keywords>
+    <tasks>
+     <task name="StartDriver" message="$(string.task_StartDriver)" value="1"/>
+     <task name="StopDriver" message="$(string.task_StopDriver)" value="3"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="StartDriverStart" version="0" task="StartDriver" opcode="win:Start" level="win:Informational" keywords="Driver"/>
+     <event value="2" symbol="StartDriverStop" version="0" task="StartDriver" opcode="win:Stop" level="win:Informational" keywords="Driver"/>
+     <event value="3" symbol="StopDriverStart" version="0" task="StopDriver" opcode="win:Start" level="win:Informational" keywords="Driver"/>
+     <event value="4" symbol="StopDriverStop" version="0" task="StopDriver" opcode="win:Stop" level="win:Informational" keywords="Driver"/>
+    </events>
+    <templates>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Driver" value="Driver"/>
+    <string id="task_StartDriver" value="StartDriver"/>
+    <string id="task_StopDriver" value="StopDriver"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

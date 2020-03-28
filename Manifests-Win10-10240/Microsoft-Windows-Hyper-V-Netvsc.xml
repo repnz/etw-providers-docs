@@ -1,0 +1,212 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Hyper-V-Netvsc" guid="{152fbe4b-c7ad-4f68-bada-a4fcc1464f6c}" resourceFileName="Microsoft-Windows-Hyper-V-Netvsc" messageFileName="Microsoft-Windows-Hyper-V-Netvsc" symbol="MicrosoftWindowsHyperVNetvsc" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="ProtocolNegotiate" message="$(string.task_ProtocolNegotiate)" value="1001"/>
+     <task name="RndisMPInit" message="$(string.task_RndisMPInit)" value="1002"/>
+     <task name="RndisStatusChange" message="$(string.task_RndisStatusChange)" value="1003"/>
+     <task name="MicroportInit" message="$(string.task_MicroportInit)" value="1004"/>
+     <task name="SfaApi" message="$(string.task_SfaApi)" value="1005"/>
+     <task name="PdApi" message="$(string.task_PdApi)" value="1006"/>
+    </tasks>
+    <maps>
+     <valueMap name="NVSC_PACKET_OPERATION_VALUEMAP">
+      <map value="0x0" message="$(string.map_NVSC_PACKET_OPERATION_VALUEMAPUnknown)"/>
+      <map value="0x1" message="$(string.map_NVSC_PACKET_OPERATION_VALUEMAPsent from)"/>
+      <map value="0x2" message="$(string.map_NVSC_PACKET_OPERATION_VALUEMAPreceived by)"/>
+     </valueMap>
+     <valueMap name="NVSC_DROP_REASON_VALUEMAP">
+      <map value="0x0" message="$(string.map_NVSC_DROP_REASON_VALUEMAPUnknown)"/>
+      <map value="0x1" message="$(string.map_NVSC_DROP_REASON_VALUEMAPPacket was dropped at microport)"/>
+      <map value="0x2" message="$(string.map_NVSC_DROP_REASON_VALUEMAPAdapter is halting)"/>
+      <map value="0x3" message="$(string.map_NVSC_DROP_REASON_VALUEMAPNot enough resources to allocate message frame)"/>
+      <map value="0x4" message="$(string.map_NVSC_DROP_REASON_VALUEMAPThe adapter has reached the maximum number of outstanding packets)"/>
+      <map value="0x5" message="$(string.map_NVSC_DROP_REASON_VALUEMAPVF adapter is not running)"/>
+      <map value="0x6" message="$(string.map_NVSC_DROP_REASON_VALUEMAPAdapter is paused)"/>
+      <map value="0x7" message="$(string.map_NVSC_DROP_REASON_VALUEMAPFailed to convert MDL to NBL)"/>
+      <map value="0x8" message="$(string.map_NVSC_DROP_REASON_VALUEMAPNot enough resources to allocate NBL context)"/>
+      <map value="0x9" message="$(string.map_NVSC_DROP_REASON_VALUEMAPThe device did not start up properly, or the device has been surprised removed)"/>
+      <map value="0xa" message="$(string.map_NVSC_DROP_REASON_VALUEMAPNo VMBUS packets available)"/>
+      <map value="0xb" message="$(string.map_NVSC_DROP_REASON_VALUEMAPFailed to allocate and prepare the send message)"/>
+      <map value="0xc" message="$(string.map_NVSC_DROP_REASON_VALUEMAPVMBUS could not transmit the packet)"/>
+     </valueMap>
+     <valueMap name="NVSC_SFA_API_FAILURE_REASON_VALUEMAP">
+      <map value="0x0" message="$(string.map_NVSC_SFA_API_FAILURE_REASON_VALUEMAPUnknown)"/>
+      <map value="0x1" message="$(string.map_NVSC_SFA_API_FAILURE_REASON_VALUEMAPSupplied SFA handle cannot be NULL)"/>
+      <map value="0x2" message="$(string.map_NVSC_SFA_API_FAILURE_REASON_VALUEMAPThe supplied client dispatch table is invalid)"/>
+      <map value="0x3" message="$(string.map_NVSC_SFA_API_FAILURE_REASON_VALUEMAPA client is already registered)"/>
+      <map value="0x4" message="$(string.map_NVSC_SFA_API_FAILURE_REASON_VALUEMAPAttempt to notify VSP failed)"/>
+      <map value="0x5" message="$(string.map_NVSC_SFA_API_FAILURE_REASON_VALUEMAPSFA is not enabled)"/>
+      <map value="0x6" message="$(string.map_NVSC_SFA_API_FAILURE_REASON_VALUEMAPClient not registered)"/>
+      <map value="0x7" message="$(string.map_NVSC_SFA_API_FAILURE_REASON_VALUEMAPMax contexts exceeded)"/>
+      <map value="0x8" message="$(string.map_NVSC_SFA_API_FAILURE_REASON_VALUEMAPFailed to allocate VMBus message)"/>
+      <map value="0x9" message="$(string.map_NVSC_SFA_API_FAILURE_REASON_VALUEMAPFailed to send VMBus message)"/>
+      <map value="0xa" message="$(string.map_NVSC_SFA_API_FAILURE_REASON_VALUEMAPUnexpected result waiting for message completion)"/>
+      <map value="0xb" message="$(string.map_NVSC_SFA_API_FAILURE_REASON_VALUEMAPHost responded with error)"/>
+      <map value="0xc" message="$(string.map_NVSC_SFA_API_FAILURE_REASON_VALUEMAPThe supplied rule descriptor is invalid)"/>
+      <map value="0xd" message="$(string.map_NVSC_SFA_API_FAILURE_REASON_VALUEMAPFailed to allocate MDL for VMBus message)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="ProtocolNegotiate" version="0" task="ProtocolNegotiate" level="win:Informational" template="ProtocolNegotiateArgs"/>
+     <event value="2" symbol="ProtocolNegotiate2" version="0" task="ProtocolNegotiate" level="win:Error" template="ProtocolNegotiateArgs"/>
+     <event value="3" symbol="RndisMPInit" version="0" task="RndisMPInit" level="win:Informational" template="RndisMPInitArgs"/>
+     <event value="4" symbol="RndisMPInit4" version="0" task="RndisMPInit" level="win:Error" template="RndisMPInit4Args"/>
+     <event value="5" symbol="RndisMPInit5" version="0" task="RndisMPInit" level="win:Error" template="RndisMPInit5Args"/>
+     <event value="6" symbol="RndisStatusChange" version="0" task="RndisStatusChange" level="win:Informational" template="RndisMPInitArgs"/>
+     <event value="7" symbol="RndisStatusChange7" version="0" task="RndisStatusChange" level="win:Informational" template="RndisMPInitArgs"/>
+     <event value="8" symbol="RndisStatusChange8" version="0" task="RndisStatusChange" level="win:Warning" template="RndisMPInitArgs"/>
+     <event value="9" symbol="RndisStatusChange9" version="0" task="RndisStatusChange" level="win:Warning" template="RndisMPInitArgs"/>
+     <event value="10" symbol="RndisStatusChange10" version="0" task="RndisStatusChange" level="win:Informational" template="RndisMPInitArgs"/>
+     <event value="11" symbol="RndisStatusChange11" version="0" task="RndisStatusChange" level="win:Informational" template="RndisMPInitArgs"/>
+     <event value="12" symbol="RndisStatusChange12" version="0" task="RndisStatusChange" level="win:Informational" template="RndisMPInitArgs"/>
+     <event value="13" symbol="RndisStatusChange13" version="0" task="RndisStatusChange" level="win:Informational" template="RndisMPInitArgs"/>
+     <event value="14" symbol="RndisStatusChange14" version="0" task="RndisStatusChange" level="win:Informational" template="RndisMPInitArgs"/>
+     <event value="15" symbol="MicroportInit" version="0" task="MicroportInit" level="win:Error" template="MicroportInitArgs"/>
+     <event value="16" symbol="task_0" version="0" task="task_0" level="win:Error" template="task_0Args"/>
+     <event value="17" symbol="task_017" version="0" task="task_0" level="win:Error" template="task_017Args"/>
+     <event value="18" symbol="SfaApi" version="0" task="SfaApi" level="win:Informational" template="SfaApiArgs"/>
+     <event value="19" symbol="SfaApi19" version="0" task="SfaApi" level="win:Error" template="SfaApi19Args"/>
+     <event value="20" symbol="SfaApi20" version="0" task="SfaApi" level="win:Informational" template="SfaApiArgs"/>
+     <event value="21" symbol="SfaApi21" version="0" task="SfaApi" level="win:Informational" template="SfaApiArgs"/>
+     <event value="22" symbol="SfaApi22" version="0" task="SfaApi" level="win:Informational" template="SfaApiArgs"/>
+     <event value="23" symbol="SfaApi23" version="0" task="SfaApi" level="win:Informational" template="SfaApiArgs"/>
+     <event value="24" symbol="SfaApi24" version="0" task="SfaApi" level="win:Informational" template="SfaApiArgs"/>
+     <event value="25" symbol="SfaApi25" version="0" task="SfaApi" level="win:Informational" template="SfaApiArgs"/>
+     <event value="26" symbol="SfaApi26" version="0" task="SfaApi" level="win:Informational" template="SfaApiArgs"/>
+     <event value="27" symbol="SfaApi27" version="0" task="SfaApi" level="win:Informational" template="SfaApi27Args"/>
+     <event value="28" symbol="SfaApi28" version="0" task="SfaApi" level="win:Error" template="SfaApiArgs"/>
+     <event value="29" symbol="SfaApi29" version="0" task="SfaApi" level="win:Error" template="SfaApi29Args"/>
+     <event value="30" symbol="SfaApi30" version="0" task="SfaApi" level="win:Error" template="SfaApi29Args"/>
+     <event value="31" symbol="SfaApi31" version="0" task="SfaApi" level="win:Error" template="SfaApi29Args"/>
+     <event value="32" symbol="SfaApi32" version="0" task="SfaApi" level="win:Error" template="SfaApi29Args"/>
+     <event value="33" symbol="SfaApi33" version="0" task="SfaApi" level="win:Error" template="SfaApi29Args"/>
+     <event value="34" symbol="PdApi" version="0" task="PdApi" level="win:Informational" template="PdApiArgs"/>
+     <event value="35" symbol="PdApi35" version="0" task="PdApi" level="win:Error" template="PdApiArgs"/>
+     <event value="36" symbol="PdApi36" version="0" task="PdApi" level="win:Informational" template="PdApiArgs"/>
+    </events>
+    <templates>
+     <template tid="ProtocolNegotiateArgs">
+      <data name="VersionLen" inType="win:UInt32"/>
+      <data name="Version" inType="win:UnicodeString" length="VersionLen"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="RndisMPInitArgs">
+      <data name="MiniportNameLen" inType="win:UInt32"/>
+      <data name="MiniportName" inType="win:UnicodeString" length="MiniportNameLen"/>
+     </template>
+     <template tid="RndisMPInit4Args">
+      <data name="MiniportNameLen" inType="win:UInt32"/>
+      <data name="MiniportName" inType="win:UnicodeString" length="MiniportNameLen"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="RndisMPInit5Args">
+      <data name="MiniportNameLen" inType="win:UInt32"/>
+      <data name="MiniportName" inType="win:UnicodeString" length="MiniportNameLen"/>
+      <data name="SubkeyNameLen" inType="win:UInt32"/>
+      <data name="SubkeyName" inType="win:UnicodeString" length="SubkeyNameLen"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="MicroportInitArgs">
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0Args">
+      <data name="Status" inType="win:UInt32"/>
+      <data name="Operation" inType="win:UInt32" map="NVSC_PACKET_OPERATION_VALUEMAP"/>
+      <data name="DropReason" inType="win:UInt32"/>
+      <data name="MiniportNameLen" inType="win:UInt32"/>
+      <data name="MiniportName" inType="win:UnicodeString" length="MiniportNameLen"/>
+     </template>
+     <template tid="task_017Args">
+      <data name="Status" inType="win:UInt32"/>
+      <data name="DropReason" inType="win:UInt32" map="NVSC_DROP_REASON_VALUEMAP"/>
+     </template>
+     <template tid="SfaApiArgs">
+      <data name="ClientContext" inType="win:Pointer"/>
+      <data name="ContextId" inType="win:UInt32"/>
+      <data name="RuleId" inType="win:UInt32"/>
+      <data name="ForwardToPortId" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="LastContext" inType="win:Boolean"/>
+     </template>
+     <template tid="SfaApi19Args">
+      <data name="ClientContext" inType="win:Pointer"/>
+      <data name="ContextId" inType="win:UInt32"/>
+      <data name="RuleId" inType="win:UInt32"/>
+      <data name="ForwardToPortId" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="FailureReason" inType="win:UInt32" map="NVSC_SFA_API_FAILURE_REASON_VALUEMAP"/>
+      <data name="MsgStatus" inType="win:UInt32"/>
+      <data name="LastContext" inType="win:Boolean"/>
+     </template>
+     <template tid="SfaApi27Args">
+      <data name="SfaEnabled" inType="win:Boolean"/>
+      <data name="ClientContext" inType="win:Pointer"/>
+     </template>
+     <template tid="SfaApi29Args">
+      <data name="ClientContext" inType="win:Pointer"/>
+      <data name="ContextId" inType="win:UInt32"/>
+      <data name="RuleId" inType="win:UInt32"/>
+      <data name="ForwardToPortId" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="FailureReason" inType="win:UInt32"/>
+      <data name="MsgStatus" inType="win:UInt32"/>
+      <data name="LastContext" inType="win:Boolean"/>
+     </template>
+     <template tid="PdApiArgs">
+      <data name="ClientContext" inType="win:Pointer"/>
+      <data name="ContextId" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_ProtocolNegotiate" value="ProtocolNegotiate"/>
+    <string id="task_RndisMPInit" value="RndisMPInit"/>
+    <string id="task_RndisStatusChange" value="RndisStatusChange"/>
+    <string id="task_MicroportInit" value="MicroportInit"/>
+    <string id="task_SfaApi" value="SfaApi"/>
+    <string id="task_PdApi" value="PdApi"/>
+    <string id="map_NVSC_PACKET_OPERATION_VALUEMAPUnknown" value="Unknown"/>
+    <string id="map_NVSC_PACKET_OPERATION_VALUEMAPsent from" value="sent from"/>
+    <string id="map_NVSC_PACKET_OPERATION_VALUEMAPreceived by" value="received by"/>
+    <string id="map_NVSC_DROP_REASON_VALUEMAPUnknown" value="Unknown"/>
+    <string id="map_NVSC_DROP_REASON_VALUEMAPPacket was dropped at microport" value="Packet was dropped at microport"/>
+    <string id="map_NVSC_DROP_REASON_VALUEMAPAdapter is halting" value="Adapter is halting"/>
+    <string id="map_NVSC_DROP_REASON_VALUEMAPNot enough resources to allocate message frame" value="Not enough resources to allocate message frame"/>
+    <string id="map_NVSC_DROP_REASON_VALUEMAPThe adapter has reached the maximum number of outstanding packets" value="The adapter has reached the maximum number of outstanding packets"/>
+    <string id="map_NVSC_DROP_REASON_VALUEMAPVF adapter is not running" value="VF adapter is not running"/>
+    <string id="map_NVSC_DROP_REASON_VALUEMAPAdapter is paused" value="Adapter is paused"/>
+    <string id="map_NVSC_DROP_REASON_VALUEMAPFailed to convert MDL to NBL" value="Failed to convert MDL to NBL"/>
+    <string id="map_NVSC_DROP_REASON_VALUEMAPNot enough resources to allocate NBL context" value="Not enough resources to allocate NBL context"/>
+    <string id="map_NVSC_DROP_REASON_VALUEMAPThe device did not start up properly, or the device has been surprised removed" value="The device did not start up properly, or the device has been surprised removed"/>
+    <string id="map_NVSC_DROP_REASON_VALUEMAPNo VMBUS packets available" value="No VMBUS packets available"/>
+    <string id="map_NVSC_DROP_REASON_VALUEMAPFailed to allocate and prepare the send message" value="Failed to allocate and prepare the send message"/>
+    <string id="map_NVSC_DROP_REASON_VALUEMAPVMBUS could not transmit the packet" value="VMBUS could not transmit the packet"/>
+    <string id="map_NVSC_SFA_API_FAILURE_REASON_VALUEMAPUnknown" value="Unknown"/>
+    <string id="map_NVSC_SFA_API_FAILURE_REASON_VALUEMAPSupplied SFA handle cannot be NULL" value="Supplied SFA handle cannot be NULL"/>
+    <string id="map_NVSC_SFA_API_FAILURE_REASON_VALUEMAPThe supplied client dispatch table is invalid" value="The supplied client dispatch table is invalid"/>
+    <string id="map_NVSC_SFA_API_FAILURE_REASON_VALUEMAPA client is already registered" value="A client is already registered"/>
+    <string id="map_NVSC_SFA_API_FAILURE_REASON_VALUEMAPAttempt to notify VSP failed" value="Attempt to notify VSP failed"/>
+    <string id="map_NVSC_SFA_API_FAILURE_REASON_VALUEMAPSFA is not enabled" value="SFA is not enabled"/>
+    <string id="map_NVSC_SFA_API_FAILURE_REASON_VALUEMAPClient not registered" value="Client not registered"/>
+    <string id="map_NVSC_SFA_API_FAILURE_REASON_VALUEMAPMax contexts exceeded" value="Max contexts exceeded"/>
+    <string id="map_NVSC_SFA_API_FAILURE_REASON_VALUEMAPFailed to allocate VMBus message" value="Failed to allocate VMBus message"/>
+    <string id="map_NVSC_SFA_API_FAILURE_REASON_VALUEMAPFailed to send VMBus message" value="Failed to send VMBus message"/>
+    <string id="map_NVSC_SFA_API_FAILURE_REASON_VALUEMAPUnexpected result waiting for message completion" value="Unexpected result waiting for message completion"/>
+    <string id="map_NVSC_SFA_API_FAILURE_REASON_VALUEMAPHost responded with error" value="Host responded with error"/>
+    <string id="map_NVSC_SFA_API_FAILURE_REASON_VALUEMAPThe supplied rule descriptor is invalid" value="The supplied rule descriptor is invalid"/>
+    <string id="map_NVSC_SFA_API_FAILURE_REASON_VALUEMAPFailed to allocate MDL for VMBus message" value="Failed to allocate MDL for VMBus message"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

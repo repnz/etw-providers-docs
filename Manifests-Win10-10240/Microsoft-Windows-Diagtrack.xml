@@ -1,0 +1,357 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Diagtrack" guid="{56dc463b-97e8-4b59-e836-ab7c9bb96301}" resourceFileName="Microsoft-Windows-Diagtrack" messageFileName="Microsoft-Windows-Diagtrack" symbol="MicrosoftWindowsDiagtrack" source="Xml" >
+    <keywords>
+     <keyword name="DiagTrackStatus" message="$(string.keyword_DiagTrackStatus)" mask="0x10000"/>
+     <keyword name="DiagTrackTrace" message="$(string.keyword_DiagTrackTrace)" mask="0x100000"/>
+     <keyword name="DiagTrackSpew" message="$(string.keyword_DiagTrackSpew)" mask="0x1000000"/>
+     <keyword name="DiagTrackScenario" message="$(string.keyword_DiagTrackScenario)" mask="0x10000000"/>
+     <keyword name="DiagTrackWP" message="$(string.keyword_DiagTrackWP)" mask="0x100000000"/>
+     <keyword name="DiagTrackPerf" message="$(string.keyword_DiagTrackPerf)" mask="0x200000000"/>
+    </keywords>
+    <tasks>
+     <task name="MatchEngine_ScenarioCompleted" message="$(string.task_MatchEngine_ScenarioCompleted)" value="203"/>
+     <task name="MatchEngine_ManifestUpdatePruneScenarioList" message="$(string.task_MatchEngine_ManifestUpdatePruneScenarioList)" value="204"/>
+     <task name="MatchEngine_CompletedManifestUpdate" message="$(string.task_MatchEngine_CompletedManifestUpdate)" value="207"/>
+     <task name="MatchEngine_ManifestUpdateMaintainScenarioList" message="$(string.task_MatchEngine_ManifestUpdateMaintainScenarioList)" value="209"/>
+     <task name="InFlightScenario_AddMatchedTrigger" message="$(string.task_InFlightScenario_AddMatchedTrigger)" value="300"/>
+     <task name="ScenarioManager_AcceptScenario" message="$(string.task_ScenarioManager_AcceptScenario)" value="600"/>
+     <task name="ScenarioManager_RejectScenario" message="$(string.task_ScenarioManager_RejectScenario)" value="601"/>
+     <task name="ScenarioManager_InvalidScenario" message="$(string.task_ScenarioManager_InvalidScenario)" value="602"/>
+     <task name="ScenarioManager_LoadingScenariosStart" message="$(string.task_ScenarioManager_LoadingScenariosStart)" value="603"/>
+     <task name="ScenarioManager_LoadingScenariosStop" message="$(string.task_ScenarioManager_LoadingScenariosStop)" value="606"/>
+     <task name="DTSQMLogger_UploadScenario" message="$(string.task_DTSQMLogger_UploadScenario)" value="700"/>
+     <task name="DTSQMLogger_SQMSingleInfoStreamRow" message="$(string.task_DTSQMLogger_SQMSingleInfoStreamRow)" value="702"/>
+     <task name="AsimovUploader_ResponseLog" message="$(string.task_AsimovUploader_ResponseLog)" value="751"/>
+     <task name="AsimovUploader_AddEvent" message="$(string.task_AsimovUploader_AddEvent)" value="752"/>
+     <task name="AsimovUploader_PersistEvent" message="$(string.task_AsimovUploader_PersistEvent)" value="755"/>
+     <task name="AsimovUploader_UploadEventBuffer" message="$(string.task_AsimovUploader_UploadEventBuffer)" value="756"/>
+     <task name="Filter_FilterEvaluated" message="$(string.task_Filter_FilterEvaluated)" value="800"/>
+     <task name="EscalationEngine_Execute" message="$(string.task_EscalationEngine_Execute)" value="900"/>
+     <task name="EscalationEngine_ExecuteDenied" message="$(string.task_EscalationEngine_ExecuteDenied)" value="901"/>
+     <task name="EscalationWorkItem_ExecutedAction" message="$(string.task_EscalationWorkItem_ExecutedAction)" value="1102"/>
+     <task name="EscalationWorkItem_EscalationCompleted" message="$(string.task_EscalationWorkItem_EscalationCompleted)" value="1105"/>
+     <task name="TraceManager_StartingTrace" message="$(string.task_TraceManager_StartingTrace)" value="1200"/>
+     <task name="TraceManager_StoppingTrace" message="$(string.task_TraceManager_StoppingTrace)" value="1201"/>
+     <task name="TraceManager_SnappingTrace" message="$(string.task_TraceManager_SnappingTrace)" value="1202"/>
+     <task name="SetupWorkItem_ExecutedAction" message="$(string.task_SetupWorkItem_ExecutedAction)" value="1400"/>
+     <task name="ToggleTraceWithCustomFilterAction_CreatedFilter" message="$(string.task_ToggleTraceWithCustomFilterAction_CreatedFilter)" value="4001"/>
+     <task name="SnapTrace_SnappingScenarioInformation" message="$(string.task_SnapTrace_SnappingScenarioInformation)" value="4100"/>
+     <task name="TestEvent_RADARAction" message="$(string.task_TestEvent_RADARAction)" value="4200"/>
+     <task name="TestEvent_TestEvent" message="$(string.task_TestEvent_TestEvent)" value="9999"/>
+    </tasks>
+    <events>
+     <event value="203" symbol="MatchEngine_ScenarioCompleted" version="0" task="MatchEngine_ScenarioCompleted" level="win:Informational" keywords="DiagTrackStatus" template="MatchEngine_ScenarioCompletedArgs"/>
+     <event value="203" symbol="MatchEngine_ScenarioCompleted_V1" version="1" task="MatchEngine_ScenarioCompleted" level="win:Verbose" keywords="DiagTrackStatus" template="MatchEngine_ScenarioCompletedArgs_V1"/>
+     <event value="203" symbol="MatchEngine_ScenarioCompleted_V2" version="2" task="MatchEngine_ScenarioCompleted" level="win:Verbose" keywords="DiagTrackStatus DiagTrackPerf" template="MatchEngine_ScenarioCompletedArgs_V2"/>
+     <event value="203" symbol="MatchEngine_ScenarioCompleted_V3" version="3" task="MatchEngine_ScenarioCompleted" level="win:Verbose" keywords="DiagTrackStatus DiagTrackPerf" template="MatchEngine_ScenarioCompletedArgs_V3"/>
+     <event value="203" symbol="MatchEngine_ScenarioCompleted_V4" version="4" task="MatchEngine_ScenarioCompleted" level="win:Verbose" keywords="DiagTrackStatus DiagTrackPerf" template="MatchEngine_ScenarioCompletedArgs_V4"/>
+     <event value="204" symbol="MatchEngine_ManifestUpdatePruneScenarioList" version="0" task="MatchEngine_ManifestUpdatePruneScenarioList" level="win:Informational" keywords="DiagTrackTrace" template="MatchEngine_ManifestUpdatePruneScenarioListArgs"/>
+     <event value="207" symbol="MatchEngine_CompletedManifestUpdate" version="0" task="MatchEngine_CompletedManifestUpdate" level="win:Informational" keywords="DiagTrackStatus"/>
+     <event value="209" symbol="MatchEngine_ManifestUpdateMaintainScenarioList" version="0" task="MatchEngine_ManifestUpdateMaintainScenarioList" level="win:Informational" keywords="DiagTrackTrace" template="MatchEngine_ManifestUpdatePruneScenarioListArgs"/>
+     <event value="300" symbol="InFlightScenario_AddMatchedTrigger_V1" version="1" task="InFlightScenario_AddMatchedTrigger" level="win:Informational" keywords="DiagTrackSpew" template="InFlightScenario_AddMatchedTriggerArgs_V1"/>
+     <event value="600" symbol="ScenarioManager_AcceptScenario" version="0" task="ScenarioManager_AcceptScenario" level="win:Informational" keywords="DiagTrackStatus" template="ScenarioManager_AcceptScenarioArgs"/>
+     <event value="601" symbol="ScenarioManager_RejectScenario" version="0" task="ScenarioManager_RejectScenario" level="win:Informational" keywords="DiagTrackStatus" template="ScenarioManager_RejectScenarioArgs"/>
+     <event value="602" symbol="ScenarioManager_InvalidScenario" version="0" task="ScenarioManager_InvalidScenario" level="win:Error" keywords="DiagTrackStatus" template="ScenarioManager_InvalidScenarioArgs"/>
+     <event value="603" symbol="ScenarioManager_LoadingScenariosStart" version="0" task="ScenarioManager_LoadingScenariosStart" level="win:Informational" keywords="DiagTrackStatus"/>
+     <event value="606" symbol="ScenarioManager_LoadingScenariosStop" version="0" task="ScenarioManager_LoadingScenariosStop" level="win:Informational" keywords="DiagTrackStatus" template="ScenarioManager_LoadingScenariosStopArgs"/>
+     <event value="700" symbol="DTSQMLogger_UploadScenario" version="0" task="DTSQMLogger_UploadScenario" level="win:Informational" keywords="DiagTrackStatus" template="DTSQMLogger_UploadScenarioArgs"/>
+     <event value="702" symbol="DTSQMLogger_SQMSingleInfoStreamRow" version="0" task="DTSQMLogger_SQMSingleInfoStreamRow" level="win:Informational" keywords="DiagTrackTrace" template="DTSQMLogger_SQMSingleInfoStreamRowArgs"/>
+     <event value="751" symbol="AsimovUploader_ResponseLog" version="0" task="AsimovUploader_ResponseLog" level="win:Informational" keywords="DiagTrackStatus" template="AsimovUploader_ResponseLogArgs"/>
+     <event value="752" symbol="AsimovUploader_AddEvent" version="0" task="AsimovUploader_AddEvent" level="win:Informational" keywords="DiagTrackStatus" template="AsimovUploader_AddEventArgs"/>
+     <event value="755" symbol="AsimovUploader_PersistEvent" version="0" task="AsimovUploader_PersistEvent" level="win:Informational" keywords="DiagTrackStatus" template="AsimovUploader_PersistEventArgs"/>
+     <event value="756" symbol="AsimovUploader_UploadEventBuffer" version="0" task="AsimovUploader_UploadEventBuffer" level="win:Informational" keywords="DiagTrackStatus"/>
+     <event value="800" symbol="Filter_FilterEvaluated" version="0" task="Filter_FilterEvaluated" level="win:Informational" keywords="DiagTrackTrace" template="Filter_FilterEvaluatedArgs"/>
+     <event value="900" symbol="EscalationEngine_Execute" version="0" task="EscalationEngine_Execute" level="win:Informational" keywords="DiagTrackStatus" template="EscalationEngine_ExecuteArgs"/>
+     <event value="901" symbol="EscalationEngine_ExecuteDenied" version="0" task="EscalationEngine_ExecuteDenied" level="win:Informational" keywords="DiagTrackTrace" template="DTSQMLogger_UploadScenarioArgs"/>
+     <event value="1102" symbol="EscalationWorkItem_ExecutedAction" version="0" task="EscalationWorkItem_ExecutedAction" level="win:Informational" keywords="DiagTrackTrace" template="EscalationWorkItem_ExecutedActionArgs"/>
+     <event value="1105" symbol="EscalationWorkItem_EscalationCompleted" version="0" task="EscalationWorkItem_EscalationCompleted" level="win:Informational" keywords="DiagTrackTrace DiagTrackPerf" template="DTSQMLogger_UploadScenarioArgs"/>
+     <event value="1200" symbol="TraceManager_StartingTrace" version="0" task="TraceManager_StartingTrace" level="win:Informational" keywords="DiagTrackTrace DiagTrackPerf" template="TraceManager_StartingTraceArgs"/>
+     <event value="1201" symbol="TraceManager_StoppingTrace" version="0" task="TraceManager_StoppingTrace" level="win:Informational" keywords="DiagTrackTrace DiagTrackPerf" template="TraceManager_StoppingTraceArgs"/>
+     <event value="1202" symbol="TraceManager_SnappingTrace" version="0" task="TraceManager_SnappingTrace" level="win:Informational" keywords="DiagTrackTrace DiagTrackPerf" template="TraceManager_SnappingTraceArgs"/>
+     <event value="1400" symbol="SetupWorkItem_ExecutedAction" version="0" task="SetupWorkItem_ExecutedAction" level="win:Informational" keywords="DiagTrackTrace" template="SetupWorkItem_ExecutedActionArgs"/>
+     <event value="4001" symbol="ToggleTraceWithCustomFilterAction_CreatedFilter" version="0" task="ToggleTraceWithCustomFilterAction_CreatedFilter" level="win:Informational" keywords="DiagTrackTrace" template="ToggleTraceWithCustomFilterAction_CreatedFilterArgs"/>
+     <event value="4100" symbol="SnapTrace_SnappingScenarioInformation_V1" version="1" task="SnapTrace_SnappingScenarioInformation" level="win:Informational" keywords="DiagTrackStatus DiagTrackPerf" template="SnapTrace_SnappingScenarioInformationArgs_V1"/>
+     <event value="4200" symbol="TestEvent_RADARAction" version="0" task="TestEvent_RADARAction" level="win:Informational" keywords="DiagTrackStatus" template="TestEvent_RADARActionArgs"/>
+     <event value="9999" symbol="TestEvent_TestEvent" version="0" task="TestEvent_TestEvent" level="win:Informational" keywords="DiagTrackSpew" template="TestEvent_TestEventArgs"/>
+    </events>
+    <templates>
+     <template tid="MatchEngine_ScenarioCompletedArgs">
+      <data name="ScenarioId" inType="win:GUID"/>
+      <data name="ScenarioInstanceId" inType="win:GUID"/>
+      <data name="ScenarioName" inType="win:UnicodeString"/>
+      <data name="CurrentReports" inType="win:UInt32"/>
+      <data name="MaxReports" inType="win:UInt32"/>
+      <data name="CurrentEscalations" inType="win:UInt32"/>
+      <data name="MaxEscalations" inType="win:UInt32"/>
+      <data name="ContainsEscalationSection" inType="win:Boolean"/>
+     </template>
+     <template tid="MatchEngine_ManifestUpdatePruneScenarioListArgs">
+      <data name="ScenarioId" inType="win:GUID"/>
+     </template>
+     <template tid="ScenarioManager_AcceptScenarioArgs">
+      <data name="ScenarioId" inType="win:GUID"/>
+      <data name="ScenarioName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ScenarioManager_RejectScenarioArgs">
+      <data name="ScenarioId" inType="win:GUID"/>
+      <data name="ScenarioName" inType="win:UnicodeString"/>
+      <data name="Reason" inType="win:UInt32"/>
+     </template>
+     <template tid="ScenarioManager_InvalidScenarioArgs">
+      <data name="ScenarioId" inType="win:GUID"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="ScenarioManager_LoadingScenariosStopArgs">
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="DTSQMLogger_UploadScenarioArgs">
+      <data name="ScenarioId" inType="win:GUID"/>
+      <data name="ScenarioInstanceId" inType="win:GUID"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="DTSQMLogger_SQMSingleInfoStreamRowArgs">
+      <data name="ScenarioId" inType="win:GUID"/>
+      <data name="ScenarioInstanceId" inType="win:GUID"/>
+      <data name="SiteCode" inType="win:UInt32"/>
+      <data name="Severity" inType="win:UInt32"/>
+      <data name="ErrorValue" inType="win:UInt32"/>
+      <data name="Message" inType="win:UnicodeString"/>
+     </template>
+     <template tid="AsimovUploader_ResponseLogArgs">
+      <data name="StatusCode" inType="win:UInt32"/>
+      <data name="ResponseHeaders" inType="win:UnicodeString"/>
+      <data name="ResponseText" inType="win:AnsiString"/>
+      <data name="NumEvents" inType="win:UInt32"/>
+     </template>
+     <template tid="AsimovUploader_AddEventArgs">
+      <data name="EventPayload" inType="win:AnsiString"/>
+     </template>
+     <template tid="AsimovUploader_PersistEventArgs">
+      <data name="EventPayload" inType="win:UnicodeString"/>
+      <data name="EventLatency" inType="win:Int16"/>
+      <data name="EventPersistence" inType="win:Int16"/>
+     </template>
+     <template tid="Filter_FilterEvaluatedArgs">
+      <data name="FilterRepresentation" inType="win:UnicodeString"/>
+      <data name="IsSatisfied" inType="win:UInt32"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="EscalationEngine_ExecuteArgs">
+      <data name="ScenarioId" inType="win:GUID"/>
+      <data name="ScenarioInstanceId" inType="win:GUID"/>
+      <data name="ActionType" inType="win:UInt32"/>
+     </template>
+     <template tid="EscalationWorkItem_ExecutedActionArgs">
+      <data name="ScenarioId" inType="win:GUID"/>
+      <data name="ScenarioInstanceId" inType="win:GUID"/>
+      <data name="ActionName" inType="win:UnicodeString"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="TraceManager_StartingTraceArgs">
+      <data name="ScenarioId" inType="win:GUID"/>
+      <data name="TraceProfileHash" inType="win:UInt64"/>
+      <data name="TracePriority" inType="win:UInt32"/>
+      <data name="TraceEndTime" inType="win:UInt64"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="TraceManager_StoppingTraceArgs">
+      <data name="WasPreempted" inType="win:UInt32"/>
+      <data name="TraceProfileHash" inType="win:UInt64"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="TraceManager_SnappingTraceArgs">
+      <data name="TraceProfileHash" inType="win:UInt64"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="SetupWorkItem_ExecutedActionArgs">
+      <data name="ScenarioId" inType="win:GUID"/>
+      <data name="ActionName" inType="win:UnicodeString"/>
+      <data name="HRESULT" inType="win:UInt32"/>
+     </template>
+     <template tid="ToggleTraceWithCustomFilterAction_CreatedFilterArgs">
+      <data name="FilterLength" inType="win:UInt32"/>
+      <data name="FilterData" inType="win:Binary" length="FilterLength"/>
+      <data name="FilterType" inType="win:UInt32"/>
+     </template>
+     <template tid="TestEvent_RADARActionArgs">
+      <data name="ProcessId" inType="win:UInt32"/>
+      <data name="CommitMB" inType="win:UInt32"/>
+      <data name="ProcessInfo" inType="win:UnicodeString"/>
+     </template>
+     <template tid="TestEvent_TestEventArgs">
+      <data name="UnicodeStringField" inType="win:UnicodeString"/>
+      <data name="AnsiStringField" inType="win:AnsiString"/>
+      <data name="Int8Field" inType="win:Int8"/>
+      <data name="UInt8Field" inType="win:UInt8"/>
+      <data name="Int16Field" inType="win:Int16"/>
+      <data name="UInt16Field" inType="win:UInt16"/>
+      <data name="Int32Field" inType="win:Int32"/>
+      <data name="UInt32Field" inType="win:UInt32"/>
+      <data name="Int64Field" inType="win:Int64"/>
+      <data name="UInt64Field" inType="win:UInt64"/>
+      <data name="FloatField" inType="win:Float"/>
+      <data name="DoubleField" inType="win:Double"/>
+      <data name="BooleanField" inType="win:Boolean"/>
+      <data name="BinaryField" inType="win:Binary"/>
+      <data name="GUIDField" inType="win:GUID"/>
+      <data name="PointerField" inType="win:Pointer"/>
+      <data name="FiletimeField" inType="win:FILETIME"/>
+      <data name="SystemTimeField" inType="win:SYSTEMTIME"/>
+      <data name="SIDField" inType="win:SID"/>
+      <data name="HexInt32Field" inType="win:HexInt32"/>
+      <data name="HexInt64Field" inType="win:HexInt64"/>
+      <data name="UIntArrayCountField" inType="win:UInt32"/>
+      <data name="UIntArrayField" inType="win:UInt32" count="UIntArrayCountField"/>
+      <data name="FixedUIntArrayField" inType="win:UInt32"/>
+      <data name="UnicodeStringArrayCountField" inType="win:UInt32"/>
+      <data name="UnicodeStringArrayField" inType="win:UnicodeString" count="UnicodeStringArrayCountField"/>
+      <data name="FixedUnicodeStringArrayField" inType="win:UnicodeString"/>
+     </template>
+     <template tid="MatchEngine_ScenarioCompletedArgs_V1">
+      <data name="ScenarioId" inType="win:GUID"/>
+      <data name="ScenarioInstanceId" inType="win:GUID"/>
+      <data name="ScenarioName" inType="win:UnicodeString"/>
+      <data name="CurrentCompletionReports" inType="win:UInt32"/>
+      <data name="MaxCompletionReports" inType="win:UInt32"/>
+      <data name="CurrentCancelReports" inType="win:UInt32"/>
+      <data name="MaxCancelReports" inType="win:UInt32"/>
+      <data name="CurrentFailureReports" inType="win:UInt32"/>
+      <data name="MaxFailureReports" inType="win:UInt32"/>
+      <data name="CurrentCompletionEscalations" inType="win:UInt32"/>
+      <data name="MaxCompletionEscalations" inType="win:UInt32"/>
+      <data name="CurrentFailureEscalations" inType="win:UInt32"/>
+      <data name="MaxFailureEscalations" inType="win:UInt32"/>
+      <data name="SinkStateOrdinal" inType="win:UInt8"/>
+     </template>
+     <template tid="InFlightScenario_AddMatchedTriggerArgs_V1">
+      <data name="ScenarioId" inType="win:GUID"/>
+      <data name="ScenarioInstanceId" inType="win:GUID"/>
+      <data name="Trigger" inType="win:UnicodeString"/>
+     </template>
+     <template tid="SnapTrace_SnappingScenarioInformationArgs_V1">
+      <data name="ScenarioId" inType="win:GUID"/>
+      <data name="Duration" inType="win:UInt64"/>
+      <data name="TriggersCount" inType="win:UInt32"/>
+      <data name="TriggerInfo" inType="win:Int16" count="TriggersCount"/>
+      <data name="ScenarioInstanceId" inType="win:GUID"/>
+     </template>
+     <template tid="MatchEngine_ScenarioCompletedArgs_V2">
+      <data name="ScenarioId" inType="win:GUID"/>
+      <data name="ScenarioInstanceId" inType="win:GUID"/>
+      <data name="ScenarioName" inType="win:UnicodeString"/>
+      <data name="CurrentCompletionReports" inType="win:UInt32"/>
+      <data name="MaxCompletionReports" inType="win:UInt32"/>
+      <data name="CurrentCancelReports" inType="win:UInt32"/>
+      <data name="MaxCancelReports" inType="win:UInt32"/>
+      <data name="CurrentFailureReports" inType="win:UInt32"/>
+      <data name="MaxFailureReports" inType="win:UInt32"/>
+      <data name="CurrentCompletionEscalations" inType="win:UInt32"/>
+      <data name="MaxCompletionEscalations" inType="win:UInt32"/>
+      <data name="CurrentFailureEscalations" inType="win:UInt32"/>
+      <data name="MaxFailureEscalations" inType="win:UInt32"/>
+      <data name="SinkStateOrdinal" inType="win:UInt8"/>
+      <data name="TriggersCount" inType="win:UInt32"/>
+      <data name="TriggerInfo" inType="win:Pointer" count="TriggersCount"/>
+     </template>
+     <template tid="MatchEngine_ScenarioCompletedArgs_V3">
+      <data name="ScenarioId" inType="win:GUID"/>
+      <data name="ScenarioInstanceId" inType="win:GUID"/>
+      <data name="ScenarioName" inType="win:UnicodeString"/>
+      <data name="CurrentCompletionReports" inType="win:UInt32"/>
+      <data name="MaxCompletionReports" inType="win:UInt32"/>
+      <data name="CurrentCancelReports" inType="win:UInt32"/>
+      <data name="MaxCancelReports" inType="win:UInt32"/>
+      <data name="CurrentFailureReports" inType="win:UInt32"/>
+      <data name="MaxFailureReports" inType="win:UInt32"/>
+      <data name="CurrentCompletionEscalations" inType="win:UInt32"/>
+      <data name="MaxCompletionEscalations" inType="win:UInt32"/>
+      <data name="CurrentFailureEscalations" inType="win:UInt32"/>
+      <data name="MaxFailureEscalations" inType="win:UInt32"/>
+      <data name="SinkStateOrdinal" inType="win:UInt8"/>
+      <data name="PerfTrackScenarioName" inType="win:UnicodeString"/>
+      <data name="PerfTrackDurationField" inType="win:UnicodeString"/>
+      <data name="TriggersCount" inType="win:UInt32"/>
+      <data name="TriggerInfo" inType="win:SYSTEMTIME" count="TriggersCount"/>
+     </template>
+     <template tid="MatchEngine_ScenarioCompletedArgs_V4">
+      <data name="ScenarioId" inType="win:GUID"/>
+      <data name="ScenarioInstanceId" inType="win:GUID"/>
+      <data name="ScenarioName" inType="win:UnicodeString"/>
+      <data name="CurrentCompletionReports" inType="win:UInt32"/>
+      <data name="MaxCompletionReports" inType="win:UInt32"/>
+      <data name="CurrentCancelReports" inType="win:UInt32"/>
+      <data name="MaxCancelReports" inType="win:UInt32"/>
+      <data name="CurrentFailureReports" inType="win:UInt32"/>
+      <data name="MaxFailureReports" inType="win:UInt32"/>
+      <data name="CurrentCompletionEscalations" inType="win:UInt32"/>
+      <data name="MaxCompletionEscalations" inType="win:UInt32"/>
+      <data name="CurrentFailureEscalations" inType="win:UInt32"/>
+      <data name="MaxFailureEscalations" inType="win:UInt32"/>
+      <data name="SinkStateOrdinal" inType="win:UInt8"/>
+      <data name="PerfTrackScenarioName" inType="win:UnicodeString"/>
+      <data name="PerfTrackDurationField" inType="win:UnicodeString"/>
+      <data name="Metadata_TimeSinceOsInstall" inType="win:UnicodeString"/>
+      <data name="Metadata_LastBootTime" inType="win:UnicodeString"/>
+      <data name="Metadata_IsAcOn" inType="win:UnicodeString"/>
+      <data name="Metadata_IsEscalationInProgress" inType="win:UnicodeString"/>
+      <data name="Metadata_IsKernelDebuggerPresent" inType="win:UnicodeString"/>
+      <data name="Metadata_LastPowerSourceChangeTime" inType="win:UnicodeString"/>
+      <data name="Metadata_LastAbnormalShutdownTime" inType="win:UnicodeString"/>
+      <data name="Metadata_LastSuccessfulRefreshTime" inType="win:UnicodeString"/>
+      <data name="Metadata_LastApplicationInstallTime" inType="win:UnicodeString"/>
+      <data name="Metadata_LastUnlockTime" inType="win:UnicodeString"/>
+      <data name="Metadata_LastLogonTime" inType="win:UnicodeString"/>
+      <data name="Metadata_LastDeviceArrivalTime" inType="win:UnicodeString"/>
+      <data name="Metadata_LastResumeFromHibernateTime" inType="win:UnicodeString"/>
+      <data name="Metadata_LastResumeFromStandbyTime" inType="win:UnicodeString"/>
+      <data name="TriggersCount" inType="win:UInt32"/>
+      <data name="TriggerInfo" inType="win:32" count="TriggersCount"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_DiagTrackStatus" value="DiagTrackStatus"/>
+    <string id="keyword_DiagTrackTrace" value="DiagTrackTrace"/>
+    <string id="keyword_DiagTrackSpew" value="DiagTrackSpew"/>
+    <string id="keyword_DiagTrackScenario" value="DiagTrackScenario"/>
+    <string id="keyword_DiagTrackWP" value="DiagTrackWP"/>
+    <string id="keyword_DiagTrackPerf" value="DiagTrackPerf"/>
+    <string id="task_MatchEngine_ScenarioCompleted" value="MatchEngine_ScenarioCompleted"/>
+    <string id="task_MatchEngine_ManifestUpdatePruneScenarioList" value="MatchEngine_ManifestUpdatePruneScenarioList"/>
+    <string id="task_MatchEngine_CompletedManifestUpdate" value="MatchEngine_CompletedManifestUpdate"/>
+    <string id="task_MatchEngine_ManifestUpdateMaintainScenarioList" value="MatchEngine_ManifestUpdateMaintainScenarioList"/>
+    <string id="task_InFlightScenario_AddMatchedTrigger" value="InFlightScenario_AddMatchedTrigger"/>
+    <string id="task_ScenarioManager_AcceptScenario" value="ScenarioManager_AcceptScenario"/>
+    <string id="task_ScenarioManager_RejectScenario" value="ScenarioManager_RejectScenario"/>
+    <string id="task_ScenarioManager_InvalidScenario" value="ScenarioManager_InvalidScenario"/>
+    <string id="task_ScenarioManager_LoadingScenariosStart" value="ScenarioManager_LoadingScenariosStart"/>
+    <string id="task_ScenarioManager_LoadingScenariosStop" value="ScenarioManager_LoadingScenariosStop"/>
+    <string id="task_DTSQMLogger_UploadScenario" value="DTSQMLogger_UploadScenario"/>
+    <string id="task_DTSQMLogger_SQMSingleInfoStreamRow" value="DTSQMLogger_SQMSingleInfoStreamRow"/>
+    <string id="task_AsimovUploader_ResponseLog" value="AsimovUploader_ResponseLog"/>
+    <string id="task_AsimovUploader_AddEvent" value="AsimovUploader_AddEvent"/>
+    <string id="task_AsimovUploader_PersistEvent" value="AsimovUploader_PersistEvent"/>
+    <string id="task_AsimovUploader_UploadEventBuffer" value="AsimovUploader_UploadEventBuffer"/>
+    <string id="task_Filter_FilterEvaluated" value="Filter_FilterEvaluated"/>
+    <string id="task_EscalationEngine_Execute" value="EscalationEngine_Execute"/>
+    <string id="task_EscalationEngine_ExecuteDenied" value="EscalationEngine_ExecuteDenied"/>
+    <string id="task_EscalationWorkItem_ExecutedAction" value="EscalationWorkItem_ExecutedAction"/>
+    <string id="task_EscalationWorkItem_EscalationCompleted" value="EscalationWorkItem_EscalationCompleted"/>
+    <string id="task_TraceManager_StartingTrace" value="TraceManager_StartingTrace"/>
+    <string id="task_TraceManager_StoppingTrace" value="TraceManager_StoppingTrace"/>
+    <string id="task_TraceManager_SnappingTrace" value="TraceManager_SnappingTrace"/>
+    <string id="task_SetupWorkItem_ExecutedAction" value="SetupWorkItem_ExecutedAction"/>
+    <string id="task_ToggleTraceWithCustomFilterAction_CreatedFilter" value="ToggleTraceWithCustomFilterAction_CreatedFilter"/>
+    <string id="task_SnapTrace_SnappingScenarioInformation" value="SnapTrace_SnappingScenarioInformation"/>
+    <string id="task_TestEvent_RADARAction" value="TestEvent_RADARAction"/>
+    <string id="task_TestEvent_TestEvent" value="TestEvent_TestEvent"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,339 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-CodeIntegrity" guid="{4ee76bd8-3cf4-44a0-a0ac-3937643e37a3}" resourceFileName="Microsoft-Windows-CodeIntegrity" messageFileName="Microsoft-Windows-CodeIntegrity" symbol="MicrosoftWindowsCodeIntegrity" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="CreateSection" message="$(string.task_CreateSection)" value="1">
+>
+      <opcodes>
+       <opcode name="UnsignedDriverLoaded" message="$(string.opcode_CreateSectionUnsignedDriverLoaded)" value="101"/>
+       <opcode name="PageHashNotFound" message="$(string.opcode_CreateSectionPageHashNotFound)" value="102"/>
+       <opcode name="PageHashNotFound_DbgAttached" message="$(string.opcode_CreateSectionPageHashNotFound_DbgAttached)" value="103"/>
+       <opcode name="FileHashNotFound" message="$(string.opcode_CreateSectionFileHashNotFound)" value="104"/>
+       <opcode name="FileHashNotFound_DbgAttached" message="$(string.opcode_CreateSectionFileHashNotFound_DbgAttached)" value="105"/>
+       <opcode name="RevokedDriverLoaded" message="$(string.opcode_CreateSectionRevokedDriverLoaded)" value="106"/>
+       <opcode name="RevokedDriverLoadedInDebugger" message="$(string.opcode_CreateSectionRevokedDriverLoadedInDebugger)" value="107"/>
+       <opcode name="RevokedDriverNotLoaded" message="$(string.opcode_CreateSectionRevokedDriverNotLoaded)" value="108"/>
+       <opcode name="PolicyFailure" message="$(string.opcode_CreateSectionPolicyFailure)" value="111"/>
+       <opcode name="UnsignedImageLoaded" message="$(string.opcode_CreateSectionUnsignedImageLoaded)" value="112"/>
+       <opcode name="RevokedImageLoaded" message="$(string.opcode_CreateSectionRevokedImageLoaded)" value="113"/>
+       <opcode name="RevokedImageLoadedInDebugger" message="$(string.opcode_CreateSectionRevokedImageLoadedInDebugger)" value="114"/>
+       <opcode name="RevokedImageNotLoaded" message="$(string.opcode_CreateSectionRevokedImageNotLoaded)" value="115"/>
+       <opcode name="SdlRequirement" message="$(string.opcode_CreateSectionSdlRequirement)" value="116"/>
+       <opcode name="HvciUnalignedSection" message="$(string.opcode_CreateSectionHvciUnalignedSection)" value="122"/>
+       <opcode name="HvciWritableExecutableSection" message="$(string.opcode_CreateSectionHvciWritableExecutableSection)" value="123"/>
+      </opcodes>
+     </task>
+     <task name="LoadCatalog" message="$(string.task_LoadCatalog)" value="2">
+>
+      <opcodes>
+       <opcode name="Failed" message="$(string.opcode_LoadCatalogFailed)" value="100"/>
+      </opcodes>
+     </task>
+     <task name="ReloadCatalogs" message="$(string.task_ReloadCatalogs)" value="3"/>
+     <task name="ValidateFileHash" message="$(string.task_ValidateFileHash)" value="4"/>
+     <task name="ValidatePageHash" message="$(string.task_ValidatePageHash)" value="5">
+>
+      <opcodes>
+       <opcode name="HvciPageVerificationFailure" message="$(string.opcode_ValidatePageHashHvciPageVerificationFailure)" value="124"/>
+      </opcodes>
+     </task>
+     <task name="PageHashFoundInCatalog" message="$(string.task_PageHashFoundInCatalog)" value="6"/>
+     <task name="PageHashFoundInImageCertificate" message="$(string.task_PageHashFoundInImageCertificate)" value="7"/>
+     <task name="FileHashFoundInCatalog" message="$(string.task_FileHashFoundInCatalog)" value="8"/>
+     <task name="FileHashFoundInImageCertificate" message="$(string.task_FileHashFoundInImageCertificate)" value="9"/>
+     <task name="LoadCatalogCache" message="$(string.task_LoadCatalogCache)" value="10"/>
+     <task name="SaveCatalogCache" message="$(string.task_SaveCatalogCache)" value="11">
+>
+      <opcodes>
+       <opcode name="UpdateCatalogCacheFailed" message="$(string.opcode_SaveCatalogCacheUpdateCatalogCacheFailed)" value="109"/>
+      </opcodes>
+     </task>
+     <task name="ValidateImageHeader" message="$(string.task_ValidateImageHeader)" value="13"/>
+     <task name="GetFileCache" message="$(string.task_GetFileCache)" value="14"/>
+     <task name="SetFileCache" message="$(string.task_SetFileCache)" value="15"/>
+     <task name="SetCatalogHint" message="$(string.task_SetCatalogHint)" value="16"/>
+     <task name="GetCatalogHint" message="$(string.task_GetCatalogHint)" value="17"/>
+     <task name="ValidateSIPolicy" message="$(string.task_ValidateSIPolicy)" value="18">
+>
+      <opcodes>
+       <opcode name="PolicyFailure" message="$(string.opcode_ValidateSIPolicyPolicyFailure)" value="111"/>
+       <opcode name="SiPolicyFailureIgnored" message="$(string.opcode_ValidateSIPolicySiPolicyFailureIgnored)" value="118"/>
+       <opcode name="PolicyPerformance" message="$(string.opcode_ValidateSIPolicyPolicyPerformance)" value="125"/>
+      </opcodes>
+     </task>
+     <task name="LoadWeakCryptoPolicies" message="$(string.task_LoadWeakCryptoPolicies)" value="19">
+>
+      <opcodes>
+       <opcode name="LoadWeakCryptoRegistryValueFailed" message="$(string.opcode_LoadWeakCryptoPoliciesLoadWeakCryptoRegistryValueFailed)" value="119"/>
+       <opcode name="LoadWeakCryptoRegistryPolicyFailed" message="$(string.opcode_LoadWeakCryptoPoliciesLoadWeakCryptoRegistryPolicyFailed)" value="120"/>
+       <opcode name="LoadWeakCryptoPoliciesFailed" message="$(string.opcode_LoadWeakCryptoPoliciesLoadWeakCryptoPoliciesFailed)" value="121"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <maps>
+     <valueMap name="SigningLevels">
+      <map value="0x0" message="$(string.map_SigningLevelsUnchecked)"/>
+      <map value="0x1" message="$(string.map_SigningLevelsUnsigned)"/>
+      <map value="0x2" message="$(string.map_SigningLevelsEnterprise)"/>
+      <map value="0x3" message="$(string.map_SigningLevelsCustom 1)"/>
+      <map value="0x4" message="$(string.map_SigningLevelsAuthenticode)"/>
+      <map value="0x5" message="$(string.map_SigningLevelsCustom 2)"/>
+      <map value="0x6" message="$(string.map_SigningLevelsStore)"/>
+      <map value="0x7" message="$(string.map_SigningLevelsCustom 3 / Antimalware)"/>
+      <map value="0x8" message="$(string.map_SigningLevelsMicrosoft)"/>
+      <map value="0x9" message="$(string.map_SigningLevelsCustom 4)"/>
+      <map value="0xa" message="$(string.map_SigningLevelsCustom 5)"/>
+      <map value="0xb" message="$(string.map_SigningLevelsDynamic Code Generation)"/>
+      <map value="0xc" message="$(string.map_SigningLevelsWindows)"/>
+      <map value="0xd" message="$(string.map_SigningLevelsWindows Protected Process Light)"/>
+      <map value="0xe" message="$(string.map_SigningLevelsWindows TCB)"/>
+      <map value="0xf" message="$(string.map_SigningLevelsCustom 6)"/>
+     </valueMap>
+     <valueMap name="SdlRequirementType">
+      <map value="0x0" message="$(string.map_SdlRequirementTypeother (see event data))"/>
+      <map value="0x1" message="$(string.map_SdlRequirementTypeShared Sections)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="3001" symbol="CreateSectionUnsignedDriverLoaded" version="0" task="CreateSection" opcode="UnsignedDriverLoaded" level="win:Warning" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3002" symbol="CreateSectionPageHashNotFound" version="0" task="CreateSection" opcode="PageHashNotFound" level="win:Error" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3003" symbol="CreateSectionPageHashNotFound_DbgAttached" version="0" task="CreateSection" opcode="PageHashNotFound_DbgAttached" level="win:Warning" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3004" symbol="CreateSectionFileHashNotFound" version="0" task="CreateSection" opcode="FileHashNotFound" level="win:Error" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3005" symbol="CreateSectionFileHashNotFound_DbgAttached" version="0" task="CreateSection" opcode="FileHashNotFound_DbgAttached" level="win:Warning" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3006" symbol="PageHashFoundInCatalog" version="0" task="PageHashFoundInCatalog" level="win:Informational" template="PageHashFoundInCatalogArgs"/>
+     <event value="3007" symbol="PageHashFoundInImageCertificate" version="0" task="PageHashFoundInImageCertificate" level="win:Informational" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3008" symbol="FileHashFoundInCatalog" version="0" task="FileHashFoundInCatalog" level="win:Informational" template="PageHashFoundInCatalogArgs"/>
+     <event value="3009" symbol="FileHashFoundInImageCertificate" version="0" task="FileHashFoundInImageCertificate" level="win:Informational" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3010" symbol="LoadCatalogFailed" version="0" task="LoadCatalog" opcode="Failed" level="win:Warning" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3011" symbol="LoadCatalogStop" version="0" task="LoadCatalog" opcode="win:Stop" level="win:Informational" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3012" symbol="LoadCatalogStart" version="0" task="LoadCatalog" opcode="win:Start" level="win:Informational" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3013" symbol="ReloadCatalogsStart" version="0" task="ReloadCatalogs" opcode="win:Start" level="win:Informational"/>
+     <event value="3014" symbol="ReloadCatalogsStop" version="0" task="ReloadCatalogs" opcode="win:Stop" level="win:Informational" template="ReloadCatalogsStopArgs"/>
+     <event value="3014" symbol="ReloadCatalogsStop_V1" version="1" task="ReloadCatalogs" opcode="win:Stop" level="win:Informational" template="SaveCatalogCacheUpdateCatalogCacheFailedArgs"/>
+     <event value="3015" symbol="ValidateFileHashStart" version="0" task="ValidateFileHash" opcode="win:Start" level="win:Verbose" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3016" symbol="ValidateFileHashStop" version="0" task="ValidateFileHash" opcode="win:Stop" level="win:Verbose" template="ReloadCatalogsStopArgs"/>
+     <event value="3016" symbol="ValidateFileHashStop_V1" version="1" task="ValidateFileHash" opcode="win:Stop" level="win:Verbose" template="SaveCatalogCacheUpdateCatalogCacheFailedArgs"/>
+     <event value="3017" symbol="ValidatePageHashStart" version="0" task="ValidatePageHash" opcode="win:Start" level="win:Verbose" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3018" symbol="ValidatePageHashStop" version="0" task="ValidatePageHash" opcode="win:Stop" level="win:Verbose" template="ReloadCatalogsStopArgs"/>
+     <event value="3018" symbol="ValidatePageHashStop_V1" version="1" task="ValidatePageHash" opcode="win:Stop" level="win:Verbose" template="SaveCatalogCacheUpdateCatalogCacheFailedArgs"/>
+     <event value="3019" symbol="LoadCatalogCacheStart" version="0" task="LoadCatalogCache" opcode="win:Start" level="win:Verbose" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3020" symbol="LoadCatalogCacheStop" version="0" task="LoadCatalogCache" opcode="win:Stop" level="win:Verbose" template="ReloadCatalogsStopArgs"/>
+     <event value="3020" symbol="LoadCatalogCacheStop_V1" version="1" task="LoadCatalogCache" opcode="win:Stop" level="win:Verbose" template="SaveCatalogCacheUpdateCatalogCacheFailedArgs"/>
+     <event value="3021" symbol="CreateSectionRevokedDriverLoaded" version="0" task="CreateSection" opcode="RevokedDriverLoaded" level="win:Warning" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3022" symbol="CreateSectionRevokedDriverLoadedInDebugger" version="0" task="CreateSection" opcode="RevokedDriverLoadedInDebugger" level="win:Warning" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3023" symbol="CreateSectionRevokedDriverNotLoaded" version="0" task="CreateSection" opcode="RevokedDriverNotLoaded" level="win:Error" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3024" symbol="SaveCatalogCacheUpdateCatalogCacheFailed" version="0" task="SaveCatalogCache" opcode="UpdateCatalogCacheFailed" level="win:Warning" template="SaveCatalogCacheUpdateCatalogCacheFailedArgs"/>
+     <event value="3025" symbol="CreateSectionUnsignedDriverLoaded3025" version="0" task="CreateSection" opcode="UnsignedDriverLoaded" level="win:Verbose" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3026" symbol="LoadCatalogFailed3026" version="0" task="LoadCatalog" opcode="Failed" level="win:Warning" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3027" symbol="LoadCatalogCache" version="0" task="LoadCatalogCache" level="win:Verbose" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3028" symbol="SaveCatalogCacheStart" version="0" task="SaveCatalogCache" opcode="win:Start" level="win:Verbose" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3029" symbol="SaveCatalogCacheStop_V1" version="1" task="SaveCatalogCache" opcode="win:Stop" level="win:Verbose" template="SaveCatalogCacheUpdateCatalogCacheFailedArgs"/>
+     <event value="3030" symbol="SaveCatalogCache" version="0" task="SaveCatalogCache" level="win:Verbose" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3032" symbol="CreateSectionRevokedImageLoaded" version="0" task="CreateSection" opcode="RevokedImageLoaded" level="win:Warning" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3033" symbol="CreateSectionPolicyFailure" version="0" task="CreateSection" opcode="PolicyFailure" level="win:Error" template="CreateSectionPolicyFailureArgs"/>
+     <event value="3034" symbol="CreateSectionPolicyFailure3034" version="0" task="CreateSection" opcode="PolicyFailure" level="win:Warning" template="CreateSectionPolicyFailure3034Args"/>
+     <event value="3035" symbol="CreateSectionRevokedImageLoadedInDebugger" version="0" task="CreateSection" opcode="RevokedImageLoadedInDebugger" level="win:Warning" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3036" symbol="CreateSectionRevokedImageNotLoaded" version="0" task="CreateSection" opcode="RevokedImageNotLoaded" level="win:Error" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3037" symbol="CreateSectionUnsignedImageLoaded" version="0" task="CreateSection" opcode="UnsignedImageLoaded" level="win:Warning" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3038" symbol="ValidateImageHeaderStart" version="0" task="ValidateImageHeader" opcode="win:Start" level="win:Verbose" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3038" symbol="ValidateImageHeaderStart_V1" version="1" task="ValidateImageHeader" opcode="win:Start" level="win:Verbose" template="ValidateImageHeaderStartArgs_V1"/>
+     <event value="3039" symbol="ValidateImageHeaderStop_V1" version="1" task="ValidateImageHeader" opcode="win:Stop" level="win:Verbose" template="SaveCatalogCacheUpdateCatalogCacheFailedArgs"/>
+     <event value="3040" symbol="GetFileCacheStart" version="0" task="GetFileCache" opcode="win:Start" level="win:Verbose" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3041" symbol="GetFileCacheStop_V2" version="2" task="GetFileCache" opcode="win:Stop" level="win:Verbose" template="SetFileCacheStop3043Args_V1"/>
+     <event value="3042" symbol="SetFileCacheStart" version="0" task="SetFileCache" opcode="win:Start" level="win:Verbose" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3043" symbol="SetFileCacheStop3043_V1" version="1" task="SetFileCache" opcode="win:Stop" level="win:Verbose" template="SetFileCacheStop3043Args_V1"/>
+     <event value="3050" symbol="GetFileCache" version="0" task="GetFileCache" level="win:Always" template="SaveCatalogCacheUpdateCatalogCacheFailedArgs"/>
+     <event value="3051" symbol="GetFileCache3051" version="0" task="GetFileCache" level="win:Always" template="SaveCatalogCacheUpdateCatalogCacheFailedArgs"/>
+     <event value="3052" symbol="GetFileCache3052" version="0" task="GetFileCache" level="win:Always" template="SaveCatalogCacheUpdateCatalogCacheFailedArgs"/>
+     <event value="3054" symbol="SetFileCacheStart3054" version="0" task="SetFileCache" opcode="win:Start" level="win:Verbose" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3055" symbol="SetFileCacheStop" version="0" task="SetFileCache" opcode="win:Stop" level="win:Verbose" template="SaveCatalogCacheUpdateCatalogCacheFailedArgs"/>
+     <event value="3057" symbol="GetFileCache3057" version="0" task="GetFileCache" level="win:Always" template="SaveCatalogCacheUpdateCatalogCacheFailedArgs"/>
+     <event value="3058" symbol="GetFileCache3058" version="0" task="GetFileCache" level="win:Always" template="SaveCatalogCacheUpdateCatalogCacheFailedArgs"/>
+     <event value="3059" symbol="SetCatalogHint" version="0" task="SetCatalogHint" level="win:Informational" template="PageHashFoundInCatalogArgs"/>
+     <event value="3060" symbol="GetCatalogHint" version="0" task="GetCatalogHint" level="win:Informational" template="PageHashFoundInCatalogArgs"/>
+     <event value="3061" symbol="SetCatalogHint3061" version="0" task="SetCatalogHint" level="win:Informational" template="PageHashFoundInCatalogArgs"/>
+     <event value="3062" symbol="GetCatalogHint3062" version="0" task="GetCatalogHint" level="win:Informational" template="PageHashFoundInCatalogArgs"/>
+     <event value="3063" symbol="CreateSectionSdlRequirement" version="0" task="CreateSection" opcode="SdlRequirement" level="win:Error" template="CreateSectionSdlRequirementArgs"/>
+     <event value="3064" symbol="CreateSection" version="0" task="CreateSection" level="win:Warning" template="CreateSectionArgs"/>
+     <event value="3065" symbol="CreateSectionSdlRequirement3065" version="0" task="CreateSection" opcode="SdlRequirement" level="win:Informational" template="CreateSectionArgs"/>
+     <event value="3066" symbol="CreateSectionPolicyFailure3066" version="0" task="CreateSection" opcode="PolicyFailure" level="win:Informational" template="CreateSectionPolicyFailure3034Args"/>
+     <event value="3067" symbol="ValidateSIPolicySiPolicyFailureIgnored" version="0" task="ValidateSIPolicy" opcode="SiPolicyFailureIgnored" level="win:Informational" template="CreateSectionPolicyFailure3034Args"/>
+     <event value="3068" symbol="ValidateSIPolicyPolicyFailure" version="0" task="ValidateSIPolicy" opcode="PolicyFailure" level="win:Error" template="CreateSectionPolicyFailure3034Args"/>
+     <event value="3069" symbol="LoadWeakCryptoPoliciesLoadWeakCryptoRegistryValueFailed" version="0" task="LoadWeakCryptoPolicies" opcode="LoadWeakCryptoRegistryValueFailed" level="win:Error" template="SaveCatalogCacheUpdateCatalogCacheFailedArgs"/>
+     <event value="3070" symbol="LoadWeakCryptoPoliciesLoadWeakCryptoRegistryPolicyFailed" version="0" task="LoadWeakCryptoPolicies" opcode="LoadWeakCryptoRegistryPolicyFailed" level="win:Error" template="SaveCatalogCacheUpdateCatalogCacheFailedArgs"/>
+     <event value="3071" symbol="LoadWeakCryptoPoliciesLoadWeakCryptoPoliciesFailed" version="0" task="LoadWeakCryptoPolicies" opcode="LoadWeakCryptoPoliciesFailed" level="win:Error" template="SaveCatalogCacheUpdateCatalogCacheFailedArgs"/>
+     <event value="3072" symbol="CreateSectionHvciUnalignedSection" version="0" task="CreateSection" opcode="HvciUnalignedSection" level="win:Warning" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3073" symbol="CreateSectionHvciWritableExecutableSection" version="0" task="CreateSection" opcode="HvciWritableExecutableSection" level="win:Warning" template="CreateSectionUnsignedDriverLoadedArgs"/>
+     <event value="3074" symbol="ValidatePageHashHvciPageVerificationFailure" version="0" task="ValidatePageHash" opcode="HvciPageVerificationFailure" level="win:Error" template="SaveCatalogCacheUpdateCatalogCacheFailedArgs"/>
+     <event value="3075" symbol="ValidateSIPolicyPolicyPerformance" version="0" task="ValidateSIPolicy" opcode="PolicyPerformance" level="win:Informational" template="ValidateSIPolicyPolicyPerformanceArgs"/>
+     <event value="3076" symbol="ValidateSIPolicySiPolicyFailureIgnored3076" version="0" task="ValidateSIPolicy" opcode="SiPolicyFailureIgnored" level="win:Informational" template="ValidateSIPolicySiPolicyFailureIgnored3076Args"/>
+     <event value="3077" symbol="ValidateSIPolicyPolicyFailure3077" version="0" task="ValidateSIPolicy" opcode="PolicyFailure" level="win:Error" template="ValidateSIPolicySiPolicyFailureIgnored3076Args"/>
+     <event value="3078" symbol="ValidateSIPolicySiPolicyFailureIgnored3078" version="0" task="ValidateSIPolicy" opcode="SiPolicyFailureIgnored" level="win:Informational" template="ValidateSIPolicySiPolicyFailureIgnored3076Args"/>
+     <event value="3079" symbol="ValidateSIPolicyPolicyFailure3079" version="0" task="ValidateSIPolicy" opcode="PolicyFailure" level="win:Error" template="ValidateSIPolicySiPolicyFailureIgnored3076Args"/>
+     <event value="3080" symbol="ValidateSIPolicySiPolicyFailureIgnored3080" version="0" task="ValidateSIPolicy" opcode="SiPolicyFailureIgnored" level="win:Informational" template="ValidateSIPolicySiPolicyFailureIgnored3076Args"/>
+     <event value="3081" symbol="ValidateSIPolicyPolicyFailure3081" version="0" task="ValidateSIPolicy" opcode="PolicyFailure" level="win:Error" template="ValidateSIPolicySiPolicyFailureIgnored3076Args"/>
+    </events>
+    <templates>
+     <template tid="CreateSectionUnsignedDriverLoadedArgs">
+      <data name="FileNameLength" inType="win:UInt16"/>
+      <data name="FileNameBuffer" inType="win:UnicodeString" length="FileNameLength"/>
+     </template>
+     <template tid="PageHashFoundInCatalogArgs">
+      <data name="FileNameLength" inType="win:UInt16"/>
+      <data name="FileNameBuffer" inType="win:UnicodeString" length="FileNameLength"/>
+      <data name="CatalogNameLength" inType="win:UInt16"/>
+      <data name="CatalogNameBuffer" inType="win:UnicodeString" length="CatalogNameLength"/>
+     </template>
+     <template tid="ReloadCatalogsStopArgs">
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="SaveCatalogCacheUpdateCatalogCacheFailedArgs">
+      <data name="Status" inType="win:HexInt32"/>
+     </template>
+     <template tid="CreateSectionPolicyFailureArgs">
+      <data name="FileNameLength" inType="win:UInt16"/>
+      <data name="FileNameBuffer" inType="win:UnicodeString" length="FileNameLength"/>
+      <data name="ProcessNameLength" inType="win:UInt16"/>
+      <data name="ProcessNameBuffer" inType="win:UnicodeString" length="ProcessNameLength"/>
+      <data name="RequestedPolicy" inType="win:UInt8" map="SigningLevels"/>
+      <data name="ValidatedPolicy" inType="win:UInt8"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="CreateSectionPolicyFailure3034Args">
+      <data name="FileNameLength" inType="win:UInt16"/>
+      <data name="FileNameBuffer" inType="win:UnicodeString" length="FileNameLength"/>
+      <data name="ProcessNameLength" inType="win:UInt16"/>
+      <data name="ProcessNameBuffer" inType="win:UnicodeString" length="ProcessNameLength"/>
+      <data name="RequestedPolicy" inType="win:UInt8"/>
+      <data name="ValidatedPolicy" inType="win:UInt8"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="CreateSectionSdlRequirementArgs">
+      <data name="FileNameLength" inType="win:UInt16"/>
+      <data name="FileNameBuffer" inType="win:UnicodeString" length="FileNameLength"/>
+      <data name="ProcessNameLength" inType="win:UInt16"/>
+      <data name="ProcessNameBuffer" inType="win:UnicodeString" length="ProcessNameLength"/>
+      <data name="RequirementType" inType="win:UInt8" map="SdlRequirementType"/>
+      <data name="Status" inType="win:HexInt32"/>
+     </template>
+     <template tid="CreateSectionArgs">
+      <data name="FileNameLength" inType="win:UInt16"/>
+      <data name="FileNameBuffer" inType="win:UnicodeString" length="FileNameLength"/>
+      <data name="ProcessNameLength" inType="win:UInt16"/>
+      <data name="ProcessNameBuffer" inType="win:UnicodeString" length="ProcessNameLength"/>
+      <data name="RequirementType" inType="win:UInt8"/>
+      <data name="Status" inType="win:HexInt32"/>
+     </template>
+     <template tid="ValidateSIPolicyPolicyPerformanceArgs">
+      <data name="FileNameLength" inType="win:UInt16"/>
+      <data name="FileNameBuffer" inType="win:UnicodeString" length="FileNameLength"/>
+      <data name="ProcessNameLength" inType="win:UInt16"/>
+      <data name="ProcessNameBuffer" inType="win:UnicodeString" length="ProcessNameLength"/>
+      <data name="RequestedSigningLevel" inType="win:UInt8"/>
+      <data name="ValidatedSigningLevel" inType="win:UInt8"/>
+      <data name="ElapsedTime" inType="win:UInt64"/>
+      <data name="PolicyElapsedTime" inType="win:UInt64"/>
+      <data name="PercentageTime" inType="win:UInt32"/>
+     </template>
+     <template tid="ValidateSIPolicySiPolicyFailureIgnored3076Args">
+      <data name="FileNameLength" inType="win:UInt16"/>
+      <data name="FileName" inType="win:UnicodeString" length="FileNameLength"/>
+      <data name="ProcessNameLength" inType="win:UInt16"/>
+      <data name="ProcessName" inType="win:UnicodeString" length="ProcessNameLength"/>
+      <data name="RequestedSigningLevel" inType="win:UInt8"/>
+      <data name="ValidatedSigningLevel" inType="win:UInt8"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="SHA1HashSize" inType="win:UInt32"/>
+      <data name="SHA1Hash" inType="win:Binary" length="SHA1 Hash Size"/>
+      <data name="SHA256HashSize" inType="win:UInt32"/>
+      <data name="SHA256Hash" inType="win:Binary" length="SHA256 Hash Size"/>
+      <data name="USN" inType="win:UInt64"/>
+      <data name="SISigningScenario" inType="win:UInt32"/>
+     </template>
+     <template tid="ValidateImageHeaderStartArgs_V1">
+      <data name="FileNameLength" inType="win:UInt16"/>
+      <data name="FileNameBuffer" inType="win:UnicodeString" length="FileNameLength"/>
+      <data name="SecureRequired" inType="win:HexInt32"/>
+      <data name="RequestedSigningLevel" inType="win:UInt8"/>
+     </template>
+     <template tid="SetFileCacheStop3043Args_V1">
+      <data name="Status" inType="win:HexInt32"/>
+      <data name="CachedFlags" inType="win:HexInt32"/>
+      <data name="CacheSource" inType="win:UInt8"/>
+      <data name="CachedPolicy" inType="win:UInt8"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_CreateSection" value="CreateSection"/>
+    <string id="opcode_CreateSectionUnsignedDriverLoaded" value="UnsignedDriverLoaded"/>
+    <string id="opcode_CreateSectionPageHashNotFound" value="PageHashNotFound"/>
+    <string id="opcode_CreateSectionPageHashNotFound_DbgAttached" value="PageHashNotFound_DbgAttached"/>
+    <string id="opcode_CreateSectionFileHashNotFound" value="FileHashNotFound"/>
+    <string id="opcode_CreateSectionFileHashNotFound_DbgAttached" value="FileHashNotFound_DbgAttached"/>
+    <string id="opcode_CreateSectionRevokedDriverLoaded" value="RevokedDriverLoaded"/>
+    <string id="opcode_CreateSectionRevokedDriverLoadedInDebugger" value="RevokedDriverLoadedInDebugger"/>
+    <string id="opcode_CreateSectionRevokedDriverNotLoaded" value="RevokedDriverNotLoaded"/>
+    <string id="opcode_CreateSectionPolicyFailure" value="PolicyFailure"/>
+    <string id="opcode_CreateSectionUnsignedImageLoaded" value="UnsignedImageLoaded"/>
+    <string id="opcode_CreateSectionRevokedImageLoaded" value="RevokedImageLoaded"/>
+    <string id="opcode_CreateSectionRevokedImageLoadedInDebugger" value="RevokedImageLoadedInDebugger"/>
+    <string id="opcode_CreateSectionRevokedImageNotLoaded" value="RevokedImageNotLoaded"/>
+    <string id="opcode_CreateSectionSdlRequirement" value="SdlRequirement"/>
+    <string id="opcode_CreateSectionHvciUnalignedSection" value="HvciUnalignedSection"/>
+    <string id="opcode_CreateSectionHvciWritableExecutableSection" value="HvciWritableExecutableSection"/>
+    <string id="task_LoadCatalog" value="LoadCatalog"/>
+    <string id="opcode_LoadCatalogFailed" value="Failed"/>
+    <string id="task_ReloadCatalogs" value="ReloadCatalogs"/>
+    <string id="task_ValidateFileHash" value="ValidateFileHash"/>
+    <string id="task_ValidatePageHash" value="ValidatePageHash"/>
+    <string id="opcode_ValidatePageHashHvciPageVerificationFailure" value="HvciPageVerificationFailure"/>
+    <string id="task_PageHashFoundInCatalog" value="PageHashFoundInCatalog"/>
+    <string id="task_PageHashFoundInImageCertificate" value="PageHashFoundInImageCertificate"/>
+    <string id="task_FileHashFoundInCatalog" value="FileHashFoundInCatalog"/>
+    <string id="task_FileHashFoundInImageCertificate" value="FileHashFoundInImageCertificate"/>
+    <string id="task_LoadCatalogCache" value="LoadCatalogCache"/>
+    <string id="task_SaveCatalogCache" value="SaveCatalogCache"/>
+    <string id="opcode_SaveCatalogCacheUpdateCatalogCacheFailed" value="UpdateCatalogCacheFailed"/>
+    <string id="task_ValidateImageHeader" value="ValidateImageHeader"/>
+    <string id="task_GetFileCache" value="GetFileCache"/>
+    <string id="task_SetFileCache" value="SetFileCache"/>
+    <string id="task_SetCatalogHint" value="SetCatalogHint"/>
+    <string id="task_GetCatalogHint" value="GetCatalogHint"/>
+    <string id="task_ValidateSIPolicy" value="ValidateSIPolicy"/>
+    <string id="opcode_ValidateSIPolicyPolicyFailure" value="PolicyFailure"/>
+    <string id="opcode_ValidateSIPolicySiPolicyFailureIgnored" value="SiPolicyFailureIgnored"/>
+    <string id="opcode_ValidateSIPolicyPolicyPerformance" value="PolicyPerformance"/>
+    <string id="task_LoadWeakCryptoPolicies" value="LoadWeakCryptoPolicies"/>
+    <string id="opcode_LoadWeakCryptoPoliciesLoadWeakCryptoRegistryValueFailed" value="LoadWeakCryptoRegistryValueFailed"/>
+    <string id="opcode_LoadWeakCryptoPoliciesLoadWeakCryptoRegistryPolicyFailed" value="LoadWeakCryptoRegistryPolicyFailed"/>
+    <string id="opcode_LoadWeakCryptoPoliciesLoadWeakCryptoPoliciesFailed" value="LoadWeakCryptoPoliciesFailed"/>
+    <string id="map_SigningLevelsUnchecked" value="Unchecked"/>
+    <string id="map_SigningLevelsUnsigned" value="Unsigned"/>
+    <string id="map_SigningLevelsEnterprise" value="Enterprise"/>
+    <string id="map_SigningLevelsCustom 1" value="Custom 1"/>
+    <string id="map_SigningLevelsAuthenticode" value="Authenticode"/>
+    <string id="map_SigningLevelsCustom 2" value="Custom 2"/>
+    <string id="map_SigningLevelsStore" value="Store"/>
+    <string id="map_SigningLevelsCustom 3 / Antimalware" value="Custom 3 / Antimalware"/>
+    <string id="map_SigningLevelsMicrosoft" value="Microsoft"/>
+    <string id="map_SigningLevelsCustom 4" value="Custom 4"/>
+    <string id="map_SigningLevelsCustom 5" value="Custom 5"/>
+    <string id="map_SigningLevelsDynamic Code Generation" value="Dynamic Code Generation"/>
+    <string id="map_SigningLevelsWindows" value="Windows"/>
+    <string id="map_SigningLevelsWindows Protected Process Light" value="Windows Protected Process Light"/>
+    <string id="map_SigningLevelsWindows TCB" value="Windows TCB"/>
+    <string id="map_SigningLevelsCustom 6" value="Custom 6"/>
+    <string id="map_SdlRequirementTypeother (see event data)" value="other (see event data)"/>
+    <string id="map_SdlRequirementTypeShared Sections" value="Shared Sections"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

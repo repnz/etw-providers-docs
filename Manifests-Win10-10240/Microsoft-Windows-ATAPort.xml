@@ -1,0 +1,295 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-ATAPort" guid="{cb587ad1-cc35-4ef1-ad93-36cc82a2d319}" resourceFileName="Microsoft-Windows-ATAPort" messageFileName="Microsoft-Windows-ATAPort" symbol="MicrosoftWindowsATAPort" source="Xml" >
+    <keywords>
+     <keyword name="AllIORequests" message="$(string.keyword_AllIORequests)" mask="0x1"/>
+     <keyword name="DeviceEnumeration" message="$(string.keyword_DeviceEnumeration)" mask="0x2"/>
+     <keyword name="IOErrors" message="$(string.keyword_IOErrors)" mask="0x4"/>
+     <keyword name="Reset" message="$(string.keyword_Reset)" mask="0x8"/>
+     <keyword name="XferModeChange" message="$(string.keyword_XferModeChange)" mask="0x10"/>
+     <keyword name="LinkPowerMgmt" message="$(string.keyword_LinkPowerMgmt)" mask="0x20"/>
+     <keyword name="GetTelemetry" message="$(string.keyword_GetTelemetry)" mask="0x40"/>
+     <keyword name="IO_Performance" message="$(string.keyword_IO_Performance)" mask="0x100000"/>
+     <keyword name="Read" message="$(string.keyword_Read)" mask="0x200000"/>
+     <keyword name="Write" message="$(string.keyword_Write)" mask="0x400000"/>
+     <keyword name="PagingRead" message="$(string.keyword_PagingRead)" mask="0x800000"/>
+     <keyword name="PagingWrite" message="$(string.keyword_PagingWrite)" mask="0x1000000"/>
+     <keyword name="LowMemoryRead" message="$(string.keyword_LowMemoryRead)" mask="0x2000000"/>
+     <keyword name="LowMemoryWrite" message="$(string.keyword_LowMemoryWrite)" mask="0x4000000"/>
+     <keyword name="NonReadWrite" message="$(string.keyword_NonReadWrite)" mask="0x8000000"/>
+     <keyword name="PassThrough" message="$(string.keyword_PassThrough)" mask="0x10000000"/>
+     <keyword name="Flush" message="$(string.keyword_Flush)" mask="0x20000000"/>
+     <keyword name="IOCTL" message="$(string.keyword_IOCTL)" mask="0x40000000"/>
+     <keyword name="WMI" message="$(string.keyword_WMI)" mask="0x80000000"/>
+     <keyword name="Power" message="$(string.keyword_Power)" mask="0x100000000"/>
+     <keyword name="PnP" message="$(string.keyword_PnP)" mask="0x200000000"/>
+     <keyword name="Enum" message="$(string.keyword_Enum)" mask="0x400000000"/>
+     <keyword name="Queue" message="$(string.keyword_Queue)" mask="0x800000000"/>
+     <keyword name="ISR" message="$(string.keyword_ISR)" mask="0x1000000000"/>
+     <keyword name="DPC" message="$(string.keyword_DPC)" mask="0x2000000000"/>
+     <keyword name="Timer" message="$(string.keyword_Timer)" mask="0x4000000000"/>
+     <keyword name="Protocol" message="$(string.keyword_Protocol)" mask="0x8000000000"/>
+    </keywords>
+    <tasks>
+     <task name="LPMstatechange" message="$(string.task_LPMstatechange)" value="1">
+>
+      <opcodes>
+       <opcode name="ATAPORT_OPCODE_LPM_POWERSTATE_PARTIAL" message="$(string.opcode_LPMstatechangeATAPORT_OPCODE_LPM_POWERSTATE_PARTIAL)" value="200"/>
+       <opcode name="ATAPORT_OPCODE_LPM_POWERSTATE_SLUMBER" message="$(string.opcode_LPMstatechangeATAPORT_OPCODE_LPM_POWERSTATE_SLUMBER)" value="201"/>
+      </opcodes>
+     </task>
+     <task name="ATAportGeneral" message="$(string.task_ATAportGeneral)" value="2">
+>
+      <opcodes>
+       <opcode name="ATAPORT_OPCODE_DEV_ENUM_INIT" message="$(string.opcode_ATAportGeneralATAPORT_OPCODE_DEV_ENUM_INIT)" value="10"/>
+       <opcode name="ATAPORT_OPCODE_DEV_ENUM_COMPLETE" message="$(string.opcode_ATAportGeneralATAPORT_OPCODE_DEV_ENUM_COMPLETE)" value="11"/>
+       <opcode name="ATAPORT_OPCODE_XFER_MODE_CHANGE" message="$(string.opcode_ATAportGeneralATAPORT_OPCODE_XFER_MODE_CHANGE)" value="12"/>
+       <opcode name="ATAPORT_OPCODE_IO_REQUEST_COMPLETE" message="$(string.opcode_ATAportGeneralATAPORT_OPCODE_IO_REQUEST_COMPLETE)" value="13"/>
+       <opcode name="ATAPORT_OPCODE_IO_REQUEST_TIMEOUT" message="$(string.opcode_ATAportGeneralATAPORT_OPCODE_IO_REQUEST_TIMEOUT)" value="14"/>
+       <opcode name="ATAPORT_OPCODE_IO_REQUEST_TRANSPORT_ERROR" message="$(string.opcode_ATAportGeneralATAPORT_OPCODE_IO_REQUEST_TRANSPORT_ERROR)" value="15"/>
+       <opcode name="ATAPORT_OPCODE_DEVICE_MISSING" message="$(string.opcode_ATAportGeneralATAPORT_OPCODE_DEVICE_MISSING)" value="16"/>
+       <opcode name="ATAPORT_OPCODE_CHANNEL_RESET_INIT" message="$(string.opcode_ATAportGeneralATAPORT_OPCODE_CHANNEL_RESET_INIT)" value="17"/>
+       <opcode name="ATAPORT_OPCODE_CHANNEL_RESET_COMPLETE" message="$(string.opcode_ATAportGeneralATAPORT_OPCODE_CHANNEL_RESET_COMPLETE)" value="18"/>
+       <opcode name="ATAPORT_OPCODE_DEVICE_RESET_INIT" message="$(string.opcode_ATAportGeneralATAPORT_OPCODE_DEVICE_RESET_INIT)" value="19"/>
+       <opcode name="ATAPORT_OPCODE_DEVICE_RESET_COMPLETE" message="$(string.opcode_ATAportGeneralATAPORT_OPCODE_DEVICE_RESET_COMPLETE)" value="20"/>
+       <opcode name="ATAPORT_OPCODE_CHANNEL_START_INIT" message="$(string.opcode_ATAportGeneralATAPORT_OPCODE_CHANNEL_START_INIT)" value="21"/>
+       <opcode name="ATAPORT_OPCODE_CHANNEL_START_COMPLETE" message="$(string.opcode_ATAportGeneralATAPORT_OPCODE_CHANNEL_START_COMPLETE)" value="22"/>
+       <opcode name="ATAPORT_OPCODE_GET_TELEMETRY_INIT" message="$(string.opcode_ATAportGeneralATAPORT_OPCODE_GET_TELEMETRY_INIT)" value="23"/>
+       <opcode name="ATAPORT_OPCODE_GET_TELEMETRY_COMPLETE" message="$(string.opcode_ATAportGeneralATAPORT_OPCODE_GET_TELEMETRY_COMPLETE)" value="24"/>
+      </opcodes>
+     </task>
+     <task name="Port" message="$(string.task_Port)" value="201">
+>
+      <opcodes>
+       <opcode name="Dispatchingofrequest." message="$(string.opcode_PortDispatchingofrequest.)" value="100"/>
+       <opcode name="Completionofrequest." message="$(string.opcode_PortCompletionofrequest.)" value="101"/>
+       <opcode name="Retryhandling." message="$(string.opcode_PortRetryhandling.)" value="104"/>
+       <opcode name="Queue_relatedoperation." message="$(string.opcode_PortQueue_relatedoperation.)" value="106"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="0" symbol="LPMstatechangeATAPORT_OPCODE_LPM_POWERSTATE_PARTIAL" version="0" task="LPMstatechange" opcode="ATAPORT_OPCODE_LPM_POWERSTATE_PARTIAL" level="win:Verbose" keywords="LinkPowerMgmt" template="LPMstatechangeATAPORT_OPCODE_LPM_POWERSTATE_PARTIALArgs"/>
+     <event value="1" symbol="LPMstatechangeATAPORT_OPCODE_LPM_POWERSTATE_SLUMBER" version="0" task="LPMstatechange" opcode="ATAPORT_OPCODE_LPM_POWERSTATE_SLUMBER" level="win:Verbose" keywords="LinkPowerMgmt" template="LPMstatechangeATAPORT_OPCODE_LPM_POWERSTATE_PARTIALArgs"/>
+     <event value="100" symbol="ATAportGeneralATAPORT_OPCODE_DEV_ENUM_INIT" version="0" task="ATAportGeneral" opcode="ATAPORT_OPCODE_DEV_ENUM_INIT" level="win:Verbose" keywords="DeviceEnumeration" template="ATAportGeneralATAPORT_OPCODE_DEV_ENUM_INITArgs"/>
+     <event value="101" symbol="ATAportGeneralATAPORT_OPCODE_DEV_ENUM_COMPLETE" version="0" task="ATAportGeneral" opcode="ATAPORT_OPCODE_DEV_ENUM_COMPLETE" level="win:Verbose" keywords="DeviceEnumeration" template="ATAportGeneralATAPORT_OPCODE_DEV_ENUM_INITArgs"/>
+     <event value="102" symbol="ATAportGeneralATAPORT_OPCODE_XFER_MODE_CHANGE" version="0" task="ATAportGeneral" opcode="ATAPORT_OPCODE_XFER_MODE_CHANGE" level="win:Verbose" keywords="XferModeChange" template="ATAportGeneralATAPORT_OPCODE_XFER_MODE_CHANGEArgs"/>
+     <event value="103" symbol="ATAportGeneralATAPORT_OPCODE_IO_REQUEST_COMPLETE" version="0" task="ATAportGeneral" opcode="ATAPORT_OPCODE_IO_REQUEST_COMPLETE" level="win:Verbose" keywords="AllIORequests" template="ATAportGeneralATAPORT_OPCODE_IO_REQUEST_COMPLETEArgs"/>
+     <event value="104" symbol="ATAportGeneralATAPORT_OPCODE_IO_REQUEST_TIMEOUT" version="0" task="ATAportGeneral" opcode="ATAPORT_OPCODE_IO_REQUEST_TIMEOUT" level="win:Verbose" keywords="IOErrors" template="ATAportGeneralATAPORT_OPCODE_IO_REQUEST_COMPLETEArgs"/>
+     <event value="105" symbol="ATAportGeneralATAPORT_OPCODE_IO_REQUEST_TRANSPORT_ERROR" version="0" task="ATAportGeneral" opcode="ATAPORT_OPCODE_IO_REQUEST_TRANSPORT_ERROR" level="win:Verbose" keywords="IOErrors" template="ATAportGeneralATAPORT_OPCODE_IO_REQUEST_COMPLETEArgs"/>
+     <event value="106" symbol="ATAportGeneralATAPORT_OPCODE_DEVICE_MISSING" version="0" task="ATAportGeneral" opcode="ATAPORT_OPCODE_DEVICE_MISSING" level="win:Verbose" keywords="DeviceEnumeration" template="ATAportGeneralATAPORT_OPCODE_DEV_ENUM_INITArgs"/>
+     <event value="107" symbol="ATAportGeneralATAPORT_OPCODE_CHANNEL_RESET_INIT" version="0" task="ATAportGeneral" opcode="ATAPORT_OPCODE_CHANNEL_RESET_INIT" level="win:Verbose" keywords="Reset" template="LPMstatechangeATAPORT_OPCODE_LPM_POWERSTATE_PARTIALArgs"/>
+     <event value="108" symbol="ATAportGeneralATAPORT_OPCODE_CHANNEL_RESET_COMPLETE" version="0" task="ATAportGeneral" opcode="ATAPORT_OPCODE_CHANNEL_RESET_COMPLETE" level="win:Verbose" keywords="Reset" template="LPMstatechangeATAPORT_OPCODE_LPM_POWERSTATE_PARTIALArgs"/>
+     <event value="109" symbol="ATAportGeneralATAPORT_OPCODE_DEVICE_RESET_INIT" version="0" task="ATAportGeneral" opcode="ATAPORT_OPCODE_DEVICE_RESET_INIT" level="win:Verbose" keywords="Reset" template="LPMstatechangeATAPORT_OPCODE_LPM_POWERSTATE_PARTIALArgs"/>
+     <event value="110" symbol="ATAportGeneralATAPORT_OPCODE_DEVICE_RESET_COMPLETE" version="0" task="ATAportGeneral" opcode="ATAPORT_OPCODE_DEVICE_RESET_COMPLETE" level="win:Verbose" keywords="Reset" template="LPMstatechangeATAPORT_OPCODE_LPM_POWERSTATE_PARTIALArgs"/>
+     <event value="111" symbol="ATAportGeneralATAPORT_OPCODE_CHANNEL_START_INIT" version="0" task="ATAportGeneral" opcode="ATAPORT_OPCODE_CHANNEL_START_INIT" level="win:Verbose" keywords="DeviceEnumeration"/>
+     <event value="112" symbol="ATAportGeneralATAPORT_OPCODE_CHANNEL_START_COMPLETE" version="0" task="ATAportGeneral" opcode="ATAPORT_OPCODE_CHANNEL_START_COMPLETE" level="win:Verbose" keywords="DeviceEnumeration"/>
+     <event value="113" symbol="ATAportGeneralATAPORT_OPCODE_GET_TELEMETRY_INIT" version="0" task="ATAportGeneral" opcode="ATAPORT_OPCODE_GET_TELEMETRY_INIT" level="win:Verbose" keywords="Reset" template="LPMstatechangeATAPORT_OPCODE_LPM_POWERSTATE_PARTIALArgs"/>
+     <event value="113" symbol="Port_V1" version="1" task="Port" level="win:Informational" keywords="Read Write PagingRead PagingWrite LowMemoryRead LowMemoryWrite PnP Enum" template="PortArgs_V1"/>
+     <event value="114" symbol="ATAportGeneralATAPORT_OPCODE_GET_TELEMETRY_COMPLETE" version="0" task="ATAportGeneral" opcode="ATAPORT_OPCODE_GET_TELEMETRY_COMPLETE" level="win:Verbose" keywords="Reset" template="LPMstatechangeATAPORT_OPCODE_LPM_POWERSTATE_PARTIALArgs"/>
+     <event value="114" symbol="Port114_V1" version="1" task="Port" level="win:Informational" keywords="Read Write PagingRead PagingWrite LowMemoryRead LowMemoryWrite" template="Port114Args_V1"/>
+     <event value="200" symbol="Port200_V1" version="1" task="Port" level="win:Informational" keywords="IO_Performance" template="Port200Args_V1"/>
+     <event value="201" symbol="Port201_V1" version="1" task="Port" level="win:Informational" keywords="IO_Performance" template="Port200Args_V1"/>
+     <event value="202" symbol="PortDispatchingofrequest._V1" version="1" task="Port" opcode="Dispatchingofrequest." level="win:Informational" keywords="Read" template="PortDispatchingofrequest.Args_V1"/>
+     <event value="203" symbol="PortDispatchingofrequest.203_V1" version="1" task="Port" opcode="Dispatchingofrequest." level="win:Informational" keywords="Write" template="PortDispatchingofrequest.Args_V1"/>
+     <event value="204" symbol="PortDispatchingofrequest.204_V1" version="1" task="Port" opcode="Dispatchingofrequest." level="win:Informational" keywords="Read PagingRead" template="PortDispatchingofrequest.Args_V1"/>
+     <event value="205" symbol="PortDispatchingofrequest.205_V1" version="1" task="Port" opcode="Dispatchingofrequest." level="win:Informational" keywords="Write PagingWrite" template="PortDispatchingofrequest.Args_V1"/>
+     <event value="206" symbol="PortDispatchingofrequest.206_V1" version="1" task="Port" opcode="Dispatchingofrequest." level="win:Informational" keywords="Read LowMemoryRead" template="PortDispatchingofrequest.Args_V1"/>
+     <event value="207" symbol="PortDispatchingofrequest.207_V1" version="1" task="Port" opcode="Dispatchingofrequest." level="win:Informational" keywords="Write LowMemoryWrite" template="PortDispatchingofrequest.Args_V1"/>
+     <event value="208" symbol="PortCompletionofrequest._V1" version="1" task="Port" opcode="Completionofrequest." level="win:Informational" keywords="Read Write PagingRead PagingWrite LowMemoryRead LowMemoryWrite" template="PortCompletionofrequest.Args_V1"/>
+     <event value="209" symbol="PortRetryhandling._V1" version="1" task="Port" opcode="Retryhandling." level="win:Informational" keywords="Read Write PagingRead PagingWrite LowMemoryRead LowMemoryWrite" template="PortRetryhandling.Args_V1"/>
+     <event value="210" symbol="Port210_V1" version="1" task="Port" level="win:Informational" keywords="Flush" template="Port210Args_V1"/>
+     <event value="211" symbol="PortCompletionofrequest.211_V1" version="1" task="Port" opcode="Completionofrequest." level="win:Informational" keywords="Flush" template="PortCompletionofrequest.Args_V1"/>
+     <event value="212" symbol="PortDispatchingofrequest.212_V1" version="1" task="Port" opcode="Dispatchingofrequest." level="win:Informational" keywords="IOCTL" template="PortDispatchingofrequest.212Args_V1"/>
+     <event value="213" symbol="PortDispatchingofrequest.213_V1" version="1" task="Port" opcode="Dispatchingofrequest." level="win:Informational" keywords="WMI" template="PortDispatchingofrequest.212Args_V1"/>
+     <event value="214" symbol="PortCompletionofrequest.214_V1" version="1" task="Port" opcode="Completionofrequest." level="win:Informational" keywords="IOCTL WMI" template="PortCompletionofrequest.214Args_V1"/>
+     <event value="215" symbol="PortDispatchingofrequest.215_V1" version="1" task="Port" opcode="Dispatchingofrequest." level="win:Informational" keywords="Power" template="PortDispatchingofrequest.215Args_V1"/>
+     <event value="216" symbol="PortCompletionofrequest.216_V1" version="1" task="Port" opcode="Completionofrequest." level="win:Informational" keywords="Power" template="PortCompletionofrequest.214Args_V1"/>
+     <event value="217" symbol="PortDispatchingofrequest.217_V1" version="1" task="Port" opcode="Dispatchingofrequest." level="win:Informational" keywords="PnP" template="PortDispatchingofrequest.217Args_V1"/>
+     <event value="218" symbol="PortCompletionofrequest.218_V1" version="1" task="Port" opcode="Completionofrequest." level="win:Informational" keywords="PnP" template="PortCompletionofrequest.214Args_V1"/>
+     <event value="219" symbol="PortCompletionofrequest.219_V1" version="1" task="Port" opcode="Completionofrequest." level="win:Informational" keywords="PnP Enum" template="PortCompletionofrequest.219Args_V1"/>
+     <event value="220" symbol="PortQueue_relatedoperation._V1" version="1" task="Port" opcode="Queue_relatedoperation." level="win:Informational" keywords="Queue" template="PortQueue_relatedoperation.Args_V1"/>
+     <event value="221" symbol="PortDispatchingofrequest.221_V1" version="1" task="Port" opcode="Dispatchingofrequest." level="win:Informational" keywords="PassThrough IOCTL" template="PortDispatchingofrequest.212Args_V1"/>
+    </events>
+    <templates>
+     <template tid="LPMstatechangeATAPORT_OPCODE_LPM_POWERSTATE_PARTIALArgs">
+      <data name="SCSIAddressSize" inType="win:UInt32"/>
+      <data name="PortNumber" inType="win:UInt8"/>
+      <data name="PathID" inType="win:UInt8"/>
+      <data name="TargetID" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="DeviceType" inType="win:UInt32"/>
+      <data name="Result" inType="win:UInt32"/>
+     </template>
+     <template tid="ATAportGeneralATAPORT_OPCODE_DEV_ENUM_INITArgs">
+      <data name="SCSIAddressSize" inType="win:UInt32"/>
+      <data name="PortNumber" inType="win:UInt8"/>
+      <data name="PathID" inType="win:UInt8"/>
+      <data name="TargetID" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="DeviceType" inType="win:UInt32"/>
+     </template>
+     <template tid="ATAportGeneralATAPORT_OPCODE_XFER_MODE_CHANGEArgs">
+      <data name="SCSIAddressSize" inType="win:UInt32"/>
+      <data name="PortNumber" inType="win:UInt8"/>
+      <data name="PathID" inType="win:UInt8"/>
+      <data name="TargetID" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="DMAtoPIO" inType="win:UInt8"/>
+      <data name="StepDownInDMAModes" inType="win:UInt8"/>
+     </template>
+     <template tid="ATAportGeneralATAPORT_OPCODE_IO_REQUEST_COMPLETEArgs">
+      <data name="DeviceAddress" inType="win:UInt32"/>
+      <data name="RequestSequence" inType="win:UInt32"/>
+      <data name="QueueTime" inType="win:UInt64"/>
+      <data name="DeviceTime" inType="win:UInt64"/>
+      <data name="MasterIRP" inType="win:Pointer"/>
+      <data name="ActiveRequestCount" inType="win:UInt32"/>
+      <data name="IRBFunction" inType="win:UInt16"/>
+      <data name="DeviceCommand" inType="win:UInt8"/>
+      <data name="IRBStatus" inType="win:UInt8"/>
+      <data name="ATAStatus" inType="win:UInt8"/>
+     </template>
+     <template tid="PortArgs_V1">
+      <data name="PortNumber" inType="win:UInt8"/>
+      <data name="BusNumber" inType="win:UInt8"/>
+      <data name="TargetId" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+      <data name="FailureReason" inType="win:UInt32"/>
+     </template>
+     <template tid="Port114Args_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="TransferModeChangeType" inType="win:UInt8"/>
+     </template>
+     <template tid="Port200Args_V1">
+      <data name="RequestDurationin100ns" inType="win:UInt64"/>
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="Command" inType="win:UInt8"/>
+      <data name="SrbStatus" inType="win:UInt8"/>
+      <data name="OriginalIrp" inType="win:Pointer"/>
+     </template>
+     <template tid="PortDispatchingofrequest.Args_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="Command" inType="win:UInt8"/>
+      <data name="LengthOfTransferinbytes" inType="win:UInt64"/>
+      <data name="LBA" inType="win:HexInt64"/>
+      <data name="OriginalIrp" inType="win:Pointer"/>
+     </template>
+     <template tid="PortCompletionofrequest.Args_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="NTStatus" inType="win:HexInt32"/>
+      <data name="SrbStatus" inType="win:UInt8"/>
+      <data name="ScsiStatus" inType="win:UInt8"/>
+      <data name="SenseKey" inType="win:UInt8"/>
+      <data name="AddSense" inType="win:UInt8"/>
+      <data name="AddSenseQ" inType="win:UInt8"/>
+      <data name="OriginalIrp" inType="win:Pointer"/>
+     </template>
+     <template tid="PortRetryhandling.Args_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="CurrentRetryCount" inType="win:UInt32"/>
+     </template>
+     <template tid="Port210Args_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="Bus" inType="win:UInt8"/>
+      <data name="Target" inType="win:UInt8"/>
+      <data name="LUN" inType="win:UInt8"/>
+     </template>
+     <template tid="PortDispatchingofrequest.212Args_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="MajorFunction" inType="win:HexInt32"/>
+      <data name="MinorFunction" inType="win:HexInt32"/>
+      <data name="Parameter" inType="win:HexInt32"/>
+     </template>
+     <template tid="PortCompletionofrequest.214Args_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="Status" inType="win:HexInt32"/>
+     </template>
+     <template tid="PortDispatchingofrequest.215Args_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="MinorFunction" inType="win:HexInt32"/>
+      <data name="Type" inType="win:UInt8"/>
+      <data name="OldState" inType="win:HexInt32"/>
+      <data name="NewState" inType="win:HexInt32"/>
+      <data name="Action" inType="win:HexInt32"/>
+      <data name="PowerStateContext" inType="win:HexInt32"/>
+     </template>
+     <template tid="PortDispatchingofrequest.217Args_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="MinorFunction" inType="win:HexInt32"/>
+      <data name="Type" inType="win:HexInt32"/>
+      <data name="DeviceObject" inType="win:Pointer"/>
+     </template>
+     <template tid="PortCompletionofrequest.219Args_V1">
+      <data name="Irp" inType="win:Pointer"/>
+      <data name="NumberOfChildren" inType="win:UInt32"/>
+      <data name="Status" inType="win:HexInt32"/>
+     </template>
+     <template tid="PortQueue_relatedoperation.Args_V1">
+      <data name="QueueTag" inType="win:HexInt32"/>
+      <data name="Operation" inType="win:UInt8"/>
+      <data name="Status" inType="win:HexInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_AllIORequests" value="AllIORequests"/>
+    <string id="keyword_DeviceEnumeration" value="DeviceEnumeration"/>
+    <string id="keyword_IOErrors" value="IOErrors"/>
+    <string id="keyword_Reset" value="Reset"/>
+    <string id="keyword_XferModeChange" value="XferModeChange"/>
+    <string id="keyword_LinkPowerMgmt" value="LinkPowerMgmt"/>
+    <string id="keyword_GetTelemetry" value="GetTelemetry"/>
+    <string id="keyword_IO_Performance" value="IO_Performance"/>
+    <string id="keyword_Read" value="Read"/>
+    <string id="keyword_Write" value="Write"/>
+    <string id="keyword_PagingRead" value="PagingRead"/>
+    <string id="keyword_PagingWrite" value="PagingWrite"/>
+    <string id="keyword_LowMemoryRead" value="LowMemoryRead"/>
+    <string id="keyword_LowMemoryWrite" value="LowMemoryWrite"/>
+    <string id="keyword_NonReadWrite" value="NonReadWrite"/>
+    <string id="keyword_PassThrough" value="PassThrough"/>
+    <string id="keyword_Flush" value="Flush"/>
+    <string id="keyword_IOCTL" value="IOCTL"/>
+    <string id="keyword_WMI" value="WMI"/>
+    <string id="keyword_Power" value="Power"/>
+    <string id="keyword_PnP" value="PnP"/>
+    <string id="keyword_Enum" value="Enum"/>
+    <string id="keyword_Queue" value="Queue"/>
+    <string id="keyword_ISR" value="ISR"/>
+    <string id="keyword_DPC" value="DPC"/>
+    <string id="keyword_Timer" value="Timer"/>
+    <string id="keyword_Protocol" value="Protocol"/>
+    <string id="task_LPMstatechange" value="LPMstatechange"/>
+    <string id="opcode_LPMstatechangeATAPORT_OPCODE_LPM_POWERSTATE_PARTIAL" value="ATAPORT_OPCODE_LPM_POWERSTATE_PARTIAL"/>
+    <string id="opcode_LPMstatechangeATAPORT_OPCODE_LPM_POWERSTATE_SLUMBER" value="ATAPORT_OPCODE_LPM_POWERSTATE_SLUMBER"/>
+    <string id="task_ATAportGeneral" value="ATAportGeneral"/>
+    <string id="opcode_ATAportGeneralATAPORT_OPCODE_DEV_ENUM_INIT" value="ATAPORT_OPCODE_DEV_ENUM_INIT"/>
+    <string id="opcode_ATAportGeneralATAPORT_OPCODE_DEV_ENUM_COMPLETE" value="ATAPORT_OPCODE_DEV_ENUM_COMPLETE"/>
+    <string id="opcode_ATAportGeneralATAPORT_OPCODE_XFER_MODE_CHANGE" value="ATAPORT_OPCODE_XFER_MODE_CHANGE"/>
+    <string id="opcode_ATAportGeneralATAPORT_OPCODE_IO_REQUEST_COMPLETE" value="ATAPORT_OPCODE_IO_REQUEST_COMPLETE"/>
+    <string id="opcode_ATAportGeneralATAPORT_OPCODE_IO_REQUEST_TIMEOUT" value="ATAPORT_OPCODE_IO_REQUEST_TIMEOUT"/>
+    <string id="opcode_ATAportGeneralATAPORT_OPCODE_IO_REQUEST_TRANSPORT_ERROR" value="ATAPORT_OPCODE_IO_REQUEST_TRANSPORT_ERROR"/>
+    <string id="opcode_ATAportGeneralATAPORT_OPCODE_DEVICE_MISSING" value="ATAPORT_OPCODE_DEVICE_MISSING"/>
+    <string id="opcode_ATAportGeneralATAPORT_OPCODE_CHANNEL_RESET_INIT" value="ATAPORT_OPCODE_CHANNEL_RESET_INIT"/>
+    <string id="opcode_ATAportGeneralATAPORT_OPCODE_CHANNEL_RESET_COMPLETE" value="ATAPORT_OPCODE_CHANNEL_RESET_COMPLETE"/>
+    <string id="opcode_ATAportGeneralATAPORT_OPCODE_DEVICE_RESET_INIT" value="ATAPORT_OPCODE_DEVICE_RESET_INIT"/>
+    <string id="opcode_ATAportGeneralATAPORT_OPCODE_DEVICE_RESET_COMPLETE" value="ATAPORT_OPCODE_DEVICE_RESET_COMPLETE"/>
+    <string id="opcode_ATAportGeneralATAPORT_OPCODE_CHANNEL_START_INIT" value="ATAPORT_OPCODE_CHANNEL_START_INIT"/>
+    <string id="opcode_ATAportGeneralATAPORT_OPCODE_CHANNEL_START_COMPLETE" value="ATAPORT_OPCODE_CHANNEL_START_COMPLETE"/>
+    <string id="opcode_ATAportGeneralATAPORT_OPCODE_GET_TELEMETRY_INIT" value="ATAPORT_OPCODE_GET_TELEMETRY_INIT"/>
+    <string id="opcode_ATAportGeneralATAPORT_OPCODE_GET_TELEMETRY_COMPLETE" value="ATAPORT_OPCODE_GET_TELEMETRY_COMPLETE"/>
+    <string id="task_Port" value="Port"/>
+    <string id="opcode_PortDispatchingofrequest." value="Dispatchingofrequest."/>
+    <string id="opcode_PortCompletionofrequest." value="Completionofrequest."/>
+    <string id="opcode_PortRetryhandling." value="Retryhandling."/>
+    <string id="opcode_PortQueue_relatedoperation." value="Queue_relatedoperation."/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

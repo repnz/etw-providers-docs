@@ -1,0 +1,139 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-SPB-ClassExtension" guid="{72cd9ff7-4af8-4b89-aede-5f26fda13567}" resourceFileName="Microsoft-Windows-SPB-ClassExtension" messageFileName="Microsoft-Windows-SPB-ClassExtension" symbol="MicrosoftWindowsSPBClassExtension" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="StartupoftheSPBclassextension" message="$(string.task_StartupoftheSPBclassextension)" value="1"/>
+     <task name="UnloadoftheSPBclassextension" message="$(string.task_UnloadoftheSPBclassextension)" value="2"/>
+     <task name="I/OoperationflowthroughSPBCx" message="$(string.task_I/OoperationflowthroughSPBCx)" value="3">
+>
+      <opcodes>
+       <opcode name="IoDispatchToTarget" message="$(string.opcode_I/OoperationflowthroughSPBCxIoDispatchToTarget)" value="11"/>
+       <opcode name="IoForwardToControllerQueue" message="$(string.opcode_I/OoperationflowthroughSPBCxIoForwardToControllerQueue)" value="12"/>
+       <opcode name="IoDispatchToController" message="$(string.opcode_I/OoperationflowthroughSPBCxIoDispatchToController)" value="13"/>
+       <opcode name="IoPresentToDriver" message="$(string.opcode_I/OoperationflowthroughSPBCxIoPresentToDriver)" value="14"/>
+       <opcode name="IoComplete" message="$(string.opcode_I/OoperationflowthroughSPBCxIoComplete)" value="15"/>
+       <opcode name="IoSpbDirection" message="$(string.opcode_I/OoperationflowthroughSPBCxIoSpbDirection)" value="17"/>
+       <opcode name="IoLockWatchdogTimeout" message="$(string.opcode_I/OoperationflowthroughSPBCxIoLockWatchdogTimeout)" value="19"/>
+       <opcode name="IoSpbPayloadStart" message="$(string.opcode_I/OoperationflowthroughSPBCxIoSpbPayloadStart)" value="21"/>
+       <opcode name="IoSpbPayloadTdStart" message="$(string.opcode_I/OoperationflowthroughSPBCxIoSpbPayloadTdStart)" value="22"/>
+       <opcode name="IoSpbPayloadTdBuffer" message="$(string.opcode_I/OoperationflowthroughSPBCxIoSpbPayloadTdBuffer)" value="23"/>
+       <opcode name="IoSpbPayloadTdStop" message="$(string.opcode_I/OoperationflowthroughSPBCxIoSpbPayloadTdStop)" value="24"/>
+       <opcode name="IoSpbPayloadStop" message="$(string.opcode_I/OoperationflowthroughSPBCxIoSpbPayloadStop)" value="25"/>
+      </opcodes>
+     </task>
+     <task name="D_statetransitionforSPBcontrollerdriver" message="$(string.task_D_statetransitionforSPBcontrollerdriver)" value="4">
+>
+      <opcodes>
+       <opcode name="DIrpPreprocess" message="$(string.opcode_D_statetransitionforSPBcontrollerdriverDIrpPreprocess)" value="20"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <maps>
+     <valueMap name="DeviceStateMap">
+      <map value="0x1" message="$(string.map_DeviceStateMapD0)"/>
+      <map value="0x2" message="$(string.map_DeviceStateMapD1)"/>
+      <map value="0x3" message="$(string.map_DeviceStateMapD2)"/>
+      <map value="0x4" message="$(string.map_DeviceStateMapD3)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1000" symbol="StartupoftheSPBclassextension_V1" version="1" task="StartupoftheSPBclassextension" level="win:Informational" template="StartupoftheSPBclassextensionArgs_V1"/>
+     <event value="1001" symbol="StartupoftheSPBclassextension1001_V1" version="1" task="StartupoftheSPBclassextension" level="win:Error" template="StartupoftheSPBclassextensionArgs_V1"/>
+     <event value="1002" symbol="UnloadoftheSPBclassextension_V1" version="1" task="UnloadoftheSPBclassextension" level="win:Informational"/>
+     <event value="1010" symbol="I/OoperationflowthroughSPBCxStart_V1" version="1" task="I/OoperationflowthroughSPBCx" opcode="win:Start" level="win:Informational" template="I/OoperationflowthroughSPBCxStartArgs_V1"/>
+     <event value="1011" symbol="I/OoperationflowthroughSPBCxIoDispatchToTarget_V1" version="1" task="I/OoperationflowthroughSPBCx" opcode="IoDispatchToTarget" level="win:Informational"/>
+     <event value="1012" symbol="I/OoperationflowthroughSPBCxIoForwardToControllerQueue_V1" version="1" task="I/OoperationflowthroughSPBCx" opcode="IoForwardToControllerQueue" level="win:Informational"/>
+     <event value="1013" symbol="I/OoperationflowthroughSPBCxIoDispatchToController_V1" version="1" task="I/OoperationflowthroughSPBCx" opcode="IoDispatchToController" level="win:Informational"/>
+     <event value="1014" symbol="I/OoperationflowthroughSPBCxIoPresentToDriver_V1" version="1" task="I/OoperationflowthroughSPBCx" opcode="IoPresentToDriver" level="win:Informational"/>
+     <event value="1015" symbol="I/OoperationflowthroughSPBCxIoComplete_V1" version="1" task="I/OoperationflowthroughSPBCx" opcode="IoComplete" level="win:Informational" template="I/OoperationflowthroughSPBCxIoCompleteArgs_V1"/>
+     <event value="1016" symbol="I/OoperationflowthroughSPBCxStop_V1" version="1" task="I/OoperationflowthroughSPBCx" opcode="win:Stop" level="win:Informational"/>
+     <event value="1018" symbol="I/OoperationflowthroughSPBCxIoSpbDirection_V1" version="1" task="I/OoperationflowthroughSPBCx" opcode="IoSpbDirection" level="win:Verbose" template="I/OoperationflowthroughSPBCxIoSpbDirectionArgs_V1"/>
+     <event value="1019" symbol="I/OoperationflowthroughSPBCxIoLockWatchdogTimeout_V1" version="1" task="I/OoperationflowthroughSPBCx" opcode="IoLockWatchdogTimeout" level="win:Warning" template="I/OoperationflowthroughSPBCxIoLockWatchdogTimeoutArgs_V1"/>
+     <event value="1020" symbol="D_statetransitionforSPBcontrollerdriverDIrpPreprocess_V1" version="1" task="D_statetransitionforSPBcontrollerdriver" opcode="DIrpPreprocess" level="win:Informational" template="D_statetransitionforSPBcontrollerdriverDIrpPreprocessArgs_V1"/>
+     <event value="1021" symbol="I/OoperationflowthroughSPBCxIoSpbPayloadStart_V1" version="1" task="I/OoperationflowthroughSPBCx" opcode="IoSpbPayloadStart" level="win:Verbose" template="I/OoperationflowthroughSPBCxIoSpbPayloadStartArgs_V1"/>
+     <event value="1022" symbol="I/OoperationflowthroughSPBCxIoSpbPayloadTdStart_V1" version="1" task="I/OoperationflowthroughSPBCx" opcode="IoSpbPayloadTdStart" level="win:Verbose" template="I/OoperationflowthroughSPBCxIoSpbPayloadTdStartArgs_V1"/>
+     <event value="1023" symbol="I/OoperationflowthroughSPBCxIoSpbPayloadTdBuffer_V1" version="1" task="I/OoperationflowthroughSPBCx" opcode="IoSpbPayloadTdBuffer" level="win:Verbose" template="I/OoperationflowthroughSPBCxIoSpbPayloadTdBufferArgs_V1"/>
+     <event value="1024" symbol="I/OoperationflowthroughSPBCxIoSpbPayloadTdStop_V1" version="1" task="I/OoperationflowthroughSPBCx" opcode="IoSpbPayloadTdStop" level="win:Verbose"/>
+     <event value="1025" symbol="I/OoperationflowthroughSPBCxIoSpbPayloadStop_V1" version="1" task="I/OoperationflowthroughSPBCx" opcode="IoSpbPayloadStop" level="win:Verbose"/>
+    </events>
+    <templates>
+     <template tid="StartupoftheSPBclassextensionArgs_V1">
+      <data name="ControlDeviceName" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="I/OoperationflowthroughSPBCxStartArgs_V1">
+      <data name="Controller" inType="win:Pointer"/>
+      <data name="TargetName" inType="win:UnicodeString"/>
+      <data name="ScopeTag" inType="win:UnicodeString"/>
+      <data name="File" inType="win:Pointer"/>
+      <data name="Request" inType="win:Pointer"/>
+      <data name="RequestType" inType="win:Int8"/>
+      <data name="Length" inType="win:UInt32"/>
+     </template>
+     <template tid="I/OoperationflowthroughSPBCxIoCompleteArgs_V1">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="CompletionStatus" inType="win:UInt32"/>
+      <data name="Information" inType="win:UInt64"/>
+     </template>
+     <template tid="I/OoperationflowthroughSPBCxIoSpbDirectionArgs_V1">
+      <data name="Data" inType="win:UInt8"/>
+     </template>
+     <template tid="I/OoperationflowthroughSPBCxIoLockWatchdogTimeoutArgs_V1">
+      <data name="Controller" inType="win:Pointer"/>
+      <data name="TargetName" inType="win:UnicodeString"/>
+      <data name="ScopeTag" inType="win:UnicodeString"/>
+      <data name="File" inType="win:Pointer"/>
+     </template>
+     <template tid="D_statetransitionforSPBcontrollerdriverDIrpPreprocessArgs_V1">
+      <data name="Controller" inType="win:Pointer"/>
+      <data name="DeviceState" inType="win:HexInt32" map="DeviceStateMap"/>
+     </template>
+     <template tid="I/OoperationflowthroughSPBCxIoSpbPayloadStartArgs_V1">
+      <data name="IoTotalByteCount" inType="win:UInt64"/>
+      <data name="TransferCount" inType="win:UInt32"/>
+     </template>
+     <template tid="I/OoperationflowthroughSPBCxIoSpbPayloadTdStartArgs_V1">
+      <data name="TransferIndex" inType="win:UInt32"/>
+      <data name="TransferDirection" inType="win:UInt32"/>
+      <data name="TransferTotalByteCount" inType="win:UInt64"/>
+     </template>
+     <template tid="I/OoperationflowthroughSPBCxIoSpbPayloadTdBufferArgs_V1">
+      <data name="BufferIndex" inType="win:UInt32"/>
+      <data name="ByteCount" inType="win:UInt32"/>
+      <data name="Buffer" inType="win:Binary" length="ByteCount"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_StartupoftheSPBclassextension" value="StartupoftheSPBclassextension"/>
+    <string id="task_UnloadoftheSPBclassextension" value="UnloadoftheSPBclassextension"/>
+    <string id="task_I/OoperationflowthroughSPBCx" value="I/OoperationflowthroughSPBCx"/>
+    <string id="opcode_I/OoperationflowthroughSPBCxIoDispatchToTarget" value="IoDispatchToTarget"/>
+    <string id="opcode_I/OoperationflowthroughSPBCxIoForwardToControllerQueue" value="IoForwardToControllerQueue"/>
+    <string id="opcode_I/OoperationflowthroughSPBCxIoDispatchToController" value="IoDispatchToController"/>
+    <string id="opcode_I/OoperationflowthroughSPBCxIoPresentToDriver" value="IoPresentToDriver"/>
+    <string id="opcode_I/OoperationflowthroughSPBCxIoComplete" value="IoComplete"/>
+    <string id="opcode_I/OoperationflowthroughSPBCxIoSpbDirection" value="IoSpbDirection"/>
+    <string id="opcode_I/OoperationflowthroughSPBCxIoLockWatchdogTimeout" value="IoLockWatchdogTimeout"/>
+    <string id="opcode_I/OoperationflowthroughSPBCxIoSpbPayloadStart" value="IoSpbPayloadStart"/>
+    <string id="opcode_I/OoperationflowthroughSPBCxIoSpbPayloadTdStart" value="IoSpbPayloadTdStart"/>
+    <string id="opcode_I/OoperationflowthroughSPBCxIoSpbPayloadTdBuffer" value="IoSpbPayloadTdBuffer"/>
+    <string id="opcode_I/OoperationflowthroughSPBCxIoSpbPayloadTdStop" value="IoSpbPayloadTdStop"/>
+    <string id="opcode_I/OoperationflowthroughSPBCxIoSpbPayloadStop" value="IoSpbPayloadStop"/>
+    <string id="task_D_statetransitionforSPBcontrollerdriver" value="D_statetransitionforSPBcontrollerdriver"/>
+    <string id="opcode_D_statetransitionforSPBcontrollerdriverDIrpPreprocess" value="DIrpPreprocess"/>
+    <string id="map_DeviceStateMapD0" value="D0"/>
+    <string id="map_DeviceStateMapD1" value="D1"/>
+    <string id="map_DeviceStateMapD2" value="D2"/>
+    <string id="map_DeviceStateMapD3" value="D3"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

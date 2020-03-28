@@ -1,0 +1,45 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Input-HIDCLASS" guid="{6465da78-e7a0-4f39-b084-8f53c7c30dc6}" resourceFileName="Microsoft-Windows-Input-HIDCLASS" messageFileName="Microsoft-Windows-Input-HIDCLASS" symbol="MicrosoftWindowsInputHIDCLASS" source="Xml" >
+    <keywords>
+     <keyword name="Default" message="$(string.keyword_Default)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0">
+>
+      <opcodes>
+       <opcode name="Information" message="$(string.opcode_task_0Information)" value="10"/>
+      </opcodes>
+     </task>
+     <task name="HIDCLASSRundown" message="$(string.task_HIDCLASSRundown)" value="1"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="HIDCLASSRundownStart" version="0" task="HIDCLASSRundown" opcode="win:Start" level="win:Informational" keywords="Default"/>
+     <event value="2" symbol="HIDCLASSRundownStop" version="0" task="HIDCLASSRundown" opcode="win:Stop" level="win:Informational" keywords="Default"/>
+     <event value="3" symbol="task_0Information" version="0" task="task_0" opcode="Information" level="win:Informational" keywords="Default" template="task_0InformationArgs"/>
+    </events>
+    <templates>
+     <template tid="task_0InformationArgs">
+      <data name="DeviceObject" inType="win:Pointer"/>
+      <data name="VendorID" inType="win:UInt16"/>
+      <data name="ProductID" inType="win:UInt16"/>
+      <data name="VersionNumber" inType="win:UInt16"/>
+      <data name="ReportDescriptorLength" inType="win:UInt32"/>
+      <data name="ReportDescriptor" inType="win:Binary" length="ReportDescriptorLength"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Default" value="Default"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="opcode_task_0Information" value="Information"/>
+    <string id="task_HIDCLASSRundown" value="HIDCLASSRundown"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,44 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Privacy-Auditing-TailoredExperiences" guid="{1bd672b8-445e-53fc-35ef-09f53672c385}" resourceFileName="Microsoft-Windows-Privacy-Auditing-TailoredExperiences" messageFileName="Microsoft-Windows-Privacy-Auditing-TailoredExperiences" symbol="MicrosoftWindowsPrivacyAuditingTailoredExperiences" source="Xml" >
+    <keywords>
+     <keyword name="SystemGlobal" message="$(string.keyword_SystemGlobal)" mask="0x1"/>
+     <keyword name="Failure" message="$(string.keyword_Failure)" mask="0x40"/>
+    </keywords>
+    <tasks>
+     <task name="TailoredExperiencesValueChanged" message="$(string.task_TailoredExperiencesValueChanged)" value="10"/>
+    </tasks>
+    <events>
+     <event value="1000" symbol="TailoredExperiencesValueChanged" version="0" task="TailoredExperiencesValueChanged" level="win:Informational" keywords="SystemGlobal" template="TailoredExperiencesValueChangedArgs"/>
+     <event value="1001" symbol="TailoredExperiencesValueChanged1001" version="0" task="TailoredExperiencesValueChanged" level="win:Error" keywords="SystemGlobal Failure" template="TailoredExperiencesValueChangedArgs"/>
+    </events>
+    <templates>
+     <template tid="TailoredExperiencesValueChangedArgs">
+      <data name="CallerUserSid" inType="win:UnicodeString"/>
+      <data name="CallerProcessName" inType="win:UnicodeString"/>
+      <data name="CallerAppPackageFamilyName" inType="win:UnicodeString"/>
+      <data name="OldConsentValue" inType="win:UnicodeString"/>
+      <data name="NewConsentValue" inType="win:UnicodeString"/>
+      <data name="SetByHigherAuthority" inType="win:Boolean"/>
+      <data name="EffectiveConsentValue" inType="win:UnicodeString"/>
+      <data name="TargetUserSid" inType="win:UnicodeString"/>
+      <data name="ConsentID" inType="win:UnicodeString"/>
+      <data name="AppPackageFamilyName" inType="win:UnicodeString"/>
+      <data name="HResult" inType="win:HexInt32"/>
+      <data name="SettingName" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_SystemGlobal" value="SystemGlobal"/>
+    <string id="keyword_Failure" value="Failure"/>
+    <string id="task_TailoredExperiencesValueChanged" value="TailoredExperiencesValueChanged"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

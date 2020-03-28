@@ -1,0 +1,145 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Resource-Exhaustion-Resolver" guid="{91f5fb12-fdea-4095-85d5-614b495cd9de}" resourceFileName="Microsoft-Windows-Resource-Exhaustion-Resolver" messageFileName="Microsoft-Windows-Resource-Exhaustion-Resolver" symbol="MicrosoftWindowsResourceExhaustionResolver" source="Xml" >
+    <keywords>
+     <keyword name="RDR_RES_KEYWORD_LIFECYCLE" message="$(string.keyword_RDR_RES_KEYWORD_LIFECYCLE)" mask="0x1000"/>
+     <keyword name="RDR_RES_KEYWORD_MEMORY_EXHAUSTION" message="$(string.keyword_RDR_RES_KEYWORD_MEMORY_EXHAUSTION)" mask="0x2000"/>
+     <keyword name="RDR_RES_KEYWORD_LEAK_DIAGNOSIS" message="$(string.keyword_RDR_RES_KEYWORD_LEAK_DIAGNOSIS)" mask="0x4000"/>
+     <keyword name="keyword_400000000000" message="$(string.keyword_keyword_400000000000)" mask="0x400000000000"/>
+    </keywords>
+    <tasks>
+     <task name="LifecycleEvents" message="$(string.task_LifecycleEvents)" value="1">
+>
+      <opcodes>
+       <opcode name="Eventsloggedwhentheresourceexhaustionresolverisstarted." message="$(string.opcode_LifecycleEventsEventsloggedwhentheresourceexhaustionresolverisstarted.)" value="11"/>
+       <opcode name="Eventsloggedwhentheresourceexhaustionresolverisstopped." message="$(string.opcode_LifecycleEventsEventsloggedwhentheresourceexhaustionresolverisstopped.)" value="12"/>
+       <opcode name="Eventsloggedafteramemoryallocation." message="$(string.opcode_LifecycleEventsEventsloggedafteramemoryallocation.)" value="13"/>
+      </opcodes>
+     </task>
+     <task name="ResolutionEvents" message="$(string.task_ResolutionEvents)" value="3">
+>
+      <opcodes>
+       <opcode name="Eventsloggedwhendiagnosisisstarted." message="$(string.opcode_ResolutionEventsEventsloggedwhendiagnosisisstarted.)" value="21"/>
+       <opcode name="Eventsloggedafterperformingtheresolutionactions" message="$(string.opcode_ResolutionEventsEventsloggedafterperformingtheresolutionactions)" value="24"/>
+      </opcodes>
+     </task>
+     <task name="UIEvents" message="$(string.task_UIEvents)" value="4">
+>
+      <opcodes>
+       <opcode name="EventsloggedbeforeUIislaunched." message="$(string.opcode_UIEventsEventsloggedbeforeUIislaunched.)" value="31"/>
+       <opcode name="EventsloggedafterUIislaunchedorafteranattempttolaunchtheUIismade." message="$(string.opcode_UIEventsEventsloggedafterUIislaunchedorafteranattempttolaunchtheUIismade.)" value="32"/>
+      </opcodes>
+     </task>
+     <task name="LeakDiagnosisEvents" message="$(string.task_LeakDiagnosisEvents)" value="5">
+>
+      <opcodes>
+       <opcode name="Eventsloggedafteranattempttolaunchtheleakdiagnoserismade." message="$(string.opcode_LeakDiagnosisEventsEventsloggedafteranattempttolaunchtheleakdiagnoserismade.)" value="41"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="1001" symbol="LifecycleEventsEventsloggedwhentheresourceexhaustionresolverisstarted." version="0" task="LifecycleEvents" opcode="Eventsloggedwhentheresourceexhaustionresolverisstarted." level="win:Informational" keywords="RDR_RES_KEYWORD_LIFECYCLE"/>
+     <event value="1002" symbol="LifecycleEventsEventsloggedwhentheresourceexhaustionresolverisstopped." version="0" task="LifecycleEvents" opcode="Eventsloggedwhentheresourceexhaustionresolverisstopped." level="win:Informational" keywords="RDR_RES_KEYWORD_LIFECYCLE"/>
+     <event value="1003" symbol="ResolutionEventsEventsloggedafterperformingtheresolutionactions" version="0" task="ResolutionEvents" opcode="Eventsloggedafterperformingtheresolutionactions" level="win:Warning" keywords="RDR_RES_KEYWORD_MEMORY_EXHAUSTION" template="ResolutionEventsEventsloggedafterperformingtheresolutionactionsArgs"/>
+     <event value="1004" symbol="UIEventsEventsloggedbeforeUIislaunched." version="0" task="UIEvents" opcode="EventsloggedbeforeUIislaunched." level="win:Warning" keywords="RDR_RES_KEYWORD_MEMORY_EXHAUSTION keyword_400000000000" template="UIEventsEventsloggedbeforeUIislaunched.Args"/>
+     <event value="1005" symbol="LifecycleEventsEventsloggedwhentheresourceexhaustionresolverisstarted.1005" version="0" task="LifecycleEvents" opcode="Eventsloggedwhentheresourceexhaustionresolverisstarted." level="win:Error" keywords="RDR_RES_KEYWORD_LIFECYCLE" template="LifecycleEventsEventsloggedwhentheresourceexhaustionresolverisstarted.1005Args"/>
+     <event value="1006" symbol="LifecycleEventsEventsloggedwhentheresourceexhaustionresolverisstopped.1006" version="0" task="LifecycleEvents" opcode="Eventsloggedwhentheresourceexhaustionresolverisstopped." level="win:Error" keywords="RDR_RES_KEYWORD_LIFECYCLE" template="LifecycleEventsEventsloggedwhentheresourceexhaustionresolverisstarted.1005Args"/>
+     <event value="1007" symbol="LifecycleEventsEventsloggedafteramemoryallocation." version="0" task="LifecycleEvents" opcode="Eventsloggedafteramemoryallocation." level="win:Error" keywords="RDR_RES_KEYWORD_LIFECYCLE" template="LifecycleEventsEventsloggedafteramemoryallocation.Args"/>
+     <event value="1008" symbol="UIEventsEventsloggedafterUIislaunchedorafteranattempttolaunchtheUIismade." version="0" task="UIEvents" opcode="EventsloggedafterUIislaunchedorafteranattempttolaunchtheUIismade." level="win:Error" keywords="RDR_RES_KEYWORD_MEMORY_EXHAUSTION keyword_400000000000" template="LifecycleEventsEventsloggedwhentheresourceexhaustionresolverisstarted.1005Args"/>
+     <event value="1009" symbol="UIEventsEventsloggedafterUIislaunchedorafteranattempttolaunchtheUIismade.1009" version="0" task="UIEvents" opcode="EventsloggedafterUIislaunchedorafteranattempttolaunchtheUIismade." level="win:Informational" keywords="RDR_RES_KEYWORD_MEMORY_EXHAUSTION" template="UIEventsEventsloggedafterUIislaunchedorafteranattempttolaunchtheUIismade.1009Args"/>
+     <event value="1010" symbol="ResolutionEventsEventsloggedafterperformingtheresolutionactions1010" version="0" task="ResolutionEvents" opcode="Eventsloggedafterperformingtheresolutionactions" level="win:Informational" keywords="RDR_RES_KEYWORD_MEMORY_EXHAUSTION keyword_400000000000" template="ResolutionEventsEventsloggedafterperformingtheresolutionactions1010Args"/>
+     <event value="1011" symbol="ResolutionEventsEventsloggedafterperformingtheresolutionactions1011" version="0" task="ResolutionEvents" opcode="Eventsloggedafterperformingtheresolutionactions" level="win:Informational" keywords="RDR_RES_KEYWORD_MEMORY_EXHAUSTION keyword_400000000000" template="ResolutionEventsEventsloggedafterperformingtheresolutionactions1010Args"/>
+     <event value="1012" symbol="ResolutionEventsEventsloggedafterperformingtheresolutionactions1012" version="0" task="ResolutionEvents" opcode="Eventsloggedafterperformingtheresolutionactions" level="win:Informational" keywords="RDR_RES_KEYWORD_MEMORY_EXHAUSTION keyword_400000000000" template="ResolutionEventsEventsloggedafterperformingtheresolutionactions1012Args"/>
+     <event value="1013" symbol="ResolutionEventsEventsloggedafterperformingtheresolutionactions1013" version="0" task="ResolutionEvents" opcode="Eventsloggedafterperformingtheresolutionactions" level="win:Informational" keywords="RDR_RES_KEYWORD_MEMORY_EXHAUSTION keyword_400000000000" template="ResolutionEventsEventsloggedafterperformingtheresolutionactions1012Args"/>
+     <event value="1014" symbol="LeakDiagnosisEventsEventsloggedafteranattempttolaunchtheleakdiagnoserismade." version="0" task="LeakDiagnosisEvents" opcode="Eventsloggedafteranattempttolaunchtheleakdiagnoserismade." level="win:Informational" keywords="RDR_RES_KEYWORD_LEAK_DIAGNOSIS" template="LeakDiagnosisEventsEventsloggedafteranattempttolaunchtheleakdiagnoserismade.Args"/>
+     <event value="1015" symbol="ResolutionEventsEventsloggedwhendiagnosisisstarted." version="0" task="ResolutionEvents" opcode="Eventsloggedwhendiagnosisisstarted." level="win:Informational" keywords="RDR_RES_KEYWORD_MEMORY_EXHAUSTION" template="ResolutionEventsEventsloggedwhendiagnosisisstarted.Args"/>
+     <event value="1016" symbol="ResolutionEventsEventsloggedafterperformingtheresolutionactions1016" version="0" task="ResolutionEvents" opcode="Eventsloggedafterperformingtheresolutionactions" level="win:Informational" keywords="RDR_RES_KEYWORD_MEMORY_EXHAUSTION" template="ResolutionEventsEventsloggedafterperformingtheresolutionactions1016Args"/>
+     <event value="1017" symbol="ResolutionEventsEventsloggedafterperformingtheresolutionactions1017" version="0" task="ResolutionEvents" opcode="Eventsloggedafterperformingtheresolutionactions" level="win:Informational" keywords="RDR_RES_KEYWORD_MEMORY_EXHAUSTION keyword_400000000000" template="UIEventsEventsloggedafterUIislaunchedorafteranattempttolaunchtheUIismade.1009Args"/>
+    </events>
+    <templates>
+     <template tid="ResolutionEventsEventsloggedafterperformingtheresolutionactionsArgs">
+      <data name="TimeSinceLastUI" inType="win:UInt32"/>
+      <data name="EventGenerationTime" inType="win:FILETIME"/>
+      <data name="EventType" inType="win:UInt32"/>
+      <data name="DropReasonCode" inType="win:UInt32"/>
+      <data name="TimesUIShown" inType="win:UInt8"/>
+      <data name="MaxCommit" inType="win:UInt8"/>
+     </template>
+     <template tid="UIEventsEventsloggedbeforeUIislaunched.Args">
+      <data name="Process_1_Name" inType="win:UnicodeString"/>
+      <data name="Process_1_ID" inType="win:UInt32"/>
+      <data name="Process_1_CreationTime" inType="win:FILETIME"/>
+      <data name="Process_1_Version" inType="win:UnicodeString"/>
+      <data name="Process_2_Name" inType="win:UnicodeString"/>
+      <data name="Process_2_ID" inType="win:UInt32"/>
+      <data name="Process_2_CreationTime" inType="win:FILETIME"/>
+      <data name="Process_2_Version" inType="win:UnicodeString"/>
+      <data name="Process_3_Name" inType="win:UnicodeString"/>
+      <data name="Process_3_ID" inType="win:UInt32"/>
+      <data name="Process_3_CreationTime" inType="win:FILETIME"/>
+      <data name="Process_3_Version" inType="win:UnicodeString"/>
+      <data name="ResolverID" inType="win:UInt32"/>
+      <data name="EventGenerationTime" inType="win:FILETIME"/>
+     </template>
+     <template tid="LifecycleEventsEventsloggedwhentheresourceexhaustionresolverisstarted.1005Args">
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="LifecycleEventsEventsloggedafteramemoryallocation.Args">
+      <data name="RequestSize" inType="win:UInt64"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="UIEventsEventsloggedafterUIislaunchedorafteranattempttolaunchtheUIismade.1009Args">
+      <data name="UIDisplayTime" inType="win:UInt32"/>
+      <data name="UserAction" inType="win:Int32"/>
+      <data name="MaxCommit" inType="win:UInt8"/>
+     </template>
+     <template tid="ResolutionEventsEventsloggedafterperformingtheresolutionactions1010Args">
+      <data name="ReasonCode" inType="win:UInt32"/>
+      <data name="UserAction" inType="win:Int32"/>
+      <data name="MaxCommit" inType="win:UInt8"/>
+     </template>
+     <template tid="ResolutionEventsEventsloggedafterperformingtheresolutionactions1012Args">
+      <data name="TimesUIShown" inType="win:UInt8"/>
+      <data name="UserAction" inType="win:Int32"/>
+     </template>
+     <template tid="LeakDiagnosisEventsEventsloggedafteranattempttolaunchtheleakdiagnoserismade.Args">
+      <data name="ProcessImageName" inType="win:UnicodeString"/>
+      <data name="PID" inType="win:UInt32"/>
+      <data name="CreationTime" inType="win:FILETIME"/>
+      <data name="DropReasonCode" inType="win:UInt32"/>
+     </template>
+     <template tid="ResolutionEventsEventsloggedwhendiagnosisisstarted.Args">
+      <data name="Event" inType="win:UInt32"/>
+     </template>
+     <template tid="ResolutionEventsEventsloggedafterperformingtheresolutionactions1016Args">
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="ResolutionAttempted" inType="win:UInt8"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_RDR_RES_KEYWORD_LIFECYCLE" value="RDR_RES_KEYWORD_LIFECYCLE"/>
+    <string id="keyword_RDR_RES_KEYWORD_MEMORY_EXHAUSTION" value="RDR_RES_KEYWORD_MEMORY_EXHAUSTION"/>
+    <string id="keyword_RDR_RES_KEYWORD_LEAK_DIAGNOSIS" value="RDR_RES_KEYWORD_LEAK_DIAGNOSIS"/>
+    <string id="keyword_keyword_400000000000" value="keyword_400000000000"/>
+    <string id="task_LifecycleEvents" value="LifecycleEvents"/>
+    <string id="opcode_LifecycleEventsEventsloggedwhentheresourceexhaustionresolverisstarted." value="Eventsloggedwhentheresourceexhaustionresolverisstarted."/>
+    <string id="opcode_LifecycleEventsEventsloggedwhentheresourceexhaustionresolverisstopped." value="Eventsloggedwhentheresourceexhaustionresolverisstopped."/>
+    <string id="opcode_LifecycleEventsEventsloggedafteramemoryallocation." value="Eventsloggedafteramemoryallocation."/>
+    <string id="task_ResolutionEvents" value="ResolutionEvents"/>
+    <string id="opcode_ResolutionEventsEventsloggedwhendiagnosisisstarted." value="Eventsloggedwhendiagnosisisstarted."/>
+    <string id="opcode_ResolutionEventsEventsloggedafterperformingtheresolutionactions" value="Eventsloggedafterperformingtheresolutionactions"/>
+    <string id="task_UIEvents" value="UIEvents"/>
+    <string id="opcode_UIEventsEventsloggedbeforeUIislaunched." value="EventsloggedbeforeUIislaunched."/>
+    <string id="opcode_UIEventsEventsloggedafterUIislaunchedorafteranattempttolaunchtheUIismade." value="EventsloggedafterUIislaunchedorafteranattempttolaunchtheUIismade."/>
+    <string id="task_LeakDiagnosisEvents" value="LeakDiagnosisEvents"/>
+    <string id="opcode_LeakDiagnosisEventsEventsloggedafteranattempttolaunchtheleakdiagnoserismade." value="Eventsloggedafteranattempttolaunchtheleakdiagnoserismade."/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

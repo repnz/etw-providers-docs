@@ -1,0 +1,93 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Schannel-Events" guid="{91cc1150-71aa-47e2-ae18-c96e61736b6f}" resourceFileName="Microsoft-Windows-Schannel-Events" messageFileName="Microsoft-Windows-Schannel-Events" symbol="MicrosoftWindowsSchannelEvents" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="AcquireCredentialHandle" message="$(string.task_AcquireCredentialHandle)" value="4096"/>
+     <task name="AcceptSecurityContext" message="$(string.task_AcceptSecurityContext)" value="8192"/>
+     <task name="MemoryAllocation" message="$(string.task_MemoryAllocation)" value="12288">
+>
+      <opcodes>
+       <opcode name="Allocate" message="$(string.opcode_MemoryAllocationAllocate)" value="21"/>
+       <opcode name="Free" message="$(string.opcode_MemoryAllocationFree)" value="31"/>
+      </opcodes>
+     </task>
+     <task name="CAPI2Calls" message="$(string.task_CAPI2Calls)" value="16384"/>
+     <task name="PKCrypto" message="$(string.task_PKCrypto)" value="20480"/>
+     <task name="FreeCredentialHandle" message="$(string.task_FreeCredentialHandle)" value="24576"/>
+     <task name="DeleteSecurityContext" message="$(string.task_DeleteSecurityContext)" value="28672"/>
+    </tasks>
+    <events>
+     <event value="257" symbol="AcquireCredentialHandleStart" version="0" task="AcquireCredentialHandle" opcode="win:Start" level="win:Informational"/>
+     <event value="258" symbol="AcquireCredentialHandleStop" version="0" task="AcquireCredentialHandle" opcode="win:Stop" level="win:Informational" template="AcquireCredentialHandleStopArgs"/>
+     <event value="513" symbol="AcceptSecurityContextStart" version="0" task="AcceptSecurityContext" opcode="win:Start" level="win:Informational" template="AcceptSecurityContextStartArgs"/>
+     <event value="514" symbol="AcceptSecurityContextStop" version="0" task="AcceptSecurityContext" opcode="win:Stop" level="win:Informational" template="AcceptSecurityContextStopArgs"/>
+     <event value="769" symbol="MemoryAllocationAllocate" version="0" task="MemoryAllocation" opcode="Allocate" level="win:Informational" template="MemoryAllocationAllocateArgs"/>
+     <event value="770" symbol="MemoryAllocationFree" version="0" task="MemoryAllocation" opcode="Free" level="win:Informational" template="MemoryAllocationFreeArgs"/>
+     <event value="1025" symbol="CAPI2CallsStart" version="0" task="CAPI2Calls" opcode="win:Start" level="win:Informational"/>
+     <event value="1026" symbol="CAPI2CallsStop" version="0" task="CAPI2Calls" opcode="win:Stop" level="win:Informational"/>
+     <event value="1027" symbol="CAPI2CallsStart1027" version="0" task="CAPI2Calls" opcode="win:Start" level="win:Informational"/>
+     <event value="1028" symbol="CAPI2CallsStop1028" version="0" task="CAPI2Calls" opcode="win:Stop" level="win:Informational"/>
+     <event value="1029" symbol="CAPI2CallsStart1029" version="0" task="CAPI2Calls" opcode="win:Start" level="win:Informational"/>
+     <event value="1030" symbol="CAPI2CallsStop1030" version="0" task="CAPI2Calls" opcode="win:Stop" level="win:Informational"/>
+     <event value="1031" symbol="CAPI2CallsStart1031" version="0" task="CAPI2Calls" opcode="win:Start" level="win:Informational"/>
+     <event value="1032" symbol="CAPI2CallsStop1032" version="0" task="CAPI2Calls" opcode="win:Stop" level="win:Informational"/>
+     <event value="1033" symbol="CAPI2CallsStart1033" version="0" task="CAPI2Calls" opcode="win:Start" level="win:Informational"/>
+     <event value="1034" symbol="CAPI2CallsStop1034" version="0" task="CAPI2Calls" opcode="win:Stop" level="win:Informational"/>
+     <event value="1281" symbol="PKCryptoStart" version="0" task="PKCrypto" opcode="win:Start" level="win:Informational"/>
+     <event value="1282" symbol="PKCryptoStop" version="0" task="PKCrypto" opcode="win:Stop" level="win:Informational"/>
+     <event value="1283" symbol="PKCryptoStart1283" version="0" task="PKCrypto" opcode="win:Start" level="win:Informational"/>
+     <event value="1284" symbol="PKCryptoStop1284" version="0" task="PKCrypto" opcode="win:Stop" level="win:Informational"/>
+     <event value="1537" symbol="FreeCredentialHandleStart" version="0" task="FreeCredentialHandle" opcode="win:Start" level="win:Informational" template="FreeCredentialHandleStartArgs"/>
+     <event value="1538" symbol="FreeCredentialHandleStop" version="0" task="FreeCredentialHandle" opcode="win:Stop" level="win:Informational"/>
+     <event value="1793" symbol="DeleteSecurityContextStart" version="0" task="DeleteSecurityContext" opcode="win:Start" level="win:Informational" template="DeleteSecurityContextStartArgs"/>
+     <event value="1794" symbol="DeleteSecurityContextStop" version="0" task="DeleteSecurityContext" opcode="win:Stop" level="win:Informational"/>
+    </events>
+    <templates>
+     <template tid="AcquireCredentialHandleStopArgs">
+      <data name="ReturnValue" inType="win:HexInt32"/>
+     </template>
+     <template tid="AcceptSecurityContextStartArgs">
+      <data name="CredHandle" inType="win:Pointer"/>
+      <data name="ContextHandle" inType="win:Pointer"/>
+     </template>
+     <template tid="AcceptSecurityContextStopArgs">
+      <data name="ContextHandle" inType="win:Pointer"/>
+      <data name="ReturnValue" inType="win:HexInt32"/>
+     </template>
+     <template tid="MemoryAllocationAllocateArgs">
+      <data name="Address" inType="win:Pointer"/>
+      <data name="AllocationSize" inType="win:HexInt32"/>
+     </template>
+     <template tid="MemoryAllocationFreeArgs">
+      <data name="Address" inType="win:Pointer"/>
+     </template>
+     <template tid="FreeCredentialHandleStartArgs">
+      <data name="CredHandle" inType="win:Pointer"/>
+     </template>
+     <template tid="DeleteSecurityContextStartArgs">
+      <data name="ContextHandle" inType="win:Pointer"/>
+      <data name="TargetName" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_AcquireCredentialHandle" value="AcquireCredentialHandle"/>
+    <string id="task_AcceptSecurityContext" value="AcceptSecurityContext"/>
+    <string id="task_MemoryAllocation" value="MemoryAllocation"/>
+    <string id="opcode_MemoryAllocationAllocate" value="Allocate"/>
+    <string id="opcode_MemoryAllocationFree" value="Free"/>
+    <string id="task_CAPI2Calls" value="CAPI2Calls"/>
+    <string id="task_PKCrypto" value="PKCrypto"/>
+    <string id="task_FreeCredentialHandle" value="FreeCredentialHandle"/>
+    <string id="task_DeleteSecurityContext" value="DeleteSecurityContext"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

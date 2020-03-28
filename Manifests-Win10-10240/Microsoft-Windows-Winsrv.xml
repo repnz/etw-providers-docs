@@ -1,0 +1,108 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Winsrv" guid="{9d55b53d-449b-4824-a637-24f9d69aa02f}" resourceFileName="Microsoft-Windows-Winsrv" messageFileName="Microsoft-Windows-Winsrv" symbol="MicrosoftWindowsWinsrv" source="Xml" >
+    <keywords>
+     <keyword name="Perf" message="$(string.keyword_Perf)" mask="0x100"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="ThreadShutdown" message="$(string.task_ThreadShutdown)" value="12001"/>
+     <task name="ThreadShutdown_SentMessage" message="$(string.task_ThreadShutdown_SentMessage)" value="12003"/>
+     <task name="TerminateProcess" message="$(string.task_TerminateProcess)" value="12005"/>
+     <task name="WaitForProcess" message="$(string.task_WaitForProcess)" value="12007"/>
+     <task name="ShutdownProcess" message="$(string.task_ShutdownProcess)" value="12009"/>
+    </tasks>
+    <events>
+     <event value="10001" symbol="task_0" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+     <event value="10002" symbol="task_010002" version="0" task="task_0" level="win:Informational" template="task_010002Args"/>
+     <event value="12001" symbol="ThreadShutdownStart" version="0" task="ThreadShutdown" opcode="win:Start" level="win:Informational" keywords="Perf" template="ThreadShutdownStartArgs"/>
+     <event value="12001" symbol="ThreadShutdownStart_V1" version="1" task="ThreadShutdown" opcode="win:Start" level="win:Informational" keywords="Perf" template="ThreadShutdownStartArgs_V1"/>
+     <event value="12002" symbol="ThreadShutdownStop" version="0" task="ThreadShutdown" opcode="win:Stop" level="win:Informational" keywords="Perf" template="ThreadShutdownStopArgs"/>
+     <event value="12002" symbol="ThreadShutdownStop_V1" version="1" task="ThreadShutdown" opcode="win:Stop" level="win:Informational" keywords="Perf" template="ThreadShutdownStopArgs_V1"/>
+     <event value="12003" symbol="ThreadShutdown_SentMessage" version="0" task="ThreadShutdown_SentMessage" level="win:Informational" keywords="Perf" template="ThreadShutdown_SentMessageArgs"/>
+     <event value="12003" symbol="ThreadShutdown_SentMessage_V1" version="1" task="ThreadShutdown_SentMessage" level="win:Informational" keywords="Perf" template="ThreadShutdown_SentMessageArgs_V1"/>
+     <event value="12005" symbol="TerminateProcessStart" version="0" task="TerminateProcess" opcode="win:Start" level="win:Informational" keywords="Perf"/>
+     <event value="12005" symbol="TerminateProcessStart_V1" version="1" task="TerminateProcess" opcode="win:Start" level="win:Informational" keywords="Perf" template="TerminateProcessStartArgs_V1"/>
+     <event value="12006" symbol="TerminateProcessStop" version="0" task="TerminateProcess" opcode="win:Stop" level="win:Informational" keywords="Perf"/>
+     <event value="12006" symbol="TerminateProcessStop_V1" version="1" task="TerminateProcess" opcode="win:Stop" level="win:Informational" keywords="Perf" template="TerminateProcessStopArgs_V1"/>
+     <event value="12007" symbol="WaitForProcessStart" version="0" task="WaitForProcess" opcode="win:Start" level="win:Informational" keywords="Perf"/>
+     <event value="12007" symbol="WaitForProcessStart_V1" version="1" task="WaitForProcess" opcode="win:Start" level="win:Informational" keywords="Perf" template="TerminateProcessStartArgs_V1"/>
+     <event value="12008" symbol="WaitForProcessStop" version="0" task="WaitForProcess" opcode="win:Stop" level="win:Informational" keywords="Perf" template="WaitForProcessStopArgs"/>
+     <event value="12008" symbol="WaitForProcessStop_V1" version="1" task="WaitForProcess" opcode="win:Stop" level="win:Informational" keywords="Perf" template="WaitForProcessStopArgs_V1"/>
+     <event value="12009" symbol="ShutdownProcessStart_V1" version="1" task="ShutdownProcess" opcode="win:Start" level="win:Informational" keywords="Perf" template="ShutdownProcessStartArgs_V1"/>
+     <event value="12010" symbol="ShutdownProcessStop_V1" version="1" task="ShutdownProcess" opcode="win:Stop" level="win:Informational" keywords="Perf" template="ShutdownProcessStopArgs_V1"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="AppName" inType="win:UnicodeString"/>
+      <data name="ResponseTime" inType="win:UInt32"/>
+     </template>
+     <template tid="task_010002Args">
+      <data name="AppName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ThreadShutdownStartArgs">
+      <data name="ThreadId" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+     </template>
+     <template tid="ThreadShutdownStopArgs">
+      <data name="Command" inType="win:UInt32"/>
+     </template>
+     <template tid="ThreadShutdown_SentMessageArgs">
+      <data name="MessageId" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+     </template>
+     <template tid="WaitForProcessStopArgs">
+      <data name="WaitStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="ThreadShutdownStartArgs_V1">
+      <data name="ThreadId" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="ProcessId" inType="win:UInt32"/>
+     </template>
+     <template tid="ThreadShutdownStopArgs_V1">
+      <data name="Command" inType="win:UInt32"/>
+      <data name="ThreadId" inType="win:UInt32"/>
+     </template>
+     <template tid="ThreadShutdown_SentMessageArgs_V1">
+      <data name="MessageId" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="ThreadId" inType="win:UInt32"/>
+     </template>
+     <template tid="TerminateProcessStartArgs_V1">
+      <data name="ProcessId" inType="win:UInt32"/>
+     </template>
+     <template tid="TerminateProcessStopArgs_V1">
+      <data name="ProcessId" inType="win:UInt32"/>
+      <data name="TerminateStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="WaitForProcessStopArgs_V1">
+      <data name="WaitStatus" inType="win:UInt32"/>
+      <data name="ProcessId" inType="win:UInt32"/>
+     </template>
+     <template tid="ShutdownProcessStartArgs_V1">
+      <data name="ProcessId" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+     </template>
+     <template tid="ShutdownProcessStopArgs_V1">
+      <data name="ProcessId" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Perf" value="Perf"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_ThreadShutdown" value="ThreadShutdown"/>
+    <string id="task_ThreadShutdown_SentMessage" value="ThreadShutdown_SentMessage"/>
+    <string id="task_TerminateProcess" value="TerminateProcess"/>
+    <string id="task_WaitForProcess" value="WaitForProcess"/>
+    <string id="task_ShutdownProcess" value="ShutdownProcess"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

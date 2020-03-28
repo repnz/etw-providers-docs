@@ -1,0 +1,34 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-EDP-Audit-TCB" guid="{287d59b6-79ba-4741-a08b-2fedeede6435}" resourceFileName="Microsoft-Windows-EDP-Audit-TCB" messageFileName="Microsoft-Windows-EDP-Audit-TCB" symbol="MicrosoftWindowsEDPAuditTCB" source="Xml" >
+    <keywords>
+     <keyword name="EDP_Audit_Keyword_ProtectionRemoved" message="$(string.keyword_EDP_Audit_Keyword_ProtectionRemoved)" mask="0x10"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <events>
+     <event value="101" symbol="task_0" version="0" task="task_0" level="win:Informational" keywords="EDP_Audit_Keyword_ProtectionRemoved" template="task_0Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="UserId" inType="win:SID"/>
+      <data name="Policy" inType="win:UnicodeString"/>
+      <data name="Justification" inType="win:UnicodeString"/>
+      <data name="PreviousEnterpriseId" inType="win:UnicodeString"/>
+      <data name="FilePath" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_EDP_Audit_Keyword_ProtectionRemoved" value="EDP_Audit_Keyword_ProtectionRemoved"/>
+    <string id="task_task_0" value="task_0"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

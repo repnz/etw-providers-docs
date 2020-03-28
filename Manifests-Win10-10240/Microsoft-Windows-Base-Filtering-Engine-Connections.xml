@@ -1,0 +1,91 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Base-Filtering-Engine-Connections" guid="{121d3da8-baf1-4dcb-929f-2d4c9a47f7ab}" resourceFileName="Microsoft-Windows-Base-Filtering-Engine-Connections" messageFileName="Microsoft-Windows-Base-Filtering-Engine-Connections" symbol="MicrosoftWindowsBaseFilteringEngineConnections" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <maps>
+     <valueMap name="AuthMethod_valueMap">
+      <map value="0x0" message="$(string.map_AuthMethod_valueMapPRESHARED_KEY)"/>
+      <map value="0x1" message="$(string.map_AuthMethod_valueMapCERTIFICATE)"/>
+      <map value="0x2" message="$(string.map_AuthMethod_valueMapKERBEROS)"/>
+      <map value="0x3" message="$(string.map_AuthMethod_valueMapANONYMOUS)"/>
+      <map value="0x4" message="$(string.map_AuthMethod_valueMapSSL)"/>
+      <map value="0x5" message="$(string.map_AuthMethod_valueMapNTLM_V2)"/>
+      <map value="0x6" message="$(string.map_AuthMethod_valueMapIPV6_CGA)"/>
+      <map value="0x7" message="$(string.map_AuthMethod_valueMapCERTIFICATE_ECDSA_384)"/>
+      <map value="0x8" message="$(string.map_AuthMethod_valueMapCERTIFICATE_ECDSA_384)"/>
+      <map value="0x9" message="$(string.map_AuthMethod_valueMapSSL_ECDSA_P256)"/>
+      <map value="0xa" message="$(string.map_AuthMethod_valueMapSSL_ECDSA_P384)"/>
+      <map value="0xb" message="$(string.map_AuthMethod_valueMapEAP)"/>
+      <map value="0xc" message="$(string.map_AuthMethod_valueMapMax)"/>
+     </valueMap>
+     <valueMap name="IPsecTrafficMode_valueMap">
+      <map value="0x0" message="$(string.map_IPsecTrafficMode_valueMapTransport Mode)"/>
+      <map value="0x1" message="$(string.map_IPsecTrafficMode_valueMapTunnel Mode)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="2000" symbol="task_0" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+     <event value="2001" symbol="task_02001" version="0" task="task_0" level="win:Informational" template="task_02001Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="ConnectionId" inType="win:UInt64"/>
+      <data name="MachineAuthenticationMethod" inType="win:UInt32" map="AuthMethod_valueMap"/>
+      <data name="RemoteMachineAccount" inType="win:UnicodeString"/>
+      <data name="UserAuthenticationMethod" inType="win:UInt32"/>
+      <data name="RemoteUserAcount" inType="win:UnicodeString"/>
+      <data name="RemoteIPAddress" inType="win:UnicodeString"/>
+      <data name="LocalIPAddress" inType="win:UnicodeString"/>
+      <data name="TechnologyProviderKey" inType="win:GUID"/>
+      <data name="IPsecTrafficMode" inType="win:UInt32" map="IPsecTrafficMode_valueMap"/>
+      <data name="DHGroup" inType="win:UInt32"/>
+      <data name="StartTime" inType="win:SYSTEMTIME"/>
+     </template>
+     <template tid="task_02001Args">
+      <data name="ConnectionId" inType="win:UInt64"/>
+      <data name="MachineAuthenticationMethod" inType="win:UInt32"/>
+      <data name="RemoteMachineAccount" inType="win:UnicodeString"/>
+      <data name="UserAuthenticationMethod" inType="win:UInt32"/>
+      <data name="RemoteUserAcount" inType="win:UnicodeString"/>
+      <data name="RemoteIPAddress" inType="win:UnicodeString"/>
+      <data name="LocalIPAddress" inType="win:UnicodeString"/>
+      <data name="TechnologyProviderKey" inType="win:GUID"/>
+      <data name="IPsecTrafficMode" inType="win:UInt32"/>
+      <data name="BytesTransferredInbound" inType="win:UInt64"/>
+      <data name="BytesTransferredOutbound" inType="win:UInt64"/>
+      <data name="BytesTransferredTotal" inType="win:UInt64"/>
+      <data name="StartTime" inType="win:SYSTEMTIME"/>
+      <data name="CloseTime" inType="win:SYSTEMTIME"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_task_0" value="task_0"/>
+    <string id="map_AuthMethod_valueMapPRESHARED_KEY" value="PRESHARED_KEY"/>
+    <string id="map_AuthMethod_valueMapCERTIFICATE" value="CERTIFICATE"/>
+    <string id="map_AuthMethod_valueMapKERBEROS" value="KERBEROS"/>
+    <string id="map_AuthMethod_valueMapANONYMOUS" value="ANONYMOUS"/>
+    <string id="map_AuthMethod_valueMapSSL" value="SSL"/>
+    <string id="map_AuthMethod_valueMapNTLM_V2" value="NTLM_V2"/>
+    <string id="map_AuthMethod_valueMapIPV6_CGA" value="IPV6_CGA"/>
+    <string id="map_AuthMethod_valueMapCERTIFICATE_ECDSA_384" value="CERTIFICATE_ECDSA_384"/>
+    <string id="map_AuthMethod_valueMapCERTIFICATE_ECDSA_384" value="CERTIFICATE_ECDSA_384"/>
+    <string id="map_AuthMethod_valueMapSSL_ECDSA_P256" value="SSL_ECDSA_P256"/>
+    <string id="map_AuthMethod_valueMapSSL_ECDSA_P384" value="SSL_ECDSA_P384"/>
+    <string id="map_AuthMethod_valueMapEAP" value="EAP"/>
+    <string id="map_AuthMethod_valueMapMax" value="Max"/>
+    <string id="map_IPsecTrafficMode_valueMapTransport Mode" value="Transport Mode"/>
+    <string id="map_IPsecTrafficMode_valueMapTunnel Mode" value="Tunnel Mode"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

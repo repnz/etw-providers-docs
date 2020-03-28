@@ -1,0 +1,1324 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-DotNETRuntime" guid="{e13c0d23-ccbc-4e12-931b-d9cc2eee27e4}" resourceFileName="Microsoft-Windows-DotNETRuntime" messageFileName="Microsoft-Windows-DotNETRuntime" symbol="MicrosoftWindowsDotNETRuntime" source="Xml" >
+    <keywords>
+     <keyword name="GCKeyword" message="$(string.keyword_GCKeyword)" mask="0x1"/>
+     <keyword name="GCHandleKeyword" message="$(string.keyword_GCHandleKeyword)" mask="0x2"/>
+     <keyword name="FusionKeyword" message="$(string.keyword_FusionKeyword)" mask="0x4"/>
+     <keyword name="LoaderKeyword" message="$(string.keyword_LoaderKeyword)" mask="0x8"/>
+     <keyword name="JitKeyword" message="$(string.keyword_JitKeyword)" mask="0x10"/>
+     <keyword name="NGenKeyword" message="$(string.keyword_NGenKeyword)" mask="0x20"/>
+     <keyword name="StartEnumerationKeyword" message="$(string.keyword_StartEnumerationKeyword)" mask="0x40"/>
+     <keyword name="EndEnumerationKeyword" message="$(string.keyword_EndEnumerationKeyword)" mask="0x80"/>
+     <keyword name="SecurityKeyword" message="$(string.keyword_SecurityKeyword)" mask="0x400"/>
+     <keyword name="AppDomainResourceManagementKeyword" message="$(string.keyword_AppDomainResourceManagementKeyword)" mask="0x800"/>
+     <keyword name="JitTracingKeyword" message="$(string.keyword_JitTracingKeyword)" mask="0x1000"/>
+     <keyword name="InteropKeyword" message="$(string.keyword_InteropKeyword)" mask="0x2000"/>
+     <keyword name="ContentionKeyword" message="$(string.keyword_ContentionKeyword)" mask="0x4000"/>
+     <keyword name="ExceptionKeyword" message="$(string.keyword_ExceptionKeyword)" mask="0x8000"/>
+     <keyword name="ThreadingKeyword" message="$(string.keyword_ThreadingKeyword)" mask="0x10000"/>
+     <keyword name="JittedMethodILToNativeMapKeyword" message="$(string.keyword_JittedMethodILToNativeMapKeyword)" mask="0x20000"/>
+     <keyword name="OverrideAndSuppressNGenEventsKeyword" message="$(string.keyword_OverrideAndSuppressNGenEventsKeyword)" mask="0x40000"/>
+     <keyword name="TypeKeyword" message="$(string.keyword_TypeKeyword)" mask="0x80000"/>
+     <keyword name="GCHeapDumpKeyword" message="$(string.keyword_GCHeapDumpKeyword)" mask="0x100000"/>
+     <keyword name="GCSampledObjectAllocationHighKeyword" message="$(string.keyword_GCSampledObjectAllocationHighKeyword)" mask="0x200000"/>
+     <keyword name="GCHeapSurvivalAndMovementKeyword" message="$(string.keyword_GCHeapSurvivalAndMovementKeyword)" mask="0x400000"/>
+     <keyword name="GCHeapCollectKeyword" message="$(string.keyword_GCHeapCollectKeyword)" mask="0x800000"/>
+     <keyword name="GCHeapAndTypeNamesKeyword" message="$(string.keyword_GCHeapAndTypeNamesKeyword)" mask="0x1000000"/>
+     <keyword name="GCSampledObjectAllocationLowKeyword" message="$(string.keyword_GCSampledObjectAllocationLowKeyword)" mask="0x2000000"/>
+     <keyword name="PerfTrackKeyword" message="$(string.keyword_PerfTrackKeyword)" mask="0x20000000"/>
+     <keyword name="StackKeyword" message="$(string.keyword_StackKeyword)" mask="0x40000000"/>
+     <keyword name="ThreadTransferKeyword" message="$(string.keyword_ThreadTransferKeyword)" mask="0x80000000"/>
+     <keyword name="DebuggerKeyword" message="$(string.keyword_DebuggerKeyword)" mask="0x100000000"/>
+     <keyword name="MonitoringKeyword" message="$(string.keyword_MonitoringKeyword)" mask="0x200000000"/>
+    </keywords>
+    <tasks>
+     <task name="GC" message="$(string.task_GC)" value="1">
+>
+      <opcodes>
+       <opcode name="SuspendEEStart" message="$(string.opcode_GCSuspendEEStart)" value="10"/>
+       <opcode name="AllocationTick" message="$(string.opcode_GCAllocationTick)" value="11"/>
+       <opcode name="CreateConcurrentThread" message="$(string.opcode_GCCreateConcurrentThread)" value="12"/>
+       <opcode name="TerminateConcurrentThread" message="$(string.opcode_GCTerminateConcurrentThread)" value="13"/>
+       <opcode name="FinalizersStop" message="$(string.opcode_GCFinalizersStop)" value="15"/>
+       <opcode name="FinalizersStart" message="$(string.opcode_GCFinalizersStart)" value="19"/>
+       <opcode name="GCBulkRootEdge" message="$(string.opcode_GCGCBulkRootEdge)" value="20"/>
+       <opcode name="GCBulkRootConditionalWeakTableElementEdge" message="$(string.opcode_GCGCBulkRootConditionalWeakTableElementEdge)" value="21"/>
+       <opcode name="GCBulkNode" message="$(string.opcode_GCGCBulkNode)" value="22"/>
+       <opcode name="GCBulkEdge" message="$(string.opcode_GCGCBulkEdge)" value="23"/>
+       <opcode name="GCSampledObjectAllocation" message="$(string.opcode_GCGCSampledObjectAllocation)" value="24"/>
+       <opcode name="GCBulkSurvivingObjectRanges" message="$(string.opcode_GCGCBulkSurvivingObjectRanges)" value="25"/>
+       <opcode name="GCBulkMovedObjectRanges" message="$(string.opcode_GCGCBulkMovedObjectRanges)" value="26"/>
+       <opcode name="GCGenerationRange" message="$(string.opcode_GCGCGenerationRange)" value="27"/>
+       <opcode name="MarkStackRoots" message="$(string.opcode_GCMarkStackRoots)" value="28"/>
+       <opcode name="MarkFinalizeQueueRoots" message="$(string.opcode_GCMarkFinalizeQueueRoots)" value="29"/>
+       <opcode name="MarkHandles" message="$(string.opcode_GCMarkHandles)" value="30"/>
+       <opcode name="MarkCards" message="$(string.opcode_GCMarkCards)" value="31"/>
+       <opcode name="FinalizeObject" message="$(string.opcode_GCFinalizeObject)" value="32"/>
+       <opcode name="SetGCHandle" message="$(string.opcode_GCSetGCHandle)" value="33"/>
+       <opcode name="DestoryGCHandle" message="$(string.opcode_GCDestoryGCHandle)" value="34"/>
+       <opcode name="Triggered" message="$(string.opcode_GCTriggered)" value="35"/>
+       <opcode name="PinObjectAtGCTime" message="$(string.opcode_GCPinObjectAtGCTime)" value="36"/>
+       <opcode name="GCBulkRootCCW" message="$(string.opcode_GCGCBulkRootCCW)" value="38"/>
+       <opcode name="GCBulkRCW" message="$(string.opcode_GCGCBulkRCW)" value="39"/>
+       <opcode name="GCBulkRootStaticVar" message="$(string.opcode_GCGCBulkRootStaticVar)" value="40"/>
+       <opcode name="RestartEEStop" message="$(string.opcode_GCRestartEEStop)" value="132"/>
+       <opcode name="HeapStats" message="$(string.opcode_GCHeapStats)" value="133"/>
+       <opcode name="CreateSegment" message="$(string.opcode_GCCreateSegment)" value="134"/>
+       <opcode name="FreeSegment" message="$(string.opcode_GCFreeSegment)" value="135"/>
+       <opcode name="RestartEEStart" message="$(string.opcode_GCRestartEEStart)" value="136"/>
+       <opcode name="SuspendEEStop" message="$(string.opcode_GCSuspendEEStop)" value="137"/>
+       <opcode name="IncreaseMemoryPressure" message="$(string.opcode_GCIncreaseMemoryPressure)" value="200"/>
+       <opcode name="DecreaseMemoryPressure" message="$(string.opcode_GCDecreaseMemoryPressure)" value="201"/>
+       <opcode name="Mark" message="$(string.opcode_GCMark)" value="202"/>
+       <opcode name="GCJoin" message="$(string.opcode_GCGCJoin)" value="203"/>
+       <opcode name="PerHeapHistory" message="$(string.opcode_GCPerHeapHistory)" value="204"/>
+       <opcode name="GlobalHeapHistory" message="$(string.opcode_GCGlobalHeapHistory)" value="205"/>
+      </opcodes>
+     </task>
+     <task name="WorkerThreadCreationV2" message="$(string.task_WorkerThreadCreationV2)" value="2"/>
+     <task name="IOThreadCreation" message="$(string.task_IOThreadCreation)" value="3"/>
+     <task name="WorkerThreadRetirementV2" message="$(string.task_WorkerThreadRetirementV2)" value="4"/>
+     <task name="IOThreadRetirement" message="$(string.task_IOThreadRetirement)" value="5"/>
+     <task name="ThreadpoolSuspensionV2" message="$(string.task_ThreadpoolSuspensionV2)" value="6"/>
+     <task name="Exception" message="$(string.task_Exception)" value="7"/>
+     <task name="Contention" message="$(string.task_Contention)" value="8"/>
+     <task name="Method" message="$(string.task_Method)" value="9">
+>
+      <opcodes>
+       <opcode name="DCStartCompleteV2" message="$(string.opcode_MethodDCStartCompleteV2)" value="14"/>
+       <opcode name="DCEndCompleteV2" message="$(string.opcode_MethodDCEndCompleteV2)" value="15"/>
+       <opcode name="Load" message="$(string.opcode_MethodLoad)" value="33"/>
+       <opcode name="Unload" message="$(string.opcode_MethodUnload)" value="34"/>
+       <opcode name="DCStartV2" message="$(string.opcode_MethodDCStartV2)" value="35"/>
+       <opcode name="DCStopV2" message="$(string.opcode_MethodDCStopV2)" value="36"/>
+       <opcode name="LoadVerbose" message="$(string.opcode_MethodLoadVerbose)" value="37"/>
+       <opcode name="UnloadVerbose" message="$(string.opcode_MethodUnloadVerbose)" value="38"/>
+       <opcode name="DCStartVerboseV2" message="$(string.opcode_MethodDCStartVerboseV2)" value="39"/>
+       <opcode name="DCStopVerboseV2" message="$(string.opcode_MethodDCStopVerboseV2)" value="40"/>
+       <opcode name="JittingStarted" message="$(string.opcode_MethodJittingStarted)" value="42"/>
+       <opcode name="InliningSucceeded" message="$(string.opcode_MethodInliningSucceeded)" value="83"/>
+       <opcode name="InliningFailed" message="$(string.opcode_MethodInliningFailed)" value="84"/>
+       <opcode name="TailCallSucceeded" message="$(string.opcode_MethodTailCallSucceeded)" value="85"/>
+       <opcode name="TailCallFailed" message="$(string.opcode_MethodTailCallFailed)" value="86"/>
+       <opcode name="MethodILToNativeMap" message="$(string.opcode_MethodMethodILToNativeMap)" value="87"/>
+      </opcodes>
+     </task>
+     <task name="Loader" message="$(string.task_Loader)" value="10">
+>
+      <opcodes>
+       <opcode name="ModuleLoad" message="$(string.opcode_LoaderModuleLoad)" value="33"/>
+       <opcode name="ModuleUnload" message="$(string.opcode_LoaderModuleUnload)" value="34"/>
+       <opcode name="ModuleDCStartV2" message="$(string.opcode_LoaderModuleDCStartV2)" value="35"/>
+       <opcode name="ModuleDCStopV2" message="$(string.opcode_LoaderModuleDCStopV2)" value="36"/>
+       <opcode name="AssemblyLoad" message="$(string.opcode_LoaderAssemblyLoad)" value="37"/>
+       <opcode name="AssemblyUnload" message="$(string.opcode_LoaderAssemblyUnload)" value="38"/>
+       <opcode name="AppDomainLoad" message="$(string.opcode_LoaderAppDomainLoad)" value="41"/>
+       <opcode name="AppDomainUnload" message="$(string.opcode_LoaderAppDomainUnload)" value="42"/>
+       <opcode name="DomainModuleLoad" message="$(string.opcode_LoaderDomainModuleLoad)" value="45"/>
+      </opcodes>
+     </task>
+     <task name="ClrStack" message="$(string.task_ClrStack)" value="11">
+>
+      <opcodes>
+       <opcode name="Walk" message="$(string.opcode_ClrStackWalk)" value="82"/>
+      </opcodes>
+     </task>
+     <task name="StrongNameVerification" message="$(string.task_StrongNameVerification)" value="12"/>
+     <task name="AuthenticodeVerification" message="$(string.task_AuthenticodeVerification)" value="13"/>
+     <task name="AppDomainResourceManagement" message="$(string.task_AppDomainResourceManagement)" value="14">
+>
+      <opcodes>
+       <opcode name="MemAllocated" message="$(string.opcode_AppDomainResourceManagementMemAllocated)" value="48"/>
+       <opcode name="MemSurvived" message="$(string.opcode_AppDomainResourceManagementMemSurvived)" value="49"/>
+       <opcode name="ThreadCreated" message="$(string.opcode_AppDomainResourceManagementThreadCreated)" value="50"/>
+       <opcode name="ThreadTerminated" message="$(string.opcode_AppDomainResourceManagementThreadTerminated)" value="51"/>
+       <opcode name="DomainEnter" message="$(string.opcode_AppDomainResourceManagementDomainEnter)" value="52"/>
+      </opcodes>
+     </task>
+     <task name="ILStub" message="$(string.task_ILStub)" value="15">
+>
+      <opcodes>
+       <opcode name="StubGenerated" message="$(string.opcode_ILStubStubGenerated)" value="88"/>
+       <opcode name="StubCacheHit" message="$(string.opcode_ILStubStubCacheHit)" value="89"/>
+      </opcodes>
+     </task>
+     <task name="ThreadPoolWorkerThread" message="$(string.task_ThreadPoolWorkerThread)" value="16">
+>
+      <opcodes>
+       <opcode name="Wait" message="$(string.opcode_ThreadPoolWorkerThreadWait)" value="90"/>
+      </opcodes>
+     </task>
+     <task name="ThreadPoolWorkerThreadRetirement" message="$(string.task_ThreadPoolWorkerThreadRetirement)" value="17"/>
+     <task name="ThreadPoolWorkerThreadAdjustment" message="$(string.task_ThreadPoolWorkerThreadAdjustment)" value="18">
+>
+      <opcodes>
+       <opcode name="Sample" message="$(string.opcode_ThreadPoolWorkerThreadAdjustmentSample)" value="100"/>
+       <opcode name="Adjustment" message="$(string.opcode_ThreadPoolWorkerThreadAdjustmentAdjustment)" value="101"/>
+       <opcode name="Stats" message="$(string.opcode_ThreadPoolWorkerThreadAdjustmentStats)" value="102"/>
+      </opcodes>
+     </task>
+     <task name="Runtime" message="$(string.task_Runtime)" value="19"/>
+     <task name="ClrPerfTrack" message="$(string.task_ClrPerfTrack)" value="20">
+>
+      <opcodes>
+       <opcode name="ModuleRangeLoad" message="$(string.opcode_ClrPerfTrackModuleRangeLoad)" value="10"/>
+      </opcodes>
+     </task>
+     <task name="Type" message="$(string.task_Type)" value="21">
+>
+      <opcodes>
+       <opcode name="BulkType" message="$(string.opcode_TypeBulkType)" value="10"/>
+      </opcodes>
+     </task>
+     <task name="ThreadPoolWorkingThreadCount" message="$(string.task_ThreadPoolWorkingThreadCount)" value="22"/>
+     <task name="ThreadPool" message="$(string.task_ThreadPool)" value="23">
+>
+      <opcodes>
+       <opcode name="Enqueue" message="$(string.opcode_ThreadPoolEnqueue)" value="11"/>
+       <opcode name="Dequeue" message="$(string.opcode_ThreadPoolDequeue)" value="12"/>
+       <opcode name="IOEnqueue" message="$(string.opcode_ThreadPoolIOEnqueue)" value="13"/>
+       <opcode name="IODequeue" message="$(string.opcode_ThreadPoolIODequeue)" value="14"/>
+       <opcode name="IOPack" message="$(string.opcode_ThreadPoolIOPack)" value="15"/>
+      </opcodes>
+     </task>
+     <task name="Thread" message="$(string.task_Thread)" value="24">
+>
+      <opcodes>
+       <opcode name="Creating" message="$(string.opcode_ThreadCreating)" value="11"/>
+       <opcode name="Running" message="$(string.opcode_ThreadRunning)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="DebugIPCEvent" message="$(string.task_DebugIPCEvent)" value="25"/>
+     <task name="DebugExceptionProcessing" message="$(string.task_DebugExceptionProcessing)" value="26"/>
+     <task name="ExceptionCatch" message="$(string.task_ExceptionCatch)" value="27"/>
+     <task name="ExceptionFinally" message="$(string.task_ExceptionFinally)" value="28"/>
+     <task name="ExceptionFilter" message="$(string.task_ExceptionFilter)" value="29"/>
+    </tasks>
+    <maps>
+     <valueMap name="GCReasonMap">
+      <map value="0x0" message="$(string.map_GCReasonMapAllocSmall)"/>
+      <map value="0x1" message="$(string.map_GCReasonMapInduced)"/>
+      <map value="0x2" message="$(string.map_GCReasonMapLowMemory)"/>
+      <map value="0x3" message="$(string.map_GCReasonMapEmpty)"/>
+      <map value="0x4" message="$(string.map_GCReasonMapAllocLarge)"/>
+      <map value="0x5" message="$(string.map_GCReasonMapOutOfSpaceSmallObjectHeap)"/>
+      <map value="0x6" message="$(string.map_GCReasonMapOutOfSpaceLargeObjectHeap)"/>
+      <map value="0x7" message="$(string.map_GCReasonMapInducedNoForce)"/>
+      <map value="0x8" message="$(string.map_GCReasonMapStress)"/>
+      <map value="0x9" message="$(string.map_GCReasonMapInducedLowMemory)"/>
+     </valueMap>
+     <valueMap name="GCSegmentTypeMap">
+      <map value="0x0" message="$(string.map_GCSegmentTypeMapSmallObjectHeap)"/>
+      <map value="0x1" message="$(string.map_GCSegmentTypeMapLargeObjectHeap)"/>
+      <map value="0x2" message="$(string.map_GCSegmentTypeMapReadOnlyHeap)"/>
+     </valueMap>
+     <valueMap name="GCAllocationKindMap">
+      <map value="0x0" message="$(string.map_GCAllocationKindMapSmall)"/>
+      <map value="0x1" message="$(string.map_GCAllocationKindMapLarge)"/>
+     </valueMap>
+     <bitMap name="ThreadFlagsMap">
+      <map value="0x1" message="$(string.map_ThreadFlagsMapGCSpecial)"/>
+      <map value="0x2" message="$(string.map_ThreadFlagsMapFinalizer)"/>
+      <map value="0x4" message="$(string.map_ThreadFlagsMapThreadPoolWorker)"/>
+     </bitMap>
+     <valueMap name="ContentionFlagsMap">
+      <map value="0x0" message="$(string.map_ContentionFlagsMapManaged)"/>
+      <map value="0x1" message="$(string.map_ContentionFlagsMapNative)"/>
+     </valueMap>
+     <bitMap name="MethodFlagsMap">
+      <map value="0x1" message="$(string.map_MethodFlagsMapDynamic)"/>
+      <map value="0x2" message="$(string.map_MethodFlagsMapGeneric)"/>
+      <map value="0x4" message="$(string.map_MethodFlagsMapHasSharedGenericCode)"/>
+      <map value="0x8" message="$(string.map_MethodFlagsMapJitted)"/>
+     </bitMap>
+     <bitMap name="ModuleFlagsMap">
+      <map value="0x1" message="$(string.map_ModuleFlagsMapDomainNeutral)"/>
+      <map value="0x2" message="$(string.map_ModuleFlagsMapNative)"/>
+      <map value="0x4" message="$(string.map_ModuleFlagsMapDynamic)"/>
+      <map value="0x8" message="$(string.map_ModuleFlagsMapManifest)"/>
+     </bitMap>
+     <bitMap name="AssemblyFlagsMap">
+      <map value="0x1" message="$(string.map_AssemblyFlagsMapDomainNeutral)"/>
+      <map value="0x2" message="$(string.map_AssemblyFlagsMapDynamic)"/>
+      <map value="0x4" message="$(string.map_AssemblyFlagsMapNative)"/>
+      <map value="0x8" message="$(string.map_AssemblyFlagsMapCollectible)"/>
+     </bitMap>
+     <bitMap name="AppDomainFlagsMap">
+      <map value="0x1" message="$(string.map_AppDomainFlagsMapDefault)"/>
+      <map value="0x2" message="$(string.map_AppDomainFlagsMapExecutable)"/>
+      <map value="0x4" message="$(string.map_AppDomainFlagsMapShared)"/>
+     </bitMap>
+     <bitMap name="ModuleRangeTypeMap">
+      <map value="0x4" message="$(string.map_ModuleRangeTypeMapColdRange)"/>
+     </bitMap>
+     <bitMap name="StartupModeMap">
+      <map value="0x1" message="$(string.map_StartupModeMapManagedExe)"/>
+      <map value="0x2" message="$(string.map_StartupModeMapHostedClr)"/>
+      <map value="0x4" message="$(string.map_StartupModeMapIjwDll)"/>
+      <map value="0x8" message="$(string.map_StartupModeMapComActivated)"/>
+      <map value="0x10" message="$(string.map_StartupModeMapOther)"/>
+     </bitMap>
+     <valueMap name="TailCallTypeMap">
+      <map value="0x0" message="$(string.map_TailCallTypeMapOptimizedTailCall)"/>
+      <map value="0x1" message="$(string.map_TailCallTypeMapRecursiveLoop)"/>
+      <map value="0x2" message="$(string.map_TailCallTypeMapHelperAssistedTailCall)"/>
+     </valueMap>
+     <valueMap name="GCTypeMap">
+      <map value="0x0" message="$(string.map_GCTypeMapNonConcurrentGC)"/>
+      <map value="0x1" message="$(string.map_GCTypeMapBackgroundGC)"/>
+      <map value="0x2" message="$(string.map_GCTypeMapForegroundGC)"/>
+     </valueMap>
+     <bitMap name="ExceptionThrownFlagsMap">
+      <map value="0x1" message="$(string.map_ExceptionThrownFlagsMapHasInnerException)"/>
+      <map value="0x2" message="$(string.map_ExceptionThrownFlagsMapNested)"/>
+      <map value="0x4" message="$(string.map_ExceptionThrownFlagsMapReThrown)"/>
+      <map value="0x8" message="$(string.map_ExceptionThrownFlagsMapCorruptedState)"/>
+      <map value="0x10" message="$(string.map_ExceptionThrownFlagsMapCLSCompliant)"/>
+     </bitMap>
+    </maps>
+    <events>
+     <event value="1" symbol="GCStart" version="0" task="GC" opcode="win:Start" level="win:Informational" keywords="GCKeyword" template="GCStartArgs"/>
+     <event value="1" symbol="GCStart_V1" version="1" task="GC" opcode="win:Start" level="win:Informational" keywords="GCKeyword" template="GCStartArgs_V1"/>
+     <event value="1" symbol="GCStart_V2" version="2" task="GC" opcode="win:Start" level="win:Informational" keywords="GCKeyword" template="GCStartArgs_V2"/>
+     <event value="2" symbol="GCStop" version="0" task="GC" opcode="win:Stop" level="win:Informational" keywords="GCKeyword" template="GCStopArgs"/>
+     <event value="2" symbol="GCStop_V1" version="1" task="GC" opcode="win:Stop" level="win:Informational" keywords="GCKeyword" template="GCStopArgs_V1"/>
+     <event value="3" symbol="GCRestartEEStop" version="0" task="GC" opcode="RestartEEStop" level="win:Informational" keywords="GCKeyword"/>
+     <event value="3" symbol="GCRestartEEStop_V1" version="1" task="GC" opcode="RestartEEStop" level="win:Informational" keywords="GCKeyword" template="GCRestartEEStopArgs_V1"/>
+     <event value="4" symbol="GCHeapStats" version="0" task="GC" opcode="HeapStats" level="win:Informational" keywords="GCKeyword" template="GCHeapStatsArgs"/>
+     <event value="4" symbol="GCHeapStats_V1" version="1" task="GC" opcode="HeapStats" level="win:Informational" keywords="GCKeyword" template="GCHeapStatsArgs_V1"/>
+     <event value="5" symbol="GCCreateSegment" version="0" task="GC" opcode="CreateSegment" level="win:Informational" keywords="GCKeyword" template="GCCreateSegmentArgs"/>
+     <event value="5" symbol="GCCreateSegment_V1" version="1" task="GC" opcode="CreateSegment" level="win:Informational" keywords="GCKeyword" template="GCCreateSegmentArgs_V1"/>
+     <event value="6" symbol="GCFreeSegment" version="0" task="GC" opcode="FreeSegment" level="win:Informational" keywords="GCKeyword" template="GCFreeSegmentArgs"/>
+     <event value="6" symbol="GCFreeSegment_V1" version="1" task="GC" opcode="FreeSegment" level="win:Informational" keywords="GCKeyword" template="GCFreeSegmentArgs_V1"/>
+     <event value="7" symbol="GCRestartEEStart" version="0" task="GC" opcode="RestartEEStart" level="win:Informational" keywords="GCKeyword"/>
+     <event value="7" symbol="GCRestartEEStart_V1" version="1" task="GC" opcode="RestartEEStart" level="win:Informational" keywords="GCKeyword" template="GCRestartEEStopArgs_V1"/>
+     <event value="8" symbol="GCSuspendEEStop" version="0" task="GC" opcode="SuspendEEStop" level="win:Informational" keywords="GCKeyword"/>
+     <event value="8" symbol="GCSuspendEEStop_V1" version="1" task="GC" opcode="SuspendEEStop" level="win:Informational" keywords="GCKeyword" template="GCRestartEEStopArgs_V1"/>
+     <event value="9" symbol="GCSuspendEEStart" version="0" task="GC" opcode="SuspendEEStart" level="win:Informational" keywords="GCKeyword" template="GCSuspendEEStartArgs"/>
+     <event value="9" symbol="GCSuspendEEStart_V1" version="1" task="GC" opcode="SuspendEEStart" level="win:Informational" keywords="GCKeyword" template="GCSuspendEEStartArgs_V1"/>
+     <event value="10" symbol="GCAllocationTick" version="0" task="GC" opcode="AllocationTick" level="win:Verbose" keywords="GCKeyword" template="GCAllocationTickArgs"/>
+     <event value="10" symbol="GCAllocationTick_V1" version="1" task="GC" opcode="AllocationTick" level="win:Verbose" keywords="GCKeyword" template="GCAllocationTickArgs_V1"/>
+     <event value="10" symbol="GCAllocationTick_V2" version="2" task="GC" opcode="AllocationTick" level="win:Verbose" keywords="GCKeyword" template="GCAllocationTickArgs_V2"/>
+     <event value="10" symbol="GCAllocationTick_V3" version="3" task="GC" opcode="AllocationTick" level="win:Verbose" keywords="GCKeyword" template="GCAllocationTickArgs_V3"/>
+     <event value="11" symbol="GCCreateConcurrentThread" version="0" task="GC" opcode="CreateConcurrentThread" level="win:Informational" keywords="GCKeyword"/>
+     <event value="11" symbol="GCCreateConcurrentThread_V1" version="1" task="GC" opcode="CreateConcurrentThread" level="win:Informational" keywords="GCKeyword ThreadingKeyword" template="GCRestartEEStopArgs_V1"/>
+     <event value="12" symbol="GCTerminateConcurrentThread" version="0" task="GC" opcode="TerminateConcurrentThread" level="win:Informational" keywords="GCKeyword"/>
+     <event value="12" symbol="GCTerminateConcurrentThread_V1" version="1" task="GC" opcode="TerminateConcurrentThread" level="win:Informational" keywords="GCKeyword ThreadingKeyword" template="GCRestartEEStopArgs_V1"/>
+     <event value="13" symbol="GCFinalizersStop" version="0" task="GC" opcode="FinalizersStop" level="win:Informational" keywords="GCKeyword" template="GCFinalizersStopArgs"/>
+     <event value="13" symbol="GCFinalizersStop_V1" version="1" task="GC" opcode="FinalizersStop" level="win:Informational" keywords="GCKeyword" template="ThreadPoolWorkingThreadCountStartArgs"/>
+     <event value="14" symbol="GCFinalizersStart" version="0" task="GC" opcode="FinalizersStart" level="win:Informational" keywords="GCKeyword"/>
+     <event value="14" symbol="GCFinalizersStart_V1" version="1" task="GC" opcode="FinalizersStart" level="win:Informational" keywords="GCKeyword" template="GCRestartEEStopArgs_V1"/>
+     <event value="15" symbol="TypeBulkType" version="0" task="Type" opcode="BulkType" level="win:Informational" keywords="TypeKeyword" template="TypeBulkTypeArgs"/>
+     <event value="16" symbol="GCGCBulkRootEdge" version="0" task="GC" opcode="GCBulkRootEdge" level="win:Informational" keywords="GCHeapDumpKeyword" template="GCGCBulkRootEdgeArgs"/>
+     <event value="17" symbol="GCGCBulkRootConditionalWeakTableElementEdge" version="0" task="GC" opcode="GCBulkRootConditionalWeakTableElementEdge" level="win:Informational" keywords="GCHeapDumpKeyword" template="GCGCBulkRootEdgeArgs"/>
+     <event value="18" symbol="GCGCBulkNode" version="0" task="GC" opcode="GCBulkNode" level="win:Informational" keywords="GCHeapDumpKeyword" template="GCGCBulkRootEdgeArgs"/>
+     <event value="19" symbol="GCGCBulkEdge" version="0" task="GC" opcode="GCBulkEdge" level="win:Informational" keywords="GCHeapDumpKeyword" template="GCGCBulkRootEdgeArgs"/>
+     <event value="20" symbol="GCGCSampledObjectAllocation" version="0" task="GC" opcode="GCSampledObjectAllocation" level="win:Informational" keywords="GCSampledObjectAllocationHighKeyword" template="GCGCSampledObjectAllocationArgs"/>
+     <event value="21" symbol="GCGCBulkSurvivingObjectRanges" version="0" task="GC" opcode="GCBulkSurvivingObjectRanges" level="win:Informational" keywords="GCHeapSurvivalAndMovementKeyword" template="GCGCBulkRootEdgeArgs"/>
+     <event value="22" symbol="GCGCBulkMovedObjectRanges" version="0" task="GC" opcode="GCBulkMovedObjectRanges" level="win:Informational" keywords="GCHeapSurvivalAndMovementKeyword" template="GCGCBulkRootEdgeArgs"/>
+     <event value="23" symbol="GCGCGenerationRange" version="0" task="GC" opcode="GCGenerationRange" level="win:Informational" keywords="GCHeapSurvivalAndMovementKeyword" template="GCGCGenerationRangeArgs"/>
+     <event value="25" symbol="GCMarkStackRoots" version="0" task="GC" opcode="MarkStackRoots" level="win:Informational" keywords="GCKeyword" template="GCMarkStackRootsArgs"/>
+     <event value="26" symbol="GCMarkFinalizeQueueRoots" version="0" task="GC" opcode="MarkFinalizeQueueRoots" level="win:Informational" keywords="GCKeyword" template="GCMarkStackRootsArgs"/>
+     <event value="27" symbol="GCMarkHandles" version="0" task="GC" opcode="MarkHandles" level="win:Informational" keywords="GCKeyword" template="GCMarkStackRootsArgs"/>
+     <event value="28" symbol="GCMarkCards" version="0" task="GC" opcode="MarkCards" level="win:Informational" keywords="GCKeyword" template="GCMarkStackRootsArgs"/>
+     <event value="29" symbol="GCFinalizeObject" version="0" task="GC" opcode="FinalizeObject" level="win:Verbose" keywords="GCKeyword" template="GCFinalizeObjectArgs"/>
+     <event value="30" symbol="GCSetGCHandle" version="0" task="GC" opcode="SetGCHandle" level="win:Informational" keywords="GCHandleKeyword" template="GCSetGCHandleArgs"/>
+     <event value="31" symbol="GCDestoryGCHandle" version="0" task="GC" opcode="DestoryGCHandle" level="win:Informational" keywords="GCHandleKeyword" template="GCDestoryGCHandleArgs"/>
+     <event value="32" symbol="GCGCSampledObjectAllocation32" version="0" task="GC" opcode="GCSampledObjectAllocation" level="win:Informational" keywords="GCSampledObjectAllocationLowKeyword" template="GCGCSampledObjectAllocationArgs"/>
+     <event value="33" symbol="GCPinObjectAtGCTime" version="0" task="GC" opcode="PinObjectAtGCTime" level="win:Verbose" keywords="GCKeyword" template="GCPinObjectAtGCTimeArgs"/>
+     <event value="35" symbol="GCTriggered" version="0" task="GC" opcode="Triggered" level="win:Informational" keywords="GCKeyword" template="GCTriggeredArgs"/>
+     <event value="36" symbol="GCGCBulkRootCCW" version="0" task="GC" opcode="GCBulkRootCCW" level="win:Informational" keywords="GCHeapDumpKeyword" template="TypeBulkTypeArgs"/>
+     <event value="37" symbol="GCGCBulkRCW" version="0" task="GC" opcode="GCBulkRCW" level="win:Informational" keywords="GCHeapDumpKeyword" template="TypeBulkTypeArgs"/>
+     <event value="38" symbol="GCGCBulkRootStaticVar" version="0" task="GC" opcode="GCBulkRootStaticVar" level="win:Informational" keywords="GCHeapDumpKeyword" template="GCGCBulkRootStaticVarArgs"/>
+     <event value="40" symbol="WorkerThreadCreationV2Start" version="0" task="WorkerThreadCreationV2" opcode="win:Start" level="win:Informational" keywords="ThreadingKeyword" template="WorkerThreadCreationV2StartArgs"/>
+     <event value="41" symbol="WorkerThreadCreationV2Stop" version="0" task="WorkerThreadCreationV2" opcode="win:Stop" level="win:Informational" keywords="ThreadingKeyword" template="WorkerThreadCreationV2StartArgs"/>
+     <event value="42" symbol="WorkerThreadRetirementV2Start" version="0" task="WorkerThreadRetirementV2" opcode="win:Start" level="win:Informational" keywords="ThreadingKeyword" template="WorkerThreadCreationV2StartArgs"/>
+     <event value="43" symbol="WorkerThreadRetirementV2Stop" version="0" task="WorkerThreadRetirementV2" opcode="win:Stop" level="win:Informational" keywords="ThreadingKeyword" template="WorkerThreadCreationV2StartArgs"/>
+     <event value="44" symbol="IOThreadCreationStart" version="0" task="IOThreadCreation" opcode="win:Start" level="win:Informational" keywords="ThreadingKeyword" template="IOThreadCreationStartArgs"/>
+     <event value="44" symbol="IOThreadCreationStart_V1" version="1" task="IOThreadCreation" opcode="win:Start" level="win:Informational" keywords="ThreadingKeyword" template="IOThreadCreationStartArgs_V1"/>
+     <event value="45" symbol="IOThreadCreationStop" version="0" task="IOThreadCreation" opcode="win:Stop" level="win:Informational" keywords="ThreadingKeyword" template="IOThreadCreationStartArgs"/>
+     <event value="45" symbol="IOThreadCreationStop_V1" version="1" task="IOThreadCreation" opcode="win:Stop" level="win:Informational" keywords="ThreadingKeyword" template="IOThreadCreationStartArgs_V1"/>
+     <event value="46" symbol="IOThreadRetirementStart" version="0" task="IOThreadRetirement" opcode="win:Start" level="win:Informational" keywords="ThreadingKeyword" template="IOThreadCreationStartArgs"/>
+     <event value="46" symbol="IOThreadRetirementStart_V1" version="1" task="IOThreadRetirement" opcode="win:Start" level="win:Informational" keywords="ThreadingKeyword" template="IOThreadCreationStartArgs_V1"/>
+     <event value="47" symbol="IOThreadRetirementStop" version="0" task="IOThreadRetirement" opcode="win:Stop" level="win:Informational" keywords="ThreadingKeyword" template="IOThreadCreationStartArgs"/>
+     <event value="47" symbol="IOThreadRetirementStop_V1" version="1" task="IOThreadRetirement" opcode="win:Stop" level="win:Informational" keywords="ThreadingKeyword" template="IOThreadCreationStartArgs_V1"/>
+     <event value="48" symbol="ThreadpoolSuspensionV2Start" version="0" task="ThreadpoolSuspensionV2" opcode="win:Start" level="win:Informational" keywords="ThreadingKeyword" template="ThreadpoolSuspensionV2StartArgs"/>
+     <event value="49" symbol="ThreadpoolSuspensionV2Stop" version="0" task="ThreadpoolSuspensionV2" opcode="win:Stop" level="win:Informational" keywords="ThreadingKeyword" template="ThreadpoolSuspensionV2StartArgs"/>
+     <event value="50" symbol="ThreadPoolWorkerThreadStart" version="0" task="ThreadPoolWorkerThread" opcode="win:Start" level="win:Informational" keywords="ThreadingKeyword" template="ThreadPoolWorkerThreadStartArgs"/>
+     <event value="51" symbol="ThreadPoolWorkerThreadStop" version="0" task="ThreadPoolWorkerThread" opcode="win:Stop" level="win:Informational" keywords="ThreadingKeyword" template="ThreadPoolWorkerThreadStartArgs"/>
+     <event value="52" symbol="ThreadPoolWorkerThreadRetirementStart" version="0" task="ThreadPoolWorkerThreadRetirement" opcode="win:Start" level="win:Informational" keywords="ThreadingKeyword" template="ThreadPoolWorkerThreadStartArgs"/>
+     <event value="53" symbol="ThreadPoolWorkerThreadRetirementStop" version="0" task="ThreadPoolWorkerThreadRetirement" opcode="win:Stop" level="win:Informational" keywords="ThreadingKeyword" template="ThreadPoolWorkerThreadStartArgs"/>
+     <event value="54" symbol="ThreadPoolWorkerThreadAdjustmentSample" version="0" task="ThreadPoolWorkerThreadAdjustment" opcode="Sample" level="win:Informational" keywords="ThreadingKeyword" template="ThreadPoolWorkerThreadAdjustmentSampleArgs"/>
+     <event value="55" symbol="ThreadPoolWorkerThreadAdjustment" version="0" task="ThreadPoolWorkerThreadAdjustment" opcode="Adjustment" level="win:Informational" keywords="ThreadingKeyword" template="ThreadPoolWorkerThreadAdjustmentArgs"/>
+     <event value="56" symbol="ThreadPoolWorkerThreadAdjustmentStats" version="0" task="ThreadPoolWorkerThreadAdjustment" opcode="Stats" level="win:Verbose" keywords="ThreadingKeyword" template="ThreadPoolWorkerThreadAdjustmentStatsArgs"/>
+     <event value="57" symbol="ThreadPoolWorkerThreadWait" version="0" task="ThreadPoolWorkerThread" opcode="Wait" level="win:Informational" keywords="ThreadingKeyword" template="ThreadPoolWorkerThreadStartArgs"/>
+     <event value="60" symbol="ThreadPoolWorkingThreadCountStart" version="0" task="ThreadPoolWorkingThreadCount" opcode="win:Start" level="win:Verbose" keywords="ThreadingKeyword" template="ThreadPoolWorkingThreadCountStartArgs"/>
+     <event value="61" symbol="ThreadPoolEnqueue" version="0" task="ThreadPool" opcode="Enqueue" level="win:Verbose" keywords="ThreadingKeyword ThreadTransferKeyword" template="ThreadPoolEnqueueArgs"/>
+     <event value="62" symbol="ThreadPoolDequeue" version="0" task="ThreadPool" opcode="Dequeue" level="win:Verbose" keywords="ThreadingKeyword ThreadTransferKeyword" template="ThreadPoolEnqueueArgs"/>
+     <event value="63" symbol="ThreadPoolIOEnqueue" version="0" task="ThreadPool" opcode="IOEnqueue" level="win:Verbose" keywords="ThreadingKeyword ThreadTransferKeyword" template="ThreadPoolIOEnqueueArgs"/>
+     <event value="64" symbol="ThreadPoolIODequeue" version="0" task="ThreadPool" opcode="IODequeue" level="win:Verbose" keywords="ThreadingKeyword ThreadTransferKeyword" template="ThreadPoolIODequeueArgs"/>
+     <event value="65" symbol="ThreadPoolIOPack" version="0" task="ThreadPool" opcode="IOPack" level="win:Verbose" keywords="ThreadingKeyword" template="ThreadPoolIODequeueArgs"/>
+     <event value="70" symbol="ThreadCreating" version="0" task="Thread" opcode="Creating" level="win:Informational" keywords="ThreadingKeyword ThreadTransferKeyword" template="ThreadCreatingArgs"/>
+     <event value="71" symbol="ThreadRunning" version="0" task="Thread" opcode="Running" level="win:Informational" keywords="ThreadingKeyword ThreadTransferKeyword" template="ThreadCreatingArgs"/>
+     <event value="80" symbol="ExceptionStart" version="0" task="Exception" opcode="win:Start" level="win:Informational"/>
+     <event value="80" symbol="ExceptionStart_V1" version="1" task="Exception" opcode="win:Start" level="win:Error" keywords="ExceptionKeyword MonitoringKeyword" template="ExceptionStartArgs_V1"/>
+     <event value="81" symbol="ContentionStart" version="0" task="Contention" opcode="win:Start" level="win:Informational"/>
+     <event value="81" symbol="ContentionStart_V1" version="1" task="Contention" opcode="win:Start" level="win:Informational" keywords="ContentionKeyword" template="ContentionStartArgs_V1"/>
+     <event value="82" symbol="ClrStackWalk" version="0" task="ClrStack" opcode="Walk" level="win:Always" keywords="StackKeyword" template="ClrStackWalkArgs"/>
+     <event value="83" symbol="AppDomainResourceManagementMemAllocated" version="0" task="AppDomainResourceManagement" opcode="MemAllocated" level="win:Informational" keywords="AppDomainResourceManagementKeyword" template="AppDomainResourceManagementMemAllocatedArgs"/>
+     <event value="84" symbol="AppDomainResourceManagementMemSurvived" version="0" task="AppDomainResourceManagement" opcode="MemSurvived" level="win:Informational" keywords="AppDomainResourceManagementKeyword" template="AppDomainResourceManagementMemSurvivedArgs"/>
+     <event value="85" symbol="AppDomainResourceManagementThreadCreated" version="0" task="AppDomainResourceManagement" opcode="ThreadCreated" level="win:Informational" keywords="AppDomainResourceManagementKeyword ThreadingKeyword" template="AppDomainResourceManagementThreadCreatedArgs"/>
+     <event value="86" symbol="AppDomainResourceManagementThreadTerminated" version="0" task="AppDomainResourceManagement" opcode="ThreadTerminated" level="win:Informational" keywords="AppDomainResourceManagementKeyword ThreadingKeyword" template="AppDomainResourceManagementThreadTerminatedArgs"/>
+     <event value="87" symbol="AppDomainResourceManagementDomainEnter" version="0" task="AppDomainResourceManagement" opcode="DomainEnter" level="win:Informational" keywords="AppDomainResourceManagementKeyword ThreadingKeyword" template="AppDomainResourceManagementThreadTerminatedArgs"/>
+     <event value="88" symbol="ILStubStubGenerated" version="0" task="ILStub" opcode="StubGenerated" level="win:Informational" keywords="InteropKeyword" template="ILStubStubGeneratedArgs"/>
+     <event value="89" symbol="ILStubStubCacheHit" version="0" task="ILStub" opcode="StubCacheHit" level="win:Informational" keywords="InteropKeyword" template="ILStubStubCacheHitArgs"/>
+     <event value="91" symbol="ContentionStop" version="0" task="Contention" opcode="win:Stop" level="win:Informational" keywords="ContentionKeyword" template="ContentionStopArgs"/>
+     <event value="135" symbol="MethodDCStartCompleteV2" version="0" task="Method" opcode="DCStartCompleteV2" level="win:Informational" keywords="JitKeyword NGenKeyword"/>
+     <event value="136" symbol="MethodDCEndCompleteV2" version="0" task="Method" opcode="DCEndCompleteV2" level="win:Informational" keywords="JitKeyword NGenKeyword"/>
+     <event value="137" symbol="MethodDCStartV2" version="0" task="Method" opcode="DCStartV2" level="win:Informational" keywords="JitKeyword NGenKeyword" template="MethodDCStartV2Args"/>
+     <event value="138" symbol="MethodDCStopV2" version="0" task="Method" opcode="DCStopV2" level="win:Informational" keywords="JitKeyword NGenKeyword" template="MethodDCStopV2Args"/>
+     <event value="139" symbol="MethodDCStartVerboseV2" version="0" task="Method" opcode="DCStartVerboseV2" level="win:Informational" keywords="JitKeyword NGenKeyword" template="MethodDCStartVerboseV2Args"/>
+     <event value="140" symbol="MethodDCStopVerboseV2" version="0" task="Method" opcode="DCStopVerboseV2" level="win:Informational" keywords="JitKeyword NGenKeyword" template="MethodDCStartVerboseV2Args"/>
+     <event value="141" symbol="MethodLoad" version="0" task="Method" opcode="Load" level="win:Informational" keywords="JitKeyword NGenKeyword" template="MethodDCStartV2Args"/>
+     <event value="141" symbol="MethodLoad_V1" version="1" task="Method" opcode="Load" level="win:Informational" keywords="JitKeyword NGenKeyword" template="MethodLoadArgs_V1"/>
+     <event value="141" symbol="MethodLoad_V2" version="2" task="Method" opcode="Load" level="win:Informational" keywords="JitKeyword NGenKeyword" template="MethodLoadArgs_V2"/>
+     <event value="142" symbol="MethodUnload" version="0" task="Method" opcode="Unload" level="win:Informational" keywords="JitKeyword NGenKeyword" template="MethodDCStartV2Args"/>
+     <event value="142" symbol="MethodUnload_V1" version="1" task="Method" opcode="Unload" level="win:Informational" keywords="JitKeyword NGenKeyword" template="MethodLoadArgs_V1"/>
+     <event value="142" symbol="MethodUnload_V2" version="2" task="Method" opcode="Unload" level="win:Informational" keywords="JitKeyword NGenKeyword" template="MethodLoadArgs_V2"/>
+     <event value="143" symbol="MethodLoadVerbose" version="0" task="Method" opcode="LoadVerbose" level="win:Informational" keywords="JitKeyword NGenKeyword" template="MethodDCStartVerboseV2Args"/>
+     <event value="143" symbol="MethodLoadVerbose_V1" version="1" task="Method" opcode="LoadVerbose" level="win:Informational" keywords="JitKeyword NGenKeyword" template="MethodLoadVerboseArgs_V1"/>
+     <event value="143" symbol="MethodLoadVerbose_V2" version="2" task="Method" opcode="LoadVerbose" level="win:Informational" keywords="JitKeyword NGenKeyword" template="MethodLoadVerboseArgs_V2"/>
+     <event value="144" symbol="MethodUnloadVerbose" version="0" task="Method" opcode="UnloadVerbose" level="win:Informational" keywords="JitKeyword NGenKeyword" template="MethodDCStartVerboseV2Args"/>
+     <event value="144" symbol="MethodUnloadVerbose_V1" version="1" task="Method" opcode="UnloadVerbose" level="win:Informational" keywords="JitKeyword NGenKeyword" template="MethodLoadVerboseArgs_V1"/>
+     <event value="144" symbol="MethodUnloadVerbose_V2" version="2" task="Method" opcode="UnloadVerbose" level="win:Informational" keywords="JitKeyword NGenKeyword" template="MethodLoadVerboseArgs_V2"/>
+     <event value="145" symbol="MethodJittingStarted" version="0" task="Method" opcode="JittingStarted" level="win:Verbose" keywords="JitKeyword" template="MethodJittingStartedArgs"/>
+     <event value="145" symbol="MethodJittingStarted_V1" version="1" task="Method" opcode="JittingStarted" level="win:Verbose" keywords="JitKeyword" template="MethodJittingStartedArgs_V1"/>
+     <event value="149" symbol="LoaderModuleDCStartV2" version="0" task="Loader" opcode="ModuleDCStartV2" level="win:Informational" keywords="LoaderKeyword" template="LoaderModuleDCStartV2Args"/>
+     <event value="150" symbol="LoaderModuleDCStopV2" version="0" task="Loader" opcode="ModuleDCStopV2" level="win:Informational" keywords="LoaderKeyword" template="LoaderModuleDCStopV2Args"/>
+     <event value="151" symbol="LoaderDomainModuleLoad" version="0" task="Loader" opcode="DomainModuleLoad" level="win:Informational" keywords="LoaderKeyword" template="LoaderDomainModuleLoadArgs"/>
+     <event value="151" symbol="LoaderDomainModuleLoad_V1" version="1" task="Loader" opcode="DomainModuleLoad" level="win:Informational" keywords="LoaderKeyword" template="LoaderDomainModuleLoadArgs_V1"/>
+     <event value="152" symbol="LoaderModuleLoad" version="0" task="Loader" opcode="ModuleLoad" level="win:Informational" keywords="LoaderKeyword" template="LoaderModuleDCStopV2Args"/>
+     <event value="152" symbol="LoaderModuleLoad_V1" version="1" task="Loader" opcode="ModuleLoad" level="win:Informational" keywords="LoaderKeyword PerfTrackKeyword" template="LoaderModuleLoadArgs_V1"/>
+     <event value="152" symbol="LoaderModuleLoad_V2" version="2" task="Loader" opcode="ModuleLoad" level="win:Informational" keywords="LoaderKeyword PerfTrackKeyword" template="LoaderModuleLoadArgs_V2"/>
+     <event value="153" symbol="LoaderModuleUnload" version="0" task="Loader" opcode="ModuleUnload" level="win:Informational" keywords="LoaderKeyword" template="LoaderModuleDCStopV2Args"/>
+     <event value="153" symbol="LoaderModuleUnload_V1" version="1" task="Loader" opcode="ModuleUnload" level="win:Informational" keywords="LoaderKeyword PerfTrackKeyword" template="LoaderModuleLoadArgs_V1"/>
+     <event value="153" symbol="LoaderModuleUnload_V2" version="2" task="Loader" opcode="ModuleUnload" level="win:Informational" keywords="LoaderKeyword PerfTrackKeyword" template="LoaderModuleLoadArgs_V2"/>
+     <event value="154" symbol="LoaderAssemblyLoad" version="0" task="Loader" opcode="AssemblyLoad" level="win:Informational" keywords="LoaderKeyword" template="LoaderAssemblyLoadArgs"/>
+     <event value="154" symbol="LoaderAssemblyLoad_V1" version="1" task="Loader" opcode="AssemblyLoad" level="win:Informational" keywords="LoaderKeyword" template="LoaderAssemblyLoadArgs_V1"/>
+     <event value="155" symbol="LoaderAssemblyUnload" version="0" task="Loader" opcode="AssemblyUnload" level="win:Informational" keywords="LoaderKeyword" template="LoaderAssemblyUnloadArgs"/>
+     <event value="155" symbol="LoaderAssemblyUnload_V1" version="1" task="Loader" opcode="AssemblyUnload" level="win:Informational" keywords="LoaderKeyword" template="LoaderAssemblyLoadArgs_V1"/>
+     <event value="156" symbol="LoaderAppDomainLoad" version="0" task="Loader" opcode="AppDomainLoad" level="win:Informational" keywords="LoaderKeyword" template="LoaderAppDomainLoadArgs"/>
+     <event value="156" symbol="LoaderAppDomainLoad_V1" version="1" task="Loader" opcode="AppDomainLoad" level="win:Informational" keywords="LoaderKeyword" template="LoaderAppDomainLoadArgs_V1"/>
+     <event value="157" symbol="LoaderAppDomainUnload" version="0" task="Loader" opcode="AppDomainUnload" level="win:Informational" keywords="LoaderKeyword" template="LoaderAppDomainUnloadArgs"/>
+     <event value="157" symbol="LoaderAppDomainUnload_V1" version="1" task="Loader" opcode="AppDomainUnload" level="win:Informational" keywords="LoaderKeyword" template="LoaderAppDomainLoadArgs_V1"/>
+     <event value="158" symbol="ClrPerfTrackModuleRangeLoad" version="0" task="ClrPerfTrack" opcode="ModuleRangeLoad" level="win:Informational" keywords="PerfTrackKeyword" template="ClrPerfTrackModuleRangeLoadArgs"/>
+     <event value="181" symbol="StrongNameVerificationStart" version="0" task="StrongNameVerification" opcode="win:Start" level="win:Verbose" keywords="SecurityKeyword" template="StrongNameVerificationStartArgs"/>
+     <event value="181" symbol="StrongNameVerificationStart_V1" version="1" task="StrongNameVerification" opcode="win:Start" level="win:Verbose" keywords="SecurityKeyword" template="StrongNameVerificationStartArgs_V1"/>
+     <event value="182" symbol="StrongNameVerificationStop" version="0" task="StrongNameVerification" opcode="win:Stop" level="win:Informational" keywords="SecurityKeyword" template="StrongNameVerificationStartArgs"/>
+     <event value="182" symbol="StrongNameVerificationStop_V1" version="1" task="StrongNameVerification" opcode="win:Stop" level="win:Informational" keywords="SecurityKeyword" template="StrongNameVerificationStartArgs_V1"/>
+     <event value="183" symbol="AuthenticodeVerificationStart" version="0" task="AuthenticodeVerification" opcode="win:Start" level="win:Verbose" keywords="SecurityKeyword" template="AuthenticodeVerificationStartArgs"/>
+     <event value="183" symbol="AuthenticodeVerificationStart_V1" version="1" task="AuthenticodeVerification" opcode="win:Start" level="win:Verbose" keywords="SecurityKeyword" template="AuthenticodeVerificationStartArgs_V1"/>
+     <event value="184" symbol="AuthenticodeVerificationStop" version="0" task="AuthenticodeVerification" opcode="win:Stop" level="win:Informational" keywords="SecurityKeyword" template="AuthenticodeVerificationStartArgs"/>
+     <event value="184" symbol="AuthenticodeVerificationStop_V1" version="1" task="AuthenticodeVerification" opcode="win:Stop" level="win:Informational" keywords="SecurityKeyword" template="AuthenticodeVerificationStartArgs_V1"/>
+     <event value="185" symbol="MethodInliningSucceeded" version="0" task="Method" opcode="InliningSucceeded" level="win:Verbose" keywords="JitTracingKeyword" template="MethodInliningSucceededArgs"/>
+     <event value="186" symbol="MethodInliningFailed" version="0" task="Method" opcode="InliningFailed" level="win:Verbose" keywords="JitTracingKeyword" template="MethodInliningFailedArgs"/>
+     <event value="187" symbol="RuntimeStart" version="0" task="Runtime" opcode="win:Start" level="win:Informational" template="RuntimeStartArgs"/>
+     <event value="188" symbol="MethodTailCallSucceeded" version="0" task="Method" opcode="TailCallSucceeded" level="win:Verbose" keywords="JitTracingKeyword" template="MethodTailCallSucceededArgs"/>
+     <event value="189" symbol="MethodTailCallFailed" version="0" task="Method" opcode="TailCallFailed" level="win:Verbose" keywords="JitTracingKeyword" template="MethodTailCallFailedArgs"/>
+     <event value="190" symbol="MethodMethodILToNativeMap" version="0" task="Method" opcode="MethodILToNativeMap" level="win:Verbose" keywords="JittedMethodILToNativeMapKeyword" template="MethodMethodILToNativeMapArgs"/>
+     <event value="200" symbol="GCIncreaseMemoryPressure" version="0" task="GC" opcode="IncreaseMemoryPressure" level="win:Verbose" keywords="GCKeyword" template="GCIncreaseMemoryPressureArgs"/>
+     <event value="201" symbol="GCDecreaseMemoryPressure" version="0" task="GC" opcode="DecreaseMemoryPressure" level="win:Verbose" keywords="GCKeyword" template="GCDecreaseMemoryPressureArgs"/>
+     <event value="202" symbol="GCMark" version="0" task="GC" opcode="Mark" level="win:Informational" keywords="GCKeyword" template="GCMarkArgs"/>
+     <event value="203" symbol="GCGCJoin_V2" version="2" task="GC" opcode="GCJoin" level="win:Verbose" keywords="GCKeyword" template="GCGCJoinArgs_V2"/>
+     <event value="204" symbol="GCPerHeapHistory_V3" version="3" task="GC" opcode="PerHeapHistory" level="win:Informational" keywords="GCKeyword" template="GCPerHeapHistoryArgs_V3"/>
+     <event value="205" symbol="GCGlobalHeapHistory_V2" version="2" task="GC" opcode="GlobalHeapHistory" level="win:Informational" keywords="GCKeyword" template="GCGlobalHeapHistoryArgs_V2"/>
+     <event value="240" symbol="DebugIPCEventStart" version="0" task="DebugIPCEvent" opcode="win:Start" level="win:Informational" keywords="DebuggerKeyword"/>
+     <event value="241" symbol="DebugIPCEventStop" version="0" task="DebugIPCEvent" opcode="win:Stop" level="win:Informational" keywords="DebuggerKeyword"/>
+     <event value="242" symbol="DebugExceptionProcessingStart" version="0" task="DebugExceptionProcessing" opcode="win:Start" level="win:Informational" keywords="DebuggerKeyword"/>
+     <event value="243" symbol="DebugExceptionProcessingStop" version="0" task="DebugExceptionProcessing" opcode="win:Stop" level="win:Informational" keywords="DebuggerKeyword"/>
+     <event value="250" symbol="ExceptionCatchStart" version="0" task="ExceptionCatch" opcode="win:Start" level="win:Informational" keywords="ExceptionKeyword" template="ExceptionCatchStartArgs"/>
+     <event value="251" symbol="ExceptionCatchStop" version="0" task="ExceptionCatch" opcode="win:Stop" level="win:Informational" keywords="ExceptionKeyword"/>
+     <event value="252" symbol="ExceptionFinallyStart" version="0" task="ExceptionFinally" opcode="win:Start" level="win:Informational" keywords="ExceptionKeyword" template="ExceptionCatchStartArgs"/>
+     <event value="253" symbol="ExceptionFinallyStop" version="0" task="ExceptionFinally" opcode="win:Stop" level="win:Informational" keywords="ExceptionKeyword"/>
+     <event value="254" symbol="ExceptionFilterStart" version="0" task="ExceptionFilter" opcode="win:Start" level="win:Informational" keywords="ExceptionKeyword" template="ExceptionCatchStartArgs"/>
+     <event value="255" symbol="ExceptionFilterStop" version="0" task="ExceptionFilter" opcode="win:Stop" level="win:Informational" keywords="ExceptionKeyword"/>
+     <event value="256" symbol="ExceptionStop" version="0" task="Exception" opcode="win:Stop" level="win:Informational" keywords="ExceptionKeyword"/>
+    </events>
+    <templates>
+     <template tid="GCStartArgs">
+      <data name="Count" inType="win:UInt32"/>
+      <data name="Reason" inType="win:UInt32" map="GCReasonMap"/>
+     </template>
+     <template tid="GCStopArgs">
+      <data name="Count" inType="win:UInt32"/>
+      <data name="Depth" inType="win:UInt16"/>
+     </template>
+     <template tid="GCHeapStatsArgs">
+      <data name="GenerationSize0" inType="win:UInt64"/>
+      <data name="TotalPromotedSize0" inType="win:UInt64"/>
+      <data name="GenerationSize1" inType="win:UInt64"/>
+      <data name="TotalPromotedSize1" inType="win:UInt64"/>
+      <data name="GenerationSize2" inType="win:UInt64"/>
+      <data name="TotalPromotedSize2" inType="win:UInt64"/>
+      <data name="GenerationSize3" inType="win:UInt64"/>
+      <data name="TotalPromotedSize3" inType="win:UInt64"/>
+      <data name="FinalizationPromotedSize" inType="win:UInt64"/>
+      <data name="FinalizationPromotedCount" inType="win:UInt64"/>
+      <data name="PinnedObjectCount" inType="win:UInt32"/>
+      <data name="SinkBlockCount" inType="win:UInt32"/>
+      <data name="GCHandleCount" inType="win:UInt32"/>
+     </template>
+     <template tid="GCCreateSegmentArgs">
+      <data name="Address" inType="win:UInt64"/>
+      <data name="Size" inType="win:UInt64"/>
+      <data name="Type" inType="win:UInt32" map="GCSegmentTypeMap"/>
+     </template>
+     <template tid="GCFreeSegmentArgs">
+      <data name="Address" inType="win:UInt64"/>
+     </template>
+     <template tid="GCSuspendEEStartArgs">
+      <data name="Reason" inType="win:UInt16"/>
+     </template>
+     <template tid="GCAllocationTickArgs">
+      <data name="AllocationAmount" inType="win:UInt32"/>
+      <data name="AllocationKind" inType="win:UInt32" map="GCAllocationKindMap"/>
+     </template>
+     <template tid="GCFinalizersStopArgs">
+      <data name="Count" inType="win:UInt32"/>
+     </template>
+     <template tid="TypeBulkTypeArgs">
+      <data name="Count" inType="win:UInt32"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+      <data name="Values" inType="win:Int8" count="Count"/>
+     </template>
+     <template tid="GCGCBulkRootEdgeArgs">
+      <data name="Index" inType="win:UInt32"/>
+      <data name="Count" inType="win:UInt32"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+      <data name="Values" inType="win:UInt8" count="Count"/>
+     </template>
+     <template tid="GCGCSampledObjectAllocationArgs">
+      <data name="Address" inType="win:Pointer"/>
+      <data name="TypeID" inType="win:Pointer"/>
+      <data name="ObjectCountForTypeSample" inType="win:UInt32"/>
+      <data name="TotalSizeForTypeSample" inType="win:UInt64"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="GCGCGenerationRangeArgs">
+      <data name="Generation" inType="win:UInt8"/>
+      <data name="RangeStart" inType="win:Pointer"/>
+      <data name="RangeUsedLength" inType="win:UInt64"/>
+      <data name="RangeReservedLength" inType="win:UInt64"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="GCMarkStackRootsArgs">
+      <data name="HeapNum" inType="win:UInt32"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="GCFinalizeObjectArgs">
+      <data name="TypeID" inType="win:Pointer"/>
+      <data name="ObjectID" inType="win:Pointer"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="GCSetGCHandleArgs">
+      <data name="HandleID" inType="win:Pointer"/>
+      <data name="ObjectID" inType="win:Pointer"/>
+      <data name="Kind" inType="win:UInt32"/>
+      <data name="Generation" inType="win:UInt32"/>
+      <data name="AppDomainID" inType="win:UInt64"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="GCDestoryGCHandleArgs">
+      <data name="HandleID" inType="win:Pointer"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="GCPinObjectAtGCTimeArgs">
+      <data name="HandleID" inType="win:Pointer"/>
+      <data name="ObjectID" inType="win:Pointer"/>
+      <data name="ObjectSize" inType="win:UInt64"/>
+      <data name="TypeName" inType="win:UnicodeString"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="GCTriggeredArgs">
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="GCGCBulkRootStaticVarArgs">
+      <data name="Count" inType="win:UInt32"/>
+      <data name="AppDomainID" inType="win:UInt64"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+      <data name="Values" inType="win:UInt8" count="Count"/>
+     </template>
+     <template tid="WorkerThreadCreationV2StartArgs">
+      <data name="WorkerThreadCount" inType="win:UInt32"/>
+      <data name="RetiredWorkerThreads" inType="win:UInt32"/>
+     </template>
+     <template tid="IOThreadCreationStartArgs">
+      <data name="IOThreadCount" inType="win:UInt32"/>
+      <data name="RetiredIOThreads" inType="win:UInt32"/>
+     </template>
+     <template tid="ThreadpoolSuspensionV2StartArgs">
+      <data name="ClrThreadID" inType="win:UInt32"/>
+      <data name="CpuUtilization" inType="win:UInt32"/>
+     </template>
+     <template tid="ThreadPoolWorkerThreadStartArgs">
+      <data name="ActiveWorkerThreadCount" inType="win:UInt32"/>
+      <data name="RetiredWorkerThreadCount" inType="win:UInt32"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="ThreadPoolWorkerThreadAdjustmentSampleArgs">
+      <data name="Throughput" inType="win:Double"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="ThreadPoolWorkerThreadAdjustmentArgs">
+      <data name="AverageThroughput" inType="win:Double"/>
+      <data name="NewWorkerThreadCount" inType="win:UInt32"/>
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="ThreadPoolWorkerThreadAdjustmentStatsArgs">
+      <data name="Duration" inType="win:Double"/>
+      <data name="Throughput" inType="win:Double"/>
+      <data name="ThreadWave" inType="win:Double"/>
+      <data name="ThroughputWave" inType="win:Double"/>
+      <data name="ThroughputErrorEstimate" inType="win:Double"/>
+      <data name="AverageThroughputErrorEstimate" inType="win:Double"/>
+      <data name="ThroughputRatio" inType="win:Double"/>
+      <data name="Confidence" inType="win:Double"/>
+      <data name="NewControlSetting" inType="win:Double"/>
+      <data name="NewThreadWaveMagnitude" inType="win:UInt16"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="ThreadPoolWorkingThreadCountStartArgs">
+      <data name="Count" inType="win:UInt32"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="ThreadPoolEnqueueArgs">
+      <data name="WorkID" inType="win:Pointer"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="ThreadPoolIOEnqueueArgs">
+      <data name="NativeOverlapped" inType="win:Pointer"/>
+      <data name="Overlapped" inType="win:Pointer"/>
+      <data name="MultiDequeues" inType="win:Boolean"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="ThreadPoolIODequeueArgs">
+      <data name="NativeOverlapped" inType="win:Pointer"/>
+      <data name="Overlapped" inType="win:Pointer"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="ThreadCreatingArgs">
+      <data name="ID" inType="win:Pointer"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="ClrStackWalkArgs">
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+      <data name="Reserved1" inType="win:UInt8"/>
+      <data name="Reserved2" inType="win:UInt8"/>
+      <data name="FrameCount" inType="win:UInt32"/>
+      <data name="Stack" inType="win:Pointer"/>
+     </template>
+     <template tid="AppDomainResourceManagementMemAllocatedArgs">
+      <data name="AppDomainID" inType="win:UInt64"/>
+      <data name="Allocated" inType="win:UInt64"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="AppDomainResourceManagementMemSurvivedArgs">
+      <data name="AppDomainID" inType="win:UInt64"/>
+      <data name="Survived" inType="win:UInt64"/>
+      <data name="ProcessSurvived" inType="win:UInt64"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="AppDomainResourceManagementThreadCreatedArgs">
+      <data name="ManagedThreadID" inType="win:UInt64"/>
+      <data name="AppDomainID" inType="win:UInt64"/>
+      <data name="Flags" inType="win:UInt32" map="ThreadFlagsMap"/>
+      <data name="ManagedThreadIndex" inType="win:UInt32"/>
+      <data name="OSThreadID" inType="win:UInt32"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="AppDomainResourceManagementThreadTerminatedArgs">
+      <data name="ManagedThreadID" inType="win:UInt64"/>
+      <data name="AppDomainID" inType="win:UInt64"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="ILStubStubGeneratedArgs">
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+      <data name="ModuleID" inType="win:UInt64"/>
+      <data name="StubMethodID" inType="win:UInt64"/>
+      <data name="StubFlags" inType="win:UInt32"/>
+      <data name="ManagedInteropMethodToken" inType="win:UInt32"/>
+      <data name="ManagedInteropMethodNamespace" inType="win:UnicodeString"/>
+      <data name="ManagedInteropMethodName" inType="win:UnicodeString"/>
+      <data name="ManagedInteropMethodSignature" inType="win:UnicodeString"/>
+      <data name="NativeMethodSignature" inType="win:UnicodeString"/>
+      <data name="StubMethodSignature" inType="win:UnicodeString"/>
+      <data name="StubMethodILCode" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ILStubStubCacheHitArgs">
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+      <data name="ModuleID" inType="win:UInt64"/>
+      <data name="StubMethodID" inType="win:UInt64"/>
+      <data name="ManagedInteropMethodToken" inType="win:UInt32"/>
+      <data name="ManagedInteropMethodNamespace" inType="win:UnicodeString"/>
+      <data name="ManagedInteropMethodName" inType="win:UnicodeString"/>
+      <data name="ManagedInteropMethodSignature" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ContentionStopArgs">
+      <data name="ContentionFlags" inType="win:UInt8" map="ContentionFlagsMap"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="MethodDCStartV2Args">
+      <data name="MethodID" inType="win:UInt64"/>
+      <data name="ModuleID" inType="win:UInt64"/>
+      <data name="MethodStartAddress" inType="win:UInt64"/>
+      <data name="MethodSize" inType="win:UInt32"/>
+      <data name="MethodToken" inType="win:UInt32"/>
+      <data name="MethodFlags" inType="win:UInt32"/>
+     </template>
+     <template tid="MethodDCStopV2Args">
+      <data name="MethodID" inType="win:UInt64"/>
+      <data name="ModuleID" inType="win:UInt64"/>
+      <data name="MethodStartAddress" inType="win:UInt64"/>
+      <data name="MethodSize" inType="win:UInt32"/>
+      <data name="MethodToken" inType="win:UInt32"/>
+      <data name="MethodFlags" inType="win:UInt32" map="MethodFlagsMap"/>
+     </template>
+     <template tid="MethodDCStartVerboseV2Args">
+      <data name="MethodID" inType="win:UInt64"/>
+      <data name="ModuleID" inType="win:UInt64"/>
+      <data name="MethodStartAddress" inType="win:UInt64"/>
+      <data name="MethodSize" inType="win:UInt32"/>
+      <data name="MethodToken" inType="win:UInt32"/>
+      <data name="MethodFlags" inType="win:UInt32"/>
+      <data name="MethodNamespace" inType="win:UnicodeString"/>
+      <data name="MethodName" inType="win:UnicodeString"/>
+      <data name="MethodSignature" inType="win:UnicodeString"/>
+     </template>
+     <template tid="MethodJittingStartedArgs">
+      <data name="MethodID" inType="win:UInt64"/>
+      <data name="ModuleID" inType="win:UInt64"/>
+      <data name="MethodToken" inType="win:UInt32"/>
+      <data name="MethodILSize" inType="win:UInt32"/>
+      <data name="MethodNamespace" inType="win:UnicodeString"/>
+      <data name="MethodName" inType="win:UnicodeString"/>
+      <data name="MethodSignature" inType="win:UnicodeString"/>
+     </template>
+     <template tid="LoaderModuleDCStartV2Args">
+      <data name="ModuleID" inType="win:UInt64"/>
+      <data name="AssemblyID" inType="win:UInt64"/>
+      <data name="ModuleFlags" inType="win:UInt32" map="ModuleFlagsMap"/>
+      <data name="Reserved1" inType="win:UInt32"/>
+      <data name="ModuleILPath" inType="win:UnicodeString"/>
+      <data name="ModuleNativePath" inType="win:UnicodeString"/>
+     </template>
+     <template tid="LoaderModuleDCStopV2Args">
+      <data name="ModuleID" inType="win:UInt64"/>
+      <data name="AssemblyID" inType="win:UInt64"/>
+      <data name="ModuleFlags" inType="win:UInt32"/>
+      <data name="Reserved1" inType="win:UInt32"/>
+      <data name="ModuleILPath" inType="win:UnicodeString"/>
+      <data name="ModuleNativePath" inType="win:UnicodeString"/>
+     </template>
+     <template tid="LoaderDomainModuleLoadArgs">
+      <data name="ModuleID" inType="win:UInt64"/>
+      <data name="AssemblyID" inType="win:UInt64"/>
+      <data name="AppDomainID" inType="win:UInt64"/>
+      <data name="ModuleFlags" inType="win:UInt32"/>
+      <data name="Reserved1" inType="win:UInt32"/>
+      <data name="ModuleILPath" inType="win:UnicodeString"/>
+      <data name="ModuleNativePath" inType="win:UnicodeString"/>
+     </template>
+     <template tid="LoaderAssemblyLoadArgs">
+      <data name="AssemblyID" inType="win:UInt64"/>
+      <data name="AppDomainID" inType="win:UInt64"/>
+      <data name="AssemblyFlags" inType="win:UInt32"/>
+      <data name="FullyQualifiedAssemblyName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="LoaderAssemblyUnloadArgs">
+      <data name="AssemblyID" inType="win:UInt64"/>
+      <data name="AppDomainID" inType="win:UInt64"/>
+      <data name="AssemblyFlags" inType="win:UInt32" map="AssemblyFlagsMap"/>
+      <data name="FullyQualifiedAssemblyName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="LoaderAppDomainLoadArgs">
+      <data name="AppDomainID" inType="win:UInt64"/>
+      <data name="AppDomainFlags" inType="win:UInt32" map="AppDomainFlagsMap"/>
+      <data name="AppDomainName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="LoaderAppDomainUnloadArgs">
+      <data name="AppDomainID" inType="win:UInt64"/>
+      <data name="AppDomainFlags" inType="win:UInt32"/>
+      <data name="AppDomainName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ClrPerfTrackModuleRangeLoadArgs">
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+      <data name="ModuleID" inType="win:UInt64"/>
+      <data name="RangeBegin" inType="win:UInt32"/>
+      <data name="RangeSize" inType="win:UInt32"/>
+      <data name="RangeType" inType="win:UInt8" map="ModuleRangeTypeMap"/>
+     </template>
+     <template tid="StrongNameVerificationStartArgs">
+      <data name="VerificationFlags" inType="win:UInt32"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="FullyQualifiedAssemblyName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="AuthenticodeVerificationStartArgs">
+      <data name="VerificationFlags" inType="win:UInt32"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="ModulePath" inType="win:UnicodeString"/>
+     </template>
+     <template tid="MethodInliningSucceededArgs">
+      <data name="MethodBeingCompiledNamespace" inType="win:UnicodeString"/>
+      <data name="MethodBeingCompiledName" inType="win:UnicodeString"/>
+      <data name="MethodBeingCompiledNameSignature" inType="win:UnicodeString"/>
+      <data name="InlinerNamespace" inType="win:UnicodeString"/>
+      <data name="InlinerName" inType="win:UnicodeString"/>
+      <data name="InlinerNameSignature" inType="win:UnicodeString"/>
+      <data name="InlineeNamespace" inType="win:UnicodeString"/>
+      <data name="InlineeName" inType="win:UnicodeString"/>
+      <data name="InlineeNameSignature" inType="win:UnicodeString"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="MethodInliningFailedArgs">
+      <data name="MethodBeingCompiledNamespace" inType="win:UnicodeString"/>
+      <data name="MethodBeingCompiledName" inType="win:UnicodeString"/>
+      <data name="MethodBeingCompiledNameSignature" inType="win:UnicodeString"/>
+      <data name="InlinerNamespace" inType="win:UnicodeString"/>
+      <data name="InlinerName" inType="win:UnicodeString"/>
+      <data name="InlinerNameSignature" inType="win:UnicodeString"/>
+      <data name="InlineeNamespace" inType="win:UnicodeString"/>
+      <data name="InlineeName" inType="win:UnicodeString"/>
+      <data name="InlineeNameSignature" inType="win:UnicodeString"/>
+      <data name="FailAlways" inType="win:Boolean"/>
+      <data name="FailReason" inType="win:AnsiString"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="RuntimeStartArgs">
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+      <data name="Sku" inType="win:UInt16"/>
+      <data name="BclMajorVersion" inType="win:UInt16"/>
+      <data name="BclMinorVersion" inType="win:UInt16"/>
+      <data name="BclBuildNumber" inType="win:UInt16"/>
+      <data name="BclQfeNumber" inType="win:UInt16"/>
+      <data name="VMMajorVersion" inType="win:UInt16"/>
+      <data name="VMMinorVersion" inType="win:UInt16"/>
+      <data name="VMBuildNumber" inType="win:UInt16"/>
+      <data name="VMQfeNumber" inType="win:UInt16"/>
+      <data name="StartupFlags" inType="win:UInt32"/>
+      <data name="StartupMode" inType="win:UInt8" map="StartupModeMap"/>
+      <data name="CommandLine" inType="win:UnicodeString"/>
+      <data name="ComObjectGuid" inType="win:GUID"/>
+      <data name="RuntimeDllPath" inType="win:UnicodeString"/>
+     </template>
+     <template tid="MethodTailCallSucceededArgs">
+      <data name="MethodBeingCompiledNamespace" inType="win:UnicodeString"/>
+      <data name="MethodBeingCompiledName" inType="win:UnicodeString"/>
+      <data name="MethodBeingCompiledNameSignature" inType="win:UnicodeString"/>
+      <data name="CallerNamespace" inType="win:UnicodeString"/>
+      <data name="CallerName" inType="win:UnicodeString"/>
+      <data name="CallerNameSignature" inType="win:UnicodeString"/>
+      <data name="CalleeNamespace" inType="win:UnicodeString"/>
+      <data name="CalleeName" inType="win:UnicodeString"/>
+      <data name="CalleeNameSignature" inType="win:UnicodeString"/>
+      <data name="TailPrefix" inType="win:Boolean"/>
+      <data name="TailCallType" inType="win:UInt32" map="TailCallTypeMap"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="MethodTailCallFailedArgs">
+      <data name="MethodBeingCompiledNamespace" inType="win:UnicodeString"/>
+      <data name="MethodBeingCompiledName" inType="win:UnicodeString"/>
+      <data name="MethodBeingCompiledNameSignature" inType="win:UnicodeString"/>
+      <data name="CallerNamespace" inType="win:UnicodeString"/>
+      <data name="CallerName" inType="win:UnicodeString"/>
+      <data name="CallerNameSignature" inType="win:UnicodeString"/>
+      <data name="CalleeNamespace" inType="win:UnicodeString"/>
+      <data name="CalleeName" inType="win:UnicodeString"/>
+      <data name="CalleeNameSignature" inType="win:UnicodeString"/>
+      <data name="TailPrefix" inType="win:Boolean"/>
+      <data name="FailReason" inType="win:AnsiString"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="MethodMethodILToNativeMapArgs">
+      <data name="MethodID" inType="win:UInt64"/>
+      <data name="ReJITID" inType="win:UInt64"/>
+      <data name="MethodExtent" inType="win:UInt8"/>
+      <data name="CountOfMapEntries" inType="win:UInt16"/>
+      <data name="ILOffsets" inType="win:UInt32" count="CountOfMapEntries"/>
+      <data name="NativeOffsets" inType="win:UInt32" count="CountOfMapEntries"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="GCIncreaseMemoryPressureArgs">
+      <data name="BytesAllocated" inType="win:UInt64"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="GCDecreaseMemoryPressureArgs">
+      <data name="BytesFreed" inType="win:UInt64"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="GCMarkArgs">
+      <data name="HeapNum" inType="win:UInt32"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+      <data name="Type" inType="win:UInt32"/>
+      <data name="Bytes" inType="win:UInt64"/>
+     </template>
+     <template tid="ExceptionCatchStartArgs">
+      <data name="EntryEIP" inType="win:UInt64"/>
+      <data name="MethodID" inType="win:UInt64"/>
+      <data name="MethodName" inType="win:UnicodeString"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="GCStartArgs_V1">
+      <data name="Count" inType="win:UInt32"/>
+      <data name="Depth" inType="win:UInt32"/>
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="Type" inType="win:UInt32" map="GCTypeMap"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="GCStopArgs_V1">
+      <data name="Count" inType="win:UInt32"/>
+      <data name="Depth" inType="win:UInt32"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="GCRestartEEStopArgs_V1">
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="GCHeapStatsArgs_V1">
+      <data name="GenerationSize0" inType="win:UInt64"/>
+      <data name="TotalPromotedSize0" inType="win:UInt64"/>
+      <data name="GenerationSize1" inType="win:UInt64"/>
+      <data name="TotalPromotedSize1" inType="win:UInt64"/>
+      <data name="GenerationSize2" inType="win:UInt64"/>
+      <data name="TotalPromotedSize2" inType="win:UInt64"/>
+      <data name="GenerationSize3" inType="win:UInt64"/>
+      <data name="TotalPromotedSize3" inType="win:UInt64"/>
+      <data name="FinalizationPromotedSize" inType="win:UInt64"/>
+      <data name="FinalizationPromotedCount" inType="win:UInt64"/>
+      <data name="PinnedObjectCount" inType="win:UInt32"/>
+      <data name="SinkBlockCount" inType="win:UInt32"/>
+      <data name="GCHandleCount" inType="win:UInt32"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="GCCreateSegmentArgs_V1">
+      <data name="Address" inType="win:UInt64"/>
+      <data name="Size" inType="win:UInt64"/>
+      <data name="Type" inType="win:UInt32"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="GCFreeSegmentArgs_V1">
+      <data name="Address" inType="win:UInt64"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="GCSuspendEEStartArgs_V1">
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="Count" inType="win:UInt32"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="GCAllocationTickArgs_V1">
+      <data name="AllocationAmount" inType="win:UInt32"/>
+      <data name="AllocationKind" inType="win:UInt32"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="IOThreadCreationStartArgs_V1">
+      <data name="IOThreadCount" inType="win:UInt32"/>
+      <data name="RetiredIOThreads" inType="win:UInt32"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="ExceptionStartArgs_V1">
+      <data name="ExceptionType" inType="win:UnicodeString"/>
+      <data name="ExceptionMessage" inType="win:UnicodeString"/>
+      <data name="ExceptionEIP" inType="win:Pointer"/>
+      <data name="ExceptionHRESULT" inType="win:UInt32"/>
+      <data name="ExceptionFlags" inType="win:UInt16" map="ExceptionThrownFlagsMap"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="ContentionStartArgs_V1">
+      <data name="ContentionFlags" inType="win:UInt8"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="MethodLoadArgs_V1">
+      <data name="MethodID" inType="win:UInt64"/>
+      <data name="ModuleID" inType="win:UInt64"/>
+      <data name="MethodStartAddress" inType="win:UInt64"/>
+      <data name="MethodSize" inType="win:UInt32"/>
+      <data name="MethodToken" inType="win:UInt32"/>
+      <data name="MethodFlags" inType="win:UInt32"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="MethodLoadVerboseArgs_V1">
+      <data name="MethodID" inType="win:UInt64"/>
+      <data name="ModuleID" inType="win:UInt64"/>
+      <data name="MethodStartAddress" inType="win:UInt64"/>
+      <data name="MethodSize" inType="win:UInt32"/>
+      <data name="MethodToken" inType="win:UInt32"/>
+      <data name="MethodFlags" inType="win:UInt32"/>
+      <data name="MethodNamespace" inType="win:UnicodeString"/>
+      <data name="MethodName" inType="win:UnicodeString"/>
+      <data name="MethodSignature" inType="win:UnicodeString"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="MethodJittingStartedArgs_V1">
+      <data name="MethodID" inType="win:UInt64"/>
+      <data name="ModuleID" inType="win:UInt64"/>
+      <data name="MethodToken" inType="win:UInt32"/>
+      <data name="MethodILSize" inType="win:UInt32"/>
+      <data name="MethodNamespace" inType="win:UnicodeString"/>
+      <data name="MethodName" inType="win:UnicodeString"/>
+      <data name="MethodSignature" inType="win:UnicodeString"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="LoaderDomainModuleLoadArgs_V1">
+      <data name="ModuleID" inType="win:UInt64"/>
+      <data name="AssemblyID" inType="win:UInt64"/>
+      <data name="AppDomainID" inType="win:UInt64"/>
+      <data name="ModuleFlags" inType="win:UInt32"/>
+      <data name="Reserved1" inType="win:UInt32"/>
+      <data name="ModuleILPath" inType="win:UnicodeString"/>
+      <data name="ModuleNativePath" inType="win:UnicodeString"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="LoaderModuleLoadArgs_V1">
+      <data name="ModuleID" inType="win:UInt64"/>
+      <data name="AssemblyID" inType="win:UInt64"/>
+      <data name="ModuleFlags" inType="win:UInt32"/>
+      <data name="Reserved1" inType="win:UInt32"/>
+      <data name="ModuleILPath" inType="win:UnicodeString"/>
+      <data name="ModuleNativePath" inType="win:UnicodeString"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="LoaderAssemblyLoadArgs_V1">
+      <data name="AssemblyID" inType="win:UInt64"/>
+      <data name="AppDomainID" inType="win:UInt64"/>
+      <data name="BindingID" inType="win:UInt64"/>
+      <data name="AssemblyFlags" inType="win:UInt32"/>
+      <data name="FullyQualifiedAssemblyName" inType="win:UnicodeString"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="LoaderAppDomainLoadArgs_V1">
+      <data name="AppDomainID" inType="win:UInt64"/>
+      <data name="AppDomainFlags" inType="win:UInt32"/>
+      <data name="AppDomainName" inType="win:UnicodeString"/>
+      <data name="AppDomainIndex" inType="win:UInt32"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="StrongNameVerificationStartArgs_V1">
+      <data name="VerificationFlags" inType="win:UInt32"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="FullyQualifiedAssemblyName" inType="win:UnicodeString"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="AuthenticodeVerificationStartArgs_V1">
+      <data name="VerificationFlags" inType="win:UInt32"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="ModulePath" inType="win:UnicodeString"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+     </template>
+     <template tid="GCStartArgs_V2">
+      <data name="Count" inType="win:UInt32"/>
+      <data name="Depth" inType="win:UInt32"/>
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="Type" inType="win:UInt32"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+      <data name="ClientSequenceNumber" inType="win:UInt64"/>
+     </template>
+     <template tid="GCAllocationTickArgs_V2">
+      <data name="AllocationAmount" inType="win:UInt32"/>
+      <data name="AllocationKind" inType="win:UInt32"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+      <data name="AllocationAmount64" inType="win:UInt64"/>
+      <data name="TypeID" inType="win:Pointer"/>
+      <data name="TypeName" inType="win:UnicodeString"/>
+      <data name="HeapIndex" inType="win:UInt32"/>
+     </template>
+     <template tid="MethodLoadArgs_V2">
+      <data name="MethodID" inType="win:UInt64"/>
+      <data name="ModuleID" inType="win:UInt64"/>
+      <data name="MethodStartAddress" inType="win:UInt64"/>
+      <data name="MethodSize" inType="win:UInt32"/>
+      <data name="MethodToken" inType="win:UInt32"/>
+      <data name="MethodFlags" inType="win:UInt32"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+      <data name="ReJITID" inType="win:UInt64"/>
+     </template>
+     <template tid="MethodLoadVerboseArgs_V2">
+      <data name="MethodID" inType="win:UInt64"/>
+      <data name="ModuleID" inType="win:UInt64"/>
+      <data name="MethodStartAddress" inType="win:UInt64"/>
+      <data name="MethodSize" inType="win:UInt32"/>
+      <data name="MethodToken" inType="win:UInt32"/>
+      <data name="MethodFlags" inType="win:UInt32"/>
+      <data name="MethodNamespace" inType="win:UnicodeString"/>
+      <data name="MethodName" inType="win:UnicodeString"/>
+      <data name="MethodSignature" inType="win:UnicodeString"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+      <data name="ReJITID" inType="win:UInt64"/>
+     </template>
+     <template tid="LoaderModuleLoadArgs_V2">
+      <data name="ModuleID" inType="win:UInt64"/>
+      <data name="AssemblyID" inType="win:UInt64"/>
+      <data name="ModuleFlags" inType="win:UInt32"/>
+      <data name="Reserved1" inType="win:UInt32"/>
+      <data name="ModuleILPath" inType="win:UnicodeString"/>
+      <data name="ModuleNativePath" inType="win:UnicodeString"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+      <data name="ManagedPdbSignature" inType="win:GUID"/>
+      <data name="ManagedPdbAge" inType="win:UInt32"/>
+      <data name="ManagedPdbBuildPath" inType="win:UnicodeString"/>
+      <data name="NativePdbSignature" inType="win:GUID"/>
+      <data name="NativePdbAge" inType="win:UInt32"/>
+      <data name="NativePdbBuildPath" inType="win:UnicodeString"/>
+     </template>
+     <template tid="GCGCJoinArgs_V2">
+      <data name="Heap" inType="win:UInt32"/>
+      <data name="JoinTime" inType="win:UInt32"/>
+      <data name="JoinType" inType="win:UInt32"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+      <data name="JoinID" inType="win:UInt32"/>
+     </template>
+     <template tid="GCGlobalHeapHistoryArgs_V2">
+      <data name="FinalYoungestDesired" inType="win:UInt64"/>
+      <data name="NumHeaps" inType="win:Int32"/>
+      <data name="CondemnedGeneration" inType="win:UInt32"/>
+      <data name="Gen0ReductionCount" inType="win:UInt32"/>
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="GlobalMechanisms" inType="win:UInt32"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+      <data name="PauseMode" inType="win:UInt32"/>
+      <data name="MemoryPressure" inType="win:UInt32"/>
+     </template>
+     <template tid="GCAllocationTickArgs_V3">
+      <data name="AllocationAmount" inType="win:UInt32"/>
+      <data name="AllocationKind" inType="win:UInt32"/>
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+      <data name="AllocationAmount64" inType="win:UInt64"/>
+      <data name="TypeID" inType="win:Pointer"/>
+      <data name="TypeName" inType="win:UnicodeString"/>
+      <data name="HeapIndex" inType="win:UInt32"/>
+      <data name="Address" inType="win:Pointer"/>
+     </template>
+     <template tid="GCPerHeapHistoryArgs_V3">
+      <data name="ClrInstanceID" inType="win:UInt16"/>
+      <data name="FreeListAllocated" inType="win:Pointer"/>
+      <data name="FreeListRejected" inType="win:Pointer"/>
+      <data name="EndOfSegAllocated" inType="win:Pointer"/>
+      <data name="CondemnedAllocated" inType="win:Pointer"/>
+      <data name="PinnedAllocated" inType="win:Pointer"/>
+      <data name="PinnedAllocatedAdvance" inType="win:Pointer"/>
+      <data name="RunningFreeListEfficiency" inType="win:UInt32"/>
+      <data name="CondemnReasons0" inType="win:UInt32"/>
+      <data name="CondemnReasons1" inType="win:UInt32"/>
+      <data name="CompactMechanisms" inType="win:UInt32"/>
+      <data name="ExpandMechanisms" inType="win:UInt32"/>
+      <data name="HeapIndex" inType="win:UInt32"/>
+      <data name="ExtraGen0Commit" inType="win:Pointer"/>
+      <data name="Count" inType="win:UInt32"/>
+      <data name="Values" inType="win:Pointer" count="Count"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_GCKeyword" value="GCKeyword"/>
+    <string id="keyword_GCHandleKeyword" value="GCHandleKeyword"/>
+    <string id="keyword_FusionKeyword" value="FusionKeyword"/>
+    <string id="keyword_LoaderKeyword" value="LoaderKeyword"/>
+    <string id="keyword_JitKeyword" value="JitKeyword"/>
+    <string id="keyword_NGenKeyword" value="NGenKeyword"/>
+    <string id="keyword_StartEnumerationKeyword" value="StartEnumerationKeyword"/>
+    <string id="keyword_EndEnumerationKeyword" value="EndEnumerationKeyword"/>
+    <string id="keyword_SecurityKeyword" value="SecurityKeyword"/>
+    <string id="keyword_AppDomainResourceManagementKeyword" value="AppDomainResourceManagementKeyword"/>
+    <string id="keyword_JitTracingKeyword" value="JitTracingKeyword"/>
+    <string id="keyword_InteropKeyword" value="InteropKeyword"/>
+    <string id="keyword_ContentionKeyword" value="ContentionKeyword"/>
+    <string id="keyword_ExceptionKeyword" value="ExceptionKeyword"/>
+    <string id="keyword_ThreadingKeyword" value="ThreadingKeyword"/>
+    <string id="keyword_JittedMethodILToNativeMapKeyword" value="JittedMethodILToNativeMapKeyword"/>
+    <string id="keyword_OverrideAndSuppressNGenEventsKeyword" value="OverrideAndSuppressNGenEventsKeyword"/>
+    <string id="keyword_TypeKeyword" value="TypeKeyword"/>
+    <string id="keyword_GCHeapDumpKeyword" value="GCHeapDumpKeyword"/>
+    <string id="keyword_GCSampledObjectAllocationHighKeyword" value="GCSampledObjectAllocationHighKeyword"/>
+    <string id="keyword_GCHeapSurvivalAndMovementKeyword" value="GCHeapSurvivalAndMovementKeyword"/>
+    <string id="keyword_GCHeapCollectKeyword" value="GCHeapCollectKeyword"/>
+    <string id="keyword_GCHeapAndTypeNamesKeyword" value="GCHeapAndTypeNamesKeyword"/>
+    <string id="keyword_GCSampledObjectAllocationLowKeyword" value="GCSampledObjectAllocationLowKeyword"/>
+    <string id="keyword_PerfTrackKeyword" value="PerfTrackKeyword"/>
+    <string id="keyword_StackKeyword" value="StackKeyword"/>
+    <string id="keyword_ThreadTransferKeyword" value="ThreadTransferKeyword"/>
+    <string id="keyword_DebuggerKeyword" value="DebuggerKeyword"/>
+    <string id="keyword_MonitoringKeyword" value="MonitoringKeyword"/>
+    <string id="task_GC" value="GC"/>
+    <string id="opcode_GCSuspendEEStart" value="SuspendEEStart"/>
+    <string id="opcode_GCAllocationTick" value="AllocationTick"/>
+    <string id="opcode_GCCreateConcurrentThread" value="CreateConcurrentThread"/>
+    <string id="opcode_GCTerminateConcurrentThread" value="TerminateConcurrentThread"/>
+    <string id="opcode_GCFinalizersStop" value="FinalizersStop"/>
+    <string id="opcode_GCFinalizersStart" value="FinalizersStart"/>
+    <string id="opcode_GCGCBulkRootEdge" value="GCBulkRootEdge"/>
+    <string id="opcode_GCGCBulkRootConditionalWeakTableElementEdge" value="GCBulkRootConditionalWeakTableElementEdge"/>
+    <string id="opcode_GCGCBulkNode" value="GCBulkNode"/>
+    <string id="opcode_GCGCBulkEdge" value="GCBulkEdge"/>
+    <string id="opcode_GCGCSampledObjectAllocation" value="GCSampledObjectAllocation"/>
+    <string id="opcode_GCGCBulkSurvivingObjectRanges" value="GCBulkSurvivingObjectRanges"/>
+    <string id="opcode_GCGCBulkMovedObjectRanges" value="GCBulkMovedObjectRanges"/>
+    <string id="opcode_GCGCGenerationRange" value="GCGenerationRange"/>
+    <string id="opcode_GCMarkStackRoots" value="MarkStackRoots"/>
+    <string id="opcode_GCMarkFinalizeQueueRoots" value="MarkFinalizeQueueRoots"/>
+    <string id="opcode_GCMarkHandles" value="MarkHandles"/>
+    <string id="opcode_GCMarkCards" value="MarkCards"/>
+    <string id="opcode_GCFinalizeObject" value="FinalizeObject"/>
+    <string id="opcode_GCSetGCHandle" value="SetGCHandle"/>
+    <string id="opcode_GCDestoryGCHandle" value="DestoryGCHandle"/>
+    <string id="opcode_GCTriggered" value="Triggered"/>
+    <string id="opcode_GCPinObjectAtGCTime" value="PinObjectAtGCTime"/>
+    <string id="opcode_GCGCBulkRootCCW" value="GCBulkRootCCW"/>
+    <string id="opcode_GCGCBulkRCW" value="GCBulkRCW"/>
+    <string id="opcode_GCGCBulkRootStaticVar" value="GCBulkRootStaticVar"/>
+    <string id="opcode_GCRestartEEStop" value="RestartEEStop"/>
+    <string id="opcode_GCHeapStats" value="HeapStats"/>
+    <string id="opcode_GCCreateSegment" value="CreateSegment"/>
+    <string id="opcode_GCFreeSegment" value="FreeSegment"/>
+    <string id="opcode_GCRestartEEStart" value="RestartEEStart"/>
+    <string id="opcode_GCSuspendEEStop" value="SuspendEEStop"/>
+    <string id="opcode_GCIncreaseMemoryPressure" value="IncreaseMemoryPressure"/>
+    <string id="opcode_GCDecreaseMemoryPressure" value="DecreaseMemoryPressure"/>
+    <string id="opcode_GCMark" value="Mark"/>
+    <string id="opcode_GCGCJoin" value="GCJoin"/>
+    <string id="opcode_GCPerHeapHistory" value="PerHeapHistory"/>
+    <string id="opcode_GCGlobalHeapHistory" value="GlobalHeapHistory"/>
+    <string id="task_WorkerThreadCreationV2" value="WorkerThreadCreationV2"/>
+    <string id="task_IOThreadCreation" value="IOThreadCreation"/>
+    <string id="task_WorkerThreadRetirementV2" value="WorkerThreadRetirementV2"/>
+    <string id="task_IOThreadRetirement" value="IOThreadRetirement"/>
+    <string id="task_ThreadpoolSuspensionV2" value="ThreadpoolSuspensionV2"/>
+    <string id="task_Exception" value="Exception"/>
+    <string id="task_Contention" value="Contention"/>
+    <string id="task_Method" value="Method"/>
+    <string id="opcode_MethodDCStartCompleteV2" value="DCStartCompleteV2"/>
+    <string id="opcode_MethodDCEndCompleteV2" value="DCEndCompleteV2"/>
+    <string id="opcode_MethodLoad" value="Load"/>
+    <string id="opcode_MethodUnload" value="Unload"/>
+    <string id="opcode_MethodDCStartV2" value="DCStartV2"/>
+    <string id="opcode_MethodDCStopV2" value="DCStopV2"/>
+    <string id="opcode_MethodLoadVerbose" value="LoadVerbose"/>
+    <string id="opcode_MethodUnloadVerbose" value="UnloadVerbose"/>
+    <string id="opcode_MethodDCStartVerboseV2" value="DCStartVerboseV2"/>
+    <string id="opcode_MethodDCStopVerboseV2" value="DCStopVerboseV2"/>
+    <string id="opcode_MethodJittingStarted" value="JittingStarted"/>
+    <string id="opcode_MethodInliningSucceeded" value="InliningSucceeded"/>
+    <string id="opcode_MethodInliningFailed" value="InliningFailed"/>
+    <string id="opcode_MethodTailCallSucceeded" value="TailCallSucceeded"/>
+    <string id="opcode_MethodTailCallFailed" value="TailCallFailed"/>
+    <string id="opcode_MethodMethodILToNativeMap" value="MethodILToNativeMap"/>
+    <string id="task_Loader" value="Loader"/>
+    <string id="opcode_LoaderModuleLoad" value="ModuleLoad"/>
+    <string id="opcode_LoaderModuleUnload" value="ModuleUnload"/>
+    <string id="opcode_LoaderModuleDCStartV2" value="ModuleDCStartV2"/>
+    <string id="opcode_LoaderModuleDCStopV2" value="ModuleDCStopV2"/>
+    <string id="opcode_LoaderAssemblyLoad" value="AssemblyLoad"/>
+    <string id="opcode_LoaderAssemblyUnload" value="AssemblyUnload"/>
+    <string id="opcode_LoaderAppDomainLoad" value="AppDomainLoad"/>
+    <string id="opcode_LoaderAppDomainUnload" value="AppDomainUnload"/>
+    <string id="opcode_LoaderDomainModuleLoad" value="DomainModuleLoad"/>
+    <string id="task_ClrStack" value="ClrStack"/>
+    <string id="opcode_ClrStackWalk" value="Walk"/>
+    <string id="task_StrongNameVerification" value="StrongNameVerification"/>
+    <string id="task_AuthenticodeVerification" value="AuthenticodeVerification"/>
+    <string id="task_AppDomainResourceManagement" value="AppDomainResourceManagement"/>
+    <string id="opcode_AppDomainResourceManagementMemAllocated" value="MemAllocated"/>
+    <string id="opcode_AppDomainResourceManagementMemSurvived" value="MemSurvived"/>
+    <string id="opcode_AppDomainResourceManagementThreadCreated" value="ThreadCreated"/>
+    <string id="opcode_AppDomainResourceManagementThreadTerminated" value="ThreadTerminated"/>
+    <string id="opcode_AppDomainResourceManagementDomainEnter" value="DomainEnter"/>
+    <string id="task_ILStub" value="ILStub"/>
+    <string id="opcode_ILStubStubGenerated" value="StubGenerated"/>
+    <string id="opcode_ILStubStubCacheHit" value="StubCacheHit"/>
+    <string id="task_ThreadPoolWorkerThread" value="ThreadPoolWorkerThread"/>
+    <string id="opcode_ThreadPoolWorkerThreadWait" value="Wait"/>
+    <string id="task_ThreadPoolWorkerThreadRetirement" value="ThreadPoolWorkerThreadRetirement"/>
+    <string id="task_ThreadPoolWorkerThreadAdjustment" value="ThreadPoolWorkerThreadAdjustment"/>
+    <string id="opcode_ThreadPoolWorkerThreadAdjustmentSample" value="Sample"/>
+    <string id="opcode_ThreadPoolWorkerThreadAdjustmentAdjustment" value="Adjustment"/>
+    <string id="opcode_ThreadPoolWorkerThreadAdjustmentStats" value="Stats"/>
+    <string id="task_Runtime" value="Runtime"/>
+    <string id="task_ClrPerfTrack" value="ClrPerfTrack"/>
+    <string id="opcode_ClrPerfTrackModuleRangeLoad" value="ModuleRangeLoad"/>
+    <string id="task_Type" value="Type"/>
+    <string id="opcode_TypeBulkType" value="BulkType"/>
+    <string id="task_ThreadPoolWorkingThreadCount" value="ThreadPoolWorkingThreadCount"/>
+    <string id="task_ThreadPool" value="ThreadPool"/>
+    <string id="opcode_ThreadPoolEnqueue" value="Enqueue"/>
+    <string id="opcode_ThreadPoolDequeue" value="Dequeue"/>
+    <string id="opcode_ThreadPoolIOEnqueue" value="IOEnqueue"/>
+    <string id="opcode_ThreadPoolIODequeue" value="IODequeue"/>
+    <string id="opcode_ThreadPoolIOPack" value="IOPack"/>
+    <string id="task_Thread" value="Thread"/>
+    <string id="opcode_ThreadCreating" value="Creating"/>
+    <string id="opcode_ThreadRunning" value="Running"/>
+    <string id="task_DebugIPCEvent" value="DebugIPCEvent"/>
+    <string id="task_DebugExceptionProcessing" value="DebugExceptionProcessing"/>
+    <string id="task_ExceptionCatch" value="ExceptionCatch"/>
+    <string id="task_ExceptionFinally" value="ExceptionFinally"/>
+    <string id="task_ExceptionFilter" value="ExceptionFilter"/>
+    <string id="map_GCReasonMapAllocSmall" value="AllocSmall"/>
+    <string id="map_GCReasonMapInduced" value="Induced"/>
+    <string id="map_GCReasonMapLowMemory" value="LowMemory"/>
+    <string id="map_GCReasonMapEmpty" value="Empty"/>
+    <string id="map_GCReasonMapAllocLarge" value="AllocLarge"/>
+    <string id="map_GCReasonMapOutOfSpaceSmallObjectHeap" value="OutOfSpaceSmallObjectHeap"/>
+    <string id="map_GCReasonMapOutOfSpaceLargeObjectHeap" value="OutOfSpaceLargeObjectHeap"/>
+    <string id="map_GCReasonMapInducedNoForce" value="InducedNoForce"/>
+    <string id="map_GCReasonMapStress" value="Stress"/>
+    <string id="map_GCReasonMapInducedLowMemory" value="InducedLowMemory"/>
+    <string id="map_GCSegmentTypeMapSmallObjectHeap" value="SmallObjectHeap"/>
+    <string id="map_GCSegmentTypeMapLargeObjectHeap" value="LargeObjectHeap"/>
+    <string id="map_GCSegmentTypeMapReadOnlyHeap" value="ReadOnlyHeap"/>
+    <string id="map_GCAllocationKindMapSmall" value="Small"/>
+    <string id="map_GCAllocationKindMapLarge" value="Large"/>
+    <string id="map_ThreadFlagsMapGCSpecial" value="GCSpecial"/>
+    <string id="map_ThreadFlagsMapFinalizer" value="Finalizer"/>
+    <string id="map_ThreadFlagsMapThreadPoolWorker" value="ThreadPoolWorker"/>
+    <string id="map_ContentionFlagsMapManaged" value="Managed"/>
+    <string id="map_ContentionFlagsMapNative" value="Native"/>
+    <string id="map_MethodFlagsMapDynamic" value="Dynamic"/>
+    <string id="map_MethodFlagsMapGeneric" value="Generic"/>
+    <string id="map_MethodFlagsMapHasSharedGenericCode" value="HasSharedGenericCode"/>
+    <string id="map_MethodFlagsMapJitted" value="Jitted"/>
+    <string id="map_ModuleFlagsMapDomainNeutral" value="DomainNeutral"/>
+    <string id="map_ModuleFlagsMapNative" value="Native"/>
+    <string id="map_ModuleFlagsMapDynamic" value="Dynamic"/>
+    <string id="map_ModuleFlagsMapManifest" value="Manifest"/>
+    <string id="map_AssemblyFlagsMapDomainNeutral" value="DomainNeutral"/>
+    <string id="map_AssemblyFlagsMapDynamic" value="Dynamic"/>
+    <string id="map_AssemblyFlagsMapNative" value="Native"/>
+    <string id="map_AssemblyFlagsMapCollectible" value="Collectible"/>
+    <string id="map_AppDomainFlagsMapDefault" value="Default"/>
+    <string id="map_AppDomainFlagsMapExecutable" value="Executable"/>
+    <string id="map_AppDomainFlagsMapShared" value="Shared"/>
+    <string id="map_ModuleRangeTypeMapColdRange" value="ColdRange"/>
+    <string id="map_StartupModeMapManagedExe" value="ManagedExe"/>
+    <string id="map_StartupModeMapHostedClr" value="HostedClr"/>
+    <string id="map_StartupModeMapIjwDll" value="IjwDll"/>
+    <string id="map_StartupModeMapComActivated" value="ComActivated"/>
+    <string id="map_StartupModeMapOther" value="Other"/>
+    <string id="map_TailCallTypeMapOptimizedTailCall" value="OptimizedTailCall"/>
+    <string id="map_TailCallTypeMapRecursiveLoop" value="RecursiveLoop"/>
+    <string id="map_TailCallTypeMapHelperAssistedTailCall" value="HelperAssistedTailCall"/>
+    <string id="map_GCTypeMapNonConcurrentGC" value="NonConcurrentGC"/>
+    <string id="map_GCTypeMapBackgroundGC" value="BackgroundGC"/>
+    <string id="map_GCTypeMapForegroundGC" value="ForegroundGC"/>
+    <string id="map_ExceptionThrownFlagsMapHasInnerException" value="HasInnerException"/>
+    <string id="map_ExceptionThrownFlagsMapNested" value="Nested"/>
+    <string id="map_ExceptionThrownFlagsMapReThrown" value="ReThrown"/>
+    <string id="map_ExceptionThrownFlagsMapCorruptedState" value="CorruptedState"/>
+    <string id="map_ExceptionThrownFlagsMapCLSCompliant" value="CLSCompliant"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,195 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-NetworkProfile" guid="{fbcfac3f-8459-419f-8e48-1f0b49cdb85e}" resourceFileName="Microsoft-Windows-NetworkProfile" messageFileName="Microsoft-Windows-NetworkProfile" symbol="MicrosoftWindowsNetworkProfile" source="Xml" >
+    <keywords>
+     <keyword name="LwtDiagnostic" message="$(string.keyword_LwtDiagnostic)" mask="0x20"/>
+     <keyword name="ut:SendPath" message="$(string.keyword_ut:SendPath)" mask="0x100000000"/>
+     <keyword name="ut:ReceivePath" message="$(string.keyword_ut:ReceivePath)" mask="0x200000000"/>
+     <keyword name="ut:L3ConnectPath" message="$(string.keyword_ut:L3ConnectPath)" mask="0x400000000"/>
+     <keyword name="ut:L2ConnectPath" message="$(string.keyword_ut:L2ConnectPath)" mask="0x800000000"/>
+     <keyword name="ut:ClosePath" message="$(string.keyword_ut:ClosePath)" mask="0x1000000000"/>
+     <keyword name="ut:Authentication" message="$(string.keyword_ut:Authentication)" mask="0x2000000000"/>
+     <keyword name="ut:Configuration" message="$(string.keyword_ut:Configuration)" mask="0x4000000000"/>
+     <keyword name="ut:Global" message="$(string.keyword_ut:Global)" mask="0x8000000000"/>
+     <keyword name="keyword_200000000000" message="$(string.keyword_keyword_200000000000)" mask="0x200000000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="WaitforIdentification" message="$(string.task_WaitforIdentification)" value="1"/>
+     <task name="NotifyClients" message="$(string.task_NotifyClients)" value="2"/>
+    </tasks>
+    <maps>
+     <valueMap name="StateMap">
+      <map value="0x0" message="$(string.map_StateMapIdentifying Network)"/>
+      <map value="0x1" message="$(string.map_StateMapIdentified Network)"/>
+      <map value="0x2" message="$(string.map_StateMapUnidentified Network)"/>
+     </valueMap>
+     <valueMap name="NetworkTypeMap">
+      <map value="0x0" message="$(string.map_NetworkTypeMapUnmanaged)"/>
+      <map value="0x1" message="$(string.map_NetworkTypeMapManaged)"/>
+     </valueMap>
+     <valueMap name="NetworkCategoryMap">
+      <map value="0x0" message="$(string.map_NetworkCategoryMapPublic)"/>
+      <map value="0x1" message="$(string.map_NetworkCategoryMapPrivate)"/>
+      <map value="0x2" message="$(string.map_NetworkCategoryMapDomain Authenticated)"/>
+     </valueMap>
+     <bitMap name="NetworkStateMap">
+      <map value="0x1" message="$(string.map_NetworkStateMapConnected)"/>
+      <map value="0x2" message="$(string.map_NetworkStateMapDisconnected)"/>
+      <map value="0x4" message="$(string.map_NetworkStateMapIPV4 (Local))"/>
+      <map value="0x8" message="$(string.map_NetworkStateMapIPV4 (Internet))"/>
+      <map value="0x10" message="$(string.map_NetworkStateMapIPV6 (Local))"/>
+      <map value="0x20" message="$(string.map_NetworkStateMapIPV6 (Internet))"/>
+     </bitMap>
+     <valueMap name="NetworkProfileEventStateMap">
+      <map value="0x0" message="$(string.map_NetworkProfileEventStateMapNetwork Added Event Notifying)"/>
+      <map value="0x1" message="$(string.map_NetworkProfileEventStateMapNetwork Deleted Event Notifying)"/>
+      <map value="0x2" message="$(string.map_NetworkProfileEventStateMapNetwork Connected Event Notifying)"/>
+      <map value="0x3" message="$(string.map_NetworkProfileEventStateMapNetwork Disconnected Event Notifying)"/>
+      <map value="0x4" message="$(string.map_NetworkProfileEventStateMapNetwork Property Event Notifying)"/>
+      <map value="0x5" message="$(string.map_NetworkProfileEventStateMapNetwork Added Event Notified)"/>
+      <map value="0x6" message="$(string.map_NetworkProfileEventStateMapNetwork Deleted Event Notified)"/>
+      <map value="0x7" message="$(string.map_NetworkProfileEventStateMapNetwork Connected Event Notified)"/>
+      <map value="0x8" message="$(string.map_NetworkProfileEventStateMapNetwork Disconnected Event Notified)"/>
+      <map value="0x9" message="$(string.map_NetworkProfileEventStateMapNetwork Property Event Notified)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="4001" symbol="WaitforIdentificationStart" version="0" task="WaitforIdentification" opcode="win:Start" level="win:Informational" keywords="keyword_200000000000" template="WaitforIdentificationStartArgs"/>
+     <event value="4002" symbol="WaitforIdentificationStop" version="0" task="WaitforIdentification" opcode="win:Stop" level="win:Informational" keywords="keyword_200000000000" template="WaitforIdentificationStopArgs"/>
+     <event value="4003" symbol="WaitforIdentificationStop4003" version="0" task="WaitforIdentification" opcode="win:Stop" level="win:Informational" keywords="keyword_200000000000" template="WaitforIdentificationStopArgs"/>
+     <event value="4004" symbol="task_0" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+     <event value="10000" symbol="task_010000" version="0" task="task_0" level="win:Informational" keywords="LwtDiagnostic keyword_200000000000" template="task_010000Args"/>
+     <event value="10001" symbol="task_010001" version="0" task="task_0" level="win:Informational" keywords="LwtDiagnostic keyword_200000000000" template="task_010001Args"/>
+     <event value="10002" symbol="task_010002" version="0" task="task_0" level="win:Informational" keywords="LwtDiagnostic keyword_200000000000" template="task_010002Args"/>
+     <event value="10003" symbol="NotifyClientsStart" version="0" task="NotifyClients" opcode="win:Start" level="win:Informational" keywords="keyword_200000000000" template="NotifyClientsStartArgs"/>
+     <event value="10004" symbol="NotifyClientsStop" version="0" task="NotifyClients" opcode="win:Stop" level="win:Informational" keywords="keyword_200000000000" template="NotifyClientsStopArgs"/>
+     <event value="10005" symbol="NotifyClientsStart10005" version="0" task="NotifyClients" opcode="win:Start" level="win:Informational" keywords="keyword_200000000000" template="NotifyClientsStartArgs"/>
+     <event value="10006" symbol="NotifyClientsStop10006" version="0" task="NotifyClients" opcode="win:Stop" level="win:Informational" keywords="keyword_200000000000" template="NotifyClientsStartArgs"/>
+     <event value="10007" symbol="NotifyClientsStart10007" version="0" task="NotifyClients" opcode="win:Start" level="win:Informational" keywords="keyword_200000000000" template="NotifyClientsStartArgs"/>
+     <event value="10008" symbol="NotifyClientsStop10008" version="0" task="NotifyClients" opcode="win:Stop" level="win:Informational" keywords="keyword_200000000000" template="NotifyClientsStartArgs"/>
+     <event value="20001" symbol="task_020001" version="0" task="task_0" level="win:Error" keywords="LwtDiagnostic" template="task_020001Args"/>
+     <event value="20002" symbol="task_020002" version="0" task="task_0" level="win:Informational" keywords="LwtDiagnostic" template="task_020002Args"/>
+     <event value="20003" symbol="task_020003" version="0" task="task_0" level="win:Informational" keywords="LwtDiagnostic" template="task_020003Args"/>
+     <event value="20004" symbol="task_020004" version="0" task="task_0" level="win:Informational" keywords="LwtDiagnostic" template="task_020004Args"/>
+    </events>
+    <templates>
+     <template tid="WaitforIdentificationStartArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="CurrentOrNextState" inType="win:UInt8" map="StateMap"/>
+     </template>
+     <template tid="WaitforIdentificationStopArgs">
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="CurrentOrNextState" inType="win:UInt8"/>
+     </template>
+     <template tid="task_0Args">
+      <data name="NewInternetConnectionProfile" inType="win:Boolean"/>
+      <data name="ConnectionCostChanged" inType="win:Boolean"/>
+      <data name="DomainConnectivityLevelChanged" inType="win:Boolean"/>
+      <data name="NetworkConnectivityLevelChanged" inType="win:Boolean"/>
+      <data name="HostNameChanged" inType="win:Boolean"/>
+      <data name="WwanRegistrationStateChanged" inType="win:Boolean"/>
+      <data name="TetheringOperationalStateChanged" inType="win:Boolean"/>
+      <data name="TetheringClientCountChanged" inType="win:Boolean"/>
+     </template>
+     <template tid="task_010000Args">
+      <data name="Name" inType="win:UnicodeString"/>
+      <data name="Description" inType="win:UnicodeString"/>
+      <data name="Guid" inType="win:GUID"/>
+      <data name="Type" inType="win:UInt32" map="NetworkTypeMap"/>
+      <data name="State" inType="win:UInt32"/>
+      <data name="Category" inType="win:UInt32" map="NetworkCategoryMap"/>
+     </template>
+     <template tid="task_010001Args">
+      <data name="Name" inType="win:UnicodeString"/>
+      <data name="Description" inType="win:UnicodeString"/>
+      <data name="Guid" inType="win:GUID"/>
+      <data name="Type" inType="win:UInt32"/>
+      <data name="State" inType="win:UInt32"/>
+      <data name="Category" inType="win:UInt32"/>
+     </template>
+     <template tid="task_010002Args">
+      <data name="Name" inType="win:UnicodeString"/>
+      <data name="Description" inType="win:UnicodeString"/>
+      <data name="Guid" inType="win:GUID"/>
+      <data name="Type" inType="win:UInt32"/>
+      <data name="State" inType="win:UInt32" map="NetworkStateMap"/>
+      <data name="Category" inType="win:UInt32"/>
+     </template>
+     <template tid="NotifyClientsStartArgs">
+      <data name="NetworkProfileEventState" inType="win:UInt32"/>
+      <data name="Guid" inType="win:GUID"/>
+     </template>
+     <template tid="NotifyClientsStopArgs">
+      <data name="NetworkProfileEventState" inType="win:UInt32" map="NetworkProfileEventStateMap"/>
+      <data name="Guid" inType="win:GUID"/>
+     </template>
+     <template tid="task_020001Args">
+      <data name="ErrorCode" inType="win:Int32"/>
+      <data name="Context" inType="win:UInt32"/>
+     </template>
+     <template tid="task_020002Args">
+      <data name="ProfileGuid" inType="win:GUID"/>
+      <data name="InterfaceGuid" inType="win:GUID"/>
+      <data name="Category" inType="win:UInt32"/>
+      <data name="ErrorCodev4" inType="win:Int32"/>
+      <data name="ErrorCodev6" inType="win:Int32"/>
+      <data name="Context" inType="win:UInt32"/>
+     </template>
+     <template tid="task_020003Args">
+      <data name="InternetPresent" inType="win:Boolean"/>
+      <data name="WnfStatusCode" inType="win:UInt32"/>
+     </template>
+     <template tid="task_020004Args">
+      <data name="FreeNetworkPresent" inType="win:Boolean"/>
+      <data name="WnfStatusCode" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_LwtDiagnostic" value="LwtDiagnostic"/>
+    <string id="keyword_ut:SendPath" value="ut:SendPath"/>
+    <string id="keyword_ut:ReceivePath" value="ut:ReceivePath"/>
+    <string id="keyword_ut:L3ConnectPath" value="ut:L3ConnectPath"/>
+    <string id="keyword_ut:L2ConnectPath" value="ut:L2ConnectPath"/>
+    <string id="keyword_ut:ClosePath" value="ut:ClosePath"/>
+    <string id="keyword_ut:Authentication" value="ut:Authentication"/>
+    <string id="keyword_ut:Configuration" value="ut:Configuration"/>
+    <string id="keyword_ut:Global" value="ut:Global"/>
+    <string id="keyword_keyword_200000000000" value="keyword_200000000000"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_WaitforIdentification" value="WaitforIdentification"/>
+    <string id="task_NotifyClients" value="NotifyClients"/>
+    <string id="map_StateMapIdentifying Network" value="Identifying Network"/>
+    <string id="map_StateMapIdentified Network" value="Identified Network"/>
+    <string id="map_StateMapUnidentified Network" value="Unidentified Network"/>
+    <string id="map_NetworkTypeMapUnmanaged" value="Unmanaged"/>
+    <string id="map_NetworkTypeMapManaged" value="Managed"/>
+    <string id="map_NetworkCategoryMapPublic" value="Public"/>
+    <string id="map_NetworkCategoryMapPrivate" value="Private"/>
+    <string id="map_NetworkCategoryMapDomain Authenticated" value="Domain Authenticated"/>
+    <string id="map_NetworkStateMapConnected" value="Connected"/>
+    <string id="map_NetworkStateMapDisconnected" value="Disconnected"/>
+    <string id="map_NetworkStateMapIPV4 (Local)" value="IPV4 (Local)"/>
+    <string id="map_NetworkStateMapIPV4 (Internet)" value="IPV4 (Internet)"/>
+    <string id="map_NetworkStateMapIPV6 (Local)" value="IPV6 (Local)"/>
+    <string id="map_NetworkStateMapIPV6 (Internet)" value="IPV6 (Internet)"/>
+    <string id="map_NetworkProfileEventStateMapNetwork Added Event Notifying" value="Network Added Event Notifying"/>
+    <string id="map_NetworkProfileEventStateMapNetwork Deleted Event Notifying" value="Network Deleted Event Notifying"/>
+    <string id="map_NetworkProfileEventStateMapNetwork Connected Event Notifying" value="Network Connected Event Notifying"/>
+    <string id="map_NetworkProfileEventStateMapNetwork Disconnected Event Notifying" value="Network Disconnected Event Notifying"/>
+    <string id="map_NetworkProfileEventStateMapNetwork Property Event Notifying" value="Network Property Event Notifying"/>
+    <string id="map_NetworkProfileEventStateMapNetwork Added Event Notified" value="Network Added Event Notified"/>
+    <string id="map_NetworkProfileEventStateMapNetwork Deleted Event Notified" value="Network Deleted Event Notified"/>
+    <string id="map_NetworkProfileEventStateMapNetwork Connected Event Notified" value="Network Connected Event Notified"/>
+    <string id="map_NetworkProfileEventStateMapNetwork Disconnected Event Notified" value="Network Disconnected Event Notified"/>
+    <string id="map_NetworkProfileEventStateMapNetwork Property Event Notified" value="Network Property Event Notified"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

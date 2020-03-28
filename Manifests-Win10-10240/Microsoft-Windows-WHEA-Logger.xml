@@ -1,0 +1,542 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-WHEA-Logger" guid="{c26c4f3c-3f66-4e99-8f8a-39405cfed220}" resourceFileName="Microsoft-Windows-WHEA-Logger" messageFileName="Microsoft-Windows-WHEA-Logger" symbol="MicrosoftWindowsWHEALogger" source="Xml" >
+    <keywords>
+     <keyword name="Init" message="$(string.keyword_Init)" mask="0x1"/>
+     <keyword name="Errlog" message="$(string.keyword_Errlog)" mask="0x2"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <maps>
+     <valueMap name="whealogr:mapGeneralErrorSource">
+      <map value="0x0" message="$(string.map_whealogr:mapGeneralErrorSourceUnknown Error Source)"/>
+      <map value="0x1" message="$(string.map_whealogr:mapGeneralErrorSourceCorrected Machine Check)"/>
+      <map value="0x2" message="$(string.map_whealogr:mapGeneralErrorSourceCorrected Platform Error)"/>
+      <map value="0x3" message="$(string.map_whealogr:mapGeneralErrorSourceMachine Check Exception)"/>
+      <map value="0x4" message="$(string.map_whealogr:mapGeneralErrorSourceAdvanced Error Reporting (PCI Express))"/>
+      <map value="0x5" message="$(string.map_whealogr:mapGeneralErrorSourceINIT)"/>
+      <map value="0x6" message="$(string.map_whealogr:mapGeneralErrorSourceNon-maskable Interrupt)"/>
+      <map value="0x7" message="$(string.map_whealogr:mapGeneralErrorSourceBOOT)"/>
+      <map value="0x8" message="$(string.map_whealogr:mapGeneralErrorSourceGeneric)"/>
+     </valueMap>
+     <valueMap name="whealogr:mapPciExpressPortType">
+      <map value="0x0" message="$(string.map_whealogr:mapPciExpressPortTypePCI Express Endpoint)"/>
+      <map value="0x1" message="$(string.map_whealogr:mapPciExpressPortTypePCI Express Legacy Endpoint)"/>
+      <map value="0x4" message="$(string.map_whealogr:mapPciExpressPortTypePCI Express Root Port)"/>
+      <map value="0x5" message="$(string.map_whealogr:mapPciExpressPortTypePCI Express Upstream Switch Port)"/>
+      <map value="0x6" message="$(string.map_whealogr:mapPciExpressPortTypePCI Express Downstream Switch Port)"/>
+      <map value="0x7" message="$(string.map_whealogr:mapPciExpressPortTypePCI Express To PCI-X Bridge)"/>
+      <map value="0x8" message="$(string.map_whealogr:mapPciExpressPortTypePCI-X To PCI Express Bridge)"/>
+      <map value="0x9" message="$(string.map_whealogr:mapPciExpressPortTypePCI Express Root Complex Integrated Endpoint)"/>
+      <map value="0xa" message="$(string.map_whealogr:mapPciExpressPortTypePCI Express Root Complex Event Collector)"/>
+      <map value="0xff" message="$(string.map_whealogr:mapPciExpressPortTypeN/A)"/>
+     </valueMap>
+     <valueMap name="whealogr:mapMaxULONGInvalid">
+      <map value="0xffffffff" message="$(string.map_whealogr:mapMaxULONGInvalidN/A)"/>
+     </valueMap>
+     <valueMap name="whealogr:mapMCTransactionType">
+      <map value="0x0" message="$(string.map_whealogr:mapMCTransactionTypeInstruction)"/>
+      <map value="0x1" message="$(string.map_whealogr:mapMCTransactionTypeData)"/>
+      <map value="0x2" message="$(string.map_whealogr:mapMCTransactionTypeGeneric)"/>
+      <map value="0x3" message="$(string.map_whealogr:mapMCTransactionTypeReserved)"/>
+      <map value="0x100" message="$(string.map_whealogr:mapMCTransactionTypeN/A)"/>
+     </valueMap>
+     <valueMap name="whealogr:mapMCMemoryOrIO">
+      <map value="0x0" message="$(string.map_whealogr:mapMCMemoryOrIOMemory)"/>
+      <map value="0x1" message="$(string.map_whealogr:mapMCMemoryOrIOReserved)"/>
+      <map value="0x2" message="$(string.map_whealogr:mapMCMemoryOrIOI/O)"/>
+      <map value="0x3" message="$(string.map_whealogr:mapMCMemoryOrIOGeneric)"/>
+      <map value="0x100" message="$(string.map_whealogr:mapMCMemoryOrION/A)"/>
+     </valueMap>
+     <valueMap name="whealogr:mapMCTimeout">
+      <map value="0x0" message="$(string.map_whealogr:mapMCTimeoutNo)"/>
+      <map value="0x1" message="$(string.map_whealogr:mapMCTimeoutYes)"/>
+      <map value="0x100" message="$(string.map_whealogr:mapMCTimeoutN/A)"/>
+     </valueMap>
+     <valueMap name="whealogr:mapMCChannel">
+      <map value="0x100" message="$(string.map_whealogr:mapMCChannelN/A)"/>
+     </valueMap>
+     <valueMap name="whealogr:mapMCProcessorParticipation">
+      <map value="0x0" message="$(string.map_whealogr:mapMCProcessorParticipationLocal node originated the request)"/>
+      <map value="0x1" message="$(string.map_whealogr:mapMCProcessorParticipationLocal node responded to the request)"/>
+      <map value="0x2" message="$(string.map_whealogr:mapMCProcessorParticipationLocal node observed the request as 3rd party)"/>
+      <map value="0x3" message="$(string.map_whealogr:mapMCProcessorParticipationGeneric)"/>
+      <map value="0x100" message="$(string.map_whealogr:mapMCProcessorParticipationN/A)"/>
+     </valueMap>
+     <valueMap name="whealogr:mapMCCacheLevel">
+      <map value="0x0" message="$(string.map_whealogr:mapMCCacheLevelLevel 0)"/>
+      <map value="0x1" message="$(string.map_whealogr:mapMCCacheLevelLevel 1)"/>
+      <map value="0x2" message="$(string.map_whealogr:mapMCCacheLevelLevel 2)"/>
+      <map value="0x3" message="$(string.map_whealogr:mapMCCacheLevelGeneric)"/>
+      <map value="0x100" message="$(string.map_whealogr:mapMCCacheLevelN/A)"/>
+     </valueMap>
+     <valueMap name="whealogr:mapMCNBErrorType">
+      <map value="0x0" message="$(string.map_whealogr:mapMCNBErrorTypeECC Memory Error)"/>
+      <map value="0x1" message="$(string.map_whealogr:mapMCNBErrorTypeCRC Error)"/>
+      <map value="0x2" message="$(string.map_whealogr:mapMCNBErrorTypeSync Error)"/>
+      <map value="0x3" message="$(string.map_whealogr:mapMCNBErrorTypeMaster Abort Error)"/>
+      <map value="0x4" message="$(string.map_whealogr:mapMCNBErrorTypeTarget Abort Error)"/>
+      <map value="0x5" message="$(string.map_whealogr:mapMCNBErrorTypeGART Error)"/>
+      <map value="0x6" message="$(string.map_whealogr:mapMCNBErrorTypeRMW Error)"/>
+      <map value="0x7" message="$(string.map_whealogr:mapMCNBErrorTypeHyperTransport Watchdog Timeout Error)"/>
+      <map value="0x8" message="$(string.map_whealogr:mapMCNBErrorTypeChipKill ECC Memory Error)"/>
+      <map value="0x100" message="$(string.map_whealogr:mapMCNBErrorTypeUnknown Error)"/>
+     </valueMap>
+     <valueMap name="whealogr:mapMemoryErrorType">
+      <map value="0x0" message="$(string.map_whealogr:mapMemoryErrorTypeUnknown Error)"/>
+      <map value="0x1" message="$(string.map_whealogr:mapMemoryErrorTypeNo Error)"/>
+      <map value="0x2" message="$(string.map_whealogr:mapMemoryErrorTypeSingle-Bit ECC)"/>
+      <map value="0x3" message="$(string.map_whealogr:mapMemoryErrorTypeMulti-Bit ECC)"/>
+      <map value="0x4" message="$(string.map_whealogr:mapMemoryErrorTypeSingle-Symbol ChipKill)"/>
+      <map value="0x5" message="$(string.map_whealogr:mapMemoryErrorTypeMulti-Symbol ChipKill)"/>
+      <map value="0x6" message="$(string.map_whealogr:mapMemoryErrorTypeMaster Abort)"/>
+      <map value="0x7" message="$(string.map_whealogr:mapMemoryErrorTypeTarget Abort)"/>
+      <map value="0x8" message="$(string.map_whealogr:mapMemoryErrorTypeParity Error)"/>
+      <map value="0x9" message="$(string.map_whealogr:mapMemoryErrorTypeWatchdog Timeout)"/>
+      <map value="0xa" message="$(string.map_whealogr:mapMemoryErrorTypeInvalid Address)"/>
+      <map value="0xb" message="$(string.map_whealogr:mapMemoryErrorTypeBroken Mirror)"/>
+      <map value="0xc" message="$(string.map_whealogr:mapMemoryErrorTypeMemory Sparing Error)"/>
+     </valueMap>
+     <valueMap name="whealogr:mapPciXBusErrorType">
+      <map value="0x0" message="$(string.map_whealogr:mapPciXBusErrorTypeUnknown or OEM-specific Error)"/>
+      <map value="0x1" message="$(string.map_whealogr:mapPciXBusErrorTypeData Parity Error)"/>
+      <map value="0x2" message="$(string.map_whealogr:mapPciXBusErrorTypeSystem Error)"/>
+      <map value="0x3" message="$(string.map_whealogr:mapPciXBusErrorTypeMaster Abort)"/>
+      <map value="0x4" message="$(string.map_whealogr:mapPciXBusErrorTypeBus Timeout or No Device Present)"/>
+      <map value="0x5" message="$(string.map_whealogr:mapPciXBusErrorTypeMaster Data Parity Error)"/>
+      <map value="0x6" message="$(string.map_whealogr:mapPciXBusErrorTypeAddress Parity Error)"/>
+      <map value="0x7" message="$(string.map_whealogr:mapPciXBusErrorTypeCommand Parity Error)"/>
+     </valueMap>
+     <valueMap name="whealogr:mapWheaErrorType">
+      <map value="0x0" message="$(string.map_whealogr:mapWheaErrorTypeReserved)"/>
+      <map value="0x1" message="$(string.map_whealogr:mapWheaErrorTypeInternal Error)"/>
+      <map value="0x2" message="$(string.map_whealogr:mapWheaErrorTypeReserved)"/>
+      <map value="0x3" message="$(string.map_whealogr:mapWheaErrorTypeReserved)"/>
+      <map value="0x4" message="$(string.map_whealogr:mapWheaErrorTypeMemory Error)"/>
+      <map value="0x5" message="$(string.map_whealogr:mapWheaErrorTypeTLB Error)"/>
+      <map value="0x6" message="$(string.map_whealogr:mapWheaErrorTypeCache Error)"/>
+      <map value="0x7" message="$(string.map_whealogr:mapWheaErrorTypeFunctional Unit Error)"/>
+      <map value="0x8" message="$(string.map_whealogr:mapWheaErrorTypeComponent Self Test Error)"/>
+      <map value="0x9" message="$(string.map_whealogr:mapWheaErrorTypeInternal Queue Overflow/Underflow)"/>
+      <map value="0xa" message="$(string.map_whealogr:mapWheaErrorTypeReserved)"/>
+      <map value="0xb" message="$(string.map_whealogr:mapWheaErrorTypeReserved)"/>
+      <map value="0xc" message="$(string.map_whealogr:mapWheaErrorTypeReserved)"/>
+      <map value="0xd" message="$(string.map_whealogr:mapWheaErrorTypeReserved)"/>
+      <map value="0xe" message="$(string.map_whealogr:mapWheaErrorTypeReserved)"/>
+      <map value="0xf" message="$(string.map_whealogr:mapWheaErrorTypeReserved)"/>
+      <map value="0x10" message="$(string.map_whealogr:mapWheaErrorTypeBus Error)"/>
+      <map value="0x11" message="$(string.map_whealogr:mapWheaErrorTypeVirtual Address Mapping Error)"/>
+      <map value="0x12" message="$(string.map_whealogr:mapWheaErrorTypeImproper Access)"/>
+      <map value="0x13" message="$(string.map_whealogr:mapWheaErrorTypeAccess To Unimplemented Device Memory)"/>
+      <map value="0x14" message="$(string.map_whealogr:mapWheaErrorTypeLoss Of Lockstep)"/>
+      <map value="0x15" message="$(string.map_whealogr:mapWheaErrorTypeInvalid Response)"/>
+      <map value="0x16" message="$(string.map_whealogr:mapWheaErrorTypeParity Error)"/>
+      <map value="0x17" message="$(string.map_whealogr:mapWheaErrorTypeProtocol Error)"/>
+      <map value="0x18" message="$(string.map_whealogr:mapWheaErrorTypePath Error)"/>
+      <map value="0x19" message="$(string.map_whealogr:mapWheaErrorTypeBus Timeout)"/>
+      <map value="0x1a" message="$(string.map_whealogr:mapWheaErrorTypePoisoned Data)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="task_0" version="0" task="task_0" level="win:Error" keywords="Errlog" template="task_0Args"/>
+     <event value="2" symbol="task_02" version="0" task="task_0" level="win:Warning" keywords="Errlog" template="task_0Args"/>
+     <event value="3" symbol="task_03" version="0" task="task_0" level="win:Informational" keywords="Errlog" template="task_0Args"/>
+     <event value="16" symbol="task_016" version="0" task="task_0" level="win:Error" template="task_016Args"/>
+     <event value="17" symbol="task_017" version="0" task="task_0" level="win:Warning" template="task_017Args"/>
+     <event value="18" symbol="task_018" version="0" task="task_0" level="win:Error" template="task_018Args"/>
+     <event value="19" symbol="task_019" version="0" task="task_0" level="win:Warning" template="task_019Args"/>
+     <event value="20" symbol="task_020" version="0" task="task_0" level="win:Error" template="task_020Args"/>
+     <event value="21" symbol="task_021" version="0" task="task_0" level="win:Warning" template="task_021Args"/>
+     <event value="22" symbol="task_022" version="0" task="task_0" level="win:Error" template="task_022Args"/>
+     <event value="23" symbol="task_023" version="0" task="task_0" level="win:Warning" template="task_023Args"/>
+     <event value="24" symbol="task_024" version="0" task="task_0" level="win:Error" template="task_024Args"/>
+     <event value="25" symbol="task_025" version="0" task="task_0" level="win:Warning" template="task_025Args"/>
+     <event value="26" symbol="task_026" version="0" task="task_0" level="win:Error" template="task_026Args"/>
+     <event value="27" symbol="task_027" version="0" task="task_0" level="win:Warning" template="task_027Args"/>
+     <event value="40" symbol="task_040" version="0" task="task_0" level="win:Error" template="task_040Args"/>
+     <event value="41" symbol="task_041" version="0" task="task_0" level="win:Warning" template="task_040Args"/>
+     <event value="42" symbol="task_042" version="0" task="task_0" level="win:Error" template="task_025Args"/>
+     <event value="43" symbol="task_043" version="0" task="task_0" level="win:Warning" template="task_025Args"/>
+     <event value="44" symbol="task_044" version="0" task="task_0" level="win:Error" template="task_026Args"/>
+     <event value="45" symbol="task_045" version="0" task="task_0" level="win:Warning" template="task_026Args"/>
+     <event value="46" symbol="task_046" version="0" task="task_0" level="win:Error" template="task_022Args"/>
+     <event value="47" symbol="task_047" version="0" task="task_0" level="win:Warning" template="task_022Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="Length" inType="win:UInt32"/>
+      <data name="RawData" inType="win:Binary" length="Length"/>
+     </template>
+     <template tid="task_016Args">
+      <data name="ErrorSource" inType="win:UInt32" map="whealogr:mapGeneralErrorSource"/>
+      <data name="FRUId" inType="win:GUID"/>
+      <data name="FRUText" inType="win:AnsiString"/>
+      <data name="ValidBits" inType="win:HexInt64"/>
+      <data name="PortType" inType="win:UInt32"/>
+      <data name="Version" inType="win:HexInt32"/>
+      <data name="Command" inType="win:HexInt32"/>
+      <data name="Status" inType="win:HexInt32"/>
+      <data name="Bus" inType="win:HexInt32"/>
+      <data name="Device" inType="win:HexInt32"/>
+      <data name="Function" inType="win:HexInt32"/>
+      <data name="Segment" inType="win:HexInt32"/>
+      <data name="SecondaryBus" inType="win:HexInt32"/>
+      <data name="Slot" inType="win:HexInt32"/>
+      <data name="VendorID" inType="win:HexInt32"/>
+      <data name="DeviceID" inType="win:HexInt32"/>
+      <data name="ClassCode" inType="win:HexInt32"/>
+      <data name="DeviceSerialNumber" inType="win:HexInt64"/>
+      <data name="BridgeControl" inType="win:HexInt32"/>
+      <data name="BridgeStatus" inType="win:HexInt32"/>
+      <data name="UncorrectableErrorStatus" inType="win:HexInt32"/>
+      <data name="CorrectableErrorStatus" inType="win:HexInt32"/>
+      <data name="HeaderLog" inType="win:Binary"/>
+      <data name="Length" inType="win:UInt32"/>
+      <data name="RawData" inType="win:Binary" length="Length"/>
+     </template>
+     <template tid="task_017Args">
+      <data name="ErrorSource" inType="win:UInt32"/>
+      <data name="FRUId" inType="win:GUID"/>
+      <data name="FRUText" inType="win:AnsiString"/>
+      <data name="ValidBits" inType="win:HexInt64"/>
+      <data name="PortType" inType="win:UInt32" map="whealogr:mapPciExpressPortType"/>
+      <data name="Version" inType="win:HexInt32"/>
+      <data name="Command" inType="win:HexInt32"/>
+      <data name="Status" inType="win:HexInt32"/>
+      <data name="Bus" inType="win:HexInt32"/>
+      <data name="Device" inType="win:HexInt32"/>
+      <data name="Function" inType="win:HexInt32"/>
+      <data name="Segment" inType="win:HexInt32"/>
+      <data name="SecondaryBus" inType="win:HexInt32"/>
+      <data name="Slot" inType="win:HexInt32"/>
+      <data name="VendorID" inType="win:HexInt32"/>
+      <data name="DeviceID" inType="win:HexInt32"/>
+      <data name="ClassCode" inType="win:HexInt32"/>
+      <data name="DeviceSerialNumber" inType="win:HexInt64"/>
+      <data name="BridgeControl" inType="win:HexInt32"/>
+      <data name="BridgeStatus" inType="win:HexInt32"/>
+      <data name="UncorrectableErrorStatus" inType="win:HexInt32"/>
+      <data name="CorrectableErrorStatus" inType="win:HexInt32"/>
+      <data name="HeaderLog" inType="win:Binary"/>
+      <data name="Length" inType="win:UInt32"/>
+      <data name="RawData" inType="win:Binary" length="Length"/>
+     </template>
+     <template tid="task_018Args">
+      <data name="ErrorSource" inType="win:UInt32"/>
+      <data name="ApicId" inType="win:UInt32" map="whealogr:mapMaxULONGInvalid"/>
+      <data name="MCABank" inType="win:UInt32"/>
+      <data name="MciStat" inType="win:HexInt64"/>
+      <data name="MciAddr" inType="win:HexInt64"/>
+      <data name="MciMisc" inType="win:HexInt64"/>
+      <data name="ErrorType" inType="win:UInt32"/>
+      <data name="TransactionType" inType="win:UInt32" map="whealogr:mapMCTransactionType"/>
+      <data name="Participation" inType="win:UInt32"/>
+      <data name="RequestType" inType="win:UInt32"/>
+      <data name="MemorIO" inType="win:UInt32" map="whealogr:mapMCMemoryOrIO"/>
+      <data name="MemHierarchyLvl" inType="win:UInt32"/>
+      <data name="Timeout" inType="win:UInt32" map="whealogr:mapMCTimeout"/>
+      <data name="OperationType" inType="win:UInt32"/>
+      <data name="Channel" inType="win:UInt32" map="whealogr:mapMCChannel"/>
+      <data name="Length" inType="win:UInt32"/>
+      <data name="RawData" inType="win:Binary" length="Length"/>
+     </template>
+     <template tid="task_019Args">
+      <data name="ErrorSource" inType="win:UInt32"/>
+      <data name="ApicId" inType="win:UInt32"/>
+      <data name="MCABank" inType="win:UInt32"/>
+      <data name="MciStat" inType="win:HexInt64"/>
+      <data name="MciAddr" inType="win:HexInt64"/>
+      <data name="MciMisc" inType="win:HexInt64"/>
+      <data name="ErrorType" inType="win:UInt32"/>
+      <data name="TransactionType" inType="win:UInt32"/>
+      <data name="Participation" inType="win:UInt32" map="whealogr:mapMCProcessorParticipation"/>
+      <data name="RequestType" inType="win:UInt32"/>
+      <data name="MemorIO" inType="win:UInt32"/>
+      <data name="MemHierarchyLvl" inType="win:UInt32" map="whealogr:mapMCCacheLevel"/>
+      <data name="Timeout" inType="win:UInt32"/>
+      <data name="OperationType" inType="win:UInt32"/>
+      <data name="Channel" inType="win:UInt32"/>
+      <data name="Length" inType="win:UInt32"/>
+      <data name="RawData" inType="win:Binary" length="Length"/>
+     </template>
+     <template tid="task_020Args">
+      <data name="ErrorSource" inType="win:UInt32"/>
+      <data name="ApicId" inType="win:UInt32"/>
+      <data name="MCABank" inType="win:UInt32"/>
+      <data name="MciStat" inType="win:HexInt64"/>
+      <data name="MciAddr" inType="win:HexInt64"/>
+      <data name="MciMisc" inType="win:HexInt64"/>
+      <data name="ErrorType" inType="win:UInt32"/>
+      <data name="Length" inType="win:UInt32"/>
+      <data name="RawData" inType="win:Binary" length="Length"/>
+     </template>
+     <template tid="task_021Args">
+      <data name="ErrorSource" inType="win:UInt32"/>
+      <data name="ApicId" inType="win:UInt32"/>
+      <data name="MCABank" inType="win:UInt32"/>
+      <data name="MciStat" inType="win:HexInt64"/>
+      <data name="MciAddr" inType="win:HexInt64"/>
+      <data name="MciMisc" inType="win:HexInt64"/>
+      <data name="ErrorType" inType="win:UInt32" map="whealogr:mapMCNBErrorType"/>
+      <data name="Length" inType="win:UInt32"/>
+      <data name="RawData" inType="win:Binary" length="Length"/>
+     </template>
+     <template tid="task_022Args">
+      <data name="ErrorSource" inType="win:UInt32"/>
+      <data name="FRUId" inType="win:GUID"/>
+      <data name="FRUText" inType="win:AnsiString"/>
+      <data name="ValidBits" inType="win:HexInt64"/>
+      <data name="ErrorStatus" inType="win:HexInt64"/>
+      <data name="PhysicalAddress" inType="win:HexInt64"/>
+      <data name="PhysicalAddressMask" inType="win:HexInt64"/>
+      <data name="Node" inType="win:HexInt32"/>
+      <data name="Card" inType="win:HexInt32"/>
+      <data name="Module" inType="win:HexInt32"/>
+      <data name="Bank" inType="win:HexInt32"/>
+      <data name="Device" inType="win:HexInt32"/>
+      <data name="Row" inType="win:HexInt32"/>
+      <data name="Column" inType="win:HexInt32"/>
+      <data name="BitPosition" inType="win:HexInt32"/>
+      <data name="RequesterId" inType="win:HexInt64"/>
+      <data name="ResponderId" inType="win:HexInt64"/>
+      <data name="TargetId" inType="win:HexInt64"/>
+      <data name="ErrorType" inType="win:UInt8"/>
+      <data name="Length" inType="win:UInt32"/>
+      <data name="RawData" inType="win:Binary" length="Length"/>
+     </template>
+     <template tid="task_023Args">
+      <data name="ErrorSource" inType="win:UInt32"/>
+      <data name="FRUId" inType="win:GUID"/>
+      <data name="FRUText" inType="win:AnsiString"/>
+      <data name="ValidBits" inType="win:HexInt64"/>
+      <data name="ErrorStatus" inType="win:HexInt64"/>
+      <data name="PhysicalAddress" inType="win:HexInt64"/>
+      <data name="PhysicalAddressMask" inType="win:HexInt64"/>
+      <data name="Node" inType="win:HexInt32"/>
+      <data name="Card" inType="win:HexInt32"/>
+      <data name="Module" inType="win:HexInt32"/>
+      <data name="Bank" inType="win:HexInt32"/>
+      <data name="Device" inType="win:HexInt32"/>
+      <data name="Row" inType="win:HexInt32"/>
+      <data name="Column" inType="win:HexInt32"/>
+      <data name="BitPosition" inType="win:HexInt32"/>
+      <data name="RequesterId" inType="win:HexInt64"/>
+      <data name="ResponderId" inType="win:HexInt64"/>
+      <data name="TargetId" inType="win:HexInt64"/>
+      <data name="ErrorType" inType="win:UInt8" map="whealogr:mapMemoryErrorType"/>
+      <data name="Length" inType="win:UInt32"/>
+      <data name="RawData" inType="win:Binary" length="Length"/>
+     </template>
+     <template tid="task_024Args">
+      <data name="ErrorSource" inType="win:UInt32"/>
+      <data name="FRUId" inType="win:GUID"/>
+      <data name="FRUText" inType="win:AnsiString"/>
+      <data name="ValidBits" inType="win:HexInt64"/>
+      <data name="ErrorType" inType="win:UInt16" map="whealogr:mapPciXBusErrorType"/>
+      <data name="BusNumber" inType="win:HexInt32"/>
+      <data name="BusSegment" inType="win:HexInt32"/>
+      <data name="BusAddress" inType="win:HexInt64"/>
+      <data name="BusData" inType="win:HexInt64"/>
+      <data name="Command" inType="win:HexInt64"/>
+      <data name="PCIXCommand" inType="win:UInt8"/>
+      <data name="RequesterId" inType="win:HexInt64"/>
+      <data name="CompleterId" inType="win:HexInt64"/>
+      <data name="TargetId" inType="win:HexInt64"/>
+      <data name="Length" inType="win:UInt32"/>
+      <data name="RawData" inType="win:Binary" length="Length"/>
+     </template>
+     <template tid="task_025Args">
+      <data name="ErrorSource" inType="win:UInt32"/>
+      <data name="FRUId" inType="win:GUID"/>
+      <data name="FRUText" inType="win:AnsiString"/>
+      <data name="ValidBits" inType="win:HexInt64"/>
+      <data name="ErrorType" inType="win:UInt16"/>
+      <data name="BusNumber" inType="win:HexInt32"/>
+      <data name="BusSegment" inType="win:HexInt32"/>
+      <data name="BusAddress" inType="win:HexInt64"/>
+      <data name="BusData" inType="win:HexInt64"/>
+      <data name="Command" inType="win:HexInt64"/>
+      <data name="PCIXCommand" inType="win:UInt8"/>
+      <data name="RequesterId" inType="win:HexInt64"/>
+      <data name="CompleterId" inType="win:HexInt64"/>
+      <data name="TargetId" inType="win:HexInt64"/>
+      <data name="Length" inType="win:UInt32"/>
+      <data name="RawData" inType="win:Binary" length="Length"/>
+     </template>
+     <template tid="task_026Args">
+      <data name="ErrorSource" inType="win:UInt32"/>
+      <data name="FRUId" inType="win:GUID"/>
+      <data name="FRUText" inType="win:AnsiString"/>
+      <data name="ValidBits" inType="win:HexInt64"/>
+      <data name="ErrorType" inType="win:UInt8"/>
+      <data name="VendorId" inType="win:HexInt32"/>
+      <data name="DeviceId" inType="win:HexInt32"/>
+      <data name="ClassCode" inType="win:HexInt32"/>
+      <data name="FunctionNumber" inType="win:HexInt32"/>
+      <data name="DeviceNumber" inType="win:HexInt32"/>
+      <data name="BusNumber" inType="win:HexInt32"/>
+      <data name="SegmentNumber" inType="win:HexInt32"/>
+      <data name="Length" inType="win:UInt32"/>
+      <data name="RawData" inType="win:Binary" length="Length"/>
+     </template>
+     <template tid="task_027Args">
+      <data name="ErrorSource" inType="win:UInt32"/>
+      <data name="FRUId" inType="win:GUID"/>
+      <data name="FRUText" inType="win:AnsiString"/>
+      <data name="ValidBits" inType="win:HexInt64"/>
+      <data name="ErrorType" inType="win:UInt8" map="whealogr:mapWheaErrorType"/>
+      <data name="VendorId" inType="win:HexInt32"/>
+      <data name="DeviceId" inType="win:HexInt32"/>
+      <data name="ClassCode" inType="win:HexInt32"/>
+      <data name="FunctionNumber" inType="win:HexInt32"/>
+      <data name="DeviceNumber" inType="win:HexInt32"/>
+      <data name="BusNumber" inType="win:HexInt32"/>
+      <data name="SegmentNumber" inType="win:HexInt32"/>
+      <data name="Length" inType="win:UInt32"/>
+      <data name="RawData" inType="win:Binary" length="Length"/>
+     </template>
+     <template tid="task_040Args">
+      <data name="ErrorSource" inType="win:UInt32"/>
+      <data name="FRUId" inType="win:GUID"/>
+      <data name="FRUText" inType="win:AnsiString"/>
+      <data name="ValidBits" inType="win:HexInt64"/>
+      <data name="PortType" inType="win:UInt32"/>
+      <data name="Version" inType="win:HexInt32"/>
+      <data name="Command" inType="win:HexInt32"/>
+      <data name="Status" inType="win:HexInt32"/>
+      <data name="Bus" inType="win:HexInt32"/>
+      <data name="Device" inType="win:HexInt32"/>
+      <data name="Function" inType="win:HexInt32"/>
+      <data name="Segment" inType="win:HexInt32"/>
+      <data name="SecondaryBus" inType="win:HexInt32"/>
+      <data name="Slot" inType="win:HexInt32"/>
+      <data name="VendorID" inType="win:HexInt32"/>
+      <data name="DeviceID" inType="win:HexInt32"/>
+      <data name="ClassCode" inType="win:HexInt32"/>
+      <data name="DeviceSerialNumber" inType="win:HexInt64"/>
+      <data name="BridgeControl" inType="win:HexInt32"/>
+      <data name="BridgeStatus" inType="win:HexInt32"/>
+      <data name="UncorrectableErrorStatus" inType="win:HexInt32"/>
+      <data name="CorrectableErrorStatus" inType="win:HexInt32"/>
+      <data name="HeaderLog" inType="win:Binary"/>
+      <data name="Length" inType="win:UInt32"/>
+      <data name="RawData" inType="win:Binary" length="Length"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Init" value="Init"/>
+    <string id="keyword_Errlog" value="Errlog"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="map_whealogr:mapGeneralErrorSourceUnknown Error Source" value="Unknown Error Source"/>
+    <string id="map_whealogr:mapGeneralErrorSourceCorrected Machine Check" value="Corrected Machine Check"/>
+    <string id="map_whealogr:mapGeneralErrorSourceCorrected Platform Error" value="Corrected Platform Error"/>
+    <string id="map_whealogr:mapGeneralErrorSourceMachine Check Exception" value="Machine Check Exception"/>
+    <string id="map_whealogr:mapGeneralErrorSourceAdvanced Error Reporting (PCI Express)" value="Advanced Error Reporting (PCI Express)"/>
+    <string id="map_whealogr:mapGeneralErrorSourceINIT" value="INIT"/>
+    <string id="map_whealogr:mapGeneralErrorSourceNon-maskable Interrupt" value="Non-maskable Interrupt"/>
+    <string id="map_whealogr:mapGeneralErrorSourceBOOT" value="BOOT"/>
+    <string id="map_whealogr:mapGeneralErrorSourceGeneric" value="Generic"/>
+    <string id="map_whealogr:mapPciExpressPortTypePCI Express Endpoint" value="PCI Express Endpoint"/>
+    <string id="map_whealogr:mapPciExpressPortTypePCI Express Legacy Endpoint" value="PCI Express Legacy Endpoint"/>
+    <string id="map_whealogr:mapPciExpressPortTypePCI Express Root Port" value="PCI Express Root Port"/>
+    <string id="map_whealogr:mapPciExpressPortTypePCI Express Upstream Switch Port" value="PCI Express Upstream Switch Port"/>
+    <string id="map_whealogr:mapPciExpressPortTypePCI Express Downstream Switch Port" value="PCI Express Downstream Switch Port"/>
+    <string id="map_whealogr:mapPciExpressPortTypePCI Express To PCI-X Bridge" value="PCI Express To PCI-X Bridge"/>
+    <string id="map_whealogr:mapPciExpressPortTypePCI-X To PCI Express Bridge" value="PCI-X To PCI Express Bridge"/>
+    <string id="map_whealogr:mapPciExpressPortTypePCI Express Root Complex Integrated Endpoint" value="PCI Express Root Complex Integrated Endpoint"/>
+    <string id="map_whealogr:mapPciExpressPortTypePCI Express Root Complex Event Collector" value="PCI Express Root Complex Event Collector"/>
+    <string id="map_whealogr:mapPciExpressPortTypeN/A" value="N/A"/>
+    <string id="map_whealogr:mapMaxULONGInvalidN/A" value="N/A"/>
+    <string id="map_whealogr:mapMCTransactionTypeInstruction" value="Instruction"/>
+    <string id="map_whealogr:mapMCTransactionTypeData" value="Data"/>
+    <string id="map_whealogr:mapMCTransactionTypeGeneric" value="Generic"/>
+    <string id="map_whealogr:mapMCTransactionTypeReserved" value="Reserved"/>
+    <string id="map_whealogr:mapMCTransactionTypeN/A" value="N/A"/>
+    <string id="map_whealogr:mapMCMemoryOrIOMemory" value="Memory"/>
+    <string id="map_whealogr:mapMCMemoryOrIOReserved" value="Reserved"/>
+    <string id="map_whealogr:mapMCMemoryOrIOI/O" value="I/O"/>
+    <string id="map_whealogr:mapMCMemoryOrIOGeneric" value="Generic"/>
+    <string id="map_whealogr:mapMCMemoryOrION/A" value="N/A"/>
+    <string id="map_whealogr:mapMCTimeoutNo" value="No"/>
+    <string id="map_whealogr:mapMCTimeoutYes" value="Yes"/>
+    <string id="map_whealogr:mapMCTimeoutN/A" value="N/A"/>
+    <string id="map_whealogr:mapMCChannelN/A" value="N/A"/>
+    <string id="map_whealogr:mapMCProcessorParticipationLocal node originated the request" value="Local node originated the request"/>
+    <string id="map_whealogr:mapMCProcessorParticipationLocal node responded to the request" value="Local node responded to the request"/>
+    <string id="map_whealogr:mapMCProcessorParticipationLocal node observed the request as 3rd party" value="Local node observed the request as 3rd party"/>
+    <string id="map_whealogr:mapMCProcessorParticipationGeneric" value="Generic"/>
+    <string id="map_whealogr:mapMCProcessorParticipationN/A" value="N/A"/>
+    <string id="map_whealogr:mapMCCacheLevelLevel 0" value="Level 0"/>
+    <string id="map_whealogr:mapMCCacheLevelLevel 1" value="Level 1"/>
+    <string id="map_whealogr:mapMCCacheLevelLevel 2" value="Level 2"/>
+    <string id="map_whealogr:mapMCCacheLevelGeneric" value="Generic"/>
+    <string id="map_whealogr:mapMCCacheLevelN/A" value="N/A"/>
+    <string id="map_whealogr:mapMCNBErrorTypeECC Memory Error" value="ECC Memory Error"/>
+    <string id="map_whealogr:mapMCNBErrorTypeCRC Error" value="CRC Error"/>
+    <string id="map_whealogr:mapMCNBErrorTypeSync Error" value="Sync Error"/>
+    <string id="map_whealogr:mapMCNBErrorTypeMaster Abort Error" value="Master Abort Error"/>
+    <string id="map_whealogr:mapMCNBErrorTypeTarget Abort Error" value="Target Abort Error"/>
+    <string id="map_whealogr:mapMCNBErrorTypeGART Error" value="GART Error"/>
+    <string id="map_whealogr:mapMCNBErrorTypeRMW Error" value="RMW Error"/>
+    <string id="map_whealogr:mapMCNBErrorTypeHyperTransport Watchdog Timeout Error" value="HyperTransport Watchdog Timeout Error"/>
+    <string id="map_whealogr:mapMCNBErrorTypeChipKill ECC Memory Error" value="ChipKill ECC Memory Error"/>
+    <string id="map_whealogr:mapMCNBErrorTypeUnknown Error" value="Unknown Error"/>
+    <string id="map_whealogr:mapMemoryErrorTypeUnknown Error" value="Unknown Error"/>
+    <string id="map_whealogr:mapMemoryErrorTypeNo Error" value="No Error"/>
+    <string id="map_whealogr:mapMemoryErrorTypeSingle-Bit ECC" value="Single-Bit ECC"/>
+    <string id="map_whealogr:mapMemoryErrorTypeMulti-Bit ECC" value="Multi-Bit ECC"/>
+    <string id="map_whealogr:mapMemoryErrorTypeSingle-Symbol ChipKill" value="Single-Symbol ChipKill"/>
+    <string id="map_whealogr:mapMemoryErrorTypeMulti-Symbol ChipKill" value="Multi-Symbol ChipKill"/>
+    <string id="map_whealogr:mapMemoryErrorTypeMaster Abort" value="Master Abort"/>
+    <string id="map_whealogr:mapMemoryErrorTypeTarget Abort" value="Target Abort"/>
+    <string id="map_whealogr:mapMemoryErrorTypeParity Error" value="Parity Error"/>
+    <string id="map_whealogr:mapMemoryErrorTypeWatchdog Timeout" value="Watchdog Timeout"/>
+    <string id="map_whealogr:mapMemoryErrorTypeInvalid Address" value="Invalid Address"/>
+    <string id="map_whealogr:mapMemoryErrorTypeBroken Mirror" value="Broken Mirror"/>
+    <string id="map_whealogr:mapMemoryErrorTypeMemory Sparing Error" value="Memory Sparing Error"/>
+    <string id="map_whealogr:mapPciXBusErrorTypeUnknown or OEM-specific Error" value="Unknown or OEM-specific Error"/>
+    <string id="map_whealogr:mapPciXBusErrorTypeData Parity Error" value="Data Parity Error"/>
+    <string id="map_whealogr:mapPciXBusErrorTypeSystem Error" value="System Error"/>
+    <string id="map_whealogr:mapPciXBusErrorTypeMaster Abort" value="Master Abort"/>
+    <string id="map_whealogr:mapPciXBusErrorTypeBus Timeout or No Device Present" value="Bus Timeout or No Device Present"/>
+    <string id="map_whealogr:mapPciXBusErrorTypeMaster Data Parity Error" value="Master Data Parity Error"/>
+    <string id="map_whealogr:mapPciXBusErrorTypeAddress Parity Error" value="Address Parity Error"/>
+    <string id="map_whealogr:mapPciXBusErrorTypeCommand Parity Error" value="Command Parity Error"/>
+    <string id="map_whealogr:mapWheaErrorTypeReserved" value="Reserved"/>
+    <string id="map_whealogr:mapWheaErrorTypeInternal Error" value="Internal Error"/>
+    <string id="map_whealogr:mapWheaErrorTypeReserved" value="Reserved"/>
+    <string id="map_whealogr:mapWheaErrorTypeReserved" value="Reserved"/>
+    <string id="map_whealogr:mapWheaErrorTypeMemory Error" value="Memory Error"/>
+    <string id="map_whealogr:mapWheaErrorTypeTLB Error" value="TLB Error"/>
+    <string id="map_whealogr:mapWheaErrorTypeCache Error" value="Cache Error"/>
+    <string id="map_whealogr:mapWheaErrorTypeFunctional Unit Error" value="Functional Unit Error"/>
+    <string id="map_whealogr:mapWheaErrorTypeComponent Self Test Error" value="Component Self Test Error"/>
+    <string id="map_whealogr:mapWheaErrorTypeInternal Queue Overflow/Underflow" value="Internal Queue Overflow/Underflow"/>
+    <string id="map_whealogr:mapWheaErrorTypeReserved" value="Reserved"/>
+    <string id="map_whealogr:mapWheaErrorTypeReserved" value="Reserved"/>
+    <string id="map_whealogr:mapWheaErrorTypeReserved" value="Reserved"/>
+    <string id="map_whealogr:mapWheaErrorTypeReserved" value="Reserved"/>
+    <string id="map_whealogr:mapWheaErrorTypeReserved" value="Reserved"/>
+    <string id="map_whealogr:mapWheaErrorTypeReserved" value="Reserved"/>
+    <string id="map_whealogr:mapWheaErrorTypeBus Error" value="Bus Error"/>
+    <string id="map_whealogr:mapWheaErrorTypeVirtual Address Mapping Error" value="Virtual Address Mapping Error"/>
+    <string id="map_whealogr:mapWheaErrorTypeImproper Access" value="Improper Access"/>
+    <string id="map_whealogr:mapWheaErrorTypeAccess To Unimplemented Device Memory" value="Access To Unimplemented Device Memory"/>
+    <string id="map_whealogr:mapWheaErrorTypeLoss Of Lockstep" value="Loss Of Lockstep"/>
+    <string id="map_whealogr:mapWheaErrorTypeInvalid Response" value="Invalid Response"/>
+    <string id="map_whealogr:mapWheaErrorTypeParity Error" value="Parity Error"/>
+    <string id="map_whealogr:mapWheaErrorTypeProtocol Error" value="Protocol Error"/>
+    <string id="map_whealogr:mapWheaErrorTypePath Error" value="Path Error"/>
+    <string id="map_whealogr:mapWheaErrorTypeBus Timeout" value="Bus Timeout"/>
+    <string id="map_whealogr:mapWheaErrorTypePoisoned Data" value="Poisoned Data"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

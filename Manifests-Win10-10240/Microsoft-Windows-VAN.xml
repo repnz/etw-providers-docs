@@ -1,0 +1,65 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-VAN" guid="{01578f96-c270-4602-ade0-578d9c29fc0c}" resourceFileName="Microsoft-Windows-VAN" messageFileName="Microsoft-Windows-VAN" symbol="MicrosoftWindowsVAN" source="Xml" >
+    <keywords>
+     <keyword name="PerfLabTest" message="$(string.keyword_PerfLabTest)" mask="0x1"/>
+     <keyword name="VAN_Performance" message="$(string.keyword_VAN_Performance)" mask="0x10"/>
+     <keyword name="Aoac" message="$(string.keyword_Aoac)" mask="0x100"/>
+    </keywords>
+    <tasks>
+     <task name="Init" message="$(string.task_Init)" value="1"/>
+     <task name="ShowFlyoutFromTray" message="$(string.task_ShowFlyoutFromTray)" value="3"/>
+     <task name="ShowCFE" message="$(string.task_ShowCFE)" value="4"/>
+     <task name="Disconnect" message="$(string.task_Disconnect)" value="5"/>
+     <task name="CFEConnectFlowFinished" message="$(string.task_CFEConnectFlowFinished)" value="7"/>
+     <task name="NetworkStatus_Limited" message="$(string.task_NetworkStatus_Limited)" value="8"/>
+     <task name="NetworkStatus_Connected" message="$(string.task_NetworkStatus_Connected)" value="9"/>
+     <task name="LoadPreCFE" message="$(string.task_LoadPreCFE)" value="10"/>
+     <task name="ExpandNetwork" message="$(string.task_ExpandNetwork)" value="11"/>
+     <task name="DisplayContextMenu" message="$(string.task_DisplayContextMenu)" value="12"/>
+    </tasks>
+    <events>
+     <event value="8001" symbol="InitStart" version="0" task="Init" opcode="win:Start" level="win:Informational"/>
+     <event value="8002" symbol="InitStop" version="0" task="Init" opcode="win:Stop" level="win:Informational"/>
+     <event value="8005" symbol="ShowFlyoutFromTrayStart" version="0" task="ShowFlyoutFromTray" opcode="win:Start" level="win:Informational"/>
+     <event value="8006" symbol="ShowFlyoutFromTrayStop" version="0" task="ShowFlyoutFromTray" opcode="win:Stop" level="win:Informational"/>
+     <event value="8007" symbol="ShowCFEStart" version="0" task="ShowCFE" opcode="win:Start" level="win:Informational" keywords="VAN_Performance"/>
+     <event value="8008" symbol="ShowCFEStop" version="0" task="ShowCFE" opcode="win:Stop" level="win:Informational"/>
+     <event value="8009" symbol="DisconnectStart" version="0" task="Disconnect" opcode="win:Start" level="win:Informational"/>
+     <event value="8010" symbol="DisconnectStop" version="0" task="Disconnect" opcode="win:Stop" level="win:Informational"/>
+     <event value="8012" symbol="CFEConnectFlowFinished" version="0" task="CFEConnectFlowFinished" level="win:Informational" keywords="VAN_Performance"/>
+     <event value="8013" symbol="NetworkStatus_Limited" version="0" task="NetworkStatus_Limited" level="win:Informational" keywords="VAN_Performance Aoac"/>
+     <event value="8014" symbol="NetworkStatus_Connected" version="0" task="NetworkStatus_Connected" level="win:Informational" keywords="VAN_Performance Aoac"/>
+     <event value="8015" symbol="LoadPreCFEStart" version="0" task="LoadPreCFE" opcode="win:Start" level="win:Informational" keywords="VAN_Performance"/>
+     <event value="8016" symbol="LoadPreCFEStop" version="0" task="LoadPreCFE" opcode="win:Stop" level="win:Informational" keywords="VAN_Performance"/>
+     <event value="8017" symbol="ExpandNetworkStart" version="0" task="ExpandNetwork" opcode="win:Start" level="win:Informational" keywords="VAN_Performance"/>
+     <event value="8018" symbol="ExpandNetworkStop" version="0" task="ExpandNetwork" opcode="win:Stop" level="win:Informational" keywords="VAN_Performance"/>
+     <event value="8019" symbol="DisplayContextMenuStart" version="0" task="DisplayContextMenu" opcode="win:Start" level="win:Informational" keywords="VAN_Performance"/>
+     <event value="8020" symbol="DisplayContextMenuStop" version="0" task="DisplayContextMenu" opcode="win:Stop" level="win:Informational" keywords="VAN_Performance"/>
+    </events>
+    <templates>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_PerfLabTest" value="PerfLabTest"/>
+    <string id="keyword_VAN_Performance" value="VAN_Performance"/>
+    <string id="keyword_Aoac" value="Aoac"/>
+    <string id="task_Init" value="Init"/>
+    <string id="task_ShowFlyoutFromTray" value="ShowFlyoutFromTray"/>
+    <string id="task_ShowCFE" value="ShowCFE"/>
+    <string id="task_Disconnect" value="Disconnect"/>
+    <string id="task_CFEConnectFlowFinished" value="CFEConnectFlowFinished"/>
+    <string id="task_NetworkStatus_Limited" value="NetworkStatus_Limited"/>
+    <string id="task_NetworkStatus_Connected" value="NetworkStatus_Connected"/>
+    <string id="task_LoadPreCFE" value="LoadPreCFE"/>
+    <string id="task_ExpandNetwork" value="ExpandNetwork"/>
+    <string id="task_DisplayContextMenu" value="DisplayContextMenu"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

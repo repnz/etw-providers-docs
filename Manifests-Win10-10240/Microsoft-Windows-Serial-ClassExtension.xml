@@ -1,0 +1,61 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Serial-ClassExtension" guid="{47bc9477-a8ba-452e-b951-4f2ed3593cf9}" resourceFileName="Microsoft-Windows-Serial-ClassExtension" messageFileName="Microsoft-Windows-Serial-ClassExtension" symbol="MicrosoftWindowsSerialClassExtension" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="Startupoftheserialclassextension" message="$(string.task_Startupoftheserialclassextension)" value="1"/>
+     <task name="IOControlreceivedbytheserialclassextension" message="$(string.task_IOControlreceivedbytheserialclassextension)" value="2"/>
+     <task name="Requestreceivedbytheserialclassextension" message="$(string.task_Requestreceivedbytheserialclassextension)" value="3"/>
+    </tasks>
+    <events>
+     <event value="1000" symbol="Startupoftheserialclassextension_V1" version="1" task="Startupoftheserialclassextension" level="win:Informational" template="StartupoftheserialclassextensionArgs_V1"/>
+     <event value="1001" symbol="Startupoftheserialclassextension1001_V1" version="1" task="Startupoftheserialclassextension" level="win:Error" template="StartupoftheserialclassextensionArgs_V1"/>
+     <event value="1002" symbol="IOControlreceivedbytheserialclassextensionStart_V1" version="1" task="IOControlreceivedbytheserialclassextension" opcode="win:Start" level="win:Informational" template="IOControlreceivedbytheserialclassextensionStartArgs_V1"/>
+     <event value="1003" symbol="IOControlreceivedbytheserialclassextensionStop_V1" version="1" task="IOControlreceivedbytheserialclassextension" opcode="win:Stop" level="win:Informational" template="IOControlreceivedbytheserialclassextensionStartArgs_V1"/>
+     <event value="1004" symbol="RequestreceivedbytheserialclassextensionStart_V1" version="1" task="Requestreceivedbytheserialclassextension" opcode="win:Start" level="win:Informational" template="RequestreceivedbytheserialclassextensionStartArgs_V1"/>
+     <event value="1005" symbol="RequestreceivedbytheserialclassextensionStart1005_V1" version="1" task="Requestreceivedbytheserialclassextension" opcode="win:Start" level="win:Informational" template="RequestreceivedbytheserialclassextensionStartArgs_V1"/>
+     <event value="1006" symbol="RequestreceivedbytheserialclassextensionStop_V1" version="1" task="Requestreceivedbytheserialclassextension" opcode="win:Stop" level="win:Informational" template="RequestreceivedbytheserialclassextensionStopArgs_V1"/>
+     <event value="1007" symbol="Requestreceivedbytheserialclassextension_V1" version="1" task="Requestreceivedbytheserialclassextension" level="win:Verbose" template="RequestreceivedbytheserialclassextensionArgs_V1"/>
+     <event value="1008" symbol="Requestreceivedbytheserialclassextension1008_V1" version="1" task="Requestreceivedbytheserialclassextension" level="win:Informational" template="Requestreceivedbytheserialclassextension1008Args_V1"/>
+    </events>
+    <templates>
+     <template tid="StartupoftheserialclassextensionArgs_V1">
+      <data name="ControlDeviceName" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="IOControlreceivedbytheserialclassextensionStartArgs_V1">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="IoControlCodeString" inType="win:UnicodeString"/>
+     </template>
+     <template tid="RequestreceivedbytheserialclassextensionStartArgs_V1">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="Length" inType="win:UInt32"/>
+     </template>
+     <template tid="RequestreceivedbytheserialclassextensionStopArgs_V1">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="Length" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="RequestreceivedbytheserialclassextensionArgs_V1">
+      <data name="Data" inType="win:UInt8"/>
+     </template>
+     <template tid="Requestreceivedbytheserialclassextension1008Args_V1">
+      <data name="Request" inType="win:Pointer"/>
+      <data name="Queue" inType="win:Pointer"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_Startupoftheserialclassextension" value="Startupoftheserialclassextension"/>
+    <string id="task_IOControlreceivedbytheserialclassextension" value="IOControlreceivedbytheserialclassextension"/>
+    <string id="task_Requestreceivedbytheserialclassextension" value="Requestreceivedbytheserialclassextension"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

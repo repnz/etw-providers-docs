@@ -1,0 +1,93 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Antimalware-RTP" guid="{8e92deef-5e17-413b-b927-59b2f06a3cfc}" resourceFileName="Microsoft-Antimalware-RTP" messageFileName="Microsoft-Antimalware-RTP" symbol="MicrosoftAntimalwareRTP" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="RTPPassthrough" message="$(string.task_RTPPassthrough)" value="1"/>
+     <task name="RTPPlugin" message="$(string.task_RTPPlugin)" value="2"/>
+     <task name="RTPFilterLoad" message="$(string.task_RTPFilterLoad)" value="3"/>
+     <task name="RTPFilterUnload" message="$(string.task_RTPFilterUnload)" value="4"/>
+     <task name="RTPSetEngine" message="$(string.task_RTPSetEngine)" value="5"/>
+     <task name="RTPFlushCache" message="$(string.task_RTPFlushCache)" value="6"/>
+     <task name="RTPScanTimeout" message="$(string.task_RTPScanTimeout)" value="7"/>
+     <task name="RTPEnabled" message="$(string.task_RTPEnabled)" value="8"/>
+     <task name="RTPDisabled" message="$(string.task_RTPDisabled)" value="9"/>
+     <task name="RTPConfigUpdate" message="$(string.task_RTPConfigUpdate)" value="10"/>
+     <task name="RTPSetRegistryMonitoring" message="$(string.task_RTPSetRegistryMonitoring)" value="11"/>
+     <task name="RTPThreatDetection" message="$(string.task_RTPThreatDetection)" value="12"/>
+     <task name="RTPSampleDetection" message="$(string.task_RTPSampleDetection)" value="13"/>
+     <task name="RTPLofiDetection" message="$(string.task_RTPLofiDetection)" value="14"/>
+     <task name="RTPExpensiveDetection" message="$(string.task_RTPExpensiveDetection)" value="15"/>
+     <task name="RTPBMDetection" message="$(string.task_RTPBMDetection)" value="16"/>
+     <task name="RTPSeqRead" message="$(string.task_RTPSeqRead)" value="17"/>
+     <task name="RTPSuspend" message="$(string.task_RTPSuspend)" value="18"/>
+     <task name="RTPResume" message="$(string.task_RTPResume)" value="19"/>
+     <task name="RTPPriority" message="$(string.task_RTPPriority)" value="20"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="RTPPassthroughStart" version="0" task="RTPPassthrough" opcode="win:Start" level="win:Informational"/>
+     <event value="2" symbol="RTPPassthroughStop" version="0" task="RTPPassthrough" opcode="win:Stop" level="win:Informational"/>
+     <event value="3" symbol="RTPPluginStart" version="0" task="RTPPlugin" opcode="win:Start" level="win:Informational"/>
+     <event value="4" symbol="RTPPluginStop" version="0" task="RTPPlugin" opcode="win:Stop" level="win:Informational"/>
+     <event value="5" symbol="RTPFilterLoad" version="0" task="RTPFilterLoad" level="win:Informational"/>
+     <event value="6" symbol="RTPFilterUnload" version="0" task="RTPFilterUnload" level="win:Informational"/>
+     <event value="7" symbol="RTPSetEngine" version="0" task="RTPSetEngine" level="win:Informational"/>
+     <event value="8" symbol="RTPFlushCache" version="0" task="RTPFlushCache" level="win:Informational"/>
+     <event value="9" symbol="RTPScanTimeout" version="0" task="RTPScanTimeout" level="win:Informational"/>
+     <event value="10" symbol="RTPEnabled" version="0" task="RTPEnabled" level="win:Informational"/>
+     <event value="11" symbol="RTPDisabled" version="0" task="RTPDisabled" level="win:Informational"/>
+     <event value="12" symbol="RTPConfigUpdate" version="0" task="RTPConfigUpdate" level="win:Informational"/>
+     <event value="13" symbol="RTPSetRegistryMonitoring" version="0" task="RTPSetRegistryMonitoring" level="win:Informational"/>
+     <event value="14" symbol="RTPThreatDetection" version="0" task="RTPThreatDetection" level="win:Informational" template="RTPThreatDetectionArgs"/>
+     <event value="15" symbol="RTPSampleDetection" version="0" task="RTPSampleDetection" level="win:Informational" template="RTPThreatDetectionArgs"/>
+     <event value="16" symbol="RTPLofiDetection" version="0" task="RTPLofiDetection" level="win:Informational" template="RTPThreatDetectionArgs"/>
+     <event value="17" symbol="RTPExpensiveDetection" version="0" task="RTPExpensiveDetection" level="win:Informational" template="RTPThreatDetectionArgs"/>
+     <event value="18" symbol="RTPBMDetection" version="0" task="RTPBMDetection" level="win:Informational"/>
+     <event value="19" symbol="RTPSeqRead" version="0" task="RTPSeqRead" level="win:Informational"/>
+     <event value="20" symbol="RTPSuspend" version="0" task="RTPSuspend" level="win:Informational"/>
+     <event value="21" symbol="RTPResume" version="0" task="RTPResume" level="win:Informational"/>
+     <event value="22" symbol="RTPPriority" version="0" task="RTPPriority" level="win:Informational" template="RTPPriorityArgs"/>
+    </events>
+    <templates>
+     <template tid="RTPThreatDetectionArgs">
+      <data name="File" inType="win:UnicodeString"/>
+     </template>
+     <template tid="RTPPriorityArgs">
+      <data name="Description" inType="win:UnicodeString"/>
+      <data name="PreviousValue" inType="win:UInt32"/>
+      <data name="IntendedValueOrHResult" inType="win:UInt32"/>
+      <data name="LatestValue" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_RTPPassthrough" value="RTPPassthrough"/>
+    <string id="task_RTPPlugin" value="RTPPlugin"/>
+    <string id="task_RTPFilterLoad" value="RTPFilterLoad"/>
+    <string id="task_RTPFilterUnload" value="RTPFilterUnload"/>
+    <string id="task_RTPSetEngine" value="RTPSetEngine"/>
+    <string id="task_RTPFlushCache" value="RTPFlushCache"/>
+    <string id="task_RTPScanTimeout" value="RTPScanTimeout"/>
+    <string id="task_RTPEnabled" value="RTPEnabled"/>
+    <string id="task_RTPDisabled" value="RTPDisabled"/>
+    <string id="task_RTPConfigUpdate" value="RTPConfigUpdate"/>
+    <string id="task_RTPSetRegistryMonitoring" value="RTPSetRegistryMonitoring"/>
+    <string id="task_RTPThreatDetection" value="RTPThreatDetection"/>
+    <string id="task_RTPSampleDetection" value="RTPSampleDetection"/>
+    <string id="task_RTPLofiDetection" value="RTPLofiDetection"/>
+    <string id="task_RTPExpensiveDetection" value="RTPExpensiveDetection"/>
+    <string id="task_RTPBMDetection" value="RTPBMDetection"/>
+    <string id="task_RTPSeqRead" value="RTPSeqRead"/>
+    <string id="task_RTPSuspend" value="RTPSuspend"/>
+    <string id="task_RTPResume" value="RTPResume"/>
+    <string id="task_RTPPriority" value="RTPPriority"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

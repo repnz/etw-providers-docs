@@ -1,0 +1,43 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-StorageManagement-WSP-Host" guid="{595f33ea-d4af-4f4d-b4dd-9dacdd17fc6e}" resourceFileName="Microsoft-Windows-StorageManagement-WSP-Host" messageFileName="Microsoft-Windows-StorageManagement-WSP-Host" symbol="MicrosoftWindowsStorageManagementWSPHost" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <maps>
+     <valueMap name="LoadPhases">
+      <map value="0x1" message="$(string.map_LoadPhasesLoading DLL)"/>
+      <map value="0x2" message="$(string.map_LoadPhasesFind ShutdownCallback)"/>
+      <map value="0x3" message="$(string.map_LoadPhasesFind WMI Entrypoint)"/>
+      <map value="0x4" message="$(string.map_LoadPhasesLaunch Hosted Provider)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1000" symbol="task_0" version="0" task="task_0" level="win:Critical" template="task_0Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="ProviderName" inType="win:UnicodeString"/>
+      <data name="ProviderDLL" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="LoadPhase" inType="win:UInt32" map="LoadPhases"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_task_0" value="task_0"/>
+    <string id="map_LoadPhasesLoading DLL" value="Loading DLL"/>
+    <string id="map_LoadPhasesFind ShutdownCallback" value="Find ShutdownCallback"/>
+    <string id="map_LoadPhasesFind WMI Entrypoint" value="Find WMI Entrypoint"/>
+    <string id="map_LoadPhasesLaunch Hosted Provider" value="Launch Hosted Provider"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

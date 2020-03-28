@@ -1,0 +1,56 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-IE-JSDumpHeap" guid="{7f8e35ca-68e8-41b9-86fe-d6adc5b327e7}" resourceFileName="Microsoft-IE-JSDumpHeap" messageFileName="Microsoft-IE-JSDumpHeap" symbol="MicrosoftIEJSDumpHeap" source="Xml" >
+    <keywords>
+     <keyword name="jsdumpheap" message="$(string.keyword_jsdumpheap)" mask="0x20"/>
+     <keyword name="jsdumpheapEnvelopeOnly" message="$(string.keyword_jsdumpheapEnvelopeOnly)" mask="0x80000000"/>
+    </keywords>
+    <tasks>
+     <task name="JSDumpHeapEnvelope" message="$(string.task_JSDumpHeapEnvelope)" value="321"/>
+     <task name="JSDumpHeapBulkNode" message="$(string.task_JSDumpHeapBulkNode)" value="323"/>
+     <task name="JSDumpHeapBulkAttribute" message="$(string.task_JSDumpHeapBulkAttribute)" value="324"/>
+     <task name="JSDumpHeapBulkEdge" message="$(string.task_JSDumpHeapBulkEdge)" value="325"/>
+     <task name="JSDumpHeapStringTable" message="$(string.task_JSDumpHeapStringTable)" value="326"/>
+     <task name="JSDumpHeapDoubleTable" message="$(string.task_JSDumpHeapDoubleTable)" value="327"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="JSDumpHeapEnvelopeStart" version="0" task="JSDumpHeapEnvelope" opcode="win:Start" level="win:Always" keywords="jsdumpheap jsdumpheapEnvelopeOnly" template="JSDumpHeapEnvelopeStartArgs"/>
+     <event value="2" symbol="JSDumpHeapEnvelopeStop_V1" version="1" task="JSDumpHeapEnvelope" opcode="win:Stop" level="win:Always" keywords="jsdumpheap jsdumpheapEnvelopeOnly" template="JSDumpHeapEnvelopeStopArgs_V1"/>
+     <event value="3" symbol="JSDumpHeapBulkNode" version="0" task="JSDumpHeapBulkNode" level="win:Always" keywords="jsdumpheap" template="JSDumpHeapBulkNodeArgs"/>
+     <event value="4" symbol="JSDumpHeapBulkAttribute" version="0" task="JSDumpHeapBulkAttribute" level="win:Always" keywords="jsdumpheap" template="JSDumpHeapBulkNodeArgs"/>
+     <event value="5" symbol="JSDumpHeapBulkEdge" version="0" task="JSDumpHeapBulkEdge" level="win:Always" keywords="jsdumpheap" template="JSDumpHeapBulkNodeArgs"/>
+     <event value="6" symbol="JSDumpHeapStringTable" version="0" task="JSDumpHeapStringTable" level="win:Always" keywords="jsdumpheap" template="JSDumpHeapBulkNodeArgs"/>
+     <event value="7" symbol="JSDumpHeapDoubleTable" version="0" task="JSDumpHeapDoubleTable" level="win:Always" keywords="jsdumpheap" template="JSDumpHeapBulkNodeArgs"/>
+    </events>
+    <templates>
+     <template tid="JSDumpHeapEnvelopeStartArgs">
+      <data name="Settings" inType="win:UnicodeString"/>
+     </template>
+     <template tid="JSDumpHeapBulkNodeArgs">
+      <data name="Index" inType="win:UInt32"/>
+      <data name="Count" inType="win:UInt32"/>
+      <data name="Values" inType="win:Int8" count="Count"/>
+     </template>
+     <template tid="JSDumpHeapEnvelopeStopArgs_V1">
+      <data name="Summary" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_jsdumpheap" value="jsdumpheap"/>
+    <string id="keyword_jsdumpheapEnvelopeOnly" value="jsdumpheapEnvelopeOnly"/>
+    <string id="task_JSDumpHeapEnvelope" value="JSDumpHeapEnvelope"/>
+    <string id="task_JSDumpHeapBulkNode" value="JSDumpHeapBulkNode"/>
+    <string id="task_JSDumpHeapBulkAttribute" value="JSDumpHeapBulkAttribute"/>
+    <string id="task_JSDumpHeapBulkEdge" value="JSDumpHeapBulkEdge"/>
+    <string id="task_JSDumpHeapStringTable" value="JSDumpHeapStringTable"/>
+    <string id="task_JSDumpHeapDoubleTable" value="JSDumpHeapDoubleTable"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

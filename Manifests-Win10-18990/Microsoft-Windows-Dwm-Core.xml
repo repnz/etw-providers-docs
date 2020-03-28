@@ -1,0 +1,2031 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Dwm-Core" guid="{9e9bba3c-2e38-40cb-99f4-9e8281425164}" resourceFileName="Microsoft-Windows-Dwm-Core" messageFileName="Microsoft-Windows-Dwm-Core" symbol="MicrosoftWindowsDwmCore" source="Xml" >
+    <keywords>
+     <keyword name="DwmCore" message="$(string.keyword_DwmCore)" mask="0x1"/>
+     <keyword name="DetailedFrameInformation" message="$(string.keyword_DetailedFrameInformation)" mask="0x2"/>
+     <keyword name="FrameDrawInconsistencyInformation" message="$(string.keyword_FrameDrawInconsistencyInformation)" mask="0x4"/>
+     <keyword name="DwmFrameRate" message="$(string.keyword_DwmFrameRate)" mask="0x8"/>
+     <keyword name="AnimationScreenOff" message="$(string.keyword_AnimationScreenOff)" mask="0x10"/>
+     <keyword name="ProcessAttribution" message="$(string.keyword_ProcessAttribution)" mask="0x20"/>
+     <keyword name="ComputeScribble" message="$(string.keyword_ComputeScribble)" mask="0x40"/>
+     <keyword name="FrameVisualization" message="$(string.keyword_FrameVisualization)" mask="0x10000"/>
+     <keyword name="LowOverheadSmoothnessTracking" message="$(string.keyword_LowOverheadSmoothnessTracking)" mask="0x20000"/>
+     <keyword name="FrameVisualizationExtra" message="$(string.keyword_FrameVisualizationExtra)" mask="0x40000"/>
+     <keyword name="DwmHolographic" message="$(string.keyword_DwmHolographic)" mask="0x80000"/>
+     <keyword name="WorkPerFrame" message="$(string.keyword_WorkPerFrame)" mask="0x100000"/>
+     <keyword name="DwmInput" message="$(string.keyword_DwmInput)" mask="0x200000"/>
+     <keyword name="DwmDiagTrack" message="$(string.keyword_DwmDiagTrack)" mask="0x400000"/>
+    </keywords>
+    <tasks>
+     <task name="SCHEDULE_VBLANK_LOOP" message="$(string.task_SCHEDULE_VBLANK_LOOP)" value="2"/>
+     <task name="SCHEDULE_FRAMEINFO" message="$(string.task_SCHEDULE_FRAMEINFO)" value="3"/>
+     <task name="SCHEDULE_UPDATE_FRAME_INDEXES" message="$(string.task_SCHEDULE_UPDATE_FRAME_INDEXES)" value="4"/>
+     <task name="SCHEDULE_TIME" message="$(string.task_SCHEDULE_TIME)" value="5"/>
+     <task name="SCHEDULE_WFVB" message="$(string.task_SCHEDULE_WFVB)" value="9"/>
+     <task name="SCHEDULE_WFW" message="$(string.task_SCHEDULE_WFW)" value="10"/>
+     <task name="SCHEDULE_PROCESS_FRAME" message="$(string.task_SCHEDULE_PROCESS_FRAME)" value="11"/>
+     <task name="SCHEDULE_RENDER" message="$(string.task_SCHEDULE_RENDER)" value="12"/>
+     <task name="SCHEDULE_PRESENT" message="$(string.task_SCHEDULE_PRESENT)" value="13"/>
+     <task name="SCHEDULE_GETPRESENTCOUNT" message="$(string.task_SCHEDULE_GETPRESENTCOUNT)" value="14"/>
+     <task name="SCHEDULE_GETPRESENTSTATS" message="$(string.task_SCHEDULE_GETPRESENTSTATS)" value="15"/>
+     <task name="SCHEDULE_GLITCH" message="$(string.task_SCHEDULE_GLITCH)" value="17"/>
+     <task name="SCHEDULE_GLITCH_RECOVERY_ATTEMPT" message="$(string.task_SCHEDULE_GLITCH_RECOVERY_ATTEMPT)" value="18"/>
+     <task name="SCHEDULE_RESET" message="$(string.task_SCHEDULE_RESET)" value="19"/>
+     <task name="ETWGUID_BITMAPCOPYEVENT" message="$(string.task_ETWGUID_BITMAPCOPYEVENT)" value="22"/>
+     <task name="ETWGUID_COPYFRONTTOBACKBUFFEREVENT" message="$(string.task_ETWGUID_COPYFRONTTOBACKBUFFEREVENT)" value="23"/>
+     <task name="ETWGUID_CLEAREVENT" message="$(string.task_ETWGUID_CLEAREVENT)" value="27"/>
+     <task name="ETWGUID_DIRTYREGIONEVENT" message="$(string.task_ETWGUID_DIRTYREGIONEVENT)" value="28"/>
+     <task name="ETWGUID_OCCLUSIONEVENT" message="$(string.task_ETWGUID_OCCLUSIONEVENT)" value="29"/>
+     <task name="ETWGUID_DWMUPDATEWINDOW" message="$(string.task_ETWGUID_DWMUPDATEWINDOW)" value="30"/>
+     <task name="ETWGUID_DRAWEVENT" message="$(string.task_ETWGUID_DRAWEVENT)" value="32"/>
+     <task name="MILEVENT_MEDIA_UCE_PROCESSQUEUEEVENT" message="$(string.task_MILEVENT_MEDIA_UCE_PROCESSQUEUEEVENT)" value="34"/>
+     <task name="MILEVENT_MEDIA_UCE_PRECOMPUTEEVENT" message="$(string.task_MILEVENT_MEDIA_UCE_PRECOMPUTEEVENT)" value="35"/>
+     <task name="MILEVENT_MEDIA_UCE_RENDEREVENT" message="$(string.task_MILEVENT_MEDIA_UCE_RENDEREVENT)" value="36"/>
+     <task name="MILEVENT_MEDIA_UCE_PRESENTEVENT" message="$(string.task_MILEVENT_MEDIA_UCE_PRESENTEVENT)" value="37"/>
+     <task name="MILEVENT_MEDIA_UCE_PROCESSPRESENTHISTORY" message="$(string.task_MILEVENT_MEDIA_UCE_PROCESSPRESENTHISTORY)" value="38"/>
+     <task name="MILEVENT_MEDIA_UCE_CHECKDEVICESTATE" message="$(string.task_MILEVENT_MEDIA_UCE_CHECKDEVICESTATE)" value="39"/>
+     <task name="GDISPRITE_LOGICALSURFACE_ASSOCIATION" message="$(string.task_GDISPRITE_LOGICALSURFACE_ASSOCIATION)" value="49"/>
+     <task name="WINDOWNODE_GDISPRITE_ASSOCIATION" message="$(string.task_WINDOWNODE_GDISPRITE_ASSOCIATION)" value="50"/>
+     <task name="SCHEDULE_ROUNDTRIPREQUEST_STATE" message="$(string.task_SCHEDULE_ROUNDTRIPREQUEST_STATE)" value="51"/>
+     <task name="SCHEDULE_PRESENTHISTORYTOKEN_GDI" message="$(string.task_SCHEDULE_PRESENTHISTORYTOKEN_GDI)" value="53"/>
+     <task name="SCHEDULE_PRESENTHISTORYTOKEN_GDISYSMEM" message="$(string.task_SCHEDULE_PRESENTHISTORYTOKEN_GDISYSMEM)" value="54"/>
+     <task name="SCHEDULE_PRESENTHISTORYTOKEN_BLT" message="$(string.task_SCHEDULE_PRESENTHISTORYTOKEN_BLT)" value="56"/>
+     <task name="MILEVENT_MEDIA_UCE_PROCESSDEFERREDTOKENS" message="$(string.task_MILEVENT_MEDIA_UCE_PROCESSDEFERREDTOKENS)" value="58"/>
+     <task name="ETWGUID_MAGNIFIERRENDERTARGET_CAPTUREBITS" message="$(string.task_ETWGUID_MAGNIFIERRENDERTARGET_CAPTUREBITS)" value="59"/>
+     <task name="BIND_GDISPRITEBITMAP_FIRST_TOKEN" message="$(string.task_BIND_GDISPRITEBITMAP_FIRST_TOKEN)" value="62"/>
+     <task name="MILEVENT_MEDIA_UCE_PROCESSPRESENTHISTORY_GetPresentHistory" message="$(string.task_MILEVENT_MEDIA_UCE_PROCESSPRESENTHISTORY_GetPresentHistory)" value="63"/>
+     <task name="SCHEDULE_UPDATE_TIMES" message="$(string.task_SCHEDULE_UPDATE_TIMES)" value="66"/>
+     <task name="UCE_PROCESSANIMATERESOURCES" message="$(string.task_UCE_PROCESSANIMATERESOURCES)" value="67"/>
+     <task name="MILEVENT_MEDIA_UCE_BLTDESKTOP" message="$(string.task_MILEVENT_MEDIA_UCE_BLTDESKTOP)" value="68"/>
+     <task name="ETWGUID_DWMUPDATEBLTTRANSLATION_CLIP" message="$(string.task_ETWGUID_DWMUPDATEBLTTRANSLATION_CLIP)" value="70"/>
+     <task name="ETWGUID_DWMUPDATEBLTTRANSLATION_RECT" message="$(string.task_ETWGUID_DWMUPDATEBLTTRANSLATION_RECT)" value="71"/>
+     <task name="ETWGUID_DWMUPDATEBLTTRANSLATION_POINT" message="$(string.task_ETWGUID_DWMUPDATEBLTTRANSLATION_POINT)" value="72"/>
+     <task name="MILEVENT_MEDIA_UCE_BLTINDESKTOP_RECT" message="$(string.task_MILEVENT_MEDIA_UCE_BLTINDESKTOP_RECT)" value="73"/>
+     <task name="ETWGUID_STEREO_COPYLEFTTORIGHTBUFFEREVENT" message="$(string.task_ETWGUID_STEREO_COPYLEFTTORIGHTBUFFEREVENT)" value="74"/>
+     <task name="ETWGUID_STEREO_RIGHTCHANNELRENDEREVENT" message="$(string.task_ETWGUID_STEREO_RIGHTCHANNELRENDEREVENT)" value="75"/>
+     <task name="ETWGUID_STEREO_TEMPORARYMONOEVENT" message="$(string.task_ETWGUID_STEREO_TEMPORARYMONOEVENT)" value="76"/>
+     <task name="ETWGUID_STEREO_SWAPCHAINCREATEEVENT" message="$(string.task_ETWGUID_STEREO_SWAPCHAINCREATEEVENT)" value="77"/>
+     <task name="ETWGUID_SLICER_CAPTURE" message="$(string.task_ETWGUID_SLICER_CAPTURE)" value="79"/>
+     <task name="ETWGUID_SLICER_CAPTUREFRAME" message="$(string.task_ETWGUID_SLICER_CAPTUREFRAME)" value="80"/>
+     <task name="DCOMPEVENT_RESOURCE" message="$(string.task_DCOMPEVENT_RESOURCE)" value="81"/>
+     <task name="DCOMPEVENT_ANIMATION_INITIAL_VALUE" message="$(string.task_DCOMPEVENT_ANIMATION_INITIAL_VALUE)" value="82"/>
+     <task name="DCOMPEVENT_ANIMATION_UPDATE_VALUE" message="$(string.task_DCOMPEVENT_ANIMATION_UPDATE_VALUE)" value="83"/>
+     <task name="DCOMPEVENT_END_ANIMATION" message="$(string.task_DCOMPEVENT_END_ANIMATION)" value="84"/>
+     <task name="SCHEDULE_NEW_EFFECTIVE_REFRESH_PERIOD_DELTAS" message="$(string.task_SCHEDULE_NEW_EFFECTIVE_REFRESH_PERIOD_DELTAS)" value="85"/>
+     <task name="SCHEDULE_NEW_EFFECTIVE_REFRESH_PERIOD" message="$(string.task_SCHEDULE_NEW_EFFECTIVE_REFRESH_PERIOD)" value="86"/>
+     <task name="SCHEDULE_DXGI_STATUS_OCCLUDED" message="$(string.task_SCHEDULE_DXGI_STATUS_OCCLUDED)" value="87"/>
+     <task name="SCHEDULE_DXGI_OCCLUSION_EVENT" message="$(string.task_SCHEDULE_DXGI_OCCLUSION_EVENT)" value="88"/>
+     <task name="SCHEDULE_DXGI_PRESENT_SUCCEEDED" message="$(string.task_SCHEDULE_DXGI_PRESENT_SUCCEEDED)" value="89"/>
+     <task name="ETWGUID_DIRECTFLIP_TRANSITIONEVENT" message="$(string.task_ETWGUID_DIRECTFLIP_TRANSITIONEVENT)" value="92"/>
+     <task name="ETWGUID_DIRECTFLIP_PRESENTEVENT" message="$(string.task_ETWGUID_DIRECTFLIP_PRESENTEVENT)" value="93"/>
+     <task name="ETWGUID_DIRECTFLIP_SUPPORTEVENT" message="$(string.task_ETWGUID_DIRECTFLIP_SUPPORTEVENT)" value="94"/>
+     <task name="ETWGUID_DIRECTFLIP_PINEVENT" message="$(string.task_ETWGUID_DIRECTFLIP_PINEVENT)" value="95"/>
+     <task name="ETWGUID_DIRECTFLIP_UNPINEVENT" message="$(string.task_ETWGUID_DIRECTFLIP_UNPINEVENT)" value="96"/>
+     <task name="ETWGUID_RENDEROPT_DISCARDRESOURCEEVENT" message="$(string.task_ETWGUID_RENDEROPT_DISCARDRESOURCEEVENT)" value="99"/>
+     <task name="ETWGUID_RENDEROPT_TILEABLECOPYEVENT" message="$(string.task_ETWGUID_RENDEROPT_TILEABLECOPYEVENT)" value="100"/>
+     <task name="OPEN_SHARED_TEXTURE_EVENT" message="$(string.task_OPEN_SHARED_TEXTURE_EVENT)" value="101"/>
+     <task name="PROCESS_COMPOSITION_SURFACE_UPDATE_EVENT" message="$(string.task_PROCESS_COMPOSITION_SURFACE_UPDATE_EVENT)" value="103"/>
+     <task name="ANIMATION_ANALYSIS_DEBUG_EVENT" message="$(string.task_ANIMATION_ANALYSIS_DEBUG_EVENT)" value="108"/>
+     <task name="SCHEDULE_RENDERTIME" message="$(string.task_SCHEDULE_RENDERTIME)" value="109"/>
+     <task name="SCHEDULE_PARALLEL_MODE" message="$(string.task_SCHEDULE_PARALLEL_MODE)" value="110"/>
+     <task name="SCHEDULE_GLITCH_DETECTED" message="$(string.task_SCHEDULE_GLITCH_DETECTED)" value="112"/>
+     <task name="ETWGUID_DRAWING_CONTEXT_FRAME" message="$(string.task_ETWGUID_DRAWING_CONTEXT_FRAME)" value="114"/>
+     <task name="ETWGUID_DRAWING_CONTEXT_STATE" message="$(string.task_ETWGUID_DRAWING_CONTEXT_STATE)" value="115"/>
+     <task name="ETWGUID_COMPOSITION_SURFACE_DRAW" message="$(string.task_ETWGUID_COMPOSITION_SURFACE_DRAW)" value="116"/>
+     <task name="ETWGUID_CVI_UPDATE" message="$(string.task_ETWGUID_CVI_UPDATE)" value="118"/>
+     <task name="ETWGUID_DIRECTFLIP_CANDIDATERECORDEVENT" message="$(string.task_ETWGUID_DIRECTFLIP_CANDIDATERECORDEVENT)" value="119"/>
+     <task name="ETWGUID_DIRECTFLIP_CANDIDATEOVERWRITEVENT" message="$(string.task_ETWGUID_DIRECTFLIP_CANDIDATEOVERWRITEVENT)" value="120"/>
+     <task name="SCHEDULE_TIMEADJUSTED_BETWEENFRAMES" message="$(string.task_SCHEDULE_TIMEADJUSTED_BETWEENFRAMES)" value="122"/>
+     <task name="SCHEDULE_CLEAR_D2D_CACHES" message="$(string.task_SCHEDULE_CLEAR_D2D_CACHES)" value="125"/>
+     <task name="MILEVENT_MEDIA_UCE_PROCESSSURFACEUPDATES" message="$(string.task_MILEVENT_MEDIA_UCE_PROCESSSURFACEUPDATES)" value="126"/>
+     <task name="SCHEDULE_SURFACEUPDATE" message="$(string.task_SCHEDULE_SURFACEUPDATE)" value="127"/>
+     <task name="ETWGUID_RENDEROPT_DISCARDVIEWEVENT" message="$(string.task_ETWGUID_RENDEROPT_DISCARDVIEWEVENT)" value="128"/>
+     <task name="SCHEDULE_DERIVEDISPLAYSET" message="$(string.task_SCHEDULE_DERIVEDISPLAYSET)" value="131"/>
+     <task name="SCHEDULE_RETIREFRAME" message="$(string.task_SCHEDULE_RETIREFRAME)" value="132"/>
+     <task name="SCHEDULE_GETPRESENTSTATS1" message="$(string.task_SCHEDULE_GETPRESENTSTATS1)" value="133"/>
+     <task name="SCHEDULE_PRESENT_STATS_DELTAS" message="$(string.task_SCHEDULE_PRESENT_STATS_DELTAS)" value="134"/>
+     <task name="RENDER_CVIPASS" message="$(string.task_RENDER_CVIPASS)" value="135"/>
+     <task name="HIT_TEST" message="$(string.task_HIT_TEST)" value="137"/>
+     <task name="HIT_TEST_TREE_WALK" message="$(string.task_HIT_TEST_TREE_WALK)" value="138"/>
+     <task name="INPUT_SINK" message="$(string.task_INPUT_SINK)" value="139"/>
+     <task name="DETECT_TOPLEVELWINDOW_DESTROY" message="$(string.task_DETECT_TOPLEVELWINDOW_DESTROY)" value="141"/>
+     <task name="OVERLAY_GETCAPS" message="$(string.task_OVERLAY_GETCAPS)" value="142"/>
+     <task name="OVERLAY_RECORDCANDIDATE" message="$(string.task_OVERLAY_RECORDCANDIDATE)" value="143"/>
+     <task name="OVERLAY_CHECKOCCLUSION" message="$(string.task_OVERLAY_CHECKOCCLUSION)" value="144"/>
+     <task name="OVERLAY_CHECKSUPPORT" message="$(string.task_OVERLAY_CHECKSUPPORT)" value="145"/>
+     <task name="OVERLAY_CANDIDATECOLLECTION" message="$(string.task_OVERLAY_CANDIDATECOLLECTION)" value="146"/>
+     <task name="OVERLAY_PRESENT" message="$(string.task_OVERLAY_PRESENT)" value="147"/>
+     <task name="DETECT_REMOTEAPPWINDOW_STATE" message="$(string.task_DETECT_REMOTEAPPWINDOW_STATE)" value="149"/>
+     <task name="DETECT_DESKTOPSCREEN_WRITE" message="$(string.task_DETECT_DESKTOPSCREEN_WRITE)" value="150"/>
+     <task name="REMOTEAPP_METADATA_STATS" message="$(string.task_REMOTEAPP_METADATA_STATS)" value="151"/>
+     <task name="DETECT_REMOTEAPPMODE_SWITCH" message="$(string.task_DETECT_REMOTEAPPMODE_SWITCH)" value="152"/>
+     <task name="DETECT_DESKTOP_ENDOFUPDATES" message="$(string.task_DETECT_DESKTOP_ENDOFUPDATES)" value="153"/>
+     <task name="REMOTEAPP_WINDOWCLIP" message="$(string.task_REMOTEAPP_WINDOWCLIP)" value="154"/>
+     <task name="ETWGUID_PRIMITIVE_GROUP_DRAW" message="$(string.task_ETWGUID_PRIMITIVE_GROUP_DRAW)" value="155"/>
+     <task name="ETWGUID_D2DLAYERCREATEREASON" message="$(string.task_ETWGUID_D2DLAYERCREATEREASON)" value="156"/>
+     <task name="TELEMETRY_ANIMATION_PERFORMANCE_ANALYSIS_EVENT" message="$(string.task_TELEMETRY_ANIMATION_PERFORMANCE_ANALYSIS_EVENT)" value="157"/>
+     <task name="ANIMATION_FIRST_FRAME_EVENT" message="$(string.task_ANIMATION_FIRST_FRAME_EVENT)" value="158"/>
+     <task name="ANIMATION_LAST_FRAME_EVENT" message="$(string.task_ANIMATION_LAST_FRAME_EVENT)" value="159"/>
+     <task name="TELEMETRY_AGGREGATED_VSYNC_ANALYSIS_EVENT" message="$(string.task_TELEMETRY_AGGREGATED_VSYNC_ANALYSIS_EVENT)" value="160"/>
+     <task name="ETWGUID_COPYFRONTTOBACKBUFFERDELTAEVENT" message="$(string.task_ETWGUID_COPYFRONTTOBACKBUFFERDELTAEVENT)" value="161"/>
+     <task name="SWAPCHAIN_BUFFERS" message="$(string.task_SWAPCHAIN_BUFFERS)" value="162"/>
+     <task name="DEBUG_FRAME_COUNTER" message="$(string.task_DEBUG_FRAME_COUNTER)" value="165"/>
+     <task name="ETWGUID_SETINDEPENDENTFLIPINFO" message="$(string.task_ETWGUID_SETINDEPENDENTFLIPINFO)" value="166"/>
+     <task name="ETWGUID_PRIMITIVE_GROUP_SELF_OCCLUSION_INFO" message="$(string.task_ETWGUID_PRIMITIVE_GROUP_SELF_OCCLUSION_INFO)" value="167"/>
+     <task name="INPUT_SINK_TRANSFORM_UPDATE" message="$(string.task_INPUT_SINK_TRANSFORM_UPDATE)" value="168"/>
+     <task name="ETWGUID_RTCAPTURE" message="$(string.task_ETWGUID_RTCAPTURE)" value="170"/>
+     <task name="ETWGUID_RTCAPTURE_GETBITS" message="$(string.task_ETWGUID_RTCAPTURE_GETBITS)" value="171"/>
+     <task name="TOUCH_FIRST_FRAME_EVENT" message="$(string.task_TOUCH_FIRST_FRAME_EVENT)" value="173"/>
+     <task name="TOUCH_LAST_FRAME_EVENT" message="$(string.task_TOUCH_LAST_FRAME_EVENT)" value="174"/>
+     <task name="TELEMETRY_ANIMATION_TTFF_ANALYSIS_EVENT" message="$(string.task_TELEMETRY_ANIMATION_TTFF_ANALYSIS_EVENT)" value="175"/>
+     <task name="TELEMETRY_AGGREGATED_TTFF_ANALYSIS_EVENT" message="$(string.task_TELEMETRY_AGGREGATED_TTFF_ANALYSIS_EVENT)" value="176"/>
+     <task name="MILEVENT_MEDIA_UCE_VISUAL_MOVE_DETECTED" message="$(string.task_MILEVENT_MEDIA_UCE_VISUAL_MOVE_DETECTED)" value="177"/>
+     <task name="MILEVENT_MEDIA_UCE_WINDOW_MOVE_DETECTED" message="$(string.task_MILEVENT_MEDIA_UCE_WINDOW_MOVE_DETECTED)" value="178"/>
+     <task name="DCOMPEVENT_PRIMITIVEGROUP_UPDATE" message="$(string.task_DCOMPEVENT_PRIMITIVEGROUP_UPDATE)" value="181"/>
+     <task name="MANIPULATION_THREAD_STARTUP" message="$(string.task_MANIPULATION_THREAD_STARTUP)" value="182"/>
+     <task name="MANIPULATION_THREAD_CLEANUP" message="$(string.task_MANIPULATION_THREAD_CLEANUP)" value="183"/>
+     <task name="MANIPULATION_FRAME_RECEIVED" message="$(string.task_MANIPULATION_FRAME_RECEIVED)" value="184"/>
+     <task name="MANIPULATION_FRAME_QUEUED" message="$(string.task_MANIPULATION_FRAME_QUEUED)" value="185"/>
+     <task name="MANIPULATION_FRAME_DEQUEUED" message="$(string.task_MANIPULATION_FRAME_DEQUEUED)" value="186"/>
+     <task name="INTERACTION_CREATED" message="$(string.task_INTERACTION_CREATED)" value="187"/>
+     <task name="INTERACTION_VISUAL_UPDATE" message="$(string.task_INTERACTION_VISUAL_UPDATE)" value="188"/>
+     <task name="INTERACTION_TOUCH_CONFIGURATION_CHANGED" message="$(string.task_INTERACTION_TOUCH_CONFIGURATION_CHANGED)" value="189"/>
+     <task name="INTERACTION_DESTROYED" message="$(string.task_INTERACTION_DESTROYED)" value="190"/>
+     <task name="MANIPULATION_CONTEXT_CREATED" message="$(string.task_MANIPULATION_CONTEXT_CREATED)" value="191"/>
+     <task name="MANIPULATION_CONTEXT_DESTROYED" message="$(string.task_MANIPULATION_CONTEXT_DESTROYED)" value="192"/>
+     <task name="MANIPULATION_CONTEXT_NEW_CONTACT" message="$(string.task_MANIPULATION_CONTEXT_NEW_CONTACT)" value="193"/>
+     <task name="MANIPULATION_CONTEXT_CONTACT_DEPARTED" message="$(string.task_MANIPULATION_CONTEXT_CONTACT_DEPARTED)" value="194"/>
+     <task name="ADVANCED_DIRECTFLIP_RECORDCANDIDATE" message="$(string.task_ADVANCED_DIRECTFLIP_RECORDCANDIDATE)" value="200"/>
+     <task name="ADVANCED_DIRECTFLIP_CREATERESTOREBUFFER" message="$(string.task_ADVANCED_DIRECTFLIP_CREATERESTOREBUFFER)" value="201"/>
+     <task name="ADVANCED_DIRECTFLIP_SAVECONTENT" message="$(string.task_ADVANCED_DIRECTFLIP_SAVECONTENT)" value="202"/>
+     <task name="ADVANCED_DIRECTFLIP_RESTORECONTENT" message="$(string.task_ADVANCED_DIRECTFLIP_RESTORECONTENT)" value="203"/>
+     <task name="ADVANCED_DIRECTFLIP_CANCEL" message="$(string.task_ADVANCED_DIRECTFLIP_CANCEL)" value="204"/>
+     <task name="DISPLAYSURFACE_SWAPCHAINCANDIDATE" message="$(string.task_DISPLAYSURFACE_SWAPCHAINCANDIDATE)" value="205"/>
+     <task name="DISPLAYSURFACE_REJECTCANDIDATE" message="$(string.task_DISPLAYSURFACE_REJECTCANDIDATE)" value="206"/>
+     <task name="DISPLAYSURFACE_CANDIDATEATTRIBUTES" message="$(string.task_DISPLAYSURFACE_CANDIDATEATTRIBUTES)" value="207"/>
+     <task name="MANIPULATION_POINTER_BUFFERED" message="$(string.task_MANIPULATION_POINTER_BUFFERED)" value="208"/>
+     <task name="ETWGUID_PUBLISH_SEB_NOTIFICATION" message="$(string.task_ETWGUID_PUBLISH_SEB_NOTIFICATION)" value="209"/>
+     <task name="MIDMANIPULATION_UPDATE_INTERACTION_ADDITION" message="$(string.task_MIDMANIPULATION_UPDATE_INTERACTION_ADDITION)" value="210"/>
+     <task name="MIDMANIPULATION_UPDATE_INTERACTION_REMOVAL" message="$(string.task_MIDMANIPULATION_UPDATE_INTERACTION_REMOVAL)" value="211"/>
+     <task name="MIDMANIPULATION_UPDATE_VISUAL_ADDITION" message="$(string.task_MIDMANIPULATION_UPDATE_VISUAL_ADDITION)" value="212"/>
+     <task name="MIDMANIPULATION_UPDATE_VISUAL_REMOVAL" message="$(string.task_MIDMANIPULATION_UPDATE_VISUAL_REMOVAL)" value="213"/>
+     <task name="MIDMANIPULATION_UPDATE_VISUAL_PROP" message="$(string.task_MIDMANIPULATION_UPDATE_VISUAL_PROP)" value="214"/>
+     <task name="MIDMANIPULATION_UPDATE_CAPTURE_CONTACT" message="$(string.task_MIDMANIPULATION_UPDATE_CAPTURE_CONTACT)" value="215"/>
+     <task name="INTERACTION_TOUCHPAD_CONFIGURATION_CHANGED" message="$(string.task_INTERACTION_TOUCHPAD_CONFIGURATION_CHANGED)" value="216"/>
+     <task name="INTERACTION_PEN_CONFIGURATION_CHANGED" message="$(string.task_INTERACTION_PEN_CONFIGURATION_CHANGED)" value="217"/>
+     <task name="INTERACTION_MOUSE_CONFIGURATION_CHANGED" message="$(string.task_INTERACTION_MOUSE_CONFIGURATION_CHANGED)" value="218"/>
+     <task name="SCHEDULE_FRAME_VSYNCDEADLINES" message="$(string.task_SCHEDULE_FRAME_VSYNCDEADLINES)" value="219"/>
+     <task name="ETWGUID_PRESENT" message="$(string.task_ETWGUID_PRESENT)" value="220"/>
+     <task name="ADVANCED_DIRECTFLIP_RESTORECONTENTBACKTOREALIZATION" message="$(string.task_ADVANCED_DIRECTFLIP_RESTORECONTENTBACKTOREALIZATION)" value="221"/>
+     <task name="SCHEDULE_NEW_NOMINAL_REFRESH_PERIOD" message="$(string.task_SCHEDULE_NEW_NOMINAL_REFRESH_PERIOD)" value="224"/>
+     <task name="ETWGUID_HW_PROTECTION_TEMPDISABLE" message="$(string.task_ETWGUID_HW_PROTECTION_TEMPDISABLE)" value="225"/>
+     <task name="ENDFRAME_DRAWLIST_BATCH_STATS" message="$(string.task_ENDFRAME_DRAWLIST_BATCH_STATS)" value="226"/>
+     <task name="ENDFRAME_PRIMITIVE_GROUP_STATS" message="$(string.task_ENDFRAME_PRIMITIVE_GROUP_STATS)" value="228"/>
+     <task name="ENDFRAME_TESSELLATED_PRIMITIVES_STATS" message="$(string.task_ENDFRAME_TESSELLATED_PRIMITIVES_STATS)" value="229"/>
+     <task name="ENDFRAME_HW_DRAWLIST_CACHE_STATS" message="$(string.task_ENDFRAME_HW_DRAWLIST_CACHE_STATS)" value="230"/>
+     <task name="ENDFRAME_WARP_DRAWLIST_CACHE_STATS" message="$(string.task_ENDFRAME_WARP_DRAWLIST_CACHE_STATS)" value="231"/>
+     <task name="PROCESS_EXPRESSIONS" message="$(string.task_PROCESS_EXPRESSIONS)" value="232"/>
+     <task name="EXPRESSION_OUTPUTVALUE" message="$(string.task_EXPRESSION_OUTPUTVALUE)" value="233"/>
+     <task name="MIDMANIPULATION_UPDATE_CAPTURE_MANIPULATION" message="$(string.task_MIDMANIPULATION_UPDATE_CAPTURE_MANIPULATION)" value="234"/>
+     <task name="CHANNELANIMATIONS_ACTIVE" message="$(string.task_CHANNELANIMATIONS_ACTIVE)" value="235"/>
+     <task name="CHANNELBATCHES_PROCESSED" message="$(string.task_CHANNELBATCHES_PROCESSED)" value="236"/>
+     <task name="ETWGUID_PUSH_INTERNAL_LAYER_EVENT" message="$(string.task_ETWGUID_PUSH_INTERNAL_LAYER_EVENT)" value="237"/>
+     <task name="ETWGUID_POP_INTERNAL_LAYER_EVENT" message="$(string.task_ETWGUID_POP_INTERNAL_LAYER_EVENT)" value="238"/>
+     <task name="ETWGUID_PUSH_EXTERNAL_LAYER_EVENT" message="$(string.task_ETWGUID_PUSH_EXTERNAL_LAYER_EVENT)" value="239"/>
+     <task name="ETWGUID_POP_EXTERNAL_LAYER_EVENT" message="$(string.task_ETWGUID_POP_EXTERNAL_LAYER_EVENT)" value="240"/>
+     <task name="ETWGUID_HW_PROTECTED_ENTITY_CHANGE" message="$(string.task_ETWGUID_HW_PROTECTED_ENTITY_CHANGE)" value="241"/>
+     <task name="ETWGUID_VISUAL_RENDERCONTENT" message="$(string.task_ETWGUID_VISUAL_RENDERCONTENT)" value="243"/>
+     <task name="ETWGUID_DIRTY_ADDRECT" message="$(string.task_ETWGUID_DIRTY_ADDRECT)" value="244"/>
+     <task name="ADVANCED_DIRECTFLIP_NORESTORE_RECORDCANDIDATE" message="$(string.task_ADVANCED_DIRECTFLIP_NORESTORE_RECORDCANDIDATE)" value="245"/>
+     <task name="HOLOGRAPHICCLIENT_TEXTUREUPDATECOUNT" message="$(string.task_HOLOGRAPHICCLIENT_TEXTUREUPDATECOUNT)" value="251"/>
+     <task name="HOLOGRAPHICCLIENT_TEXTUREUPDATEWAITFAILED" message="$(string.task_HOLOGRAPHICCLIENT_TEXTUREUPDATEWAITFAILED)" value="252"/>
+     <task name="HOLOGRAPHICINTEROPTARGET_RENDER" message="$(string.task_HOLOGRAPHICINTEROPTARGET_RENDER)" value="253"/>
+     <task name="HOLOGRAPHICINTEROPTARGET_WAITONINCOMINGFAILED" message="$(string.task_HOLOGRAPHICINTEROPTARGET_WAITONINCOMINGFAILED)" value="254"/>
+     <task name="HOLOGRAPHICINTEROPTARGET_SYNCPOSTED" message="$(string.task_HOLOGRAPHICINTEROPTARGET_SYNCPOSTED)" value="255"/>
+     <task name="HOLOGRAPHICINTEROPTARGET_RENDERCOMPLETE" message="$(string.task_HOLOGRAPHICINTEROPTARGET_RENDERCOMPLETE)" value="256"/>
+     <task name="HOLOGRAPHICINTEROPTARGET_TIMEINQUEUE" message="$(string.task_HOLOGRAPHICINTEROPTARGET_TIMEINQUEUE)" value="257"/>
+     <task name="SHADERS_EFFECT_COMPILE" message="$(string.task_SHADERS_EFFECT_COMPILE)" value="258"/>
+     <task name="SHADERS_EFFECT_COMPILE_INFO" message="$(string.task_SHADERS_EFFECT_COMPILE_INFO)" value="259"/>
+     <task name="SHADERS_D3DSHADER_LINK" message="$(string.task_SHADERS_D3DSHADER_LINK)" value="260"/>
+     <task name="SHADERS_D3DSHADER_LINK_INFO" message="$(string.task_SHADERS_D3DSHADER_LINK_INFO)" value="261"/>
+     <task name="SHADERS_D3DSHADER_CREATE" message="$(string.task_SHADERS_D3DSHADER_CREATE)" value="262"/>
+     <task name="SCHEDULE_PARALLEL_MODE_NEEDS_TO_WAIT_FOR_NEXT_VSYNC" message="$(string.task_SCHEDULE_PARALLEL_MODE_NEEDS_TO_WAIT_FOR_NEXT_VSYNC)" value="264"/>
+     <task name="SCHEDULE_PARALLEL_MODE_WAITING_FOR_NEXT_VSYNC" message="$(string.task_SCHEDULE_PARALLEL_MODE_WAITING_FOR_NEXT_VSYNC)" value="265"/>
+     <task name="COMPUTESCRIBBLE_FRAMESCHEDULED" message="$(string.task_COMPUTESCRIBBLE_FRAMESCHEDULED)" value="266"/>
+     <task name="COMPUTESCRIBBLE_FRAMECOMPLETED" message="$(string.task_COMPUTESCRIBBLE_FRAMECOMPLETED)" value="267"/>
+     <task name="COMPUTESCRIBBLE_FRAMEDISPATCH" message="$(string.task_COMPUTESCRIBBLE_FRAMEDISPATCH)" value="268"/>
+     <task name="COMPUTESCRIBBLE_FRAMEDISPATCHCANCELED" message="$(string.task_COMPUTESCRIBBLE_FRAMEDISPATCHCANCELED)" value="269"/>
+     <task name="COMPUTESCRIBBLE_WAKEUPEVENTCREATED" message="$(string.task_COMPUTESCRIBBLE_WAKEUPEVENTCREATED)" value="270"/>
+     <task name="COMMANDS_COUNT" message="$(string.task_COMMANDS_COUNT)" value="272"/>
+     <task name="BRUSH_DRAW" message="$(string.task_BRUSH_DRAW)" value="274"/>
+     <task name="COMPUTESCRIBBLE_FRAMEDROPPED" message="$(string.task_COMPUTESCRIBBLE_FRAMEDROPPED)" value="275"/>
+     <task name="INTERACTION_MOUSEWHEEL_CONFIGURATION_CHANGED" message="$(string.task_INTERACTION_MOUSEWHEEL_CONFIGURATION_CHANGED)" value="276"/>
+     <task name="COMPUTESCRIBBLE_PRERENDER" message="$(string.task_COMPUTESCRIBBLE_PRERENDER)" value="277"/>
+     <task name="COMPUTESCRIBBLE_POSTRENDER" message="$(string.task_COMPUTESCRIBBLE_POSTRENDER)" value="278"/>
+     <task name="COMPUTESCRIBBLE_THREADWAKEUP" message="$(string.task_COMPUTESCRIBBLE_THREADWAKEUP)" value="279"/>
+     <task name="COMPUTESCRIBBLE_WORKERHANG" message="$(string.task_COMPUTESCRIBBLE_WORKERHANG)" value="280"/>
+     <task name="COMPUTESCRIBBLE_INCOMPATIBLE" message="$(string.task_COMPUTESCRIBBLE_INCOMPATIBLE)" value="281"/>
+     <task name="COMPUTESCRIBBLE_UNSUPPORTEDCHECK" message="$(string.task_COMPUTESCRIBBLE_UNSUPPORTEDCHECK)" value="282"/>
+     <task name="SCHEDULED_COMPOSITION_REASON" message="$(string.task_SCHEDULED_COMPOSITION_REASON)" value="283"/>
+     <task name="UNPRESENTED_FRAME" message="$(string.task_UNPRESENTED_FRAME)" value="284"/>
+     <task name="PROCESS_ATTRIBUTION" message="$(string.task_PROCESS_ATTRIBUTION)" value="285"/>
+     <task name="COMMAND_PROCESSED_ONBEHALF" message="$(string.task_COMMAND_PROCESSED_ONBEHALF)" value="286"/>
+     <task name="CHANNEL_OPENED_FOR_PROCESS" message="$(string.task_CHANNEL_OPENED_FOR_PROCESS)" value="287"/>
+     <task name="CHANNEL_CLOSED_FOR_PROCESS" message="$(string.task_CHANNEL_CLOSED_FOR_PROCESS)" value="288"/>
+     <task name="COMPUTESCRIBBLE_GPUFINISHED" message="$(string.task_COMPUTESCRIBBLE_GPUFINISHED)" value="289"/>
+     <task name="COMPUTESCRIBBLE_DRAWINFO" message="$(string.task_COMPUTESCRIBBLE_DRAWINFO)" value="290"/>
+     <task name="COMPUTESCRIBBLE_TELEMETRYDROPPED" message="$(string.task_COMPUTESCRIBBLE_TELEMETRYDROPPED)" value="291"/>
+     <task name="P3D_BUILDING_BSPTREE" message="$(string.task_P3D_BUILDING_BSPTREE)" value="292"/>
+     <task name="P3D_BUILDING_POLYGONLIST" message="$(string.task_P3D_BUILDING_POLYGONLIST)" value="293"/>
+     <task name="P3D_RENDERING" message="$(string.task_P3D_RENDERING)" value="294"/>
+     <task name="DIAGTRACK_TRIGGER" message="$(string.task_DIAGTRACK_TRIGGER)" value="295"/>
+     <task name="COMPUTESCRIBBLE_RENDERBLOCKED" message="$(string.task_COMPUTESCRIBBLE_RENDERBLOCKED)" value="296"/>
+     <task name="COMPUTESCRIBBLE_SCRIBBLEBLOCKED" message="$(string.task_COMPUTESCRIBBLE_SCRIBBLEBLOCKED)" value="297"/>
+     <task name="DCOMPEVENT_RESOURCE_OPEN" message="$(string.task_DCOMPEVENT_RESOURCE_OPEN)" value="298"/>
+     <task name="VISUAL_SET_INTERACTION" message="$(string.task_VISUAL_SET_INTERACTION)" value="299"/>
+     <task name="RENDERTARGET_COUNTS" message="$(string.task_RENDERTARGET_COUNTS)" value="300"/>
+     <task name="HWDEVICE" message="$(string.task_HWDEVICE)" value="301"/>
+     <task name="COMPUTESCRIBBLE_EARLYCOPY" message="$(string.task_COMPUTESCRIBBLE_EARLYCOPY)" value="302"/>
+     <task name="COMPUTESCRIBBLE_ACTIVE" message="$(string.task_COMPUTESCRIBBLE_ACTIVE)" value="303"/>
+     <task name="LEGACYSWAPCHAIN_BUFFERFLIP" message="$(string.task_LEGACYSWAPCHAIN_BUFFERFLIP)" value="304"/>
+    </tasks>
+    <maps>
+     <valueMap name="EVENT_TRACE_DRAWING">
+      <map value="0x0" message="$(string.map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_BITMAP)"/>
+      <map value="0x1" message="$(string.map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_CLIPPEDBITMAP)"/>
+      <map value="0x2" message="$(string.map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_RECTANGLE)"/>
+      <map value="0x3" message="$(string.map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_GEOMETRY)"/>
+      <map value="0x4" message="$(string.map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_IMAGE)"/>
+      <map value="0x5" message="$(string.map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_GLYPHRUN)"/>
+      <map value="0x6" message="$(string.map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_GLASS)"/>
+      <map value="0x7" message="$(string.map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_MESH2D)"/>
+      <map value="0x8" message="$(string.map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_SCENE3D)"/>
+      <map value="0x9" message="$(string.map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_SURFACE)"/>
+      <map value="0xa" message="$(string.map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_BEGINLAYER)"/>
+      <map value="0xb" message="$(string.map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_ENDLAYER)"/>
+      <map value="0xc" message="$(string.map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_BEGINEXTERNALLAYER)"/>
+      <map value="0xd" message="$(string.map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_ENDEXTERNALLAYER)"/>
+      <map value="0xe" message="$(string.map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_D2DBITMAP)"/>
+      <map value="0xf" message="$(string.map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_D2DIMAGE)"/>
+      <map value="0x10" message="$(string.map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_D2DBEGINDRAW)"/>
+      <map value="0x11" message="$(string.map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_D2DENDDRAW)"/>
+      <map value="0x12" message="$(string.map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_PRIMITIVE_GROUP)"/>
+     </valueMap>
+     <valueMap name="ADVANCED_DIRECTFLIP_CANCEL_REASON">
+      <map value="0x0" message="$(string.map_ADVANCED_DIRECTFLIP_CANCEL_REASONADVANCED_DIRECTFLIP_CANCEL_REASON_CURRENT_BUFFER_INVALIDATED)"/>
+      <map value="0x1" message="$(string.map_ADVANCED_DIRECTFLIP_CANCEL_REASONADVANCED_DIRECTFLIP_CANCEL_REASON_CURRENT_BUFFER_SCANNED_OUT)"/>
+      <map value="0x2" message="$(string.map_ADVANCED_DIRECTFLIP_CANCEL_REASONADVANCED_DIRECTFLIP_CANCEL_REASON_CURRENT_BUFFER_MAY_BE_SCANNED_OUT)"/>
+     </valueMap>
+     <valueMap name="SHADER_CREATE_TYPE">
+      <map value="0x0" message="$(string.map_SHADER_CREATE_TYPESHADER_CREATE_TYPE_VERTEX_SHADER)"/>
+      <map value="0x1" message="$(string.map_SHADER_CREATE_TYPESHADER_CREATE_TYPE_PIXEL_SHADER)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="SCHEDULE_FRAMEINFO" version="0" task="SCHEDULE_FRAMEINFO" level="win:Informational" keywords="DetailedFrameInformation" template="SCHEDULE_FRAMEINFOArgs"/>
+     <event value="2" symbol="SCHEDULE_TIME" version="0" task="SCHEDULE_TIME" level="win:Informational" keywords="DwmCore" template="SCHEDULE_TIMEArgs"/>
+     <event value="6" symbol="SCHEDULE_WFVBStart" version="0" task="SCHEDULE_WFVB" opcode="win:Start" level="win:Informational" keywords="DwmCore DwmFrameRate"/>
+     <event value="7" symbol="SCHEDULE_WFVBStop" version="0" task="SCHEDULE_WFVB" opcode="win:Stop" level="win:Informational" keywords="DwmCore DwmFrameRate" template="SCHEDULE_WFVBStopArgs"/>
+     <event value="8" symbol="SCHEDULE_WFWStart" version="0" task="SCHEDULE_WFW" opcode="win:Start" level="win:Informational" keywords="DwmCore DwmFrameRate"/>
+     <event value="9" symbol="SCHEDULE_WFWStop" version="0" task="SCHEDULE_WFW" opcode="win:Stop" level="win:Informational" keywords="DwmCore DwmFrameRate" template="SCHEDULE_WFWStopArgs"/>
+     <event value="10" symbol="SCHEDULE_PROCESS_FRAMEStart" version="0" task="SCHEDULE_PROCESS_FRAME" opcode="win:Start" level="win:Informational" keywords="DwmCore FrameVisualization"/>
+     <event value="11" symbol="SCHEDULE_PROCESS_FRAME" version="0" task="SCHEDULE_PROCESS_FRAME" level="win:Informational" keywords="DwmCore" template="SCHEDULE_PROCESS_FRAMEArgs"/>
+     <event value="12" symbol="SCHEDULE_PROCESS_FRAMEStop" version="0" task="SCHEDULE_PROCESS_FRAME" opcode="win:Stop" level="win:Informational" keywords="DwmCore FrameVisualization"/>
+     <event value="13" symbol="SCHEDULE_RENDERStart" version="0" task="SCHEDULE_RENDER" opcode="win:Start" level="win:Informational" keywords="DwmCore"/>
+     <event value="14" symbol="SCHEDULE_RENDERStop" version="0" task="SCHEDULE_RENDER" opcode="win:Stop" level="win:Informational" keywords="DwmCore" template="SCHEDULE_RENDERStopArgs"/>
+     <event value="15" symbol="SCHEDULE_PRESENTStart" version="0" task="SCHEDULE_PRESENT" opcode="win:Start" level="win:Informational" keywords="DwmCore" template="SCHEDULE_PRESENTStartArgs"/>
+     <event value="16" symbol="SCHEDULE_PRESENTStop" version="0" task="SCHEDULE_PRESENT" opcode="win:Stop" level="win:Informational" keywords="DwmCore"/>
+     <event value="17" symbol="SCHEDULE_GETPRESENTCOUNTStart" version="0" task="SCHEDULE_GETPRESENTCOUNT" opcode="win:Start" level="win:Informational" keywords="DwmCore"/>
+     <event value="18" symbol="SCHEDULE_GETPRESENTCOUNTStop" version="0" task="SCHEDULE_GETPRESENTCOUNT" opcode="win:Stop" level="win:Informational" keywords="DwmCore" template="SCHEDULE_GETPRESENTCOUNTStopArgs"/>
+     <event value="19" symbol="SCHEDULE_GETPRESENTSTATSStart" version="0" task="SCHEDULE_GETPRESENTSTATS" opcode="win:Start" level="win:Informational" keywords="DwmCore"/>
+     <event value="21" symbol="SCHEDULE_GETPRESENTSTATSStop" version="0" task="SCHEDULE_GETPRESENTSTATS" opcode="win:Stop" level="win:Informational" keywords="DwmCore"/>
+     <event value="24" symbol="SCHEDULE_GLITCH" version="0" task="SCHEDULE_GLITCH" level="win:Informational" keywords="FrameDrawInconsistencyInformation" template="SCHEDULE_GLITCHArgs"/>
+     <event value="25" symbol="SCHEDULE_GLITCH_RECOVERY_ATTEMPT" version="0" task="SCHEDULE_GLITCH_RECOVERY_ATTEMPT" level="win:Informational" keywords="DwmCore" template="SCHEDULE_GLITCH_RECOVERY_ATTEMPTArgs"/>
+     <event value="26" symbol="SCHEDULE_RESETStart" version="0" task="SCHEDULE_RESET" opcode="win:Start" level="win:Informational" keywords="DwmCore"/>
+     <event value="27" symbol="SCHEDULE_RESETStop" version="0" task="SCHEDULE_RESET" opcode="win:Stop" level="win:Informational" keywords="DwmCore"/>
+     <event value="29" symbol="ETWGUID_PUSH_INTERNAL_LAYER_EVENTStart" version="0" task="ETWGUID_PUSH_INTERNAL_LAYER_EVENT" opcode="win:Start" level="win:Verbose" keywords="DwmCore" template="ETWGUID_PUSH_INTERNAL_LAYER_EVENTStartArgs"/>
+     <event value="30" symbol="ETWGUID_PUSH_INTERNAL_LAYER_EVENTStop" version="0" task="ETWGUID_PUSH_INTERNAL_LAYER_EVENT" opcode="win:Stop" level="win:Verbose" keywords="DwmCore" template="ETWGUID_PUSH_INTERNAL_LAYER_EVENTStartArgs"/>
+     <event value="31" symbol="ETWGUID_POP_INTERNAL_LAYER_EVENTStart" version="0" task="ETWGUID_POP_INTERNAL_LAYER_EVENT" opcode="win:Start" level="win:Verbose" keywords="DwmCore"/>
+     <event value="32" symbol="ETWGUID_POP_INTERNAL_LAYER_EVENTStop" version="0" task="ETWGUID_POP_INTERNAL_LAYER_EVENT" opcode="win:Stop" level="win:Verbose" keywords="DwmCore"/>
+     <event value="33" symbol="ETWGUID_BITMAPCOPYEVENT" version="0" task="ETWGUID_BITMAPCOPYEVENT" level="win:Informational" keywords="DwmCore" template="ETWGUID_BITMAPCOPYEVENTArgs"/>
+     <event value="34" symbol="ETWGUID_COPYFRONTTOBACKBUFFEREVENTStart" version="0" task="ETWGUID_COPYFRONTTOBACKBUFFEREVENT" opcode="win:Start" level="win:Verbose" keywords="DwmCore"/>
+     <event value="35" symbol="ETWGUID_COPYFRONTTOBACKBUFFEREVENTStop" version="0" task="ETWGUID_COPYFRONTTOBACKBUFFEREVENT" opcode="win:Stop" level="win:Verbose" keywords="DwmCore" template="ETWGUID_COPYFRONTTOBACKBUFFEREVENTStopArgs"/>
+     <event value="40" symbol="ETWGUID_CLEAREVENTStart" version="0" task="ETWGUID_CLEAREVENT" opcode="win:Start" level="win:Verbose" keywords="DwmCore" template="ETWGUID_CLEAREVENTStartArgs"/>
+     <event value="41" symbol="ETWGUID_CLEAREVENTStop" version="0" task="ETWGUID_CLEAREVENT" opcode="win:Stop" level="win:Verbose" keywords="DwmCore"/>
+     <event value="42" symbol="ETWGUID_DIRTYREGIONEVENT" version="0" task="ETWGUID_DIRTYREGIONEVENT" level="win:Informational" keywords="DwmCore FrameVisualization" template="ETWGUID_DIRTYREGIONEVENTArgs"/>
+     <event value="43" symbol="ETWGUID_OCCLUSIONEVENTStart" version="0" task="ETWGUID_OCCLUSIONEVENT" opcode="win:Start" level="win:Informational" keywords="DwmCore" template="ETWGUID_OCCLUSIONEVENTStartArgs"/>
+     <event value="44" symbol="ETWGUID_OCCLUSIONEVENT" version="0" task="ETWGUID_OCCLUSIONEVENT" level="win:Verbose" keywords="DwmCore" template="ETWGUID_OCCLUSIONEVENTArgs"/>
+     <event value="45" symbol="ETWGUID_OCCLUSIONEVENTStop" version="0" task="ETWGUID_OCCLUSIONEVENT" opcode="win:Stop" level="win:Informational" keywords="DwmCore" template="ETWGUID_OCCLUSIONEVENTStartArgs"/>
+     <event value="46" symbol="ETWGUID_DWMUPDATEWINDOW" version="0" task="ETWGUID_DWMUPDATEWINDOW" level="win:Informational" keywords="DwmCore" template="ETWGUID_DWMUPDATEWINDOWArgs"/>
+     <event value="49" symbol="ETWGUID_DRAWEVENTStart" version="0" task="ETWGUID_DRAWEVENT" opcode="win:Start" level="win:Verbose" keywords="DwmCore" template="ETWGUID_DRAWEVENTStartArgs"/>
+     <event value="50" symbol="ETWGUID_DRAWEVENT" version="0" task="ETWGUID_DRAWEVENT" level="win:Verbose" keywords="DwmCore" template="ETWGUID_CLEAREVENTStartArgs"/>
+     <event value="51" symbol="ETWGUID_DRAWEVENTStop" version="0" task="ETWGUID_DRAWEVENT" opcode="win:Stop" level="win:Verbose" keywords="DwmCore" template="ETWGUID_DRAWEVENTStopArgs"/>
+     <event value="54" symbol="MILEVENT_MEDIA_UCE_PROCESSQUEUEEVENTStart" version="0" task="MILEVENT_MEDIA_UCE_PROCESSQUEUEEVENT" opcode="win:Start" level="win:Verbose" keywords="DwmCore" template="MILEVENT_MEDIA_UCE_PROCESSQUEUEEVENTStartArgs"/>
+     <event value="55" symbol="MILEVENT_MEDIA_UCE_PROCESSQUEUEEVENT" version="0" task="MILEVENT_MEDIA_UCE_PROCESSQUEUEEVENT" level="win:Verbose" keywords="DwmCore" template="MILEVENT_MEDIA_UCE_PROCESSQUEUEEVENTStartArgs"/>
+     <event value="56" symbol="MILEVENT_MEDIA_UCE_PROCESSQUEUEEVENTStop" version="0" task="MILEVENT_MEDIA_UCE_PROCESSQUEUEEVENT" opcode="win:Stop" level="win:Verbose" keywords="DwmCore" template="MILEVENT_MEDIA_UCE_PROCESSQUEUEEVENTStartArgs"/>
+     <event value="57" symbol="MILEVENT_MEDIA_UCE_PRECOMPUTEEVENTStart" version="0" task="MILEVENT_MEDIA_UCE_PRECOMPUTEEVENT" opcode="win:Start" level="win:Informational" keywords="DwmCore DwmFrameRate" template="MILEVENT_MEDIA_UCE_PRECOMPUTEEVENTStartArgs"/>
+     <event value="58" symbol="MILEVENT_MEDIA_UCE_PRECOMPUTEEVENTStop" version="0" task="MILEVENT_MEDIA_UCE_PRECOMPUTEEVENT" opcode="win:Stop" level="win:Informational" keywords="DwmCore" template="MILEVENT_MEDIA_UCE_PROCESSQUEUEEVENTStartArgs"/>
+     <event value="59" symbol="MILEVENT_MEDIA_UCE_RENDEREVENTStart" version="0" task="MILEVENT_MEDIA_UCE_RENDEREVENT" opcode="win:Start" level="win:Informational" keywords="DwmCore" template="MILEVENT_MEDIA_UCE_RENDEREVENTStartArgs"/>
+     <event value="60" symbol="MILEVENT_MEDIA_UCE_RENDEREVENTStop" version="0" task="MILEVENT_MEDIA_UCE_RENDEREVENT" opcode="win:Stop" level="win:Informational" keywords="DwmCore" template="MILEVENT_MEDIA_UCE_PROCESSQUEUEEVENTStartArgs"/>
+     <event value="61" symbol="MILEVENT_MEDIA_UCE_PRESENTEVENTStart" version="0" task="MILEVENT_MEDIA_UCE_PRESENTEVENT" opcode="win:Start" level="win:Informational" keywords="DwmCore" template="MILEVENT_MEDIA_UCE_PRESENTEVENTStartArgs"/>
+     <event value="62" symbol="MILEVENT_MEDIA_UCE_PRESENTEVENTStop" version="0" task="MILEVENT_MEDIA_UCE_PRESENTEVENT" opcode="win:Stop" level="win:Informational" keywords="DwmCore" template="MILEVENT_MEDIA_UCE_PRESENTEVENTStartArgs"/>
+     <event value="63" symbol="MILEVENT_MEDIA_UCE_PROCESSPRESENTHISTORYStart" version="0" task="MILEVENT_MEDIA_UCE_PROCESSPRESENTHISTORY" opcode="win:Start" level="win:Verbose" keywords="DwmCore"/>
+     <event value="64" symbol="MILEVENT_MEDIA_UCE_PROCESSPRESENTHISTORY_GetPresentHistory" version="0" task="MILEVENT_MEDIA_UCE_PROCESSPRESENTHISTORY_GetPresentHistory" level="win:Verbose" keywords="DwmCore" template="MILEVENT_MEDIA_UCE_PROCESSPRESENTHISTORY_GetPresentHistoryArgs"/>
+     <event value="65" symbol="MILEVENT_MEDIA_UCE_PROCESSPRESENTHISTORYStop" version="0" task="MILEVENT_MEDIA_UCE_PROCESSPRESENTHISTORY" opcode="win:Stop" level="win:Verbose" keywords="DwmCore" template="MILEVENT_MEDIA_UCE_PROCESSPRESENTHISTORYStopArgs"/>
+     <event value="66" symbol="MILEVENT_MEDIA_UCE_CHECKDEVICESTATEStart" version="0" task="MILEVENT_MEDIA_UCE_CHECKDEVICESTATE" opcode="win:Start" level="win:Informational" keywords="DwmCore"/>
+     <event value="67" symbol="MILEVENT_MEDIA_UCE_CHECKDEVICESTATE" version="0" task="MILEVENT_MEDIA_UCE_CHECKDEVICESTATE" level="win:Informational" keywords="DwmCore" template="MILEVENT_MEDIA_UCE_CHECKDEVICESTATEArgs"/>
+     <event value="68" symbol="MILEVENT_MEDIA_UCE_CHECKDEVICESTATEStop" version="0" task="MILEVENT_MEDIA_UCE_CHECKDEVICESTATE" opcode="win:Stop" level="win:Informational" keywords="DwmCore"/>
+     <event value="79" symbol="SCHEDULE_VBLANK_LOOPStart" version="0" task="SCHEDULE_VBLANK_LOOP" opcode="win:Start" level="win:Informational" keywords="DwmCore"/>
+     <event value="80" symbol="SCHEDULE_VBLANK_LOOPStop" version="0" task="SCHEDULE_VBLANK_LOOP" opcode="win:Stop" level="win:Informational" keywords="DwmCore"/>
+     <event value="83" symbol="GDISPRITE_LOGICALSURFACE_ASSOCIATION" version="0" task="GDISPRITE_LOGICALSURFACE_ASSOCIATION" level="win:Informational" keywords="DwmCore" template="GDISPRITE_LOGICALSURFACE_ASSOCIATIONArgs"/>
+     <event value="84" symbol="WINDOWNODE_GDISPRITE_ASSOCIATION" version="0" task="WINDOWNODE_GDISPRITE_ASSOCIATION" level="win:Informational" keywords="DwmCore" template="WINDOWNODE_GDISPRITE_ASSOCIATIONArgs"/>
+     <event value="85" symbol="SCHEDULE_ROUNDTRIPREQUEST_STATE" version="0" task="SCHEDULE_ROUNDTRIPREQUEST_STATE" level="win:Informational" keywords="DwmCore" template="SCHEDULE_ROUNDTRIPREQUEST_STATEArgs"/>
+     <event value="87" symbol="SCHEDULE_PRESENTHISTORYTOKEN_GDI" version="0" task="SCHEDULE_PRESENTHISTORYTOKEN_GDI" level="win:Informational" keywords="DwmCore" template="SCHEDULE_PRESENTHISTORYTOKEN_GDIArgs"/>
+     <event value="88" symbol="SCHEDULE_PRESENTHISTORYTOKEN_GDISYSMEM" version="0" task="SCHEDULE_PRESENTHISTORYTOKEN_GDISYSMEM" level="win:Informational" keywords="DwmCore" template="SCHEDULE_PRESENTHISTORYTOKEN_GDISYSMEMArgs"/>
+     <event value="91" symbol="SCHEDULE_PRESENTHISTORYTOKEN_BLT" version="0" task="SCHEDULE_PRESENTHISTORYTOKEN_BLT" level="win:Informational" keywords="DwmCore" template="SCHEDULE_PRESENTHISTORYTOKEN_BLTArgs"/>
+     <event value="94" symbol="MILEVENT_MEDIA_UCE_PROCESSDEFERREDTOKENSStart" version="0" task="MILEVENT_MEDIA_UCE_PROCESSDEFERREDTOKENS" opcode="win:Start" level="win:Verbose" keywords="DwmCore"/>
+     <event value="95" symbol="MILEVENT_MEDIA_UCE_PROCESSDEFERREDTOKENSStop" version="0" task="MILEVENT_MEDIA_UCE_PROCESSDEFERREDTOKENS" opcode="win:Stop" level="win:Verbose" keywords="DwmCore"/>
+     <event value="96" symbol="ETWGUID_MAGNIFIERRENDERTARGET_CAPTUREBITSStart" version="0" task="ETWGUID_MAGNIFIERRENDERTARGET_CAPTUREBITS" opcode="win:Start" level="win:Informational" keywords="DwmCore" template="ETWGUID_MAGNIFIERRENDERTARGET_CAPTUREBITSStartArgs"/>
+     <event value="97" symbol="ETWGUID_MAGNIFIERRENDERTARGET_CAPTUREBITSStop" version="0" task="ETWGUID_MAGNIFIERRENDERTARGET_CAPTUREBITS" opcode="win:Stop" level="win:Informational" keywords="DwmCore" template="ETWGUID_MAGNIFIERRENDERTARGET_CAPTUREBITSStopArgs"/>
+     <event value="100" symbol="BIND_GDISPRITEBITMAP_FIRST_TOKEN" version="0" task="BIND_GDISPRITEBITMAP_FIRST_TOKEN" level="win:Informational" keywords="DwmCore" template="BIND_GDISPRITEBITMAP_FIRST_TOKENArgs"/>
+     <event value="110" symbol="SCHEDULE_UPDATE_TIMESStart" version="0" task="SCHEDULE_UPDATE_TIMES" opcode="win:Start" level="win:Informational" keywords="DwmCore"/>
+     <event value="111" symbol="SCHEDULE_UPDATE_TIMESStop" version="0" task="SCHEDULE_UPDATE_TIMES" opcode="win:Stop" level="win:Informational" keywords="DwmCore"/>
+     <event value="112" symbol="UCE_PROCESSANIMATERESOURCESStart" version="0" task="UCE_PROCESSANIMATERESOURCES" opcode="win:Start" level="win:Informational" keywords="DwmCore"/>
+     <event value="113" symbol="UCE_PROCESSANIMATERESOURCESStop" version="0" task="UCE_PROCESSANIMATERESOURCES" opcode="win:Stop" level="win:Informational" keywords="DwmCore"/>
+     <event value="114" symbol="SCHEDULE_UPDATE_FRAME_INDEXES" version="0" task="SCHEDULE_UPDATE_FRAME_INDEXES" level="win:Informational" keywords="DwmCore" template="SCHEDULE_UPDATE_FRAME_INDEXESArgs"/>
+     <event value="115" symbol="MILEVENT_MEDIA_UCE_BLTDESKTOPStart" version="0" task="MILEVENT_MEDIA_UCE_BLTDESKTOP" opcode="win:Start" level="win:Verbose" keywords="DwmCore" template="MILEVENT_MEDIA_UCE_BLTDESKTOPStartArgs"/>
+     <event value="116" symbol="MILEVENT_MEDIA_UCE_BLTDESKTOP" version="0" task="MILEVENT_MEDIA_UCE_BLTDESKTOP" level="win:Verbose" keywords="DwmCore" template="MILEVENT_MEDIA_UCE_BLTDESKTOPArgs"/>
+     <event value="117" symbol="MILEVENT_MEDIA_UCE_BLTDESKTOPStop" version="0" task="MILEVENT_MEDIA_UCE_BLTDESKTOP" opcode="win:Stop" level="win:Verbose" keywords="DwmCore"/>
+     <event value="118" symbol="ETWGUID_DWMUPDATEBLTTRANSLATION_CLIP" version="0" task="ETWGUID_DWMUPDATEBLTTRANSLATION_CLIP" level="win:Informational" keywords="DwmCore" template="ETWGUID_DWMUPDATEBLTTRANSLATION_CLIPArgs"/>
+     <event value="119" symbol="ETWGUID_DWMUPDATEBLTTRANSLATION_RECT" version="0" task="ETWGUID_DWMUPDATEBLTTRANSLATION_RECT" level="win:Informational" keywords="DwmCore" template="ETWGUID_DWMUPDATEBLTTRANSLATION_CLIPArgs"/>
+     <event value="120" symbol="ETWGUID_DWMUPDATEBLTTRANSLATION_POINT" version="0" task="ETWGUID_DWMUPDATEBLTTRANSLATION_POINT" level="win:Informational" keywords="DwmCore" template="ETWGUID_DWMUPDATEBLTTRANSLATION_POINTArgs"/>
+     <event value="121" symbol="MILEVENT_MEDIA_UCE_BLTINDESKTOP_RECT" version="0" task="MILEVENT_MEDIA_UCE_BLTINDESKTOP_RECT" level="win:Verbose" keywords="DwmCore" template="MILEVENT_MEDIA_UCE_BLTINDESKTOP_RECTArgs"/>
+     <event value="122" symbol="ETWGUID_STEREO_COPYLEFTTORIGHTBUFFEREVENTStart" version="0" task="ETWGUID_STEREO_COPYLEFTTORIGHTBUFFEREVENT" opcode="win:Start" level="win:Verbose" keywords="DwmCore" template="ETWGUID_STEREO_COPYLEFTTORIGHTBUFFEREVENTStartArgs"/>
+     <event value="123" symbol="ETWGUID_STEREO_COPYLEFTTORIGHTBUFFEREVENT" version="0" task="ETWGUID_STEREO_COPYLEFTTORIGHTBUFFEREVENT" level="win:Verbose" keywords="DwmCore" template="ETWGUID_STEREO_COPYLEFTTORIGHTBUFFEREVENTArgs"/>
+     <event value="124" symbol="ETWGUID_STEREO_COPYLEFTTORIGHTBUFFEREVENTStop" version="0" task="ETWGUID_STEREO_COPYLEFTTORIGHTBUFFEREVENT" opcode="win:Stop" level="win:Verbose" keywords="DwmCore" template="ETWGUID_COPYFRONTTOBACKBUFFEREVENTStopArgs"/>
+     <event value="125" symbol="ETWGUID_STEREO_RIGHTCHANNELRENDEREVENTStart" version="0" task="ETWGUID_STEREO_RIGHTCHANNELRENDEREVENT" opcode="win:Start" level="win:Verbose" keywords="DwmCore"/>
+     <event value="126" symbol="ETWGUID_STEREO_RIGHTCHANNELRENDEREVENTStop" version="0" task="ETWGUID_STEREO_RIGHTCHANNELRENDEREVENT" opcode="win:Stop" level="win:Verbose" keywords="DwmCore"/>
+     <event value="127" symbol="ETWGUID_STEREO_TEMPORARYMONOEVENTStop" version="0" task="ETWGUID_STEREO_TEMPORARYMONOEVENT" opcode="win:Stop" level="win:Verbose" keywords="DwmCore" template="ETWGUID_STEREO_COPYLEFTTORIGHTBUFFEREVENTStartArgs"/>
+     <event value="128" symbol="ETWGUID_STEREO_SWAPCHAINCREATEEVENTStop" version="0" task="ETWGUID_STEREO_SWAPCHAINCREATEEVENT" opcode="win:Stop" level="win:Verbose" keywords="DwmCore" template="ETWGUID_STEREO_COPYLEFTTORIGHTBUFFEREVENTStartArgs"/>
+     <event value="130" symbol="ETWGUID_SLICER_CAPTUREStart" version="0" task="ETWGUID_SLICER_CAPTURE" opcode="win:Start" level="win:Verbose" keywords="DwmCore" template="ETWGUID_SLICER_CAPTUREStartArgs"/>
+     <event value="131" symbol="ETWGUID_SLICER_CAPTUREStop" version="0" task="ETWGUID_SLICER_CAPTURE" opcode="win:Stop" level="win:Verbose" keywords="DwmCore" template="ETWGUID_SLICER_CAPTUREStopArgs"/>
+     <event value="132" symbol="ETWGUID_SLICER_CAPTUREFRAME" version="0" task="ETWGUID_SLICER_CAPTUREFRAME" level="win:Verbose" keywords="DwmCore" template="ETWGUID_SLICER_CAPTUREFRAMEArgs"/>
+     <event value="133" symbol="DCOMPEVENT_RESOURCE" version="0" task="DCOMPEVENT_RESOURCE" level="win:Verbose" keywords="DwmCore FrameVisualization DwmInput" template="DCOMPEVENT_RESOURCEArgs"/>
+     <event value="134" symbol="DCOMPEVENT_ANIMATION_INITIAL_VALUE" version="0" task="DCOMPEVENT_ANIMATION_INITIAL_VALUE" level="win:Verbose" keywords="DwmCore" template="DCOMPEVENT_ANIMATION_INITIAL_VALUEArgs"/>
+     <event value="135" symbol="DCOMPEVENT_ANIMATION_UPDATE_VALUE" version="0" task="DCOMPEVENT_ANIMATION_UPDATE_VALUE" level="win:Verbose" keywords="DwmCore" template="DCOMPEVENT_ANIMATION_UPDATE_VALUEArgs"/>
+     <event value="136" symbol="DCOMPEVENT_END_ANIMATION" version="0" task="DCOMPEVENT_END_ANIMATION" level="win:Verbose" keywords="DwmCore" template="DCOMPEVENT_END_ANIMATIONArgs"/>
+     <event value="137" symbol="SCHEDULE_NEW_EFFECTIVE_REFRESH_PERIOD_DELTAS" version="0" task="SCHEDULE_NEW_EFFECTIVE_REFRESH_PERIOD_DELTAS" level="win:Informational" keywords="DwmCore" template="SCHEDULE_NEW_EFFECTIVE_REFRESH_PERIOD_DELTASArgs"/>
+     <event value="138" symbol="SCHEDULE_NEW_EFFECTIVE_REFRESH_PERIOD" version="0" task="SCHEDULE_NEW_EFFECTIVE_REFRESH_PERIOD" level="win:Informational" keywords="DwmCore DwmFrameRate" template="SCHEDULE_NEW_EFFECTIVE_REFRESH_PERIODArgs"/>
+     <event value="139" symbol="SCHEDULE_DXGI_STATUS_OCCLUDED" version="0" task="SCHEDULE_DXGI_STATUS_OCCLUDED" level="win:Informational" keywords="DwmCore"/>
+     <event value="140" symbol="SCHEDULE_DXGI_OCCLUSION_EVENT" version="0" task="SCHEDULE_DXGI_OCCLUSION_EVENT" level="win:Informational" keywords="DwmCore"/>
+     <event value="141" symbol="SCHEDULE_DXGI_PRESENT_SUCCEEDED" version="0" task="SCHEDULE_DXGI_PRESENT_SUCCEEDED" level="win:Informational" keywords="DwmCore"/>
+     <event value="144" symbol="ETWGUID_DIRECTFLIP_TRANSITIONEVENT" version="0" task="ETWGUID_DIRECTFLIP_TRANSITIONEVENT" level="win:Verbose" keywords="DwmCore" template="ETWGUID_DIRECTFLIP_TRANSITIONEVENTArgs"/>
+     <event value="145" symbol="ETWGUID_DIRECTFLIP_PRESENTEVENT" version="0" task="ETWGUID_DIRECTFLIP_PRESENTEVENT" level="win:Verbose" keywords="DwmCore" template="ETWGUID_STEREO_COPYLEFTTORIGHTBUFFEREVENTStartArgs"/>
+     <event value="146" symbol="ETWGUID_DIRECTFLIP_SUPPORTEVENT" version="0" task="ETWGUID_DIRECTFLIP_SUPPORTEVENT" level="win:Verbose" keywords="DwmCore" template="ETWGUID_DIRECTFLIP_SUPPORTEVENTArgs"/>
+     <event value="147" symbol="ETWGUID_DIRECTFLIP_PINEVENT" version="0" task="ETWGUID_DIRECTFLIP_PINEVENT" level="win:Verbose" keywords="DwmCore" template="ETWGUID_DIRECTFLIP_PINEVENTArgs"/>
+     <event value="148" symbol="ETWGUID_DIRECTFLIP_UNPINEVENT" version="0" task="ETWGUID_DIRECTFLIP_UNPINEVENT" level="win:Verbose" keywords="DwmCore" template="ETWGUID_DIRECTFLIP_PINEVENTArgs"/>
+     <event value="151" symbol="ETWGUID_RENDEROPT_DISCARDRESOURCEEVENT" version="0" task="ETWGUID_RENDEROPT_DISCARDRESOURCEEVENT" level="win:Verbose" keywords="DwmCore" template="ETWGUID_RENDEROPT_DISCARDRESOURCEEVENTArgs"/>
+     <event value="152" symbol="ETWGUID_RENDEROPT_TILEABLECOPYEVENT" version="0" task="ETWGUID_RENDEROPT_TILEABLECOPYEVENT" level="win:Verbose" keywords="DwmCore" template="ETWGUID_RENDEROPT_TILEABLECOPYEVENTArgs"/>
+     <event value="153" symbol="OPEN_SHARED_TEXTURE_EVENTStart" version="0" task="OPEN_SHARED_TEXTURE_EVENT" opcode="win:Start" level="win:Verbose" keywords="DwmCore" template="OPEN_SHARED_TEXTURE_EVENTStartArgs"/>
+     <event value="154" symbol="OPEN_SHARED_TEXTURE_EVENTStop" version="0" task="OPEN_SHARED_TEXTURE_EVENT" opcode="win:Stop" level="win:Verbose" keywords="DwmCore"/>
+     <event value="157" symbol="PROCESS_COMPOSITION_SURFACE_UPDATE_EVENTStart" version="0" task="PROCESS_COMPOSITION_SURFACE_UPDATE_EVENT" opcode="win:Start" level="win:Verbose" keywords="DwmCore"/>
+     <event value="158" symbol="PROCESS_COMPOSITION_SURFACE_UPDATE_EVENTStop" version="0" task="PROCESS_COMPOSITION_SURFACE_UPDATE_EVENT" opcode="win:Stop" level="win:Verbose" keywords="DwmCore"/>
+     <event value="163" symbol="ETWGUID_PUSH_EXTERNAL_LAYER_EVENTStart" version="0" task="ETWGUID_PUSH_EXTERNAL_LAYER_EVENT" opcode="win:Start" level="win:Verbose" keywords="DwmCore FrameVisualization" template="ETWGUID_PUSH_INTERNAL_LAYER_EVENTStartArgs"/>
+     <event value="164" symbol="ETWGUID_PUSH_EXTERNAL_LAYER_EVENTStop" version="0" task="ETWGUID_PUSH_EXTERNAL_LAYER_EVENT" opcode="win:Stop" level="win:Verbose" keywords="DwmCore" template="ETWGUID_PUSH_INTERNAL_LAYER_EVENTStartArgs"/>
+     <event value="165" symbol="ETWGUID_POP_EXTERNAL_LAYER_EVENTStart" version="0" task="ETWGUID_POP_EXTERNAL_LAYER_EVENT" opcode="win:Start" level="win:Verbose" keywords="DwmCore FrameVisualization"/>
+     <event value="166" symbol="ETWGUID_POP_EXTERNAL_LAYER_EVENTStop" version="0" task="ETWGUID_POP_EXTERNAL_LAYER_EVENT" opcode="win:Stop" level="win:Verbose" keywords="DwmCore"/>
+     <event value="168" symbol="ANIMATION_ANALYSIS_DEBUG_EVENT_V1" version="1" task="ANIMATION_ANALYSIS_DEBUG_EVENT" level="win:Verbose" keywords="DwmCore" template="ANIMATION_ANALYSIS_DEBUG_EVENTArgs_V1"/>
+     <event value="169" symbol="SCHEDULE_RENDERTIME" version="0" task="SCHEDULE_RENDERTIME" level="win:Informational" keywords="FrameDrawInconsistencyInformation" template="SCHEDULE_RENDERTIMEArgs"/>
+     <event value="170" symbol="SCHEDULE_PARALLEL_MODEStart" version="0" task="SCHEDULE_PARALLEL_MODE" opcode="win:Start" level="win:Informational" keywords="FrameDrawInconsistencyInformation"/>
+     <event value="171" symbol="SCHEDULE_PARALLEL_MODEStop" version="0" task="SCHEDULE_PARALLEL_MODE" opcode="win:Stop" level="win:Informational" keywords="FrameDrawInconsistencyInformation"/>
+     <event value="172" symbol="SCHEDULE_GLITCH_DETECTED" version="0" task="SCHEDULE_GLITCH_DETECTED" level="win:Informational" keywords="FrameDrawInconsistencyInformation DwmFrameRate" template="SCHEDULE_GLITCH_DETECTEDArgs"/>
+     <event value="173" symbol="TOUCH_FIRST_FRAME_EVENT_V1" version="1" task="TOUCH_FIRST_FRAME_EVENT" level="win:Verbose" keywords="DwmCore LowOverheadSmoothnessTracking DwmInput" template="TOUCH_FIRST_FRAME_EVENTArgs_V1"/>
+     <event value="175" symbol="TOUCH_LAST_FRAME_EVENT_V3" version="3" task="TOUCH_LAST_FRAME_EVENT" level="win:Verbose" keywords="DwmCore LowOverheadSmoothnessTracking DwmInput" template="TOUCH_LAST_FRAME_EVENTArgs_V3"/>
+     <event value="180" symbol="ETWGUID_DRAWING_CONTEXT_FRAMEStart" version="0" task="ETWGUID_DRAWING_CONTEXT_FRAME" opcode="win:Start" level="win:Verbose" keywords="DwmCore FrameVisualization" template="ETWGUID_DRAWING_CONTEXT_FRAMEStartArgs"/>
+     <event value="181" symbol="ETWGUID_DRAWING_CONTEXT_FRAMEStop" version="0" task="ETWGUID_DRAWING_CONTEXT_FRAME" opcode="win:Stop" level="win:Verbose" keywords="DwmCore FrameVisualization"/>
+     <event value="182" symbol="ETWGUID_DRAWING_CONTEXT_STATE" version="0" task="ETWGUID_DRAWING_CONTEXT_STATE" level="win:Verbose" keywords="FrameVisualization" template="ETWGUID_DRAWING_CONTEXT_STATEArgs"/>
+     <event value="183" symbol="ETWGUID_COMPOSITION_SURFACE_DRAW" version="0" task="ETWGUID_COMPOSITION_SURFACE_DRAW" level="win:Verbose" keywords="FrameVisualization" template="ETWGUID_COMPOSITION_SURFACE_DRAWArgs"/>
+     <event value="185" symbol="ETWGUID_CVI_UPDATE" version="0" task="ETWGUID_CVI_UPDATE" level="win:Verbose" keywords="DwmCore FrameVisualization" template="ETWGUID_CVI_UPDATEArgs"/>
+     <event value="186" symbol="ETWGUID_DIRECTFLIP_CANDIDATERECORDEVENT" version="0" task="ETWGUID_DIRECTFLIP_CANDIDATERECORDEVENT" level="win:Verbose" keywords="DwmCore" template="ETWGUID_DIRECTFLIP_PINEVENTArgs"/>
+     <event value="187" symbol="ETWGUID_DIRECTFLIP_CANDIDATEOVERWRITEVENT" version="0" task="ETWGUID_DIRECTFLIP_CANDIDATEOVERWRITEVENT" level="win:Verbose" keywords="DwmCore" template="ETWGUID_DIRECTFLIP_CANDIDATEOVERWRITEVENTArgs"/>
+     <event value="189" symbol="SCHEDULE_TIMEADJUSTED_BETWEENFRAMES" version="0" task="SCHEDULE_TIMEADJUSTED_BETWEENFRAMES" level="win:Informational" keywords="FrameDrawInconsistencyInformation" template="SCHEDULE_TIMEADJUSTED_BETWEENFRAMESArgs"/>
+     <event value="192" symbol="SCHEDULE_CLEAR_D2D_CACHESStart" version="0" task="SCHEDULE_CLEAR_D2D_CACHES" opcode="win:Start" level="win:Informational" keywords="DwmCore" template="SCHEDULE_CLEAR_D2D_CACHESStartArgs"/>
+     <event value="193" symbol="SCHEDULE_CLEAR_D2D_CACHESStop" version="0" task="SCHEDULE_CLEAR_D2D_CACHES" opcode="win:Stop" level="win:Informational" keywords="DwmCore" template="SCHEDULE_CLEAR_D2D_CACHESStopArgs"/>
+     <event value="194" symbol="MILEVENT_MEDIA_UCE_PROCESSSURFACEUPDATESStart" version="0" task="MILEVENT_MEDIA_UCE_PROCESSSURFACEUPDATES" opcode="win:Start" level="win:Verbose" keywords="DwmCore"/>
+     <event value="195" symbol="MILEVENT_MEDIA_UCE_PROCESSSURFACEUPDATESStop" version="0" task="MILEVENT_MEDIA_UCE_PROCESSSURFACEUPDATES" opcode="win:Stop" level="win:Verbose" keywords="DwmCore" template="MILEVENT_MEDIA_UCE_PROCESSPRESENTHISTORYStopArgs"/>
+     <event value="196" symbol="SCHEDULE_SURFACEUPDATE" version="0" task="SCHEDULE_SURFACEUPDATE" level="win:Informational" keywords="DwmCore" template="SCHEDULE_SURFACEUPDATEArgs"/>
+     <event value="197" symbol="ETWGUID_RENDEROPT_DISCARDVIEWEVENT" version="0" task="ETWGUID_RENDEROPT_DISCARDVIEWEVENT" level="win:Verbose" keywords="DwmCore" template="ETWGUID_RENDEROPT_DISCARDVIEWEVENTArgs"/>
+     <event value="201" symbol="SCHEDULE_DERIVEDISPLAYSET" version="0" task="SCHEDULE_DERIVEDISPLAYSET" level="win:Informational" keywords="DwmCore" template="SCHEDULE_DERIVEDISPLAYSETArgs"/>
+     <event value="202" symbol="SCHEDULE_RETIREFRAME" version="0" task="SCHEDULE_RETIREFRAME" level="win:Informational" keywords="DwmCore" template="SCHEDULE_RETIREFRAMEArgs"/>
+     <event value="203" symbol="SCHEDULE_GETPRESENTSTATS1" version="0" task="SCHEDULE_GETPRESENTSTATS1" level="win:Informational" keywords="DwmCore" template="SCHEDULE_GETPRESENTSTATS1Args"/>
+     <event value="204" symbol="SCHEDULE_PRESENT_STATS_DELTAS" version="0" task="SCHEDULE_PRESENT_STATS_DELTAS" level="win:Informational" keywords="DwmCore" template="SCHEDULE_PRESENT_STATS_DELTASArgs"/>
+     <event value="205" symbol="RENDER_CVIPASSStart" version="0" task="RENDER_CVIPASS" opcode="win:Start" level="win:Informational" keywords="DwmCore"/>
+     <event value="206" symbol="RENDER_CVIPASSStop" version="0" task="RENDER_CVIPASS" opcode="win:Stop" level="win:Informational" keywords="DwmCore"/>
+     <event value="208" symbol="HIT_TESTStart" version="0" task="HIT_TEST" opcode="win:Start" level="win:Informational" keywords="DwmCore DwmInput" template="HIT_TESTStartArgs"/>
+     <event value="209" symbol="HIT_TESTStop" version="0" task="HIT_TEST" opcode="win:Stop" level="win:Informational" keywords="DwmCore DwmInput" template="HIT_TESTStopArgs"/>
+     <event value="210" symbol="HIT_TEST_TREE_WALKStart" version="0" task="HIT_TEST_TREE_WALK" opcode="win:Start" level="win:Informational" keywords="DwmCore DwmInput" template="HIT_TEST_TREE_WALKStartArgs"/>
+     <event value="211" symbol="HIT_TEST_TREE_WALKStop" version="0" task="HIT_TEST_TREE_WALK" opcode="win:Stop" level="win:Informational" keywords="DwmCore DwmInput" template="HIT_TEST_TREE_WALKStopArgs"/>
+     <event value="212" symbol="INPUT_SINK" version="0" task="INPUT_SINK" level="win:Informational" keywords="DwmCore DwmInput" template="INPUT_SINKArgs"/>
+     <event value="214" symbol="DETECT_TOPLEVELWINDOW_DESTROY" version="0" task="DETECT_TOPLEVELWINDOW_DESTROY" level="win:Informational" keywords="DwmCore" template="DETECT_TOPLEVELWINDOW_DESTROYArgs"/>
+     <event value="215" symbol="OVERLAY_GETCAPS" version="0" task="OVERLAY_GETCAPS" level="win:Verbose" keywords="DwmCore" template="OVERLAY_GETCAPSArgs"/>
+     <event value="216" symbol="OVERLAY_RECORDCANDIDATE" version="0" task="OVERLAY_RECORDCANDIDATE" level="win:Verbose" keywords="DwmCore" template="OVERLAY_RECORDCANDIDATEArgs"/>
+     <event value="217" symbol="OVERLAY_CHECKOCCLUSION" version="0" task="OVERLAY_CHECKOCCLUSION" level="win:Verbose" keywords="DwmCore" template="OVERLAY_CHECKOCCLUSIONArgs"/>
+     <event value="218" symbol="OVERLAY_CHECKSUPPORTStart" version="0" task="OVERLAY_CHECKSUPPORT" opcode="win:Start" level="win:Verbose" keywords="DwmCore" template="OVERLAY_CHECKSUPPORTStartArgs"/>
+     <event value="219" symbol="OVERLAY_CHECKSUPPORT" version="0" task="OVERLAY_CHECKSUPPORT" level="win:Verbose" keywords="DwmCore" template="OVERLAY_CHECKSUPPORTArgs"/>
+     <event value="220" symbol="OVERLAY_CHECKSUPPORTStop" version="0" task="OVERLAY_CHECKSUPPORT" opcode="win:Stop" level="win:Verbose" keywords="DwmCore" template="OVERLAY_CHECKSUPPORTStopArgs"/>
+     <event value="221" symbol="OVERLAY_CANDIDATECOLLECTIONStart" version="0" task="OVERLAY_CANDIDATECOLLECTION" opcode="win:Start" level="win:Verbose" keywords="DwmCore" template="OVERLAY_CANDIDATECOLLECTIONStartArgs"/>
+     <event value="222" symbol="OVERLAY_CANDIDATECOLLECTIONStop" version="0" task="OVERLAY_CANDIDATECOLLECTION" opcode="win:Stop" level="win:Verbose" keywords="DwmCore" template="OVERLAY_CANDIDATECOLLECTIONStopArgs"/>
+     <event value="223" symbol="OVERLAY_PRESENTStart" version="0" task="OVERLAY_PRESENT" opcode="win:Start" level="win:Verbose" keywords="DwmCore" template="OVERLAY_PRESENTStartArgs"/>
+     <event value="224" symbol="OVERLAY_PRESENT" version="0" task="OVERLAY_PRESENT" level="win:Verbose" keywords="DwmCore" template="OVERLAY_PRESENTArgs"/>
+     <event value="225" symbol="OVERLAY_PRESENTStop" version="0" task="OVERLAY_PRESENT" opcode="win:Stop" level="win:Verbose" keywords="DwmCore"/>
+     <event value="227" symbol="DETECT_REMOTEAPPWINDOW_STATE" version="0" task="DETECT_REMOTEAPPWINDOW_STATE" level="win:Informational" keywords="DwmCore" template="DETECT_REMOTEAPPWINDOW_STATEArgs"/>
+     <event value="228" symbol="DETECT_DESKTOPSCREEN_WRITE" version="0" task="DETECT_DESKTOPSCREEN_WRITE" level="win:Informational" keywords="DwmCore" template="DETECT_TOPLEVELWINDOW_DESTROYArgs"/>
+     <event value="229" symbol="REMOTEAPP_METADATA_STATS" version="0" task="REMOTEAPP_METADATA_STATS" level="win:Informational" keywords="DwmCore" template="REMOTEAPP_METADATA_STATSArgs"/>
+     <event value="230" symbol="DETECT_REMOTEAPPMODE_SWITCH" version="0" task="DETECT_REMOTEAPPMODE_SWITCH" level="win:Informational" keywords="DwmCore" template="DETECT_REMOTEAPPMODE_SWITCHArgs"/>
+     <event value="231" symbol="DETECT_DESKTOP_ENDOFUPDATES" version="0" task="DETECT_DESKTOP_ENDOFUPDATES" level="win:Informational" keywords="DwmCore"/>
+     <event value="232" symbol="REMOTEAPP_WINDOWCLIPStart" version="0" task="REMOTEAPP_WINDOWCLIP" opcode="win:Start" level="win:Informational" keywords="DwmCore"/>
+     <event value="233" symbol="REMOTEAPP_WINDOWCLIP" version="0" task="REMOTEAPP_WINDOWCLIP" level="win:Informational" keywords="DwmCore" template="ETWGUID_DWMUPDATEWINDOWArgs"/>
+     <event value="234" symbol="REMOTEAPP_WINDOWCLIPStop" version="0" task="REMOTEAPP_WINDOWCLIP" opcode="win:Stop" level="win:Informational" keywords="DwmCore"/>
+     <event value="235" symbol="ETWGUID_PRIMITIVE_GROUP_DRAW" version="0" task="ETWGUID_PRIMITIVE_GROUP_DRAW" level="win:Verbose" keywords="FrameVisualization" template="ETWGUID_PRIMITIVE_GROUP_DRAWArgs"/>
+     <event value="236" symbol="ETWGUID_D2DLAYERCREATEREASON" version="0" task="ETWGUID_D2DLAYERCREATEREASON" level="win:Verbose" keywords="DwmCore" template="ETWGUID_D2DLAYERCREATEREASONArgs"/>
+     <event value="237" symbol="TELEMETRY_ANIMATION_PERFORMANCE_ANALYSIS_EVENT_V1" version="1" task="TELEMETRY_ANIMATION_PERFORMANCE_ANALYSIS_EVENT" level="win:Informational" keywords="DwmCore LowOverheadSmoothnessTracking" template="TELEMETRY_ANIMATION_PERFORMANCE_ANALYSIS_EVENTArgs_V1"/>
+     <event value="238" symbol="ANIMATION_FIRST_FRAME_EVENT" version="0" task="ANIMATION_FIRST_FRAME_EVENT" level="win:Verbose" keywords="DwmCore LowOverheadSmoothnessTracking" template="ANIMATION_FIRST_FRAME_EVENTArgs"/>
+     <event value="239" symbol="ANIMATION_LAST_FRAME_EVENT" version="0" task="ANIMATION_LAST_FRAME_EVENT" level="win:Verbose" keywords="DwmCore LowOverheadSmoothnessTracking" template="ANIMATION_LAST_FRAME_EVENTArgs"/>
+     <event value="240" symbol="TELEMETRY_AGGREGATED_VSYNC_ANALYSIS_EVENT_V2" version="2" task="TELEMETRY_AGGREGATED_VSYNC_ANALYSIS_EVENT" level="win:Informational" keywords="DwmCore LowOverheadSmoothnessTracking" template="TELEMETRY_AGGREGATED_VSYNC_ANALYSIS_EVENTArgs_V2"/>
+     <event value="241" symbol="ETWGUID_COPYFRONTTOBACKBUFFERDELTAEVENT" version="0" task="ETWGUID_COPYFRONTTOBACKBUFFERDELTAEVENT" level="win:Informational" keywords="DwmCore" template="ETWGUID_COPYFRONTTOBACKBUFFEREVENTStopArgs"/>
+     <event value="242" symbol="SWAPCHAIN_BUFFERS" version="0" task="SWAPCHAIN_BUFFERS" level="win:Informational" keywords="DwmCore" template="SWAPCHAIN_BUFFERSArgs"/>
+     <event value="246" symbol="DEBUG_FRAME_COUNTER_V1" version="1" task="DEBUG_FRAME_COUNTER" level="win:Informational" keywords="DwmCore" template="DEBUG_FRAME_COUNTERArgs_V1"/>
+     <event value="247" symbol="ETWGUID_SETINDEPENDENTFLIPINFO" version="0" task="ETWGUID_SETINDEPENDENTFLIPINFO" level="win:Verbose" keywords="DwmCore" template="ETWGUID_SETINDEPENDENTFLIPINFOArgs"/>
+     <event value="248" symbol="ETWGUID_PRIMITIVE_GROUP_SELF_OCCLUSION_INFO" version="0" task="ETWGUID_PRIMITIVE_GROUP_SELF_OCCLUSION_INFO" level="win:Verbose" keywords="DwmCore" template="ETWGUID_PRIMITIVE_GROUP_SELF_OCCLUSION_INFOArgs"/>
+     <event value="249" symbol="INPUT_SINK_TRANSFORM_UPDATE" version="0" task="INPUT_SINK_TRANSFORM_UPDATE" level="win:Informational" keywords="DwmCore DwmInput" template="INPUT_SINK_TRANSFORM_UPDATEArgs"/>
+     <event value="253" symbol="ETWGUID_RTCAPTUREStart" version="0" task="ETWGUID_RTCAPTURE" opcode="win:Start" level="win:Informational" keywords="DwmCore"/>
+     <event value="254" symbol="ETWGUID_RTCAPTUREStop" version="0" task="ETWGUID_RTCAPTURE" opcode="win:Stop" level="win:Informational" keywords="DwmCore"/>
+     <event value="255" symbol="ETWGUID_RTCAPTURE_GETBITS" version="0" task="ETWGUID_RTCAPTURE_GETBITS" level="win:Informational" keywords="DwmCore"/>
+     <event value="259" symbol="TELEMETRY_ANIMATION_TTFF_ANALYSIS_EVENT_V1" version="1" task="TELEMETRY_ANIMATION_TTFF_ANALYSIS_EVENT" level="win:Informational" keywords="DwmCore LowOverheadSmoothnessTracking" template="TELEMETRY_ANIMATION_TTFF_ANALYSIS_EVENTArgs_V1"/>
+     <event value="260" symbol="TELEMETRY_AGGREGATED_TTFF_ANALYSIS_EVENT_V1" version="1" task="TELEMETRY_AGGREGATED_TTFF_ANALYSIS_EVENT" level="win:Informational" keywords="DwmCore LowOverheadSmoothnessTracking" template="TELEMETRY_AGGREGATED_TTFF_ANALYSIS_EVENTArgs_V1"/>
+     <event value="261" symbol="MILEVENT_MEDIA_UCE_VISUAL_MOVE_DETECTED_V1" version="1" task="MILEVENT_MEDIA_UCE_VISUAL_MOVE_DETECTED" level="win:Informational" keywords="DwmCore" template="MILEVENT_MEDIA_UCE_VISUAL_MOVE_DETECTEDArgs_V1"/>
+     <event value="262" symbol="MILEVENT_MEDIA_UCE_WINDOW_MOVE_DETECTED_V1" version="1" task="MILEVENT_MEDIA_UCE_WINDOW_MOVE_DETECTED" level="win:Informational" keywords="DwmCore" template="MILEVENT_MEDIA_UCE_VISUAL_MOVE_DETECTEDArgs_V1"/>
+     <event value="265" symbol="DCOMPEVENT_PRIMITIVEGROUP_UPDATE_V1" version="1" task="DCOMPEVENT_PRIMITIVEGROUP_UPDATE" level="win:Verbose" keywords="FrameVisualization" template="DCOMPEVENT_PRIMITIVEGROUP_UPDATEArgs_V1"/>
+     <event value="266" symbol="MANIPULATION_THREAD_STARTUP" version="0" task="MANIPULATION_THREAD_STARTUP" level="win:Informational" keywords="DwmCore DwmInput"/>
+     <event value="267" symbol="MANIPULATION_THREAD_CLEANUP" version="0" task="MANIPULATION_THREAD_CLEANUP" level="win:Informational" keywords="DwmCore DwmInput"/>
+     <event value="268" symbol="MANIPULATION_FRAME_RECEIVED" version="0" task="MANIPULATION_FRAME_RECEIVED" level="win:Informational" keywords="DwmCore DwmInput" template="MANIPULATION_FRAME_RECEIVEDArgs"/>
+     <event value="269" symbol="MANIPULATION_FRAME_QUEUED" version="0" task="MANIPULATION_FRAME_QUEUED" level="win:Informational" keywords="DwmCore DwmInput" template="MANIPULATION_FRAME_RECEIVEDArgs"/>
+     <event value="270" symbol="MANIPULATION_FRAME_DEQUEUED" version="0" task="MANIPULATION_FRAME_DEQUEUED" level="win:Informational" keywords="DwmCore DwmInput" template="MANIPULATION_FRAME_RECEIVEDArgs"/>
+     <event value="271" symbol="INTERACTION_CREATED" version="0" task="INTERACTION_CREATED" level="win:Informational" keywords="DwmCore DwmInput" template="INTERACTION_CREATEDArgs"/>
+     <event value="272" symbol="INTERACTION_VISUAL_UPDATE" version="0" task="INTERACTION_VISUAL_UPDATE" level="win:Informational" keywords="DwmCore DwmInput" template="INTERACTION_VISUAL_UPDATEArgs"/>
+     <event value="273" symbol="INTERACTION_TOUCH_CONFIGURATION_CHANGED" version="0" task="INTERACTION_TOUCH_CONFIGURATION_CHANGED" level="win:Informational" keywords="DwmCore DwmInput" template="INTERACTION_TOUCH_CONFIGURATION_CHANGEDArgs"/>
+     <event value="274" symbol="INTERACTION_DESTROYED" version="0" task="INTERACTION_DESTROYED" level="win:Informational" keywords="DwmCore DwmInput" template="INTERACTION_CREATEDArgs"/>
+     <event value="275" symbol="MANIPULATION_CONTEXT_CREATED" version="0" task="MANIPULATION_CONTEXT_CREATED" level="win:Informational" keywords="DwmCore DwmInput" template="MANIPULATION_CONTEXT_CREATEDArgs"/>
+     <event value="276" symbol="MANIPULATION_CONTEXT_DESTROYED" version="0" task="MANIPULATION_CONTEXT_DESTROYED" level="win:Informational" keywords="DwmCore DwmInput" template="MANIPULATION_CONTEXT_CREATEDArgs"/>
+     <event value="277" symbol="MANIPULATION_CONTEXT_NEW_CONTACT" version="0" task="MANIPULATION_CONTEXT_NEW_CONTACT" level="win:Informational" keywords="DwmCore DwmInput" template="MANIPULATION_CONTEXT_CREATEDArgs"/>
+     <event value="278" symbol="MANIPULATION_CONTEXT_CONTACT_DEPARTED" version="0" task="MANIPULATION_CONTEXT_CONTACT_DEPARTED" level="win:Informational" keywords="DwmCore DwmInput" template="MANIPULATION_CONTEXT_CREATEDArgs"/>
+     <event value="284" symbol="ADVANCED_DIRECTFLIP_RECORDCANDIDATE" version="0" task="ADVANCED_DIRECTFLIP_RECORDCANDIDATE" level="win:Verbose" keywords="DwmCore" template="ADVANCED_DIRECTFLIP_RECORDCANDIDATEArgs"/>
+     <event value="285" symbol="ADVANCED_DIRECTFLIP_CREATERESTOREBUFFER" version="0" task="ADVANCED_DIRECTFLIP_CREATERESTOREBUFFER" level="win:Verbose" keywords="DwmCore" template="ADVANCED_DIRECTFLIP_CREATERESTOREBUFFERArgs"/>
+     <event value="286" symbol="ADVANCED_DIRECTFLIP_SAVECONTENT" version="0" task="ADVANCED_DIRECTFLIP_SAVECONTENT" level="win:Verbose" keywords="DwmCore" template="ADVANCED_DIRECTFLIP_RECORDCANDIDATEArgs"/>
+     <event value="287" symbol="ADVANCED_DIRECTFLIP_RESTORECONTENT" version="0" task="ADVANCED_DIRECTFLIP_RESTORECONTENT" level="win:Verbose" keywords="DwmCore" template="ADVANCED_DIRECTFLIP_RESTORECONTENTArgs"/>
+     <event value="288" symbol="ADVANCED_DIRECTFLIP_CANCEL" version="0" task="ADVANCED_DIRECTFLIP_CANCEL" level="win:Verbose" keywords="DwmCore" template="ADVANCED_DIRECTFLIP_CANCELArgs"/>
+     <event value="289" symbol="DISPLAYSURFACE_SWAPCHAINCANDIDATE" version="0" task="DISPLAYSURFACE_SWAPCHAINCANDIDATE" level="win:Verbose" keywords="DwmCore" template="DISPLAYSURFACE_SWAPCHAINCANDIDATEArgs"/>
+     <event value="290" symbol="DISPLAYSURFACE_REJECTCANDIDATE" version="0" task="DISPLAYSURFACE_REJECTCANDIDATE" level="win:Verbose" keywords="DwmCore" template="DISPLAYSURFACE_REJECTCANDIDATEArgs"/>
+     <event value="291" symbol="DISPLAYSURFACE_CANDIDATEATTRIBUTES" version="0" task="DISPLAYSURFACE_CANDIDATEATTRIBUTES" level="win:Verbose" keywords="DwmCore" template="DISPLAYSURFACE_CANDIDATEATTRIBUTESArgs"/>
+     <event value="292" symbol="MANIPULATION_POINTER_BUFFERED" version="0" task="MANIPULATION_POINTER_BUFFERED" level="win:Informational" keywords="DwmCore DwmInput" template="MANIPULATION_POINTER_BUFFEREDArgs"/>
+     <event value="293" symbol="ETWGUID_PUBLISH_SEB_NOTIFICATION" version="0" task="ETWGUID_PUBLISH_SEB_NOTIFICATION" level="win:Verbose" keywords="DwmCore" template="ETWGUID_PUBLISH_SEB_NOTIFICATIONArgs"/>
+     <event value="294" symbol="MIDMANIPULATION_UPDATE_INTERACTION_ADDITION" version="0" task="MIDMANIPULATION_UPDATE_INTERACTION_ADDITION" level="win:Informational" keywords="DwmCore DwmInput" template="INTERACTION_VISUAL_UPDATEArgs"/>
+     <event value="295" symbol="MIDMANIPULATION_UPDATE_INTERACTION_REMOVAL" version="0" task="MIDMANIPULATION_UPDATE_INTERACTION_REMOVAL" level="win:Informational" keywords="DwmCore DwmInput" template="INTERACTION_VISUAL_UPDATEArgs"/>
+     <event value="296" symbol="MIDMANIPULATION_UPDATE_VISUAL_ADDITION" version="0" task="MIDMANIPULATION_UPDATE_VISUAL_ADDITION" level="win:Informational" keywords="DwmCore DwmInput" template="MIDMANIPULATION_UPDATE_VISUAL_ADDITIONArgs"/>
+     <event value="297" symbol="MIDMANIPULATION_UPDATE_VISUAL_REMOVAL" version="0" task="MIDMANIPULATION_UPDATE_VISUAL_REMOVAL" level="win:Informational" keywords="DwmCore DwmInput" template="MIDMANIPULATION_UPDATE_VISUAL_ADDITIONArgs"/>
+     <event value="298" symbol="MIDMANIPULATION_UPDATE_VISUAL_PROP" version="0" task="MIDMANIPULATION_UPDATE_VISUAL_PROP" level="win:Informational" keywords="DwmCore DwmInput" template="MIDMANIPULATION_UPDATE_VISUAL_ADDITIONArgs"/>
+     <event value="299" symbol="MIDMANIPULATION_UPDATE_CAPTURE_CONTACT" version="0" task="MIDMANIPULATION_UPDATE_CAPTURE_CONTACT" level="win:Informational" keywords="DwmCore DwmInput" template="MIDMANIPULATION_UPDATE_CAPTURE_CONTACTArgs"/>
+     <event value="300" symbol="INTERACTION_TOUCHPAD_CONFIGURATION_CHANGED" version="0" task="INTERACTION_TOUCHPAD_CONFIGURATION_CHANGED" level="win:Informational" keywords="DwmCore DwmInput" template="INTERACTION_TOUCH_CONFIGURATION_CHANGEDArgs"/>
+     <event value="301" symbol="INTERACTION_PEN_CONFIGURATION_CHANGED" version="0" task="INTERACTION_PEN_CONFIGURATION_CHANGED" level="win:Informational" keywords="DwmCore DwmInput" template="INTERACTION_TOUCH_CONFIGURATION_CHANGEDArgs"/>
+     <event value="302" symbol="INTERACTION_MOUSE_CONFIGURATION_CHANGED" version="0" task="INTERACTION_MOUSE_CONFIGURATION_CHANGED" level="win:Informational" keywords="DwmCore DwmInput" template="INTERACTION_TOUCH_CONFIGURATION_CHANGEDArgs"/>
+     <event value="303" symbol="SCHEDULE_FRAME_VSYNCDEADLINES" version="0" task="SCHEDULE_FRAME_VSYNCDEADLINES" level="win:Informational" keywords="DwmCore" template="SCHEDULE_FRAME_VSYNCDEADLINESArgs"/>
+     <event value="304" symbol="ETWGUID_PRESENT" version="0" task="ETWGUID_PRESENT" level="win:Informational" keywords="DwmCore" template="ETWGUID_PRESENTArgs"/>
+     <event value="305" symbol="ADVANCED_DIRECTFLIP_RESTORECONTENTBACKTOREALIZATION" version="0" task="ADVANCED_DIRECTFLIP_RESTORECONTENTBACKTOREALIZATION" level="win:Verbose" keywords="DwmCore" template="ADVANCED_DIRECTFLIP_RESTORECONTENTArgs"/>
+     <event value="309" symbol="SCHEDULE_NEW_NOMINAL_REFRESH_PERIOD" version="0" task="SCHEDULE_NEW_NOMINAL_REFRESH_PERIOD" level="win:Informational" keywords="DwmCore" template="SCHEDULE_NEW_NOMINAL_REFRESH_PERIODArgs"/>
+     <event value="310" symbol="ETWGUID_HW_PROTECTION_TEMPDISABLE" version="0" task="ETWGUID_HW_PROTECTION_TEMPDISABLE" level="win:Verbose" keywords="DwmCore" template="ETWGUID_HW_PROTECTION_TEMPDISABLEArgs"/>
+     <event value="311" symbol="ENDFRAME_DRAWLIST_BATCH_STATS" version="0" task="ENDFRAME_DRAWLIST_BATCH_STATS" level="win:Informational" keywords="DwmCore" template="ENDFRAME_DRAWLIST_BATCH_STATSArgs"/>
+     <event value="313" symbol="ENDFRAME_PRIMITIVE_GROUP_STATS" version="0" task="ENDFRAME_PRIMITIVE_GROUP_STATS" level="win:Informational" keywords="DwmCore" template="ENDFRAME_PRIMITIVE_GROUP_STATSArgs"/>
+     <event value="314" symbol="ENDFRAME_TESSELLATED_PRIMITIVES_STATS" version="0" task="ENDFRAME_TESSELLATED_PRIMITIVES_STATS" level="win:Informational" keywords="DwmCore" template="ENDFRAME_TESSELLATED_PRIMITIVES_STATSArgs"/>
+     <event value="315" symbol="ENDFRAME_HW_DRAWLIST_CACHE_STATS" version="0" task="ENDFRAME_HW_DRAWLIST_CACHE_STATS" level="win:Informational" keywords="DwmCore" template="ENDFRAME_HW_DRAWLIST_CACHE_STATSArgs"/>
+     <event value="316" symbol="ENDFRAME_WARP_DRAWLIST_CACHE_STATS" version="0" task="ENDFRAME_WARP_DRAWLIST_CACHE_STATS" level="win:Informational" keywords="DwmCore" template="ENDFRAME_WARP_DRAWLIST_CACHE_STATSArgs"/>
+     <event value="317" symbol="PROCESS_EXPRESSIONSStart" version="0" task="PROCESS_EXPRESSIONS" opcode="win:Start" level="win:Informational" keywords="DwmCore"/>
+     <event value="318" symbol="PROCESS_EXPRESSIONSStop" version="0" task="PROCESS_EXPRESSIONS" opcode="win:Stop" level="win:Informational" keywords="DwmCore"/>
+     <event value="319" symbol="EXPRESSION_OUTPUTVALUEStart" version="0" task="EXPRESSION_OUTPUTVALUE" opcode="win:Start" level="win:Verbose" keywords="DwmCore" template="EXPRESSION_OUTPUTVALUEStartArgs"/>
+     <event value="320" symbol="EXPRESSION_OUTPUTVALUEStop" version="0" task="EXPRESSION_OUTPUTVALUE" opcode="win:Stop" level="win:Verbose" keywords="DwmCore" template="EXPRESSION_OUTPUTVALUEStartArgs"/>
+     <event value="321" symbol="MIDMANIPULATION_UPDATE_CAPTURE_MANIPULATION" version="0" task="MIDMANIPULATION_UPDATE_CAPTURE_MANIPULATION" level="win:Informational" keywords="DwmCore DwmInput" template="MIDMANIPULATION_UPDATE_CAPTURE_MANIPULATIONArgs"/>
+     <event value="322" symbol="CHANNELANIMATIONS_ACTIVE" version="0" task="CHANNELANIMATIONS_ACTIVE" level="win:Informational" keywords="DwmCore AnimationScreenOff ProcessAttribution" template="CHANNELANIMATIONS_ACTIVEArgs"/>
+     <event value="323" symbol="CHANNELBATCHES_PROCESSED" version="0" task="CHANNELBATCHES_PROCESSED" level="win:Informational" keywords="DwmCore ProcessAttribution" template="CHANNELBATCHES_PROCESSEDArgs"/>
+     <event value="324" symbol="ETWGUID_HW_PROTECTED_ENTITY_CHANGE" version="0" task="ETWGUID_HW_PROTECTED_ENTITY_CHANGE" level="win:Verbose" keywords="DwmCore" template="ETWGUID_HW_PROTECTED_ENTITY_CHANGEArgs"/>
+     <event value="333" symbol="ETWGUID_VISUAL_RENDERCONTENT" version="0" task="ETWGUID_VISUAL_RENDERCONTENT" level="win:Verbose" keywords="FrameVisualization" template="ETWGUID_VISUAL_RENDERCONTENTArgs"/>
+     <event value="334" symbol="ETWGUID_DIRTY_ADDRECT" version="0" task="ETWGUID_DIRTY_ADDRECT" level="win:Verbose" keywords="FrameVisualization" template="ETWGUID_DIRTYREGIONEVENTArgs"/>
+     <event value="335" symbol="ETWGUID_VISUAL_RENDERCONTENT335" version="0" task="ETWGUID_VISUAL_RENDERCONTENT" level="win:Verbose" keywords="FrameVisualizationExtra"/>
+     <event value="336" symbol="ADVANCED_DIRECTFLIP_NORESTORE_RECORDCANDIDATE" version="0" task="ADVANCED_DIRECTFLIP_NORESTORE_RECORDCANDIDATE" level="win:Verbose" keywords="DwmCore" template="ADVANCED_DIRECTFLIP_RECORDCANDIDATEArgs"/>
+     <event value="342" symbol="HOLOGRAPHICCLIENT_TEXTUREUPDATECOUNT" version="0" task="HOLOGRAPHICCLIENT_TEXTUREUPDATECOUNT" level="win:Informational" keywords="DwmCore DwmHolographic" template="HOLOGRAPHICCLIENT_TEXTUREUPDATECOUNTArgs"/>
+     <event value="343" symbol="HOLOGRAPHICCLIENT_TEXTUREUPDATEWAITFAILED" version="0" task="HOLOGRAPHICCLIENT_TEXTUREUPDATEWAITFAILED" level="win:Informational" keywords="DwmCore DwmHolographic" template="HOLOGRAPHICCLIENT_TEXTUREUPDATEWAITFAILEDArgs"/>
+     <event value="344" symbol="HOLOGRAPHICINTEROPTARGET_RENDER" version="0" task="HOLOGRAPHICINTEROPTARGET_RENDER" level="win:Informational" keywords="DwmCore DwmHolographic" template="HOLOGRAPHICINTEROPTARGET_RENDERArgs"/>
+     <event value="345" symbol="HOLOGRAPHICINTEROPTARGET_WAITONINCOMINGFAILED" version="0" task="HOLOGRAPHICINTEROPTARGET_WAITONINCOMINGFAILED" level="win:Informational" keywords="DwmCore DwmHolographic" template="HOLOGRAPHICINTEROPTARGET_WAITONINCOMINGFAILEDArgs"/>
+     <event value="346" symbol="HOLOGRAPHICINTEROPTARGET_SYNCPOSTED" version="0" task="HOLOGRAPHICINTEROPTARGET_SYNCPOSTED" level="win:Informational" keywords="DwmCore DwmHolographic"/>
+     <event value="347" symbol="HOLOGRAPHICINTEROPTARGET_RENDERCOMPLETE" version="0" task="HOLOGRAPHICINTEROPTARGET_RENDERCOMPLETE" level="win:Informational" keywords="DwmCore DwmHolographic" template="HOLOGRAPHICINTEROPTARGET_RENDERCOMPLETEArgs"/>
+     <event value="348" symbol="HOLOGRAPHICINTEROPTARGET_TIMEINQUEUE" version="0" task="HOLOGRAPHICINTEROPTARGET_TIMEINQUEUE" level="win:Informational" keywords="DwmCore DwmHolographic" template="HOLOGRAPHICINTEROPTARGET_TIMEINQUEUEArgs"/>
+     <event value="349" symbol="SHADERS_EFFECT_COMPILEStart" version="0" task="SHADERS_EFFECT_COMPILE" opcode="win:Start" level="win:Verbose" keywords="DwmCore" template="SHADERS_EFFECT_COMPILEStartArgs"/>
+     <event value="350" symbol="SHADERS_EFFECT_COMPILEStop" version="0" task="SHADERS_EFFECT_COMPILE" opcode="win:Stop" level="win:Verbose" keywords="DwmCore" template="SHADERS_EFFECT_COMPILEStartArgs"/>
+     <event value="351" symbol="SHADERS_D3DSHADER_LINKStart" version="0" task="SHADERS_D3DSHADER_LINK" opcode="win:Start" level="win:Verbose" keywords="DwmCore"/>
+     <event value="352" symbol="SHADERS_D3DSHADER_LINKStop" version="0" task="SHADERS_D3DSHADER_LINK" opcode="win:Stop" level="win:Verbose" keywords="DwmCore"/>
+     <event value="353" symbol="SHADERS_D3DSHADER_LINK_INFO" version="0" task="SHADERS_D3DSHADER_LINK_INFO" level="win:Verbose" keywords="DwmCore" template="SHADERS_D3DSHADER_LINK_INFOArgs"/>
+     <event value="354" symbol="SHADERS_D3DSHADER_CREATEStart" version="0" task="SHADERS_D3DSHADER_CREATE" opcode="win:Start" level="win:Verbose" keywords="DwmCore" template="SHADERS_D3DSHADER_CREATEStartArgs"/>
+     <event value="355" symbol="SHADERS_D3DSHADER_CREATEStop" version="0" task="SHADERS_D3DSHADER_CREATE" opcode="win:Stop" level="win:Verbose" keywords="DwmCore" template="SHADERS_D3DSHADER_CREATEStopArgs"/>
+     <event value="356" symbol="SHADERS_EFFECT_COMPILE_INFO" version="0" task="SHADERS_EFFECT_COMPILE_INFO" level="win:Verbose" keywords="DwmCore" template="SHADERS_EFFECT_COMPILE_INFOArgs"/>
+     <event value="360" symbol="SCHEDULE_PARALLEL_MODE_NEEDS_TO_WAIT_FOR_NEXT_VSYNC" version="0" task="SCHEDULE_PARALLEL_MODE_NEEDS_TO_WAIT_FOR_NEXT_VSYNC" level="win:Informational" keywords="FrameDrawInconsistencyInformation" template="SCHEDULE_PARALLEL_MODE_NEEDS_TO_WAIT_FOR_NEXT_VSYNCArgs"/>
+     <event value="361" symbol="SCHEDULE_PARALLEL_MODE_WAITING_FOR_NEXT_VSYNCStart" version="0" task="SCHEDULE_PARALLEL_MODE_WAITING_FOR_NEXT_VSYNC" opcode="win:Start" level="win:Informational" keywords="FrameDrawInconsistencyInformation"/>
+     <event value="362" symbol="SCHEDULE_PARALLEL_MODE_WAITING_FOR_NEXT_VSYNCStop" version="0" task="SCHEDULE_PARALLEL_MODE_WAITING_FOR_NEXT_VSYNC" opcode="win:Stop" level="win:Informational" keywords="FrameDrawInconsistencyInformation"/>
+     <event value="363" symbol="COMPUTESCRIBBLE_FRAMESCHEDULED" version="0" task="COMPUTESCRIBBLE_FRAMESCHEDULED" level="win:Informational" keywords="ComputeScribble" template="COMPUTESCRIBBLE_FRAMESCHEDULEDArgs"/>
+     <event value="364" symbol="COMPUTESCRIBBLE_FRAMECOMPLETED" version="0" task="COMPUTESCRIBBLE_FRAMECOMPLETED" level="win:Informational" keywords="ComputeScribble" template="COMPUTESCRIBBLE_FRAMECOMPLETEDArgs"/>
+     <event value="365" symbol="COMPUTESCRIBBLE_FRAMEDISPATCHStart" version="0" task="COMPUTESCRIBBLE_FRAMEDISPATCH" opcode="win:Start" level="win:Informational" keywords="ComputeScribble" template="COMPUTESCRIBBLE_FRAMEDISPATCHStartArgs"/>
+     <event value="366" symbol="COMPUTESCRIBBLE_FRAMEDISPATCHStop" version="0" task="COMPUTESCRIBBLE_FRAMEDISPATCH" opcode="win:Stop" level="win:Informational" keywords="ComputeScribble" template="COMPUTESCRIBBLE_FRAMEDISPATCHStartArgs"/>
+     <event value="367" symbol="COMPUTESCRIBBLE_FRAMEDISPATCHCANCELED" version="0" task="COMPUTESCRIBBLE_FRAMEDISPATCHCANCELED" level="win:Informational" keywords="ComputeScribble" template="COMPUTESCRIBBLE_FRAMEDISPATCHStartArgs"/>
+     <event value="368" symbol="COMPUTESCRIBBLE_WAKEUPEVENTCREATED" version="0" task="COMPUTESCRIBBLE_WAKEUPEVENTCREATED" level="win:Informational" keywords="ComputeScribble" template="COMPUTESCRIBBLE_FRAMESCHEDULEDArgs"/>
+     <event value="371" symbol="COMMANDS_COUNT" version="0" task="COMMANDS_COUNT" level="win:Verbose" keywords="DwmCore" template="COMMANDS_COUNTArgs"/>
+     <event value="373" symbol="BRUSH_DRAW" version="0" task="BRUSH_DRAW" level="win:Error" keywords="DwmCore" template="BRUSH_DRAWArgs"/>
+     <event value="374" symbol="BRUSH_DRAW374" version="0" task="BRUSH_DRAW" level="win:Error" keywords="DwmCore" template="BRUSH_DRAWArgs"/>
+     <event value="375" symbol="BRUSH_DRAW375" version="0" task="BRUSH_DRAW" level="win:Error" keywords="DwmCore"/>
+     <event value="376" symbol="BRUSH_DRAW376" version="0" task="BRUSH_DRAW" level="win:Error" keywords="DwmCore" template="BRUSH_DRAWArgs"/>
+     <event value="377" symbol="COMPUTESCRIBBLE_FRAMEDROPPED" version="0" task="COMPUTESCRIBBLE_FRAMEDROPPED" level="win:Informational" keywords="ComputeScribble" template="COMPUTESCRIBBLE_FRAMEDISPATCHStartArgs"/>
+     <event value="378" symbol="INTERACTION_MOUSEWHEEL_CONFIGURATION_CHANGED" version="0" task="INTERACTION_MOUSEWHEEL_CONFIGURATION_CHANGED" level="win:Informational" keywords="DwmCore DwmInput" template="INTERACTION_TOUCH_CONFIGURATION_CHANGEDArgs"/>
+     <event value="379" symbol="COMPUTESCRIBBLE_PRERENDER" version="0" task="COMPUTESCRIBBLE_PRERENDER" level="win:Informational" keywords="ComputeScribble" template="COMPUTESCRIBBLE_PRERENDERArgs"/>
+     <event value="380" symbol="COMPUTESCRIBBLE_POSTRENDER" version="0" task="COMPUTESCRIBBLE_POSTRENDER" level="win:Informational" keywords="ComputeScribble" template="COMPUTESCRIBBLE_PRERENDERArgs"/>
+     <event value="381" symbol="COMPUTESCRIBBLE_THREADWAKEUP" version="0" task="COMPUTESCRIBBLE_THREADWAKEUP" level="win:Informational" keywords="ComputeScribble" template="COMPUTESCRIBBLE_THREADWAKEUPArgs"/>
+     <event value="382" symbol="COMPUTESCRIBBLE_WORKERHANG" version="0" task="COMPUTESCRIBBLE_WORKERHANG" level="win:Informational" keywords="ComputeScribble" template="COMPUTESCRIBBLE_WORKERHANGArgs"/>
+     <event value="383" symbol="COMPUTESCRIBBLE_INCOMPATIBLE" version="0" task="COMPUTESCRIBBLE_INCOMPATIBLE" level="win:Informational" keywords="ComputeScribble" template="COMPUTESCRIBBLE_INCOMPATIBLEArgs"/>
+     <event value="384" symbol="COMPUTESCRIBBLE_UNSUPPORTEDCHECK" version="0" task="COMPUTESCRIBBLE_UNSUPPORTEDCHECK" level="win:Informational" keywords="ComputeScribble" template="COMPUTESCRIBBLE_UNSUPPORTEDCHECKArgs"/>
+     <event value="385" symbol="SCHEDULED_COMPOSITION_REASON" version="0" task="SCHEDULED_COMPOSITION_REASON" level="win:Informational" keywords="DwmCore" template="SCHEDULED_COMPOSITION_REASONArgs"/>
+     <event value="386" symbol="UNPRESENTED_FRAME" version="0" task="UNPRESENTED_FRAME" level="win:Informational" keywords="DwmCore"/>
+     <event value="387" symbol="PROCESS_ATTRIBUTION" version="0" task="PROCESS_ATTRIBUTION" level="win:Informational" keywords="WorkPerFrame" template="PROCESS_ATTRIBUTIONArgs"/>
+     <event value="388" symbol="COMMAND_PROCESSED_ONBEHALF" version="0" task="COMMAND_PROCESSED_ONBEHALF" level="win:Informational" keywords="WorkPerFrame" template="COMMAND_PROCESSED_ONBEHALFArgs"/>
+     <event value="389" symbol="CHANNEL_OPENED_FOR_PROCESS" version="0" task="CHANNEL_OPENED_FOR_PROCESS" level="win:Informational" keywords="WorkPerFrame" template="CHANNEL_OPENED_FOR_PROCESSArgs"/>
+     <event value="390" symbol="CHANNEL_CLOSED_FOR_PROCESS" version="0" task="CHANNEL_CLOSED_FOR_PROCESS" level="win:Informational" keywords="WorkPerFrame" template="CHANNEL_OPENED_FOR_PROCESSArgs"/>
+     <event value="391" symbol="COMPUTESCRIBBLE_GPUFINISHED" version="0" task="COMPUTESCRIBBLE_GPUFINISHED" level="win:Informational" keywords="ComputeScribble" template="COMPUTESCRIBBLE_GPUFINISHEDArgs"/>
+     <event value="392" symbol="COMPUTESCRIBBLE_DRAWINFO" version="0" task="COMPUTESCRIBBLE_DRAWINFO" level="win:Informational" keywords="ComputeScribble" template="COMPUTESCRIBBLE_DRAWINFOArgs"/>
+     <event value="393" symbol="COMPUTESCRIBBLE_TELEMETRYDROPPED" version="0" task="COMPUTESCRIBBLE_TELEMETRYDROPPED" level="win:Informational" keywords="ComputeScribble" template="COMPUTESCRIBBLE_TELEMETRYDROPPEDArgs"/>
+     <event value="394" symbol="P3D_BUILDING_BSPTREEStart" version="0" task="P3D_BUILDING_BSPTREE" opcode="win:Start" level="win:Informational" keywords="DwmCore"/>
+     <event value="395" symbol="P3D_BUILDING_BSPTREEStop" version="0" task="P3D_BUILDING_BSPTREE" opcode="win:Stop" level="win:Informational" keywords="DwmCore"/>
+     <event value="396" symbol="P3D_BUILDING_POLYGONLISTStart" version="0" task="P3D_BUILDING_POLYGONLIST" opcode="win:Start" level="win:Informational" keywords="DwmCore"/>
+     <event value="397" symbol="P3D_BUILDING_POLYGONLISTStop" version="0" task="P3D_BUILDING_POLYGONLIST" opcode="win:Stop" level="win:Informational" keywords="DwmCore"/>
+     <event value="398" symbol="P3D_RENDERINGStart" version="0" task="P3D_RENDERING" opcode="win:Start" level="win:Informational" keywords="DwmCore"/>
+     <event value="399" symbol="P3D_RENDERINGStop" version="0" task="P3D_RENDERING" opcode="win:Stop" level="win:Informational" keywords="DwmCore"/>
+     <event value="400" symbol="DIAGTRACK_TRIGGER" version="0" task="DIAGTRACK_TRIGGER" level="win:Informational" keywords="DwmDiagTrack" template="DIAGTRACK_TRIGGERArgs"/>
+     <event value="401" symbol="COMPUTESCRIBBLE_RENDERBLOCKEDStart" version="0" task="COMPUTESCRIBBLE_RENDERBLOCKED" opcode="win:Start" level="win:Informational" keywords="ComputeScribble" template="COMPUTESCRIBBLE_FRAMEDISPATCHStartArgs"/>
+     <event value="402" symbol="COMPUTESCRIBBLE_RENDERBLOCKEDStop" version="0" task="COMPUTESCRIBBLE_RENDERBLOCKED" opcode="win:Stop" level="win:Informational" keywords="ComputeScribble" template="COMPUTESCRIBBLE_FRAMEDISPATCHStartArgs"/>
+     <event value="403" symbol="COMPUTESCRIBBLE_SCRIBBLEBLOCKEDStart" version="0" task="COMPUTESCRIBBLE_SCRIBBLEBLOCKED" opcode="win:Start" level="win:Informational" keywords="ComputeScribble" template="COMPUTESCRIBBLE_FRAMEDISPATCHStartArgs"/>
+     <event value="404" symbol="COMPUTESCRIBBLE_SCRIBBLEBLOCKEDStop" version="0" task="COMPUTESCRIBBLE_SCRIBBLEBLOCKED" opcode="win:Stop" level="win:Informational" keywords="ComputeScribble" template="COMPUTESCRIBBLE_FRAMEDISPATCHStartArgs"/>
+     <event value="405" symbol="DCOMPEVENT_RESOURCE_OPEN" version="0" task="DCOMPEVENT_RESOURCE_OPEN" level="win:Verbose" keywords="DwmCore DwmInput" template="DCOMPEVENT_RESOURCE_OPENArgs"/>
+     <event value="406" symbol="VISUAL_SET_INTERACTION" version="0" task="VISUAL_SET_INTERACTION" level="win:Verbose" keywords="DwmInput" template="VISUAL_SET_INTERACTIONArgs"/>
+     <event value="407" symbol="RENDERTARGET_COUNTS" version="0" task="RENDERTARGET_COUNTS" level="win:Informational" keywords="DetailedFrameInformation" template="RENDERTARGET_COUNTSArgs"/>
+     <event value="409" symbol="HWDEVICEStart" version="0" task="HWDEVICE" opcode="win:Start" level="win:Informational" keywords="DwmCore" template="HWDEVICEStartArgs"/>
+     <event value="410" symbol="HWDEVICEStop" version="0" task="HWDEVICE" opcode="win:Stop" level="win:Informational" keywords="DwmCore" template="HWDEVICEStopArgs"/>
+     <event value="411" symbol="COMPUTESCRIBBLE_EARLYCOPY" version="0" task="COMPUTESCRIBBLE_EARLYCOPY" level="win:Informational" keywords="ComputeScribble" template="COMPUTESCRIBBLE_EARLYCOPYArgs"/>
+     <event value="412" symbol="COMPUTESCRIBBLE_ACTIVEStart" version="0" task="COMPUTESCRIBBLE_ACTIVE" opcode="win:Start" level="win:Informational" keywords="ComputeScribble" template="COMPUTESCRIBBLE_ACTIVEStartArgs"/>
+     <event value="413" symbol="COMPUTESCRIBBLE_ACTIVEStop" version="0" task="COMPUTESCRIBBLE_ACTIVE" opcode="win:Stop" level="win:Informational" keywords="ComputeScribble" template="COMPUTESCRIBBLE_ACTIVEStartArgs"/>
+     <event value="414" symbol="LEGACYSWAPCHAIN_BUFFERFLIP" version="0" task="LEGACYSWAPCHAIN_BUFFERFLIP" level="win:Informational" keywords="ComputeScribble" template="LEGACYSWAPCHAIN_BUFFERFLIPArgs"/>
+    </events>
+    <templates>
+     <template tid="SCHEDULE_FRAMEINFOArgs">
+      <data name="IndexFrame" inType="win:UInt32"/>
+      <data name="cFrame" inType="win:UInt64"/>
+      <data name="cDXPresent" inType="win:UInt32"/>
+      <data name="tFrame" inType="win:UInt64"/>
+      <data name="qpcFrame" inType="win:UInt64"/>
+      <data name="cSyncRefreshFrame" inType="win:UInt64"/>
+      <data name="cRefreshesPerFrame" inType="win:UInt32"/>
+      <data name="cRefreshFrame" inType="win:UInt64"/>
+      <data name="cRefreshPresent" inType="win:UInt64"/>
+      <data name="tPresentAfter" inType="win:UInt64"/>
+      <data name="cRefresh" inType="win:UInt64"/>
+      <data name="cDXRefresh" inType="win:UInt32"/>
+      <data name="tRefresh" inType="win:UInt64"/>
+      <data name="qpcRefresh" inType="win:UInt64"/>
+      <data name="cRefreshDelta" inType="win:UInt64"/>
+      <data name="tBegin" inType="win:UInt64"/>
+      <data name="qpcBegin" inType="win:UInt64"/>
+      <data name="tEnd" inType="win:UInt64"/>
+      <data name="tElapsed" inType="win:UInt64"/>
+      <data name="tAvailable" inType="win:UInt64"/>
+      <data name="tDelta" inType="win:UInt64"/>
+      <data name="tVBlankLatency" inType="win:UInt64"/>
+      <data name="fRendered" inType="win:UInt32"/>
+      <data name="fPresented" inType="win:UInt32"/>
+      <data name="fParallelMode" inType="win:UInt32"/>
+      <data name="qpcPresented" inType="win:UInt64"/>
+      <data name="fConfirmed" inType="win:UInt32"/>
+      <data name="qpcConfirmed" inType="win:UInt64"/>
+      <data name="tEarly" inType="win:UInt64"/>
+      <data name="tBudget" inType="win:UInt64"/>
+      <data name="tGlitch" inType="win:UInt64"/>
+     </template>
+     <template tid="SCHEDULE_TIMEArgs">
+      <data name="m_tCurrent" inType="win:UInt64"/>
+      <data name="m_tElapsed" inType="win:UInt64"/>
+      <data name="m_qpcCurrent" inType="win:UInt64"/>
+      <data name="m_qpcLast" inType="win:UInt64"/>
+      <data name="m_cFramesRendered" inType="win:UInt64"/>
+     </template>
+     <template tid="SCHEDULE_WFVBStopArgs">
+      <data name="fUseSleep" inType="win:UInt32"/>
+      <data name="dwSleep" inType="win:UInt32"/>
+     </template>
+     <template tid="SCHEDULE_WFWStopArgs">
+      <data name="returnedWorkType" inType="win:UInt32"/>
+      <data name="Work" inType="win:UInt32"/>
+      <data name="SurfaceManager" inType="win:UInt32"/>
+      <data name="DelayedComposition" inType="win:UInt32"/>
+      <data name="Occlusion" inType="win:UInt32"/>
+     </template>
+     <template tid="SCHEDULE_PROCESS_FRAMEArgs">
+      <data name="fRenderTime" inType="win:UInt32"/>
+      <data name="fPresentNeeded" inType="win:UInt32"/>
+      <data name="dwOutstandingPresents" inType="win:UInt32"/>
+      <data name="dwMaxOutstandingFrames" inType="win:UInt32"/>
+     </template>
+     <template tid="SCHEDULE_RENDERStopArgs">
+      <data name="fPresentNeeded" inType="win:UInt32"/>
+     </template>
+     <template tid="SCHEDULE_PRESENTStartArgs">
+      <data name="tCurrent" inType="win:UInt64"/>
+      <data name="tPresent" inType="win:UInt64"/>
+      <data name="cRefreshCurrent" inType="win:UInt64"/>
+      <data name="cRefreshPresent" inType="win:UInt64"/>
+      <data name="fForce" inType="win:UInt32"/>
+     </template>
+     <template tid="SCHEDULE_GETPRESENTCOUNTStopArgs">
+      <data name="cDisplay" inType="win:UInt32"/>
+      <data name="rgcDXPresent" inType="win:AnsiString"/>
+     </template>
+     <template tid="SCHEDULE_GLITCHArgs">
+      <data name="cFrame" inType="win:UInt64"/>
+      <data name="tVSyncLatency" inType="win:UInt64"/>
+      <data name="tElapsed" inType="win:UInt64"/>
+      <data name="Induced" inType="win:Boolean"/>
+      <data name="qpcPresented" inType="win:UInt64"/>
+      <data name="qpcConfirmed" inType="win:UInt64"/>
+      <data name="tPresentLatency" inType="win:UInt64"/>
+      <data name="qpcFrame" inType="win:UInt64"/>
+      <data name="cSyncRefreshFrame" inType="win:UInt64"/>
+      <data name="tGlitch" inType="win:UInt64"/>
+      <data name="qpcFrequency" inType="win:UInt64"/>
+      <data name="qpcPeriod" inType="win:UInt64"/>
+      <data name="cMonitors" inType="win:UInt32"/>
+      <data name="rgcDXRefresh" inType="win:Binary"/>
+     </template>
+     <template tid="SCHEDULE_GLITCH_RECOVERY_ATTEMPTArgs">
+      <data name="cRefreshFrame" inType="win:UInt64"/>
+     </template>
+     <template tid="ETWGUID_PUSH_INTERNAL_LAYER_EVENTStartArgs">
+      <data name="left" inType="win:UInt32"/>
+      <data name="top" inType="win:UInt32"/>
+      <data name="right" inType="win:UInt32"/>
+      <data name="bottom" inType="win:UInt32"/>
+     </template>
+     <template tid="ETWGUID_BITMAPCOPYEVENTArgs">
+      <data name="width" inType="win:UInt32"/>
+      <data name="height" inType="win:UInt32"/>
+      <data name="dxgiFormat" inType="win:UInt32"/>
+      <data name="pixelSize" inType="win:UInt32"/>
+     </template>
+     <template tid="ETWGUID_COPYFRONTTOBACKBUFFEREVENTStopArgs">
+      <data name="invalidRegions" inType="win:UInt32"/>
+      <data name="pixelsCopied" inType="win:UInt32"/>
+     </template>
+     <template tid="ETWGUID_CLEAREVENTStartArgs">
+      <data name="left" inType="win:Float"/>
+      <data name="top" inType="win:Float"/>
+      <data name="right" inType="win:Float"/>
+      <data name="bottom" inType="win:Float"/>
+     </template>
+     <template tid="ETWGUID_DIRTYREGIONEVENTArgs">
+      <data name="Id" inType="win:UInt32"/>
+      <data name="Z" inType="win:Int32"/>
+      <data name="left" inType="win:Float"/>
+      <data name="top" inType="win:Float"/>
+      <data name="right" inType="win:Float"/>
+      <data name="bottom" inType="win:Float"/>
+     </template>
+     <template tid="ETWGUID_OCCLUSIONEVENTStartArgs">
+      <data name="data" inType="win:UInt64"/>
+      <data name="Id" inType="win:UInt32"/>
+     </template>
+     <template tid="ETWGUID_OCCLUSIONEVENTArgs">
+      <data name="Z" inType="win:Int32"/>
+      <data name="left" inType="win:Float"/>
+      <data name="top" inType="win:Float"/>
+      <data name="right" inType="win:Float"/>
+      <data name="bottom" inType="win:Float"/>
+      <data name="rectType" inType="win:UInt32"/>
+     </template>
+     <template tid="ETWGUID_DWMUPDATEWINDOWArgs">
+      <data name="hWnd" inType="win:UInt64"/>
+      <data name="rcDirty" inType="win:Int8"/>
+      <data name="rcWindow" inType="win:Int32"/>
+     </template>
+     <template tid="ETWGUID_DRAWEVENTStartArgs">
+      <data name="type" inType="win:UInt32" map="EVENT_TRACE_DRAWING"/>
+      <data name="Z" inType="win:UInt32"/>
+     </template>
+     <template tid="ETWGUID_DRAWEVENTStopArgs">
+      <data name="type" inType="win:UInt32"/>
+      <data name="Z" inType="win:UInt32"/>
+     </template>
+     <template tid="MILEVENT_MEDIA_UCE_PROCESSQUEUEEVENTStartArgs">
+      <data name="pThis" inType="win:UInt64"/>
+     </template>
+     <template tid="MILEVENT_MEDIA_UCE_PRECOMPUTEEVENTStartArgs">
+      <data name="pThis" inType="win:UInt64"/>
+      <data name="Flags" inType="win:UInt32"/>
+     </template>
+     <template tid="MILEVENT_MEDIA_UCE_RENDEREVENTStartArgs">
+      <data name="pThis" inType="win:UInt64"/>
+      <data name="FullRender" inType="win:UInt32"/>
+      <data name="dirtyRegionCount" inType="win:UInt32"/>
+     </template>
+     <template tid="MILEVENT_MEDIA_UCE_PRESENTEVENTStartArgs">
+      <data name="composition" inType="win:UInt64"/>
+      <data name="qpcCurrentTime" inType="win:UInt64"/>
+     </template>
+     <template tid="MILEVENT_MEDIA_UCE_PROCESSPRESENTHISTORY_GetPresentHistoryArgs">
+      <data name="hr" inType="win:UInt32"/>
+      <data name="cTokenCount" inType="win:UInt32"/>
+     </template>
+     <template tid="MILEVENT_MEDIA_UCE_PROCESSPRESENTHISTORYStopArgs">
+      <data name="cTotalTokenCount" inType="win:UInt32"/>
+      <data name="cIterationCount" inType="win:UInt32"/>
+     </template>
+     <template tid="MILEVENT_MEDIA_UCE_CHECKDEVICESTATEArgs">
+      <data name="hwnd" inType="win:UInt64"/>
+      <data name="hr" inType="win:UInt32"/>
+     </template>
+     <template tid="GDISPRITE_LOGICALSURFACE_ASSOCIATIONArgs">
+      <data name="GdiSpritePointer" inType="win:UInt64"/>
+      <data name="logicalSurfaceHandle" inType="win:UInt64"/>
+     </template>
+     <template tid="WINDOWNODE_GDISPRITE_ASSOCIATIONArgs">
+      <data name="windowHandle" inType="win:UInt64"/>
+      <data name="spriteHandle" inType="win:UInt64"/>
+      <data name="GdiSpritePointer" inType="win:UInt64"/>
+     </template>
+     <template tid="SCHEDULE_ROUNDTRIPREQUEST_STATEArgs">
+      <data name="NextState" inType="win:UInt32"/>
+      <data name="RequestId" inType="win:UInt32"/>
+      <data name="FrameToWaitFor" inType="win:UInt64"/>
+     </template>
+     <template tid="SCHEDULE_PRESENTHISTORYTOKEN_GDIArgs">
+      <data name="hLogicalSurface" inType="win:UInt64"/>
+      <data name="hDxSharedSurface" inType="win:UInt64"/>
+      <data name="NumRects" inType="win:UInt32"/>
+      <data name="DirtyRegions" inType="win:UInt8" count="NumRects"/>
+     </template>
+     <template tid="SCHEDULE_PRESENTHISTORYTOKEN_GDISYSMEMArgs">
+      <data name="hlsurf" inType="win:UInt64"/>
+      <data name="uiCookie" inType="win:UInt64"/>
+      <data name="dwDirtyFlags" inType="win:UInt32"/>
+     </template>
+     <template tid="SCHEDULE_PRESENTHISTORYTOKEN_BLTArgs">
+      <data name="hLogicalSurface" inType="win:UInt64"/>
+      <data name="hDxSharedSurface" inType="win:UInt64"/>
+      <data name="EventId" inType="win:UInt64"/>
+      <data name="NumRects" inType="win:UInt32"/>
+      <data name="DirtyRegions" inType="win:Int16" count="NumRects"/>
+     </template>
+     <template tid="ETWGUID_MAGNIFIERRENDERTARGET_CAPTUREBITSStartArgs">
+      <data name="hwndLensContext" inType="win:UInt64"/>
+      <data name="UpdateId" inType="win:UInt64"/>
+      <data name="OffsetX" inType="win:Int32"/>
+      <data name="OffsetY" inType="win:Int32"/>
+      <data name="S_11" inType="win:Float"/>
+      <data name="S_22" inType="win:Float"/>
+      <data name="DX" inType="win:Float"/>
+      <data name="DY" inType="win:Float"/>
+     </template>
+     <template tid="ETWGUID_MAGNIFIERRENDERTARGET_CAPTUREBITSStopArgs">
+      <data name="hwndLensContext" inType="win:UInt64"/>
+      <data name="UpdateId" inType="win:UInt64"/>
+      <data name="hr" inType="win:UInt32"/>
+     </template>
+     <template tid="BIND_GDISPRITEBITMAP_FIRST_TOKENArgs">
+      <data name="logicalSurfaceImagePointer" inType="win:UInt64"/>
+      <data name="hDxSharedSurface" inType="win:UInt64"/>
+      <data name="windowNodePointer" inType="win:UInt64"/>
+      <data name="windowNodeParentPointer" inType="win:UInt64"/>
+      <data name="logicalSurfaceImageLHandle" inType="win:UInt64"/>
+     </template>
+     <template tid="SCHEDULE_UPDATE_FRAME_INDEXESArgs">
+      <data name="Previous" inType="win:UInt32"/>
+      <data name="Current" inType="win:UInt32"/>
+      <data name="Confirmed" inType="win:UInt32"/>
+      <data name="Presented" inType="win:UInt32"/>
+     </template>
+     <template tid="MILEVENT_MEDIA_UCE_BLTDESKTOPStartArgs">
+      <data name="nrOfRects" inType="win:UInt32"/>
+     </template>
+     <template tid="MILEVENT_MEDIA_UCE_BLTDESKTOPArgs">
+      <data name="usingWARPSharedSection" inType="win:UInt32"/>
+      <data name="rcClipScan" inType="win:AnsiString"/>
+     </template>
+     <template tid="ETWGUID_DWMUPDATEBLTTRANSLATION_CLIPArgs">
+      <data name="hWnd" inType="win:UInt64"/>
+      <data name="rcBltClip" inType="win:Int8"/>
+      <data name="rcWindow" inType="win:Int32"/>
+     </template>
+     <template tid="ETWGUID_DWMUPDATEBLTTRANSLATION_POINTArgs">
+      <data name="hWnd" inType="win:UInt64"/>
+      <data name="ptOffset" inType="win:AnsiString"/>
+     </template>
+     <template tid="MILEVENT_MEDIA_UCE_BLTINDESKTOP_RECTArgs">
+      <data name="ptOffset" inType="win:AnsiString"/>
+      <data name="rcClipScan" inType="win:UInt8"/>
+     </template>
+     <template tid="ETWGUID_STEREO_COPYLEFTTORIGHTBUFFEREVENTStartArgs">
+      <data name="hmon" inType="win:UInt64"/>
+     </template>
+     <template tid="ETWGUID_STEREO_COPYLEFTTORIGHTBUFFEREVENTArgs">
+      <data name="left" inType="win:Int32"/>
+      <data name="top" inType="win:Int32"/>
+      <data name="right" inType="win:Int32"/>
+      <data name="bottom" inType="win:Int32"/>
+     </template>
+     <template tid="ETWGUID_SLICER_CAPTUREStartArgs">
+      <data name="hWndContext" inType="win:UInt64"/>
+      <data name="left" inType="win:Int32"/>
+      <data name="top" inType="win:Int32"/>
+      <data name="right" inType="win:Int32"/>
+      <data name="bottom" inType="win:Int32"/>
+      <data name="cMaxFramesToCapture" inType="win:Int32"/>
+      <data name="cFramesToSkip" inType="win:Int32"/>
+     </template>
+     <template tid="ETWGUID_SLICER_CAPTUREStopArgs">
+      <data name="hWndContext" inType="win:UInt64"/>
+      <data name="cFramesCaptured" inType="win:Int32"/>
+     </template>
+     <template tid="ETWGUID_SLICER_CAPTUREFRAMEArgs">
+      <data name="hWndContext" inType="win:UInt64"/>
+      <data name="nFrame" inType="win:Int32"/>
+      <data name="xDst" inType="win:Int32"/>
+      <data name="yDst" inType="win:Int32"/>
+     </template>
+     <template tid="DCOMPEVENT_RESOURCEArgs">
+      <data name="channelHandle" inType="win:UInt32"/>
+      <data name="resourceHandle" inType="win:UInt32"/>
+      <data name="resourceInternalHandleAndChannel" inType="win:UInt64"/>
+      <data name="resourceType" inType="win:UInt32"/>
+      <data name="resourcePointer" inType="win:UInt64"/>
+     </template>
+     <template tid="DCOMPEVENT_ANIMATION_INITIAL_VALUEArgs">
+      <data name="animationPointer" inType="win:UInt64"/>
+      <data name="resourcePointer" inType="win:UInt64"/>
+      <data name="propertyId" inType="win:UInt32"/>
+      <data name="initialValue" inType="win:Float"/>
+     </template>
+     <template tid="DCOMPEVENT_ANIMATION_UPDATE_VALUEArgs">
+      <data name="expectedFramePresentTime" inType="win:UInt64"/>
+      <data name="animationPointer" inType="win:UInt64"/>
+      <data name="resourcePointer" inType="win:UInt64"/>
+      <data name="propertyId" inType="win:UInt32"/>
+      <data name="propertyValue" inType="win:Float"/>
+     </template>
+     <template tid="DCOMPEVENT_END_ANIMATIONArgs">
+      <data name="animationPointer" inType="win:UInt64"/>
+     </template>
+     <template tid="SCHEDULE_NEW_EFFECTIVE_REFRESH_PERIOD_DELTASArgs">
+      <data name="DisplayID" inType="win:UInt32"/>
+      <data name="SyncRefreshCountDelta" inType="win:UInt64"/>
+      <data name="SyncRefreshCountDeltaExpected" inType="win:UInt64"/>
+      <data name="SyncTimeDeltaMS" inType="win:Float"/>
+      <data name="SyncPeriodMS" inType="win:Float"/>
+     </template>
+     <template tid="SCHEDULE_NEW_EFFECTIVE_REFRESH_PERIODArgs">
+      <data name="DisplayID" inType="win:UInt32"/>
+      <data name="OldEffectivePeriod" inType="win:Float"/>
+      <data name="NewEffectivePeriod" inType="win:Float"/>
+     </template>
+     <template tid="ETWGUID_DIRECTFLIP_TRANSITIONEVENTArgs">
+      <data name="hmon" inType="win:UInt64"/>
+      <data name="fDirectFlip" inType="win:UInt32"/>
+     </template>
+     <template tid="ETWGUID_DIRECTFLIP_SUPPORTEVENTArgs">
+      <data name="hCompSurf" inType="win:UInt64"/>
+      <data name="fSupported" inType="win:UInt32"/>
+      <data name="fDirectFlipEnabledSurface" inType="win:UInt32"/>
+      <data name="rotation" inType="win:UInt32"/>
+      <data name="alphaMode" inType="win:UInt32"/>
+      <data name="fStereoContent" inType="win:UInt32"/>
+      <data name="fMonitorSpecificContent" inType="win:UInt32"/>
+      <data name="surfaceWidth" inType="win:UInt32"/>
+      <data name="surfaceHeight" inType="win:UInt32"/>
+     </template>
+     <template tid="ETWGUID_DIRECTFLIP_PINEVENTArgs">
+      <data name="hCompSurf" inType="win:UInt64"/>
+     </template>
+     <template tid="ETWGUID_RENDEROPT_DISCARDRESOURCEEVENTArgs">
+      <data name="pResource" inType="win:UInt64"/>
+     </template>
+     <template tid="ETWGUID_RENDEROPT_TILEABLECOPYEVENTArgs">
+      <data name="pSrcResource" inType="win:UInt64"/>
+      <data name="pDstResource" inType="win:UInt64"/>
+      <data name="SrcLeft" inType="win:Int32"/>
+      <data name="SrcTop" inType="win:Int32"/>
+      <data name="SrcRight" inType="win:Int32"/>
+      <data name="SrcBottom" inType="win:Int32"/>
+      <data name="DstX" inType="win:Int32"/>
+      <data name="DstY" inType="win:Int32"/>
+     </template>
+     <template tid="OPEN_SHARED_TEXTURE_EVENTStartArgs">
+      <data name="dxSharedHandle" inType="win:UInt64"/>
+     </template>
+     <template tid="SCHEDULE_RENDERTIMEArgs">
+      <data name="pFrame" inType="win:UInt64"/>
+      <data name="fRenderTime" inType="win:UInt32"/>
+      <data name="cFramesOutstanding" inType="win:UInt32"/>
+      <data name="cMaxFramesOutstanding" inType="win:UInt32"/>
+     </template>
+     <template tid="SCHEDULE_GLITCH_DETECTEDArgs">
+      <data name="Induced" inType="win:Boolean"/>
+     </template>
+     <template tid="ETWGUID_DRAWING_CONTEXT_FRAMEStartArgs">
+      <data name="DrawingContext" inType="win:Pointer"/>
+      <data name="RenderTarget" inType="win:Pointer"/>
+      <data name="RTLeft" inType="win:Float"/>
+      <data name="RTTop" inType="win:Float"/>
+      <data name="RTRight" inType="win:Float"/>
+      <data name="RTBottom" inType="win:Float"/>
+      <data name="DeviceTransformLength" inType="win:UInt8"/>
+      <data name="DeviceTransform" inType="win:Binary" length="DeviceTransformLength"/>
+     </template>
+     <template tid="ETWGUID_DRAWING_CONTEXT_STATEArgs">
+      <data name="DrawingContext" inType="win:Pointer"/>
+      <data name="Visual" inType="win:Pointer"/>
+      <data name="ClipLeft" inType="win:Float"/>
+      <data name="ClipTop" inType="win:Float"/>
+      <data name="ClipRight" inType="win:Float"/>
+      <data name="ClipBottom" inType="win:Float"/>
+      <data name="TransformMatrixLength" inType="win:UInt8"/>
+      <data name="TransformMatrix" inType="win:Binary" length="TransformMatrixLength"/>
+      <data name="AttributedProcessId" inType="win:UInt32"/>
+     </template>
+     <template tid="ETWGUID_COMPOSITION_SURFACE_DRAWArgs">
+      <data name="Visual" inType="win:Pointer"/>
+      <data name="Surface" inType="win:Pointer"/>
+      <data name="Source" inType="win:Pointer"/>
+      <data name="VisualLeft" inType="win:Float"/>
+      <data name="VisualTop" inType="win:Float"/>
+      <data name="VisualRight" inType="win:Float"/>
+      <data name="VisualBottom" inType="win:Float"/>
+     </template>
+     <template tid="ETWGUID_CVI_UPDATEArgs">
+      <data name="CVI" inType="win:Pointer"/>
+      <data name="SourceVisual" inType="win:Pointer"/>
+      <data name="ViewboxLeft" inType="win:Float"/>
+      <data name="ViewboxTop" inType="win:Float"/>
+      <data name="ViewboxWidth" inType="win:Float"/>
+      <data name="ViewboxHeight" inType="win:Float"/>
+      <data name="SurfaceWidth" inType="win:Int32"/>
+      <data name="SurfaceHeight" inType="win:Int32"/>
+     </template>
+     <template tid="ETWGUID_DIRECTFLIP_CANDIDATEOVERWRITEVENTArgs">
+      <data name="hCompSurf" inType="win:UInt64"/>
+      <data name="nodeType" inType="win:UInt32"/>
+      <data name="nodeContentType" inType="win:UInt32"/>
+      <data name="nodeBoundsLeft" inType="win:Int32"/>
+      <data name="nodeBoundsTop" inType="win:Int32"/>
+      <data name="nodeBoundsRight" inType="win:Int32"/>
+      <data name="nodeBoundsBottom" inType="win:Int32"/>
+     </template>
+     <template tid="SCHEDULE_TIMEADJUSTED_BETWEENFRAMESArgs">
+      <data name="qpcDelta" inType="win:UInt64"/>
+     </template>
+     <template tid="SCHEDULE_CLEAR_D2D_CACHESStartArgs">
+      <data name="PreviousWaitTimeoutMS" inType="win:UInt32"/>
+     </template>
+     <template tid="SCHEDULE_CLEAR_D2D_CACHESStopArgs">
+      <data name="fAllCachesReachMinimum" inType="win:UInt32"/>
+     </template>
+     <template tid="SCHEDULE_SURFACEUPDATEArgs">
+      <data name="luidSurface" inType="win:Pointer"/>
+      <data name="bindId" inType="win:UInt64"/>
+      <data name="PresentCount" inType="win:UInt64"/>
+      <data name="fenceValue" inType="win:UInt64"/>
+      <data name="bDirectFlip" inType="win:UInt32"/>
+      <data name="DXGI_ALPHA_MODE" inType="win:UInt32"/>
+      <data name="hmonAssociation" inType="win:UInt64"/>
+      <data name="bStereoPreferRight" inType="win:UInt32"/>
+      <data name="bTemporaryMono" inType="win:UInt32"/>
+      <data name="bSwapPool" inType="win:UInt32"/>
+      <data name="BufferContentType" inType="win:UInt32"/>
+      <data name="bIndependentFlip" inType="win:UInt32"/>
+      <data name="uPesentDuration" inType="win:UInt32"/>
+      <data name="BufferRealizationType" inType="win:UInt32"/>
+      <data name="uRealizationIndex" inType="win:UInt32"/>
+      <data name="hDxSurface" inType="win:UInt64"/>
+     </template>
+     <template tid="ETWGUID_RENDEROPT_DISCARDVIEWEVENTArgs">
+      <data name="pView" inType="win:UInt64"/>
+      <data name="NumRects" inType="win:UInt32"/>
+      <data name="FirstRectLeft" inType="win:Int32"/>
+      <data name="FirstRectTop" inType="win:Int32"/>
+      <data name="FirstRectRight" inType="win:Int32"/>
+      <data name="FirstRectBottom" inType="win:Int32"/>
+     </template>
+     <template tid="SCHEDULE_DERIVEDISPLAYSETArgs">
+      <data name="fSucceeded" inType="win:UInt32"/>
+      <data name="nrOfAttempts" inType="win:UInt32"/>
+      <data name="driverUpdateStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="SCHEDULE_RETIREFRAMEArgs">
+      <data name="cFrame" inType="win:UInt64"/>
+      <data name="nrOutput" inType="win:UInt32"/>
+      <data name="cSyncRefreshRetired" inType="win:UInt64"/>
+      <data name="qpcConfirmed" inType="win:UInt64"/>
+      <data name="fTimedOut" inType="win:UInt32"/>
+      <data name="fParallelMode" inType="win:UInt32"/>
+     </template>
+     <template tid="SCHEDULE_GETPRESENTSTATS1Args">
+      <data name="cDisplays" inType="win:UInt32"/>
+      <data name="rgDXPresentStats" inType="win:AnsiString" count="cDisplays"/>
+     </template>
+     <template tid="SCHEDULE_PRESENT_STATS_DELTASArgs">
+      <data name="DisplayID" inType="win:UInt64"/>
+      <data name="SyncRefreshCountDelta" inType="win:UInt64"/>
+      <data name="SyncTimeDeltaMS" inType="win:Float"/>
+     </template>
+     <template tid="HIT_TESTStartArgs">
+      <data name="X" inType="win:UInt32"/>
+      <data name="Y" inType="win:UInt32"/>
+      <data name="InputSpaceId" inType="win:UInt64"/>
+      <data name="WorkspaceId" inType="win:UInt32"/>
+     </template>
+     <template tid="HIT_TESTStopArgs">
+      <data name="X" inType="win:UInt32"/>
+      <data name="Y" inType="win:UInt32"/>
+      <data name="hWnd" inType="win:Pointer"/>
+      <data name="inputSinkHandle" inType="win:Pointer"/>
+      <data name="inputSinkLuid" inType="win:UInt64"/>
+      <data name="_11" inType="win:Float"/>
+      <data name="_12" inType="win:Float"/>
+      <data name="_13" inType="win:Float"/>
+      <data name="_14" inType="win:Float"/>
+      <data name="_21" inType="win:Float"/>
+      <data name="_22" inType="win:Float"/>
+      <data name="_23" inType="win:Float"/>
+      <data name="_24" inType="win:Float"/>
+      <data name="_31" inType="win:Float"/>
+      <data name="_32" inType="win:Float"/>
+      <data name="_33" inType="win:Float"/>
+      <data name="_34" inType="win:Float"/>
+      <data name="_41" inType="win:Float"/>
+      <data name="_42" inType="win:Float"/>
+      <data name="_43" inType="win:Float"/>
+      <data name="_44" inType="win:Float"/>
+     </template>
+     <template tid="HIT_TEST_TREE_WALKStartArgs">
+      <data name="X" inType="win:UInt32"/>
+      <data name="Y" inType="win:UInt32"/>
+      <data name="RootVisual" inType="win:Pointer"/>
+     </template>
+     <template tid="HIT_TEST_TREE_WALKStopArgs">
+      <data name="X" inType="win:UInt32"/>
+      <data name="Y" inType="win:UInt32"/>
+      <data name="HitTestedVisual" inType="win:Pointer"/>
+     </template>
+     <template tid="INPUT_SINKArgs">
+      <data name="InteractionPointer" inType="win:Pointer"/>
+      <data name="inputSinkHandle" inType="win:Pointer"/>
+     </template>
+     <template tid="DETECT_TOPLEVELWINDOW_DESTROYArgs">
+      <data name="hWnd" inType="win:UInt64"/>
+      <data name="pCollector" inType="win:UInt64"/>
+      <data name="nMetaDataCount" inType="win:UInt64"/>
+     </template>
+     <template tid="OVERLAY_GETCAPSArgs">
+      <data name="MaxPlanes" inType="win:UInt32"/>
+      <data name="OverlayCaps" inType="win:UInt32"/>
+     </template>
+     <template tid="OVERLAY_RECORDCANDIDATEArgs">
+      <data name="hCompSurf" inType="win:UInt64"/>
+      <data name="SurfaceWidth" inType="win:Int32"/>
+      <data name="SurfaceHeight" inType="win:Int32"/>
+      <data name="PixelFormat" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="SrcRectLeft" inType="win:Int32"/>
+      <data name="SrcRectTop" inType="win:Int32"/>
+      <data name="SrcRectRight" inType="win:Int32"/>
+      <data name="SrcRectBottom" inType="win:Int32"/>
+      <data name="DstRectLeft" inType="win:Int32"/>
+      <data name="DstRectTop" inType="win:Int32"/>
+      <data name="DstRectRight" inType="win:Int32"/>
+      <data name="DstRectBottom" inType="win:Int32"/>
+      <data name="ClipRectLeft" inType="win:Int32"/>
+      <data name="ClipRectTop" inType="win:Int32"/>
+      <data name="ClipRectRight" inType="win:Int32"/>
+      <data name="ClipRectBottom" inType="win:Int32"/>
+      <data name="Rotation" inType="win:UInt32"/>
+      <data name="Blend" inType="win:UInt32"/>
+      <data name="ColorSpace" inType="win:UInt32"/>
+     </template>
+     <template tid="OVERLAY_CHECKOCCLUSIONArgs">
+      <data name="hCompSurf" inType="win:UInt64"/>
+      <data name="fOccluded" inType="win:Int32"/>
+     </template>
+     <template tid="OVERLAY_CHECKSUPPORTStartArgs">
+      <data name="fHardwareCheck" inType="win:Int32"/>
+      <data name="NumPlanes" inType="win:Int32"/>
+     </template>
+     <template tid="OVERLAY_CHECKSUPPORTArgs">
+      <data name="hResource" inType="win:UInt64"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="SrcRectLeft" inType="win:Int32"/>
+      <data name="SrcRectTop" inType="win:Int32"/>
+      <data name="SrcRectRight" inType="win:Int32"/>
+      <data name="SrcRectBottom" inType="win:Int32"/>
+      <data name="DstRectLeft" inType="win:Int32"/>
+      <data name="DstRectTop" inType="win:Int32"/>
+      <data name="DstRectRight" inType="win:Int32"/>
+      <data name="DstRectBottom" inType="win:Int32"/>
+      <data name="ClipRectLeft" inType="win:Int32"/>
+      <data name="ClipRectTop" inType="win:Int32"/>
+      <data name="ClipRectRight" inType="win:Int32"/>
+      <data name="ClipRectBottom" inType="win:Int32"/>
+      <data name="Rotation" inType="win:UInt32"/>
+      <data name="Blend" inType="win:UInt32"/>
+      <data name="ColorSpace" inType="win:UInt32"/>
+     </template>
+     <template tid="OVERLAY_CHECKSUPPORTStopArgs">
+      <data name="fSupported" inType="win:Int32"/>
+     </template>
+     <template tid="OVERLAY_CANDIDATECOLLECTIONStartArgs">
+      <data name="fEnabled" inType="win:Int32"/>
+     </template>
+     <template tid="OVERLAY_CANDIDATECOLLECTIONStopArgs">
+      <data name="fNeedFullRender" inType="win:Int32"/>
+     </template>
+     <template tid="OVERLAY_PRESENTStartArgs">
+      <data name="cPlanes" inType="win:Int32"/>
+     </template>
+     <template tid="OVERLAY_PRESENTArgs">
+      <data name="hResource" inType="win:UInt64"/>
+      <data name="Enabled" inType="win:UInt32"/>
+      <data name="PlaneIndex" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="SrcRectLeft" inType="win:Int32"/>
+      <data name="SrcRectTop" inType="win:Int32"/>
+      <data name="SrcRectRight" inType="win:Int32"/>
+      <data name="SrcRectBottom" inType="win:Int32"/>
+      <data name="DstRectLeft" inType="win:Int32"/>
+      <data name="DstRectTop" inType="win:Int32"/>
+      <data name="DstRectRight" inType="win:Int32"/>
+      <data name="DstRectBottom" inType="win:Int32"/>
+      <data name="ClipRectLeft" inType="win:Int32"/>
+      <data name="ClipRectTop" inType="win:Int32"/>
+      <data name="ClipRectRight" inType="win:Int32"/>
+      <data name="ClipRectBottom" inType="win:Int32"/>
+      <data name="Rotation" inType="win:UInt32"/>
+      <data name="Blend" inType="win:UInt32"/>
+      <data name="ColorSpace" inType="win:UInt32"/>
+     </template>
+     <template tid="DETECT_REMOTEAPPWINDOW_STATEArgs">
+      <data name="hWnd" inType="win:UInt64"/>
+      <data name="hRgnWnd" inType="win:UInt64"/>
+      <data name="nWidth" inType="win:UInt32"/>
+      <data name="nHeight" inType="win:UInt32"/>
+      <data name="pCollector" inType="win:UInt64"/>
+      <data name="nMetaDataCount" inType="win:UInt64"/>
+     </template>
+     <template tid="REMOTEAPP_METADATA_STATSArgs">
+      <data name="pCollector" inType="win:UInt64"/>
+      <data name="nMetaDataCount" inType="win:UInt64"/>
+     </template>
+     <template tid="DETECT_REMOTEAPPMODE_SWITCHArgs">
+      <data name="bIsFullScreenRemoting" inType="win:UInt32"/>
+      <data name="bIsModeHiDef" inType="win:UInt32"/>
+      <data name="IsModeDesktopBitmapRemoting" inType="win:UInt32"/>
+     </template>
+     <template tid="ETWGUID_PRIMITIVE_GROUP_DRAWArgs">
+      <data name="Visual" inType="win:Pointer"/>
+      <data name="PrimitiveGroup" inType="win:Pointer"/>
+      <data name="VisualLeft" inType="win:Float"/>
+      <data name="VisualTop" inType="win:Float"/>
+      <data name="VisualRight" inType="win:Float"/>
+      <data name="VisualBottom" inType="win:Float"/>
+     </template>
+     <template tid="ETWGUID_D2DLAYERCREATEREASONArgs">
+      <data name="layerCreateBitFlags" inType="win:UInt32"/>
+     </template>
+     <template tid="ANIMATION_FIRST_FRAME_EVENTArgs">
+      <data name="cFrameStart" inType="win:UInt64"/>
+      <data name="AnimationScenario" inType="win:UnicodeString"/>
+      <data name="cFramesSinceCreate" inType="win:UInt32"/>
+      <data name="ScenarioIndex" inType="win:UInt32"/>
+      <data name="ScenarioDetailsHash" inType="win:UInt32"/>
+      <data name="ScenarioDetails" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ANIMATION_LAST_FRAME_EVENTArgs">
+      <data name="cFrameStart" inType="win:UInt64"/>
+      <data name="cFrameStop" inType="win:UInt64"/>
+      <data name="PercentVsyncsMissed" inType="win:UInt32"/>
+      <data name="VsyncCount" inType="win:UInt32"/>
+      <data name="VsyncCadenceInHz" inType="win:UInt64"/>
+      <data name="FrameRateInFps" inType="win:UInt64"/>
+      <data name="MaxFramePeriodInMS" inType="win:UInt32"/>
+      <data name="AnimationScenario" inType="win:UnicodeString"/>
+      <data name="ScenarioIndex" inType="win:UInt32"/>
+      <data name="MaxVsyncsMissed" inType="win:UInt32"/>
+      <data name="TimeToFirstFrameInMS" inType="win:UInt32"/>
+      <data name="TimeFromInputToFirstFrameInMS" inType="win:UInt32"/>
+      <data name="IntendedDurationInMS" inType="win:UInt32"/>
+      <data name="ScenarioDetailsHash" inType="win:UInt32"/>
+      <data name="ScenarioDetails" inType="win:UnicodeString"/>
+      <data name="ApplicationId" inType="win:UnicodeString"/>
+      <data name="FrameGlitchesCount" inType="win:UInt32"/>
+      <data name="TotalVsyncsMissed" inType="win:UInt32"/>
+     </template>
+     <template tid="SWAPCHAIN_BUFFERSArgs">
+      <data name="nCount" inType="win:UInt32"/>
+      <data name="DisplayName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ETWGUID_SETINDEPENDENTFLIPINFOArgs">
+      <data name="hCompSurf" inType="win:UInt64"/>
+      <data name="bindId" inType="win:UInt64"/>
+      <data name="uPlaneIndex" inType="win:UInt32"/>
+      <data name="bIndependentFlipEnabled" inType="win:UInt32"/>
+      <data name="bNotifySurfaceUpdates" inType="win:UInt32"/>
+      <data name="uPresentDuration" inType="win:UInt32"/>
+      <data name="bPendingIndependentFlip" inType="win:UInt32"/>
+     </template>
+     <template tid="ETWGUID_PRIMITIVE_GROUP_SELF_OCCLUSION_INFOArgs">
+      <data name="PrimitiveGroup" inType="win:Pointer"/>
+      <data name="OccluderCommandIndex" inType="win:UInt32"/>
+     </template>
+     <template tid="INPUT_SINK_TRANSFORM_UPDATEArgs">
+      <data name="inputSinkHandle" inType="win:Pointer"/>
+      <data name="inputSinkLuid" inType="win:UInt64"/>
+      <data name="_11" inType="win:Float"/>
+      <data name="_12" inType="win:Float"/>
+      <data name="_13" inType="win:Float"/>
+      <data name="_14" inType="win:Float"/>
+      <data name="_21" inType="win:Float"/>
+      <data name="_22" inType="win:Float"/>
+      <data name="_23" inType="win:Float"/>
+      <data name="_24" inType="win:Float"/>
+      <data name="_31" inType="win:Float"/>
+      <data name="_32" inType="win:Float"/>
+      <data name="_33" inType="win:Float"/>
+      <data name="_34" inType="win:Float"/>
+      <data name="_41" inType="win:Float"/>
+      <data name="_42" inType="win:Float"/>
+      <data name="_43" inType="win:Float"/>
+      <data name="_44" inType="win:Float"/>
+     </template>
+     <template tid="MANIPULATION_FRAME_RECEIVEDArgs">
+      <data name="frameId" inType="win:UInt32"/>
+      <data name="contactCount" inType="win:UInt32"/>
+     </template>
+     <template tid="INTERACTION_CREATEDArgs">
+      <data name="Interaction" inType="win:Pointer"/>
+      <data name="Resource" inType="win:Pointer"/>
+      <data name="HitTestHandle" inType="win:UInt32"/>
+     </template>
+     <template tid="INTERACTION_VISUAL_UPDATEArgs">
+      <data name="Interaction" inType="win:Pointer"/>
+      <data name="Visual" inType="win:Pointer"/>
+     </template>
+     <template tid="INTERACTION_TOUCH_CONFIGURATION_CHANGEDArgs">
+      <data name="Interaction" inType="win:Pointer"/>
+      <data name="updateType" inType="win:UInt32"/>
+      <data name="configurationCount" inType="win:UInt32"/>
+      <data name="configurations" inType="win:UInt8" count="configurationCount"/>
+     </template>
+     <template tid="MANIPULATION_CONTEXT_CREATEDArgs">
+      <data name="manipulationContextPointer" inType="win:Pointer"/>
+      <data name="pointerId" inType="win:UInt32"/>
+     </template>
+     <template tid="ADVANCED_DIRECTFLIP_RECORDCANDIDATEArgs">
+      <data name="surfaceLuid" inType="win:UInt64"/>
+      <data name="OverdrawRectangleCount" inType="win:Int32"/>
+      <data name="OverdrawBoundsLeft" inType="win:Int32"/>
+      <data name="OverdrawBoundsTop" inType="win:Int32"/>
+      <data name="OverdrawBoundsRight" inType="win:Int32"/>
+      <data name="OverdrawBoundsBottom" inType="win:Int32"/>
+     </template>
+     <template tid="ADVANCED_DIRECTFLIP_CREATERESTOREBUFFERArgs">
+      <data name="surfaceLuid" inType="win:UInt64"/>
+     </template>
+     <template tid="ADVANCED_DIRECTFLIP_RESTORECONTENTArgs">
+      <data name="surfaceLuid" inType="win:UInt64"/>
+      <data name="RestoreRectangleCount" inType="win:Int32"/>
+      <data name="RestoreBoundsLeft" inType="win:Int32"/>
+      <data name="RestoreBoundsTop" inType="win:Int32"/>
+      <data name="RestoreBoundsRight" inType="win:Int32"/>
+      <data name="RestoreBoundsBottom" inType="win:Int32"/>
+     </template>
+     <template tid="ADVANCED_DIRECTFLIP_CANCELArgs">
+      <data name="surfaceLuid" inType="win:UInt64"/>
+      <data name="CancelReason" inType="win:UInt32" map="ADVANCED_DIRECTFLIP_CANCEL_REASON"/>
+     </template>
+     <template tid="DISPLAYSURFACE_SWAPCHAINCANDIDATEArgs">
+      <data name="surfaceLuid" inType="win:UInt64"/>
+      <data name="IsDirectFlipCompatible" inType="win:Int32"/>
+      <data name="IsAdvancedDirectFlipCompatible" inType="win:Int32"/>
+      <data name="IsOverlayCompatible" inType="win:Int32"/>
+      <data name="IsOverlayRequired" inType="win:Int32"/>
+      <data name="BoundsLeft" inType="win:Int32"/>
+      <data name="BoundsTop" inType="win:Int32"/>
+      <data name="BoundsRight" inType="win:Int32"/>
+      <data name="BoundsBottom" inType="win:Int32"/>
+     </template>
+     <template tid="DISPLAYSURFACE_REJECTCANDIDATEArgs">
+      <data name="surfaceLuid" inType="win:UInt64"/>
+      <data name="RejectReason" inType="win:UInt32"/>
+     </template>
+     <template tid="DISPLAYSURFACE_CANDIDATEATTRIBUTESArgs">
+      <data name="surfaceLuid" inType="win:UInt64"/>
+      <data name="IsDirectFlipCompatible" inType="win:Int32"/>
+      <data name="IsAdvancedDirectFlipCompatible" inType="win:Int32"/>
+      <data name="IsOverlayCompatible" inType="win:Int32"/>
+      <data name="IsOverlayRequired" inType="win:Int32"/>
+      <data name="fNoOverlappingContent" inType="win:Int32"/>
+      <data name="SurfaceWidth" inType="win:Int32"/>
+      <data name="SurfaceHeight" inType="win:Int32"/>
+      <data name="PixelFormat" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="SrcRectLeft" inType="win:Int32"/>
+      <data name="SrcRectTop" inType="win:Int32"/>
+      <data name="SrcRectRight" inType="win:Int32"/>
+      <data name="SrcRectBottom" inType="win:Int32"/>
+      <data name="DstRectLeft" inType="win:Int32"/>
+      <data name="DstRectTop" inType="win:Int32"/>
+      <data name="DstRectRight" inType="win:Int32"/>
+      <data name="DstRectBottom" inType="win:Int32"/>
+      <data name="ClipRectLeft" inType="win:Int32"/>
+      <data name="ClipRectTop" inType="win:Int32"/>
+      <data name="ClipRectRight" inType="win:Int32"/>
+      <data name="ClipRectBottom" inType="win:Int32"/>
+      <data name="Rotation" inType="win:UInt32"/>
+      <data name="Blend" inType="win:UInt32"/>
+      <data name="ColorSpace" inType="win:UInt32"/>
+     </template>
+     <template tid="MANIPULATION_POINTER_BUFFEREDArgs">
+      <data name="frameId" inType="win:UInt32"/>
+      <data name="pointerId" inType="win:UInt32"/>
+     </template>
+     <template tid="ETWGUID_PUBLISH_SEB_NOTIFICATIONArgs">
+      <data name="Scenario" inType="win:UnicodeString"/>
+      <data name="Enable" inType="win:UInt32"/>
+      <data name="NtStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="MIDMANIPULATION_UPDATE_VISUAL_ADDITIONArgs">
+      <data name="Visual" inType="win:Pointer"/>
+     </template>
+     <template tid="MIDMANIPULATION_UPDATE_CAPTURE_CONTACTArgs">
+      <data name="Interaction" inType="win:Pointer"/>
+      <data name="Visual" inType="win:Pointer"/>
+      <data name="pointerId" inType="win:UInt32"/>
+     </template>
+     <template tid="SCHEDULE_FRAME_VSYNCDEADLINESArgs">
+      <data name="cDisplays" inType="win:UInt32"/>
+      <data name="rgcDXRefresh" inType="win:AnsiString" count="cDisplays"/>
+     </template>
+     <template tid="ETWGUID_PRESENTArgs">
+      <data name="vSyncTarget" inType="win:UInt32"/>
+      <data name="bIsFollowUpPresent" inType="win:UInt32"/>
+      <data name="flags" inType="win:UInt32"/>
+     </template>
+     <template tid="SCHEDULE_NEW_NOMINAL_REFRESH_PERIODArgs">
+      <data name="DisplayID" inType="win:UInt32"/>
+      <data name="OldPeriodMS" inType="win:Float"/>
+      <data name="NewPeriodMS" inType="win:Float"/>
+     </template>
+     <template tid="ETWGUID_HW_PROTECTION_TEMPDISABLEArgs">
+      <data name="fTemporaryDisable" inType="win:UInt32"/>
+     </template>
+     <template tid="ENDFRAME_DRAWLIST_BATCH_STATSArgs">
+      <data name="NoAAFixupVertices" inType="win:UInt32"/>
+      <data name="AAFixup2DVertices" inType="win:UInt32"/>
+      <data name="AAFixup3DVertices" inType="win:UInt32"/>
+      <data name="HWDrawCallsProcessed" inType="win:UInt32"/>
+      <data name="WarpDrawCallsProcessed" inType="win:UInt32"/>
+      <data name="HwMegaRectsAdded" inType="win:UInt32"/>
+      <data name="DrawListBatchesProcessed" inType="win:UInt32"/>
+      <data name="DrawListEntriesProcessed" inType="win:UInt32"/>
+      <data name="DrawListEntryGroupsProcessed" inType="win:UInt32"/>
+      <data name="GroupedDrawListEntriesProcessed" inType="win:UInt32"/>
+      <data name="RenderingDrawListEntriesProcessed" inType="win:UInt32"/>
+      <data name="StateSettingDrawListEntriesCreated" inType="win:UInt32"/>
+      <data name="StateSettingDrawListEntriesOptimizedAway" inType="win:UInt32"/>
+     </template>
+     <template tid="ENDFRAME_PRIMITIVE_GROUP_STATSArgs">
+      <data name="PrimitiveGroupToDrawListGeneratorCreated" inType="win:UInt32"/>
+      <data name="PrimitiveGroupToDrawListGeneratorCacheUpdated" inType="win:UInt32"/>
+     </template>
+     <template tid="ENDFRAME_TESSELLATED_PRIMITIVES_STATSArgs">
+      <data name="TessellatedRect_UnClipped" inType="win:UInt32"/>
+      <data name="TessellatedRect_AxisAlignedRectClip" inType="win:UInt32"/>
+      <data name="TessellatedRect_GeneralClip" inType="win:UInt32"/>
+     </template>
+     <template tid="ENDFRAME_HW_DRAWLIST_CACHE_STATSArgs">
+      <data name="HwDrawListCachesInvalidated" inType="win:UInt32"/>
+      <data name="HwDrawListCachesUpdated" inType="win:UInt32"/>
+     </template>
+     <template tid="ENDFRAME_WARP_DRAWLIST_CACHE_STATSArgs">
+      <data name="WarpDrawListCachesInvalidated" inType="win:UInt32"/>
+      <data name="WarpDrawListCachesUpdated" inType="win:UInt32"/>
+     </template>
+     <template tid="EXPRESSION_OUTPUTVALUEStartArgs">
+      <data name="Resource" inType="win:Pointer"/>
+     </template>
+     <template tid="MIDMANIPULATION_UPDATE_CAPTURE_MANIPULATIONArgs">
+      <data name="Interaction" inType="win:Pointer"/>
+      <data name="Visual" inType="win:Pointer"/>
+      <data name="pointerId" inType="win:UInt32"/>
+      <data name="pointerTimeStamp" inType="win:UInt64"/>
+     </template>
+     <template tid="CHANNELANIMATIONS_ACTIVEArgs">
+      <data name="channelHandle" inType="win:UInt32"/>
+      <data name="processId" inType="win:UInt32"/>
+      <data name="numberOfDCompAnimationsActive" inType="win:UInt64"/>
+      <data name="numberOfWinRTAnimationsActive" inType="win:UInt64"/>
+     </template>
+     <template tid="CHANNELBATCHES_PROCESSEDArgs">
+      <data name="channelHandle" inType="win:UInt32"/>
+      <data name="processId" inType="win:UInt32"/>
+      <data name="numberOfBatchesProcessed" inType="win:UInt32"/>
+     </template>
+     <template tid="ETWGUID_HW_PROTECTED_ENTITY_CHANGEArgs">
+      <data name="OldCount" inType="win:UInt32"/>
+      <data name="NewCount" inType="win:UInt32"/>
+     </template>
+     <template tid="ETWGUID_VISUAL_RENDERCONTENTArgs">
+      <data name="Visual" inType="win:Pointer"/>
+      <data name="Left" inType="win:Float"/>
+      <data name="Top" inType="win:Float"/>
+      <data name="Right" inType="win:Float"/>
+      <data name="Bottom" inType="win:Float"/>
+      <data name="VisualType" inType="win:AnsiString"/>
+      <data name="ContentType" inType="win:AnsiString"/>
+     </template>
+     <template tid="HOLOGRAPHICCLIENT_TEXTUREUPDATECOUNTArgs">
+      <data name="TotalUpdateCount" inType="win:UInt64"/>
+      <data name="SuccessfulUpdateCount" inType="win:UInt64"/>
+      <data name="SuccessfulTotalGap" inType="win:UInt64"/>
+      <data name="PendingCount" inType="win:UInt64"/>
+     </template>
+     <template tid="HOLOGRAPHICCLIENT_TEXTUREUPDATEWAITFAILEDArgs">
+      <data name="TotalUpdateCount" inType="win:UInt64"/>
+      <data name="SuccessCount" inType="win:UInt64"/>
+      <data name="PendingCount" inType="win:UInt64"/>
+      <data name="WaitResult" inType="win:UInt32"/>
+     </template>
+     <template tid="HOLOGRAPHICINTEROPTARGET_RENDERArgs">
+      <data name="TotalRenderCount" inType="win:UInt64"/>
+      <data name="TotalPostCount" inType="win:UInt64"/>
+     </template>
+     <template tid="HOLOGRAPHICINTEROPTARGET_WAITONINCOMINGFAILEDArgs">
+      <data name="TotalRenderCount" inType="win:UInt64"/>
+      <data name="TotalPostCount" inType="win:UInt64"/>
+      <data name="WaitIndex" inType="win:UInt64"/>
+     </template>
+     <template tid="HOLOGRAPHICINTEROPTARGET_RENDERCOMPLETEArgs">
+      <data name="TotalRenderCount" inType="win:UInt64"/>
+      <data name="TotalPosts" inType="win:UInt64"/>
+      <data name="RenderPostGap" inType="win:UInt64"/>
+      <data name="PendingImageCount" inType="win:UInt64"/>
+     </template>
+     <template tid="HOLOGRAPHICINTEROPTARGET_TIMEINQUEUEArgs">
+      <data name="TimeInQueue" inType="win:Float"/>
+     </template>
+     <template tid="SHADERS_EFFECT_COMPILEStartArgs">
+      <data name="pCompilationTask" inType="win:Pointer"/>
+     </template>
+     <template tid="SHADERS_D3DSHADER_LINK_INFOArgs">
+      <data name="Info" inType="win:AnsiString"/>
+     </template>
+     <template tid="SHADERS_D3DSHADER_CREATEStartArgs">
+      <data name="Type" inType="win:UInt32" map="SHADER_CREATE_TYPE"/>
+     </template>
+     <template tid="SHADERS_D3DSHADER_CREATEStopArgs">
+      <data name="Type" inType="win:UInt32"/>
+     </template>
+     <template tid="SHADERS_EFFECT_COMPILE_INFOArgs">
+      <data name="pCompilationTask" inType="win:Pointer"/>
+      <data name="SubmitterID" inType="win:Int32"/>
+      <data name="GraphNodes" inType="win:AnsiString"/>
+      <data name="NodeCount" inType="win:Int32"/>
+      <data name="SubgraphCount" inType="win:Int32"/>
+      <data name="FoundInCache" inType="win:Boolean"/>
+     </template>
+     <template tid="SCHEDULE_PARALLEL_MODE_NEEDS_TO_WAIT_FOR_NEXT_VSYNCArgs">
+      <data name="Policy" inType="win:UInt32"/>
+     </template>
+     <template tid="COMPUTESCRIBBLE_FRAMESCHEDULEDArgs">
+      <data name="FrameID" inType="win:UInt64"/>
+      <data name="Framebuffer" inType="win:UInt32"/>
+      <data name="SyncRefreshCount" inType="win:UInt32"/>
+      <data name="TimeBeforeVBlank" inType="win:Float"/>
+     </template>
+     <template tid="COMPUTESCRIBBLE_FRAMECOMPLETEDArgs">
+      <data name="FrameID" inType="win:UInt64"/>
+      <data name="Framebuffer" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="COMPUTESCRIBBLE_FRAMEDISPATCHStartArgs">
+      <data name="FrameID" inType="win:UInt64"/>
+      <data name="Framebuffer" inType="win:UInt32"/>
+     </template>
+     <template tid="COMMANDS_COUNTArgs">
+      <data name="Commands" inType="win:UInt32"/>
+     </template>
+     <template tid="BRUSH_DRAWArgs">
+      <data name="hresult" inType="win:UInt32"/>
+     </template>
+     <template tid="COMPUTESCRIBBLE_PRERENDERArgs">
+      <data name="FrameID" inType="win:UInt64"/>
+      <data name="FlipCount" inType="win:UInt32"/>
+      <data name="LastPresentCount" inType="win:UInt32"/>
+      <data name="FrameStatsPresentCount" inType="win:UInt32"/>
+      <data name="CurrentSyncRefreshCount" inType="win:UInt32"/>
+      <data name="InParallelMode" inType="win:Boolean"/>
+     </template>
+     <template tid="COMPUTESCRIBBLE_THREADWAKEUPArgs">
+      <data name="FenceValue" inType="win:UInt64"/>
+     </template>
+     <template tid="COMPUTESCRIBBLE_WORKERHANGArgs">
+      <data name="FrameID" inType="win:UInt64"/>
+      <data name="TargetSyncCount" inType="win:UInt32"/>
+      <data name="LastWakeupSyncCount" inType="win:UInt32"/>
+     </template>
+     <template tid="COMPUTESCRIBBLE_INCOMPATIBLEArgs">
+      <data name="Reason" inType="win:UInt32"/>
+     </template>
+     <template tid="COMPUTESCRIBBLE_UNSUPPORTEDCHECKArgs">
+      <data name="NoDisplay" inType="win:Boolean"/>
+      <data name="OffscreenDisplay" inType="win:Boolean"/>
+      <data name="StereoDisplay" inType="win:Boolean"/>
+      <data name="NoSwapChain" inType="win:Boolean"/>
+      <data name="SingleBufferSwapChain" inType="win:Boolean"/>
+      <data name="DetachedSwapChain" inType="win:Boolean"/>
+      <data name="IncompatibleSwapChain" inType="win:Boolean"/>
+      <data name="NoSurface" inType="win:Boolean"/>
+      <data name="KillSwitch" inType="win:Boolean"/>
+      <data name="NonWhitelistedVendor" inType="win:Boolean"/>
+      <data name="BlacklistedDriver" inType="win:Boolean"/>
+      <data name="NoCapability" inType="win:Boolean"/>
+     </template>
+     <template tid="SCHEDULED_COMPOSITION_REASONArgs">
+      <data name="Reasons" inType="win:UInt32"/>
+     </template>
+     <template tid="PROCESS_ATTRIBUTIONArgs">
+      <data name="DirtyPropagatedCount" inType="win:UInt32"/>
+      <data name="DirtyPropagated" inType="win:UInt32" count="DirtyPropagatedCount"/>
+      <data name="DirtyGeneratedCount" inType="win:UInt32"/>
+      <data name="DirtyGenerated" inType="win:UInt32" count="DirtyGeneratedCount"/>
+      <data name="CompositorRenderedCount" inType="win:UInt32"/>
+      <data name="CompositorRendered" inType="win:UInt32" count="CompositorRenderedCount"/>
+      <data name="BatchesProcessedCount" inType="win:UInt32"/>
+      <data name="BatchesProcessed" inType="win:UInt32" count="BatchesProcessedCount"/>
+      <data name="KeyframeAnimationsCalculatedCount" inType="win:UInt32"/>
+      <data name="KeyframeAnimationsCalculated" inType="win:UInt32" count="KeyframeAnimationsCalculatedCount"/>
+     </template>
+     <template tid="COMMAND_PROCESSED_ONBEHALFArgs">
+      <data name="ProcessId" inType="win:UInt32"/>
+      <data name="CommandId" inType="win:UInt32"/>
+     </template>
+     <template tid="CHANNEL_OPENED_FOR_PROCESSArgs">
+      <data name="ProcessId" inType="win:UInt32"/>
+     </template>
+     <template tid="COMPUTESCRIBBLE_GPUFINISHEDArgs">
+      <data name="FrameID" inType="win:UInt64"/>
+      <data name="CpuStartTime" inType="win:UInt64"/>
+      <data name="GpuEndTime" inType="win:UInt64"/>
+      <data name="ElapsedTimeMicroseconds" inType="win:UInt32"/>
+     </template>
+     <template tid="COMPUTESCRIBBLE_DRAWINFOArgs">
+      <data name="PointerID" inType="win:UInt32"/>
+      <data name="FirstFrameID" inType="win:UInt32"/>
+      <data name="LastFrameID" inType="win:UInt32"/>
+      <data name="BeginQPC" inType="win:UInt64"/>
+      <data name="EndQPC" inType="win:UInt64"/>
+     </template>
+     <template tid="COMPUTESCRIBBLE_TELEMETRYDROPPEDArgs">
+      <data name="FirstPointerFrameID" inType="win:UInt32"/>
+      <data name="LastPointerFrameID" inType="win:UInt32"/>
+      <data name="RenderStartQPC" inType="win:UInt64"/>
+      <data name="RenderStopQPC" inType="win:UInt64"/>
+     </template>
+     <template tid="DIAGTRACK_TRIGGERArgs">
+      <data name="TriggerId" inType="win:UInt64"/>
+      <data name="Version" inType="win:UInt32"/>
+     </template>
+     <template tid="DCOMPEVENT_RESOURCE_OPENArgs">
+      <data name="sourceChannelHandle" inType="win:UInt32"/>
+      <data name="sourceResourceHandle" inType="win:UInt32"/>
+      <data name="targetChannelHandle" inType="win:UInt32"/>
+      <data name="targetResourceHandle" inType="win:UInt32"/>
+      <data name="sourceInternalHandleAndChannel" inType="win:UInt64"/>
+      <data name="targetInternalHandleAndChannel" inType="win:UInt64"/>
+      <data name="resourceType" inType="win:UInt32"/>
+      <data name="resourcePointer" inType="win:UInt64"/>
+     </template>
+     <template tid="VISUAL_SET_INTERACTIONArgs">
+      <data name="Channel" inType="win:UInt32"/>
+      <data name="visualHandle" inType="win:UInt32"/>
+      <data name="interactionHandle" inType="win:UInt32"/>
+      <data name="visualInternalHandleAndChannel" inType="win:UInt64"/>
+      <data name="interactionInternalHandleAndChannel" inType="win:UInt64"/>
+      <data name="resourcePointer" inType="win:Pointer"/>
+      <data name="interactionPointer" inType="win:Pointer"/>
+     </template>
+     <template tid="RENDERTARGET_COUNTSArgs">
+      <data name="cHwndTargets" inType="win:UInt32"/>
+      <data name="cDDATargets" inType="win:UInt32"/>
+      <data name="cIndirectSwapChainTargets" inType="win:UInt32"/>
+      <data name="cHolographicTargets" inType="win:UInt32"/>
+     </template>
+     <template tid="HWDEVICEStartArgs">
+      <data name="CD3DDeviceLevel1" inType="win:Pointer"/>
+      <data name="FeatureLevel" inType="win:UInt32"/>
+      <data name="AdapterLuid" inType="win:UInt8"/>
+      <data name="AdapterDescription" inType="win:UnicodeString"/>
+     </template>
+     <template tid="HWDEVICEStopArgs">
+      <data name="CD3DDeviceLevel1" inType="win:Pointer"/>
+     </template>
+     <template tid="COMPUTESCRIBBLE_EARLYCOPYArgs">
+      <data name="FrameId" inType="win:UInt64"/>
+      <data name="BackBufferIndex" inType="win:UInt32"/>
+     </template>
+     <template tid="COMPUTESCRIBBLE_ACTIVEStartArgs">
+      <data name="FrameId" inType="win:UInt64"/>
+     </template>
+     <template tid="LEGACYSWAPCHAIN_BUFFERFLIPArgs">
+      <data name="NewBackBufferIndex" inType="win:UInt32"/>
+     </template>
+     <template tid="ANIMATION_ANALYSIS_DEBUG_EVENTArgs_V1">
+      <data name="AnimationScenario" inType="win:UnicodeString"/>
+      <data name="ReferenceCount" inType="win:UInt32"/>
+      <data name="VSyncs" inType="win:UInt32"/>
+      <data name="GlitchesRecorded" inType="win:UInt32"/>
+      <data name="ScenarioIndex" inType="win:UInt32"/>
+      <data name="UniqueKey" inType="win:UInt64"/>
+     </template>
+     <template tid="TOUCH_FIRST_FRAME_EVENTArgs_V1">
+      <data name="UniqueKey" inType="win:UInt64"/>
+      <data name="SurfaceWidth" inType="win:UInt16"/>
+      <data name="SurfaceHeight" inType="win:UInt16"/>
+      <data name="DwmFrame" inType="win:UInt64"/>
+      <data name="MonitorCount" inType="win:UInt32"/>
+      <data name="PrimaryAdapterLuid" inType="win:Int64"/>
+      <data name="PrimaryAdapterIsWarp" inType="win:Boolean"/>
+      <data name="InParallelMode" inType="win:Boolean"/>
+      <data name="AppUserModelId" inType="win:UnicodeString"/>
+     </template>
+     <template tid="TELEMETRY_ANIMATION_PERFORMANCE_ANALYSIS_EVENTArgs_V1">
+      <data name="cFrameStart" inType="win:UInt64"/>
+      <data name="cFrameStop" inType="win:UInt64"/>
+      <data name="PercentVsyncsMissed" inType="win:UInt32"/>
+      <data name="metrics1" inType="win:UInt32"/>
+      <data name="metrics2" inType="win:UInt32"/>
+      <data name="AnimationScenario" inType="win:UnicodeString"/>
+      <data name="ApplicationId" inType="win:UnicodeString"/>
+      <data name="ScenarioIndex" inType="win:UInt32"/>
+     </template>
+     <template tid="DEBUG_FRAME_COUNTERArgs_V1">
+      <data name="FramePerSecond" inType="win:UInt32"/>
+      <data name="CPUTimePerFrame" inType="win:UInt64"/>
+     </template>
+     <template tid="TELEMETRY_ANIMATION_TTFF_ANALYSIS_EVENTArgs_V1">
+      <data name="TimeToFirstFrameInMs" inType="win:UInt32"/>
+      <data name="metrics1" inType="win:UInt32"/>
+      <data name="metrics2" inType="win:UInt32"/>
+      <data name="AnimationScenario" inType="win:UnicodeString"/>
+      <data name="ApplicationId" inType="win:UnicodeString"/>
+      <data name="ScenarioIndex" inType="win:UInt32"/>
+     </template>
+     <template tid="TELEMETRY_AGGREGATED_TTFF_ANALYSIS_EVENTArgs_V1">
+      <data name="AnimationScenario" inType="win:UnicodeString"/>
+      <data name="TotalHits" inType="win:UInt32"/>
+      <data name="metrics1" inType="win:UInt32"/>
+      <data name="metrics2" inType="win:UInt32"/>
+      <data name="metrics3" inType="win:UInt32"/>
+     </template>
+     <template tid="MILEVENT_MEDIA_UCE_VISUAL_MOVE_DETECTEDArgs_V1">
+      <data name="visual" inType="win:UInt64"/>
+      <data name="X" inType="win:Float"/>
+      <data name="Y" inType="win:Float"/>
+     </template>
+     <template tid="DCOMPEVENT_PRIMITIVEGROUP_UPDATEArgs_V1">
+      <data name="channelHandle" inType="win:UInt32"/>
+      <data name="resourcePointer" inType="win:UInt64"/>
+      <data name="resourceHandle" inType="win:UInt32"/>
+      <data name="memoryHandle" inType="win:UInt32"/>
+     </template>
+     <template tid="TELEMETRY_AGGREGATED_VSYNC_ANALYSIS_EVENTArgs_V2">
+      <data name="AnimationScenario" inType="win:UnicodeString"/>
+      <data name="TotalHits" inType="win:UInt32"/>
+      <data name="metrics1" inType="win:UInt32"/>
+      <data name="metrics2" inType="win:UInt32"/>
+      <data name="metrics3" inType="win:UInt32"/>
+      <data name="FPS" inType="win:UInt32"/>
+     </template>
+     <template tid="TOUCH_LAST_FRAME_EVENTArgs_V3">
+      <data name="UniqueKey" inType="win:UInt64"/>
+      <data name="ScenarioPointer" inType="win:UInt64"/>
+      <data name="InputType" inType="win:UInt32"/>
+      <data name="InteractionType" inType="win:UInt32"/>
+      <data name="InteractionContext" inType="win:UInt32"/>
+      <data name="SurfaceWidth" inType="win:UInt16"/>
+      <data name="SurfaceHeight" inType="win:UInt16"/>
+      <data name="ScenarioDurationMs" inType="win:UInt32"/>
+      <data name="cFrames" inType="win:UInt32"/>
+      <data name="StartFrame" inType="win:UInt64"/>
+      <data name="EndFrame" inType="win:UInt64"/>
+      <data name="MonitorCount" inType="win:UInt32"/>
+      <data name="PrimaryAdapterLuid" inType="win:GUID"/>
+      <data name="PrimaryAdapterIsWarp" inType="win:Boolean"/>
+      <data name="AppUserModelId" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_DwmCore" value="DwmCore"/>
+    <string id="keyword_DetailedFrameInformation" value="DetailedFrameInformation"/>
+    <string id="keyword_FrameDrawInconsistencyInformation" value="FrameDrawInconsistencyInformation"/>
+    <string id="keyword_DwmFrameRate" value="DwmFrameRate"/>
+    <string id="keyword_AnimationScreenOff" value="AnimationScreenOff"/>
+    <string id="keyword_ProcessAttribution" value="ProcessAttribution"/>
+    <string id="keyword_ComputeScribble" value="ComputeScribble"/>
+    <string id="keyword_FrameVisualization" value="FrameVisualization"/>
+    <string id="keyword_LowOverheadSmoothnessTracking" value="LowOverheadSmoothnessTracking"/>
+    <string id="keyword_FrameVisualizationExtra" value="FrameVisualizationExtra"/>
+    <string id="keyword_DwmHolographic" value="DwmHolographic"/>
+    <string id="keyword_WorkPerFrame" value="WorkPerFrame"/>
+    <string id="keyword_DwmInput" value="DwmInput"/>
+    <string id="keyword_DwmDiagTrack" value="DwmDiagTrack"/>
+    <string id="task_SCHEDULE_VBLANK_LOOP" value="SCHEDULE_VBLANK_LOOP"/>
+    <string id="task_SCHEDULE_FRAMEINFO" value="SCHEDULE_FRAMEINFO"/>
+    <string id="task_SCHEDULE_UPDATE_FRAME_INDEXES" value="SCHEDULE_UPDATE_FRAME_INDEXES"/>
+    <string id="task_SCHEDULE_TIME" value="SCHEDULE_TIME"/>
+    <string id="task_SCHEDULE_WFVB" value="SCHEDULE_WFVB"/>
+    <string id="task_SCHEDULE_WFW" value="SCHEDULE_WFW"/>
+    <string id="task_SCHEDULE_PROCESS_FRAME" value="SCHEDULE_PROCESS_FRAME"/>
+    <string id="task_SCHEDULE_RENDER" value="SCHEDULE_RENDER"/>
+    <string id="task_SCHEDULE_PRESENT" value="SCHEDULE_PRESENT"/>
+    <string id="task_SCHEDULE_GETPRESENTCOUNT" value="SCHEDULE_GETPRESENTCOUNT"/>
+    <string id="task_SCHEDULE_GETPRESENTSTATS" value="SCHEDULE_GETPRESENTSTATS"/>
+    <string id="task_SCHEDULE_GLITCH" value="SCHEDULE_GLITCH"/>
+    <string id="task_SCHEDULE_GLITCH_RECOVERY_ATTEMPT" value="SCHEDULE_GLITCH_RECOVERY_ATTEMPT"/>
+    <string id="task_SCHEDULE_RESET" value="SCHEDULE_RESET"/>
+    <string id="task_ETWGUID_BITMAPCOPYEVENT" value="ETWGUID_BITMAPCOPYEVENT"/>
+    <string id="task_ETWGUID_COPYFRONTTOBACKBUFFEREVENT" value="ETWGUID_COPYFRONTTOBACKBUFFEREVENT"/>
+    <string id="task_ETWGUID_CLEAREVENT" value="ETWGUID_CLEAREVENT"/>
+    <string id="task_ETWGUID_DIRTYREGIONEVENT" value="ETWGUID_DIRTYREGIONEVENT"/>
+    <string id="task_ETWGUID_OCCLUSIONEVENT" value="ETWGUID_OCCLUSIONEVENT"/>
+    <string id="task_ETWGUID_DWMUPDATEWINDOW" value="ETWGUID_DWMUPDATEWINDOW"/>
+    <string id="task_ETWGUID_DRAWEVENT" value="ETWGUID_DRAWEVENT"/>
+    <string id="task_MILEVENT_MEDIA_UCE_PROCESSQUEUEEVENT" value="MILEVENT_MEDIA_UCE_PROCESSQUEUEEVENT"/>
+    <string id="task_MILEVENT_MEDIA_UCE_PRECOMPUTEEVENT" value="MILEVENT_MEDIA_UCE_PRECOMPUTEEVENT"/>
+    <string id="task_MILEVENT_MEDIA_UCE_RENDEREVENT" value="MILEVENT_MEDIA_UCE_RENDEREVENT"/>
+    <string id="task_MILEVENT_MEDIA_UCE_PRESENTEVENT" value="MILEVENT_MEDIA_UCE_PRESENTEVENT"/>
+    <string id="task_MILEVENT_MEDIA_UCE_PROCESSPRESENTHISTORY" value="MILEVENT_MEDIA_UCE_PROCESSPRESENTHISTORY"/>
+    <string id="task_MILEVENT_MEDIA_UCE_CHECKDEVICESTATE" value="MILEVENT_MEDIA_UCE_CHECKDEVICESTATE"/>
+    <string id="task_GDISPRITE_LOGICALSURFACE_ASSOCIATION" value="GDISPRITE_LOGICALSURFACE_ASSOCIATION"/>
+    <string id="task_WINDOWNODE_GDISPRITE_ASSOCIATION" value="WINDOWNODE_GDISPRITE_ASSOCIATION"/>
+    <string id="task_SCHEDULE_ROUNDTRIPREQUEST_STATE" value="SCHEDULE_ROUNDTRIPREQUEST_STATE"/>
+    <string id="task_SCHEDULE_PRESENTHISTORYTOKEN_GDI" value="SCHEDULE_PRESENTHISTORYTOKEN_GDI"/>
+    <string id="task_SCHEDULE_PRESENTHISTORYTOKEN_GDISYSMEM" value="SCHEDULE_PRESENTHISTORYTOKEN_GDISYSMEM"/>
+    <string id="task_SCHEDULE_PRESENTHISTORYTOKEN_BLT" value="SCHEDULE_PRESENTHISTORYTOKEN_BLT"/>
+    <string id="task_MILEVENT_MEDIA_UCE_PROCESSDEFERREDTOKENS" value="MILEVENT_MEDIA_UCE_PROCESSDEFERREDTOKENS"/>
+    <string id="task_ETWGUID_MAGNIFIERRENDERTARGET_CAPTUREBITS" value="ETWGUID_MAGNIFIERRENDERTARGET_CAPTUREBITS"/>
+    <string id="task_BIND_GDISPRITEBITMAP_FIRST_TOKEN" value="BIND_GDISPRITEBITMAP_FIRST_TOKEN"/>
+    <string id="task_MILEVENT_MEDIA_UCE_PROCESSPRESENTHISTORY_GetPresentHistory" value="MILEVENT_MEDIA_UCE_PROCESSPRESENTHISTORY_GetPresentHistory"/>
+    <string id="task_SCHEDULE_UPDATE_TIMES" value="SCHEDULE_UPDATE_TIMES"/>
+    <string id="task_UCE_PROCESSANIMATERESOURCES" value="UCE_PROCESSANIMATERESOURCES"/>
+    <string id="task_MILEVENT_MEDIA_UCE_BLTDESKTOP" value="MILEVENT_MEDIA_UCE_BLTDESKTOP"/>
+    <string id="task_ETWGUID_DWMUPDATEBLTTRANSLATION_CLIP" value="ETWGUID_DWMUPDATEBLTTRANSLATION_CLIP"/>
+    <string id="task_ETWGUID_DWMUPDATEBLTTRANSLATION_RECT" value="ETWGUID_DWMUPDATEBLTTRANSLATION_RECT"/>
+    <string id="task_ETWGUID_DWMUPDATEBLTTRANSLATION_POINT" value="ETWGUID_DWMUPDATEBLTTRANSLATION_POINT"/>
+    <string id="task_MILEVENT_MEDIA_UCE_BLTINDESKTOP_RECT" value="MILEVENT_MEDIA_UCE_BLTINDESKTOP_RECT"/>
+    <string id="task_ETWGUID_STEREO_COPYLEFTTORIGHTBUFFEREVENT" value="ETWGUID_STEREO_COPYLEFTTORIGHTBUFFEREVENT"/>
+    <string id="task_ETWGUID_STEREO_RIGHTCHANNELRENDEREVENT" value="ETWGUID_STEREO_RIGHTCHANNELRENDEREVENT"/>
+    <string id="task_ETWGUID_STEREO_TEMPORARYMONOEVENT" value="ETWGUID_STEREO_TEMPORARYMONOEVENT"/>
+    <string id="task_ETWGUID_STEREO_SWAPCHAINCREATEEVENT" value="ETWGUID_STEREO_SWAPCHAINCREATEEVENT"/>
+    <string id="task_ETWGUID_SLICER_CAPTURE" value="ETWGUID_SLICER_CAPTURE"/>
+    <string id="task_ETWGUID_SLICER_CAPTUREFRAME" value="ETWGUID_SLICER_CAPTUREFRAME"/>
+    <string id="task_DCOMPEVENT_RESOURCE" value="DCOMPEVENT_RESOURCE"/>
+    <string id="task_DCOMPEVENT_ANIMATION_INITIAL_VALUE" value="DCOMPEVENT_ANIMATION_INITIAL_VALUE"/>
+    <string id="task_DCOMPEVENT_ANIMATION_UPDATE_VALUE" value="DCOMPEVENT_ANIMATION_UPDATE_VALUE"/>
+    <string id="task_DCOMPEVENT_END_ANIMATION" value="DCOMPEVENT_END_ANIMATION"/>
+    <string id="task_SCHEDULE_NEW_EFFECTIVE_REFRESH_PERIOD_DELTAS" value="SCHEDULE_NEW_EFFECTIVE_REFRESH_PERIOD_DELTAS"/>
+    <string id="task_SCHEDULE_NEW_EFFECTIVE_REFRESH_PERIOD" value="SCHEDULE_NEW_EFFECTIVE_REFRESH_PERIOD"/>
+    <string id="task_SCHEDULE_DXGI_STATUS_OCCLUDED" value="SCHEDULE_DXGI_STATUS_OCCLUDED"/>
+    <string id="task_SCHEDULE_DXGI_OCCLUSION_EVENT" value="SCHEDULE_DXGI_OCCLUSION_EVENT"/>
+    <string id="task_SCHEDULE_DXGI_PRESENT_SUCCEEDED" value="SCHEDULE_DXGI_PRESENT_SUCCEEDED"/>
+    <string id="task_ETWGUID_DIRECTFLIP_TRANSITIONEVENT" value="ETWGUID_DIRECTFLIP_TRANSITIONEVENT"/>
+    <string id="task_ETWGUID_DIRECTFLIP_PRESENTEVENT" value="ETWGUID_DIRECTFLIP_PRESENTEVENT"/>
+    <string id="task_ETWGUID_DIRECTFLIP_SUPPORTEVENT" value="ETWGUID_DIRECTFLIP_SUPPORTEVENT"/>
+    <string id="task_ETWGUID_DIRECTFLIP_PINEVENT" value="ETWGUID_DIRECTFLIP_PINEVENT"/>
+    <string id="task_ETWGUID_DIRECTFLIP_UNPINEVENT" value="ETWGUID_DIRECTFLIP_UNPINEVENT"/>
+    <string id="task_ETWGUID_RENDEROPT_DISCARDRESOURCEEVENT" value="ETWGUID_RENDEROPT_DISCARDRESOURCEEVENT"/>
+    <string id="task_ETWGUID_RENDEROPT_TILEABLECOPYEVENT" value="ETWGUID_RENDEROPT_TILEABLECOPYEVENT"/>
+    <string id="task_OPEN_SHARED_TEXTURE_EVENT" value="OPEN_SHARED_TEXTURE_EVENT"/>
+    <string id="task_PROCESS_COMPOSITION_SURFACE_UPDATE_EVENT" value="PROCESS_COMPOSITION_SURFACE_UPDATE_EVENT"/>
+    <string id="task_ANIMATION_ANALYSIS_DEBUG_EVENT" value="ANIMATION_ANALYSIS_DEBUG_EVENT"/>
+    <string id="task_SCHEDULE_RENDERTIME" value="SCHEDULE_RENDERTIME"/>
+    <string id="task_SCHEDULE_PARALLEL_MODE" value="SCHEDULE_PARALLEL_MODE"/>
+    <string id="task_SCHEDULE_GLITCH_DETECTED" value="SCHEDULE_GLITCH_DETECTED"/>
+    <string id="task_ETWGUID_DRAWING_CONTEXT_FRAME" value="ETWGUID_DRAWING_CONTEXT_FRAME"/>
+    <string id="task_ETWGUID_DRAWING_CONTEXT_STATE" value="ETWGUID_DRAWING_CONTEXT_STATE"/>
+    <string id="task_ETWGUID_COMPOSITION_SURFACE_DRAW" value="ETWGUID_COMPOSITION_SURFACE_DRAW"/>
+    <string id="task_ETWGUID_CVI_UPDATE" value="ETWGUID_CVI_UPDATE"/>
+    <string id="task_ETWGUID_DIRECTFLIP_CANDIDATERECORDEVENT" value="ETWGUID_DIRECTFLIP_CANDIDATERECORDEVENT"/>
+    <string id="task_ETWGUID_DIRECTFLIP_CANDIDATEOVERWRITEVENT" value="ETWGUID_DIRECTFLIP_CANDIDATEOVERWRITEVENT"/>
+    <string id="task_SCHEDULE_TIMEADJUSTED_BETWEENFRAMES" value="SCHEDULE_TIMEADJUSTED_BETWEENFRAMES"/>
+    <string id="task_SCHEDULE_CLEAR_D2D_CACHES" value="SCHEDULE_CLEAR_D2D_CACHES"/>
+    <string id="task_MILEVENT_MEDIA_UCE_PROCESSSURFACEUPDATES" value="MILEVENT_MEDIA_UCE_PROCESSSURFACEUPDATES"/>
+    <string id="task_SCHEDULE_SURFACEUPDATE" value="SCHEDULE_SURFACEUPDATE"/>
+    <string id="task_ETWGUID_RENDEROPT_DISCARDVIEWEVENT" value="ETWGUID_RENDEROPT_DISCARDVIEWEVENT"/>
+    <string id="task_SCHEDULE_DERIVEDISPLAYSET" value="SCHEDULE_DERIVEDISPLAYSET"/>
+    <string id="task_SCHEDULE_RETIREFRAME" value="SCHEDULE_RETIREFRAME"/>
+    <string id="task_SCHEDULE_GETPRESENTSTATS1" value="SCHEDULE_GETPRESENTSTATS1"/>
+    <string id="task_SCHEDULE_PRESENT_STATS_DELTAS" value="SCHEDULE_PRESENT_STATS_DELTAS"/>
+    <string id="task_RENDER_CVIPASS" value="RENDER_CVIPASS"/>
+    <string id="task_HIT_TEST" value="HIT_TEST"/>
+    <string id="task_HIT_TEST_TREE_WALK" value="HIT_TEST_TREE_WALK"/>
+    <string id="task_INPUT_SINK" value="INPUT_SINK"/>
+    <string id="task_DETECT_TOPLEVELWINDOW_DESTROY" value="DETECT_TOPLEVELWINDOW_DESTROY"/>
+    <string id="task_OVERLAY_GETCAPS" value="OVERLAY_GETCAPS"/>
+    <string id="task_OVERLAY_RECORDCANDIDATE" value="OVERLAY_RECORDCANDIDATE"/>
+    <string id="task_OVERLAY_CHECKOCCLUSION" value="OVERLAY_CHECKOCCLUSION"/>
+    <string id="task_OVERLAY_CHECKSUPPORT" value="OVERLAY_CHECKSUPPORT"/>
+    <string id="task_OVERLAY_CANDIDATECOLLECTION" value="OVERLAY_CANDIDATECOLLECTION"/>
+    <string id="task_OVERLAY_PRESENT" value="OVERLAY_PRESENT"/>
+    <string id="task_DETECT_REMOTEAPPWINDOW_STATE" value="DETECT_REMOTEAPPWINDOW_STATE"/>
+    <string id="task_DETECT_DESKTOPSCREEN_WRITE" value="DETECT_DESKTOPSCREEN_WRITE"/>
+    <string id="task_REMOTEAPP_METADATA_STATS" value="REMOTEAPP_METADATA_STATS"/>
+    <string id="task_DETECT_REMOTEAPPMODE_SWITCH" value="DETECT_REMOTEAPPMODE_SWITCH"/>
+    <string id="task_DETECT_DESKTOP_ENDOFUPDATES" value="DETECT_DESKTOP_ENDOFUPDATES"/>
+    <string id="task_REMOTEAPP_WINDOWCLIP" value="REMOTEAPP_WINDOWCLIP"/>
+    <string id="task_ETWGUID_PRIMITIVE_GROUP_DRAW" value="ETWGUID_PRIMITIVE_GROUP_DRAW"/>
+    <string id="task_ETWGUID_D2DLAYERCREATEREASON" value="ETWGUID_D2DLAYERCREATEREASON"/>
+    <string id="task_TELEMETRY_ANIMATION_PERFORMANCE_ANALYSIS_EVENT" value="TELEMETRY_ANIMATION_PERFORMANCE_ANALYSIS_EVENT"/>
+    <string id="task_ANIMATION_FIRST_FRAME_EVENT" value="ANIMATION_FIRST_FRAME_EVENT"/>
+    <string id="task_ANIMATION_LAST_FRAME_EVENT" value="ANIMATION_LAST_FRAME_EVENT"/>
+    <string id="task_TELEMETRY_AGGREGATED_VSYNC_ANALYSIS_EVENT" value="TELEMETRY_AGGREGATED_VSYNC_ANALYSIS_EVENT"/>
+    <string id="task_ETWGUID_COPYFRONTTOBACKBUFFERDELTAEVENT" value="ETWGUID_COPYFRONTTOBACKBUFFERDELTAEVENT"/>
+    <string id="task_SWAPCHAIN_BUFFERS" value="SWAPCHAIN_BUFFERS"/>
+    <string id="task_DEBUG_FRAME_COUNTER" value="DEBUG_FRAME_COUNTER"/>
+    <string id="task_ETWGUID_SETINDEPENDENTFLIPINFO" value="ETWGUID_SETINDEPENDENTFLIPINFO"/>
+    <string id="task_ETWGUID_PRIMITIVE_GROUP_SELF_OCCLUSION_INFO" value="ETWGUID_PRIMITIVE_GROUP_SELF_OCCLUSION_INFO"/>
+    <string id="task_INPUT_SINK_TRANSFORM_UPDATE" value="INPUT_SINK_TRANSFORM_UPDATE"/>
+    <string id="task_ETWGUID_RTCAPTURE" value="ETWGUID_RTCAPTURE"/>
+    <string id="task_ETWGUID_RTCAPTURE_GETBITS" value="ETWGUID_RTCAPTURE_GETBITS"/>
+    <string id="task_TOUCH_FIRST_FRAME_EVENT" value="TOUCH_FIRST_FRAME_EVENT"/>
+    <string id="task_TOUCH_LAST_FRAME_EVENT" value="TOUCH_LAST_FRAME_EVENT"/>
+    <string id="task_TELEMETRY_ANIMATION_TTFF_ANALYSIS_EVENT" value="TELEMETRY_ANIMATION_TTFF_ANALYSIS_EVENT"/>
+    <string id="task_TELEMETRY_AGGREGATED_TTFF_ANALYSIS_EVENT" value="TELEMETRY_AGGREGATED_TTFF_ANALYSIS_EVENT"/>
+    <string id="task_MILEVENT_MEDIA_UCE_VISUAL_MOVE_DETECTED" value="MILEVENT_MEDIA_UCE_VISUAL_MOVE_DETECTED"/>
+    <string id="task_MILEVENT_MEDIA_UCE_WINDOW_MOVE_DETECTED" value="MILEVENT_MEDIA_UCE_WINDOW_MOVE_DETECTED"/>
+    <string id="task_DCOMPEVENT_PRIMITIVEGROUP_UPDATE" value="DCOMPEVENT_PRIMITIVEGROUP_UPDATE"/>
+    <string id="task_MANIPULATION_THREAD_STARTUP" value="MANIPULATION_THREAD_STARTUP"/>
+    <string id="task_MANIPULATION_THREAD_CLEANUP" value="MANIPULATION_THREAD_CLEANUP"/>
+    <string id="task_MANIPULATION_FRAME_RECEIVED" value="MANIPULATION_FRAME_RECEIVED"/>
+    <string id="task_MANIPULATION_FRAME_QUEUED" value="MANIPULATION_FRAME_QUEUED"/>
+    <string id="task_MANIPULATION_FRAME_DEQUEUED" value="MANIPULATION_FRAME_DEQUEUED"/>
+    <string id="task_INTERACTION_CREATED" value="INTERACTION_CREATED"/>
+    <string id="task_INTERACTION_VISUAL_UPDATE" value="INTERACTION_VISUAL_UPDATE"/>
+    <string id="task_INTERACTION_TOUCH_CONFIGURATION_CHANGED" value="INTERACTION_TOUCH_CONFIGURATION_CHANGED"/>
+    <string id="task_INTERACTION_DESTROYED" value="INTERACTION_DESTROYED"/>
+    <string id="task_MANIPULATION_CONTEXT_CREATED" value="MANIPULATION_CONTEXT_CREATED"/>
+    <string id="task_MANIPULATION_CONTEXT_DESTROYED" value="MANIPULATION_CONTEXT_DESTROYED"/>
+    <string id="task_MANIPULATION_CONTEXT_NEW_CONTACT" value="MANIPULATION_CONTEXT_NEW_CONTACT"/>
+    <string id="task_MANIPULATION_CONTEXT_CONTACT_DEPARTED" value="MANIPULATION_CONTEXT_CONTACT_DEPARTED"/>
+    <string id="task_ADVANCED_DIRECTFLIP_RECORDCANDIDATE" value="ADVANCED_DIRECTFLIP_RECORDCANDIDATE"/>
+    <string id="task_ADVANCED_DIRECTFLIP_CREATERESTOREBUFFER" value="ADVANCED_DIRECTFLIP_CREATERESTOREBUFFER"/>
+    <string id="task_ADVANCED_DIRECTFLIP_SAVECONTENT" value="ADVANCED_DIRECTFLIP_SAVECONTENT"/>
+    <string id="task_ADVANCED_DIRECTFLIP_RESTORECONTENT" value="ADVANCED_DIRECTFLIP_RESTORECONTENT"/>
+    <string id="task_ADVANCED_DIRECTFLIP_CANCEL" value="ADVANCED_DIRECTFLIP_CANCEL"/>
+    <string id="task_DISPLAYSURFACE_SWAPCHAINCANDIDATE" value="DISPLAYSURFACE_SWAPCHAINCANDIDATE"/>
+    <string id="task_DISPLAYSURFACE_REJECTCANDIDATE" value="DISPLAYSURFACE_REJECTCANDIDATE"/>
+    <string id="task_DISPLAYSURFACE_CANDIDATEATTRIBUTES" value="DISPLAYSURFACE_CANDIDATEATTRIBUTES"/>
+    <string id="task_MANIPULATION_POINTER_BUFFERED" value="MANIPULATION_POINTER_BUFFERED"/>
+    <string id="task_ETWGUID_PUBLISH_SEB_NOTIFICATION" value="ETWGUID_PUBLISH_SEB_NOTIFICATION"/>
+    <string id="task_MIDMANIPULATION_UPDATE_INTERACTION_ADDITION" value="MIDMANIPULATION_UPDATE_INTERACTION_ADDITION"/>
+    <string id="task_MIDMANIPULATION_UPDATE_INTERACTION_REMOVAL" value="MIDMANIPULATION_UPDATE_INTERACTION_REMOVAL"/>
+    <string id="task_MIDMANIPULATION_UPDATE_VISUAL_ADDITION" value="MIDMANIPULATION_UPDATE_VISUAL_ADDITION"/>
+    <string id="task_MIDMANIPULATION_UPDATE_VISUAL_REMOVAL" value="MIDMANIPULATION_UPDATE_VISUAL_REMOVAL"/>
+    <string id="task_MIDMANIPULATION_UPDATE_VISUAL_PROP" value="MIDMANIPULATION_UPDATE_VISUAL_PROP"/>
+    <string id="task_MIDMANIPULATION_UPDATE_CAPTURE_CONTACT" value="MIDMANIPULATION_UPDATE_CAPTURE_CONTACT"/>
+    <string id="task_INTERACTION_TOUCHPAD_CONFIGURATION_CHANGED" value="INTERACTION_TOUCHPAD_CONFIGURATION_CHANGED"/>
+    <string id="task_INTERACTION_PEN_CONFIGURATION_CHANGED" value="INTERACTION_PEN_CONFIGURATION_CHANGED"/>
+    <string id="task_INTERACTION_MOUSE_CONFIGURATION_CHANGED" value="INTERACTION_MOUSE_CONFIGURATION_CHANGED"/>
+    <string id="task_SCHEDULE_FRAME_VSYNCDEADLINES" value="SCHEDULE_FRAME_VSYNCDEADLINES"/>
+    <string id="task_ETWGUID_PRESENT" value="ETWGUID_PRESENT"/>
+    <string id="task_ADVANCED_DIRECTFLIP_RESTORECONTENTBACKTOREALIZATION" value="ADVANCED_DIRECTFLIP_RESTORECONTENTBACKTOREALIZATION"/>
+    <string id="task_SCHEDULE_NEW_NOMINAL_REFRESH_PERIOD" value="SCHEDULE_NEW_NOMINAL_REFRESH_PERIOD"/>
+    <string id="task_ETWGUID_HW_PROTECTION_TEMPDISABLE" value="ETWGUID_HW_PROTECTION_TEMPDISABLE"/>
+    <string id="task_ENDFRAME_DRAWLIST_BATCH_STATS" value="ENDFRAME_DRAWLIST_BATCH_STATS"/>
+    <string id="task_ENDFRAME_PRIMITIVE_GROUP_STATS" value="ENDFRAME_PRIMITIVE_GROUP_STATS"/>
+    <string id="task_ENDFRAME_TESSELLATED_PRIMITIVES_STATS" value="ENDFRAME_TESSELLATED_PRIMITIVES_STATS"/>
+    <string id="task_ENDFRAME_HW_DRAWLIST_CACHE_STATS" value="ENDFRAME_HW_DRAWLIST_CACHE_STATS"/>
+    <string id="task_ENDFRAME_WARP_DRAWLIST_CACHE_STATS" value="ENDFRAME_WARP_DRAWLIST_CACHE_STATS"/>
+    <string id="task_PROCESS_EXPRESSIONS" value="PROCESS_EXPRESSIONS"/>
+    <string id="task_EXPRESSION_OUTPUTVALUE" value="EXPRESSION_OUTPUTVALUE"/>
+    <string id="task_MIDMANIPULATION_UPDATE_CAPTURE_MANIPULATION" value="MIDMANIPULATION_UPDATE_CAPTURE_MANIPULATION"/>
+    <string id="task_CHANNELANIMATIONS_ACTIVE" value="CHANNELANIMATIONS_ACTIVE"/>
+    <string id="task_CHANNELBATCHES_PROCESSED" value="CHANNELBATCHES_PROCESSED"/>
+    <string id="task_ETWGUID_PUSH_INTERNAL_LAYER_EVENT" value="ETWGUID_PUSH_INTERNAL_LAYER_EVENT"/>
+    <string id="task_ETWGUID_POP_INTERNAL_LAYER_EVENT" value="ETWGUID_POP_INTERNAL_LAYER_EVENT"/>
+    <string id="task_ETWGUID_PUSH_EXTERNAL_LAYER_EVENT" value="ETWGUID_PUSH_EXTERNAL_LAYER_EVENT"/>
+    <string id="task_ETWGUID_POP_EXTERNAL_LAYER_EVENT" value="ETWGUID_POP_EXTERNAL_LAYER_EVENT"/>
+    <string id="task_ETWGUID_HW_PROTECTED_ENTITY_CHANGE" value="ETWGUID_HW_PROTECTED_ENTITY_CHANGE"/>
+    <string id="task_ETWGUID_VISUAL_RENDERCONTENT" value="ETWGUID_VISUAL_RENDERCONTENT"/>
+    <string id="task_ETWGUID_DIRTY_ADDRECT" value="ETWGUID_DIRTY_ADDRECT"/>
+    <string id="task_ADVANCED_DIRECTFLIP_NORESTORE_RECORDCANDIDATE" value="ADVANCED_DIRECTFLIP_NORESTORE_RECORDCANDIDATE"/>
+    <string id="task_HOLOGRAPHICCLIENT_TEXTUREUPDATECOUNT" value="HOLOGRAPHICCLIENT_TEXTUREUPDATECOUNT"/>
+    <string id="task_HOLOGRAPHICCLIENT_TEXTUREUPDATEWAITFAILED" value="HOLOGRAPHICCLIENT_TEXTUREUPDATEWAITFAILED"/>
+    <string id="task_HOLOGRAPHICINTEROPTARGET_RENDER" value="HOLOGRAPHICINTEROPTARGET_RENDER"/>
+    <string id="task_HOLOGRAPHICINTEROPTARGET_WAITONINCOMINGFAILED" value="HOLOGRAPHICINTEROPTARGET_WAITONINCOMINGFAILED"/>
+    <string id="task_HOLOGRAPHICINTEROPTARGET_SYNCPOSTED" value="HOLOGRAPHICINTEROPTARGET_SYNCPOSTED"/>
+    <string id="task_HOLOGRAPHICINTEROPTARGET_RENDERCOMPLETE" value="HOLOGRAPHICINTEROPTARGET_RENDERCOMPLETE"/>
+    <string id="task_HOLOGRAPHICINTEROPTARGET_TIMEINQUEUE" value="HOLOGRAPHICINTEROPTARGET_TIMEINQUEUE"/>
+    <string id="task_SHADERS_EFFECT_COMPILE" value="SHADERS_EFFECT_COMPILE"/>
+    <string id="task_SHADERS_EFFECT_COMPILE_INFO" value="SHADERS_EFFECT_COMPILE_INFO"/>
+    <string id="task_SHADERS_D3DSHADER_LINK" value="SHADERS_D3DSHADER_LINK"/>
+    <string id="task_SHADERS_D3DSHADER_LINK_INFO" value="SHADERS_D3DSHADER_LINK_INFO"/>
+    <string id="task_SHADERS_D3DSHADER_CREATE" value="SHADERS_D3DSHADER_CREATE"/>
+    <string id="task_SCHEDULE_PARALLEL_MODE_NEEDS_TO_WAIT_FOR_NEXT_VSYNC" value="SCHEDULE_PARALLEL_MODE_NEEDS_TO_WAIT_FOR_NEXT_VSYNC"/>
+    <string id="task_SCHEDULE_PARALLEL_MODE_WAITING_FOR_NEXT_VSYNC" value="SCHEDULE_PARALLEL_MODE_WAITING_FOR_NEXT_VSYNC"/>
+    <string id="task_COMPUTESCRIBBLE_FRAMESCHEDULED" value="COMPUTESCRIBBLE_FRAMESCHEDULED"/>
+    <string id="task_COMPUTESCRIBBLE_FRAMECOMPLETED" value="COMPUTESCRIBBLE_FRAMECOMPLETED"/>
+    <string id="task_COMPUTESCRIBBLE_FRAMEDISPATCH" value="COMPUTESCRIBBLE_FRAMEDISPATCH"/>
+    <string id="task_COMPUTESCRIBBLE_FRAMEDISPATCHCANCELED" value="COMPUTESCRIBBLE_FRAMEDISPATCHCANCELED"/>
+    <string id="task_COMPUTESCRIBBLE_WAKEUPEVENTCREATED" value="COMPUTESCRIBBLE_WAKEUPEVENTCREATED"/>
+    <string id="task_COMMANDS_COUNT" value="COMMANDS_COUNT"/>
+    <string id="task_BRUSH_DRAW" value="BRUSH_DRAW"/>
+    <string id="task_COMPUTESCRIBBLE_FRAMEDROPPED" value="COMPUTESCRIBBLE_FRAMEDROPPED"/>
+    <string id="task_INTERACTION_MOUSEWHEEL_CONFIGURATION_CHANGED" value="INTERACTION_MOUSEWHEEL_CONFIGURATION_CHANGED"/>
+    <string id="task_COMPUTESCRIBBLE_PRERENDER" value="COMPUTESCRIBBLE_PRERENDER"/>
+    <string id="task_COMPUTESCRIBBLE_POSTRENDER" value="COMPUTESCRIBBLE_POSTRENDER"/>
+    <string id="task_COMPUTESCRIBBLE_THREADWAKEUP" value="COMPUTESCRIBBLE_THREADWAKEUP"/>
+    <string id="task_COMPUTESCRIBBLE_WORKERHANG" value="COMPUTESCRIBBLE_WORKERHANG"/>
+    <string id="task_COMPUTESCRIBBLE_INCOMPATIBLE" value="COMPUTESCRIBBLE_INCOMPATIBLE"/>
+    <string id="task_COMPUTESCRIBBLE_UNSUPPORTEDCHECK" value="COMPUTESCRIBBLE_UNSUPPORTEDCHECK"/>
+    <string id="task_SCHEDULED_COMPOSITION_REASON" value="SCHEDULED_COMPOSITION_REASON"/>
+    <string id="task_UNPRESENTED_FRAME" value="UNPRESENTED_FRAME"/>
+    <string id="task_PROCESS_ATTRIBUTION" value="PROCESS_ATTRIBUTION"/>
+    <string id="task_COMMAND_PROCESSED_ONBEHALF" value="COMMAND_PROCESSED_ONBEHALF"/>
+    <string id="task_CHANNEL_OPENED_FOR_PROCESS" value="CHANNEL_OPENED_FOR_PROCESS"/>
+    <string id="task_CHANNEL_CLOSED_FOR_PROCESS" value="CHANNEL_CLOSED_FOR_PROCESS"/>
+    <string id="task_COMPUTESCRIBBLE_GPUFINISHED" value="COMPUTESCRIBBLE_GPUFINISHED"/>
+    <string id="task_COMPUTESCRIBBLE_DRAWINFO" value="COMPUTESCRIBBLE_DRAWINFO"/>
+    <string id="task_COMPUTESCRIBBLE_TELEMETRYDROPPED" value="COMPUTESCRIBBLE_TELEMETRYDROPPED"/>
+    <string id="task_P3D_BUILDING_BSPTREE" value="P3D_BUILDING_BSPTREE"/>
+    <string id="task_P3D_BUILDING_POLYGONLIST" value="P3D_BUILDING_POLYGONLIST"/>
+    <string id="task_P3D_RENDERING" value="P3D_RENDERING"/>
+    <string id="task_DIAGTRACK_TRIGGER" value="DIAGTRACK_TRIGGER"/>
+    <string id="task_COMPUTESCRIBBLE_RENDERBLOCKED" value="COMPUTESCRIBBLE_RENDERBLOCKED"/>
+    <string id="task_COMPUTESCRIBBLE_SCRIBBLEBLOCKED" value="COMPUTESCRIBBLE_SCRIBBLEBLOCKED"/>
+    <string id="task_DCOMPEVENT_RESOURCE_OPEN" value="DCOMPEVENT_RESOURCE_OPEN"/>
+    <string id="task_VISUAL_SET_INTERACTION" value="VISUAL_SET_INTERACTION"/>
+    <string id="task_RENDERTARGET_COUNTS" value="RENDERTARGET_COUNTS"/>
+    <string id="task_HWDEVICE" value="HWDEVICE"/>
+    <string id="task_COMPUTESCRIBBLE_EARLYCOPY" value="COMPUTESCRIBBLE_EARLYCOPY"/>
+    <string id="task_COMPUTESCRIBBLE_ACTIVE" value="COMPUTESCRIBBLE_ACTIVE"/>
+    <string id="task_LEGACYSWAPCHAIN_BUFFERFLIP" value="LEGACYSWAPCHAIN_BUFFERFLIP"/>
+    <string id="map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_BITMAP" value="UCE_EVENT_TRACE_TYPE_BITMAP"/>
+    <string id="map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_CLIPPEDBITMAP" value="UCE_EVENT_TRACE_TYPE_CLIPPEDBITMAP"/>
+    <string id="map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_RECTANGLE" value="UCE_EVENT_TRACE_TYPE_RECTANGLE"/>
+    <string id="map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_GEOMETRY" value="UCE_EVENT_TRACE_TYPE_GEOMETRY"/>
+    <string id="map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_IMAGE" value="UCE_EVENT_TRACE_TYPE_IMAGE"/>
+    <string id="map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_GLYPHRUN" value="UCE_EVENT_TRACE_TYPE_GLYPHRUN"/>
+    <string id="map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_GLASS" value="UCE_EVENT_TRACE_TYPE_GLASS"/>
+    <string id="map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_MESH2D" value="UCE_EVENT_TRACE_TYPE_MESH2D"/>
+    <string id="map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_SCENE3D" value="UCE_EVENT_TRACE_TYPE_SCENE3D"/>
+    <string id="map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_SURFACE" value="UCE_EVENT_TRACE_TYPE_SURFACE"/>
+    <string id="map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_BEGINLAYER" value="UCE_EVENT_TRACE_TYPE_BEGINLAYER"/>
+    <string id="map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_ENDLAYER" value="UCE_EVENT_TRACE_TYPE_ENDLAYER"/>
+    <string id="map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_BEGINEXTERNALLAYER" value="UCE_EVENT_TRACE_TYPE_BEGINEXTERNALLAYER"/>
+    <string id="map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_ENDEXTERNALLAYER" value="UCE_EVENT_TRACE_TYPE_ENDEXTERNALLAYER"/>
+    <string id="map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_D2DBITMAP" value="UCE_EVENT_TRACE_TYPE_D2DBITMAP"/>
+    <string id="map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_D2DIMAGE" value="UCE_EVENT_TRACE_TYPE_D2DIMAGE"/>
+    <string id="map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_D2DBEGINDRAW" value="UCE_EVENT_TRACE_TYPE_D2DBEGINDRAW"/>
+    <string id="map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_D2DENDDRAW" value="UCE_EVENT_TRACE_TYPE_D2DENDDRAW"/>
+    <string id="map_EVENT_TRACE_DRAWINGUCE_EVENT_TRACE_TYPE_PRIMITIVE_GROUP" value="UCE_EVENT_TRACE_TYPE_PRIMITIVE_GROUP"/>
+    <string id="map_ADVANCED_DIRECTFLIP_CANCEL_REASONADVANCED_DIRECTFLIP_CANCEL_REASON_CURRENT_BUFFER_INVALIDATED" value="ADVANCED_DIRECTFLIP_CANCEL_REASON_CURRENT_BUFFER_INVALIDATED"/>
+    <string id="map_ADVANCED_DIRECTFLIP_CANCEL_REASONADVANCED_DIRECTFLIP_CANCEL_REASON_CURRENT_BUFFER_SCANNED_OUT" value="ADVANCED_DIRECTFLIP_CANCEL_REASON_CURRENT_BUFFER_SCANNED_OUT"/>
+    <string id="map_ADVANCED_DIRECTFLIP_CANCEL_REASONADVANCED_DIRECTFLIP_CANCEL_REASON_CURRENT_BUFFER_MAY_BE_SCANNED_OUT" value="ADVANCED_DIRECTFLIP_CANCEL_REASON_CURRENT_BUFFER_MAY_BE_SCANNED_OUT"/>
+    <string id="map_SHADER_CREATE_TYPESHADER_CREATE_TYPE_VERTEX_SHADER" value="SHADER_CREATE_TYPE_VERTEX_SHADER"/>
+    <string id="map_SHADER_CREATE_TYPESHADER_CREATE_TYPE_PIXEL_SHADER" value="SHADER_CREATE_TYPE_PIXEL_SHADER"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

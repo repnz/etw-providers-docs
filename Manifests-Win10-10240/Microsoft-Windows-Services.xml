@@ -1,0 +1,56 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Services" guid="{0063715b-eeda-4007-9429-ad526f62696e}" resourceFileName="Microsoft-Windows-Services" messageFileName="Microsoft-Windows-Services" symbol="MicrosoftWindowsServices" source="Xml" >
+    <keywords>
+     <keyword name="Performance" message="$(string.keyword_Performance)" mask="0x10000"/>
+    </keywords>
+    <tasks>
+     <task name="Autostart" message="$(string.task_Autostart)" value="101"/>
+     <task name="StartingGroup" message="$(string.task_StartingGroup)" value="103"/>
+     <task name="ServiceStatusChange" message="$(string.task_ServiceStatusChange)" value="105">
+>
+      <opcodes>
+       <opcode name="StatusChange" message="$(string.opcode_ServiceStatusChangeStatusChange)" value="101"/>
+      </opcodes>
+     </task>
+     <task name="PerfCriticalAutostart" message="$(string.task_PerfCriticalAutostart)" value="107"/>
+    </tasks>
+    <events>
+     <event value="101" symbol="Autostart" version="0" task="Autostart" opcode="win:Start" level="win:Informational" keywords="Performance"/>
+     <event value="102" symbol="AutostartStop" version="0" task="Autostart" opcode="win:Stop" level="win:Informational" keywords="Performance"/>
+     <event value="103" symbol="StartingGroupStart" version="0" task="StartingGroup" opcode="win:Start" level="win:Informational" keywords="Performance" template="StartingGroupStartArgs"/>
+     <event value="104" symbol="StartingGroupStop" version="0" task="StartingGroup" opcode="win:Stop" level="win:Informational" keywords="Performance" template="StartingGroupStartArgs"/>
+     <event value="105" symbol="ServiceStatusChange" version="0" task="ServiceStatusChange" opcode="StatusChange" level="win:Informational" keywords="Performance" template="ServiceStatusChangeArgs"/>
+     <event value="106" symbol="PerfCriticalAutostart" version="0" task="PerfCriticalAutostart" opcode="win:Start" level="win:Informational" keywords="Performance"/>
+     <event value="107" symbol="PerfCriticalAutostartStop" version="0" task="PerfCriticalAutostart" opcode="win:Stop" level="win:Informational" keywords="Performance"/>
+    </events>
+    <templates>
+     <template tid="StartingGroupStartArgs">
+      <data name="GroupName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ServiceStatusChangeArgs">
+      <data name="ExecutionPhase" inType="win:UInt32"/>
+      <data name="CurrentState" inType="win:UInt32"/>
+      <data name="StartType" inType="win:UInt32"/>
+      <data name="PID" inType="win:UInt32"/>
+      <data name="ServiceName" inType="win:UnicodeString"/>
+      <data name="ImageName" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Performance" value="Performance"/>
+    <string id="task_Autostart" value="Autostart"/>
+    <string id="task_StartingGroup" value="StartingGroup"/>
+    <string id="task_ServiceStatusChange" value="ServiceStatusChange"/>
+    <string id="opcode_ServiceStatusChangeStatusChange" value="StatusChange"/>
+    <string id="task_PerfCriticalAutostart" value="PerfCriticalAutostart"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

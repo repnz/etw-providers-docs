@@ -1,0 +1,258 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-ReadyBoost" guid="{e6307a09-292c-497e-aad6-498f68e2b619}" resourceFileName="Microsoft-Windows-ReadyBoost" messageFileName="Microsoft-Windows-ReadyBoost" symbol="MicrosoftWindowsReadyBoost" source="Xml" >
+    <keywords>
+     <keyword name="Diag" message="$(string.keyword_Diag)" mask="0x1000"/>
+     <keyword name="ReadyBoot" message="$(string.keyword_ReadyBoot)" mask="0x2000"/>
+     <keyword name="ReadyBoost" message="$(string.keyword_ReadyBoost)" mask="0x4000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="ReadyBoot" message="$(string.task_ReadyBoot)" value="1016"/>
+     <task name="ReadyBoot_1017" message="$(string.task_ReadyBoot_1017)" value="1017"/>
+     <task name="ReadyBoot_1018" message="$(string.task_ReadyBoot_1018)" value="1018"/>
+     <task name="ReadyBoost" message="$(string.task_ReadyBoost)" value="1019"/>
+     <task name="HybridDrive" message="$(string.task_HybridDrive)" value="1020"/>
+    </tasks>
+    <maps>
+     <valueMap name="BootPlanCalcReason">
+      <map value="0x0" message="$(string.map_BootPlanCalcReasonSystem boot completion)"/>
+      <map value="0x1" message="$(string.map_BootPlanCalcReasonDisk defragmentation)"/>
+      <map value="0x2" message="$(string.map_BootPlanCalcReasonExplicit user request)"/>
+     </valueMap>
+     <valueMap name="RdbAttachStates">
+      <map value="0x0" message="$(string.map_RdbAttachStatesReadyBoost caching enabled for this device.)"/>
+      <map value="0x1" message="$(string.map_RdbAttachStatesReadyBoost caching disabled due to high performance device.)"/>
+      <map value="0x2" message="$(string.map_RdbAttachStatesReadyBoost caching enabled for ReadyBoot only.)"/>
+      <map value="0x3" message="$(string.map_RdbAttachStatesReadyBoost caching disabled for this device.)"/>
+      <map value="0x4" message="$(string.map_RdbAttachStatesReadyBoost state not determined.)"/>
+     </valueMap>
+     <valueMap name="HbdrvAttachStates">
+      <map value="0x0" message="$(string.map_HbdrvAttachStatesHybrid Drive disabled.)"/>
+      <map value="0x1" message="$(string.map_HbdrvAttachStatesHybrid Drive enabled.)"/>
+      <map value="0x2" message="$(string.map_HbdrvAttachStatesHybrid Drive enabled, slow sequential I/O performance detected.)"/>
+      <map value="0x3" message="$(string.map_HbdrvAttachStatesHybrid Drive host hinting suspended due to slow device performance.)"/>
+      <map value="0x4" message="$(string.map_HbdrvAttachStatesHybrid Drive disabled due to slow device performance.)"/>
+      <map value="0x5" message="$(string.map_HbdrvAttachStatesHybrid Drive state not determined.)"/>
+     </valueMap>
+     <valueMap name="HbdrvSpeedTestResults">
+      <map value="0x0" message="$(string.map_HbdrvSpeedTestResultsTest inconclusive.)"/>
+      <map value="0x1" message="$(string.map_HbdrvSpeedTestResultsSpeed tests passed.)"/>
+      <map value="0x2" message="$(string.map_HbdrvSpeedTestResultsSpeed insufficient for sequential I/O caching.)"/>
+      <map value="0x3" message="$(string.map_HbdrvSpeedTestResultsPerformance unacceptable for caching.)"/>
+      <map value="0x4" message="$(string.map_HbdrvSpeedTestResultsPerformance unacceptable for caching.)"/>
+      <map value="0x5" message="$(string.map_HbdrvSpeedTestResultsPerformance not determined.)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1000" symbol="ReadyBoost" version="0" task="ReadyBoost" level="win:Informational" keywords="ReadyBoost" template="ReadyBoostArgs"/>
+     <event value="1002" symbol="ReadyBoost1002" version="0" task="ReadyBoost" level="win:Informational" keywords="ReadyBoost" template="ReadyBoost1002Args"/>
+     <event value="1003" symbol="task_0" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+     <event value="1003" symbol="ReadyBoost1003_V1" version="1" task="ReadyBoost" level="win:Informational" keywords="ReadyBoost" template="ReadyBoost1009Args"/>
+     <event value="1004" symbol="ReadyBoost1004" version="0" task="ReadyBoost" level="win:Informational" keywords="ReadyBoost" template="ReadyBoost1004Args"/>
+     <event value="1005" symbol="ReadyBoost1005" version="0" task="ReadyBoost" level="win:Informational" keywords="ReadyBoost" template="ReadyBoost1004Args"/>
+     <event value="1006" symbol="ReadyBoost1006" version="0" task="ReadyBoost" level="win:Error" keywords="ReadyBoost" template="ReadyBoost1006Args"/>
+     <event value="1007" symbol="task_01007" version="0" task="task_0" level="win:Informational" template="task_01007Args"/>
+     <event value="1007" symbol="ReadyBoost1007_V1" version="1" task="ReadyBoost" level="win:Informational" keywords="ReadyBoost" template="ReadyBoost1002Args"/>
+     <event value="1008" symbol="ReadyBoost1008" version="0" task="ReadyBoost" level="win:Informational" keywords="ReadyBoost" template="task_0Args"/>
+     <event value="1009" symbol="ReadyBoost1009" version="0" task="ReadyBoost" level="win:Informational" keywords="ReadyBoost" template="ReadyBoost1009Args"/>
+     <event value="1010" symbol="ReadyBoost1010" version="0" task="ReadyBoost" level="win:Informational" keywords="ReadyBoost" template="task_0Args"/>
+     <event value="1011" symbol="task_01011" version="0" task="task_0" level="win:Informational" template="ReadyBoost1002Args"/>
+     <event value="1012" symbol="task_01012" version="0" task="task_0" level="win:Informational" template="task_01007Args"/>
+     <event value="1013" symbol="ReadyBoost1013" version="0" task="ReadyBoost" level="win:Informational" keywords="ReadyBoost" template="ReadyBoost1002Args"/>
+     <event value="1014" symbol="task_01014" version="0" task="task_0" level="win:Informational" template="ReadyBoost1002Args"/>
+     <event value="1015" symbol="ReadyBoot" version="0" task="ReadyBoot" level="win:Informational" keywords="Diag" template="ReadyBootArgs"/>
+     <event value="1015" symbol="ReadyBoot_V1" version="1" task="ReadyBoot" level="win:Informational" keywords="ReadyBoot" template="ReadyBootArgs_V1"/>
+     <event value="1015" symbol="ReadyBoot_V2" version="2" task="ReadyBoot" level="win:Informational" keywords="ReadyBoot" template="ReadyBootArgs_V2"/>
+     <event value="1016" symbol="ReadyBoot1016" version="0" task="ReadyBoot" level="win:Informational" keywords="Diag" template="ReadyBoot1016Args"/>
+     <event value="1016" symbol="ReadyBoot1016_V1" version="1" task="ReadyBoot" level="win:Informational" keywords="ReadyBoot" template="ReadyBoot1016Args_V1"/>
+     <event value="1017" symbol="ReadyBoot_1017" version="0" task="ReadyBoot_1017" level="win:Informational" keywords="Diag" template="ReadyBoot_1017Args"/>
+     <event value="1017" symbol="ReadyBoost1017_V1" version="1" task="ReadyBoost" level="win:Informational" keywords="ReadyBoost" template="ReadyBoost1002Args"/>
+     <event value="1018" symbol="ReadyBoot_1018" version="0" task="ReadyBoot_1018" level="win:Informational" keywords="Diag" template="ReadyBoot_1018Args"/>
+     <event value="1018" symbol="ReadyBoot1018_V1" version="1" task="ReadyBoot" level="win:Informational" keywords="ReadyBoot" template="ReadyBoot1018Args_V1"/>
+     <event value="1019" symbol="ReadyBoost1019_V1" version="1" task="ReadyBoost" level="win:Informational" keywords="ReadyBoost" template="ReadyBoost1002Args"/>
+     <event value="1020" symbol="ReadyBoost1020_V1" version="1" task="ReadyBoost" level="win:Informational" keywords="ReadyBoost" template="ReadyBoost1002Args"/>
+     <event value="1021" symbol="ReadyBoost1021_V1" version="1" task="ReadyBoost" level="win:Informational" keywords="ReadyBoost" template="ReadyBoost1002Args"/>
+     <event value="1022" symbol="ReadyBoost1022_V1" version="1" task="ReadyBoost" level="win:Informational" keywords="ReadyBoost" template="ReadyBoost1002Args"/>
+     <event value="1023" symbol="ReadyBoost1023_V1" version="1" task="ReadyBoost" level="win:Informational" keywords="ReadyBoost" template="ReadyBoost1002Args"/>
+     <event value="1024" symbol="ReadyBoot1024_V1" version="1" task="ReadyBoot" level="win:Informational" keywords="ReadyBoot" template="ReadyBoot1024Args_V1"/>
+     <event value="1024" symbol="ReadyBoot1024_V2" version="2" task="ReadyBoot" level="win:Informational" keywords="ReadyBoot" template="ReadyBoot1024Args_V2"/>
+     <event value="1025" symbol="ReadyBoost1025_V1" version="1" task="ReadyBoost" level="win:Informational" keywords="ReadyBoost" template="ReadyBoost1002Args"/>
+     <event value="1026" symbol="ReadyBoot1026_V1" version="1" task="ReadyBoot" level="win:Informational" keywords="ReadyBoot" template="ReadyBoot1026Args_V1"/>
+     <event value="1027" symbol="ReadyBoot1027_V1" version="1" task="ReadyBoot" level="win:Informational" keywords="ReadyBoot" template="ReadyBoot1027Args_V1"/>
+     <event value="1028" symbol="HybridDrive_V1" version="1" task="HybridDrive" level="win:Warning" keywords="ReadyBoost" template="HybridDriveArgs_V1"/>
+     <event value="1029" symbol="HybridDrive1029_V1" version="1" task="HybridDrive" level="win:Informational" keywords="ReadyBoost" template="HybridDrive1029Args_V1"/>
+    </events>
+    <templates>
+     <template tid="ReadyBoostArgs">
+      <data name="DeviceName" inType="win:UnicodeString"/>
+      <data name="FreeSpace" inType="win:UInt32"/>
+      <data name="ReadRate" inType="win:UInt32"/>
+      <data name="WriteRate" inType="win:UInt32"/>
+     </template>
+     <template tid="ReadyBoost1002Args">
+      <data name="DeviceName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0Args">
+      <data name="DeviceName" inType="win:UnicodeString"/>
+      <data name="IntValue" inType="win:UInt32"/>
+     </template>
+     <template tid="ReadyBoost1004Args">
+      <data name="DeviceName" inType="win:UnicodeString"/>
+      <data name="IORate" inType="win:UInt32"/>
+     </template>
+     <template tid="ReadyBoost1006Args">
+      <data name="DeviceName" inType="win:UnicodeString"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="task_01007Args">
+      <data name="DeviceName" inType="win:UnicodeString"/>
+      <data name="StringLabel" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ReadyBoost1009Args">
+      <data name="DeviceName" inType="win:UnicodeString"/>
+      <data name="IntValue" inType="win:UInt32"/>
+      <data name="SecondIntValue" inType="win:UInt32"/>
+     </template>
+     <template tid="ReadyBootArgs">
+      <data name="RB_BootTimeUTC" inType="win:FILETIME"/>
+      <data name="RB_LastBootPlanUTC" inType="win:FILETIME"/>
+      <data name="RB_IoReadKB" inType="win:UInt64"/>
+      <data name="RB_CacheHitKB" inType="win:UInt64"/>
+      <data name="RB_CompressedDataSizeKB" inType="win:UInt64"/>
+      <data name="RB_RawDataSizeKB" inType="win:UInt64"/>
+      <data name="RB_BootPrefetchDiskTimeUs" inType="win:Int64"/>
+      <data name="RB_BootPrefetchDataReadBytes" inType="win:Int64"/>
+      <data name="RB_CacheHitPercentage" inType="win:Double"/>
+      <data name="RB_CacheFragmentation" inType="win:Double"/>
+      <data name="RB_CompressionRatio" inType="win:Double"/>
+      <data name="RB_IoReadCount" inType="win:UInt32"/>
+      <data name="RB_CacheHitCount" inType="win:UInt32"/>
+      <data name="RB_CacheSizeKB" inType="win:UInt32"/>
+      <data name="RB_LastBootPlanUserTimeLength" inType="win:UInt32"/>
+      <data name="RB_LastBootPlanUserTime" inType="win:UnicodeString" length="RB_LastBootPlanUserTimeLength"/>
+     </template>
+     <template tid="ReadyBoot1016Args">
+      <data name="BootPlanTimestamp" inType="win:FILETIME"/>
+      <data name="ValidBootPlan" inType="win:Boolean"/>
+     </template>
+     <template tid="ReadyBoot_1017Args">
+      <data name="DefragCompletionTimestamp" inType="win:FILETIME"/>
+     </template>
+     <template tid="ReadyBoot_1018Args">
+      <data name="DiskAssessmentTimestamp" inType="win:FILETIME"/>
+      <data name="Success" inType="win:Boolean"/>
+     </template>
+     <template tid="ReadyBootArgs_V1">
+      <data name="RB_IoReadBytes" inType="win:UInt64"/>
+      <data name="RB_CacheHitBytes" inType="win:UInt64"/>
+      <data name="RB_PrefetchBytes" inType="win:UInt64"/>
+      <data name="RB_CacheHitPercentage" inType="win:Double"/>
+      <data name="RB_IoReadCount" inType="win:UInt32"/>
+      <data name="RB_CacheHitCount" inType="win:UInt32"/>
+      <data name="RB_PrefetchReadCount" inType="win:UInt32"/>
+      <data name="RB_PrefetchDiskTimeUs" inType="win:UInt32"/>
+     </template>
+     <template tid="ReadyBoot1016Args_V1">
+      <data name="BootPlanTimestamp" inType="win:FILETIME"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="Durationms" inType="win:UInt16"/>
+      <data name="Reason" inType="win:UInt8" map="BootPlanCalcReason"/>
+     </template>
+     <template tid="ReadyBoot1018Args_V1">
+      <data name="DiskAssessmentTimestamp" inType="win:FILETIME"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="Durationms" inType="win:UInt16"/>
+     </template>
+     <template tid="ReadyBoot1024Args_V1">
+      <data name="RB_HistoryCount" inType="win:UInt32"/>
+      <data name="RB_BootPlanAge" inType="win:UInt32"/>
+      <data name="RB_DiskAssessmentRPM" inType="win:UInt32"/>
+     </template>
+     <template tid="ReadyBoot1026Args_V1">
+      <data name="VolumeUniqueId" inType="win:UnicodeString"/>
+      <data name="OldRdbAttachState" inType="win:UInt16"/>
+      <data name="NewRdbAttachState" inType="win:UInt16" map="RdbAttachStates"/>
+      <data name="OldHbdrvAttachState" inType="win:UInt16"/>
+      <data name="NewHbdrvAttachState" inType="win:UInt16" map="HbdrvAttachStates"/>
+      <data name="VolumePath" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ReadyBoot1027Args_V1">
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="UniqueIdLength" inType="win:UInt32"/>
+      <data name="VolumeUniqueId" inType="win:Binary" length="UniqueIdLength"/>
+     </template>
+     <template tid="HybridDriveArgs_V1">
+      <data name="DiskNumber" inType="win:UInt32"/>
+     </template>
+     <template tid="HybridDrive1029Args_V1">
+      <data name="HbdrvSpeedTestResult" inType="win:UInt32" map="HbdrvSpeedTestResults"/>
+      <data name="DiskSeqReadKbps" inType="win:UInt32"/>
+      <data name="DiskSeqWriteKbps" inType="win:UInt32"/>
+      <data name="FlashSeqReadKbps" inType="win:UInt32"/>
+      <data name="FlashSeqWriteKbps" inType="win:UInt32"/>
+      <data name="FlashRndReadKbps" inType="win:UInt32"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="ReadyBootArgs_V2">
+      <data name="RB_IoReadBytes" inType="win:UInt64"/>
+      <data name="RB_CacheHitBytes" inType="win:UInt64"/>
+      <data name="RB_PrefetchBytes" inType="win:UInt64"/>
+      <data name="RB_CacheHitPercentage" inType="win:Double"/>
+      <data name="RB_IoReadCount" inType="win:UInt32"/>
+      <data name="RB_CacheHitCount" inType="win:UInt32"/>
+      <data name="RB_PrefetchReadCount" inType="win:UInt32"/>
+      <data name="RB_PrefetchDiskTimeUs" inType="win:UInt32"/>
+      <data name="RB_SyncPrefetchIoBytes" inType="win:UInt64"/>
+      <data name="RB_SyncPrefetchIoCount" inType="win:UInt32"/>
+      <data name="RB_SyncPhaseDurationUs" inType="win:UInt32"/>
+      <data name="RB_PostSyncPhasePendCount" inType="win:UInt32"/>
+      <data name="RB_Flags" inType="win:UInt32"/>
+     </template>
+     <template tid="ReadyBoot1024Args_V2">
+      <data name="RB_HistoryCount" inType="win:UInt32"/>
+      <data name="RB_BootPlanAge" inType="win:UInt32"/>
+      <data name="RB_DiskAssessmentRPM" inType="win:UInt32"/>
+      <data name="RB_Flags" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_Diag" value="Diag"/>
+    <string id="keyword_ReadyBoot" value="ReadyBoot"/>
+    <string id="keyword_ReadyBoost" value="ReadyBoost"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_ReadyBoot" value="ReadyBoot"/>
+    <string id="task_ReadyBoot_1017" value="ReadyBoot_1017"/>
+    <string id="task_ReadyBoot_1018" value="ReadyBoot_1018"/>
+    <string id="task_ReadyBoost" value="ReadyBoost"/>
+    <string id="task_HybridDrive" value="HybridDrive"/>
+    <string id="map_BootPlanCalcReasonSystem boot completion" value="System boot completion"/>
+    <string id="map_BootPlanCalcReasonDisk defragmentation" value="Disk defragmentation"/>
+    <string id="map_BootPlanCalcReasonExplicit user request" value="Explicit user request"/>
+    <string id="map_RdbAttachStatesReadyBoost caching enabled for this device." value="ReadyBoost caching enabled for this device."/>
+    <string id="map_RdbAttachStatesReadyBoost caching disabled due to high performance device." value="ReadyBoost caching disabled due to high performance device."/>
+    <string id="map_RdbAttachStatesReadyBoost caching enabled for ReadyBoot only." value="ReadyBoost caching enabled for ReadyBoot only."/>
+    <string id="map_RdbAttachStatesReadyBoost caching disabled for this device." value="ReadyBoost caching disabled for this device."/>
+    <string id="map_RdbAttachStatesReadyBoost state not determined." value="ReadyBoost state not determined."/>
+    <string id="map_HbdrvAttachStatesHybrid Drive disabled." value="Hybrid Drive disabled."/>
+    <string id="map_HbdrvAttachStatesHybrid Drive enabled." value="Hybrid Drive enabled."/>
+    <string id="map_HbdrvAttachStatesHybrid Drive enabled, slow sequential I/O performance detected." value="Hybrid Drive enabled, slow sequential I/O performance detected."/>
+    <string id="map_HbdrvAttachStatesHybrid Drive host hinting suspended due to slow device performance." value="Hybrid Drive host hinting suspended due to slow device performance."/>
+    <string id="map_HbdrvAttachStatesHybrid Drive disabled due to slow device performance." value="Hybrid Drive disabled due to slow device performance."/>
+    <string id="map_HbdrvAttachStatesHybrid Drive state not determined." value="Hybrid Drive state not determined."/>
+    <string id="map_HbdrvSpeedTestResultsTest inconclusive." value="Test inconclusive."/>
+    <string id="map_HbdrvSpeedTestResultsSpeed tests passed." value="Speed tests passed."/>
+    <string id="map_HbdrvSpeedTestResultsSpeed insufficient for sequential I/O caching." value="Speed insufficient for sequential I/O caching."/>
+    <string id="map_HbdrvSpeedTestResultsPerformance unacceptable for caching." value="Performance unacceptable for caching."/>
+    <string id="map_HbdrvSpeedTestResultsPerformance unacceptable for caching." value="Performance unacceptable for caching."/>
+    <string id="map_HbdrvSpeedTestResultsPerformance not determined." value="Performance not determined."/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

@@ -1,0 +1,93 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-SrumTelemetry" guid="{48d445a8-2f64-4d49-b093-a5774d8dc531}" resourceFileName="Microsoft-Windows-SrumTelemetry" messageFileName="Microsoft-Windows-SrumTelemetry" symbol="MicrosoftWindowsSrumTelemetry" source="Xml" >
+    <keywords>
+     <keyword name="E3Rundown1day" message="$(string.keyword_E3Rundown1day)" mask="0x1000"/>
+     <keyword name="E3Rundown3day" message="$(string.keyword_E3Rundown3day)" mask="0x2000"/>
+     <keyword name="E3Rundown7day" message="$(string.keyword_E3Rundown7day)" mask="0x4000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="E3HistoryTask" message="$(string.task_E3HistoryTask)" value="1"/>
+    </tasks>
+    <events>
+     <event value="2003" symbol="task_0" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+     <event value="2004" symbol="task_02004" version="0" task="task_0" level="win:Informational" template="task_02004Args"/>
+     <event value="2005" symbol="task_02005" version="0" task="task_0" level="win:Informational" template="task_02005Args"/>
+     <event value="3003" symbol="task_03003" version="0" task="task_0" level="win:Informational" template="task_03003Args"/>
+     <event value="3004" symbol="task_03004" version="0" task="task_0" level="win:Informational" template="task_03004Args"/>
+     <event value="3005" symbol="task_03005" version="0" task="task_0" level="win:Informational" template="task_03005Args"/>
+     <event value="3006" symbol="E3HistoryTaskDCStop" version="0" task="E3HistoryTask" opcode="win:DC_Stop" level="win:Informational" template="E3HistoryTaskDCStopArgs"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="BatteryDrainRate" inType="win:UInt32"/>
+      <data name="PowerBitpack" inType="win:UInt32"/>
+      <data name="Duration" inType="win:UInt32"/>
+      <data name="AppCpuCyclesBitpack" inType="win:UInt32"/>
+      <data name="TimeStamp" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_02004Args">
+      <data name="JoulesPerHourScreenOnDC" inType="win:UInt32"/>
+      <data name="JoulesPerHourScreenOffDC" inType="win:UInt32"/>
+      <data name="DCTimeBitpack" inType="win:UInt32"/>
+      <data name="CPUCyclesOnDCBitpack" inType="win:UInt32"/>
+      <data name="DiskMBRead" inType="win:UInt32"/>
+      <data name="DiskMBWritten" inType="win:UInt32"/>
+     </template>
+     <template tid="task_02005Args">
+      <data name="PowerInMilliwatts" inType="win:UInt32"/>
+      <data name="CpuStatsBitpack" inType="win:UInt32"/>
+      <data name="DiskAndNetStatsBitPack" inType="win:UInt32"/>
+      <data name="DurationBitPack" inType="win:UInt32"/>
+      <data name="ModernAppPackageName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_03003Args">
+      <data name="PreviousBrightnessLevel" inType="win:Int32"/>
+      <data name="PreviousBrightnessDurationInSeconds" inType="win:UInt32"/>
+      <data name="NewBrightnessLevel" inType="win:Int32"/>
+     </template>
+     <template tid="task_03004Args">
+      <data name="CurrentBrightnessLevel" inType="win:Int32"/>
+     </template>
+     <template tid="task_03005Args">
+      <data name="PreviousStateDurationInSeconds" inType="win:UInt32"/>
+      <data name="NewEnergySaverState" inType="win:Int8"/>
+     </template>
+     <template tid="E3HistoryTaskDCStopArgs">
+      <data name="TimeStamp" inType="win:SYSTEMTIME"/>
+      <data name="AppId" inType="win:UnicodeString"/>
+      <data name="UserId" inType="win:UnicodeString"/>
+      <data name="EnergyLoss" inType="win:UInt64"/>
+      <data name="CpuEnergyConsumption" inType="win:UInt64"/>
+      <data name="SocEnergyConsumption" inType="win:UInt64"/>
+      <data name="DisplayEnergyConsumption" inType="win:UInt64"/>
+      <data name="DiskEnergyConsumption" inType="win:UInt64"/>
+      <data name="NetworkEnergyConsumption" inType="win:UInt64"/>
+      <data name="MbbEnergyConsumption" inType="win:UInt64"/>
+      <data name="OtherEnergyConsumption" inType="win:UInt64"/>
+      <data name="TotalEnergyConsumption" inType="win:UInt64"/>
+      <data name="MeasuredPower" inType="win:Boolean"/>
+      <data name="OnBattery" inType="win:Boolean"/>
+      <data name="Foreground" inType="win:Boolean"/>
+      <data name="ScreenOn" inType="win:Boolean"/>
+      <data name="BatterySaverActive" inType="win:Boolean"/>
+      <data name="LowPowerEpochActive" inType="win:Boolean"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_E3Rundown1day" value="E3Rundown1day"/>
+    <string id="keyword_E3Rundown3day" value="E3Rundown3day"/>
+    <string id="keyword_E3Rundown7day" value="E3Rundown7day"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_E3HistoryTask" value="E3HistoryTask"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

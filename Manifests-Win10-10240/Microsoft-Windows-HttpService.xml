@@ -1,0 +1,820 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-HttpService" guid="{dd5ef90a-6398-47a4-ad34-4dcecdef795f}" resourceFileName="Microsoft-Windows-HttpService" messageFileName="Microsoft-Windows-HttpService" symbol="MicrosoftWindowsHttpService" source="Xml" >
+    <keywords>
+     <keyword name="HTTP_KEYWORD_SETUP" message="$(string.keyword_HTTP_KEYWORD_SETUP)" mask="0x1"/>
+     <keyword name="HTTP_KEYWORD_REQUEST" message="$(string.keyword_HTTP_KEYWORD_REQUEST)" mask="0x2"/>
+     <keyword name="HTTP_KEYWORD_RESPONSE" message="$(string.keyword_HTTP_KEYWORD_RESPONSE)" mask="0x4"/>
+     <keyword name="HTTP_KEYWORD_ENDPOINT" message="$(string.keyword_HTTP_KEYWORD_ENDPOINT)" mask="0x8"/>
+     <keyword name="HTTP_KEYWORD_CONNECTION" message="$(string.keyword_HTTP_KEYWORD_CONNECTION)" mask="0x10"/>
+     <keyword name="HTTP_KEYWORD_CACHE" message="$(string.keyword_HTTP_KEYWORD_CACHE)" mask="0x20"/>
+     <keyword name="HTTP_KEYWORD_URL_GROUP" message="$(string.keyword_HTTP_KEYWORD_URL_GROUP)" mask="0x40"/>
+     <keyword name="HTTP_KEYWORD_SERVER_SESSION" message="$(string.keyword_HTTP_KEYWORD_SERVER_SESSION)" mask="0x80"/>
+     <keyword name="HTTP_KEYWORD_REQUEST_QUEUE" message="$(string.keyword_HTTP_KEYWORD_REQUEST_QUEUE)" mask="0x100"/>
+     <keyword name="HTTP_KEYWORD_SSL" message="$(string.keyword_HTTP_KEYWORD_SSL)" mask="0x200"/>
+     <keyword name="HTTP_KEYWORD_AUTHENTICATION" message="$(string.keyword_HTTP_KEYWORD_AUTHENTICATION)" mask="0x400"/>
+     <keyword name="HTTP_KEYWORD_LOGGING" message="$(string.keyword_HTTP_KEYWORD_LOGGING)" mask="0x800"/>
+     <keyword name="HTTP_KEYWORD_TIMEOUT" message="$(string.keyword_HTTP_KEYWORD_TIMEOUT)" mask="0x1000"/>
+     <keyword name="HTTP_KEYWORD_DRIVER_SETTING" message="$(string.keyword_HTTP_KEYWORD_DRIVER_SETTING)" mask="0x2000"/>
+     <keyword name="HTTP_KEYWORD_THREAD_POOL" message="$(string.keyword_HTTP_KEYWORD_THREAD_POOL)" mask="0x4000"/>
+    </keywords>
+    <tasks>
+     <task name="HTTPRequestTraceTask" message="$(string.task_HTTPRequestTraceTask)" value="1">
+>
+      <opcodes>
+       <opcode name="RecvReq" message="$(string.opcode_HTTPRequestTraceTaskRecvReq)" value="11"/>
+       <opcode name="Parse" message="$(string.opcode_HTTPRequestTraceTaskParse)" value="12"/>
+       <opcode name="Deliver" message="$(string.opcode_HTTPRequestTraceTaskDeliver)" value="13"/>
+       <opcode name="RecvResp" message="$(string.opcode_HTTPRequestTraceTaskRecvResp)" value="14"/>
+       <opcode name="RecvRespLast" message="$(string.opcode_HTTPRequestTraceTaskRecvRespLast)" value="15"/>
+       <opcode name="RecvBody" message="$(string.opcode_HTTPRequestTraceTaskRecvBody)" value="16"/>
+       <opcode name="RecvBodyLast" message="$(string.opcode_HTTPRequestTraceTaskRecvBodyLast)" value="17"/>
+       <opcode name="FastRespLast" message="$(string.opcode_HTTPRequestTraceTaskFastRespLast)" value="18"/>
+       <opcode name="FastResp" message="$(string.opcode_HTTPRequestTraceTaskFastResp)" value="19"/>
+       <opcode name="CachedAndSend" message="$(string.opcode_HTTPRequestTraceTaskCachedAndSend)" value="20"/>
+       <opcode name="FastSend" message="$(string.opcode_HTTPRequestTraceTaskFastSend)" value="21"/>
+       <opcode name="ZeroSend" message="$(string.opcode_HTTPRequestTraceTaskZeroSend)" value="22"/>
+       <opcode name="SndError" message="$(string.opcode_HTTPRequestTraceTaskSndError)" value="23"/>
+       <opcode name="LastSndError" message="$(string.opcode_HTTPRequestTraceTaskLastSndError)" value="24"/>
+       <opcode name="SrvdFrmCache" message="$(string.opcode_HTTPRequestTraceTaskSrvdFrmCache)" value="25"/>
+       <opcode name="CachedNotModified" message="$(string.opcode_HTTPRequestTraceTaskCachedNotModified)" value="26"/>
+       <opcode name="SendComplete" message="$(string.opcode_HTTPRequestTraceTaskSendComplete)" value="51"/>
+       <opcode name="ParseRequestFailed" message="$(string.opcode_HTTPRequestTraceTaskParseRequestFailed)" value="62"/>
+       <opcode name="RequestRejected" message="$(string.opcode_HTTPRequestTraceTaskRequestRejected)" value="74"/>
+       <opcode name="RequestCancelled" message="$(string.opcode_HTTPRequestTraceTaskRequestCancelled)" value="75"/>
+       <opcode name="UserResponseFlowInit" message="$(string.opcode_HTTPRequestTraceTaskUserResponseFlowInit)" value="78"/>
+       <opcode name="CachedResponseFlowInit" message="$(string.opcode_HTTPRequestTraceTaskCachedResponseFlowInit)" value="79"/>
+       <opcode name="FlowInitFailed" message="$(string.opcode_HTTPRequestTraceTaskFlowInitFailed)" value="80"/>
+       <opcode name="ResponseRangeProcessingOK" message="$(string.opcode_HTTPRequestTraceTaskResponseRangeProcessingOK)" value="84"/>
+       <opcode name="InitiateOpaqueMode" message="$(string.opcode_HTTPRequestTraceTaskInitiateOpaqueMode)" value="100"/>
+      </opcodes>
+     </task>
+     <task name="HTTPSetupTraceTask" message="$(string.task_HTTPSetupTraceTask)" value="3">
+>
+      <opcodes>
+       <opcode name="ResvUrl" message="$(string.opcode_HTTPSetupTraceTaskResvUrl)" value="27"/>
+       <opcode name="ReadIpListEntry" message="$(string.opcode_HTTPSetupTraceTaskReadIpListEntry)" value="49"/>
+       <opcode name="CreatedSslCred" message="$(string.opcode_HTTPSetupTraceTaskCreatedSslCred)" value="50"/>
+      </opcodes>
+     </task>
+     <task name="HTTPConnectionTraceTask" message="$(string.task_HTTPConnectionTraceTask)" value="4">
+>
+      <opcodes>
+       <opcode name="ConnConnect" message="$(string.opcode_HTTPConnectionTraceTaskConnConnect)" value="28"/>
+       <opcode name="ConnClose" message="$(string.opcode_HTTPConnectionTraceTaskConnClose)" value="29"/>
+       <opcode name="ConnCleanup" message="$(string.opcode_HTTPConnectionTraceTaskConnCleanup)" value="30"/>
+       <opcode name="ConnIdAssgn" message="$(string.opcode_HTTPConnectionTraceTaskConnIdAssgn)" value="55"/>
+       <opcode name="QosFlowSetReset" message="$(string.opcode_HTTPConnectionTraceTaskQosFlowSetReset)" value="56"/>
+       <opcode name="SetConnectionFlow" message="$(string.opcode_HTTPConnectionTraceTaskSetConnectionFlow)" value="81"/>
+       <opcode name="RequestAssociatedToConfigurationFlow" message="$(string.opcode_HTTPConnectionTraceTaskRequestAssociatedToConfigurationFlow)" value="82"/>
+       <opcode name="ConnectionFlowFailed" message="$(string.opcode_HTTPConnectionTraceTaskConnectionFlowFailed)" value="83"/>
+       <opcode name="UsePolicyBasedQoSFlow" message="$(string.opcode_HTTPConnectionTraceTaskUsePolicyBasedQoSFlow)" value="94"/>
+      </opcodes>
+     </task>
+     <task name="HTTPConfigurationPropertyTraceTask" message="$(string.task_HTTPConfigurationPropertyTraceTask)" value="5">
+>
+      <opcodes>
+       <opcode name="ChgUrlGrpProp" message="$(string.opcode_HTTPConfigurationPropertyTraceTaskChgUrlGrpProp)" value="31"/>
+       <opcode name="ChgSrvSesProp" message="$(string.opcode_HTTPConfigurationPropertyTraceTaskChgSrvSesProp)" value="32"/>
+       <opcode name="ChgReqQueueProp" message="$(string.opcode_HTTPConfigurationPropertyTraceTaskChgReqQueueProp)" value="33"/>
+       <opcode name="AddUrl" message="$(string.opcode_HTTPConfigurationPropertyTraceTaskAddUrl)" value="34"/>
+       <opcode name="RemUrl" message="$(string.opcode_HTTPConfigurationPropertyTraceTaskRemUrl)" value="35"/>
+       <opcode name="RemAllUrls" message="$(string.opcode_HTTPConfigurationPropertyTraceTaskRemAllUrls)" value="36"/>
+      </opcodes>
+     </task>
+     <task name="HTTPAuthenticationTraceTask" message="$(string.task_HTTPAuthenticationTraceTask)" value="6">
+>
+      <opcodes>
+       <opcode name="SspiCall" message="$(string.opcode_HTTPAuthenticationTraceTaskSspiCall)" value="52"/>
+       <opcode name="AuthCacheEntryAdded" message="$(string.opcode_HTTPAuthenticationTraceTaskAuthCacheEntryAdded)" value="53"/>
+       <opcode name="AuthCacheEntryFreed" message="$(string.opcode_HTTPAuthenticationTraceTaskAuthCacheEntryFreed)" value="54"/>
+       <opcode name="ChannelBindAscParams" message="$(string.opcode_HTTPAuthenticationTraceTaskChannelBindAscParams)" value="90"/>
+       <opcode name="ServiceBindCheckComplete" message="$(string.opcode_HTTPAuthenticationTraceTaskServiceBindCheckComplete)" value="91"/>
+       <opcode name="ChannelBindConfigCapture" message="$(string.opcode_HTTPAuthenticationTraceTaskChannelBindConfigCapture)" value="92"/>
+       <opcode name="ChannelBindPerResponseConfig" message="$(string.opcode_HTTPAuthenticationTraceTaskChannelBindPerResponseConfig)" value="93"/>
+      </opcodes>
+     </task>
+     <task name="HTTPSSLTraceTask" message="$(string.task_HTTPSSLTraceTask)" value="7">
+>
+      <opcodes>
+       <opcode name="SslConnEvent" message="$(string.opcode_HTTPSSLTraceTaskSslConnEvent)" value="40"/>
+       <opcode name="SslInitiateHandshake" message="$(string.opcode_HTTPSSLTraceTaskSslInitiateHandshake)" value="41"/>
+       <opcode name="SslHandshakeComplete" message="$(string.opcode_HTTPSSLTraceTaskSslHandshakeComplete)" value="42"/>
+       <opcode name="SslInititateSslRcvClientCert" message="$(string.opcode_HTTPSSLTraceTaskSslInititateSslRcvClientCert)" value="43"/>
+       <opcode name="SslRcvClientCertFailed" message="$(string.opcode_HTTPSSLTraceTaskSslRcvClientCertFailed)" value="44"/>
+       <opcode name="SslRcvdRawData" message="$(string.opcode_HTTPSSLTraceTaskSslRcvdRawData)" value="45"/>
+       <opcode name="SslDlvrdStreamData" message="$(string.opcode_HTTPSSLTraceTaskSslDlvrdStreamData)" value="46"/>
+       <opcode name="SslAcceptStreamData" message="$(string.opcode_HTTPSSLTraceTaskSslAcceptStreamData)" value="47"/>
+       <opcode name="SslEndpointCreationFailed" message="$(string.opcode_HTTPSSLTraceTaskSslEndpointCreationFailed)" value="66"/>
+       <opcode name="SslDisconnEvent" message="$(string.opcode_HTTPSSLTraceTaskSslDisconnEvent)" value="67"/>
+       <opcode name="SslDisconnReq" message="$(string.opcode_HTTPSSLTraceTaskSslDisconnReq)" value="68"/>
+       <opcode name="SslUnsealMsg" message="$(string.opcode_HTTPSSLTraceTaskSslUnsealMsg)" value="69"/>
+       <opcode name="SslQueryConnInfoFailed" message="$(string.opcode_HTTPSSLTraceTaskSslQueryConnInfoFailed)" value="70"/>
+       <opcode name="SslEndpointConfigNotFound" message="$(string.opcode_HTTPSSLTraceTaskSslEndpointConfigNotFound)" value="71"/>
+       <opcode name="SslAsc" message="$(string.opcode_HTTPSSLTraceTaskSslAsc)" value="72"/>
+       <opcode name="SslSealMsg" message="$(string.opcode_HTTPSSLTraceTaskSslSealMsg)" value="73"/>
+       <opcode name="SniParsed" message="$(string.opcode_HTTPSSLTraceTaskSniParsed)" value="99"/>
+       <opcode name="EndpointAutoGenerated" message="$(string.opcode_HTTPSSLTraceTaskEndpointAutoGenerated)" value="101"/>
+       <opcode name="AutoGeneratedEndpointDeleted" message="$(string.opcode_HTTPSSLTraceTaskAutoGeneratedEndpointDeleted)" value="102"/>
+       <opcode name="SslEndpointConfigFound" message="$(string.opcode_HTTPSSLTraceTaskSslEndpointConfigFound)" value="103"/>
+       <opcode name="SslEndpointConfigRejected" message="$(string.opcode_HTTPSSLTraceTaskSslEndpointConfigRejected)" value="104"/>
+      </opcodes>
+     </task>
+     <task name="HTTPCacheTraceTask" message="$(string.task_HTTPCacheTraceTask)" value="8">
+>
+      <opcodes>
+       <opcode name="AddedCacheEntry" message="$(string.opcode_HTTPCacheTraceTaskAddedCacheEntry)" value="37"/>
+       <opcode name="AddCacheEntryFailed" message="$(string.opcode_HTTPCacheTraceTaskAddCacheEntryFailed)" value="38"/>
+       <opcode name="FlushedCache" message="$(string.opcode_HTTPCacheTraceTaskFlushedCache)" value="39"/>
+       <opcode name="BeginBuildingSlices" message="$(string.opcode_HTTPCacheTraceTaskBeginBuildingSlices)" value="85"/>
+       <opcode name="SendSliceCacheContent" message="$(string.opcode_HTTPCacheTraceTaskSendSliceCacheContent)" value="86"/>
+       <opcode name="CachedSlicesMatchContent" message="$(string.opcode_HTTPCacheTraceTaskCachedSlicesMatchContent)" value="87"/>
+       <opcode name="MergeSlicesToCache" message="$(string.opcode_HTTPCacheTraceTaskMergeSlicesToCache)" value="88"/>
+       <opcode name="FlatCacheRangeSend" message="$(string.opcode_HTTPCacheTraceTaskFlatCacheRangeSend)" value="89"/>
+      </opcodes>
+     </task>
+     <task name="HTTPLoggingTraceTask" message="$(string.task_HTTPLoggingTraceTask)" value="9">
+>
+      <opcodes>
+       <opcode name="LoggingConfigFailed" message="$(string.opcode_HTTPLoggingTraceTaskLoggingConfigFailed)" value="57"/>
+       <opcode name="LoggingConfig" message="$(string.opcode_HTTPLoggingTraceTaskLoggingConfig)" value="58"/>
+       <opcode name="LogFileCreateFailed" message="$(string.opcode_HTTPLoggingTraceTaskLogFileCreateFailed)" value="59"/>
+       <opcode name="LogFileCreate" message="$(string.opcode_HTTPLoggingTraceTaskLogFileCreate)" value="60"/>
+       <opcode name="LogFileWrite" message="$(string.opcode_HTTPLoggingTraceTaskLogFileWrite)" value="61"/>
+      </opcodes>
+     </task>
+     <task name="HTTPTimeoutTraceTask" message="$(string.task_HTTPTimeoutTraceTask)" value="10">
+>
+      <opcodes>
+       <opcode name="ConnTimedOut" message="$(string.opcode_HTTPTimeoutTraceTaskConnTimedOut)" value="63"/>
+      </opcodes>
+     </task>
+     <task name="HTTPDriverGlobalSettingsTask" message="$(string.task_HTTPDriverGlobalSettingsTask)" value="11">
+>
+      <opcodes>
+       <opcode name="HotAddProcFailed" message="$(string.opcode_HTTPDriverGlobalSettingsTaskHotAddProcFailed)" value="76"/>
+       <opcode name="HotAddProcSucceeded" message="$(string.opcode_HTTPDriverGlobalSettingsTaskHotAddProcSucceeded)" value="77"/>
+      </opcodes>
+     </task>
+     <task name="HTTPThreadPool" message="$(string.task_HTTPThreadPool)" value="12">
+>
+      <opcodes>
+       <opcode name="ThreadPoolExtension" message="$(string.opcode_HTTPThreadPoolThreadPoolExtension)" value="95"/>
+       <opcode name="ThreadReady" message="$(string.opcode_HTTPThreadPoolThreadReady)" value="96"/>
+       <opcode name="ThreadPoolTrim" message="$(string.opcode_HTTPThreadPoolThreadPoolTrim)" value="97"/>
+       <opcode name="ThreadGone" message="$(string.opcode_HTTPThreadPoolThreadGone)" value="98"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <maps>
+     <valueMap name="HTTP_TEMPLATE_LOGGING_LogType_ValueMap">
+      <map value="0x0" message="$(string.map_HTTP_TEMPLATE_LOGGING_LogType_ValueMapResponseLogging)"/>
+      <map value="0x1" message="$(string.map_HTTP_TEMPLATE_LOGGING_LogType_ValueMapErrorLogging)"/>
+     </valueMap>
+     <valueMap name="HTTP_TEMPLATE_LOGGING_LogGroup_ValueMap">
+      <map value="0x0" message="$(string.map_HTTP_TEMPLATE_LOGGING_LogGroup_ValueMapSite)"/>
+      <map value="0x1" message="$(string.map_HTTP_TEMPLATE_LOGGING_LogGroup_ValueMapCentralized)"/>
+     </valueMap>
+     <valueMap name="HTTP_TEMPLATE_LOGGING_LogFormat_ValueMap">
+      <map value="0x0" message="$(string.map_HTTP_TEMPLATE_LOGGING_LogFormat_ValueMapW3C)"/>
+      <map value="0x1" message="$(string.map_HTTP_TEMPLATE_LOGGING_LogFormat_ValueMapIIS)"/>
+      <map value="0x2" message="$(string.map_HTTP_TEMPLATE_LOGGING_LogFormat_ValueMapNCSA)"/>
+      <map value="0x3" message="$(string.map_HTTP_TEMPLATE_LOGGING_LogFormat_ValueMapBinary)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="HTTPRequestTraceTaskRecvReq" version="0" task="HTTPRequestTraceTask" opcode="RecvReq" level="win:Informational" keywords="HTTP_KEYWORD_REQUEST HTTP_KEYWORD_REQUEST_QUEUE" template="HTTPRequestTraceTaskRecvReqArgs"/>
+     <event value="2" symbol="HTTPRequestTraceTaskParse" version="0" task="HTTPRequestTraceTask" opcode="Parse" level="win:Informational" keywords="HTTP_KEYWORD_REQUEST" template="HTTPRequestTraceTaskParseArgs"/>
+     <event value="3" symbol="HTTPRequestTraceTaskDeliver" version="0" task="HTTPRequestTraceTask" opcode="Deliver" level="win:Informational" keywords="HTTP_KEYWORD_REQUEST HTTP_KEYWORD_REQUEST_QUEUE" template="HTTPRequestTraceTaskDeliverArgs"/>
+     <event value="4" symbol="HTTPRequestTraceTaskRecvResp" version="0" task="HTTPRequestTraceTask" opcode="RecvResp" level="win:Informational" keywords="HTTP_KEYWORD_REQUEST HTTP_KEYWORD_RESPONSE" template="HTTPRequestTraceTaskRecvRespArgs"/>
+     <event value="5" symbol="HTTPRequestTraceTaskRecvRespLast" version="0" task="HTTPRequestTraceTask" opcode="RecvRespLast" level="win:Informational" keywords="HTTP_KEYWORD_REQUEST HTTP_KEYWORD_RESPONSE" template="HTTPRequestTraceTaskRecvRespLastArgs"/>
+     <event value="6" symbol="HTTPRequestTraceTaskRecvBody" version="0" task="HTTPRequestTraceTask" opcode="RecvBody" level="win:Informational" keywords="HTTP_KEYWORD_REQUEST HTTP_KEYWORD_RESPONSE" template="HTTPRequestTraceTaskRecvBodyArgs"/>
+     <event value="7" symbol="HTTPRequestTraceTaskRecvBodyLast" version="0" task="HTTPRequestTraceTask" opcode="RecvBodyLast" level="win:Informational" keywords="HTTP_KEYWORD_REQUEST HTTP_KEYWORD_RESPONSE" template="HTTPRequestTraceTaskRecvRespLastArgs"/>
+     <event value="8" symbol="HTTPRequestTraceTaskFastResp" version="0" task="HTTPRequestTraceTask" opcode="FastResp" level="win:Informational" keywords="HTTP_KEYWORD_REQUEST HTTP_KEYWORD_RESPONSE" template="HTTPRequestTraceTaskRecvRespArgs"/>
+     <event value="9" symbol="HTTPRequestTraceTaskFastRespLast" version="0" task="HTTPRequestTraceTask" opcode="FastRespLast" level="win:Informational" keywords="HTTP_KEYWORD_REQUEST HTTP_KEYWORD_RESPONSE" template="HTTPRequestTraceTaskRecvRespLastArgs"/>
+     <event value="10" symbol="HTTPRequestTraceTaskSendComplete" version="0" task="HTTPRequestTraceTask" opcode="SendComplete" level="win:Informational" keywords="HTTP_KEYWORD_REQUEST HTTP_KEYWORD_RESPONSE HTTP_KEYWORD_CONNECTION" template="HTTPRequestTraceTaskSendCompleteArgs"/>
+     <event value="11" symbol="HTTPRequestTraceTaskCachedAndSend" version="0" task="HTTPRequestTraceTask" opcode="CachedAndSend" level="win:Informational" keywords="HTTP_KEYWORD_RESPONSE HTTP_KEYWORD_CACHE" template="HTTPRequestTraceTaskSendCompleteArgs"/>
+     <event value="12" symbol="HTTPRequestTraceTaskFastSend" version="0" task="HTTPRequestTraceTask" opcode="FastSend" level="win:Informational" keywords="HTTP_KEYWORD_REQUEST HTTP_KEYWORD_RESPONSE" template="HTTPRequestTraceTaskSendCompleteArgs"/>
+     <event value="13" symbol="HTTPRequestTraceTaskZeroSend" version="0" task="HTTPRequestTraceTask" opcode="ZeroSend" level="win:Informational" keywords="HTTP_KEYWORD_REQUEST HTTP_KEYWORD_RESPONSE HTTP_KEYWORD_CONNECTION" template="HTTPRequestTraceTaskSendCompleteArgs"/>
+     <event value="14" symbol="HTTPRequestTraceTaskLastSndError" version="0" task="HTTPRequestTraceTask" opcode="LastSndError" level="win:Error" keywords="HTTP_KEYWORD_REQUEST HTTP_KEYWORD_RESPONSE" template="HTTPRequestTraceTaskSendCompleteArgs"/>
+     <event value="15" symbol="HTTPRequestTraceTaskSndError" version="0" task="HTTPRequestTraceTask" opcode="SndError" level="win:Error" keywords="HTTP_KEYWORD_REQUEST HTTP_KEYWORD_RESPONSE" template="HTTPRequestTraceTaskSndErrorArgs"/>
+     <event value="16" symbol="HTTPRequestTraceTaskSrvdFrmCache" version="0" task="HTTPRequestTraceTask" opcode="SrvdFrmCache" level="win:Informational" keywords="HTTP_KEYWORD_RESPONSE HTTP_KEYWORD_CACHE" template="HTTPRequestTraceTaskSrvdFrmCacheArgs"/>
+     <event value="16" symbol="HTTPRequestTraceTaskSrvdFrmCache_V1" version="1" task="HTTPRequestTraceTask" opcode="SrvdFrmCache" level="win:Informational" keywords="HTTP_KEYWORD_RESPONSE HTTP_KEYWORD_CACHE" template="HTTPRequestTraceTaskSrvdFrmCacheArgs_V1"/>
+     <event value="17" symbol="HTTPRequestTraceTaskCachedNotModified" version="0" task="HTTPRequestTraceTask" opcode="CachedNotModified" level="win:Informational" keywords="HTTP_KEYWORD_RESPONSE HTTP_KEYWORD_CACHE" template="HTTPRequestTraceTaskSrvdFrmCacheArgs"/>
+     <event value="17" symbol="HTTPRequestTraceTaskCachedNotModified_V1" version="1" task="HTTPRequestTraceTask" opcode="CachedNotModified" level="win:Informational" keywords="HTTP_KEYWORD_RESPONSE HTTP_KEYWORD_CACHE" template="HTTPRequestTraceTaskSrvdFrmCacheArgs_V1"/>
+     <event value="18" symbol="HTTPSetupTraceTaskResvUrl" version="0" task="HTTPSetupTraceTask" opcode="ResvUrl" level="win:Informational" keywords="HTTP_KEYWORD_SETUP" template="HTTPSetupTraceTaskResvUrlArgs"/>
+     <event value="19" symbol="HTTPSetupTraceTaskReadIpListEntry" version="0" task="HTTPSetupTraceTask" opcode="ReadIpListEntry" level="win:Informational" keywords="HTTP_KEYWORD_SETUP" template="HTTPSetupTraceTaskReadIpListEntryArgs"/>
+     <event value="20" symbol="HTTPSetupTraceTaskCreatedSslCred" version="0" task="HTTPSetupTraceTask" opcode="CreatedSslCred" level="win:Informational" keywords="HTTP_KEYWORD_SETUP HTTP_KEYWORD_SSL" template="HTTPSetupTraceTaskCreatedSslCredArgs"/>
+     <event value="20" symbol="HTTPSetupTraceTaskCreatedSslCred_V1" version="1" task="HTTPSetupTraceTask" opcode="CreatedSslCred" level="win:Informational" keywords="HTTP_KEYWORD_SETUP HTTP_KEYWORD_SSL" template="HTTPSetupTraceTaskCreatedSslCredArgs_V1"/>
+     <event value="21" symbol="HTTPConnectionTraceTaskConnConnect" version="0" task="HTTPConnectionTraceTask" opcode="ConnConnect" level="win:Informational" keywords="HTTP_KEYWORD_CONNECTION" template="HTTPConnectionTraceTaskConnConnectArgs"/>
+     <event value="22" symbol="HTTPConnectionTraceTaskConnIdAssgn" version="0" task="HTTPConnectionTraceTask" opcode="ConnIdAssgn" level="win:Informational" keywords="HTTP_KEYWORD_REQUEST HTTP_KEYWORD_CONNECTION" template="HTTPConnectionTraceTaskConnIdAssgnArgs"/>
+     <event value="23" symbol="HTTPConnectionTraceTaskConnClose" version="0" task="HTTPConnectionTraceTask" opcode="ConnClose" level="win:Informational" keywords="HTTP_KEYWORD_CONNECTION" template="HTTPConnectionTraceTaskConnCloseArgs"/>
+     <event value="24" symbol="HTTPConnectionTraceTaskConnCleanup" version="0" task="HTTPConnectionTraceTask" opcode="ConnCleanup" level="win:Informational" keywords="HTTP_KEYWORD_CONNECTION" template="HTTPConnectionTraceTaskConnCleanupArgs"/>
+     <event value="25" symbol="HTTPCacheTraceTaskAddedCacheEntry" version="0" task="HTTPCacheTraceTask" opcode="AddedCacheEntry" level="win:Informational" keywords="HTTP_KEYWORD_CACHE" template="HTTPCacheTraceTaskAddedCacheEntryArgs"/>
+     <event value="25" symbol="HTTPCacheTraceTaskAddedCacheEntry_V1" version="1" task="HTTPCacheTraceTask" opcode="AddedCacheEntry" level="win:Informational" keywords="HTTP_KEYWORD_CACHE" template="HTTPCacheTraceTaskAddedCacheEntryArgs_V1"/>
+     <event value="26" symbol="HTTPCacheTraceTaskAddCacheEntryFailed" version="0" task="HTTPCacheTraceTask" opcode="AddCacheEntryFailed" level="win:Error" keywords="HTTP_KEYWORD_CACHE" template="HTTPCacheTraceTaskAddCacheEntryFailedArgs"/>
+     <event value="26" symbol="HTTPCacheTraceTaskAddCacheEntryFailed_V1" version="1" task="HTTPCacheTraceTask" opcode="AddCacheEntryFailed" level="win:Error" keywords="HTTP_KEYWORD_CACHE" template="HTTPCacheTraceTaskAddCacheEntryFailedArgs_V1"/>
+     <event value="27" symbol="HTTPCacheTraceTaskFlushedCache" version="0" task="HTTPCacheTraceTask" opcode="FlushedCache" level="win:Informational" keywords="HTTP_KEYWORD_CACHE" template="HTTPCacheTraceTaskAddedCacheEntryArgs"/>
+     <event value="28" symbol="HTTPConfigurationPropertyTraceTaskChgUrlGrpProp" version="0" task="HTTPConfigurationPropertyTraceTask" opcode="ChgUrlGrpProp" level="win:Informational" keywords="HTTP_KEYWORD_URL_GROUP" template="HTTPConfigurationPropertyTraceTaskChgUrlGrpPropArgs"/>
+     <event value="29" symbol="HTTPConfigurationPropertyTraceTaskChgSrvSesProp" version="0" task="HTTPConfigurationPropertyTraceTask" opcode="ChgSrvSesProp" level="win:Informational" keywords="HTTP_KEYWORD_SERVER_SESSION" template="HTTPConfigurationPropertyTraceTaskChgUrlGrpPropArgs"/>
+     <event value="30" symbol="HTTPConfigurationPropertyTraceTaskChgReqQueueProp" version="0" task="HTTPConfigurationPropertyTraceTask" opcode="ChgReqQueueProp" level="win:Informational" keywords="HTTP_KEYWORD_REQUEST_QUEUE" template="HTTPConfigurationPropertyTraceTaskChgUrlGrpPropArgs"/>
+     <event value="31" symbol="HTTPConfigurationPropertyTraceTaskAddUrl" version="0" task="HTTPConfigurationPropertyTraceTask" opcode="AddUrl" level="win:Informational" keywords="HTTP_KEYWORD_URL_GROUP" template="HTTPConfigurationPropertyTraceTaskAddUrlArgs"/>
+     <event value="32" symbol="HTTPConfigurationPropertyTraceTaskRemUrl" version="0" task="HTTPConfigurationPropertyTraceTask" opcode="RemUrl" level="win:Informational" keywords="HTTP_KEYWORD_URL_GROUP" template="HTTPConfigurationPropertyTraceTaskRemUrlArgs"/>
+     <event value="33" symbol="HTTPConfigurationPropertyTraceTaskRemAllUrls" version="0" task="HTTPConfigurationPropertyTraceTask" opcode="RemAllUrls" level="win:Informational" keywords="HTTP_KEYWORD_URL_GROUP" template="HTTPConfigurationPropertyTraceTaskRemAllUrlsArgs"/>
+     <event value="34" symbol="HTTPSSLTraceTaskSslConnEvent" version="0" task="HTTPSSLTraceTask" opcode="SslConnEvent" level="win:Informational" keywords="HTTP_KEYWORD_CONNECTION HTTP_KEYWORD_SSL" template="HTTPConnectionTraceTaskConnCleanupArgs"/>
+     <event value="35" symbol="HTTPSSLTraceTaskSslInitiateHandshake" version="0" task="HTTPSSLTraceTask" opcode="SslInitiateHandshake" level="win:Informational" keywords="HTTP_KEYWORD_SSL" template="HTTPConnectionTraceTaskConnCleanupArgs"/>
+     <event value="36" symbol="HTTPSSLTraceTaskSslHandshakeComplete" version="0" task="HTTPSSLTraceTask" opcode="SslHandshakeComplete" level="win:Informational" keywords="HTTP_KEYWORD_SSL" template="HTTPSSLTraceTaskSslHandshakeCompleteArgs"/>
+     <event value="37" symbol="HTTPSSLTraceTaskSslInititateSslRcvClientCert" version="0" task="HTTPSSLTraceTask" opcode="SslInititateSslRcvClientCert" level="win:Informational" keywords="HTTP_KEYWORD_SSL" template="HTTPConnectionTraceTaskConnCleanupArgs"/>
+     <event value="38" symbol="HTTPSSLTraceTaskSslRcvClientCertFailed" version="0" task="HTTPSSLTraceTask" opcode="SslRcvClientCertFailed" level="win:Error" keywords="HTTP_KEYWORD_SSL" template="HTTPSSLTraceTaskSslHandshakeCompleteArgs"/>
+     <event value="39" symbol="HTTPSSLTraceTaskSslRcvdRawData" version="0" task="HTTPSSLTraceTask" opcode="SslRcvdRawData" level="win:Informational" keywords="HTTP_KEYWORD_REQUEST HTTP_KEYWORD_CONNECTION HTTP_KEYWORD_SSL" template="HTTPSSLTraceTaskSslRcvdRawDataArgs"/>
+     <event value="40" symbol="HTTPSSLTraceTaskSslDlvrdStreamData" version="0" task="HTTPSSLTraceTask" opcode="SslDlvrdStreamData" level="win:Informational" keywords="HTTP_KEYWORD_REQUEST HTTP_KEYWORD_SSL" template="HTTPSSLTraceTaskSslRcvdRawDataArgs"/>
+     <event value="41" symbol="HTTPSSLTraceTaskSslAcceptStreamData" version="0" task="HTTPSSLTraceTask" opcode="SslAcceptStreamData" level="win:Informational" keywords="HTTP_KEYWORD_REQUEST HTTP_KEYWORD_RESPONSE HTTP_KEYWORD_SSL" template="HTTPSSLTraceTaskSslRcvdRawDataArgs"/>
+     <event value="43" symbol="HTTPAuthenticationTraceTaskSspiCall" version="0" task="HTTPAuthenticationTraceTask" opcode="SspiCall" level="win:Informational" keywords="HTTP_KEYWORD_AUTHENTICATION" template="HTTPAuthenticationTraceTaskSspiCallArgs"/>
+     <event value="43" symbol="HTTPAuthenticationTraceTaskSspiCall_V1" version="1" task="HTTPAuthenticationTraceTask" opcode="SspiCall" level="win:Informational" keywords="HTTP_KEYWORD_AUTHENTICATION" template="HTTPAuthenticationTraceTaskSspiCallArgs_V1"/>
+     <event value="44" symbol="HTTPAuthenticationTraceTaskAuthCacheEntryAdded" version="0" task="HTTPAuthenticationTraceTask" opcode="AuthCacheEntryAdded" level="win:Informational" keywords="HTTP_KEYWORD_AUTHENTICATION" template="HTTPAuthenticationTraceTaskAuthCacheEntryAddedArgs"/>
+     <event value="45" symbol="HTTPAuthenticationTraceTaskAuthCacheEntryFreed" version="0" task="HTTPAuthenticationTraceTask" opcode="AuthCacheEntryFreed" level="win:Informational" keywords="HTTP_KEYWORD_AUTHENTICATION" template="HTTPAuthenticationTraceTaskAuthCacheEntryFreedArgs"/>
+     <event value="46" symbol="HTTPConnectionTraceTaskQosFlowSetReset" version="0" task="HTTPConnectionTraceTask" opcode="QosFlowSetReset" level="win:Informational" keywords="HTTP_KEYWORD_CONNECTION" template="HTTPConnectionTraceTaskQosFlowSetResetArgs"/>
+     <event value="47" symbol="HTTPLoggingTraceTaskLoggingConfigFailed" version="0" task="HTTPLoggingTraceTask" opcode="LoggingConfigFailed" level="win:Error" keywords="HTTP_KEYWORD_LOGGING" template="HTTPLoggingTraceTaskLoggingConfigFailedArgs"/>
+     <event value="48" symbol="HTTPLoggingTraceTaskLoggingConfig" version="0" task="HTTPLoggingTraceTask" opcode="LoggingConfig" level="win:Informational" keywords="HTTP_KEYWORD_LOGGING" template="HTTPLoggingTraceTaskLoggingConfigArgs"/>
+     <event value="49" symbol="HTTPLoggingTraceTaskLogFileCreateFailed" version="0" task="HTTPLoggingTraceTask" opcode="LogFileCreateFailed" level="win:Error" keywords="HTTP_KEYWORD_LOGGING" template="HTTPLoggingTraceTaskLogFileCreateFailedArgs"/>
+     <event value="50" symbol="HTTPLoggingTraceTaskLogFileCreate" version="0" task="HTTPLoggingTraceTask" opcode="LogFileCreate" level="win:Informational" keywords="HTTP_KEYWORD_LOGGING" template="HTTPLoggingTraceTaskLogFileCreateArgs"/>
+     <event value="51" symbol="HTTPLoggingTraceTaskLogFileWrite" version="0" task="HTTPLoggingTraceTask" opcode="LogFileWrite" level="win:Informational" keywords="HTTP_KEYWORD_LOGGING" template="HTTPLoggingTraceTaskLogFileWriteArgs"/>
+     <event value="52" symbol="HTTPRequestTraceTaskParseRequestFailed" version="0" task="HTTPRequestTraceTask" opcode="ParseRequestFailed" level="win:Error" keywords="HTTP_KEYWORD_REQUEST" template="HTTPRequestTraceTaskParseRequestFailedArgs"/>
+     <event value="53" symbol="HTTPTimeoutTraceTaskConnTimedOut" version="0" task="HTTPTimeoutTraceTask" opcode="ConnTimedOut" level="win:Warning" keywords="HTTP_KEYWORD_CONNECTION HTTP_KEYWORD_TIMEOUT" template="HTTPTimeoutTraceTaskConnTimedOutArgs"/>
+     <event value="56" symbol="HTTPSSLTraceTaskSslEndpointCreationFailed" version="0" task="HTTPSSLTraceTask" opcode="SslEndpointCreationFailed" level="win:Error" keywords="HTTP_KEYWORD_SETUP HTTP_KEYWORD_SSL" template="HTTPSSLTraceTaskSslEndpointCreationFailedArgs"/>
+     <event value="57" symbol="HTTPSSLTraceTaskSslDisconnEvent" version="0" task="HTTPSSLTraceTask" opcode="SslDisconnEvent" level="win:Informational" keywords="HTTP_KEYWORD_CONNECTION HTTP_KEYWORD_SSL" template="HTTPConnectionTraceTaskConnCleanupArgs"/>
+     <event value="58" symbol="HTTPSSLTraceTaskSslDisconnReq" version="0" task="HTTPSSLTraceTask" opcode="SslDisconnReq" level="win:Informational" keywords="HTTP_KEYWORD_CONNECTION HTTP_KEYWORD_SSL" template="HTTPSSLTraceTaskSslDisconnReqArgs"/>
+     <event value="59" symbol="HTTPSSLTraceTaskSslUnsealMsg" version="0" task="HTTPSSLTraceTask" opcode="SslUnsealMsg" level="win:Informational" keywords="HTTP_KEYWORD_REQUEST HTTP_KEYWORD_SSL" template="HTTPSSLTraceTaskSslUnsealMsgArgs"/>
+     <event value="60" symbol="HTTPSSLTraceTaskSslQueryConnInfoFailed" version="0" task="HTTPSSLTraceTask" opcode="SslQueryConnInfoFailed" level="win:Error" keywords="HTTP_KEYWORD_CONNECTION HTTP_KEYWORD_SSL" template="HTTPSSLTraceTaskSslQueryConnInfoFailedArgs"/>
+     <event value="61" symbol="HTTPSSLTraceTaskSslEndpointConfigNotFound" version="0" task="HTTPSSLTraceTask" opcode="SslEndpointConfigNotFound" level="win:Error" keywords="HTTP_KEYWORD_ENDPOINT HTTP_KEYWORD_SSL" template="HTTPSSLTraceTaskSslEndpointConfigNotFoundArgs"/>
+     <event value="62" symbol="HTTPSSLTraceTaskSslAsc" version="0" task="HTTPSSLTraceTask" opcode="SslAsc" level="win:Informational" keywords="HTTP_KEYWORD_SSL" template="HTTPSSLTraceTaskSslUnsealMsgArgs"/>
+     <event value="63" symbol="HTTPSSLTraceTaskSslSealMsg" version="0" task="HTTPSSLTraceTask" opcode="SslSealMsg" level="win:Informational" keywords="HTTP_KEYWORD_RESPONSE HTTP_KEYWORD_SSL" template="HTTPSSLTraceTaskSslUnsealMsgArgs"/>
+     <event value="64" symbol="HTTPRequestTraceTaskRequestRejected" version="0" task="HTTPRequestTraceTask" opcode="RequestRejected" level="win:Error" keywords="HTTP_KEYWORD_REQUEST HTTP_KEYWORD_REQUEST_QUEUE" template="HTTPRequestTraceTaskRequestRejectedArgs"/>
+     <event value="65" symbol="HTTPRequestTraceTaskRequestCancelled" version="0" task="HTTPRequestTraceTask" opcode="RequestCancelled" level="win:Error" keywords="HTTP_KEYWORD_REQUEST HTTP_KEYWORD_REQUEST_QUEUE" template="HTTPRequestTraceTaskRequestRejectedArgs"/>
+     <event value="66" symbol="HTTPDriverGlobalSettingsTaskHotAddProcFailed" version="0" task="HTTPDriverGlobalSettingsTask" opcode="HotAddProcFailed" level="win:Error" keywords="HTTP_KEYWORD_DRIVER_SETTING" template="HTTPDriverGlobalSettingsTaskHotAddProcFailedArgs"/>
+     <event value="67" symbol="HTTPDriverGlobalSettingsTaskHotAddProcSucceeded" version="0" task="HTTPDriverGlobalSettingsTask" opcode="HotAddProcSucceeded" level="win:Informational" keywords="HTTP_KEYWORD_DRIVER_SETTING" template="HTTPDriverGlobalSettingsTaskHotAddProcSucceededArgs"/>
+     <event value="68" symbol="HTTPRequestTraceTaskUserResponseFlowInit" version="0" task="HTTPRequestTraceTask" opcode="UserResponseFlowInit" level="win:Informational" keywords="HTTP_KEYWORD_REQUEST HTTP_KEYWORD_RESPONSE" template="HTTPRequestTraceTaskUserResponseFlowInitArgs"/>
+     <event value="69" symbol="HTTPRequestTraceTaskCachedResponseFlowInit" version="0" task="HTTPRequestTraceTask" opcode="CachedResponseFlowInit" level="win:Informational" keywords="HTTP_KEYWORD_REQUEST HTTP_KEYWORD_RESPONSE HTTP_KEYWORD_CACHE" template="HTTPRequestTraceTaskUserResponseFlowInitArgs"/>
+     <event value="70" symbol="HTTPRequestTraceTaskFlowInitFailed" version="0" task="HTTPRequestTraceTask" opcode="FlowInitFailed" level="win:Error" keywords="HTTP_KEYWORD_REQUEST HTTP_KEYWORD_RESPONSE" template="HTTPRequestTraceTaskFlowInitFailedArgs"/>
+     <event value="71" symbol="HTTPConnectionTraceTaskSetConnectionFlow" version="0" task="HTTPConnectionTraceTask" opcode="SetConnectionFlow" level="win:Informational" keywords="HTTP_KEYWORD_CONNECTION" template="HTTPConnectionTraceTaskSetConnectionFlowArgs"/>
+     <event value="72" symbol="HTTPConnectionTraceTaskRequestAssociatedToConfigurationFlow" version="0" task="HTTPConnectionTraceTask" opcode="RequestAssociatedToConfigurationFlow" level="win:Informational" keywords="HTTP_KEYWORD_REQUEST HTTP_KEYWORD_CONNECTION" template="HTTPConnectionTraceTaskRequestAssociatedToConfigurationFlowArgs"/>
+     <event value="73" symbol="HTTPConnectionTraceTaskConnectionFlowFailed" version="0" task="HTTPConnectionTraceTask" opcode="ConnectionFlowFailed" level="win:Error" keywords="HTTP_KEYWORD_CONNECTION" template="HTTPConnectionTraceTaskConnectionFlowFailedArgs"/>
+     <event value="74" symbol="HTTPRequestTraceTaskResponseRangeProcessingOK" version="0" task="HTTPRequestTraceTask" opcode="ResponseRangeProcessingOK" level="win:Informational" keywords="HTTP_KEYWORD_RESPONSE" template="HTTPRequestTraceTaskResponseRangeProcessingOKArgs"/>
+     <event value="75" symbol="HTTPCacheTraceTaskBeginBuildingSlices" version="0" task="HTTPCacheTraceTask" opcode="BeginBuildingSlices" level="win:Informational" keywords="HTTP_KEYWORD_RESPONSE HTTP_KEYWORD_CACHE" template="HTTPCacheTraceTaskBeginBuildingSlicesArgs"/>
+     <event value="76" symbol="HTTPCacheTraceTaskSendSliceCacheContent" version="0" task="HTTPCacheTraceTask" opcode="SendSliceCacheContent" level="win:Informational" keywords="HTTP_KEYWORD_CACHE" template="HTTPCacheTraceTaskSendSliceCacheContentArgs"/>
+     <event value="77" symbol="HTTPCacheTraceTaskCachedSlicesMatchContent" version="0" task="HTTPCacheTraceTask" opcode="CachedSlicesMatchContent" level="win:Informational" keywords="HTTP_KEYWORD_CACHE" template="HTTPCacheTraceTaskSendSliceCacheContentArgs"/>
+     <event value="78" symbol="HTTPCacheTraceTaskMergeSlicesToCache" version="0" task="HTTPCacheTraceTask" opcode="MergeSlicesToCache" level="win:Informational" keywords="HTTP_KEYWORD_CACHE" template="HTTPCacheTraceTaskMergeSlicesToCacheArgs"/>
+     <event value="79" symbol="HTTPCacheTraceTaskFlatCacheRangeSend" version="0" task="HTTPCacheTraceTask" opcode="FlatCacheRangeSend" level="win:Informational" keywords="HTTP_KEYWORD_CACHE" template="HTTPCacheTraceTaskFlatCacheRangeSendArgs"/>
+     <event value="80" symbol="HTTPAuthenticationTraceTaskChannelBindAscParams" version="0" task="HTTPAuthenticationTraceTask" opcode="ChannelBindAscParams" level="win:Informational" keywords="HTTP_KEYWORD_AUTHENTICATION" template="HTTPAuthenticationTraceTaskChannelBindAscParamsArgs"/>
+     <event value="81" symbol="HTTPAuthenticationTraceTaskServiceBindCheckComplete" version="0" task="HTTPAuthenticationTraceTask" opcode="ServiceBindCheckComplete" level="win:Informational" keywords="HTTP_KEYWORD_AUTHENTICATION" template="HTTPAuthenticationTraceTaskServiceBindCheckCompleteArgs"/>
+     <event value="82" symbol="HTTPAuthenticationTraceTaskChannelBindConfigCapture" version="0" task="HTTPAuthenticationTraceTask" opcode="ChannelBindConfigCapture" level="win:Informational" keywords="HTTP_KEYWORD_AUTHENTICATION" template="HTTPAuthenticationTraceTaskChannelBindConfigCaptureArgs"/>
+     <event value="83" symbol="HTTPAuthenticationTraceTaskChannelBindPerResponseConfig" version="0" task="HTTPAuthenticationTraceTask" opcode="ChannelBindPerResponseConfig" level="win:Informational" keywords="HTTP_KEYWORD_AUTHENTICATION" template="HTTPAuthenticationTraceTaskChannelBindPerResponseConfigArgs"/>
+     <event value="84" symbol="HTTPConnectionTraceTaskUsePolicyBasedQoSFlow" version="0" task="HTTPConnectionTraceTask" opcode="UsePolicyBasedQoSFlow" level="win:Informational" keywords="HTTP_KEYWORD_REQUEST HTTP_KEYWORD_CONNECTION" template="HTTPConnectionTraceTaskSetConnectionFlowArgs"/>
+     <event value="85" symbol="HTTPThreadPoolThreadPoolExtension" version="0" task="HTTPThreadPool" opcode="ThreadPoolExtension" level="win:Informational" keywords="HTTP_KEYWORD_THREAD_POOL" template="HTTPThreadPoolThreadPoolExtensionArgs"/>
+     <event value="86" symbol="HTTPThreadPoolThreadReady" version="0" task="HTTPThreadPool" opcode="ThreadReady" level="win:Informational" keywords="HTTP_KEYWORD_THREAD_POOL" template="HTTPThreadPoolThreadReadyArgs"/>
+     <event value="87" symbol="HTTPThreadPoolThreadPoolTrim" version="0" task="HTTPThreadPool" opcode="ThreadPoolTrim" level="win:Informational" keywords="HTTP_KEYWORD_THREAD_POOL" template="HTTPThreadPoolThreadPoolExtensionArgs"/>
+     <event value="88" symbol="HTTPThreadPoolThreadGone" version="0" task="HTTPThreadPool" opcode="ThreadGone" level="win:Informational" keywords="HTTP_KEYWORD_THREAD_POOL" template="HTTPThreadPoolThreadReadyArgs"/>
+     <event value="89" symbol="HTTPSSLTraceTaskSniParsed" version="0" task="HTTPSSLTraceTask" opcode="SniParsed" level="win:Informational" keywords="HTTP_KEYWORD_ENDPOINT HTTP_KEYWORD_SSL" template="HTTPSSLTraceTaskSniParsedArgs"/>
+     <event value="90" symbol="HTTPRequestTraceTaskInitiateOpaqueMode" version="0" task="HTTPRequestTraceTask" opcode="InitiateOpaqueMode" level="win:Informational" keywords="HTTP_KEYWORD_REQUEST HTTP_KEYWORD_CONNECTION" template="HTTPRequestTraceTaskRecvRespLastArgs"/>
+     <event value="91" symbol="HTTPSSLTraceTaskEndpointAutoGenerated" version="0" task="HTTPSSLTraceTask" opcode="EndpointAutoGenerated" level="win:Informational" keywords="HTTP_KEYWORD_ENDPOINT HTTP_KEYWORD_SSL" template="HTTPSSLTraceTaskEndpointAutoGeneratedArgs"/>
+     <event value="92" symbol="HTTPSSLTraceTaskAutoGeneratedEndpointDeleted" version="0" task="HTTPSSLTraceTask" opcode="AutoGeneratedEndpointDeleted" level="win:Informational" keywords="HTTP_KEYWORD_ENDPOINT HTTP_KEYWORD_SSL" template="HTTPSSLTraceTaskEndpointAutoGeneratedArgs"/>
+     <event value="93" symbol="HTTPSSLTraceTaskSslEndpointConfigFound" version="0" task="HTTPSSLTraceTask" opcode="SslEndpointConfigFound" level="win:Informational" keywords="HTTP_KEYWORD_ENDPOINT HTTP_KEYWORD_SSL" template="HTTPSSLTraceTaskSslEndpointConfigFoundArgs"/>
+     <event value="94" symbol="HTTPSSLTraceTaskSslEndpointConfigRejected" version="0" task="HTTPSSLTraceTask" opcode="SslEndpointConfigRejected" level="win:Error" keywords="HTTP_KEYWORD_ENDPOINT HTTP_KEYWORD_SSL" template="HTTPSSLTraceTaskSslEndpointConfigRejectedArgs"/>
+    </events>
+    <templates>
+     <template tid="HTTPRequestTraceTaskRecvReqArgs">
+      <data name="RequestId" inType="win:UInt64"/>
+      <data name="ConnectionId" inType="win:UInt64"/>
+      <data name="RemoteAddrLength" inType="win:UInt32"/>
+      <data name="RemoteAddr" inType="win:Binary" length="RemoteAddrLength"/>
+     </template>
+     <template tid="HTTPRequestTraceTaskParseArgs">
+      <data name="RequestObj" inType="win:Pointer"/>
+      <data name="HttpVerb" inType="win:UInt32"/>
+      <data name="Url" inType="win:UnicodeString"/>
+     </template>
+     <template tid="HTTPRequestTraceTaskDeliverArgs">
+      <data name="RequestObj" inType="win:Pointer"/>
+      <data name="RequestId" inType="win:UInt64"/>
+      <data name="SiteId" inType="win:UInt32"/>
+      <data name="RequestQueueName" inType="win:UnicodeString"/>
+      <data name="Url" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="HTTPRequestTraceTaskRecvRespArgs">
+      <data name="RequestId" inType="win:UInt64"/>
+      <data name="ConnectionId" inType="win:UInt64"/>
+      <data name="StatusCode" inType="win:UInt16"/>
+      <data name="Verb" inType="win:AnsiString"/>
+      <data name="HeaderLength" inType="win:UInt32"/>
+      <data name="EntityChunkCount" inType="win:UInt16"/>
+      <data name="CachePolicy" inType="win:UInt32"/>
+     </template>
+     <template tid="HTTPRequestTraceTaskRecvRespLastArgs">
+      <data name="RequestId" inType="win:UInt64"/>
+     </template>
+     <template tid="HTTPRequestTraceTaskRecvBodyArgs">
+      <data name="RequestId" inType="win:UInt64"/>
+      <data name="ConnectionId" inType="win:UInt64"/>
+     </template>
+     <template tid="HTTPRequestTraceTaskSendCompleteArgs">
+      <data name="RequestId" inType="win:UInt64"/>
+      <data name="HttpStatus" inType="win:UInt16"/>
+     </template>
+     <template tid="HTTPRequestTraceTaskSndErrorArgs">
+      <data name="RequestId" inType="win:UInt64"/>
+      <data name="Reason" inType="win:AnsiString"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="HTTPRequestTraceTaskSrvdFrmCacheArgs">
+      <data name="RequestObj" inType="win:Pointer"/>
+      <data name="SiteId" inType="win:UInt32"/>
+      <data name="BytesSent" inType="win:UInt32"/>
+     </template>
+     <template tid="HTTPSetupTraceTaskResvUrlArgs">
+      <data name="Url" inType="win:UnicodeString"/>
+      <data name="ReserveStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="HTTPSetupTraceTaskReadIpListEntryArgs">
+      <data name="IpAddrLength" inType="win:UInt32"/>
+      <data name="IpAddress" inType="win:Binary" length="IpAddrLength"/>
+     </template>
+     <template tid="HTTPSetupTraceTaskCreatedSslCredArgs">
+      <data name="EndpointConfigObj" inType="win:Pointer"/>
+      <data name="AddressLength" inType="win:UInt32"/>
+      <data name="Address" inType="win:Binary" length="AddressLength"/>
+      <data name="CertHashLength" inType="win:UInt32"/>
+      <data name="CertHash" inType="win:Binary" length="CertHashLength"/>
+      <data name="CertStoreName" inType="win:UnicodeString"/>
+      <data name="CertCheckMode" inType="win:UInt32"/>
+      <data name="RevokeFreshnessTime" inType="win:UInt32"/>
+      <data name="RevokeRetrievalTime" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="CtlId" inType="win:UnicodeString"/>
+      <data name="CtlStoreName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="HTTPConnectionTraceTaskConnConnectArgs">
+      <data name="ConnectionObj" inType="win:Pointer"/>
+      <data name="LocalAddrLength" inType="win:UInt32"/>
+      <data name="LocalAddr" inType="win:Binary" length="LocalAddrLength"/>
+      <data name="RemoteAddrLength" inType="win:UInt32"/>
+      <data name="RemoteAddr" inType="win:Binary" length="RemoteAddrLength"/>
+     </template>
+     <template tid="HTTPConnectionTraceTaskConnIdAssgnArgs">
+      <data name="RequestId" inType="win:UInt64"/>
+      <data name="ConnectionId" inType="win:UInt64"/>
+      <data name="ConnectionObj" inType="win:Pointer"/>
+     </template>
+     <template tid="HTTPConnectionTraceTaskConnCloseArgs">
+      <data name="ConnectionObj" inType="win:Pointer"/>
+      <data name="Abortive" inType="win:UInt32"/>
+     </template>
+     <template tid="HTTPConnectionTraceTaskConnCleanupArgs">
+      <data name="ConnectionObj" inType="win:Pointer"/>
+     </template>
+     <template tid="HTTPCacheTraceTaskAddedCacheEntryArgs">
+      <data name="Uri" inType="win:UnicodeString"/>
+      <data name="StatusCode" inType="win:UInt16"/>
+      <data name="Verb" inType="win:AnsiString"/>
+      <data name="HeaderLength" inType="win:UInt32"/>
+      <data name="ContentLength" inType="win:UInt32"/>
+      <data name="ExpirationTime" inType="win:UInt64"/>
+     </template>
+     <template tid="HTTPCacheTraceTaskAddCacheEntryFailedArgs">
+      <data name="UrlBuffer" inType="win:UnicodeString"/>
+      <data name="ErrorStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="HTTPConfigurationPropertyTraceTaskChgUrlGrpPropArgs">
+      <data name="Property" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="HTTPConfigurationPropertyTraceTaskAddUrlArgs">
+      <data name="UrlGroupId" inType="win:UInt64"/>
+      <data name="Url" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="HTTPConfigurationPropertyTraceTaskRemUrlArgs">
+      <data name="UrlGroupId" inType="win:UInt64"/>
+      <data name="Url" inType="win:UnicodeString"/>
+     </template>
+     <template tid="HTTPConfigurationPropertyTraceTaskRemAllUrlsArgs">
+      <data name="UrlGroupId" inType="win:UInt64"/>
+     </template>
+     <template tid="HTTPSSLTraceTaskSslHandshakeCompleteArgs">
+      <data name="Status" inType="win:UInt32"/>
+      <data name="ConnectionObj" inType="win:Pointer"/>
+     </template>
+     <template tid="HTTPSSLTraceTaskSslRcvdRawDataArgs">
+      <data name="DataLength" inType="win:UInt32"/>
+      <data name="ConnectionObj" inType="win:Pointer"/>
+     </template>
+     <template tid="HTTPAuthenticationTraceTaskSspiCallArgs">
+      <data name="ConnectionId" inType="win:UInt64"/>
+      <data name="AuthType" inType="win:AnsiString"/>
+      <data name="SecStatus" inType="win:UInt32"/>
+      <data name="AuthStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="HTTPAuthenticationTraceTaskAuthCacheEntryAddedArgs">
+      <data name="ConnectionId" inType="win:UInt64"/>
+      <data name="AuthCacheType" inType="win:AnsiString"/>
+      <data name="AccessTokenOrHandle" inType="win:Pointer"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="HTTPAuthenticationTraceTaskAuthCacheEntryFreedArgs">
+      <data name="AccessTokenOrHandle" inType="win:Pointer"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="HTTPConnectionTraceTaskQosFlowSetResetArgs">
+      <data name="ConnectionId" inType="win:UInt64"/>
+      <data name="Bandwidth" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="HTTPLoggingTraceTaskLoggingConfigFailedArgs">
+      <data name="Status" inType="win:UInt32"/>
+      <data name="Type" inType="win:UInt32" map="HTTP_TEMPLATE_LOGGING_LogType_ValueMap"/>
+      <data name="Group" inType="win:UInt32" map="HTTP_TEMPLATE_LOGGING_LogGroup_ValueMap"/>
+      <data name="Directory" inType="win:UnicodeString"/>
+      <data name="Software" inType="win:UnicodeString"/>
+      <data name="SiteId" inType="win:UInt32"/>
+     </template>
+     <template tid="HTTPLoggingTraceTaskLoggingConfigArgs">
+      <data name="Present" inType="win:UInt32"/>
+      <data name="Type" inType="win:UInt32"/>
+      <data name="Group" inType="win:UInt32"/>
+      <data name="Format" inType="win:UInt32"/>
+      <data name="Directory" inType="win:UnicodeString"/>
+      <data name="Software" inType="win:UnicodeString"/>
+      <data name="SiteId" inType="win:UInt32"/>
+     </template>
+     <template tid="HTTPLoggingTraceTaskLogFileCreateFailedArgs">
+      <data name="Status" inType="win:UInt32"/>
+      <data name="Type" inType="win:UInt32"/>
+      <data name="Group" inType="win:UInt32"/>
+      <data name="Format" inType="win:UInt32" map="HTTP_TEMPLATE_LOGGING_LogFormat_ValueMap"/>
+      <data name="Filename" inType="win:UnicodeString"/>
+      <data name="SiteId" inType="win:UInt32"/>
+     </template>
+     <template tid="HTTPLoggingTraceTaskLogFileCreateArgs">
+      <data name="Handle" inType="win:Pointer"/>
+      <data name="Type" inType="win:UInt32"/>
+      <data name="Group" inType="win:UInt32"/>
+      <data name="Format" inType="win:UInt32"/>
+      <data name="Filename" inType="win:UnicodeString"/>
+      <data name="SiteId" inType="win:UInt32"/>
+     </template>
+     <template tid="HTTPLoggingTraceTaskLogFileWriteArgs">
+      <data name="Status" inType="win:UInt32"/>
+      <data name="Handle" inType="win:Pointer"/>
+      <data name="Type" inType="win:UInt32"/>
+      <data name="Group" inType="win:UInt32"/>
+      <data name="Format" inType="win:UInt32"/>
+      <data name="ResType" inType="win:AnsiString"/>
+      <data name="SiteId" inType="win:UInt32"/>
+     </template>
+     <template tid="HTTPRequestTraceTaskParseRequestFailedArgs">
+      <data name="Status" inType="win:UInt32"/>
+      <data name="RequestId" inType="win:UInt64"/>
+      <data name="Reason" inType="win:AnsiString"/>
+      <data name="ErrorCode" inType="win:UInt32"/>
+      <data name="HintLength" inType="win:UInt32"/>
+      <data name="HintData" inType="win:Binary" length="HintLength"/>
+     </template>
+     <template tid="HTTPTimeoutTraceTaskConnTimedOutArgs">
+      <data name="ConnectionId" inType="win:UInt64"/>
+      <data name="ConnectionObj" inType="win:Pointer"/>
+      <data name="Timer" inType="win:AnsiString"/>
+     </template>
+     <template tid="HTTPSSLTraceTaskSslEndpointCreationFailedArgs">
+      <data name="EndpointConfigObj" inType="win:Pointer"/>
+      <data name="SecStatus" inType="win:UInt32"/>
+      <data name="Detail" inType="win:AnsiString"/>
+     </template>
+     <template tid="HTTPSSLTraceTaskSslDisconnReqArgs">
+      <data name="ConnectionObj" inType="win:Pointer"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="HTTPSSLTraceTaskSslUnsealMsgArgs">
+      <data name="ConnectionObj" inType="win:Pointer"/>
+      <data name="SecStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="HTTPSSLTraceTaskSslQueryConnInfoFailedArgs">
+      <data name="ConnectionObj" inType="win:Pointer"/>
+      <data name="SecStatus" inType="win:UInt32"/>
+      <data name="Detail" inType="win:AnsiString"/>
+     </template>
+     <template tid="HTTPSSLTraceTaskSslEndpointConfigNotFoundArgs">
+      <data name="ConnectionObj" inType="win:Pointer"/>
+      <data name="AddressLength" inType="win:UInt32"/>
+      <data name="Address" inType="win:Binary" length="AddressLength"/>
+     </template>
+     <template tid="HTTPRequestTraceTaskRequestRejectedArgs">
+      <data name="RequestId" inType="win:UInt64"/>
+      <data name="Reason" inType="win:AnsiString"/>
+      <data name="RequestQueueName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="HTTPDriverGlobalSettingsTaskHotAddProcFailedArgs">
+      <data name="NewProcNumber" inType="win:UInt8"/>
+      <data name="ReasonString" inType="win:AnsiString"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="HTTPDriverGlobalSettingsTaskHotAddProcSucceededArgs">
+      <data name="NewProcNumber" inType="win:UInt8"/>
+      <data name="Comment" inType="win:AnsiString"/>
+     </template>
+     <template tid="HTTPRequestTraceTaskUserResponseFlowInitArgs">
+      <data name="FlowHandle" inType="win:Pointer"/>
+      <data name="Bandwidth" inType="win:UInt32"/>
+      <data name="PeakBandwidth" inType="win:UInt32"/>
+      <data name="BurstSize" inType="win:UInt32"/>
+     </template>
+     <template tid="HTTPRequestTraceTaskFlowInitFailedArgs">
+      <data name="Bandwidth" inType="win:UInt32"/>
+      <data name="PeakBandwidth" inType="win:UInt32"/>
+      <data name="BurstSize" inType="win:UInt32"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="HTTPConnectionTraceTaskSetConnectionFlowArgs">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="FlowHandle" inType="win:Pointer"/>
+     </template>
+     <template tid="HTTPConnectionTraceTaskRequestAssociatedToConfigurationFlowArgs">
+      <data name="FlowHandle" inType="win:Pointer"/>
+     </template>
+     <template tid="HTTPConnectionTraceTaskConnectionFlowFailedArgs">
+      <data name="Connection" inType="win:Pointer"/>
+      <data name="FlowHandle" inType="win:Pointer"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="HTTPRequestTraceTaskResponseRangeProcessingOKArgs">
+      <data name="RequestId" inType="win:UInt64"/>
+      <data name="ContentBytes" inType="win:UInt64"/>
+      <data name="NumberOfRanges" inType="win:UInt32"/>
+      <data name="Range1Start" inType="win:UInt64"/>
+      <data name="Range1End" inType="win:UInt64"/>
+      <data name="Range2Start" inType="win:UInt64"/>
+      <data name="Range2End" inType="win:UInt64"/>
+     </template>
+     <template tid="HTTPCacheTraceTaskBeginBuildingSlicesArgs">
+      <data name="RequestId" inType="win:UInt64"/>
+      <data name="NumberOfSlices" inType="win:UInt32"/>
+      <data name="SliceIndex1" inType="win:UInt32"/>
+      <data name="SliceIndex2" inType="win:UInt32"/>
+      <data name="NumberOfRanges" inType="win:UInt32"/>
+      <data name="Range1Start" inType="win:UInt64"/>
+      <data name="Range1End" inType="win:UInt64"/>
+      <data name="Range2Start" inType="win:UInt64"/>
+      <data name="Range2End" inType="win:UInt64"/>
+     </template>
+     <template tid="HTTPCacheTraceTaskSendSliceCacheContentArgs">
+      <data name="RequestId" inType="win:UInt64"/>
+      <data name="CacheEntryPtr" inType="win:Pointer"/>
+      <data name="NumberOfSlices" inType="win:UInt32"/>
+      <data name="SliceIndex1" inType="win:UInt32"/>
+      <data name="SliceIndex2" inType="win:UInt32"/>
+      <data name="NumberOfRanges" inType="win:UInt32"/>
+      <data name="Range1Start" inType="win:UInt64"/>
+      <data name="Range1End" inType="win:UInt64"/>
+      <data name="Range2Start" inType="win:UInt64"/>
+      <data name="Range2End" inType="win:UInt64"/>
+     </template>
+     <template tid="HTTPCacheTraceTaskMergeSlicesToCacheArgs">
+      <data name="CacheEntryPtr" inType="win:Pointer"/>
+      <data name="NofSlicesToMerge" inType="win:UInt32"/>
+      <data name="NofSlicesInCache" inType="win:UInt32"/>
+     </template>
+     <template tid="HTTPCacheTraceTaskFlatCacheRangeSendArgs">
+      <data name="CacheEntryPtr" inType="win:Pointer"/>
+      <data name="Range1Start" inType="win:UInt64"/>
+      <data name="Range1End" inType="win:UInt64"/>
+     </template>
+     <template tid="HTTPAuthenticationTraceTaskChannelBindAscParamsArgs">
+      <data name="ConnectionId" inType="win:UInt64"/>
+      <data name="NoBindBuffers" inType="win:UInt32"/>
+      <data name="SecFlags" inType="win:UInt32"/>
+     </template>
+     <template tid="HTTPAuthenticationTraceTaskServiceBindCheckCompleteArgs">
+      <data name="ConnectionId" inType="win:UInt64"/>
+      <data name="SecContextL" inType="win:Pointer"/>
+      <data name="SecContextH" inType="win:Pointer"/>
+      <data name="SecStatus" inType="win:UInt32"/>
+      <data name="Target" inType="win:UnicodeString"/>
+     </template>
+     <template tid="HTTPAuthenticationTraceTaskChannelBindConfigCaptureArgs">
+      <data name="Hardening" inType="win:UInt8"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="ServiceNameCount" inType="win:UInt32"/>
+     </template>
+     <template tid="HTTPAuthenticationTraceTaskChannelBindPerResponseConfigArgs">
+      <data name="ReplaceConfigOf" inType="win:AnsiString"/>
+     </template>
+     <template tid="HTTPThreadPoolThreadPoolExtensionArgs">
+      <data name="PoolType" inType="win:AnsiString"/>
+      <data name="ActivePools" inType="win:UInt16"/>
+     </template>
+     <template tid="HTTPThreadPoolThreadReadyArgs">
+      <data name="PoolType" inType="win:AnsiString"/>
+      <data name="ActivePools" inType="win:UInt16"/>
+      <data name="ThreadCount" inType="win:UInt8"/>
+     </template>
+     <template tid="HTTPSSLTraceTaskSniParsedArgs">
+      <data name="ConnectionObj" inType="win:Pointer"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="SniLength" inType="win:UInt32"/>
+      <data name="SniHost" inType="win:Binary" length="SniLength"/>
+      <data name="NormalizedHost" inType="win:UnicodeString"/>
+     </template>
+     <template tid="HTTPSSLTraceTaskEndpointAutoGeneratedArgs">
+      <data name="EndpointConfigObj" inType="win:Pointer"/>
+      <data name="EndpointName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="HTTPSSLTraceTaskSslEndpointConfigFoundArgs">
+      <data name="EndpointConfigObj" inType="win:Pointer"/>
+      <data name="IpAddrLength" inType="win:UInt32"/>
+      <data name="IpAddress" inType="win:Binary" length="IpAddrLength"/>
+      <data name="SniHostname" inType="win:UnicodeString"/>
+      <data name="MatchingEndpointName" inType="win:UnicodeString"/>
+      <data name="AutoGeneratedEndpoint" inType="win:Boolean"/>
+     </template>
+     <template tid="HTTPSSLTraceTaskSslEndpointConfigRejectedArgs">
+      <data name="AddressLength" inType="win:UInt32"/>
+      <data name="Address" inType="win:Binary" length="AddressLength"/>
+     </template>
+     <template tid="HTTPRequestTraceTaskSrvdFrmCacheArgs_V1">
+      <data name="RequestObj" inType="win:Pointer"/>
+      <data name="SiteId" inType="win:UInt32"/>
+      <data name="BytesSent" inType="win:UInt32"/>
+      <data name="RequestId" inType="win:UInt64"/>
+      <data name="Encoding" inType="win:AnsiString"/>
+     </template>
+     <template tid="HTTPSetupTraceTaskCreatedSslCredArgs_V1">
+      <data name="EndpointConfigObj" inType="win:Pointer"/>
+      <data name="Endpoint" inType="win:UnicodeString"/>
+      <data name="CertHashLength" inType="win:UInt32"/>
+      <data name="CertHash" inType="win:Binary" length="CertHashLength"/>
+      <data name="CertStoreName" inType="win:UnicodeString"/>
+      <data name="CertCheckMode" inType="win:UInt32"/>
+      <data name="RevokeFreshnessTime" inType="win:UInt32"/>
+      <data name="RevokeRetrievalTime" inType="win:UInt32"/>
+      <data name="Flags" inType="win:UInt32"/>
+      <data name="CtlId" inType="win:UnicodeString"/>
+      <data name="CtlStoreName" inType="win:UnicodeString"/>
+      <data name="CertificateLoadTimems" inType="win:UInt32"/>
+     </template>
+     <template tid="HTTPCacheTraceTaskAddedCacheEntryArgs_V1">
+      <data name="Uri" inType="win:UnicodeString"/>
+      <data name="StatusCode" inType="win:UInt16"/>
+      <data name="Verb" inType="win:AnsiString"/>
+      <data name="HeaderLength" inType="win:UInt32"/>
+      <data name="ContentLength" inType="win:UInt32"/>
+      <data name="ExpirationTime" inType="win:UInt64"/>
+      <data name="Encoding" inType="win:AnsiString"/>
+     </template>
+     <template tid="HTTPCacheTraceTaskAddCacheEntryFailedArgs_V1">
+      <data name="UrlBuffer" inType="win:UnicodeString"/>
+      <data name="ErrorStatus" inType="win:UInt32"/>
+      <data name="Encoding" inType="win:AnsiString"/>
+     </template>
+     <template tid="HTTPAuthenticationTraceTaskSspiCallArgs_V1">
+      <data name="ConnectionId" inType="win:UInt64"/>
+      <data name="AuthType" inType="win:AnsiString"/>
+      <data name="SecStatus" inType="win:UInt32"/>
+      <data name="AuthStatus" inType="win:UInt32"/>
+      <data name="ContextAttributes" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_HTTP_KEYWORD_SETUP" value="HTTP_KEYWORD_SETUP"/>
+    <string id="keyword_HTTP_KEYWORD_REQUEST" value="HTTP_KEYWORD_REQUEST"/>
+    <string id="keyword_HTTP_KEYWORD_RESPONSE" value="HTTP_KEYWORD_RESPONSE"/>
+    <string id="keyword_HTTP_KEYWORD_ENDPOINT" value="HTTP_KEYWORD_ENDPOINT"/>
+    <string id="keyword_HTTP_KEYWORD_CONNECTION" value="HTTP_KEYWORD_CONNECTION"/>
+    <string id="keyword_HTTP_KEYWORD_CACHE" value="HTTP_KEYWORD_CACHE"/>
+    <string id="keyword_HTTP_KEYWORD_URL_GROUP" value="HTTP_KEYWORD_URL_GROUP"/>
+    <string id="keyword_HTTP_KEYWORD_SERVER_SESSION" value="HTTP_KEYWORD_SERVER_SESSION"/>
+    <string id="keyword_HTTP_KEYWORD_REQUEST_QUEUE" value="HTTP_KEYWORD_REQUEST_QUEUE"/>
+    <string id="keyword_HTTP_KEYWORD_SSL" value="HTTP_KEYWORD_SSL"/>
+    <string id="keyword_HTTP_KEYWORD_AUTHENTICATION" value="HTTP_KEYWORD_AUTHENTICATION"/>
+    <string id="keyword_HTTP_KEYWORD_LOGGING" value="HTTP_KEYWORD_LOGGING"/>
+    <string id="keyword_HTTP_KEYWORD_TIMEOUT" value="HTTP_KEYWORD_TIMEOUT"/>
+    <string id="keyword_HTTP_KEYWORD_DRIVER_SETTING" value="HTTP_KEYWORD_DRIVER_SETTING"/>
+    <string id="keyword_HTTP_KEYWORD_THREAD_POOL" value="HTTP_KEYWORD_THREAD_POOL"/>
+    <string id="task_HTTPRequestTraceTask" value="HTTPRequestTraceTask"/>
+    <string id="opcode_HTTPRequestTraceTaskRecvReq" value="RecvReq"/>
+    <string id="opcode_HTTPRequestTraceTaskParse" value="Parse"/>
+    <string id="opcode_HTTPRequestTraceTaskDeliver" value="Deliver"/>
+    <string id="opcode_HTTPRequestTraceTaskRecvResp" value="RecvResp"/>
+    <string id="opcode_HTTPRequestTraceTaskRecvRespLast" value="RecvRespLast"/>
+    <string id="opcode_HTTPRequestTraceTaskRecvBody" value="RecvBody"/>
+    <string id="opcode_HTTPRequestTraceTaskRecvBodyLast" value="RecvBodyLast"/>
+    <string id="opcode_HTTPRequestTraceTaskFastRespLast" value="FastRespLast"/>
+    <string id="opcode_HTTPRequestTraceTaskFastResp" value="FastResp"/>
+    <string id="opcode_HTTPRequestTraceTaskCachedAndSend" value="CachedAndSend"/>
+    <string id="opcode_HTTPRequestTraceTaskFastSend" value="FastSend"/>
+    <string id="opcode_HTTPRequestTraceTaskZeroSend" value="ZeroSend"/>
+    <string id="opcode_HTTPRequestTraceTaskSndError" value="SndError"/>
+    <string id="opcode_HTTPRequestTraceTaskLastSndError" value="LastSndError"/>
+    <string id="opcode_HTTPRequestTraceTaskSrvdFrmCache" value="SrvdFrmCache"/>
+    <string id="opcode_HTTPRequestTraceTaskCachedNotModified" value="CachedNotModified"/>
+    <string id="opcode_HTTPRequestTraceTaskSendComplete" value="SendComplete"/>
+    <string id="opcode_HTTPRequestTraceTaskParseRequestFailed" value="ParseRequestFailed"/>
+    <string id="opcode_HTTPRequestTraceTaskRequestRejected" value="RequestRejected"/>
+    <string id="opcode_HTTPRequestTraceTaskRequestCancelled" value="RequestCancelled"/>
+    <string id="opcode_HTTPRequestTraceTaskUserResponseFlowInit" value="UserResponseFlowInit"/>
+    <string id="opcode_HTTPRequestTraceTaskCachedResponseFlowInit" value="CachedResponseFlowInit"/>
+    <string id="opcode_HTTPRequestTraceTaskFlowInitFailed" value="FlowInitFailed"/>
+    <string id="opcode_HTTPRequestTraceTaskResponseRangeProcessingOK" value="ResponseRangeProcessingOK"/>
+    <string id="opcode_HTTPRequestTraceTaskInitiateOpaqueMode" value="InitiateOpaqueMode"/>
+    <string id="task_HTTPSetupTraceTask" value="HTTPSetupTraceTask"/>
+    <string id="opcode_HTTPSetupTraceTaskResvUrl" value="ResvUrl"/>
+    <string id="opcode_HTTPSetupTraceTaskReadIpListEntry" value="ReadIpListEntry"/>
+    <string id="opcode_HTTPSetupTraceTaskCreatedSslCred" value="CreatedSslCred"/>
+    <string id="task_HTTPConnectionTraceTask" value="HTTPConnectionTraceTask"/>
+    <string id="opcode_HTTPConnectionTraceTaskConnConnect" value="ConnConnect"/>
+    <string id="opcode_HTTPConnectionTraceTaskConnClose" value="ConnClose"/>
+    <string id="opcode_HTTPConnectionTraceTaskConnCleanup" value="ConnCleanup"/>
+    <string id="opcode_HTTPConnectionTraceTaskConnIdAssgn" value="ConnIdAssgn"/>
+    <string id="opcode_HTTPConnectionTraceTaskQosFlowSetReset" value="QosFlowSetReset"/>
+    <string id="opcode_HTTPConnectionTraceTaskSetConnectionFlow" value="SetConnectionFlow"/>
+    <string id="opcode_HTTPConnectionTraceTaskRequestAssociatedToConfigurationFlow" value="RequestAssociatedToConfigurationFlow"/>
+    <string id="opcode_HTTPConnectionTraceTaskConnectionFlowFailed" value="ConnectionFlowFailed"/>
+    <string id="opcode_HTTPConnectionTraceTaskUsePolicyBasedQoSFlow" value="UsePolicyBasedQoSFlow"/>
+    <string id="task_HTTPConfigurationPropertyTraceTask" value="HTTPConfigurationPropertyTraceTask"/>
+    <string id="opcode_HTTPConfigurationPropertyTraceTaskChgUrlGrpProp" value="ChgUrlGrpProp"/>
+    <string id="opcode_HTTPConfigurationPropertyTraceTaskChgSrvSesProp" value="ChgSrvSesProp"/>
+    <string id="opcode_HTTPConfigurationPropertyTraceTaskChgReqQueueProp" value="ChgReqQueueProp"/>
+    <string id="opcode_HTTPConfigurationPropertyTraceTaskAddUrl" value="AddUrl"/>
+    <string id="opcode_HTTPConfigurationPropertyTraceTaskRemUrl" value="RemUrl"/>
+    <string id="opcode_HTTPConfigurationPropertyTraceTaskRemAllUrls" value="RemAllUrls"/>
+    <string id="task_HTTPAuthenticationTraceTask" value="HTTPAuthenticationTraceTask"/>
+    <string id="opcode_HTTPAuthenticationTraceTaskSspiCall" value="SspiCall"/>
+    <string id="opcode_HTTPAuthenticationTraceTaskAuthCacheEntryAdded" value="AuthCacheEntryAdded"/>
+    <string id="opcode_HTTPAuthenticationTraceTaskAuthCacheEntryFreed" value="AuthCacheEntryFreed"/>
+    <string id="opcode_HTTPAuthenticationTraceTaskChannelBindAscParams" value="ChannelBindAscParams"/>
+    <string id="opcode_HTTPAuthenticationTraceTaskServiceBindCheckComplete" value="ServiceBindCheckComplete"/>
+    <string id="opcode_HTTPAuthenticationTraceTaskChannelBindConfigCapture" value="ChannelBindConfigCapture"/>
+    <string id="opcode_HTTPAuthenticationTraceTaskChannelBindPerResponseConfig" value="ChannelBindPerResponseConfig"/>
+    <string id="task_HTTPSSLTraceTask" value="HTTPSSLTraceTask"/>
+    <string id="opcode_HTTPSSLTraceTaskSslConnEvent" value="SslConnEvent"/>
+    <string id="opcode_HTTPSSLTraceTaskSslInitiateHandshake" value="SslInitiateHandshake"/>
+    <string id="opcode_HTTPSSLTraceTaskSslHandshakeComplete" value="SslHandshakeComplete"/>
+    <string id="opcode_HTTPSSLTraceTaskSslInititateSslRcvClientCert" value="SslInititateSslRcvClientCert"/>
+    <string id="opcode_HTTPSSLTraceTaskSslRcvClientCertFailed" value="SslRcvClientCertFailed"/>
+    <string id="opcode_HTTPSSLTraceTaskSslRcvdRawData" value="SslRcvdRawData"/>
+    <string id="opcode_HTTPSSLTraceTaskSslDlvrdStreamData" value="SslDlvrdStreamData"/>
+    <string id="opcode_HTTPSSLTraceTaskSslAcceptStreamData" value="SslAcceptStreamData"/>
+    <string id="opcode_HTTPSSLTraceTaskSslEndpointCreationFailed" value="SslEndpointCreationFailed"/>
+    <string id="opcode_HTTPSSLTraceTaskSslDisconnEvent" value="SslDisconnEvent"/>
+    <string id="opcode_HTTPSSLTraceTaskSslDisconnReq" value="SslDisconnReq"/>
+    <string id="opcode_HTTPSSLTraceTaskSslUnsealMsg" value="SslUnsealMsg"/>
+    <string id="opcode_HTTPSSLTraceTaskSslQueryConnInfoFailed" value="SslQueryConnInfoFailed"/>
+    <string id="opcode_HTTPSSLTraceTaskSslEndpointConfigNotFound" value="SslEndpointConfigNotFound"/>
+    <string id="opcode_HTTPSSLTraceTaskSslAsc" value="SslAsc"/>
+    <string id="opcode_HTTPSSLTraceTaskSslSealMsg" value="SslSealMsg"/>
+    <string id="opcode_HTTPSSLTraceTaskSniParsed" value="SniParsed"/>
+    <string id="opcode_HTTPSSLTraceTaskEndpointAutoGenerated" value="EndpointAutoGenerated"/>
+    <string id="opcode_HTTPSSLTraceTaskAutoGeneratedEndpointDeleted" value="AutoGeneratedEndpointDeleted"/>
+    <string id="opcode_HTTPSSLTraceTaskSslEndpointConfigFound" value="SslEndpointConfigFound"/>
+    <string id="opcode_HTTPSSLTraceTaskSslEndpointConfigRejected" value="SslEndpointConfigRejected"/>
+    <string id="task_HTTPCacheTraceTask" value="HTTPCacheTraceTask"/>
+    <string id="opcode_HTTPCacheTraceTaskAddedCacheEntry" value="AddedCacheEntry"/>
+    <string id="opcode_HTTPCacheTraceTaskAddCacheEntryFailed" value="AddCacheEntryFailed"/>
+    <string id="opcode_HTTPCacheTraceTaskFlushedCache" value="FlushedCache"/>
+    <string id="opcode_HTTPCacheTraceTaskBeginBuildingSlices" value="BeginBuildingSlices"/>
+    <string id="opcode_HTTPCacheTraceTaskSendSliceCacheContent" value="SendSliceCacheContent"/>
+    <string id="opcode_HTTPCacheTraceTaskCachedSlicesMatchContent" value="CachedSlicesMatchContent"/>
+    <string id="opcode_HTTPCacheTraceTaskMergeSlicesToCache" value="MergeSlicesToCache"/>
+    <string id="opcode_HTTPCacheTraceTaskFlatCacheRangeSend" value="FlatCacheRangeSend"/>
+    <string id="task_HTTPLoggingTraceTask" value="HTTPLoggingTraceTask"/>
+    <string id="opcode_HTTPLoggingTraceTaskLoggingConfigFailed" value="LoggingConfigFailed"/>
+    <string id="opcode_HTTPLoggingTraceTaskLoggingConfig" value="LoggingConfig"/>
+    <string id="opcode_HTTPLoggingTraceTaskLogFileCreateFailed" value="LogFileCreateFailed"/>
+    <string id="opcode_HTTPLoggingTraceTaskLogFileCreate" value="LogFileCreate"/>
+    <string id="opcode_HTTPLoggingTraceTaskLogFileWrite" value="LogFileWrite"/>
+    <string id="task_HTTPTimeoutTraceTask" value="HTTPTimeoutTraceTask"/>
+    <string id="opcode_HTTPTimeoutTraceTaskConnTimedOut" value="ConnTimedOut"/>
+    <string id="task_HTTPDriverGlobalSettingsTask" value="HTTPDriverGlobalSettingsTask"/>
+    <string id="opcode_HTTPDriverGlobalSettingsTaskHotAddProcFailed" value="HotAddProcFailed"/>
+    <string id="opcode_HTTPDriverGlobalSettingsTaskHotAddProcSucceeded" value="HotAddProcSucceeded"/>
+    <string id="task_HTTPThreadPool" value="HTTPThreadPool"/>
+    <string id="opcode_HTTPThreadPoolThreadPoolExtension" value="ThreadPoolExtension"/>
+    <string id="opcode_HTTPThreadPoolThreadReady" value="ThreadReady"/>
+    <string id="opcode_HTTPThreadPoolThreadPoolTrim" value="ThreadPoolTrim"/>
+    <string id="opcode_HTTPThreadPoolThreadGone" value="ThreadGone"/>
+    <string id="map_HTTP_TEMPLATE_LOGGING_LogType_ValueMapResponseLogging" value="ResponseLogging"/>
+    <string id="map_HTTP_TEMPLATE_LOGGING_LogType_ValueMapErrorLogging" value="ErrorLogging"/>
+    <string id="map_HTTP_TEMPLATE_LOGGING_LogGroup_ValueMapSite" value="Site"/>
+    <string id="map_HTTP_TEMPLATE_LOGGING_LogGroup_ValueMapCentralized" value="Centralized"/>
+    <string id="map_HTTP_TEMPLATE_LOGGING_LogFormat_ValueMapW3C" value="W3C"/>
+    <string id="map_HTTP_TEMPLATE_LOGGING_LogFormat_ValueMapIIS" value="IIS"/>
+    <string id="map_HTTP_TEMPLATE_LOGGING_LogFormat_ValueMapNCSA" value="NCSA"/>
+    <string id="map_HTTP_TEMPLATE_LOGGING_LogFormat_ValueMapBinary" value="Binary"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

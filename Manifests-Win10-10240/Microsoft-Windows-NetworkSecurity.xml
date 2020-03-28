@@ -1,0 +1,71 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-NetworkSecurity" guid="{7b702970-90bc-4584-8b20-c0799086ee5a}" resourceFileName="Microsoft-Windows-NetworkSecurity" messageFileName="Microsoft-Windows-NetworkSecurity" symbol="MicrosoftWindowsNetworkSecurity" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="SaContextOperation" message="$(string.task_SaContextOperation)" value="901"/>
+    </tasks>
+    <maps>
+     <valueMap name="map_SaContextCreationReason">
+      <map value="0x1" message="$(string.map_map_SaContextCreationReasonDriver)"/>
+      <map value="0x2" message="$(string.map_map_SaContextCreationReasonExternal)"/>
+      <map value="0x3" message="$(string.map_map_SaContextCreationReasonResponder)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="801" symbol="task_0" version="0" task="task_0" level="win:Verbose" template="task_0Args"/>
+     <event value="802" symbol="task_0802" version="0" task="task_0" level="win:Verbose" template="task_0802Args"/>
+     <event value="803" symbol="task_0803" version="0" task="task_0" level="win:Verbose" template="task_0803Args"/>
+     <event value="804" symbol="task_0804" version="0" task="task_0" level="win:Verbose" template="task_0804Args"/>
+     <event value="805" symbol="task_0805" version="0" task="task_0" level="win:Verbose" template="task_0805Args"/>
+     <event value="806" symbol="SaContextOperationStart" version="0" task="SaContextOperation" opcode="win:Start" level="win:Verbose"/>
+     <event value="807" symbol="SaContextOperationStop" version="0" task="SaContextOperation" opcode="win:Stop" level="win:Verbose"/>
+     <event value="808" symbol="SaContextOperation" version="0" task="SaContextOperation" level="win:Verbose" template="task_0804Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="SaContextID" inType="win:UInt64"/>
+      <data name="Reason" inType="win:UInt32" map="map_SaContextCreationReason"/>
+     </template>
+     <template tid="task_0802Args">
+      <data name="SaContextID" inType="win:UInt64"/>
+      <data name="Result" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0803Args">
+      <data name="SaContextID" inType="win:UInt64"/>
+      <data name="LocalAddr" inType="win:UnicodeString"/>
+      <data name="LocalMask" inType="win:UnicodeString"/>
+      <data name="LocalPort" inType="win:UInt16"/>
+      <data name="RemoteAddress" inType="win:UnicodeString"/>
+      <data name="RemoteMask" inType="win:UnicodeString"/>
+      <data name="RemotePort" inType="win:UInt16"/>
+      <data name="IPProtocol" inType="win:UInt8"/>
+      <data name="LocalTunnelEndpt" inType="win:UnicodeString"/>
+      <data name="RemoteTunnelEndpt" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0804Args">
+      <data name="SaContextID" inType="win:UInt64"/>
+     </template>
+     <template tid="task_0805Args">
+      <data name="SaContextID" inType="win:UInt64"/>
+      <data name="SPI" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_SaContextOperation" value="SaContextOperation"/>
+    <string id="map_map_SaContextCreationReasonDriver" value="Driver"/>
+    <string id="map_map_SaContextCreationReasonExternal" value="External"/>
+    <string id="map_map_SaContextCreationReasonResponder" value="Responder"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

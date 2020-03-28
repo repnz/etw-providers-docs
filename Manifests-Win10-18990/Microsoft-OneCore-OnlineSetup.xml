@@ -1,0 +1,49 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-OneCore-OnlineSetup" guid="{41862974-da3b-4f0b-97d5-bb29fbb9b71e}" resourceFileName="Microsoft-OneCore-OnlineSetup" messageFileName="Microsoft-OneCore-OnlineSetup" symbol="MicrosoftOneCoreOnlineSetup" source="Xml" >
+    <keywords>
+     <keyword name="keyPerformance" message="$(string.keyword_keyPerformance)" mask="0x1"/>
+     <keyword name="keyDiagnostic" message="$(string.keyword_keyDiagnostic)" mask="0x2"/>
+    </keywords>
+    <tasks>
+     <task name="RunSetupSpecialization" message="$(string.task_RunSetupSpecialization)" value="1000"/>
+     <task name="SetupProcessUnattend" message="$(string.task_SetupProcessUnattend)" value="2000"/>
+    </tasks>
+    <events>
+     <event value="1001" symbol="RunSetupSpecializationStart" version="0" task="RunSetupSpecialization" opcode="win:Start" level="win:Informational" keywords="keyPerformance" template="RunSetupSpecializationStartArgs"/>
+     <event value="1002" symbol="RunSetupSpecializationStop" version="0" task="RunSetupSpecialization" opcode="win:Stop" level="win:Informational" keywords="keyPerformance" template="RunSetupSpecializationStopArgs"/>
+     <event value="2001" symbol="SetupProcessUnattendStart" version="0" task="SetupProcessUnattend" opcode="win:Start" level="win:Informational" keywords="keyPerformance" template="SetupProcessUnattendStartArgs"/>
+     <event value="2002" symbol="SetupProcessUnattendStop" version="0" task="SetupProcessUnattend" opcode="win:Stop" level="win:Informational" keywords="keyPerformance" template="RunSetupSpecializationStopArgs"/>
+     <event value="2003" symbol="SetupProcessUnattendStop2003" version="0" task="SetupProcessUnattend" opcode="win:Stop" level="win:Informational" keywords="keyPerformance" template="RunSetupSpecializationStopArgs"/>
+     <event value="2004" symbol="SetupProcessUnattend" version="0" task="SetupProcessUnattend" level="win:Informational" keywords="keyDiagnostic" template="SetupProcessUnattendArgs"/>
+    </events>
+    <templates>
+     <template tid="RunSetupSpecializationStartArgs">
+      <data name="CommandLine" inType="win:UnicodeString"/>
+     </template>
+     <template tid="RunSetupSpecializationStopArgs">
+      <data name="ErrorCode" inType="win:UInt32"/>
+     </template>
+     <template tid="SetupProcessUnattendStartArgs">
+      <data name="Pass" inType="win:UnicodeString"/>
+     </template>
+     <template tid="SetupProcessUnattendArgs">
+      <data name="Pass" inType="win:UnicodeString"/>
+      <data name="FilePath" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_keyPerformance" value="keyPerformance"/>
+    <string id="keyword_keyDiagnostic" value="keyDiagnostic"/>
+    <string id="task_RunSetupSpecialization" value="RunSetupSpecialization"/>
+    <string id="task_SetupProcessUnattend" value="SetupProcessUnattend"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

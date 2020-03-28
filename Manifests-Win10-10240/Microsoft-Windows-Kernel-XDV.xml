@@ -1,0 +1,44 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Kernel-XDV" guid="{f029ac39-38f0-4a40-b7de-404d244004cb}" resourceFileName="Microsoft-Windows-Kernel-XDV" messageFileName="Microsoft-Windows-Kernel-XDV" symbol="MicrosoftWindowsKernelXDV" source="Xml" >
+    <keywords>
+     <keyword name="keyword_200000000000" message="$(string.keyword_keyword_200000000000)" mask="0x200000000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="task_0Start" version="0" task="task_0" opcode="win:Start" level="win:Informational" keywords="keyword_200000000000"/>
+     <event value="2" symbol="task_0Stop" version="0" task="task_0" opcode="win:Stop" level="win:Informational"/>
+     <event value="3" symbol="task_0Start3" version="0" task="task_0" opcode="win:Start" level="win:Informational" template="task_0Start3Args"/>
+     <event value="4" symbol="task_0Start4" version="0" task="task_0" opcode="win:Start" level="win:Error" keywords="keyword_200000000000" template="task_0Start4Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Start3Args">
+      <data name="IRP_Address" inType="win:Pointer"/>
+      <data name="IRP_Stack_Loc_Code" inType="win:UInt32"/>
+      <data name="IRP_Parameters" inType="win:UInt32"/>
+      <data name="Module" inType="win:UnicodeString"/>
+      <data name="UInt32_Event_Number" inType="win:UInt32"/>
+      <data name="Address_Stack" inType="win:Pointer"/>
+     </template>
+     <template tid="task_0Start4Args">
+      <data name="RuleId" inType="win:HexInt32"/>
+      <data name="ErrorMessage" inType="win:AnsiString"/>
+      <data name="Module" inType="win:UnicodeString"/>
+      <data name="Irql" inType="win:UInt8"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_keyword_200000000000" value="keyword_200000000000"/>
+    <string id="task_task_0" value="task_0"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

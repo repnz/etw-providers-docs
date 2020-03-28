@@ -1,0 +1,50 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-WinRT-Error" guid="{a86f8471-c31d-4fbc-a035-665d06047b03}" resourceFileName="Microsoft-Windows-WinRT-Error" messageFileName="Microsoft-Windows-WinRT-Error" symbol="MicrosoftWindowsWinRTError" source="Xml" >
+    <keywords>
+     <keyword name="WinRTError" message="$(string.keyword_WinRTError)" mask="0x1"/>
+    </keywords>
+    <tasks>
+     <task name="OriginateError" message="$(string.task_OriginateError)" value="1"/>
+     <task name="OriginateLanguageError" message="$(string.task_OriginateLanguageError)" value="2"/>
+     <task name="TransformError" message="$(string.task_TransformError)" value="3"/>
+     <task name="ClearError" message="$(string.task_ClearError)" value="4"/>
+    </tasks>
+    <events>
+     <event value="1" symbol="OriginateError" version="0" task="OriginateError" level="win:Informational" keywords="WinRTError" template="OriginateErrorArgs"/>
+     <event value="2" symbol="OriginateLanguageError" version="0" task="OriginateLanguageError" level="win:Informational" keywords="WinRTError" template="OriginateLanguageErrorArgs"/>
+     <event value="3" symbol="TransformError" version="0" task="TransformError" level="win:Informational" keywords="WinRTError" template="TransformErrorArgs"/>
+     <event value="4" symbol="ClearError" version="0" task="ClearError" level="win:Informational" keywords="WinRTError"/>
+    </events>
+    <templates>
+     <template tid="OriginateErrorArgs">
+      <data name="HRESULT" inType="win:Int32"/>
+      <data name="ErrorMesage" inType="win:UnicodeString"/>
+     </template>
+     <template tid="OriginateLanguageErrorArgs">
+      <data name="HRESULT" inType="win:Int32"/>
+      <data name="ErrorMesage" inType="win:UnicodeString"/>
+      <data name="LanguageErrorPointer" inType="win:Pointer"/>
+     </template>
+     <template tid="TransformErrorArgs">
+      <data name="OriginalHRESULT" inType="win:Int32"/>
+      <data name="NewHRESULT" inType="win:Int32"/>
+      <data name="ErrorMesage" inType="win:UnicodeString"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_WinRTError" value="WinRTError"/>
+    <string id="task_OriginateError" value="OriginateError"/>
+    <string id="task_OriginateLanguageError" value="OriginateLanguageError"/>
+    <string id="task_TransformError" value="TransformError"/>
+    <string id="task_ClearError" value="ClearError"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

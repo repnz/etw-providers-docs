@@ -1,0 +1,845 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-WebAuthN" guid="{3ae1ea61-c002-47fb-b06c-4022a8c98929}" resourceFileName="Microsoft-Windows-WebAuthN" messageFileName="Microsoft-Windows-WebAuthN" symbol="MicrosoftWindowsWebAuthN" source="Xml" >
+    <keywords>
+     <keyword name="WebAuthN" message="$(string.keyword_WebAuthN)" mask="0x1"/>
+     <keyword name="Ctap" message="$(string.keyword_Ctap)" mask="0x2"/>
+     <keyword name="Cbor" message="$(string.keyword_Cbor)" mask="0x4"/>
+     <keyword name="Usb" message="$(string.keyword_Usb)" mask="0x8"/>
+     <keyword name="Nfc" message="$(string.keyword_Nfc)" mask="0x10"/>
+     <keyword name="Test" message="$(string.keyword_Test)" mask="0x20"/>
+     <keyword name="Ngc" message="$(string.keyword_Ngc)" mask="0x40"/>
+     <keyword name="Ble" message="$(string.keyword_Ble)" mask="0x80"/>
+    </keywords>
+    <tasks>
+     <task name="WebAuthNCtapMakeCredential" message="$(string.task_WebAuthNCtapMakeCredential)" value="1">
+>
+      <opcodes>
+       <opcode name="Start" message="$(string.opcode_WebAuthNCtapMakeCredentialStart)" value="10"/>
+       <opcode name="Stop" message="$(string.opcode_WebAuthNCtapMakeCredentialStop)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="WebAuthNCtapGetAssertion" message="$(string.task_WebAuthNCtapGetAssertion)" value="2">
+>
+      <opcodes>
+       <opcode name="Start" message="$(string.opcode_WebAuthNCtapGetAssertionStart)" value="10"/>
+       <opcode name="Stop" message="$(string.opcode_WebAuthNCtapGetAssertionStop)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="WebAuthNCtapSendCommand" message="$(string.task_WebAuthNCtapSendCommand)" value="3">
+>
+      <opcodes>
+       <opcode name="Start" message="$(string.opcode_WebAuthNCtapSendCommandStart)" value="10"/>
+       <opcode name="Stop" message="$(string.opcode_WebAuthNCtapSendCommandStop)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="WebAuthNError" message="$(string.task_WebAuthNError)" value="4">
+>
+      <opcodes>
+       <opcode name="Informational" message="$(string.opcode_WebAuthNErrorInformational)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="WebAuthNNgcMakeCredential" message="$(string.task_WebAuthNNgcMakeCredential)" value="10">
+>
+      <opcodes>
+       <opcode name="Start" message="$(string.opcode_WebAuthNNgcMakeCredentialStart)" value="10"/>
+       <opcode name="Stop" message="$(string.opcode_WebAuthNNgcMakeCredentialStop)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="WebAuthNNgcGetAssertion" message="$(string.task_WebAuthNNgcGetAssertion)" value="11">
+>
+      <opcodes>
+       <opcode name="Start" message="$(string.opcode_WebAuthNNgcGetAssertionStart)" value="10"/>
+       <opcode name="Stop" message="$(string.opcode_WebAuthNNgcGetAssertionStop)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="NgcMakeCredentialRequest" message="$(string.task_NgcMakeCredentialRequest)" value="12">
+>
+      <opcodes>
+       <opcode name="Informational" message="$(string.opcode_NgcMakeCredentialRequestInformational)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="NgcMakeCredentialResponse" message="$(string.task_NgcMakeCredentialResponse)" value="13">
+>
+      <opcodes>
+       <opcode name="Informational" message="$(string.opcode_NgcMakeCredentialResponseInformational)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="NgcGetAssertionRequest" message="$(string.task_NgcGetAssertionRequest)" value="14">
+>
+      <opcodes>
+       <opcode name="Informational" message="$(string.opcode_NgcGetAssertionRequestInformational)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="NgcGetAssertionResponse" message="$(string.task_NgcGetAssertionResponse)" value="15">
+>
+      <opcodes>
+       <opcode name="Informational" message="$(string.opcode_NgcGetAssertionResponseInformational)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="CborDecodeError" message="$(string.task_CborDecodeError)" value="100">
+>
+      <opcodes>
+       <opcode name="Informational" message="$(string.opcode_CborDecodeErrorInformational)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="CborEncodeMakeCredentialRequest" message="$(string.task_CborEncodeMakeCredentialRequest)" value="101">
+>
+      <opcodes>
+       <opcode name="Informational" message="$(string.opcode_CborEncodeMakeCredentialRequestInformational)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="CborDecodeMakeCredentialResponse" message="$(string.task_CborDecodeMakeCredentialResponse)" value="102">
+>
+      <opcodes>
+       <opcode name="Informational" message="$(string.opcode_CborDecodeMakeCredentialResponseInformational)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="CborEncodeGetAssertionRequest" message="$(string.task_CborEncodeGetAssertionRequest)" value="103">
+>
+      <opcodes>
+       <opcode name="Informational" message="$(string.opcode_CborEncodeGetAssertionRequestInformational)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="CborDecodeGetAssertionResponse" message="$(string.task_CborDecodeGetAssertionResponse)" value="104">
+>
+      <opcodes>
+       <opcode name="Informational" message="$(string.opcode_CborDecodeGetAssertionResponseInformational)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="WNFCtapDeviceStateInfo" message="$(string.task_WNFCtapDeviceStateInfo)" value="200">
+>
+      <opcodes>
+       <opcode name="Informational" message="$(string.opcode_WNFCtapDeviceStateInfoInformational)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="WNFCtapDeviceChangeNotifyInfo" message="$(string.task_WNFCtapDeviceChangeNotifyInfo)" value="201">
+>
+      <opcodes>
+       <opcode name="Informational" message="$(string.opcode_WNFCtapDeviceChangeNotifyInfoInformational)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="CtapService" message="$(string.task_CtapService)" value="500">
+>
+      <opcodes>
+       <opcode name="Start" message="$(string.opcode_CtapServiceStart)" value="10"/>
+       <opcode name="Stop" message="$(string.opcode_CtapServiceStop)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="CtapCommand" message="$(string.task_CtapCommand)" value="501">
+>
+      <opcodes>
+       <opcode name="Start" message="$(string.opcode_CtapCommandStart)" value="10"/>
+       <opcode name="Stop" message="$(string.opcode_CtapCommandStop)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="CtapDeviceInfo" message="$(string.task_CtapDeviceInfo)" value="502">
+>
+      <opcodes>
+       <opcode name="Informational" message="$(string.opcode_CtapDeviceInfoInformational)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="CtapFunction" message="$(string.task_CtapFunction)" value="503">
+>
+      <opcodes>
+       <opcode name="Informational" message="$(string.opcode_CtapFunctionInformational)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="CtapUsbProviderThread" message="$(string.task_CtapUsbProviderThread)" value="510">
+>
+      <opcodes>
+       <opcode name="Start" message="$(string.opcode_CtapUsbProviderThreadStart)" value="10"/>
+       <opcode name="Stop" message="$(string.opcode_CtapUsbProviderThreadStop)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="CtapUsbDeviceThread" message="$(string.task_CtapUsbDeviceThread)" value="511">
+>
+      <opcodes>
+       <opcode name="Start" message="$(string.opcode_CtapUsbDeviceThreadStart)" value="10"/>
+       <opcode name="Stop" message="$(string.opcode_CtapUsbDeviceThreadStop)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="CtapUsbAdd" message="$(string.task_CtapUsbAdd)" value="512">
+>
+      <opcodes>
+       <opcode name="Informational" message="$(string.opcode_CtapUsbAddInformational)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="CtapUsbRemove" message="$(string.task_CtapUsbRemove)" value="513">
+>
+      <opcodes>
+       <opcode name="Informational" message="$(string.opcode_CtapUsbRemoveInformational)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="CtapUsbChanges" message="$(string.task_CtapUsbChanges)" value="514">
+>
+      <opcodes>
+       <opcode name="Informational" message="$(string.opcode_CtapUsbChangesInformational)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="CtapUsbSwitchToU2F" message="$(string.task_CtapUsbSwitchToU2F)" value="515">
+>
+      <opcodes>
+       <opcode name="Informational" message="$(string.opcode_CtapUsbSwitchToU2FInformational)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="CtapUsbConnect" message="$(string.task_CtapUsbConnect)" value="516">
+>
+      <opcodes>
+       <opcode name="Informational" message="$(string.opcode_CtapUsbConnectInformational)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="CtapUsbSendReceive" message="$(string.task_CtapUsbSendReceive)" value="517">
+>
+      <opcodes>
+       <opcode name="Informational" message="$(string.opcode_CtapUsbSendReceiveInformational)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="CtapBleProviderThread" message="$(string.task_CtapBleProviderThread)" value="530">
+>
+      <opcodes>
+       <opcode name="Start" message="$(string.opcode_CtapBleProviderThreadStart)" value="10"/>
+       <opcode name="Stop" message="$(string.opcode_CtapBleProviderThreadStop)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="CtapBleDeviceThread" message="$(string.task_CtapBleDeviceThread)" value="531">
+>
+      <opcodes>
+       <opcode name="Start" message="$(string.opcode_CtapBleDeviceThreadStart)" value="10"/>
+       <opcode name="Stop" message="$(string.opcode_CtapBleDeviceThreadStop)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="CtapBleSwitchToU2F" message="$(string.task_CtapBleSwitchToU2F)" value="532">
+>
+      <opcodes>
+       <opcode name="Informational" message="$(string.opcode_CtapBleSwitchToU2FInformational)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="CtapBleFunction" message="$(string.task_CtapBleFunction)" value="533">
+>
+      <opcodes>
+       <opcode name="Informational" message="$(string.opcode_CtapBleFunctionInformational)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="CtapBleSendReceive" message="$(string.task_CtapBleSendReceive)" value="534">
+>
+      <opcodes>
+       <opcode name="Informational" message="$(string.opcode_CtapBleSendReceiveInformational)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="CtapNfcProviderThread" message="$(string.task_CtapNfcProviderThread)" value="550">
+>
+      <opcodes>
+       <opcode name="Start" message="$(string.opcode_CtapNfcProviderThreadStart)" value="10"/>
+       <opcode name="Stop" message="$(string.opcode_CtapNfcProviderThreadStop)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="CtapNfcReaderThread" message="$(string.task_CtapNfcReaderThread)" value="551">
+>
+      <opcodes>
+       <opcode name="Start" message="$(string.opcode_CtapNfcReaderThreadStart)" value="10"/>
+       <opcode name="Stop" message="$(string.opcode_CtapNfcReaderThreadStop)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="CtapNfcAddReader" message="$(string.task_CtapNfcAddReader)" value="552">
+>
+      <opcodes>
+       <opcode name="Informational" message="$(string.opcode_CtapNfcAddReaderInformational)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="CtapNfcSkipReader" message="$(string.task_CtapNfcSkipReader)" value="553">
+>
+      <opcodes>
+       <opcode name="Informational" message="$(string.opcode_CtapNfcSkipReaderInformational)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="CtapNfcTransitionReader" message="$(string.task_CtapNfcTransitionReader)" value="554">
+>
+      <opcodes>
+       <opcode name="Informational" message="$(string.opcode_CtapNfcTransitionReaderInformational)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="CtapNfcSendMessage" message="$(string.task_CtapNfcSendMessage)" value="555">
+>
+      <opcodes>
+       <opcode name="Informational" message="$(string.opcode_CtapNfcSendMessageInformational)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="CtapNfcSendRequest" message="$(string.task_CtapNfcSendRequest)" value="556">
+>
+      <opcodes>
+       <opcode name="Informational" message="$(string.opcode_CtapNfcSendRequestInformational)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="CtapNfcSwitchToU2F" message="$(string.task_CtapNfcSwitchToU2F)" value="557">
+>
+      <opcodes>
+       <opcode name="Informational" message="$(string.opcode_CtapNfcSwitchToU2FInformational)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="CtapNfcSCardTransmitRequest" message="$(string.task_CtapNfcSCardTransmitRequest)" value="558">
+>
+      <opcodes>
+       <opcode name="Informational" message="$(string.opcode_CtapNfcSCardTransmitRequestInformational)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="CtapNfcReaderManagerThread" message="$(string.task_CtapNfcReaderManagerThread)" value="559">
+>
+      <opcodes>
+       <opcode name="Start" message="$(string.opcode_CtapNfcReaderManagerThreadStart)" value="10"/>
+       <opcode name="Stop" message="$(string.opcode_CtapNfcReaderManagerThreadStop)" value="11"/>
+       <opcode name="Informational" message="$(string.opcode_CtapNfcReaderManagerThreadInformational)" value="12"/>
+      </opcodes>
+     </task>
+     <task name="CtapTestProviderThread" message="$(string.task_CtapTestProviderThread)" value="700">
+>
+      <opcodes>
+       <opcode name="Start" message="$(string.opcode_CtapTestProviderThreadStart)" value="10"/>
+       <opcode name="Stop" message="$(string.opcode_CtapTestProviderThreadStop)" value="11"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="1000" symbol="WebAuthNCtapMakeCredentialStart" version="0" task="WebAuthNCtapMakeCredential" opcode="Start" level="win:Informational" keywords="WebAuthN Ctap" template="WebAuthNCtapMakeCredentialStartArgs"/>
+     <event value="1001" symbol="WebAuthNCtapMakeCredentialStop" version="0" task="WebAuthNCtapMakeCredential" opcode="Stop" keywords="WebAuthN Ctap" template="WebAuthNCtapMakeCredentialStartArgs"/>
+     <event value="1002" symbol="WebAuthNCtapMakeCredentialStop1002" version="0" task="WebAuthNCtapMakeCredential" opcode="Stop" level="win:Error" keywords="WebAuthN Ctap" template="WebAuthNCtapMakeCredentialStop1002Args"/>
+     <event value="1003" symbol="WebAuthNCtapGetAssertionStart" version="0" task="WebAuthNCtapGetAssertion" opcode="Start" level="win:Informational" keywords="WebAuthN Ctap" template="WebAuthNCtapMakeCredentialStartArgs"/>
+     <event value="1004" symbol="WebAuthNCtapGetAssertionStop" version="0" task="WebAuthNCtapGetAssertion" opcode="Stop" keywords="WebAuthN Ctap" template="WebAuthNCtapMakeCredentialStartArgs"/>
+     <event value="1005" symbol="WebAuthNCtapGetAssertionStop1005" version="0" task="WebAuthNCtapGetAssertion" opcode="Stop" level="win:Error" keywords="WebAuthN Ctap" template="WebAuthNCtapMakeCredentialStop1002Args"/>
+     <event value="1006" symbol="WebAuthNCtapSendCommandStart" version="0" task="WebAuthNCtapSendCommand" opcode="Start" level="win:Informational" keywords="WebAuthN Ctap" template="WebAuthNCtapSendCommandStartArgs"/>
+     <event value="1007" symbol="WebAuthNCtapSendCommandStop" version="0" task="WebAuthNCtapSendCommand" opcode="Stop" keywords="WebAuthN Ctap" template="WebAuthNCtapMakeCredentialStartArgs"/>
+     <event value="1008" symbol="WebAuthNCtapSendCommandStop1008" version="0" task="WebAuthNCtapSendCommand" opcode="Stop" level="win:Error" keywords="WebAuthN Ctap" template="WebAuthNCtapMakeCredentialStop1002Args"/>
+     <event value="1020" symbol="WebAuthNNgcMakeCredentialStart" version="0" task="WebAuthNNgcMakeCredential" opcode="Start" level="win:Informational" keywords="WebAuthN Ngc" template="WebAuthNCtapMakeCredentialStartArgs"/>
+     <event value="1021" symbol="WebAuthNNgcMakeCredentialStop" version="0" task="WebAuthNNgcMakeCredential" opcode="Stop" keywords="WebAuthN Ngc" template="WebAuthNCtapMakeCredentialStartArgs"/>
+     <event value="1022" symbol="WebAuthNNgcMakeCredentialStop1022" version="0" task="WebAuthNNgcMakeCredential" opcode="Stop" level="win:Error" keywords="WebAuthN Ngc" template="WebAuthNCtapMakeCredentialStop1002Args"/>
+     <event value="1023" symbol="WebAuthNNgcGetAssertionStart" version="0" task="WebAuthNNgcGetAssertion" opcode="Start" level="win:Informational" keywords="WebAuthN Ngc" template="WebAuthNCtapMakeCredentialStartArgs"/>
+     <event value="1024" symbol="WebAuthNNgcGetAssertionStop" version="0" task="WebAuthNNgcGetAssertion" opcode="Stop" keywords="WebAuthN Ngc" template="WebAuthNCtapMakeCredentialStartArgs"/>
+     <event value="1025" symbol="WebAuthNNgcGetAssertionStop1025" version="0" task="WebAuthNNgcGetAssertion" opcode="Stop" level="win:Error" keywords="WebAuthN Ngc" template="WebAuthNCtapMakeCredentialStop1002Args"/>
+     <event value="1040" symbol="NgcMakeCredentialRequestInformational" version="0" task="NgcMakeCredentialRequest" opcode="Informational" level="win:Informational" keywords="WebAuthN Ngc" template="NgcMakeCredentialRequestInformationalArgs"/>
+     <event value="1041" symbol="NgcMakeCredentialResponseInformational" version="0" task="NgcMakeCredentialResponse" opcode="Informational" level="win:Informational" keywords="WebAuthN Ngc" template="NgcMakeCredentialResponseInformationalArgs"/>
+     <event value="1042" symbol="NgcGetAssertionRequestInformational" version="0" task="NgcGetAssertionRequest" opcode="Informational" level="win:Informational" keywords="WebAuthN Ngc" template="NgcGetAssertionRequestInformationalArgs"/>
+     <event value="1043" symbol="NgcGetAssertionResponseInformational" version="0" task="NgcGetAssertionResponse" opcode="Informational" level="win:Informational" keywords="WebAuthN Ngc" template="NgcGetAssertionResponseInformationalArgs"/>
+     <event value="1060" symbol="WebAuthNErrorInformational" version="0" task="WebAuthNError" opcode="Informational" level="win:Error" keywords="WebAuthN" template="WebAuthNErrorInformationalArgs"/>
+     <event value="1100" symbol="CborDecodeErrorInformational" version="0" task="CborDecodeError" opcode="Informational" level="win:Error" keywords="Cbor" template="CborDecodeErrorInformationalArgs"/>
+     <event value="1101" symbol="CborEncodeMakeCredentialRequestInformational" version="0" task="CborEncodeMakeCredentialRequest" opcode="Informational" level="win:Informational" keywords="WebAuthN Ctap Cbor" template="CborEncodeMakeCredentialRequestInformationalArgs"/>
+     <event value="1102" symbol="CborDecodeMakeCredentialResponseInformational" version="0" task="CborDecodeMakeCredentialResponse" opcode="Informational" level="win:Informational" keywords="WebAuthN Ctap Cbor" template="NgcMakeCredentialResponseInformationalArgs"/>
+     <event value="1103" symbol="CborEncodeGetAssertionRequestInformational" version="0" task="CborEncodeGetAssertionRequest" opcode="Informational" level="win:Informational" keywords="WebAuthN Ctap Cbor" template="CborEncodeGetAssertionRequestInformationalArgs"/>
+     <event value="1104" symbol="CborDecodeGetAssertionResponseInformational" version="0" task="CborDecodeGetAssertionResponse" opcode="Informational" level="win:Informational" keywords="WebAuthN Ctap Cbor" template="CborDecodeGetAssertionResponseInformationalArgs"/>
+     <event value="2000" symbol="CtapServiceStart" version="0" task="CtapService" opcode="Start" keywords="Ctap"/>
+     <event value="2001" symbol="CtapServiceStop" version="0" task="CtapService" opcode="Stop" keywords="Ctap"/>
+     <event value="2100" symbol="CtapCommandStart" version="0" task="CtapCommand" opcode="Start" level="win:Informational" keywords="Ctap" template="CtapCommandStartArgs"/>
+     <event value="2101" symbol="CtapCommandStart2101" version="0" task="CtapCommand" opcode="Start" level="win:Error" keywords="Ctap" template="CtapCommandStart2101Args"/>
+     <event value="2102" symbol="CtapCommandStop" version="0" task="CtapCommand" opcode="Stop" keywords="Ctap" template="CtapCommandStopArgs"/>
+     <event value="2103" symbol="CtapCommandStop2103" version="0" task="CtapCommand" opcode="Stop" level="win:Error" keywords="Ctap" template="CtapCommandStop2103Args"/>
+     <event value="2104" symbol="CtapDeviceInfoInformational" version="0" task="CtapDeviceInfo" opcode="Informational" level="win:Informational" keywords="Ctap" template="CtapDeviceInfoInformationalArgs"/>
+     <event value="2105" symbol="CtapFunctionInformational" version="0" task="CtapFunction" opcode="Informational" level="win:Warning" keywords="Ctap" template="CtapFunctionInformationalArgs"/>
+     <event value="2106" symbol="CtapFunctionInformational2106" version="0" task="CtapFunction" opcode="Informational" level="win:Informational" keywords="Ctap" template="CtapFunctionInformational2106Args"/>
+     <event value="2110" symbol="WNFCtapDeviceStateInfoInformational" version="0" task="WNFCtapDeviceStateInfo" opcode="Informational" level="win:Informational" keywords="Ctap" template="WNFCtapDeviceStateInfoInformationalArgs"/>
+     <event value="2111" symbol="WNFCtapDeviceChangeNotifyInfoInformational" version="0" task="WNFCtapDeviceChangeNotifyInfo" opcode="Informational" level="win:Informational" keywords="Ctap" template="WNFCtapDeviceChangeNotifyInfoInformationalArgs"/>
+     <event value="2200" symbol="CtapUsbProviderThreadStart" version="0" task="CtapUsbProviderThread" opcode="Start" level="win:Informational" keywords="Ctap Usb" template="WebAuthNCtapMakeCredentialStartArgs"/>
+     <event value="2201" symbol="CtapUsbProviderThreadStop" version="0" task="CtapUsbProviderThread" opcode="Stop" keywords="Ctap Usb" template="WebAuthNCtapMakeCredentialStartArgs"/>
+     <event value="2202" symbol="CtapUsbProviderThreadStop2202" version="0" task="CtapUsbProviderThread" opcode="Stop" level="win:Error" keywords="Ctap Usb" template="CtapUsbProviderThreadStop2202Args"/>
+     <event value="2203" symbol="CtapUsbProviderThreadStop2203" version="0" task="CtapUsbProviderThread" opcode="Stop" level="win:Warning" keywords="Ctap Usb" template="CtapUsbProviderThreadStop2202Args"/>
+     <event value="2210" symbol="CtapUsbDeviceThreadStart" version="0" task="CtapUsbDeviceThread" opcode="Start" level="win:Informational" keywords="Ctap Usb" template="CtapUsbDeviceThreadStartArgs"/>
+     <event value="2211" symbol="CtapUsbDeviceThreadStop" version="0" task="CtapUsbDeviceThread" opcode="Stop" keywords="Ctap Usb" template="CtapUsbDeviceThreadStopArgs"/>
+     <event value="2212" symbol="CtapUsbDeviceThreadStop2212" version="0" task="CtapUsbDeviceThread" opcode="Stop" level="win:Error" keywords="Ctap Usb" template="CtapUsbDeviceThreadStop2212Args"/>
+     <event value="2213" symbol="CtapUsbDeviceThreadStop2213" version="0" task="CtapUsbDeviceThread" opcode="Stop" level="win:Warning" keywords="Ctap Usb" template="CtapUsbDeviceThreadStop2212Args"/>
+     <event value="2220" symbol="CtapUsbAddInformational" version="0" task="CtapUsbAdd" opcode="Informational" level="win:Informational" keywords="Ctap Usb" template="CtapUsbDeviceThreadStartArgs"/>
+     <event value="2221" symbol="CtapUsbRemoveInformational" version="0" task="CtapUsbRemove" opcode="Informational" level="win:Informational" keywords="Ctap Usb" template="CtapUsbDeviceThreadStartArgs"/>
+     <event value="2222" symbol="CtapUsbChangesInformational" version="0" task="CtapUsbChanges" opcode="Informational" level="win:Informational" keywords="Ctap Usb" template="WebAuthNCtapMakeCredentialStartArgs"/>
+     <event value="2223" symbol="CtapUsbSwitchToU2FInformational" version="0" task="CtapUsbSwitchToU2F" opcode="Informational" level="win:Informational" keywords="Ctap Usb" template="CtapUsbDeviceThreadStartArgs"/>
+     <event value="2224" symbol="CtapUsbConnectInformational" version="0" task="CtapUsbConnect" opcode="Informational" level="win:Error" keywords="Ctap Usb" template="CtapUsbConnectInformationalArgs"/>
+     <event value="2225" symbol="CtapUsbSendReceiveInformational" version="0" task="CtapUsbSendReceive" opcode="Informational" level="win:Verbose" keywords="Ctap Usb" template="CtapUsbSendReceiveInformationalArgs"/>
+     <event value="2226" symbol="CtapUsbSendReceiveInformational2226" version="0" task="CtapUsbSendReceive" opcode="Informational" level="win:Error" keywords="Ctap Usb" template="CtapUsbSendReceiveInformational2226Args"/>
+     <event value="2250" symbol="CtapBleProviderThreadStart" version="0" task="CtapBleProviderThread" opcode="Start" level="win:Informational" keywords="Ctap Ble" template="WebAuthNCtapMakeCredentialStartArgs"/>
+     <event value="2251" symbol="CtapBleProviderThreadStop" version="0" task="CtapBleProviderThread" opcode="Stop" keywords="Ctap Ble" template="WebAuthNCtapMakeCredentialStartArgs"/>
+     <event value="2252" symbol="CtapBleProviderThreadStop2252" version="0" task="CtapBleProviderThread" opcode="Stop" level="win:Error" keywords="Ctap Ble" template="CtapUsbProviderThreadStop2202Args"/>
+     <event value="2253" symbol="CtapBleProviderThreadStop2253" version="0" task="CtapBleProviderThread" opcode="Stop" level="win:Warning" keywords="Ctap Ble" template="CtapUsbProviderThreadStop2202Args"/>
+     <event value="2260" symbol="CtapBleDeviceThreadStart" version="0" task="CtapBleDeviceThread" opcode="Start" level="win:Informational" keywords="Ctap Ble" template="CtapBleDeviceThreadStartArgs"/>
+     <event value="2261" symbol="CtapBleDeviceThreadStop" version="0" task="CtapBleDeviceThread" opcode="Stop" keywords="Ctap Ble" template="CtapBleDeviceThreadStopArgs"/>
+     <event value="2262" symbol="CtapBleDeviceThreadStop2262" version="0" task="CtapBleDeviceThread" opcode="Stop" level="win:Error" keywords="Ctap Ble" template="CtapBleDeviceThreadStop2262Args"/>
+     <event value="2263" symbol="CtapBleDeviceThreadStop2263" version="0" task="CtapBleDeviceThread" opcode="Stop" level="win:Warning" keywords="Ctap Ble" template="CtapBleDeviceThreadStop2262Args"/>
+     <event value="2270" symbol="CtapBleFunctionInformational" version="0" task="CtapBleFunction" opcode="Informational" level="win:Warning" keywords="Ctap Ble" template="CtapFunctionInformationalArgs"/>
+     <event value="2271" symbol="CtapBleSwitchToU2FInformational" version="0" task="CtapBleSwitchToU2F" opcode="Informational" level="win:Informational" keywords="Ctap Ble" template="CtapBleDeviceThreadStartArgs"/>
+     <event value="2272" symbol="CtapBleSendReceiveInformational" version="0" task="CtapBleSendReceive" opcode="Informational" level="win:Verbose" keywords="Ctap Ble" template="CtapUsbSendReceiveInformationalArgs"/>
+     <event value="2273" symbol="CtapBleSendReceiveInformational2273" version="0" task="CtapBleSendReceive" opcode="Informational" level="win:Error" keywords="Ctap Ble" template="CtapBleSendReceiveInformational2273Args"/>
+     <event value="2300" symbol="CtapNfcProviderThreadStart" version="0" task="CtapNfcProviderThread" opcode="Start" level="win:Informational" keywords="Ctap Nfc" template="WebAuthNCtapMakeCredentialStartArgs"/>
+     <event value="2301" symbol="CtapNfcProviderThreadStop" version="0" task="CtapNfcProviderThread" opcode="Stop" keywords="Ctap Nfc" template="WebAuthNCtapMakeCredentialStartArgs"/>
+     <event value="2302" symbol="CtapNfcProviderThreadStop2302" version="0" task="CtapNfcProviderThread" opcode="Stop" level="win:Error" keywords="Ctap Nfc" template="CtapUsbProviderThreadStop2202Args"/>
+     <event value="2303" symbol="CtapNfcProviderThreadStop2303" version="0" task="CtapNfcProviderThread" opcode="Stop" level="win:Warning" keywords="Ctap Nfc" template="CtapUsbProviderThreadStop2202Args"/>
+     <event value="2310" symbol="CtapNfcReaderThreadStart" version="0" task="CtapNfcReaderThread" opcode="Start" level="win:Informational" keywords="Ctap Nfc" template="CtapNfcReaderThreadStartArgs"/>
+     <event value="2311" symbol="CtapNfcReaderThreadStop" version="0" task="CtapNfcReaderThread" opcode="Stop" keywords="Ctap Nfc" template="CtapNfcReaderThreadStopArgs"/>
+     <event value="2312" symbol="CtapNfcReaderThreadStop2312" version="0" task="CtapNfcReaderThread" opcode="Stop" level="win:Error" keywords="Ctap Nfc" template="CtapNfcReaderThreadStop2312Args"/>
+     <event value="2313" symbol="CtapNfcReaderThreadStop2313" version="0" task="CtapNfcReaderThread" opcode="Stop" level="win:Warning" keywords="Ctap Nfc" template="CtapNfcReaderThreadStop2312Args"/>
+     <event value="2314" symbol="CtapNfcReaderManagerThreadStart" version="0" task="CtapNfcReaderManagerThread" opcode="Start" level="win:Informational" keywords="Ctap Nfc" template="WebAuthNCtapMakeCredentialStartArgs"/>
+     <event value="2315" symbol="CtapNfcReaderManagerThreadStop" version="0" task="CtapNfcReaderManagerThread" opcode="Stop" keywords="Ctap Nfc" template="CtapNfcReaderManagerThreadStopArgs"/>
+     <event value="2316" symbol="CtapNfcReaderManagerThreadInformational" version="0" task="CtapNfcReaderManagerThread" opcode="Informational" level="win:Informational" keywords="Ctap Nfc" template="CtapNfcReaderManagerThreadInformationalArgs"/>
+     <event value="2320" symbol="CtapNfcAddReaderInformational" version="0" task="CtapNfcAddReader" opcode="Informational" level="win:Informational" keywords="Ctap Nfc" template="CtapNfcReaderThreadStartArgs"/>
+     <event value="2321" symbol="CtapNfcSkipReaderInformational" version="0" task="CtapNfcSkipReader" opcode="Informational" level="win:Informational" keywords="Ctap Nfc" template="CtapNfcSkipReaderInformationalArgs"/>
+     <event value="2322" symbol="CtapNfcTransitionReaderInformational" version="0" task="CtapNfcTransitionReader" opcode="Informational" level="win:Informational" keywords="Ctap Nfc" template="CtapNfcTransitionReaderInformationalArgs"/>
+     <event value="2323" symbol="CtapNfcSendMessageInformational" version="0" task="CtapNfcSendMessage" opcode="Informational" level="win:Warning" keywords="Ctap Nfc" template="CtapNfcSendMessageInformationalArgs"/>
+     <event value="2324" symbol="CtapNfcSendRequestInformational" version="0" task="CtapNfcSendRequest" opcode="Informational" level="win:Error" keywords="Ctap Nfc" template="CtapNfcSendMessageInformationalArgs"/>
+     <event value="2325" symbol="CtapNfcSwitchToU2FInformational" version="0" task="CtapNfcSwitchToU2F" opcode="Informational" level="win:Informational" keywords="Ctap Nfc" template="CtapNfcReaderThreadStartArgs"/>
+     <event value="2326" symbol="CtapNfcSendMessageInformational2326" version="0" task="CtapNfcSendMessage" opcode="Informational" level="win:Informational" keywords="Ctap Nfc" template="CtapNfcTransitionReaderInformationalArgs"/>
+     <event value="2327" symbol="CtapNfcSCardTransmitRequestInformational" version="0" task="CtapNfcSCardTransmitRequest" opcode="Informational" level="win:Verbose" keywords="Ctap Nfc" template="CtapNfcSCardTransmitRequestInformationalArgs"/>
+     <event value="2328" symbol="CtapNfcSCardTransmitRequestInformational2328" version="0" task="CtapNfcSCardTransmitRequest" opcode="Informational" level="win:Error" keywords="Ctap Nfc" template="CtapNfcSCardTransmitRequestInformational2328Args"/>
+     <event value="2400" symbol="CtapTestProviderThreadStart" version="0" task="CtapTestProviderThread" opcode="Start" level="win:Informational" keywords="Ctap Test" template="WebAuthNCtapMakeCredentialStartArgs"/>
+     <event value="2401" symbol="CtapTestProviderThreadStop" version="0" task="CtapTestProviderThread" opcode="Stop" keywords="Ctap Test" template="WebAuthNCtapMakeCredentialStartArgs"/>
+     <event value="2402" symbol="CtapTestProviderThreadStop2402" version="0" task="CtapTestProviderThread" opcode="Stop" level="win:Error" keywords="Ctap Test" template="CtapUsbProviderThreadStop2202Args"/>
+    </events>
+    <templates>
+     <template tid="WebAuthNCtapMakeCredentialStartArgs">
+      <data name="TransactionId" inType="win:GUID"/>
+     </template>
+     <template tid="WebAuthNCtapMakeCredentialStop1002Args">
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="Error" inType="win:HexInt32"/>
+      <data name="HResult" inType="win:Int32"/>
+     </template>
+     <template tid="WebAuthNCtapSendCommandStartArgs">
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="TicketLength" inType="win:UInt32"/>
+      <data name="Ticket" inType="win:Binary" length="TicketLength"/>
+     </template>
+     <template tid="NgcMakeCredentialRequestInformationalArgs">
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="RpId" inType="win:UnicodeString"/>
+      <data name="AccountId" inType="win:UnicodeString"/>
+      <data name="ClientDataHashAlgId" inType="win:UnicodeString"/>
+      <data name="ClientDataLength" inType="win:UInt32"/>
+      <data name="ClientDataHashLength" inType="win:UInt32"/>
+      <data name="ClientDataHash" inType="win:Binary" length="ClientDataHashLength"/>
+      <data name="CredentialCount" inType="win:UInt32"/>
+      <data name="CredentialParameterCount" inType="win:UInt32"/>
+     </template>
+     <template tid="NgcMakeCredentialResponseInformationalArgs">
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="AttestationFormatType" inType="win:UnicodeString"/>
+      <data name="RpIdHashLength" inType="win:UInt32"/>
+      <data name="RpIdHash" inType="win:Binary" length="RpIdHashLength"/>
+      <data name="Flags" inType="win:HexInt32"/>
+      <data name="SignCount" inType="win:HexInt32"/>
+      <data name="AAGuid" inType="win:GUID"/>
+      <data name="CredentialIdLength" inType="win:UInt32"/>
+      <data name="CredentialId" inType="win:Binary" length="CredentialIdLength"/>
+      <data name="U2fPublicKey" inType="win:Boolean"/>
+      <data name="PublicKeyLength" inType="win:UInt32"/>
+      <data name="PublicKey" inType="win:Binary" length="PublicKeyLength"/>
+      <data name="ResponseLength" inType="win:UInt32"/>
+      <data name="Response" inType="win:Binary" length="ResponseLength"/>
+     </template>
+     <template tid="NgcGetAssertionRequestInformationalArgs">
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="RpId" inType="win:UnicodeString"/>
+      <data name="ClientDataHashAlgId" inType="win:UnicodeString"/>
+      <data name="ClientDataLength" inType="win:UInt32"/>
+      <data name="ClientDataHashLength" inType="win:UInt32"/>
+      <data name="ClientDataHash" inType="win:Binary" length="ClientDataHashLength"/>
+      <data name="CredentialCount" inType="win:UInt32"/>
+     </template>
+     <template tid="NgcGetAssertionResponseInformationalArgs">
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="RpIdHashLength" inType="win:UInt32"/>
+      <data name="RpIdHash" inType="win:Binary" length="RpIdHashLength"/>
+      <data name="Flags" inType="win:HexInt32"/>
+      <data name="SignCount" inType="win:HexInt32"/>
+      <data name="CredentialIdLength" inType="win:UInt32"/>
+      <data name="CredentialId" inType="win:Binary" length="CredentialIdLength"/>
+     </template>
+     <template tid="WebAuthNErrorInformationalArgs">
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="Action" inType="win:AnsiString"/>
+      <data name="Error" inType="win:HexInt32"/>
+      <data name="HResult" inType="win:Int32"/>
+     </template>
+     <template tid="CborDecodeErrorInformationalArgs">
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="Function" inType="win:AnsiString"/>
+      <data name="CborError" inType="win:Int32"/>
+      <data name="CborErrorString" inType="win:AnsiString"/>
+      <data name="ErrorOffset" inType="win:UInt32"/>
+      <data name="LineNumber" inType="win:UInt32"/>
+      <data name="EncodedLength" inType="win:UInt32"/>
+      <data name="Encoded" inType="win:Binary" length="EncodedLength"/>
+     </template>
+     <template tid="CborEncodeMakeCredentialRequestInformationalArgs">
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="RpId" inType="win:UnicodeString"/>
+      <data name="UserIdLength" inType="win:UInt32"/>
+      <data name="UserId" inType="win:Binary" length="UserIdLength"/>
+      <data name="ClientDataHashAlgId" inType="win:UnicodeString"/>
+      <data name="ClientDataLength" inType="win:UInt32"/>
+      <data name="ClientDataHashLength" inType="win:UInt32"/>
+      <data name="ClientDataHash" inType="win:Binary" length="ClientDataHashLength"/>
+      <data name="RequireResidentKey" inType="win:Boolean"/>
+      <data name="CredentialCount" inType="win:UInt32"/>
+      <data name="CredentialParameterCount" inType="win:UInt32"/>
+      <data name="RequestLength" inType="win:UInt32"/>
+      <data name="Request" inType="win:Binary" length="RequestLength"/>
+     </template>
+     <template tid="CborEncodeGetAssertionRequestInformationalArgs">
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="RpId" inType="win:UnicodeString"/>
+      <data name="ClientDataHashAlgId" inType="win:UnicodeString"/>
+      <data name="ClientDataLength" inType="win:UInt32"/>
+      <data name="ClientDataHashLength" inType="win:UInt32"/>
+      <data name="ClientDataHash" inType="win:Binary" length="ClientDataHashLength"/>
+      <data name="CredentialCount" inType="win:UInt32"/>
+      <data name="RequestLength" inType="win:UInt32"/>
+      <data name="Request" inType="win:Binary" length="RequestLength"/>
+     </template>
+     <template tid="CborDecodeGetAssertionResponseInformationalArgs">
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="RpIdHashLength" inType="win:UInt32"/>
+      <data name="RpIdHash" inType="win:Binary" length="RpIdHashLength"/>
+      <data name="Flags" inType="win:HexInt32"/>
+      <data name="SignCount" inType="win:HexInt32"/>
+      <data name="CredentialIdLength" inType="win:UInt32"/>
+      <data name="CredentialId" inType="win:Binary" length="CredentialIdLength"/>
+      <data name="ResponseLength" inType="win:UInt32"/>
+      <data name="Response" inType="win:Binary" length="ResponseLength"/>
+     </template>
+     <template tid="CtapCommandStartArgs">
+      <data name="Command" inType="win:UnicodeString"/>
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="Flags" inType="win:HexInt32"/>
+      <data name="TimeoutMilliseconds" inType="win:UInt32"/>
+      <data name="TicketLength" inType="win:UInt32"/>
+      <data name="Ticket" inType="win:Binary" length="TicketLength"/>
+      <data name="RequestLength" inType="win:UInt32"/>
+      <data name="Request" inType="win:Binary" length="RequestLength"/>
+     </template>
+     <template tid="CtapCommandStart2101Args">
+      <data name="RequestLength" inType="win:UInt32"/>
+      <data name="Request" inType="win:Binary" length="RequestLength"/>
+     </template>
+     <template tid="CtapCommandStopArgs">
+      <data name="Command" inType="win:UnicodeString"/>
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="ResponseLength" inType="win:UInt32"/>
+      <data name="Response" inType="win:Binary" length="ResponseLength"/>
+     </template>
+     <template tid="CtapCommandStop2103Args">
+      <data name="Command" inType="win:UnicodeString"/>
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="Error" inType="win:HexInt32"/>
+      <data name="Win32Error" inType="win:HexInt32"/>
+     </template>
+     <template tid="CtapDeviceInfoInformationalArgs">
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="ProviderName" inType="win:UnicodeString"/>
+      <data name="DevicePath" inType="win:UnicodeString"/>
+      <data name="Manufacturer" inType="win:UnicodeString"/>
+      <data name="Product" inType="win:UnicodeString"/>
+      <data name="AAGuid" inType="win:GUID"/>
+      <data name="U2fProtocol" inType="win:Boolean"/>
+     </template>
+     <template tid="CtapFunctionInformationalArgs">
+      <data name="Function" inType="win:AnsiString"/>
+      <data name="Location" inType="win:AnsiString"/>
+      <data name="Error" inType="win:HexInt32"/>
+      <data name="Win32Error" inType="win:HexInt32"/>
+     </template>
+     <template tid="CtapFunctionInformational2106Args">
+      <data name="Name" inType="win:UnicodeString"/>
+      <data name="Value" inType="win:UnicodeString"/>
+     </template>
+     <template tid="WNFCtapDeviceStateInfoInformationalArgs">
+      <data name="Transport" inType="win:HexInt32"/>
+      <data name="WnfState" inType="win:HexInt32"/>
+      <data name="Error" inType="win:HexInt32"/>
+      <data name="Win32Error" inType="win:HexInt32"/>
+     </template>
+     <template tid="WNFCtapDeviceChangeNotifyInfoInformationalArgs">
+      <data name="Transport" inType="win:HexInt32"/>
+     </template>
+     <template tid="CtapUsbProviderThreadStop2202Args">
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="Error" inType="win:HexInt32"/>
+      <data name="Win32Error" inType="win:HexInt32"/>
+     </template>
+     <template tid="CtapUsbDeviceThreadStartArgs">
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="DevicePath" inType="win:UnicodeString"/>
+      <data name="Manufacturer" inType="win:UnicodeString"/>
+      <data name="Product" inType="win:UnicodeString"/>
+     </template>
+     <template tid="CtapUsbDeviceThreadStopArgs">
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="DevicePath" inType="win:UnicodeString"/>
+      <data name="Manufacturer" inType="win:UnicodeString"/>
+      <data name="Product" inType="win:UnicodeString"/>
+      <data name="AAGuid" inType="win:GUID"/>
+      <data name="U2fProtocol" inType="win:Boolean"/>
+     </template>
+     <template tid="CtapUsbDeviceThreadStop2212Args">
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="DevicePath" inType="win:UnicodeString"/>
+      <data name="Manufacturer" inType="win:UnicodeString"/>
+      <data name="Product" inType="win:UnicodeString"/>
+      <data name="AAGuid" inType="win:GUID"/>
+      <data name="U2fProtocol" inType="win:Boolean"/>
+      <data name="State" inType="win:UInt32"/>
+      <data name="Status" inType="win:HexInt32"/>
+      <data name="Error" inType="win:HexInt32"/>
+      <data name="Win32Error" inType="win:HexInt32"/>
+     </template>
+     <template tid="CtapUsbConnectInformationalArgs">
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="DevicePath" inType="win:UnicodeString"/>
+      <data name="Manufacturer" inType="win:UnicodeString"/>
+      <data name="Product" inType="win:UnicodeString"/>
+      <data name="DeviceErr" inType="win:HexInt32"/>
+      <data name="Status" inType="win:HexInt32"/>
+      <data name="Error" inType="win:HexInt32"/>
+      <data name="Win32Error" inType="win:HexInt32"/>
+     </template>
+     <template tid="CtapUsbSendReceiveInformationalArgs">
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="RequestCommand" inType="win:UInt8"/>
+      <data name="RequestLength" inType="win:UInt32"/>
+      <data name="Request" inType="win:Binary" length="RequestLength"/>
+      <data name="ResponseCommand" inType="win:UInt8"/>
+      <data name="ResponseLength" inType="win:UInt32"/>
+      <data name="Response" inType="win:Binary" length="ResponseLength"/>
+     </template>
+     <template tid="CtapUsbSendReceiveInformational2226Args">
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="RequestCommand" inType="win:UInt8"/>
+      <data name="RequestLength" inType="win:UInt32"/>
+      <data name="Request" inType="win:Binary" length="RequestLength"/>
+      <data name="ResponseCommand" inType="win:UInt8"/>
+      <data name="ResponseLength" inType="win:UInt32"/>
+      <data name="Response" inType="win:Binary" length="ResponseLength"/>
+      <data name="Error" inType="win:HexInt32"/>
+      <data name="Win32Error" inType="win:HexInt32"/>
+     </template>
+     <template tid="CtapBleDeviceThreadStartArgs">
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="DevicePath" inType="win:UnicodeString"/>
+      <data name="PairedName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="CtapBleDeviceThreadStopArgs">
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="DevicePath" inType="win:UnicodeString"/>
+      <data name="PairedName" inType="win:UnicodeString"/>
+      <data name="AAGuid" inType="win:GUID"/>
+      <data name="U2fProtocol" inType="win:Boolean"/>
+     </template>
+     <template tid="CtapBleDeviceThreadStop2262Args">
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="DevicePath" inType="win:UnicodeString"/>
+      <data name="PairedName" inType="win:UnicodeString"/>
+      <data name="AAGuid" inType="win:GUID"/>
+      <data name="U2fProtocol" inType="win:Boolean"/>
+      <data name="State" inType="win:UInt32"/>
+      <data name="Status" inType="win:HexInt32"/>
+      <data name="Error" inType="win:HexInt32"/>
+      <data name="Win32Error" inType="win:HexInt32"/>
+     </template>
+     <template tid="CtapBleSendReceiveInformational2273Args">
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="RequestCommand" inType="win:UInt8"/>
+      <data name="RequestLength" inType="win:UInt32"/>
+      <data name="Request" inType="win:Binary" length="RequestLength"/>
+      <data name="ResponseCommand" inType="win:UInt8"/>
+      <data name="ResponseLength" inType="win:UInt32"/>
+      <data name="Response" inType="win:Binary" length="ResponseLength"/>
+      <data name="Location" inType="win:AnsiString"/>
+      <data name="Error" inType="win:HexInt32"/>
+      <data name="Win32Error" inType="win:HexInt32"/>
+     </template>
+     <template tid="CtapNfcReaderThreadStartArgs">
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="Reader" inType="win:UnicodeString"/>
+     </template>
+     <template tid="CtapNfcReaderThreadStopArgs">
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="Reader" inType="win:UnicodeString"/>
+      <data name="AAGuid" inType="win:GUID"/>
+      <data name="U2fProtocol" inType="win:Boolean"/>
+     </template>
+     <template tid="CtapNfcReaderThreadStop2312Args">
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="Reader" inType="win:UnicodeString"/>
+      <data name="AAGuid" inType="win:GUID"/>
+      <data name="U2fProtocol" inType="win:Boolean"/>
+      <data name="State" inType="win:UInt32"/>
+      <data name="Status" inType="win:HexInt32"/>
+      <data name="Error" inType="win:HexInt32"/>
+      <data name="Win32Error" inType="win:HexInt32"/>
+     </template>
+     <template tid="CtapNfcReaderManagerThreadStopArgs">
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="NumberOfTimesScardCancelCommandsSent" inType="win:UInt32"/>
+     </template>
+     <template tid="CtapNfcReaderManagerThreadInformationalArgs">
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="CallCancelled" inType="win:Boolean"/>
+     </template>
+     <template tid="CtapNfcSkipReaderInformationalArgs">
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="Action" inType="win:AnsiString"/>
+      <data name="Reader" inType="win:UnicodeString"/>
+      <data name="DeviceInstanceId" inType="win:UnicodeString"/>
+     </template>
+     <template tid="CtapNfcTransitionReaderInformationalArgs">
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="Action" inType="win:AnsiString"/>
+      <data name="Reader" inType="win:UnicodeString"/>
+     </template>
+     <template tid="CtapNfcSendMessageInformationalArgs">
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="Action" inType="win:AnsiString"/>
+      <data name="Reader" inType="win:UnicodeString"/>
+      <data name="ApduStatus" inType="win:UInt16"/>
+      <data name="DeviceStatus" inType="win:HexInt32"/>
+      <data name="Error" inType="win:HexInt32"/>
+      <data name="Win32Error" inType="win:HexInt32"/>
+     </template>
+     <template tid="CtapNfcSCardTransmitRequestInformationalArgs">
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="Reader" inType="win:UnicodeString"/>
+      <data name="RequestLength" inType="win:UInt32"/>
+      <data name="Request" inType="win:Binary" length="RequestLength"/>
+      <data name="ResponseLength" inType="win:UInt32"/>
+      <data name="Response" inType="win:Binary" length="ResponseLength"/>
+      <data name="ApduStatus" inType="win:UInt16"/>
+     </template>
+     <template tid="CtapNfcSCardTransmitRequestInformational2328Args">
+      <data name="TransactionId" inType="win:GUID"/>
+      <data name="Reader" inType="win:UnicodeString"/>
+      <data name="RequestLength" inType="win:UInt32"/>
+      <data name="Request" inType="win:Binary" length="RequestLength"/>
+      <data name="ResponseLength" inType="win:UInt32"/>
+      <data name="Response" inType="win:Binary" length="ResponseLength"/>
+      <data name="ApduStatus" inType="win:UInt16"/>
+      <data name="Error" inType="win:HexInt32"/>
+      <data name="Win32Error" inType="win:HexInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_WebAuthN" value="WebAuthN"/>
+    <string id="keyword_Ctap" value="Ctap"/>
+    <string id="keyword_Cbor" value="Cbor"/>
+    <string id="keyword_Usb" value="Usb"/>
+    <string id="keyword_Nfc" value="Nfc"/>
+    <string id="keyword_Test" value="Test"/>
+    <string id="keyword_Ngc" value="Ngc"/>
+    <string id="keyword_Ble" value="Ble"/>
+    <string id="task_WebAuthNCtapMakeCredential" value="WebAuthNCtapMakeCredential"/>
+    <string id="opcode_WebAuthNCtapMakeCredentialStart" value="Start"/>
+    <string id="opcode_WebAuthNCtapMakeCredentialStop" value="Stop"/>
+    <string id="task_WebAuthNCtapGetAssertion" value="WebAuthNCtapGetAssertion"/>
+    <string id="opcode_WebAuthNCtapGetAssertionStart" value="Start"/>
+    <string id="opcode_WebAuthNCtapGetAssertionStop" value="Stop"/>
+    <string id="task_WebAuthNCtapSendCommand" value="WebAuthNCtapSendCommand"/>
+    <string id="opcode_WebAuthNCtapSendCommandStart" value="Start"/>
+    <string id="opcode_WebAuthNCtapSendCommandStop" value="Stop"/>
+    <string id="task_WebAuthNError" value="WebAuthNError"/>
+    <string id="opcode_WebAuthNErrorInformational" value="Informational"/>
+    <string id="task_WebAuthNNgcMakeCredential" value="WebAuthNNgcMakeCredential"/>
+    <string id="opcode_WebAuthNNgcMakeCredentialStart" value="Start"/>
+    <string id="opcode_WebAuthNNgcMakeCredentialStop" value="Stop"/>
+    <string id="task_WebAuthNNgcGetAssertion" value="WebAuthNNgcGetAssertion"/>
+    <string id="opcode_WebAuthNNgcGetAssertionStart" value="Start"/>
+    <string id="opcode_WebAuthNNgcGetAssertionStop" value="Stop"/>
+    <string id="task_NgcMakeCredentialRequest" value="NgcMakeCredentialRequest"/>
+    <string id="opcode_NgcMakeCredentialRequestInformational" value="Informational"/>
+    <string id="task_NgcMakeCredentialResponse" value="NgcMakeCredentialResponse"/>
+    <string id="opcode_NgcMakeCredentialResponseInformational" value="Informational"/>
+    <string id="task_NgcGetAssertionRequest" value="NgcGetAssertionRequest"/>
+    <string id="opcode_NgcGetAssertionRequestInformational" value="Informational"/>
+    <string id="task_NgcGetAssertionResponse" value="NgcGetAssertionResponse"/>
+    <string id="opcode_NgcGetAssertionResponseInformational" value="Informational"/>
+    <string id="task_CborDecodeError" value="CborDecodeError"/>
+    <string id="opcode_CborDecodeErrorInformational" value="Informational"/>
+    <string id="task_CborEncodeMakeCredentialRequest" value="CborEncodeMakeCredentialRequest"/>
+    <string id="opcode_CborEncodeMakeCredentialRequestInformational" value="Informational"/>
+    <string id="task_CborDecodeMakeCredentialResponse" value="CborDecodeMakeCredentialResponse"/>
+    <string id="opcode_CborDecodeMakeCredentialResponseInformational" value="Informational"/>
+    <string id="task_CborEncodeGetAssertionRequest" value="CborEncodeGetAssertionRequest"/>
+    <string id="opcode_CborEncodeGetAssertionRequestInformational" value="Informational"/>
+    <string id="task_CborDecodeGetAssertionResponse" value="CborDecodeGetAssertionResponse"/>
+    <string id="opcode_CborDecodeGetAssertionResponseInformational" value="Informational"/>
+    <string id="task_WNFCtapDeviceStateInfo" value="WNFCtapDeviceStateInfo"/>
+    <string id="opcode_WNFCtapDeviceStateInfoInformational" value="Informational"/>
+    <string id="task_WNFCtapDeviceChangeNotifyInfo" value="WNFCtapDeviceChangeNotifyInfo"/>
+    <string id="opcode_WNFCtapDeviceChangeNotifyInfoInformational" value="Informational"/>
+    <string id="task_CtapService" value="CtapService"/>
+    <string id="opcode_CtapServiceStart" value="Start"/>
+    <string id="opcode_CtapServiceStop" value="Stop"/>
+    <string id="task_CtapCommand" value="CtapCommand"/>
+    <string id="opcode_CtapCommandStart" value="Start"/>
+    <string id="opcode_CtapCommandStop" value="Stop"/>
+    <string id="task_CtapDeviceInfo" value="CtapDeviceInfo"/>
+    <string id="opcode_CtapDeviceInfoInformational" value="Informational"/>
+    <string id="task_CtapFunction" value="CtapFunction"/>
+    <string id="opcode_CtapFunctionInformational" value="Informational"/>
+    <string id="task_CtapUsbProviderThread" value="CtapUsbProviderThread"/>
+    <string id="opcode_CtapUsbProviderThreadStart" value="Start"/>
+    <string id="opcode_CtapUsbProviderThreadStop" value="Stop"/>
+    <string id="task_CtapUsbDeviceThread" value="CtapUsbDeviceThread"/>
+    <string id="opcode_CtapUsbDeviceThreadStart" value="Start"/>
+    <string id="opcode_CtapUsbDeviceThreadStop" value="Stop"/>
+    <string id="task_CtapUsbAdd" value="CtapUsbAdd"/>
+    <string id="opcode_CtapUsbAddInformational" value="Informational"/>
+    <string id="task_CtapUsbRemove" value="CtapUsbRemove"/>
+    <string id="opcode_CtapUsbRemoveInformational" value="Informational"/>
+    <string id="task_CtapUsbChanges" value="CtapUsbChanges"/>
+    <string id="opcode_CtapUsbChangesInformational" value="Informational"/>
+    <string id="task_CtapUsbSwitchToU2F" value="CtapUsbSwitchToU2F"/>
+    <string id="opcode_CtapUsbSwitchToU2FInformational" value="Informational"/>
+    <string id="task_CtapUsbConnect" value="CtapUsbConnect"/>
+    <string id="opcode_CtapUsbConnectInformational" value="Informational"/>
+    <string id="task_CtapUsbSendReceive" value="CtapUsbSendReceive"/>
+    <string id="opcode_CtapUsbSendReceiveInformational" value="Informational"/>
+    <string id="task_CtapBleProviderThread" value="CtapBleProviderThread"/>
+    <string id="opcode_CtapBleProviderThreadStart" value="Start"/>
+    <string id="opcode_CtapBleProviderThreadStop" value="Stop"/>
+    <string id="task_CtapBleDeviceThread" value="CtapBleDeviceThread"/>
+    <string id="opcode_CtapBleDeviceThreadStart" value="Start"/>
+    <string id="opcode_CtapBleDeviceThreadStop" value="Stop"/>
+    <string id="task_CtapBleSwitchToU2F" value="CtapBleSwitchToU2F"/>
+    <string id="opcode_CtapBleSwitchToU2FInformational" value="Informational"/>
+    <string id="task_CtapBleFunction" value="CtapBleFunction"/>
+    <string id="opcode_CtapBleFunctionInformational" value="Informational"/>
+    <string id="task_CtapBleSendReceive" value="CtapBleSendReceive"/>
+    <string id="opcode_CtapBleSendReceiveInformational" value="Informational"/>
+    <string id="task_CtapNfcProviderThread" value="CtapNfcProviderThread"/>
+    <string id="opcode_CtapNfcProviderThreadStart" value="Start"/>
+    <string id="opcode_CtapNfcProviderThreadStop" value="Stop"/>
+    <string id="task_CtapNfcReaderThread" value="CtapNfcReaderThread"/>
+    <string id="opcode_CtapNfcReaderThreadStart" value="Start"/>
+    <string id="opcode_CtapNfcReaderThreadStop" value="Stop"/>
+    <string id="task_CtapNfcAddReader" value="CtapNfcAddReader"/>
+    <string id="opcode_CtapNfcAddReaderInformational" value="Informational"/>
+    <string id="task_CtapNfcSkipReader" value="CtapNfcSkipReader"/>
+    <string id="opcode_CtapNfcSkipReaderInformational" value="Informational"/>
+    <string id="task_CtapNfcTransitionReader" value="CtapNfcTransitionReader"/>
+    <string id="opcode_CtapNfcTransitionReaderInformational" value="Informational"/>
+    <string id="task_CtapNfcSendMessage" value="CtapNfcSendMessage"/>
+    <string id="opcode_CtapNfcSendMessageInformational" value="Informational"/>
+    <string id="task_CtapNfcSendRequest" value="CtapNfcSendRequest"/>
+    <string id="opcode_CtapNfcSendRequestInformational" value="Informational"/>
+    <string id="task_CtapNfcSwitchToU2F" value="CtapNfcSwitchToU2F"/>
+    <string id="opcode_CtapNfcSwitchToU2FInformational" value="Informational"/>
+    <string id="task_CtapNfcSCardTransmitRequest" value="CtapNfcSCardTransmitRequest"/>
+    <string id="opcode_CtapNfcSCardTransmitRequestInformational" value="Informational"/>
+    <string id="task_CtapNfcReaderManagerThread" value="CtapNfcReaderManagerThread"/>
+    <string id="opcode_CtapNfcReaderManagerThreadStart" value="Start"/>
+    <string id="opcode_CtapNfcReaderManagerThreadStop" value="Stop"/>
+    <string id="opcode_CtapNfcReaderManagerThreadInformational" value="Informational"/>
+    <string id="task_CtapTestProviderThread" value="CtapTestProviderThread"/>
+    <string id="opcode_CtapTestProviderThreadStart" value="Start"/>
+    <string id="opcode_CtapTestProviderThreadStop" value="Stop"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

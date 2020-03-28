@@ -1,0 +1,162 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Kernel-LiveDump" guid="{bef2aa8e-81cd-11e2-a7bb-5eac6188709b}" resourceFileName="Microsoft-Windows-Kernel-LiveDump" messageFileName="Microsoft-Windows-Kernel-LiveDump" symbol="MicrosoftWindowsKernelLiveDump" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="LiveDumpCaptureDumpDataAPI" message="$(string.task_LiveDumpCaptureDumpDataAPI)" value="1">
+>
+      <opcodes>
+       <opcode name="APIStart" message="$(string.opcode_LiveDumpCaptureDumpDataAPIAPIStart)" value="10"/>
+       <opcode name="APIEnd" message="$(string.opcode_LiveDumpCaptureDumpDataAPIAPIEnd)" value="11"/>
+       <opcode name="DumpFileWriteStart" message="$(string.opcode_LiveDumpCaptureDumpDataAPIDumpFileWriteStart)" value="12"/>
+       <opcode name="DumpFileWriteEnd" message="$(string.opcode_LiveDumpCaptureDumpDataAPIDumpFileWriteEnd)" value="13"/>
+       <opcode name="BufferAllocationData" message="$(string.opcode_LiveDumpCaptureDumpDataAPIBufferAllocationData)" value="22"/>
+      </opcodes>
+     </task>
+     <task name="SizingWorkflow" message="$(string.task_SizingWorkflow)" value="2">
+>
+      <opcodes>
+       <opcode name="MirroringStart" message="$(string.opcode_SizingWorkflowMirroringStart)" value="14"/>
+       <opcode name="MirroringPhase0End" message="$(string.opcode_SizingWorkflowMirroringPhase0End)" value="15"/>
+       <opcode name="MirroringPhase1End" message="$(string.opcode_SizingWorkflowMirroringPhase1End)" value="16"/>
+       <opcode name="SystemQuiesceStart" message="$(string.opcode_SizingWorkflowSystemQuiesceStart)" value="17"/>
+       <opcode name="SystemQuiesceEnd" message="$(string.opcode_SizingWorkflowSystemQuiesceEnd)" value="18"/>
+       <opcode name="BufferEstimationData" message="$(string.opcode_SizingWorkflowBufferEstimationData)" value="21"/>
+       <opcode name="BufferAllocationData" message="$(string.opcode_SizingWorkflowBufferAllocationData)" value="22"/>
+       <opcode name="RemovePagesCallbacks" message="$(string.opcode_SizingWorkflowRemovePagesCallbacks)" value="23"/>
+      </opcodes>
+     </task>
+     <task name="CapturePagesWorkflow" message="$(string.task_CapturePagesWorkflow)" value="3">
+>
+      <opcodes>
+       <opcode name="MirroringStart" message="$(string.opcode_CapturePagesWorkflowMirroringStart)" value="14"/>
+       <opcode name="MirroringPhase0End" message="$(string.opcode_CapturePagesWorkflowMirroringPhase0End)" value="15"/>
+       <opcode name="MirroringPhase1End" message="$(string.opcode_CapturePagesWorkflowMirroringPhase1End)" value="16"/>
+       <opcode name="SystemQuiesceStart" message="$(string.opcode_CapturePagesWorkflowSystemQuiesceStart)" value="17"/>
+       <opcode name="SystemQuiesceEnd" message="$(string.opcode_CapturePagesWorkflowSystemQuiesceEnd)" value="18"/>
+       <opcode name="CopyingMemoryPagesStart" message="$(string.opcode_CapturePagesWorkflowCopyingMemoryPagesStart)" value="19"/>
+       <opcode name="CopyingMemoryPagesEnd" message="$(string.opcode_CapturePagesWorkflowCopyingMemoryPagesEnd)" value="20"/>
+      </opcodes>
+     </task>
+     <task name="LiveDumpWriteDeferredDumpDataAPI" message="$(string.task_LiveDumpWriteDeferredDumpDataAPI)" value="4">
+>
+      <opcodes>
+       <opcode name="APIStart" message="$(string.opcode_LiveDumpWriteDeferredDumpDataAPIAPIStart)" value="10"/>
+       <opcode name="APIEnd" message="$(string.opcode_LiveDumpWriteDeferredDumpDataAPIAPIEnd)" value="11"/>
+       <opcode name="DumpFileWriteStart" message="$(string.opcode_LiveDumpWriteDeferredDumpDataAPIDumpFileWriteStart)" value="12"/>
+       <opcode name="DumpFileWriteEnd" message="$(string.opcode_LiveDumpWriteDeferredDumpDataAPIDumpFileWriteEnd)" value="13"/>
+      </opcodes>
+     </task>
+     <task name="LiveDumpDiscardDeferredDumpDataAPI" message="$(string.task_LiveDumpDiscardDeferredDumpDataAPI)" value="5">
+>
+      <opcodes>
+       <opcode name="APIStart" message="$(string.opcode_LiveDumpDiscardDeferredDumpDataAPIAPIStart)" value="10"/>
+       <opcode name="APIEnd" message="$(string.opcode_LiveDumpDiscardDeferredDumpDataAPIAPIEnd)" value="11"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="1" symbol="LiveDumpCaptureDumpDataAPIAPIStart" version="0" task="LiveDumpCaptureDumpDataAPI" opcode="APIStart" level="win:Informational"/>
+     <event value="2" symbol="LiveDumpCaptureDumpDataAPIAPIEnd" version="0" task="LiveDumpCaptureDumpDataAPI" opcode="APIEnd" level="win:Informational" template="LiveDumpCaptureDumpDataAPIAPIEndArgs"/>
+     <event value="3" symbol="LiveDumpCaptureDumpDataAPIDumpFileWriteStart" version="0" task="LiveDumpCaptureDumpDataAPI" opcode="DumpFileWriteStart" level="win:Informational"/>
+     <event value="4" symbol="LiveDumpCaptureDumpDataAPIDumpFileWriteEnd" version="0" task="LiveDumpCaptureDumpDataAPI" opcode="DumpFileWriteEnd" level="win:Informational" template="LiveDumpCaptureDumpDataAPIDumpFileWriteEndArgs"/>
+     <event value="5" symbol="LiveDumpCaptureDumpDataAPIBufferAllocationData" version="0" task="LiveDumpCaptureDumpDataAPI" opcode="BufferAllocationData" level="win:Informational"/>
+     <event value="101" symbol="SizingWorkflowMirroringStart" version="0" task="SizingWorkflow" opcode="MirroringStart" level="win:Informational"/>
+     <event value="102" symbol="SizingWorkflowMirroringPhase0End" version="0" task="SizingWorkflow" opcode="MirroringPhase0End" level="win:Informational"/>
+     <event value="103" symbol="SizingWorkflowMirroringPhase1End" version="0" task="SizingWorkflow" opcode="MirroringPhase1End" level="win:Informational"/>
+     <event value="104" symbol="SizingWorkflowSystemQuiesceStart" version="0" task="SizingWorkflow" opcode="SystemQuiesceStart" level="win:Informational"/>
+     <event value="105" symbol="SizingWorkflowSystemQuiesceEnd" version="0" task="SizingWorkflow" opcode="SystemQuiesceEnd" level="win:Informational"/>
+     <event value="106" symbol="SizingWorkflowBufferEstimationData" version="0" task="SizingWorkflow" opcode="BufferEstimationData" level="win:Informational" template="SizingWorkflowBufferEstimationDataArgs"/>
+     <event value="107" symbol="SizingWorkflowBufferAllocationData" version="0" task="SizingWorkflow" opcode="BufferAllocationData" level="win:Informational" template="SizingWorkflowBufferAllocationDataArgs"/>
+     <event value="108" symbol="SizingWorkflowRemovePagesCallbacks" version="0" task="SizingWorkflow" opcode="RemovePagesCallbacks" level="win:Informational"/>
+     <event value="109" symbol="SizingWorkflowRemovePagesCallbacks109" version="0" task="SizingWorkflow" opcode="RemovePagesCallbacks" level="win:Informational"/>
+     <event value="110" symbol="SizingWorkflowRemovePagesCallbacks110" version="0" task="SizingWorkflow" opcode="RemovePagesCallbacks" level="win:Informational" template="SizingWorkflowRemovePagesCallbacks110Args"/>
+     <event value="111" symbol="SizingWorkflowRemovePagesCallbacks111" version="0" task="SizingWorkflow" opcode="RemovePagesCallbacks" level="win:Informational" template="SizingWorkflowRemovePagesCallbacks110Args"/>
+     <event value="112" symbol="SizingWorkflowRemovePagesCallbacks112" version="0" task="SizingWorkflow" opcode="RemovePagesCallbacks" level="win:Informational" template="SizingWorkflowRemovePagesCallbacks112Args"/>
+     <event value="151" symbol="CapturePagesWorkflowMirroringStart" version="0" task="CapturePagesWorkflow" opcode="MirroringStart" level="win:Informational"/>
+     <event value="152" symbol="CapturePagesWorkflowMirroringPhase0End" version="0" task="CapturePagesWorkflow" opcode="MirroringPhase0End" level="win:Informational"/>
+     <event value="153" symbol="CapturePagesWorkflowMirroringPhase1End" version="0" task="CapturePagesWorkflow" opcode="MirroringPhase1End" level="win:Informational"/>
+     <event value="154" symbol="CapturePagesWorkflowSystemQuiesceStart" version="0" task="CapturePagesWorkflow" opcode="SystemQuiesceStart" level="win:Informational"/>
+     <event value="155" symbol="CapturePagesWorkflowSystemQuiesceEnd" version="0" task="CapturePagesWorkflow" opcode="SystemQuiesceEnd" level="win:Informational"/>
+     <event value="156" symbol="CapturePagesWorkflowCopyingMemoryPagesStart" version="0" task="CapturePagesWorkflow" opcode="CopyingMemoryPagesStart" level="win:Informational"/>
+     <event value="157" symbol="CapturePagesWorkflowCopyingMemoryPagesEnd" version="0" task="CapturePagesWorkflow" opcode="CopyingMemoryPagesEnd" level="win:Informational"/>
+     <event value="201" symbol="LiveDumpWriteDeferredDumpDataAPIAPIStart" version="0" task="LiveDumpWriteDeferredDumpDataAPI" opcode="APIStart" level="win:Informational"/>
+     <event value="202" symbol="LiveDumpWriteDeferredDumpDataAPIAPIEnd" version="0" task="LiveDumpWriteDeferredDumpDataAPI" opcode="APIEnd" level="win:Informational" template="LiveDumpCaptureDumpDataAPIAPIEndArgs"/>
+     <event value="203" symbol="LiveDumpWriteDeferredDumpDataAPIDumpFileWriteStart" version="0" task="LiveDumpWriteDeferredDumpDataAPI" opcode="DumpFileWriteStart" level="win:Informational"/>
+     <event value="204" symbol="LiveDumpWriteDeferredDumpDataAPIDumpFileWriteEnd" version="0" task="LiveDumpWriteDeferredDumpDataAPI" opcode="DumpFileWriteEnd" level="win:Informational" template="LiveDumpCaptureDumpDataAPIDumpFileWriteEndArgs"/>
+     <event value="251" symbol="LiveDumpDiscardDeferredDumpDataAPIAPIStart" version="0" task="LiveDumpDiscardDeferredDumpDataAPI" opcode="APIStart" level="win:Informational"/>
+     <event value="252" symbol="LiveDumpDiscardDeferredDumpDataAPIAPIEnd" version="0" task="LiveDumpDiscardDeferredDumpDataAPI" opcode="APIEnd" level="win:Informational" template="LiveDumpCaptureDumpDataAPIAPIEndArgs"/>
+    </events>
+    <templates>
+     <template tid="LiveDumpCaptureDumpDataAPIAPIEndArgs">
+      <data name="NTStatus" inType="win:UInt32"/>
+     </template>
+     <template tid="LiveDumpCaptureDumpDataAPIDumpFileWriteEndArgs">
+      <data name="NTStatus" inType="win:UInt32"/>
+      <data name="TotalBytes" inType="win:UInt64"/>
+      <data name="HeaderBytes" inType="win:UInt64"/>
+      <data name="PrimaryDataBytes" inType="win:UInt64"/>
+      <data name="SecondaryDataBytes" inType="win:UInt64"/>
+     </template>
+     <template tid="SizingWorkflowBufferEstimationDataArgs">
+      <data name="NtEstimatedRequiredPrimaryDataBytes" inType="win:UInt64"/>
+      <data name="NtEstimatedPrimaryDataBytes" inType="win:UInt64"/>
+      <data name="HvEstimatedPrimaryDataBytes" inType="win:UInt64"/>
+      <data name="HvEstimatedSecondaryDataBytes" inType="win:UInt64"/>
+     </template>
+     <template tid="SizingWorkflowBufferAllocationDataArgs">
+      <data name="NtPrimaryDataBytes" inType="win:UInt64"/>
+      <data name="HvPrimaryDataBytes" inType="win:UInt64"/>
+      <data name="HvSecondaryDataBytes" inType="win:UInt64"/>
+     </template>
+     <template tid="SizingWorkflowRemovePagesCallbacks110Args">
+      <data name="CallbackIdentifier" inType="win:AnsiString"/>
+     </template>
+     <template tid="SizingWorkflowRemovePagesCallbacks112Args">
+      <data name="CallbackIdentifier" inType="win:AnsiString"/>
+      <data name="NTStatus" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_LiveDumpCaptureDumpDataAPI" value="LiveDumpCaptureDumpDataAPI"/>
+    <string id="opcode_LiveDumpCaptureDumpDataAPIAPIStart" value="APIStart"/>
+    <string id="opcode_LiveDumpCaptureDumpDataAPIAPIEnd" value="APIEnd"/>
+    <string id="opcode_LiveDumpCaptureDumpDataAPIDumpFileWriteStart" value="DumpFileWriteStart"/>
+    <string id="opcode_LiveDumpCaptureDumpDataAPIDumpFileWriteEnd" value="DumpFileWriteEnd"/>
+    <string id="opcode_LiveDumpCaptureDumpDataAPIBufferAllocationData" value="BufferAllocationData"/>
+    <string id="task_SizingWorkflow" value="SizingWorkflow"/>
+    <string id="opcode_SizingWorkflowMirroringStart" value="MirroringStart"/>
+    <string id="opcode_SizingWorkflowMirroringPhase0End" value="MirroringPhase0End"/>
+    <string id="opcode_SizingWorkflowMirroringPhase1End" value="MirroringPhase1End"/>
+    <string id="opcode_SizingWorkflowSystemQuiesceStart" value="SystemQuiesceStart"/>
+    <string id="opcode_SizingWorkflowSystemQuiesceEnd" value="SystemQuiesceEnd"/>
+    <string id="opcode_SizingWorkflowBufferEstimationData" value="BufferEstimationData"/>
+    <string id="opcode_SizingWorkflowBufferAllocationData" value="BufferAllocationData"/>
+    <string id="opcode_SizingWorkflowRemovePagesCallbacks" value="RemovePagesCallbacks"/>
+    <string id="task_CapturePagesWorkflow" value="CapturePagesWorkflow"/>
+    <string id="opcode_CapturePagesWorkflowMirroringStart" value="MirroringStart"/>
+    <string id="opcode_CapturePagesWorkflowMirroringPhase0End" value="MirroringPhase0End"/>
+    <string id="opcode_CapturePagesWorkflowMirroringPhase1End" value="MirroringPhase1End"/>
+    <string id="opcode_CapturePagesWorkflowSystemQuiesceStart" value="SystemQuiesceStart"/>
+    <string id="opcode_CapturePagesWorkflowSystemQuiesceEnd" value="SystemQuiesceEnd"/>
+    <string id="opcode_CapturePagesWorkflowCopyingMemoryPagesStart" value="CopyingMemoryPagesStart"/>
+    <string id="opcode_CapturePagesWorkflowCopyingMemoryPagesEnd" value="CopyingMemoryPagesEnd"/>
+    <string id="task_LiveDumpWriteDeferredDumpDataAPI" value="LiveDumpWriteDeferredDumpDataAPI"/>
+    <string id="opcode_LiveDumpWriteDeferredDumpDataAPIAPIStart" value="APIStart"/>
+    <string id="opcode_LiveDumpWriteDeferredDumpDataAPIAPIEnd" value="APIEnd"/>
+    <string id="opcode_LiveDumpWriteDeferredDumpDataAPIDumpFileWriteStart" value="DumpFileWriteStart"/>
+    <string id="opcode_LiveDumpWriteDeferredDumpDataAPIDumpFileWriteEnd" value="DumpFileWriteEnd"/>
+    <string id="task_LiveDumpDiscardDeferredDumpDataAPI" value="LiveDumpDiscardDeferredDumpDataAPI"/>
+    <string id="opcode_LiveDumpDiscardDeferredDumpDataAPIAPIStart" value="APIStart"/>
+    <string id="opcode_LiveDumpDiscardDeferredDumpDataAPIAPIEnd" value="APIEnd"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

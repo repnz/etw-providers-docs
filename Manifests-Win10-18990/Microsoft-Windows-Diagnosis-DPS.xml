@@ -1,0 +1,181 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Diagnosis-DPS" guid="{6bba3851-2c7e-4dea-8f54-31e5afd029e3}" resourceFileName="Microsoft-Windows-Diagnosis-DPS" messageFileName="Microsoft-Windows-Diagnosis-DPS" symbol="MicrosoftWindowsDiagnosisDPS" source="Xml" >
+    <keywords>
+     <keyword name="memory" message="$(string.keyword_memory)" mask="0x200"/>
+     <keyword name="perf" message="$(string.keyword_perf)" mask="0x100000000"/>
+     <keyword name="scenario" message="$(string.keyword_scenario)" mask="0x200000000"/>
+     <keyword name="debug" message="$(string.keyword_debug)" mask="0x400000000"/>
+     <keyword name="lifecycle" message="$(string.keyword_lifecycle)" mask="0x800000000"/>
+     <keyword name="notification" message="$(string.keyword_notification)" mask="0x1000000000"/>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+     <task name="ScenarioLifecycle" message="$(string.task_ScenarioLifecycle)" value="1">
+>
+      <opcodes>
+       <opcode name="Adiagnosticmoduledetectedaproblem" message="$(string.opcode_ScenarioLifecycleAdiagnosticmoduledetectedaproblem)" value="12"/>
+       <opcode name="Ascenarioinstancewasdispatchedfortroubleshooting" message="$(string.opcode_ScenarioLifecycleAscenarioinstancewasdispatchedfortroubleshooting)" value="13"/>
+       <opcode name="Adiagnosticmodulecompletedtroubleshootingwithoutsettingaresolution" message="$(string.opcode_ScenarioLifecycleAdiagnosticmodulecompletedtroubleshootingwithoutsettingaresolution)" value="14"/>
+       <opcode name="Adiagnosticmodulecompletedtroubleshootingandsetanimmediateresolution" message="$(string.opcode_ScenarioLifecycleAdiagnosticmodulecompletedtroubleshootingandsetanimmediateresolution)" value="15"/>
+       <opcode name="Adiagnosticmodulefinishedtroubleshootingandsetanqueuedresolution" message="$(string.opcode_ScenarioLifecycleAdiagnosticmodulefinishedtroubleshootingandsetanqueuedresolution)" value="16"/>
+       <opcode name="Ascenarioinstancewasdispatchedforresolution" message="$(string.opcode_ScenarioLifecycleAscenarioinstancewasdispatchedforresolution)" value="17"/>
+       <opcode name="Adiagnosticmodulequeueditselfforlaterinvocation" message="$(string.opcode_ScenarioLifecycleAdiagnosticmodulequeueditselfforlaterinvocation)" value="18"/>
+       <opcode name="Adiagnosticmodulecompletedresolution" message="$(string.opcode_ScenarioLifecycleAdiagnosticmodulecompletedresolution)" value="19"/>
+       <opcode name="TheDiagnosticPolicyServicewasnotabletoinstantiateadiagnosticmodulehost" message="$(string.opcode_ScenarioLifecycleTheDiagnosticPolicyServicewasnotabletoinstantiateadiagnosticmodulehost)" value="20"/>
+       <opcode name="Thiseventisraisedwhenascenariofails" message="$(string.opcode_ScenarioLifecycleThiseventisraisedwhenascenariofails)" value="21"/>
+       <opcode name="Adiagnosticmodulewasmovedtoabrokenstate" message="$(string.opcode_ScenarioLifecycleAdiagnosticmodulewasmovedtoabrokenstate)" value="22"/>
+      </opcodes>
+     </task>
+     <task name="Debugtask" message="$(string.task_Debugtask)" value="2">
+>
+      <opcodes>
+       <opcode name="Debugevent" message="$(string.opcode_DebugtaskDebugevent)" value="23"/>
+       <opcode name="ThiseventisraisedattheServiceMainfortheservice" message="$(string.opcode_DebugtaskThiseventisraisedattheServiceMainfortheservice)" value="24"/>
+       <opcode name="ThiseventisraisedwhentheDPSsignalsitsstatusasRUNNINGtotheSCM" message="$(string.opcode_DebugtaskThiseventisraisedwhentheDPSsignalsitsstatusasRUNNINGtotheSCM)" value="25"/>
+       <opcode name="Thiseventisraisedwhentheservicereceivesashutdown/stopnotificationfromtheSCM" message="$(string.opcode_DebugtaskThiseventisraisedwhentheservicereceivesashutdown/stopnotificationfromtheSCM)" value="26"/>
+       <opcode name="Thiseventisraisedwhentheserviceissuccessfullystopped" message="$(string.opcode_DebugtaskThiseventisraisedwhentheserviceissuccessfullystopped)" value="27"/>
+      </opcodes>
+     </task>
+     <task name="DPSInitialization" message="$(string.task_DPSInitialization)" value="3">
+>
+      <opcodes>
+       <opcode name="TheDiagnosticPolicyServicestarted" message="$(string.opcode_DPSInitializationTheDiagnosticPolicyServicestarted)" value="10"/>
+       <opcode name="Adiagnosticscenariowasmisconfigured" message="$(string.opcode_DPSInitializationAdiagnosticscenariowasmisconfigured)" value="11"/>
+      </opcodes>
+     </task>
+     <task name="Notificationtask" message="$(string.task_Notificationtask)" value="4">
+>
+      <opcodes>
+       <opcode name="ThiseventisraisedwhenDPSrefreshesgrouppolicy" message="$(string.opcode_NotificationtaskThiseventisraisedwhenDPSrefreshesgrouppolicy)" value="28"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="1" symbol="DPSInitializationTheDiagnosticPolicyServicestarted" version="0" task="DPSInitialization" opcode="TheDiagnosticPolicyServicestarted" level="win:Verbose" keywords="scenario"/>
+     <event value="2" symbol="DPSInitializationTheDiagnosticPolicyServicestarted2" version="0" task="DPSInitialization" opcode="TheDiagnosticPolicyServicestarted" level="win:Verbose" keywords="scenario"/>
+     <event value="5" symbol="DPSInitializationAdiagnosticscenariowasmisconfigured" version="0" task="DPSInitialization" opcode="Adiagnosticscenariowasmisconfigured" level="win:Warning" keywords="lifecycle" template="DPSInitializationAdiagnosticscenariowasmisconfiguredArgs"/>
+     <event value="100" symbol="ScenarioLifecycleAdiagnosticmoduledetectedaproblem" version="0" task="ScenarioLifecycle" opcode="Adiagnosticmoduledetectedaproblem" level="win:Informational" keywords="lifecycle" template="ScenarioLifecycleAdiagnosticmoduledetectedaproblemArgs"/>
+     <event value="105" symbol="ScenarioLifecycleAscenarioinstancewasdispatchedfortroubleshooting" version="0" task="ScenarioLifecycle" opcode="Ascenarioinstancewasdispatchedfortroubleshooting" level="win:Informational" keywords="lifecycle" template="ScenarioLifecycleAdiagnosticmoduledetectedaproblemArgs"/>
+     <event value="110" symbol="ScenarioLifecycleAdiagnosticmodulecompletedtroubleshootingwithoutsettingaresolution" version="0" task="ScenarioLifecycle" opcode="Adiagnosticmodulecompletedtroubleshootingwithoutsettingaresolution" level="win:Informational" keywords="lifecycle" template="ScenarioLifecycleAdiagnosticmoduledetectedaproblemArgs"/>
+     <event value="115" symbol="ScenarioLifecycleAdiagnosticmodulecompletedtroubleshootingandsetanimmediateresolution" version="0" task="ScenarioLifecycle" opcode="Adiagnosticmodulecompletedtroubleshootingandsetanimmediateresolution" level="win:Informational" keywords="lifecycle" template="ScenarioLifecycleAdiagnosticmodulecompletedtroubleshootingandsetanimmediateresolutionArgs"/>
+     <event value="120" symbol="ScenarioLifecycleAdiagnosticmodulefinishedtroubleshootingandsetanqueuedresolution" version="0" task="ScenarioLifecycle" opcode="Adiagnosticmodulefinishedtroubleshootingandsetanqueuedresolution" level="win:Informational" keywords="lifecycle" template="ScenarioLifecycleAdiagnosticmodulecompletedtroubleshootingandsetanimmediateresolutionArgs"/>
+     <event value="125" symbol="ScenarioLifecycleAscenarioinstancewasdispatchedforresolution" version="0" task="ScenarioLifecycle" opcode="Ascenarioinstancewasdispatchedforresolution" level="win:Informational" keywords="lifecycle" template="ScenarioLifecycleAdiagnosticmoduledetectedaproblemArgs"/>
+     <event value="126" symbol="ScenarioLifecycleAdiagnosticmodulequeueditselfforlaterinvocation" version="0" task="ScenarioLifecycle" opcode="Adiagnosticmodulequeueditselfforlaterinvocation" level="win:Informational" keywords="lifecycle" template="ScenarioLifecycleAdiagnosticmoduledetectedaproblemArgs"/>
+     <event value="130" symbol="ScenarioLifecycleAdiagnosticmodulecompletedresolution" version="0" task="ScenarioLifecycle" opcode="Adiagnosticmodulecompletedresolution" level="win:Informational" keywords="lifecycle" template="ScenarioLifecycleAdiagnosticmoduledetectedaproblemArgs"/>
+     <event value="135" symbol="ScenarioLifecycleTheDiagnosticPolicyServicewasnotabletoinstantiateadiagnosticmodulehost" version="0" task="ScenarioLifecycle" opcode="TheDiagnosticPolicyServicewasnotabletoinstantiateadiagnosticmodulehost" level="win:Error" keywords="lifecycle" template="ScenarioLifecycleTheDiagnosticPolicyServicewasnotabletoinstantiateadiagnosticmodulehostArgs"/>
+     <event value="140" symbol="DebugtaskDebugevent" version="0" task="Debugtask" opcode="Debugevent" level="win:Error" keywords="debug" template="DebugtaskDebugeventArgs"/>
+     <event value="145" symbol="DebugtaskThiseventisraisedattheServiceMainfortheservice" version="0" task="Debugtask" opcode="ThiseventisraisedattheServiceMainfortheservice" level="win:Verbose" keywords="perf"/>
+     <event value="150" symbol="DebugtaskThiseventisraisedwhentheDPSsignalsitsstatusasRUNNINGtotheSCM" version="0" task="Debugtask" opcode="ThiseventisraisedwhentheDPSsignalsitsstatusasRUNNINGtotheSCM" level="win:Verbose" keywords="perf"/>
+     <event value="155" symbol="DebugtaskThiseventisraisedwhentheservicereceivesashutdown/stopnotificationfromtheSCM" version="0" task="Debugtask" opcode="Thiseventisraisedwhentheservicereceivesashutdown/stopnotificationfromtheSCM" level="win:Verbose" keywords="perf"/>
+     <event value="160" symbol="DebugtaskThiseventisraisedwhentheserviceissuccessfullystopped" version="0" task="Debugtask" opcode="Thiseventisraisedwhentheserviceissuccessfullystopped" level="win:Verbose" keywords="perf"/>
+     <event value="165" symbol="ScenarioLifecycleThiseventisraisedwhenascenariofails" version="0" task="ScenarioLifecycle" opcode="Thiseventisraisedwhenascenariofails" level="win:Warning" keywords="lifecycle" template="ScenarioLifecycleTheDiagnosticPolicyServicewasnotabletoinstantiateadiagnosticmodulehostArgs"/>
+     <event value="170" symbol="ScenarioLifecycleThiseventisraisedwhenascenariofails170" version="0" task="ScenarioLifecycle" opcode="Thiseventisraisedwhenascenariofails" level="win:Warning" keywords="lifecycle" template="ScenarioLifecycleThiseventisraisedwhenascenariofails170Args"/>
+     <event value="175" symbol="ScenarioLifecycleThiseventisraisedwhenascenariofails175" version="0" task="ScenarioLifecycle" opcode="Thiseventisraisedwhenascenariofails" level="win:Warning" keywords="lifecycle" template="ScenarioLifecycleThiseventisraisedwhenascenariofails170Args"/>
+     <event value="180" symbol="NotificationtaskThiseventisraisedwhenDPSrefreshesgrouppolicy" version="0" task="Notificationtask" opcode="ThiseventisraisedwhenDPSrefreshesgrouppolicy" level="win:Verbose" keywords="notification"/>
+     <event value="185" symbol="ScenarioLifecycleAdiagnosticmodulewasmovedtoabrokenstate" version="0" task="ScenarioLifecycle" opcode="Adiagnosticmodulewasmovedtoabrokenstate" level="win:Warning" keywords="lifecycle" template="ScenarioLifecycleAdiagnosticmodulewasmovedtoabrokenstateArgs"/>
+     <event value="5016" symbol="task_0" version="0" task="task_0" level="win:Always" keywords="memory" template="task_0Args"/>
+     <event value="5017" symbol="task_05017" version="0" task="task_0" level="win:Always" keywords="memory" template="task_05017Args"/>
+    </events>
+    <templates>
+     <template tid="DPSInitializationAdiagnosticscenariowasmisconfiguredArgs">
+      <data name="ScenarioId" inType="win:GUID"/>
+     </template>
+     <template tid="ScenarioLifecycleAdiagnosticmoduledetectedaproblemArgs">
+      <data name="ScenarioId" inType="win:GUID"/>
+      <data name="InstanceId" inType="win:GUID"/>
+      <data name="OriginalActivityId" inType="win:GUID"/>
+      <data name="DiagnosticModuleImageName" inType="win:UnicodeString"/>
+      <data name="DiagnosticModuleId" inType="win:GUID"/>
+     </template>
+     <template tid="ScenarioLifecycleAdiagnosticmodulecompletedtroubleshootingandsetanimmediateresolutionArgs">
+      <data name="ScenarioId" inType="win:GUID"/>
+      <data name="InstanceId" inType="win:GUID"/>
+      <data name="OriginalActivityId" inType="win:GUID"/>
+      <data name="DiagnosticModuleImageName" inType="win:UnicodeString"/>
+      <data name="ResolutionId" inType="win:GUID"/>
+      <data name="ResolutionSID" inType="win:SID"/>
+      <data name="ResolutionSessionId" inType="win:UInt32"/>
+      <data name="ResolutionExpirationDate" inType="win:FILETIME"/>
+      <data name="DiagnosticModuleId" inType="win:GUID"/>
+     </template>
+     <template tid="ScenarioLifecycleTheDiagnosticPolicyServicewasnotabletoinstantiateadiagnosticmodulehostArgs">
+      <data name="ScenarioId" inType="win:GUID"/>
+      <data name="InstanceId" inType="win:GUID"/>
+      <data name="OriginalActivityId" inType="win:GUID"/>
+      <data name="StatusCode" inType="win:UInt32"/>
+      <data name="DiagnosticModuleImageName" inType="win:UnicodeString"/>
+      <data name="DiagnosticModuleId" inType="win:GUID"/>
+     </template>
+     <template tid="DebugtaskDebugeventArgs">
+      <data name="FileName" inType="win:UnicodeString"/>
+      <data name="FunctionName" inType="win:UnicodeString"/>
+      <data name="LineNumber" inType="win:Int32"/>
+      <data name="ErrorMessage" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ScenarioLifecycleThiseventisraisedwhenascenariofails170Args">
+      <data name="ScenarioId" inType="win:GUID"/>
+      <data name="InstanceId" inType="win:GUID"/>
+      <data name="OriginalActivityId" inType="win:GUID"/>
+      <data name="DiagnosticModuleImageName" inType="win:UnicodeString"/>
+      <data name="StatusCode" inType="win:Int32"/>
+      <data name="DiagnosticModuleId" inType="win:GUID"/>
+     </template>
+     <template tid="ScenarioLifecycleAdiagnosticmodulewasmovedtoabrokenstateArgs">
+      <data name="DiagnosticModuleImageName" inType="win:UnicodeString"/>
+      <data name="DiagnosticModuleId" inType="win:GUID"/>
+      <data name="StatusCode" inType="win:Int32"/>
+     </template>
+     <template tid="task_0Args">
+      <data name="FileName" inType="win:AnsiString"/>
+      <data name="Line" inType="win:UInt32"/>
+      <data name="Address" inType="win:Pointer"/>
+      <data name="Size" inType="win:Pointer"/>
+     </template>
+     <template tid="task_05017Args">
+      <data name="FileName" inType="win:AnsiString"/>
+      <data name="Line" inType="win:UInt32"/>
+      <data name="Address" inType="win:Pointer"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_memory" value="memory"/>
+    <string id="keyword_perf" value="perf"/>
+    <string id="keyword_scenario" value="scenario"/>
+    <string id="keyword_debug" value="debug"/>
+    <string id="keyword_lifecycle" value="lifecycle"/>
+    <string id="keyword_notification" value="notification"/>
+    <string id="task_task_0" value="task_0"/>
+    <string id="task_ScenarioLifecycle" value="ScenarioLifecycle"/>
+    <string id="opcode_ScenarioLifecycleAdiagnosticmoduledetectedaproblem" value="Adiagnosticmoduledetectedaproblem"/>
+    <string id="opcode_ScenarioLifecycleAscenarioinstancewasdispatchedfortroubleshooting" value="Ascenarioinstancewasdispatchedfortroubleshooting"/>
+    <string id="opcode_ScenarioLifecycleAdiagnosticmodulecompletedtroubleshootingwithoutsettingaresolution" value="Adiagnosticmodulecompletedtroubleshootingwithoutsettingaresolution"/>
+    <string id="opcode_ScenarioLifecycleAdiagnosticmodulecompletedtroubleshootingandsetanimmediateresolution" value="Adiagnosticmodulecompletedtroubleshootingandsetanimmediateresolution"/>
+    <string id="opcode_ScenarioLifecycleAdiagnosticmodulefinishedtroubleshootingandsetanqueuedresolution" value="Adiagnosticmodulefinishedtroubleshootingandsetanqueuedresolution"/>
+    <string id="opcode_ScenarioLifecycleAscenarioinstancewasdispatchedforresolution" value="Ascenarioinstancewasdispatchedforresolution"/>
+    <string id="opcode_ScenarioLifecycleAdiagnosticmodulequeueditselfforlaterinvocation" value="Adiagnosticmodulequeueditselfforlaterinvocation"/>
+    <string id="opcode_ScenarioLifecycleAdiagnosticmodulecompletedresolution" value="Adiagnosticmodulecompletedresolution"/>
+    <string id="opcode_ScenarioLifecycleTheDiagnosticPolicyServicewasnotabletoinstantiateadiagnosticmodulehost" value="TheDiagnosticPolicyServicewasnotabletoinstantiateadiagnosticmodulehost"/>
+    <string id="opcode_ScenarioLifecycleThiseventisraisedwhenascenariofails" value="Thiseventisraisedwhenascenariofails"/>
+    <string id="opcode_ScenarioLifecycleAdiagnosticmodulewasmovedtoabrokenstate" value="Adiagnosticmodulewasmovedtoabrokenstate"/>
+    <string id="task_Debugtask" value="Debugtask"/>
+    <string id="opcode_DebugtaskDebugevent" value="Debugevent"/>
+    <string id="opcode_DebugtaskThiseventisraisedattheServiceMainfortheservice" value="ThiseventisraisedattheServiceMainfortheservice"/>
+    <string id="opcode_DebugtaskThiseventisraisedwhentheDPSsignalsitsstatusasRUNNINGtotheSCM" value="ThiseventisraisedwhentheDPSsignalsitsstatusasRUNNINGtotheSCM"/>
+    <string id="opcode_DebugtaskThiseventisraisedwhentheservicereceivesashutdown/stopnotificationfromtheSCM" value="Thiseventisraisedwhentheservicereceivesashutdown/stopnotificationfromtheSCM"/>
+    <string id="opcode_DebugtaskThiseventisraisedwhentheserviceissuccessfullystopped" value="Thiseventisraisedwhentheserviceissuccessfullystopped"/>
+    <string id="task_DPSInitialization" value="DPSInitialization"/>
+    <string id="opcode_DPSInitializationTheDiagnosticPolicyServicestarted" value="TheDiagnosticPolicyServicestarted"/>
+    <string id="opcode_DPSInitializationAdiagnosticscenariowasmisconfigured" value="Adiagnosticscenariowasmisconfigured"/>
+    <string id="task_Notificationtask" value="Notificationtask"/>
+    <string id="opcode_NotificationtaskThiseventisraisedwhenDPSrefreshesgrouppolicy" value="ThiseventisraisedwhenDPSrefreshesgrouppolicy"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

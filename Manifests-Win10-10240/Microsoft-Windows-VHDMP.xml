@@ -1,0 +1,119 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-VHDMP" guid="{e2816346-87f4-4f85-95c3-0c79409aa89d}" resourceFileName="Microsoft-Windows-VHDMP" messageFileName="Microsoft-Windows-VHDMP" symbol="MicrosoftWindowsVHDMP" source="Xml" >
+    <keywords>
+    </keywords>
+    <tasks>
+     <task name="task_0" message="$(string.task_task_0)" value="0"/>
+    </tasks>
+    <maps>
+     <valueMap name="IoTypeMap">
+      <map value="0x1" message="$(string.map_IoTypeMapWrite failed.)"/>
+      <map value="0x2" message="$(string.map_IoTypeMapRead failed.)"/>
+      <map value="0x3" message="$(string.map_IoTypeMapFlush failed.)"/>
+      <map value="0x4" message="$(string.map_IoTypeMapOffload write failed.)"/>
+      <map value="0x5" message="$(string.map_IoTypeMapOffload read failed.)"/>
+      <map value="0x6" message="$(string.map_IoTypeMapOffload abort failed.)"/>
+      <map value="0x7" message="$(string.map_IoTypeMapUnmap failed.)"/>
+      <map value="0x8" message="$(string.map_IoTypeMapUnable to get LBA status.)"/>
+      <map value="0x9" message="$(string.map_IoTypeMapUnable to maintain write access during access check to network-backed virtual disk.)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="1" symbol="task_0" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+     <event value="2" symbol="task_02" version="0" task="task_0" level="win:Informational" template="task_0Args"/>
+     <event value="3" symbol="task_03" version="0" task="task_0" level="win:Error" template="task_03Args"/>
+     <event value="4" symbol="task_04" version="0" task="task_0" level="win:Error" template="task_04Args"/>
+     <event value="5" symbol="task_05" version="0" task="task_0" level="win:Error" template="task_05Args"/>
+     <event value="6" symbol="task_06" version="0" task="task_0" level="win:Error" template="task_06Args"/>
+     <event value="7" symbol="task_07" version="0" task="task_0" level="win:Error" template="task_07Args"/>
+     <event value="8" symbol="task_08" version="0" task="task_0" level="win:Error" template="task_08Args"/>
+     <event value="9" symbol="task_09" version="0" task="task_0" level="win:Error" template="task_04Args"/>
+     <event value="10" symbol="task_010" version="0" task="task_0" level="win:Error" template="task_03Args"/>
+     <event value="208" symbol="task_0208" version="0" task="task_0" level="win:Informational" template="task_0208Args"/>
+     <event value="209" symbol="task_0209" version="0" task="task_0" level="win:Informational" template="task_0209Args"/>
+     <event value="210" symbol="task_0210" version="0" task="task_0" level="win:Error" template="task_0210Args"/>
+     <event value="211" symbol="task_0211" version="0" task="task_0" level="win:Error" template="task_0211Args"/>
+     <event value="212" symbol="task_0212" version="0" task="task_0" level="win:Error" template="task_0211Args"/>
+     <event value="213" symbol="task_0213" version="0" task="task_0" level="win:Error" template="task_0211Args"/>
+     <event value="214" symbol="task_0214" version="0" task="task_0" level="win:Error" template="task_0214Args"/>
+    </events>
+    <templates>
+     <template tid="task_0Args">
+      <data name="VhdFileName" inType="win:UnicodeString"/>
+      <data name="VhdDiskNumber" inType="win:UInt32"/>
+     </template>
+     <template tid="task_03Args">
+      <data name="VhdFileName" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_04Args">
+      <data name="VhdFileName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_05Args">
+      <data name="VhdMetaOps" inType="win:AnsiString"/>
+      <data name="VhdFileName" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_06Args">
+      <data name="VhdIoType" inType="win:UInt32" map="IoTypeMap"/>
+      <data name="VhdFileName" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_07Args">
+      <data name="ParentLastWriteGUID" inType="win:GUID"/>
+      <data name="ExpectedParentLastWriteGUID1" inType="win:GUID"/>
+      <data name="ExpectedParentLastWriteGUID2" inType="win:GUID"/>
+      <data name="VhdFileName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_08Args">
+      <data name="VhdFileName" inType="win:UnicodeString"/>
+      <data name="CorruptionReason" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0208Args">
+      <data name="VhdFileName" inType="win:UnicodeString"/>
+      <data name="VirtualDisk" inType="win:UInt64"/>
+      <data name="LogFileName" inType="win:UnicodeString"/>
+     </template>
+     <template tid="task_0209Args">
+      <data name="VhdFileName" inType="win:UnicodeString"/>
+      <data name="VirtualDisk" inType="win:UInt64"/>
+     </template>
+     <template tid="task_0210Args">
+      <data name="VirtualDisk" inType="win:UInt64"/>
+      <data name="LogFileName" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0211Args">
+      <data name="LogFileName" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:UInt32"/>
+     </template>
+     <template tid="task_0214Args">
+      <data name="LogFileName" inType="win:UnicodeString"/>
+      <data name="VhdFileName" inType="win:UnicodeString"/>
+      <data name="Status" inType="win:UInt32"/>
+      <data name="VHDFileTime" inType="win:UInt64"/>
+      <data name="LogFileTime" inType="win:UInt64"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="task_task_0" value="task_0"/>
+    <string id="map_IoTypeMapWrite failed." value="Write failed."/>
+    <string id="map_IoTypeMapRead failed." value="Read failed."/>
+    <string id="map_IoTypeMapFlush failed." value="Flush failed."/>
+    <string id="map_IoTypeMapOffload write failed." value="Offload write failed."/>
+    <string id="map_IoTypeMapOffload read failed." value="Offload read failed."/>
+    <string id="map_IoTypeMapOffload abort failed." value="Offload abort failed."/>
+    <string id="map_IoTypeMapUnmap failed." value="Unmap failed."/>
+    <string id="map_IoTypeMapUnable to get LBA status." value="Unable to get LBA status."/>
+    <string id="map_IoTypeMapUnable to maintain write access during access check to network-backed virtual disk." value="Unable to maintain write access during access check to network-backed virtual disk."/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

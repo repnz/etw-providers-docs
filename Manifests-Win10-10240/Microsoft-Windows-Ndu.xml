@@ -1,0 +1,139 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Ndu" guid="{df271536-4298-45e1-b0f2-e88f78619c5d}" resourceFileName="Microsoft-Windows-Ndu" messageFileName="Microsoft-Windows-Ndu" symbol="MicrosoftWindowsNdu" source="Xml" >
+    <keywords>
+     <keyword name="KeywordNduDebugTrace" message="$(string.keyword_KeywordNduDebugTrace)" mask="0x1"/>
+     <keyword name="KeywordNduPerInterfaceStats" message="$(string.keyword_KeywordNduPerInterfaceStats)" mask="0x2"/>
+     <keyword name="KeywordNduPerFlowStats" message="$(string.keyword_KeywordNduPerFlowStats)" mask="0x4"/>
+     <keyword name="KeywordNduTokenTracking" message="$(string.keyword_KeywordNduTokenTracking)" mask="0x8"/>
+     <keyword name="KeywordNduLwtPerMinuteInterfaceStats" message="$(string.keyword_KeywordNduLwtPerMinuteInterfaceStats)" mask="0x10"/>
+     <keyword name="KeywordNduPowerDebug" message="$(string.keyword_KeywordNduPowerDebug)" mask="0x20"/>
+    </keywords>
+    <tasks>
+     <task name="NduDebugTrace" message="$(string.task_NduDebugTrace)" value="1001"/>
+     <task name="PerInterfaceStats" message="$(string.task_PerInterfaceStats)" value="1002"/>
+     <task name="PerFlowStats" message="$(string.task_PerFlowStats)" value="1003"/>
+     <task name="TokenTracking" message="$(string.task_TokenTracking)" value="1004"/>
+     <task name="NduPowerDebug" message="$(string.task_NduPowerDebug)" value="1005"/>
+     <task name="NduPowerQueueWorkItem" message="$(string.task_NduPowerQueueWorkItem)" value="1006"/>
+    </tasks>
+    <events>
+     <event value="2001" symbol="NduDebugTrace" version="0" task="NduDebugTrace" level="win:Informational" keywords="KeywordNduDebugTrace" template="NduDebugTraceArgs"/>
+     <event value="2002" symbol="NduDebugTrace2002" version="0" task="NduDebugTrace" level="win:Error" keywords="KeywordNduDebugTrace" template="NduDebugTrace2002Args"/>
+     <event value="2003" symbol="PerInterfaceStats" version="0" task="PerInterfaceStats" level="win:Informational" keywords="KeywordNduPerInterfaceStats" template="PerInterfaceStatsArgs"/>
+     <event value="2004" symbol="PerFlowStats" version="0" task="PerFlowStats" level="win:Informational" keywords="KeywordNduPerFlowStats" template="PerFlowStatsArgs"/>
+     <event value="2005" symbol="PerFlowStats2005" version="0" task="PerFlowStats" level="win:Verbose" keywords="KeywordNduPerFlowStats" template="PerFlowStats2005Args"/>
+     <event value="2006" symbol="PerInterfaceStats2006" version="0" task="PerInterfaceStats" level="win:Verbose" keywords="KeywordNduPerInterfaceStats" template="PerInterfaceStats2006Args"/>
+     <event value="2007" symbol="PerFlowStats2007" version="0" task="PerFlowStats" level="win:Verbose" keywords="KeywordNduPerFlowStats" template="PerFlowStats2007Args"/>
+     <event value="2008" symbol="TokenTracking" version="0" task="TokenTracking" level="win:Informational" keywords="KeywordNduTokenTracking" template="TokenTrackingArgs"/>
+     <event value="2009" symbol="TokenTracking2009" version="0" task="TokenTracking" level="win:Informational" keywords="KeywordNduTokenTracking" template="TokenTracking2009Args"/>
+     <event value="2010" symbol="PerInterfaceStats2010" version="0" task="PerInterfaceStats" level="win:Informational" keywords="KeywordNduPerInterfaceStats" template="PerInterfaceStats2010Args"/>
+     <event value="2011" symbol="PerInterfaceStats2011" version="0" task="PerInterfaceStats" level="win:Informational" keywords="KeywordNduPerInterfaceStats" template="PerInterfaceStats2011Args"/>
+     <event value="2012" symbol="NduDebugTrace2012" version="0" task="NduDebugTrace" level="win:Verbose" keywords="KeywordNduDebugTrace" template="NduDebugTraceArgs"/>
+     <event value="2013" symbol="NduDebugTrace2013" version="0" task="NduDebugTrace" level="win:Error" keywords="KeywordNduDebugTrace" template="NduDebugTraceArgs"/>
+     <event value="2014" symbol="PerInterfaceStats2014" version="0" task="PerInterfaceStats" level="win:Informational" keywords="KeywordNduLwtPerMinuteInterfaceStats" template="PerInterfaceStats2014Args"/>
+     <event value="2015" symbol="NduPowerDebug" version="0" task="NduPowerDebug" level="win:Informational" keywords="KeywordNduPowerDebug" template="NduPowerDebugArgs"/>
+     <event value="2016" symbol="NduPowerQueueWorkItem" version="0" task="NduPowerQueueWorkItem" level="win:Informational" keywords="KeywordNduPowerDebug" template="NduPowerQueueWorkItemArgs"/>
+    </events>
+    <templates>
+     <template tid="NduDebugTraceArgs">
+      <data name="_DebugString" inType="win:UnicodeString"/>
+     </template>
+     <template tid="NduDebugTrace2002Args">
+      <data name="_FunctionName" inType="win:UnicodeString"/>
+      <data name="_Status" inType="win:UInt32"/>
+     </template>
+     <template tid="PerInterfaceStatsArgs">
+      <data name="_IfLuid" inType="win:UInt64"/>
+      <data name="_ProcNum" inType="win:UInt32"/>
+      <data name="_ListIndex" inType="win:UInt16"/>
+     </template>
+     <template tid="PerFlowStatsArgs">
+      <data name="_Direction" inType="win:UnicodeString"/>
+      <data name="_FlowHandle" inType="win:UInt64"/>
+      <data name="_ExePath" inType="win:UnicodeString"/>
+      <data name="_SvcTag" inType="win:UInt32"/>
+      <data name="_PkgName" inType="win:UnicodeString"/>
+      <data name="_UserId" inType="win:SID"/>
+      <data name="_Pid" inType="win:UInt32"/>
+     </template>
+     <template tid="PerFlowStats2005Args">
+      <data name="_FlowHandle" inType="win:UInt64"/>
+      <data name="_RefDeref" inType="win:UnicodeString"/>
+     </template>
+     <template tid="PerInterfaceStats2006Args">
+      <data name="_IfLuid" inType="win:UInt64"/>
+      <data name="_ProfileId" inType="win:UInt32"/>
+      <data name="_BytesSent" inType="win:UInt32"/>
+      <data name="_BytesRecvd" inType="win:UInt32"/>
+     </template>
+     <template tid="PerFlowStats2007Args">
+      <data name="_IfLuid" inType="win:UInt64"/>
+      <data name="_FlowHandle" inType="win:UInt64"/>
+      <data name="_BytesSent" inType="win:UInt32"/>
+      <data name="_BytesRecvd" inType="win:UInt32"/>
+     </template>
+     <template tid="TokenTrackingArgs">
+      <data name="_ExePath" inType="win:UnicodeString"/>
+      <data name="_SvcTag" inType="win:UInt32"/>
+      <data name="_PkgName" inType="win:UnicodeString"/>
+      <data name="_UserId" inType="win:SID"/>
+      <data name="_Cookie" inType="win:UInt32"/>
+      <data name="_Quota" inType="win:UInt32"/>
+     </template>
+     <template tid="TokenTracking2009Args">
+      <data name="_Cookie" inType="win:UInt32"/>
+     </template>
+     <template tid="PerInterfaceStats2010Args">
+      <data name="_IfLuid" inType="win:UInt64"/>
+      <data name="_ProfileId" inType="win:UInt32"/>
+      <data name="_BytesLimit" inType="win:UInt64"/>
+     </template>
+     <template tid="PerInterfaceStats2011Args">
+      <data name="_IfLuid" inType="win:UInt64"/>
+      <data name="_ProfileId" inType="win:UInt32"/>
+     </template>
+     <template tid="PerInterfaceStats2014Args">
+      <data name="_IfLuid" inType="win:UInt64"/>
+      <data name="_ProfileId" inType="win:UInt32"/>
+      <data name="_BytesSent" inType="win:UInt64"/>
+      <data name="_BytesRecvd" inType="win:UInt64"/>
+      <data name="_IsCosted" inType="win:Boolean"/>
+     </template>
+     <template tid="NduPowerDebugArgs">
+      <data name="_IfLuid" inType="win:UInt64"/>
+      <data name="TimeSinceLast" inType="win:UInt64"/>
+      <data name="Energy" inType="win:UInt64"/>
+      <data name="CurrentProc" inType="win:UInt32"/>
+      <data name="BytesTxRx" inType="win:UInt32"/>
+      <data name="Pid" inType="win:UInt32"/>
+      <data name="IfMediaType" inType="win:UInt8"/>
+     </template>
+     <template tid="NduPowerQueueWorkItemArgs">
+      <data name="ProcId" inType="win:UInt32"/>
+      <data name="Count" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_KeywordNduDebugTrace" value="KeywordNduDebugTrace"/>
+    <string id="keyword_KeywordNduPerInterfaceStats" value="KeywordNduPerInterfaceStats"/>
+    <string id="keyword_KeywordNduPerFlowStats" value="KeywordNduPerFlowStats"/>
+    <string id="keyword_KeywordNduTokenTracking" value="KeywordNduTokenTracking"/>
+    <string id="keyword_KeywordNduLwtPerMinuteInterfaceStats" value="KeywordNduLwtPerMinuteInterfaceStats"/>
+    <string id="keyword_KeywordNduPowerDebug" value="KeywordNduPowerDebug"/>
+    <string id="task_NduDebugTrace" value="NduDebugTrace"/>
+    <string id="task_PerInterfaceStats" value="PerInterfaceStats"/>
+    <string id="task_PerFlowStats" value="PerFlowStats"/>
+    <string id="task_TokenTracking" value="TokenTracking"/>
+    <string id="task_NduPowerDebug" value="NduPowerDebug"/>
+    <string id="task_NduPowerQueueWorkItem" value="NduPowerQueueWorkItem"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

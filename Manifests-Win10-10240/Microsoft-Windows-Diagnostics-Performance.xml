@@ -1,0 +1,771 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-Diagnostics-Performance" guid="{cfc18ec0-96b1-4eba-961b-622caee05b0a}" resourceFileName="Microsoft-Windows-Diagnostics-Performance" messageFileName="Microsoft-Windows-Diagnostics-Performance" symbol="MicrosoftWindowsDiagnosticsPerformance" source="Xml" >
+    <keywords>
+     <keyword name="EventLog" message="$(string.keyword_EventLog)" mask="0x10000"/>
+     <keyword name="BootStatus" message="$(string.keyword_BootStatus)" mask="0x20000"/>
+     <keyword name="ShellStatus" message="$(string.keyword_ShellStatus)" mask="0x40000"/>
+     <keyword name="StandbyStatus" message="$(string.keyword_StandbyStatus)" mask="0x80000"/>
+     <keyword name="ScenarioStatus" message="$(string.keyword_ScenarioStatus)" mask="0x100000"/>
+     <keyword name="BootLoopback" message="$(string.keyword_BootLoopback)" mask="0x200000"/>
+     <keyword name="ShutdownStatus" message="$(string.keyword_ShutdownStatus)" mask="0x400000"/>
+     <keyword name="ResolverLoopback" message="$(string.keyword_ResolverLoopback)" mask="0x800000"/>
+     <keyword name="SecondaryLogonStatus" message="$(string.keyword_SecondaryLogonStatus)" mask="0x1000000"/>
+     <keyword name="SecondaryLogonLoopback" message="$(string.keyword_SecondaryLogonLoopback)" mask="0x2000000"/>
+    </keywords>
+    <tasks>
+     <task name="Boot_DMConfig" message="$(string.task_Boot_DMConfig)" value="1001">
+>
+      <opcodes>
+       <opcode name="Failed" message="$(string.opcode_Boot_DMConfigFailed)" value="210"/>
+      </opcodes>
+     </task>
+     <task name="Boot_UnexpectedEvent" message="$(string.task_Boot_UnexpectedEvent)" value="1002"/>
+     <task name="Boot_ChangedState" message="$(string.task_Boot_ChangedState)" value="1003"/>
+     <task name="Boot_CapturedDCL" message="$(string.task_Boot_CapturedDCL)" value="1005"/>
+     <task name="Boot_DetectedMultipleLogons" message="$(string.task_Boot_DetectedMultipleLogons)" value="1006"/>
+     <task name="Boot_ReceivedEvent" message="$(string.task_Boot_ReceivedEvent)" value="1007"/>
+     <task name="Boot_Troubleshooting" message="$(string.task_Boot_Troubleshooting)" value="1010"/>
+     <task name="Boot_ProcessingSystem" message="$(string.task_Boot_ProcessingSystem)" value="1012"/>
+     <task name="Boot_ProcessingUser" message="$(string.task_Boot_ProcessingUser)" value="1014"/>
+     <task name="Boot_ArchiveCorrupt" message="$(string.task_Boot_ArchiveCorrupt)" value="1020"/>
+     <task name="Boot_CancelledAnalysisViaRegistry" message="$(string.task_Boot_CancelledAnalysisViaRegistry)" value="1022"/>
+     <task name="Boot_RurReadAhead" message="$(string.task_Boot_RurReadAhead)" value="1024"/>
+     <task name="Boot_RurLegacyResource" message="$(string.task_Boot_RurLegacyResource)" value="1026"/>
+     <task name="Boot_RurAppResourceUsage" message="$(string.task_Boot_RurAppResourceUsage)" value="1028"/>
+     <task name="Shell_DegradationDetected" message="$(string.task_Shell_DegradationDetected)" value="2001">
+>
+      <opcodes>
+       <opcode name="StepUp" message="$(string.opcode_Shell_DegradationDetectedStepUp)" value="201"/>
+       <opcode name="StepDown" message="$(string.opcode_Shell_DegradationDetectedStepDown)" value="202"/>
+       <opcode name="GradualUp" message="$(string.opcode_Shell_DegradationDetectedGradualUp)" value="203"/>
+       <opcode name="GradualDown" message="$(string.opcode_Shell_DegradationDetectedGradualDown)" value="204"/>
+      </opcodes>
+     </task>
+     <task name="Scenario_CapturedCKCL" message="$(string.task_Scenario_CapturedCKCL)" value="2005"/>
+     <task name="Scenario_CapturedDCL" message="$(string.task_Scenario_CapturedDCL)" value="2006"/>
+     <task name="Scenario_SimpleEvent" message="$(string.task_Scenario_SimpleEvent)" value="2007"/>
+     <task name="Scenario_StartEvent" message="$(string.task_Scenario_StartEvent)" value="2009"/>
+     <task name="Scenario_StopEvent" message="$(string.task_Scenario_StopEvent)" value="2011"/>
+     <task name="Scenario_ProblemDetection" message="$(string.task_Scenario_ProblemDetection)" value="2013"/>
+     <task name="Scenario_TroubleShoot" message="$(string.task_Scenario_TroubleShoot)" value="2015"/>
+     <task name="BootPerformanceMonitoring" message="$(string.task_BootPerformanceMonitoring)" value="4002">
+>
+      <opcodes>
+       <opcode name="BootDegradation" message="$(string.opcode_BootPerformanceMonitoringBootDegradation)" value="33"/>
+       <opcode name="BootInformation" message="$(string.opcode_BootPerformanceMonitoringBootInformation)" value="34"/>
+      </opcodes>
+     </task>
+     <task name="StandbyPerformanceMonitoring" message="$(string.task_StandbyPerformanceMonitoring)" value="4003">
+>
+      <opcodes>
+       <opcode name="StandbyDegradation" message="$(string.opcode_StandbyPerformanceMonitoringStandbyDegradation)" value="35"/>
+       <opcode name="StandbyInformation" message="$(string.opcode_StandbyPerformanceMonitoringStandbyInformation)" value="36"/>
+      </opcodes>
+     </task>
+     <task name="SystemPerformanceMonitoring" message="$(string.task_SystemPerformanceMonitoring)" value="4005">
+>
+      <opcodes>
+       <opcode name="ShellInformation" message="$(string.opcode_SystemPerformanceMonitoringShellInformation)" value="37"/>
+       <opcode name="ShellDegradation" message="$(string.opcode_SystemPerformanceMonitoringShellDegradation)" value="38"/>
+      </opcodes>
+     </task>
+     <task name="DesktopWindowManagerMonitoring" message="$(string.task_DesktopWindowManagerMonitoring)" value="4006">
+>
+      <opcodes>
+       <opcode name="VideoMemoryDegradation" message="$(string.opcode_DesktopWindowManagerMonitoringVideoMemoryDegradation)" value="39"/>
+       <opcode name="VideoMemoryResponsiveness" message="$(string.opcode_DesktopWindowManagerMonitoringVideoMemoryResponsiveness)" value="42"/>
+      </opcodes>
+     </task>
+     <task name="ShutdownPerformanceMonitoring" message="$(string.task_ShutdownPerformanceMonitoring)" value="4007">
+>
+      <opcodes>
+       <opcode name="ShutdownInformation" message="$(string.opcode_ShutdownPerformanceMonitoringShutdownInformation)" value="40"/>
+       <opcode name="ShutdownDegradation" message="$(string.opcode_ShutdownPerformanceMonitoringShutdownDegradation)" value="41"/>
+      </opcodes>
+     </task>
+     <task name="Boot_Loopback_SnapshotKMScenario" message="$(string.task_Boot_Loopback_SnapshotKMScenario)" value="7001"/>
+     <task name="BootApps_ResolverLoopback" message="$(string.task_BootApps_ResolverLoopback)" value="7101"/>
+     <task name="BootDrivers_ResolverLoopback" message="$(string.task_BootDrivers_ResolverLoopback)" value="7102"/>
+     <task name="ShutdownApps_ResolverLoopback" message="$(string.task_ShutdownApps_ResolverLoopback)" value="7103"/>
+     <task name="SuspendApps_ResolverLoopback" message="$(string.task_SuspendApps_ResolverLoopback)" value="7104"/>
+     <task name="SuspendDrivers_ResolverLoopback" message="$(string.task_SuspendDrivers_ResolverLoopback)" value="7105"/>
+     <task name="ResumeDrivers_ResolverLoopback" message="$(string.task_ResumeDrivers_ResolverLoopback)" value="7106"/>
+     <task name="Shutdown_ArchiveCorrupt" message="$(string.task_Shutdown_ArchiveCorrupt)" value="8001"/>
+     <task name="Shutdown_ThreadCreateFailed" message="$(string.task_Shutdown_ThreadCreateFailed)" value="8002">
+>
+      <opcodes>
+       <opcode name="Failed" message="$(string.opcode_Shutdown_ThreadCreateFailedFailed)" value="210"/>
+      </opcodes>
+     </task>
+     <task name="Shutdown_Troubleshooting" message="$(string.task_Shutdown_Troubleshooting)" value="8003"/>
+     <task name="Shutdown_WaitingForBoot" message="$(string.task_Shutdown_WaitingForBoot)" value="8005"/>
+     <task name="Shutdown_LocatedCKCL" message="$(string.task_Shutdown_LocatedCKCL)" value="8006"/>
+     <task name="Shutdown_LocatedPossibleDCL" message="$(string.task_Shutdown_LocatedPossibleDCL)" value="8007"/>
+     <task name="Shutdown_RestoringConfig" message="$(string.task_Shutdown_RestoringConfig)" value="8008"/>
+     <task name="Shutdown_LoadConfig" message="$(string.task_Shutdown_LoadConfig)" value="8009">
+>
+      <opcodes>
+       <opcode name="Failed" message="$(string.opcode_Shutdown_LoadConfigFailed)" value="210"/>
+      </opcodes>
+     </task>
+     <task name="Shutdown_ProxyCallback" message="$(string.task_Shutdown_ProxyCallback)" value="8010"/>
+     <task name="Shutdown_StartCKCL" message="$(string.task_Shutdown_StartCKCL)" value="8011"/>
+     <task name="Shutdown_CancelledAnalysisViaRegistry" message="$(string.task_Shutdown_CancelledAnalysisViaRegistry)" value="8013"/>
+     <task name="SecondaryLogon_DMConfig" message="$(string.task_SecondaryLogon_DMConfig)" value="9001">
+>
+      <opcodes>
+       <opcode name="Failed" message="$(string.opcode_SecondaryLogon_DMConfigFailed)" value="210"/>
+      </opcodes>
+     </task>
+     <task name="SecondaryLogon_UnexpectedEvent" message="$(string.task_SecondaryLogon_UnexpectedEvent)" value="9003"/>
+     <task name="SecondaryLogon_ChangedState" message="$(string.task_SecondaryLogon_ChangedState)" value="9005"/>
+     <task name="SecondaryLogon_DetectedMultipleLogons" message="$(string.task_SecondaryLogon_DetectedMultipleLogons)" value="9007"/>
+     <task name="SecondaryLogon_ReceivedEvent" message="$(string.task_SecondaryLogon_ReceivedEvent)" value="9009"/>
+     <task name="SecondaryLogon_Troubleshooting" message="$(string.task_SecondaryLogon_Troubleshooting)" value="9011"/>
+     <task name="SecondaryLogon_CancelledAnalysisViaRegistry" message="$(string.task_SecondaryLogon_CancelledAnalysisViaRegistry)" value="9013"/>
+     <task name="SecondaryLogon_CapturedDCL" message="$(string.task_SecondaryLogon_CapturedDCL)" value="9015"/>
+     <task name="SecondaryLogonScenario_Stop" message="$(string.task_SecondaryLogonScenario_Stop)" value="10001"/>
+     <task name="Standby_ReceivedEvent" message="$(string.task_Standby_ReceivedEvent)" value="11001"/>
+     <task name="Standby_ChangedState" message="$(string.task_Standby_ChangedState)" value="11002"/>
+     <task name="Standby_FailedTransition" message="$(string.task_Standby_FailedTransition)" value="11003"/>
+     <task name="Standby_DetectRegressions" message="$(string.task_Standby_DetectRegressions)" value="11005"/>
+    </tasks>
+    <maps>
+     <valueMap name="BootStatusMap">
+      <map value="0x0" message="$(string.map_BootStatusMapInitialized)"/>
+      <map value="0x1" message="$(string.map_BootStatusMapKernel scenario running)"/>
+      <map value="0x2" message="$(string.map_BootStatusMapKernel scenario stopped)"/>
+      <map value="0x3" message="$(string.map_BootStatusMapUser scenario running)"/>
+      <map value="0x4" message="$(string.map_BootStatusMapUser scenario running in post boot)"/>
+      <map value="0x5" message="$(string.map_BootStatusMapUser scenario stopped)"/>
+      <map value="0x6" message="$(string.map_BootStatusMapDone)"/>
+      <map value="0x7" message="$(string.map_BootStatusMapFailed)"/>
+     </valueMap>
+     <bitMap name="BootRootCauseBitsMap">
+      <map value="0x1" message="$(string.map_BootRootCauseBitsMapSystem boot time)"/>
+      <map value="0x2" message="$(string.map_BootRootCauseBitsMapKernel init time)"/>
+      <map value="0x4" message="$(string.map_BootRootCauseBitsMapDriver init time)"/>
+      <map value="0x8" message="$(string.map_BootRootCauseBitsMapDevice init time)"/>
+      <map value="0x10" message="$(string.map_BootRootCauseBitsMapForeground prefetch time)"/>
+      <map value="0x20" message="$(string.map_BootRootCauseBitsMapForeground prefetch bytes)"/>
+      <map value="0x40" message="$(string.map_BootRootCauseBitsMapBackground prefetch time)"/>
+      <map value="0x80" message="$(string.map_BootRootCauseBitsMapBackground prefetch bytes)"/>
+      <map value="0x100" message="$(string.map_BootRootCauseBitsMapSMSS init time)"/>
+      <map value="0x200" message="$(string.map_BootRootCauseBitsMapCritical services init time)"/>
+      <map value="0x400" message="$(string.map_BootRootCauseBitsMapMachine policy application time)"/>
+      <map value="0x100000" message="$(string.map_BootRootCauseBitsMapUser boot time)"/>
+      <map value="0x200000" message="$(string.map_BootRootCauseBitsMapPreShell init time)"/>
+      <map value="0x400000" message="$(string.map_BootRootCauseBitsMapShell init time)"/>
+      <map value="0x800000" message="$(string.map_BootRootCauseBitsMapPost boot time)"/>
+     </bitMap>
+     <bitMap name="ShutdownRootCauseBitsMap">
+      <map value="0x1" message="$(string.map_ShutdownRootCauseBitsMapShutdown)"/>
+      <map value="0x2" message="$(string.map_ShutdownRootCauseBitsMapUser session)"/>
+      <map value="0x4" message="$(string.map_ShutdownRootCauseBitsMapUser session notifications)"/>
+      <map value="0x8" message="$(string.map_ShutdownRootCauseBitsMapUser session shutdown processes)"/>
+      <map value="0x10" message="$(string.map_ShutdownRootCauseBitsMapSystem session shutdown)"/>
+      <map value="0x20" message="$(string.map_ShutdownRootCauseBitsMapSystem session shutdown processes)"/>
+      <map value="0x40" message="$(string.map_ShutdownRootCauseBitsMapSystem session shutdown services)"/>
+      <map value="0x80" message="$(string.map_ShutdownRootCauseBitsMapKernel shutdown)"/>
+      <map value="0x100" message="$(string.map_ShutdownRootCauseBitsMapPre-shutdown notifications, including system policy (GP) application)"/>
+     </bitMap>
+     <bitMap name="StandbyRootCauseBitsMap">
+      <map value="0x1" message="$(string.map_StandbyRootCauseBitsMapSuspend)"/>
+      <map value="0x2" message="$(string.map_StandbyRootCauseBitsMapQuery apps)"/>
+      <map value="0x4" message="$(string.map_StandbyRootCauseBitsMapQuery services)"/>
+      <map value="0x8" message="$(string.map_StandbyRootCauseBitsMapSuspend apps)"/>
+      <map value="0x10" message="$(string.map_StandbyRootCauseBitsMapSuspend services)"/>
+      <map value="0x20" message="$(string.map_StandbyRootCauseBitsMapSuspend show UI)"/>
+      <map value="0x40" message="$(string.map_StandbyRootCauseBitsMapSuperfetch pagein)"/>
+      <map value="0x80" message="$(string.map_StandbyRootCauseBitsMapSuspend Winlogon)"/>
+      <map value="0x100" message="$(string.map_StandbyRootCauseBitsMapLock pageable sections)"/>
+      <map value="0x200" message="$(string.map_StandbyRootCauseBitsMapPre sleep callbacks)"/>
+      <map value="0x400" message="$(string.map_StandbyRootCauseBitsMapSwap in worker threads)"/>
+      <map value="0x800" message="$(string.map_StandbyRootCauseBitsMapQuery devices)"/>
+      <map value="0x1000" message="$(string.map_StandbyRootCauseBitsMapFlush volumes)"/>
+      <map value="0x2000" message="$(string.map_StandbyRootCauseBitsMapSuspend devices)"/>
+      <map value="0x4000" message="$(string.map_StandbyRootCauseBitsMapHibernate write)"/>
+      <map value="0x8000" message="$(string.map_StandbyRootCauseBitsMapResume)"/>
+      <map value="0x10000" message="$(string.map_StandbyRootCauseBitsMapHibernate read)"/>
+      <map value="0x20000" message="$(string.map_StandbyRootCauseBitsMapS3 Bios init time)"/>
+      <map value="0x40000" message="$(string.map_StandbyRootCauseBitsMapResume devices)"/>
+     </bitMap>
+     <valueMap name="ShellSubScenarioNameMap">
+      <map value="0x1" message="$(string.map_ShellSubScenarioNameMapSystem Responsiveness)"/>
+      <map value="0x2" message="$(string.map_ShellSubScenarioNameMapStart Menu)"/>
+      <map value="0x4" message="$(string.map_ShellSubScenarioNameMapVideo Memory)"/>
+     </valueMap>
+     <valueMap name="VidMemResponseReasonMap">
+      <map value="0x0" message="$(string.map_VidMemResponseReasonMapUnknown)"/>
+      <map value="0x1" message="$(string.map_VidMemResponseReasonMapCPU resources are over-utilized.)"/>
+      <map value="0x2" message="$(string.map_VidMemResponseReasonMapGraphics subsystem resources are over-utilized.)"/>
+      <map value="0x3" message="$(string.map_VidMemResponseReasonMapMachine resources are under excessive pressure.)"/>
+     </valueMap>
+    </maps>
+    <events>
+     <event value="100" symbol="BootPerformanceMonitoringBootInformation_V1" version="1" task="BootPerformanceMonitoring" opcode="BootInformation" level="win:Informational" keywords="EventLog" template="BootPerformanceMonitoringBootInformationArgs_V1"/>
+     <event value="100" symbol="BootPerformanceMonitoringBootInformation_V2" version="2" task="BootPerformanceMonitoring" opcode="BootInformation" level="win:Informational" keywords="EventLog" template="BootPerformanceMonitoringBootInformationArgs_V2"/>
+     <event value="101" symbol="BootPerformanceMonitoringBootDegradation_V1" version="1" task="BootPerformanceMonitoring" opcode="BootDegradation" level="win:Warning" keywords="EventLog" template="BootPerformanceMonitoringBootDegradationArgs_V1"/>
+     <event value="102" symbol="BootPerformanceMonitoringBootDegradation102_V1" version="1" task="BootPerformanceMonitoring" opcode="BootDegradation" level="win:Warning" keywords="EventLog" template="BootPerformanceMonitoringBootDegradationArgs_V1"/>
+     <event value="103" symbol="BootPerformanceMonitoringBootDegradation103_V1" version="1" task="BootPerformanceMonitoring" opcode="BootDegradation" level="win:Warning" keywords="EventLog" template="BootPerformanceMonitoringBootDegradationArgs_V1"/>
+     <event value="104" symbol="BootPerformanceMonitoringBootDegradation104_V1" version="1" task="BootPerformanceMonitoring" opcode="BootDegradation" level="win:Warning" keywords="EventLog" template="BootPerformanceMonitoringBootDegradation104Args_V1"/>
+     <event value="105" symbol="BootPerformanceMonitoringBootDegradation105_V1" version="1" task="BootPerformanceMonitoring" opcode="BootDegradation" level="win:Warning" keywords="EventLog" template="BootPerformanceMonitoringBootDegradation104Args_V1"/>
+     <event value="106" symbol="BootPerformanceMonitoringBootDegradation106_V1" version="1" task="BootPerformanceMonitoring" opcode="BootDegradation" level="win:Warning" keywords="EventLog" template="BootPerformanceMonitoringBootDegradation104Args_V1"/>
+     <event value="107" symbol="BootPerformanceMonitoringBootDegradation107_V1" version="1" task="BootPerformanceMonitoring" opcode="BootDegradation" level="win:Warning" keywords="EventLog" template="BootPerformanceMonitoringBootDegradation104Args_V1"/>
+     <event value="108" symbol="BootPerformanceMonitoringBootDegradation108_V1" version="1" task="BootPerformanceMonitoring" opcode="BootDegradation" level="win:Warning" keywords="EventLog" template="BootPerformanceMonitoringBootDegradation104Args_V1"/>
+     <event value="109" symbol="BootPerformanceMonitoringBootDegradation109_V1" version="1" task="BootPerformanceMonitoring" opcode="BootDegradation" level="win:Warning" keywords="EventLog" template="BootPerformanceMonitoringBootDegradationArgs_V1"/>
+     <event value="110" symbol="BootPerformanceMonitoringBootDegradation110_V1" version="1" task="BootPerformanceMonitoring" opcode="BootDegradation" level="win:Warning" keywords="EventLog" template="BootPerformanceMonitoringBootDegradation104Args_V1"/>
+     <event value="200" symbol="ShutdownPerformanceMonitoringShutdownInformation_V1" version="1" task="ShutdownPerformanceMonitoring" opcode="ShutdownInformation" level="win:Informational" keywords="EventLog" template="ShutdownPerformanceMonitoringShutdownInformationArgs_V1"/>
+     <event value="201" symbol="ShutdownPerformanceMonitoringShutdownDegradation_V1" version="1" task="ShutdownPerformanceMonitoring" opcode="ShutdownDegradation" level="win:Warning" keywords="EventLog" template="BootPerformanceMonitoringBootDegradationArgs_V1"/>
+     <event value="202" symbol="ShutdownPerformanceMonitoringShutdownDegradation202_V1" version="1" task="ShutdownPerformanceMonitoring" opcode="ShutdownDegradation" level="win:Warning" keywords="EventLog" template="BootPerformanceMonitoringBootDegradationArgs_V1"/>
+     <event value="203" symbol="ShutdownPerformanceMonitoringShutdownDegradation203_V1" version="1" task="ShutdownPerformanceMonitoring" opcode="ShutdownDegradation" level="win:Warning" keywords="EventLog" template="BootPerformanceMonitoringBootDegradationArgs_V1"/>
+     <event value="300" symbol="StandbyPerformanceMonitoringStandbyInformation_V1" version="1" task="StandbyPerformanceMonitoring" opcode="StandbyInformation" level="win:Informational" keywords="EventLog" template="StandbyPerformanceMonitoringStandbyInformationArgs_V1"/>
+     <event value="301" symbol="StandbyPerformanceMonitoringStandbyDegradation_V1" version="1" task="StandbyPerformanceMonitoring" opcode="StandbyDegradation" level="win:Warning" keywords="EventLog" template="BootPerformanceMonitoringBootDegradationArgs_V1"/>
+     <event value="302" symbol="StandbyPerformanceMonitoringStandbyDegradation302_V1" version="1" task="StandbyPerformanceMonitoring" opcode="StandbyDegradation" level="win:Warning" keywords="EventLog" template="StandbyPerformanceMonitoringStandbyDegradation302Args_V1"/>
+     <event value="303" symbol="StandbyPerformanceMonitoringStandbyDegradation303_V1" version="1" task="StandbyPerformanceMonitoring" opcode="StandbyDegradation" level="win:Warning" keywords="EventLog" template="BootPerformanceMonitoringBootDegradationArgs_V1"/>
+     <event value="304" symbol="StandbyPerformanceMonitoringStandbyDegradation304_V1" version="1" task="StandbyPerformanceMonitoring" opcode="StandbyDegradation" level="win:Warning" keywords="EventLog" template="BootPerformanceMonitoringBootDegradation104Args_V1"/>
+     <event value="305" symbol="StandbyPerformanceMonitoringStandbyDegradation305_V1" version="1" task="StandbyPerformanceMonitoring" opcode="StandbyDegradation" level="win:Warning" keywords="EventLog" template="BootPerformanceMonitoringBootDegradation104Args_V1"/>
+     <event value="306" symbol="StandbyPerformanceMonitoringStandbyDegradation306_V1" version="1" task="StandbyPerformanceMonitoring" opcode="StandbyDegradation" level="win:Warning" keywords="EventLog" template="BootPerformanceMonitoringBootDegradation104Args_V1"/>
+     <event value="307" symbol="StandbyPerformanceMonitoringStandbyDegradation307_V1" version="1" task="StandbyPerformanceMonitoring" opcode="StandbyDegradation" level="win:Warning" keywords="EventLog" template="BootPerformanceMonitoringBootDegradation104Args_V1"/>
+     <event value="308" symbol="StandbyPerformanceMonitoringStandbyDegradation308_V1" version="1" task="StandbyPerformanceMonitoring" opcode="StandbyDegradation" level="win:Warning" keywords="EventLog" template="BootPerformanceMonitoringBootDegradation104Args_V1"/>
+     <event value="309" symbol="StandbyPerformanceMonitoringStandbyDegradation309_V1" version="1" task="StandbyPerformanceMonitoring" opcode="StandbyDegradation" level="win:Warning" keywords="EventLog" template="BootPerformanceMonitoringBootDegradation104Args_V1"/>
+     <event value="310" symbol="StandbyPerformanceMonitoringStandbyDegradation310_V1" version="1" task="StandbyPerformanceMonitoring" opcode="StandbyDegradation" level="win:Warning" keywords="EventLog" template="BootPerformanceMonitoringBootDegradation104Args_V1"/>
+     <event value="350" symbol="StandbyPerformanceMonitoringStandbyDegradation350_V1" version="1" task="StandbyPerformanceMonitoring" opcode="StandbyDegradation" level="win:Warning" keywords="EventLog" template="BootPerformanceMonitoringBootDegradation104Args_V1"/>
+     <event value="351" symbol="StandbyPerformanceMonitoringStandbyDegradation351_V1" version="1" task="StandbyPerformanceMonitoring" opcode="StandbyDegradation" level="win:Warning" keywords="EventLog" template="StandbyPerformanceMonitoringStandbyDegradation302Args_V1"/>
+     <event value="352" symbol="StandbyPerformanceMonitoringStandbyDegradation352_V1" version="1" task="StandbyPerformanceMonitoring" opcode="StandbyDegradation" level="win:Warning" keywords="EventLog" template="BootPerformanceMonitoringBootDegradation104Args_V1"/>
+     <event value="400" symbol="SystemPerformanceMonitoringShellInformation_V1" version="1" task="SystemPerformanceMonitoring" opcode="ShellInformation" level="win:Informational" keywords="EventLog" template="SystemPerformanceMonitoringShellInformationArgs_V1"/>
+     <event value="401" symbol="SystemPerformanceMonitoringShellDegradation_V1" version="1" task="SystemPerformanceMonitoring" opcode="ShellDegradation" level="win:Warning" keywords="EventLog" template="SystemPerformanceMonitoringShellDegradationArgs_V1"/>
+     <event value="402" symbol="SystemPerformanceMonitoringShellDegradation402_V1" version="1" task="SystemPerformanceMonitoring" opcode="ShellDegradation" level="win:Warning" keywords="EventLog" template="SystemPerformanceMonitoringShellDegradationArgs_V1"/>
+     <event value="403" symbol="SystemPerformanceMonitoringShellDegradation403_V1" version="1" task="SystemPerformanceMonitoring" opcode="ShellDegradation" level="win:Warning" keywords="EventLog" template="SystemPerformanceMonitoringShellDegradationArgs_V1"/>
+     <event value="404" symbol="SystemPerformanceMonitoringShellDegradation404_V1" version="1" task="SystemPerformanceMonitoring" opcode="ShellDegradation" level="win:Warning" keywords="EventLog" template="SystemPerformanceMonitoringShellDegradationArgs_V1"/>
+     <event value="405" symbol="SystemPerformanceMonitoringShellDegradation405_V1" version="1" task="SystemPerformanceMonitoring" opcode="ShellDegradation" level="win:Warning" keywords="EventLog" template="SystemPerformanceMonitoringShellDegradationArgs_V1"/>
+     <event value="406" symbol="SystemPerformanceMonitoringShellDegradation406_V1" version="1" task="SystemPerformanceMonitoring" opcode="ShellDegradation" level="win:Warning" keywords="EventLog" template="SystemPerformanceMonitoringShellDegradationArgs_V1"/>
+     <event value="407" symbol="SystemPerformanceMonitoringShellDegradation407_V1" version="1" task="SystemPerformanceMonitoring" opcode="ShellDegradation" level="win:Warning" keywords="EventLog" template="SystemPerformanceMonitoringShellDegradation407Args_V1"/>
+     <event value="408" symbol="SystemPerformanceMonitoringShellDegradation408_V1" version="1" task="SystemPerformanceMonitoring" opcode="ShellDegradation" level="win:Warning" keywords="EventLog" template="SystemPerformanceMonitoringShellDegradation408Args_V1"/>
+     <event value="500" symbol="DesktopWindowManagerMonitoringVideoMemoryDegradation_V1" version="1" task="DesktopWindowManagerMonitoring" opcode="VideoMemoryDegradation" level="win:Warning" keywords="EventLog" template="DesktopWindowManagerMonitoringVideoMemoryDegradationArgs_V1"/>
+     <event value="501" symbol="DesktopWindowManagerMonitoringVideoMemoryResponsiveness_V1" version="1" task="DesktopWindowManagerMonitoring" opcode="VideoMemoryResponsiveness" level="win:Warning" keywords="EventLog" template="DesktopWindowManagerMonitoringVideoMemoryResponsivenessArgs_V1"/>
+     <event value="1001" symbol="Boot_DMConfigFailed" version="0" task="Boot_DMConfig" opcode="Failed" level="win:Verbose" keywords="BootStatus" template="Boot_DMConfigFailedArgs"/>
+     <event value="1002" symbol="Boot_UnexpectedEvent" version="0" task="Boot_UnexpectedEvent" level="win:Verbose" keywords="BootStatus" template="Boot_UnexpectedEventArgs"/>
+     <event value="1003" symbol="Boot_ChangedState" version="0" task="Boot_ChangedState" level="win:Verbose" keywords="BootStatus" template="Boot_ChangedStateArgs"/>
+     <event value="1005" symbol="Boot_CapturedDCL" version="0" task="Boot_CapturedDCL" level="win:Verbose" keywords="BootStatus" template="Boot_DMConfigFailedArgs"/>
+     <event value="1006" symbol="Boot_DetectedMultipleLogons" version="0" task="Boot_DetectedMultipleLogons" level="win:Verbose" keywords="BootStatus"/>
+     <event value="1007" symbol="Boot_ReceivedEvent" version="0" task="Boot_ReceivedEvent" level="win:Verbose" keywords="BootStatus" template="Boot_UnexpectedEventArgs"/>
+     <event value="1010" symbol="Boot_TroubleshootingStart" version="0" task="Boot_Troubleshooting" opcode="win:Start" level="win:Verbose" keywords="BootStatus"/>
+     <event value="1011" symbol="Boot_TroubleshootingStop" version="0" task="Boot_Troubleshooting" opcode="win:Stop" level="win:Verbose" keywords="BootStatus" template="Boot_DMConfigFailedArgs"/>
+     <event value="1012" symbol="Boot_ProcessingSystemStart" version="0" task="Boot_ProcessingSystem" opcode="win:Start" level="win:Verbose" keywords="BootStatus"/>
+     <event value="1013" symbol="Boot_ProcessingSystemStop" version="0" task="Boot_ProcessingSystem" opcode="win:Stop" level="win:Verbose" keywords="BootStatus" template="Boot_DMConfigFailedArgs"/>
+     <event value="1014" symbol="Boot_ProcessingUserStart" version="0" task="Boot_ProcessingUser" opcode="win:Start" level="win:Verbose" keywords="BootStatus"/>
+     <event value="1015" symbol="Boot_ProcessingUserStop" version="0" task="Boot_ProcessingUser" opcode="win:Stop" level="win:Verbose" keywords="BootStatus" template="Boot_DMConfigFailedArgs"/>
+     <event value="1020" symbol="Boot_ArchiveCorrupt" version="0" task="Boot_ArchiveCorrupt" level="win:Verbose" keywords="BootStatus" template="Boot_DMConfigFailedArgs"/>
+     <event value="1022" symbol="Boot_CancelledAnalysisViaRegistry" version="0" task="Boot_CancelledAnalysisViaRegistry" level="win:Verbose" keywords="BootStatus"/>
+     <event value="1024" symbol="Boot_RurReadAheadStart" version="0" task="Boot_RurReadAhead" opcode="win:Start" level="win:Verbose" keywords="BootStatus"/>
+     <event value="1025" symbol="Boot_RurReadAheadStop" version="0" task="Boot_RurReadAhead" opcode="win:Stop" level="win:Verbose" keywords="BootStatus" template="Boot_DMConfigFailedArgs"/>
+     <event value="1026" symbol="Boot_RurLegacyResourceStart" version="0" task="Boot_RurLegacyResource" opcode="win:Start" level="win:Verbose" keywords="BootStatus"/>
+     <event value="1027" symbol="Boot_RurLegacyResourceStop" version="0" task="Boot_RurLegacyResource" opcode="win:Stop" level="win:Verbose" keywords="BootStatus"/>
+     <event value="1028" symbol="Boot_RurAppResourceUsageStart" version="0" task="Boot_RurAppResourceUsage" opcode="win:Start" level="win:Verbose" keywords="BootStatus"/>
+     <event value="1029" symbol="Boot_RurAppResourceUsageStop" version="0" task="Boot_RurAppResourceUsage" opcode="win:Stop" level="win:Verbose" keywords="BootStatus" template="Boot_DMConfigFailedArgs"/>
+     <event value="2001" symbol="Shell_DegradationDetectedStepUp" version="0" task="Shell_DegradationDetected" opcode="StepUp" level="win:Verbose" keywords="ShellStatus"/>
+     <event value="2002" symbol="Shell_DegradationDetectedStepDown" version="0" task="Shell_DegradationDetected" opcode="StepDown" level="win:Verbose" keywords="ShellStatus"/>
+     <event value="2003" symbol="Shell_DegradationDetectedGradualUp" version="0" task="Shell_DegradationDetected" opcode="GradualUp" level="win:Verbose" keywords="ShellStatus"/>
+     <event value="2004" symbol="Shell_DegradationDetectedGradualDown" version="0" task="Shell_DegradationDetected" opcode="GradualDown" level="win:Verbose" keywords="ShellStatus"/>
+     <event value="2005" symbol="Scenario_CapturedCKCL" version="0" task="Scenario_CapturedCKCL" level="win:Verbose" keywords="ScenarioStatus" template="Scenario_CapturedCKCLArgs"/>
+     <event value="2006" symbol="Scenario_CapturedDCL" version="0" task="Scenario_CapturedDCL" level="win:Verbose" keywords="ScenarioStatus" template="Scenario_CapturedCKCLArgs"/>
+     <event value="2007" symbol="Scenario_SimpleEventStart" version="0" task="Scenario_SimpleEvent" opcode="win:Start" level="win:Verbose" keywords="ScenarioStatus" template="Scenario_SimpleEventStartArgs"/>
+     <event value="2008" symbol="Scenario_SimpleEventStop" version="0" task="Scenario_SimpleEvent" opcode="win:Stop" level="win:Verbose" keywords="ScenarioStatus" template="Scenario_SimpleEventStartArgs"/>
+     <event value="2009" symbol="Scenario_StartEventStart" version="0" task="Scenario_StartEvent" opcode="win:Start" level="win:Verbose" keywords="ScenarioStatus" template="Scenario_SimpleEventStartArgs"/>
+     <event value="2010" symbol="Scenario_StartEventStop" version="0" task="Scenario_StartEvent" opcode="win:Stop" level="win:Verbose" keywords="ScenarioStatus" template="Scenario_SimpleEventStartArgs"/>
+     <event value="2011" symbol="Scenario_StopEventStart" version="0" task="Scenario_StopEvent" opcode="win:Start" level="win:Verbose" keywords="ScenarioStatus" template="Scenario_SimpleEventStartArgs"/>
+     <event value="2012" symbol="Scenario_StopEventStop" version="0" task="Scenario_StopEvent" opcode="win:Stop" level="win:Verbose" keywords="ScenarioStatus" template="Scenario_SimpleEventStartArgs"/>
+     <event value="2013" symbol="Scenario_ProblemDetectionStart" version="0" task="Scenario_ProblemDetection" opcode="win:Start" level="win:Verbose" keywords="ScenarioStatus" template="Scenario_ProblemDetectionStartArgs"/>
+     <event value="2014" symbol="Scenario_ProblemDetectionStop" version="0" task="Scenario_ProblemDetection" opcode="win:Stop" level="win:Verbose" keywords="ScenarioStatus" template="Scenario_ProblemDetectionStartArgs"/>
+     <event value="2015" symbol="Scenario_TroubleShootStart" version="0" task="Scenario_TroubleShoot" opcode="win:Start" level="win:Verbose" keywords="ScenarioStatus" template="Scenario_ProblemDetectionStartArgs"/>
+     <event value="2016" symbol="Scenario_TroubleShootStop" version="0" task="Scenario_TroubleShoot" opcode="win:Stop" level="win:Verbose" keywords="ScenarioStatus" template="Scenario_ProblemDetectionStartArgs"/>
+     <event value="7001" symbol="Boot_Loopback_SnapshotKMScenario" version="0" task="Boot_Loopback_SnapshotKMScenario" level="win:Informational" keywords="BootLoopback"/>
+     <event value="7101" symbol="BootApps_ResolverLoopback" version="0" task="BootApps_ResolverLoopback" level="win:Informational" keywords="ResolverLoopback"/>
+     <event value="7102" symbol="BootDrivers_ResolverLoopback" version="0" task="BootDrivers_ResolverLoopback" level="win:Informational" keywords="ResolverLoopback"/>
+     <event value="7103" symbol="ShutdownApps_ResolverLoopback" version="0" task="ShutdownApps_ResolverLoopback" level="win:Informational" keywords="ResolverLoopback"/>
+     <event value="7104" symbol="SuspendApps_ResolverLoopback" version="0" task="SuspendApps_ResolverLoopback" level="win:Informational" keywords="ResolverLoopback"/>
+     <event value="7105" symbol="SuspendDrivers_ResolverLoopback" version="0" task="SuspendDrivers_ResolverLoopback" level="win:Informational" keywords="ResolverLoopback"/>
+     <event value="7106" symbol="ResumeDrivers_ResolverLoopback" version="0" task="ResumeDrivers_ResolverLoopback" level="win:Informational" keywords="ResolverLoopback"/>
+     <event value="8001" symbol="Shutdown_ArchiveCorrupt" version="0" task="Shutdown_ArchiveCorrupt" level="win:Verbose" keywords="ShutdownStatus" template="Boot_DMConfigFailedArgs"/>
+     <event value="8002" symbol="Shutdown_ThreadCreateFailed" version="0" task="Shutdown_ThreadCreateFailed" opcode="Failed" level="win:Verbose" keywords="ShutdownStatus" template="Boot_DMConfigFailedArgs"/>
+     <event value="8003" symbol="Shutdown_TroubleshootingStart" version="0" task="Shutdown_Troubleshooting" opcode="win:Start" level="win:Verbose" keywords="ShutdownStatus"/>
+     <event value="8004" symbol="Shutdown_TroubleshootingStop" version="0" task="Shutdown_Troubleshooting" opcode="win:Stop" level="win:Verbose" keywords="ShutdownStatus" template="Boot_DMConfigFailedArgs"/>
+     <event value="8005" symbol="Shutdown_WaitingForBoot" version="0" task="Shutdown_WaitingForBoot" level="win:Verbose" keywords="ShutdownStatus"/>
+     <event value="8006" symbol="Shutdown_LocatedCKCL" version="0" task="Shutdown_LocatedCKCL" level="win:Verbose" keywords="ShutdownStatus" template="Shutdown_LocatedCKCLArgs"/>
+     <event value="8007" symbol="Shutdown_LocatedPossibleDCL" version="0" task="Shutdown_LocatedPossibleDCL" level="win:Verbose" keywords="ShutdownStatus" template="Shutdown_LocatedCKCLArgs"/>
+     <event value="8008" symbol="Shutdown_RestoringConfig" version="0" task="Shutdown_RestoringConfig" level="win:Verbose" keywords="ShutdownStatus"/>
+     <event value="8009" symbol="Shutdown_LoadConfigFailed" version="0" task="Shutdown_LoadConfig" opcode="Failed" level="win:Verbose" keywords="ShutdownStatus" template="Boot_DMConfigFailedArgs"/>
+     <event value="8010" symbol="Shutdown_ProxyCallback" version="0" task="Shutdown_ProxyCallback" level="win:Verbose" keywords="ShutdownStatus"/>
+     <event value="8011" symbol="Shutdown_StartCKCLStart" version="0" task="Shutdown_StartCKCL" opcode="win:Start" level="win:Verbose" keywords="ShutdownStatus"/>
+     <event value="8012" symbol="Shutdown_StartCKCLStop" version="0" task="Shutdown_StartCKCL" opcode="win:Stop" level="win:Verbose" keywords="ShutdownStatus" template="Boot_DMConfigFailedArgs"/>
+     <event value="8013" symbol="Shutdown_CancelledAnalysisViaRegistry" version="0" task="Shutdown_CancelledAnalysisViaRegistry" level="win:Verbose" keywords="ShutdownStatus"/>
+     <event value="9001" symbol="SecondaryLogon_DMConfigFailed" version="0" task="SecondaryLogon_DMConfig" opcode="Failed" level="win:Verbose" keywords="SecondaryLogonStatus" template="Boot_DMConfigFailedArgs"/>
+     <event value="9003" symbol="SecondaryLogon_UnexpectedEvent" version="0" task="SecondaryLogon_UnexpectedEvent" level="win:Verbose" keywords="SecondaryLogonStatus" template="Boot_UnexpectedEventArgs"/>
+     <event value="9005" symbol="SecondaryLogon_ChangedState" version="0" task="SecondaryLogon_ChangedState" level="win:Verbose" keywords="SecondaryLogonStatus" template="SecondaryLogon_ChangedStateArgs"/>
+     <event value="9007" symbol="SecondaryLogon_DetectedMultipleLogons" version="0" task="SecondaryLogon_DetectedMultipleLogons" level="win:Verbose" keywords="SecondaryLogonStatus"/>
+     <event value="9009" symbol="SecondaryLogon_ReceivedEvent" version="0" task="SecondaryLogon_ReceivedEvent" level="win:Verbose" keywords="SecondaryLogonStatus" template="Boot_UnexpectedEventArgs"/>
+     <event value="9011" symbol="SecondaryLogon_TroubleshootingStart" version="0" task="SecondaryLogon_Troubleshooting" opcode="win:Start" level="win:Verbose" keywords="SecondaryLogonStatus"/>
+     <event value="9012" symbol="SecondaryLogon_TroubleshootingStop" version="0" task="SecondaryLogon_Troubleshooting" opcode="win:Stop" level="win:Verbose" keywords="SecondaryLogonStatus" template="Boot_DMConfigFailedArgs"/>
+     <event value="9013" symbol="SecondaryLogon_CancelledAnalysisViaRegistry" version="0" task="SecondaryLogon_CancelledAnalysisViaRegistry" level="win:Verbose" keywords="SecondaryLogonStatus"/>
+     <event value="9015" symbol="SecondaryLogon_CapturedDCL" version="0" task="SecondaryLogon_CapturedDCL" level="win:Verbose" keywords="SecondaryLogonStatus" template="Boot_DMConfigFailedArgs"/>
+     <event value="10001" symbol="SecondaryLogonScenario_Stop" version="0" task="SecondaryLogonScenario_Stop" level="win:Informational" keywords="SecondaryLogonLoopback"/>
+     <event value="11001" symbol="Standby_ReceivedEvent" version="0" task="Standby_ReceivedEvent" level="win:Verbose" keywords="StandbyStatus" template="Boot_UnexpectedEventArgs"/>
+     <event value="11002" symbol="Standby_ChangedState" version="0" task="Standby_ChangedState" level="win:Verbose" keywords="StandbyStatus" template="SecondaryLogon_ChangedStateArgs"/>
+     <event value="11003" symbol="Standby_FailedTransition" version="0" task="Standby_FailedTransition" level="win:Verbose" keywords="StandbyStatus"/>
+     <event value="11005" symbol="Standby_DetectRegressionsStart" version="0" task="Standby_DetectRegressions" opcode="win:Start" level="win:Verbose" keywords="StandbyStatus"/>
+     <event value="11006" symbol="Standby_DetectRegressionsStop" version="0" task="Standby_DetectRegressions" opcode="win:Stop" level="win:Verbose" keywords="StandbyStatus" template="Boot_DMConfigFailedArgs"/>
+    </events>
+    <templates>
+     <template tid="Boot_DMConfigFailedArgs">
+      <data name="HResult" inType="win:UInt32"/>
+     </template>
+     <template tid="Boot_UnexpectedEventArgs">
+      <data name="GUID" inType="win:GUID"/>
+      <data name="EventId" inType="win:UInt16"/>
+      <data name="InternalState" inType="win:UInt32"/>
+     </template>
+     <template tid="Boot_ChangedStateArgs">
+      <data name="NewState" inType="win:UInt32" map="BootStatusMap"/>
+     </template>
+     <template tid="Scenario_CapturedCKCLArgs">
+      <data name="HResult" inType="win:UInt32"/>
+      <data name="SnapshotPath" inType="win:UnicodeString"/>
+     </template>
+     <template tid="Scenario_SimpleEventStartArgs">
+      <data name="ProviderId" inType="win:GUID"/>
+      <data name="EventId" inType="win:UInt16"/>
+      <data name="HResult" inType="win:UInt32"/>
+     </template>
+     <template tid="Scenario_ProblemDetectionStartArgs">
+      <data name="ScenarioGUID" inType="win:GUID"/>
+      <data name="HResult" inType="win:UInt32"/>
+     </template>
+     <template tid="Shutdown_LocatedCKCLArgs">
+      <data name="Path" inType="win:UnicodeString"/>
+     </template>
+     <template tid="SecondaryLogon_ChangedStateArgs">
+      <data name="NewState" inType="win:UInt32"/>
+     </template>
+     <template tid="BootPerformanceMonitoringBootInformationArgs_V1">
+      <data name="BootTsVersion" inType="win:UInt32"/>
+      <data name="BootStartTime" inType="win:FILETIME"/>
+      <data name="BootEndTime" inType="win:FILETIME"/>
+      <data name="SystemBootInstance" inType="win:UInt32"/>
+      <data name="UserBootInstance" inType="win:UInt32"/>
+      <data name="BootTime" inType="win:UInt32"/>
+      <data name="MainPathBootTime" inType="win:UInt32"/>
+      <data name="BootKernelInitTime" inType="win:UInt32"/>
+      <data name="BootDriverInitTime" inType="win:UInt32"/>
+      <data name="BootDevicesInitTime" inType="win:UInt32"/>
+      <data name="BootPrefetchInitTime" inType="win:UInt32"/>
+      <data name="BootPrefetchBytes" inType="win:UInt32"/>
+      <data name="BootAutoChkTime" inType="win:UInt32"/>
+      <data name="BootSmssInitTime" inType="win:UInt32"/>
+      <data name="BootCriticalServicesInitTime" inType="win:UInt32"/>
+      <data name="BootUserProfileProcessingTime" inType="win:UInt32"/>
+      <data name="BootMachineProfileProcessingTime" inType="win:UInt32"/>
+      <data name="BootExplorerInitTime" inType="win:UInt32"/>
+      <data name="BootNumStartupApps" inType="win:UInt32"/>
+      <data name="BootPostBootTime" inType="win:UInt32"/>
+      <data name="BootIsRebootAfterInstall" inType="win:Boolean"/>
+      <data name="BootRootCauseStepImprovementBits" inType="win:UInt32" map="BootRootCauseBitsMap"/>
+      <data name="BootRootCauseGradualImprovementBits" inType="win:UInt32"/>
+      <data name="BootRootCauseStepDegradationBits" inType="win:UInt32"/>
+      <data name="BootRootCauseGradualDegradationBits" inType="win:UInt32"/>
+      <data name="BootIsDegradation" inType="win:Boolean"/>
+      <data name="BootIsStepDegradation" inType="win:Boolean"/>
+      <data name="BootIsGradualDegradation" inType="win:Boolean"/>
+      <data name="BootImprovementDelta" inType="win:UInt32"/>
+      <data name="BootDegradationDelta" inType="win:UInt32"/>
+      <data name="BootIsRootCauseIdentified" inType="win:Boolean"/>
+     </template>
+     <template tid="BootPerformanceMonitoringBootDegradationArgs_V1">
+      <data name="StartTime" inType="win:FILETIME"/>
+      <data name="NameLength" inType="win:UInt32"/>
+      <data name="Name" inType="win:UnicodeString" length="NameLength"/>
+      <data name="FriendlyNameLength" inType="win:UInt32"/>
+      <data name="FriendlyName" inType="win:UnicodeString" length="FriendlyNameLength"/>
+      <data name="VersionLength" inType="win:UInt32"/>
+      <data name="Version" inType="win:UnicodeString" length="VersionLength"/>
+      <data name="TotalTime" inType="win:UInt32"/>
+      <data name="DegradationTime" inType="win:UInt32"/>
+      <data name="PathLength" inType="win:UInt32"/>
+      <data name="Path" inType="win:UnicodeString" length="PathLength"/>
+      <data name="ProductNameLength" inType="win:UInt32"/>
+      <data name="ProductName" inType="win:UnicodeString" length="ProductNameLength"/>
+      <data name="CompanyNameLength" inType="win:UInt32"/>
+      <data name="CompanyName" inType="win:UnicodeString" length="CompanyNameLength"/>
+     </template>
+     <template tid="BootPerformanceMonitoringBootDegradation104Args_V1">
+      <data name="StartTime" inType="win:FILETIME"/>
+      <data name="NameLength" inType="win:UInt32"/>
+      <data name="Name" inType="win:UnicodeString" length="NameLength"/>
+      <data name="TotalTime" inType="win:UInt32"/>
+      <data name="DegradationTime" inType="win:UInt32"/>
+     </template>
+     <template tid="ShutdownPerformanceMonitoringShutdownInformationArgs_V1">
+      <data name="ShutdownTsVersion" inType="win:UInt32"/>
+      <data name="ShutdownStartTime" inType="win:FILETIME"/>
+      <data name="ShutdownEndTime" inType="win:FILETIME"/>
+      <data name="ShutdownTime" inType="win:UInt32"/>
+      <data name="ShutdownUserSessionTime" inType="win:UInt32"/>
+      <data name="ShutdownUserPolicyTime" inType="win:UInt32"/>
+      <data name="ShutdownUserProfilesTime" inType="win:UInt32"/>
+      <data name="ShutdownSystemSessionsTime" inType="win:UInt32"/>
+      <data name="ShutdownPreShutdownNotificationsTime" inType="win:UInt32"/>
+      <data name="ShutdownServicesTime" inType="win:UInt32"/>
+      <data name="ShutdownKernelTime" inType="win:UInt32"/>
+      <data name="ShutdownRootCauseStepImprovementBits" inType="win:UInt32" map="ShutdownRootCauseBitsMap"/>
+      <data name="ShutdownRootCauseGradualImprovementBits" inType="win:UInt32"/>
+      <data name="ShutdownRootCauseStepDegradationBits" inType="win:UInt32"/>
+      <data name="ShutdownRootCauseGradualDegradationBits" inType="win:UInt32"/>
+      <data name="ShutdownIsDegradation" inType="win:Boolean"/>
+      <data name="ShutdownTimeChange" inType="win:Int32"/>
+     </template>
+     <template tid="StandbyPerformanceMonitoringStandbyInformationArgs_V1">
+      <data name="StandbyTsVersion" inType="win:UInt32"/>
+      <data name="StandbyAppCount" inType="win:UInt32"/>
+      <data name="StandbyServicesCount" inType="win:UInt32"/>
+      <data name="StandbyDevicesCount" inType="win:UInt32"/>
+      <data name="StandbyStartTime" inType="win:FILETIME"/>
+      <data name="StandbyEndTime" inType="win:FILETIME"/>
+      <data name="StandbySuspendTotal" inType="win:UInt32"/>
+      <data name="StandbySuspendTotalChange" inType="win:Int32"/>
+      <data name="StandbySuspendQueryApps" inType="win:UInt32"/>
+      <data name="StandbySuspendQueryAppsChange" inType="win:Int32"/>
+      <data name="StandbySuspendQueryServices" inType="win:UInt32"/>
+      <data name="StandbySuspendQueryServicesChange" inType="win:Int32"/>
+      <data name="StandbySuspendApps" inType="win:UInt32"/>
+      <data name="StandbySuspendAppsChange" inType="win:Int32"/>
+      <data name="StandbySuspendServices" inType="win:UInt32"/>
+      <data name="StandbySuspendServicesChange" inType="win:Int32"/>
+      <data name="StandbySuspendShowUI" inType="win:UInt32"/>
+      <data name="StandbySuspendShowUIChange" inType="win:Int32"/>
+      <data name="StandbySuspendSuperfetchPageIn" inType="win:UInt32"/>
+      <data name="StandbySuspendSuperfetchPageInChange" inType="win:Int32"/>
+      <data name="StandbySuspendWinlogon" inType="win:UInt32"/>
+      <data name="StandbySuspendWinlogonChange" inType="win:Int32"/>
+      <data name="StandbySuspendLockPageableSections" inType="win:UInt32"/>
+      <data name="StandbySuspendLockPageableSectionsChange" inType="win:Int32"/>
+      <data name="StandbySuspendPreSleepCallbacks" inType="win:UInt32"/>
+      <data name="StandbySuspendPreSleepCallbacksChange" inType="win:Int32"/>
+      <data name="StandbySuspendSwapInWorkerThreads" inType="win:UInt32"/>
+      <data name="StandbySuspendSwapInWorkerThreadsChange" inType="win:Int32"/>
+      <data name="StandbySuspendQueryDevices" inType="win:UInt32"/>
+      <data name="StandbySuspendQueryDevicesChange" inType="win:Int32"/>
+      <data name="StandbySuspendFlushVolumes" inType="win:UInt32"/>
+      <data name="StandbySuspendFlushVolumesChange" inType="win:Int32"/>
+      <data name="StandbySuspendSuspendDevices" inType="win:UInt32"/>
+      <data name="StandbySuspendSuspendDevicesChange" inType="win:Int32"/>
+      <data name="StandbySuspendHibernateWrite" inType="win:UInt32"/>
+      <data name="StandbySuspendHibernateWriteChange" inType="win:Int32"/>
+      <data name="ResumeStartTime" inType="win:FILETIME"/>
+      <data name="ResumeEndTime" inType="win:FILETIME"/>
+      <data name="StandbyResumeTotal" inType="win:UInt32"/>
+      <data name="StandbyResumeTotalChange" inType="win:Int32"/>
+      <data name="StandbyResumeHibernateRead" inType="win:UInt32"/>
+      <data name="StandbyResumeHibernateReadChange" inType="win:Int32"/>
+      <data name="StandbyResumeS3BiosInitTime" inType="win:UInt32"/>
+      <data name="StandbyResumeS3BiosInitTimeChange" inType="win:Int32"/>
+      <data name="StandbyResumeResumeDevices" inType="win:UInt32"/>
+      <data name="StandbyResumeResumeDevicesChange" inType="win:Int32"/>
+      <data name="StandbyRootCauseDegradationGradual" inType="win:UInt32"/>
+      <data name="StandbyRootCauseImprovementGradual" inType="win:UInt32" map="StandbyRootCauseBitsMap"/>
+      <data name="StandbyRootCauseDegradationStep" inType="win:UInt32"/>
+      <data name="StandbyRootCauseImprovementStep" inType="win:UInt32"/>
+      <data name="StandbyIsDegradation" inType="win:Boolean"/>
+      <data name="StandbyIsTroubleshooterLaunched" inType="win:Boolean"/>
+      <data name="StandbyIsRootCauseIdentified" inType="win:Boolean"/>
+     </template>
+     <template tid="StandbyPerformanceMonitoringStandbyDegradation302Args_V1">
+      <data name="StartTime" inType="win:FILETIME"/>
+      <data name="NameLength" inType="win:UInt32"/>
+      <data name="Name" inType="win:UnicodeString" length="NameLength"/>
+      <data name="FriendlyNameLength" inType="win:UInt32"/>
+      <data name="FriendlyName" inType="win:UnicodeString" length="FriendlyNameLength"/>
+      <data name="VersionLength" inType="win:UInt32"/>
+      <data name="Version" inType="win:UnicodeString" length="VersionLength"/>
+      <data name="TotalTime" inType="win:UInt32"/>
+      <data name="DegradationTime" inType="win:UInt32"/>
+      <data name="PathLength" inType="win:UInt32"/>
+      <data name="Path" inType="win:UnicodeString" length="PathLength"/>
+      <data name="ProductNameLength" inType="win:UInt32"/>
+      <data name="ProductName" inType="win:UnicodeString" length="ProductNameLength"/>
+      <data name="CompanyNameLength" inType="win:UInt32"/>
+      <data name="CompanyName" inType="win:UnicodeString" length="CompanyNameLength"/>
+      <data name="DeviceNameLength" inType="win:UInt32"/>
+      <data name="DeviceName" inType="win:UnicodeString" length="DeviceNameLength"/>
+      <data name="DeviceFriendlyNameLength" inType="win:UInt32"/>
+      <data name="DeviceFriendlyName" inType="win:UnicodeString" length="DeviceFriendlyNameLength"/>
+      <data name="DeviceTotalTime" inType="win:UInt32"/>
+      <data name="DeviceDegradationTime" inType="win:UInt32"/>
+     </template>
+     <template tid="SystemPerformanceMonitoringShellInformationArgs_V1">
+      <data name="ShellScenarioStartTime" inType="win:FILETIME"/>
+      <data name="ShellScenarioEndTime" inType="win:FILETIME"/>
+      <data name="ShellSubScenario" inType="win:UInt32" map="ShellSubScenarioNameMap"/>
+      <data name="ShellScenarioDuration" inType="win:UInt32"/>
+      <data name="ShellRootCauseBits" inType="win:UInt32"/>
+      <data name="ShellAnalysisResult" inType="win:UInt32"/>
+      <data name="ShellDegradationType" inType="win:UInt32"/>
+      <data name="ShellTsVersion" inType="win:UInt32"/>
+      <data name="ShellMachineUpTimeHours" inType="win:UInt32"/>
+      <data name="ShellMachineSleepPattern" inType="win:UInt32"/>
+     </template>
+     <template tid="SystemPerformanceMonitoringShellDegradationArgs_V1">
+      <data name="StartTime" inType="win:FILETIME"/>
+      <data name="NameLength" inType="win:UInt32"/>
+      <data name="Name" inType="win:UnicodeString" length="NameLength"/>
+      <data name="FriendlyNameLength" inType="win:UInt32"/>
+      <data name="FriendlyName" inType="win:UnicodeString" length="FriendlyNameLength"/>
+      <data name="VersionLength" inType="win:UInt32"/>
+      <data name="Version" inType="win:UnicodeString" length="VersionLength"/>
+      <data name="ThreadTime" inType="win:UInt32"/>
+      <data name="BlockedTime" inType="win:UInt32"/>
+      <data name="PercentTime" inType="win:Double"/>
+      <data name="PathLength" inType="win:UInt32"/>
+      <data name="Path" inType="win:UnicodeString" length="PathLength"/>
+      <data name="ProductNameLength" inType="win:UInt32"/>
+      <data name="ProductName" inType="win:UnicodeString" length="ProductNameLength"/>
+      <data name="CompanyNameLength" inType="win:UInt32"/>
+      <data name="CompanyName" inType="win:UnicodeString" length="CompanyNameLength"/>
+     </template>
+     <template tid="SystemPerformanceMonitoringShellDegradation407Args_V1">
+      <data name="StartTime" inType="win:FILETIME"/>
+      <data name="NameLength" inType="win:UInt32"/>
+      <data name="Name" inType="win:UnicodeString" length="NameLength"/>
+      <data name="FriendlyNameLength" inType="win:UInt32"/>
+      <data name="FriendlyName" inType="win:UnicodeString" length="FriendlyNameLength"/>
+      <data name="VersionLength" inType="win:UInt32"/>
+      <data name="Version" inType="win:UnicodeString" length="VersionLength"/>
+      <data name="WorkingSetSizeKb" inType="win:UInt32"/>
+      <data name="PeakWorkingSetSizeKb" inType="win:UInt32"/>
+      <data name="ProcessId" inType="win:UInt32"/>
+      <data name="PercentMemory" inType="win:Double"/>
+      <data name="PathLength" inType="win:UInt32"/>
+      <data name="Path" inType="win:UnicodeString" length="PathLength"/>
+      <data name="ProductNameLength" inType="win:UInt32"/>
+      <data name="ProductName" inType="win:UnicodeString" length="ProductNameLength"/>
+      <data name="CompanyNameLength" inType="win:UInt32"/>
+      <data name="CompanyName" inType="win:UnicodeString" length="CompanyNameLength"/>
+     </template>
+     <template tid="SystemPerformanceMonitoringShellDegradation408Args_V1">
+      <data name="StartTime" inType="win:FILETIME"/>
+      <data name="WorkingSetSizeKb" inType="win:UInt32"/>
+      <data name="PercentMemory" inType="win:Double"/>
+     </template>
+     <template tid="DesktopWindowManagerMonitoringVideoMemoryDegradationArgs_V1">
+      <data name="DisplayDeviceFriendlyNameLength" inType="win:UInt32"/>
+      <data name="DisplayDeviceFriendlyName" inType="win:UnicodeString" length="DisplayDeviceFriendlyNameLength"/>
+      <data name="MemoryBandwidth" inType="win:UInt32"/>
+      <data name="MemorySize" inType="win:UInt32"/>
+      <data name="Scenario" inType="win:UInt32"/>
+     </template>
+     <template tid="DesktopWindowManagerMonitoringVideoMemoryResponsivenessArgs_V1">
+      <data name="Reason" inType="win:UInt32" map="VidMemResponseReasonMap"/>
+      <data name="Diagnosis" inType="win:UInt32"/>
+     </template>
+     <template tid="BootPerformanceMonitoringBootInformationArgs_V2">
+      <data name="BootTsVersion" inType="win:UInt32"/>
+      <data name="BootStartTime" inType="win:FILETIME"/>
+      <data name="BootEndTime" inType="win:FILETIME"/>
+      <data name="SystemBootInstance" inType="win:UInt32"/>
+      <data name="UserBootInstance" inType="win:UInt32"/>
+      <data name="BootTime" inType="win:UInt32"/>
+      <data name="MainPathBootTime" inType="win:UInt32"/>
+      <data name="BootKernelInitTime" inType="win:UInt32"/>
+      <data name="BootDriverInitTime" inType="win:UInt32"/>
+      <data name="BootDevicesInitTime" inType="win:UInt32"/>
+      <data name="BootPrefetchInitTime" inType="win:UInt32"/>
+      <data name="BootPrefetchBytes" inType="win:UInt32"/>
+      <data name="BootAutoChkTime" inType="win:UInt32"/>
+      <data name="BootSmssInitTime" inType="win:UInt32"/>
+      <data name="BootCriticalServicesInitTime" inType="win:UInt32"/>
+      <data name="BootUserProfileProcessingTime" inType="win:UInt32"/>
+      <data name="BootMachineProfileProcessingTime" inType="win:UInt32"/>
+      <data name="BootExplorerInitTime" inType="win:UInt32"/>
+      <data name="BootNumStartupApps" inType="win:UInt32"/>
+      <data name="BootPostBootTime" inType="win:UInt32"/>
+      <data name="BootIsRebootAfterInstall" inType="win:Boolean"/>
+      <data name="BootRootCauseStepImprovementBits" inType="win:UInt32"/>
+      <data name="BootRootCauseGradualImprovementBits" inType="win:UInt32"/>
+      <data name="BootRootCauseStepDegradationBits" inType="win:UInt32"/>
+      <data name="BootRootCauseGradualDegradationBits" inType="win:UInt32"/>
+      <data name="BootIsDegradation" inType="win:Boolean"/>
+      <data name="BootIsStepDegradation" inType="win:Boolean"/>
+      <data name="BootIsGradualDegradation" inType="win:Boolean"/>
+      <data name="BootImprovementDelta" inType="win:UInt32"/>
+      <data name="BootDegradationDelta" inType="win:UInt32"/>
+      <data name="BootIsRootCauseIdentified" inType="win:Boolean"/>
+      <data name="OSLoaderDuration" inType="win:UInt32"/>
+      <data name="BootPNPInitStartTimeMS" inType="win:UInt32"/>
+      <data name="BootPNPInitDuration" inType="win:UInt32"/>
+      <data name="OtherKernelInitDuration" inType="win:UInt32"/>
+      <data name="SystemPNPInitStartTimeMS" inType="win:UInt32"/>
+      <data name="SystemPNPInitDuration" inType="win:UInt32"/>
+      <data name="SessionInitStartTimeMS" inType="win:UInt32"/>
+      <data name="Session0InitDuration" inType="win:UInt32"/>
+      <data name="Session1InitDuration" inType="win:UInt32"/>
+      <data name="SessionInitOtherDuration" inType="win:UInt32"/>
+      <data name="WinLogonStartTimeMS" inType="win:UInt32"/>
+      <data name="OtherLogonInitActivityDuration" inType="win:UInt32"/>
+      <data name="UserLogonWaitDuration" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_EventLog" value="EventLog"/>
+    <string id="keyword_BootStatus" value="BootStatus"/>
+    <string id="keyword_ShellStatus" value="ShellStatus"/>
+    <string id="keyword_StandbyStatus" value="StandbyStatus"/>
+    <string id="keyword_ScenarioStatus" value="ScenarioStatus"/>
+    <string id="keyword_BootLoopback" value="BootLoopback"/>
+    <string id="keyword_ShutdownStatus" value="ShutdownStatus"/>
+    <string id="keyword_ResolverLoopback" value="ResolverLoopback"/>
+    <string id="keyword_SecondaryLogonStatus" value="SecondaryLogonStatus"/>
+    <string id="keyword_SecondaryLogonLoopback" value="SecondaryLogonLoopback"/>
+    <string id="task_Boot_DMConfig" value="Boot_DMConfig"/>
+    <string id="opcode_Boot_DMConfigFailed" value="Failed"/>
+    <string id="task_Boot_UnexpectedEvent" value="Boot_UnexpectedEvent"/>
+    <string id="task_Boot_ChangedState" value="Boot_ChangedState"/>
+    <string id="task_Boot_CapturedDCL" value="Boot_CapturedDCL"/>
+    <string id="task_Boot_DetectedMultipleLogons" value="Boot_DetectedMultipleLogons"/>
+    <string id="task_Boot_ReceivedEvent" value="Boot_ReceivedEvent"/>
+    <string id="task_Boot_Troubleshooting" value="Boot_Troubleshooting"/>
+    <string id="task_Boot_ProcessingSystem" value="Boot_ProcessingSystem"/>
+    <string id="task_Boot_ProcessingUser" value="Boot_ProcessingUser"/>
+    <string id="task_Boot_ArchiveCorrupt" value="Boot_ArchiveCorrupt"/>
+    <string id="task_Boot_CancelledAnalysisViaRegistry" value="Boot_CancelledAnalysisViaRegistry"/>
+    <string id="task_Boot_RurReadAhead" value="Boot_RurReadAhead"/>
+    <string id="task_Boot_RurLegacyResource" value="Boot_RurLegacyResource"/>
+    <string id="task_Boot_RurAppResourceUsage" value="Boot_RurAppResourceUsage"/>
+    <string id="task_Shell_DegradationDetected" value="Shell_DegradationDetected"/>
+    <string id="opcode_Shell_DegradationDetectedStepUp" value="StepUp"/>
+    <string id="opcode_Shell_DegradationDetectedStepDown" value="StepDown"/>
+    <string id="opcode_Shell_DegradationDetectedGradualUp" value="GradualUp"/>
+    <string id="opcode_Shell_DegradationDetectedGradualDown" value="GradualDown"/>
+    <string id="task_Scenario_CapturedCKCL" value="Scenario_CapturedCKCL"/>
+    <string id="task_Scenario_CapturedDCL" value="Scenario_CapturedDCL"/>
+    <string id="task_Scenario_SimpleEvent" value="Scenario_SimpleEvent"/>
+    <string id="task_Scenario_StartEvent" value="Scenario_StartEvent"/>
+    <string id="task_Scenario_StopEvent" value="Scenario_StopEvent"/>
+    <string id="task_Scenario_ProblemDetection" value="Scenario_ProblemDetection"/>
+    <string id="task_Scenario_TroubleShoot" value="Scenario_TroubleShoot"/>
+    <string id="task_BootPerformanceMonitoring" value="BootPerformanceMonitoring"/>
+    <string id="opcode_BootPerformanceMonitoringBootDegradation" value="BootDegradation"/>
+    <string id="opcode_BootPerformanceMonitoringBootInformation" value="BootInformation"/>
+    <string id="task_StandbyPerformanceMonitoring" value="StandbyPerformanceMonitoring"/>
+    <string id="opcode_StandbyPerformanceMonitoringStandbyDegradation" value="StandbyDegradation"/>
+    <string id="opcode_StandbyPerformanceMonitoringStandbyInformation" value="StandbyInformation"/>
+    <string id="task_SystemPerformanceMonitoring" value="SystemPerformanceMonitoring"/>
+    <string id="opcode_SystemPerformanceMonitoringShellInformation" value="ShellInformation"/>
+    <string id="opcode_SystemPerformanceMonitoringShellDegradation" value="ShellDegradation"/>
+    <string id="task_DesktopWindowManagerMonitoring" value="DesktopWindowManagerMonitoring"/>
+    <string id="opcode_DesktopWindowManagerMonitoringVideoMemoryDegradation" value="VideoMemoryDegradation"/>
+    <string id="opcode_DesktopWindowManagerMonitoringVideoMemoryResponsiveness" value="VideoMemoryResponsiveness"/>
+    <string id="task_ShutdownPerformanceMonitoring" value="ShutdownPerformanceMonitoring"/>
+    <string id="opcode_ShutdownPerformanceMonitoringShutdownInformation" value="ShutdownInformation"/>
+    <string id="opcode_ShutdownPerformanceMonitoringShutdownDegradation" value="ShutdownDegradation"/>
+    <string id="task_Boot_Loopback_SnapshotKMScenario" value="Boot_Loopback_SnapshotKMScenario"/>
+    <string id="task_BootApps_ResolverLoopback" value="BootApps_ResolverLoopback"/>
+    <string id="task_BootDrivers_ResolverLoopback" value="BootDrivers_ResolverLoopback"/>
+    <string id="task_ShutdownApps_ResolverLoopback" value="ShutdownApps_ResolverLoopback"/>
+    <string id="task_SuspendApps_ResolverLoopback" value="SuspendApps_ResolverLoopback"/>
+    <string id="task_SuspendDrivers_ResolverLoopback" value="SuspendDrivers_ResolverLoopback"/>
+    <string id="task_ResumeDrivers_ResolverLoopback" value="ResumeDrivers_ResolverLoopback"/>
+    <string id="task_Shutdown_ArchiveCorrupt" value="Shutdown_ArchiveCorrupt"/>
+    <string id="task_Shutdown_ThreadCreateFailed" value="Shutdown_ThreadCreateFailed"/>
+    <string id="opcode_Shutdown_ThreadCreateFailedFailed" value="Failed"/>
+    <string id="task_Shutdown_Troubleshooting" value="Shutdown_Troubleshooting"/>
+    <string id="task_Shutdown_WaitingForBoot" value="Shutdown_WaitingForBoot"/>
+    <string id="task_Shutdown_LocatedCKCL" value="Shutdown_LocatedCKCL"/>
+    <string id="task_Shutdown_LocatedPossibleDCL" value="Shutdown_LocatedPossibleDCL"/>
+    <string id="task_Shutdown_RestoringConfig" value="Shutdown_RestoringConfig"/>
+    <string id="task_Shutdown_LoadConfig" value="Shutdown_LoadConfig"/>
+    <string id="opcode_Shutdown_LoadConfigFailed" value="Failed"/>
+    <string id="task_Shutdown_ProxyCallback" value="Shutdown_ProxyCallback"/>
+    <string id="task_Shutdown_StartCKCL" value="Shutdown_StartCKCL"/>
+    <string id="task_Shutdown_CancelledAnalysisViaRegistry" value="Shutdown_CancelledAnalysisViaRegistry"/>
+    <string id="task_SecondaryLogon_DMConfig" value="SecondaryLogon_DMConfig"/>
+    <string id="opcode_SecondaryLogon_DMConfigFailed" value="Failed"/>
+    <string id="task_SecondaryLogon_UnexpectedEvent" value="SecondaryLogon_UnexpectedEvent"/>
+    <string id="task_SecondaryLogon_ChangedState" value="SecondaryLogon_ChangedState"/>
+    <string id="task_SecondaryLogon_DetectedMultipleLogons" value="SecondaryLogon_DetectedMultipleLogons"/>
+    <string id="task_SecondaryLogon_ReceivedEvent" value="SecondaryLogon_ReceivedEvent"/>
+    <string id="task_SecondaryLogon_Troubleshooting" value="SecondaryLogon_Troubleshooting"/>
+    <string id="task_SecondaryLogon_CancelledAnalysisViaRegistry" value="SecondaryLogon_CancelledAnalysisViaRegistry"/>
+    <string id="task_SecondaryLogon_CapturedDCL" value="SecondaryLogon_CapturedDCL"/>
+    <string id="task_SecondaryLogonScenario_Stop" value="SecondaryLogonScenario_Stop"/>
+    <string id="task_Standby_ReceivedEvent" value="Standby_ReceivedEvent"/>
+    <string id="task_Standby_ChangedState" value="Standby_ChangedState"/>
+    <string id="task_Standby_FailedTransition" value="Standby_FailedTransition"/>
+    <string id="task_Standby_DetectRegressions" value="Standby_DetectRegressions"/>
+    <string id="map_BootStatusMapInitialized" value="Initialized"/>
+    <string id="map_BootStatusMapKernel scenario running" value="Kernel scenario running"/>
+    <string id="map_BootStatusMapKernel scenario stopped" value="Kernel scenario stopped"/>
+    <string id="map_BootStatusMapUser scenario running" value="User scenario running"/>
+    <string id="map_BootStatusMapUser scenario running in post boot" value="User scenario running in post boot"/>
+    <string id="map_BootStatusMapUser scenario stopped" value="User scenario stopped"/>
+    <string id="map_BootStatusMapDone" value="Done"/>
+    <string id="map_BootStatusMapFailed" value="Failed"/>
+    <string id="map_BootRootCauseBitsMapSystem boot time" value="System boot time"/>
+    <string id="map_BootRootCauseBitsMapKernel init time" value="Kernel init time"/>
+    <string id="map_BootRootCauseBitsMapDriver init time" value="Driver init time"/>
+    <string id="map_BootRootCauseBitsMapDevice init time" value="Device init time"/>
+    <string id="map_BootRootCauseBitsMapForeground prefetch time" value="Foreground prefetch time"/>
+    <string id="map_BootRootCauseBitsMapForeground prefetch bytes" value="Foreground prefetch bytes"/>
+    <string id="map_BootRootCauseBitsMapBackground prefetch time" value="Background prefetch time"/>
+    <string id="map_BootRootCauseBitsMapBackground prefetch bytes" value="Background prefetch bytes"/>
+    <string id="map_BootRootCauseBitsMapSMSS init time" value="SMSS init time"/>
+    <string id="map_BootRootCauseBitsMapCritical services init time" value="Critical services init time"/>
+    <string id="map_BootRootCauseBitsMapMachine policy application time" value="Machine policy application time"/>
+    <string id="map_BootRootCauseBitsMapUser boot time" value="User boot time"/>
+    <string id="map_BootRootCauseBitsMapPreShell init time" value="PreShell init time"/>
+    <string id="map_BootRootCauseBitsMapShell init time" value="Shell init time"/>
+    <string id="map_BootRootCauseBitsMapPost boot time" value="Post boot time"/>
+    <string id="map_ShutdownRootCauseBitsMapShutdown" value="Shutdown"/>
+    <string id="map_ShutdownRootCauseBitsMapUser session" value="User session"/>
+    <string id="map_ShutdownRootCauseBitsMapUser session notifications" value="User session notifications"/>
+    <string id="map_ShutdownRootCauseBitsMapUser session shutdown processes" value="User session shutdown processes"/>
+    <string id="map_ShutdownRootCauseBitsMapSystem session shutdown" value="System session shutdown"/>
+    <string id="map_ShutdownRootCauseBitsMapSystem session shutdown processes" value="System session shutdown processes"/>
+    <string id="map_ShutdownRootCauseBitsMapSystem session shutdown services" value="System session shutdown services"/>
+    <string id="map_ShutdownRootCauseBitsMapKernel shutdown" value="Kernel shutdown"/>
+    <string id="map_ShutdownRootCauseBitsMapPre-shutdown notifications, including system policy (GP) application" value="Pre-shutdown notifications, including system policy (GP) application"/>
+    <string id="map_StandbyRootCauseBitsMapSuspend" value="Suspend"/>
+    <string id="map_StandbyRootCauseBitsMapQuery apps" value="Query apps"/>
+    <string id="map_StandbyRootCauseBitsMapQuery services" value="Query services"/>
+    <string id="map_StandbyRootCauseBitsMapSuspend apps" value="Suspend apps"/>
+    <string id="map_StandbyRootCauseBitsMapSuspend services" value="Suspend services"/>
+    <string id="map_StandbyRootCauseBitsMapSuspend show UI" value="Suspend show UI"/>
+    <string id="map_StandbyRootCauseBitsMapSuperfetch pagein" value="Superfetch pagein"/>
+    <string id="map_StandbyRootCauseBitsMapSuspend Winlogon" value="Suspend Winlogon"/>
+    <string id="map_StandbyRootCauseBitsMapLock pageable sections" value="Lock pageable sections"/>
+    <string id="map_StandbyRootCauseBitsMapPre sleep callbacks" value="Pre sleep callbacks"/>
+    <string id="map_StandbyRootCauseBitsMapSwap in worker threads" value="Swap in worker threads"/>
+    <string id="map_StandbyRootCauseBitsMapQuery devices" value="Query devices"/>
+    <string id="map_StandbyRootCauseBitsMapFlush volumes" value="Flush volumes"/>
+    <string id="map_StandbyRootCauseBitsMapSuspend devices" value="Suspend devices"/>
+    <string id="map_StandbyRootCauseBitsMapHibernate write" value="Hibernate write"/>
+    <string id="map_StandbyRootCauseBitsMapResume" value="Resume"/>
+    <string id="map_StandbyRootCauseBitsMapHibernate read" value="Hibernate read"/>
+    <string id="map_StandbyRootCauseBitsMapS3 Bios init time" value="S3 Bios init time"/>
+    <string id="map_StandbyRootCauseBitsMapResume devices" value="Resume devices"/>
+    <string id="map_ShellSubScenarioNameMapSystem Responsiveness" value="System Responsiveness"/>
+    <string id="map_ShellSubScenarioNameMapStart Menu" value="Start Menu"/>
+    <string id="map_ShellSubScenarioNameMapVideo Memory" value="Video Memory"/>
+    <string id="map_VidMemResponseReasonMapUnknown" value="Unknown"/>
+    <string id="map_VidMemResponseReasonMapCPU resources are over-utilized." value="CPU resources are over-utilized."/>
+    <string id="map_VidMemResponseReasonMapGraphics subsystem resources are over-utilized." value="Graphics subsystem resources are over-utilized."/>
+    <string id="map_VidMemResponseReasonMapMachine resources are under excessive pressure." value="Machine resources are under excessive pressure."/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>

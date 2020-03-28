@@ -1,0 +1,414 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events>
+   <provider name="Microsoft-Windows-ParentalControls" guid="{01090065-b467-4503-9b28-533766761087}" resourceFileName="Microsoft-Windows-ParentalControls" messageFileName="Microsoft-Windows-ParentalControls" symbol="MicrosoftWindowsParentalControls" source="Xml" >
+    <keywords>
+     <keyword name="WPC" message="$(string.keyword_WPC)" mask="0x10"/>
+     <keyword name="ThirdParty" message="$(string.keyword_ThirdParty)" mask="0x20"/>
+    </keywords>
+    <tasks>
+     <task name="SettingChange" message="$(string.task_SettingChange)" value="1">
+>
+      <opcodes>
+       <opcode name="Modify" message="$(string.opcode_SettingChangeModify)" value="21"/>
+      </opcodes>
+     </task>
+     <task name="GameStart" message="$(string.task_GameStart)" value="2">
+>
+      <opcodes>
+       <opcode name="Launch" message="$(string.opcode_GameStartLaunch)" value="22"/>
+      </opcodes>
+     </task>
+     <task name="UrlVisit" message="$(string.task_UrlVisit)" value="3">
+>
+      <opcodes>
+       <opcode name="Web" message="$(string.opcode_UrlVisitWeb)" value="24"/>
+      </opcodes>
+     </task>
+     <task name="EmailReceived" message="$(string.task_EmailReceived)" value="4">
+>
+      <opcodes>
+       <opcode name="Launch" message="$(string.opcode_EmailReceivedLaunch)" value="22"/>
+      </opcodes>
+     </task>
+     <task name="EmailSent" message="$(string.task_EmailSent)" value="5">
+>
+      <opcodes>
+       <opcode name="Launch" message="$(string.opcode_EmailSentLaunch)" value="22"/>
+      </opcodes>
+     </task>
+     <task name="MediaPlayback" message="$(string.task_MediaPlayback)" value="6">
+>
+      <opcodes>
+       <opcode name="Launch" message="$(string.opcode_MediaPlaybackLaunch)" value="22"/>
+      </opcodes>
+     </task>
+     <task name="IMInvitation" message="$(string.task_IMInvitation)" value="7">
+>
+      <opcodes>
+       <opcode name="Launch" message="$(string.opcode_IMInvitationLaunch)" value="22"/>
+      </opcodes>
+     </task>
+     <task name="IMJoin" message="$(string.task_IMJoin)" value="8">
+>
+      <opcodes>
+       <opcode name="Launch" message="$(string.opcode_IMJoinLaunch)" value="22"/>
+      </opcodes>
+     </task>
+     <task name="IMLeave" message="$(string.task_IMLeave)" value="9">
+>
+      <opcodes>
+       <opcode name="Launch" message="$(string.opcode_IMLeaveLaunch)" value="22"/>
+      </opcodes>
+     </task>
+     <task name="FileDownload" message="$(string.task_FileDownload)" value="10">
+>
+      <opcodes>
+       <opcode name="Web" message="$(string.opcode_FileDownloadWeb)" value="24"/>
+      </opcodes>
+     </task>
+     <task name="IMFeature" message="$(string.task_IMFeature)" value="11">
+>
+      <opcodes>
+       <opcode name="Launch" message="$(string.opcode_IMFeatureLaunch)" value="22"/>
+      </opcodes>
+     </task>
+     <task name="Custom" message="$(string.task_Custom)" value="13">
+>
+      <opcodes>
+       <opcode name="System" message="$(string.opcode_CustomSystem)" value="23"/>
+      </opcodes>
+     </task>
+     <task name="EmailContact" message="$(string.task_EmailContact)" value="14">
+>
+      <opcodes>
+       <opcode name="Launch" message="$(string.opcode_EmailContactLaunch)" value="22"/>
+      </opcodes>
+     </task>
+     <task name="IMContact" message="$(string.task_IMContact)" value="15">
+>
+      <opcodes>
+       <opcode name="Launch" message="$(string.opcode_IMContactLaunch)" value="22"/>
+      </opcodes>
+     </task>
+     <task name="ApplicationBlocked" message="$(string.task_ApplicationBlocked)" value="16">
+>
+      <opcodes>
+       <opcode name="Launch" message="$(string.opcode_ApplicationBlockedLaunch)" value="22"/>
+      </opcodes>
+     </task>
+     <task name="ApplicationOverride" message="$(string.task_ApplicationOverride)" value="17">
+>
+      <opcodes>
+       <opcode name="Launch" message="$(string.opcode_ApplicationOverrideLaunch)" value="22"/>
+      </opcodes>
+     </task>
+     <task name="WebOverride" message="$(string.task_WebOverride)" value="18">
+>
+      <opcodes>
+       <opcode name="Launch" message="$(string.opcode_WebOverrideLaunch)" value="22"/>
+      </opcodes>
+     </task>
+     <task name="WebsiteVisit" message="$(string.task_WebsiteVisit)" value="19">
+>
+      <opcodes>
+       <opcode name="Web" message="$(string.opcode_WebsiteVisitWeb)" value="24"/>
+      </opcodes>
+     </task>
+     <task name="Application" message="$(string.task_Application)" value="20">
+>
+      <opcodes>
+       <opcode name="Launch" message="$(string.opcode_ApplicationLaunch)" value="22"/>
+      </opcodes>
+     </task>
+     <task name="ComputerUsage" message="$(string.task_ComputerUsage)" value="21">
+>
+      <opcodes>
+       <opcode name="System" message="$(string.opcode_ComputerUsageSystem)" value="23"/>
+      </opcodes>
+     </task>
+     <task name="ContentUsage" message="$(string.task_ContentUsage)" value="22">
+>
+      <opcodes>
+       <opcode name="System" message="$(string.opcode_ContentUsageSystem)" value="23"/>
+      </opcodes>
+     </task>
+    </tasks>
+    <events>
+     <event value="1" symbol="SettingChangeModify" version="0" task="SettingChange" opcode="Modify" level="win:Informational" keywords="WPC" template="SettingChangeModifyArgs"/>
+     <event value="2" symbol="GameStartLaunch" version="0" task="GameStart" opcode="Launch" level="win:Informational" keywords="WPC ThirdParty" template="GameStartLaunchArgs"/>
+     <event value="3" symbol="UrlVisitWeb" version="0" task="UrlVisit" opcode="Web" level="win:Informational" keywords="WPC" template="UrlVisitWebArgs"/>
+     <event value="4" symbol="EmailReceivedLaunch" version="0" task="EmailReceived" opcode="Launch" level="win:Informational" keywords="WPC ThirdParty" template="EmailReceivedLaunchArgs"/>
+     <event value="5" symbol="EmailSentLaunch" version="0" task="EmailSent" opcode="Launch" level="win:Informational" keywords="WPC ThirdParty" template="EmailSentLaunchArgs"/>
+     <event value="6" symbol="MediaPlaybackLaunch" version="0" task="MediaPlayback" opcode="Launch" level="win:Informational" keywords="WPC ThirdParty" template="MediaPlaybackLaunchArgs"/>
+     <event value="7" symbol="IMInvitationLaunch" version="0" task="IMInvitation" opcode="Launch" level="win:Informational" keywords="WPC ThirdParty" template="IMInvitationLaunchArgs"/>
+     <event value="8" symbol="IMJoinLaunch" version="0" task="IMJoin" opcode="Launch" level="win:Informational" keywords="WPC ThirdParty" template="IMJoinLaunchArgs"/>
+     <event value="9" symbol="IMLeaveLaunch" version="0" task="IMLeave" opcode="Launch" level="win:Informational" keywords="WPC ThirdParty" template="IMLeaveLaunchArgs"/>
+     <event value="10" symbol="FileDownloadWeb" version="0" task="FileDownload" opcode="Web" level="win:Informational" keywords="WPC ThirdParty" template="FileDownloadWebArgs"/>
+     <event value="11" symbol="IMFeatureLaunch" version="0" task="IMFeature" opcode="Launch" level="win:Informational" keywords="WPC ThirdParty" template="IMFeatureLaunchArgs"/>
+     <event value="13" symbol="CustomSystem" version="0" task="Custom" opcode="System" level="win:Informational" keywords="WPC ThirdParty" template="CustomSystemArgs"/>
+     <event value="14" symbol="EmailContactLaunch" version="0" task="EmailContact" opcode="Launch" level="win:Informational" keywords="WPC ThirdParty" template="EmailContactLaunchArgs"/>
+     <event value="15" symbol="IMContactLaunch" version="0" task="IMContact" opcode="Launch" level="win:Informational" keywords="WPC ThirdParty" template="IMContactLaunchArgs"/>
+     <event value="16" symbol="ApplicationBlockedLaunch" version="0" task="ApplicationBlocked" opcode="Launch" level="win:Informational" keywords="WPC" template="ApplicationBlockedLaunchArgs"/>
+     <event value="17" symbol="ApplicationOverrideLaunch" version="0" task="ApplicationOverride" opcode="Launch" level="win:Informational" keywords="WPC" template="ApplicationOverrideLaunchArgs"/>
+     <event value="18" symbol="WebOverrideLaunch" version="0" task="WebOverride" opcode="Launch" level="win:Informational" keywords="WPC" template="WebOverrideLaunchArgs"/>
+     <event value="19" symbol="WebsiteVisitWeb" version="0" task="WebsiteVisit" opcode="Web" level="win:Informational" keywords="WPC" template="WebsiteVisitWebArgs"/>
+     <event value="20" symbol="ApplicationLaunch" version="0" task="Application" opcode="Launch" level="win:Informational" keywords="WPC" template="ApplicationLaunchArgs"/>
+     <event value="21" symbol="ComputerUsageSystem" version="0" task="ComputerUsage" opcode="System" level="win:Informational" keywords="WPC" template="ComputerUsageSystemArgs"/>
+     <event value="22" symbol="ContentUsageSystem" version="0" task="ContentUsage" opcode="System" level="win:Informational" keywords="WPC" template="ContentUsageSystemArgs"/>
+    </events>
+    <templates>
+     <template tid="SettingChangeModifyArgs">
+      <data name="Class" inType="win:UnicodeString"/>
+      <data name="Setting" inType="win:UInt32"/>
+      <data name="AccountOwner" inType="win:UnicodeString"/>
+      <data name="OldValue" inType="win:UnicodeString"/>
+      <data name="NewValue" inType="win:UnicodeString"/>
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="Optional" inType="win:UnicodeString"/>
+     </template>
+     <template tid="GameStartLaunchArgs">
+      <data name="AppID" inType="win:GUID"/>
+      <data name="InstanceID" inType="win:GUID"/>
+      <data name="Version" inType="win:UnicodeString"/>
+      <data name="Path" inType="win:UnicodeString"/>
+      <data name="Rating" inType="win:UnicodeString"/>
+      <data name="RatingsSystem" inType="win:GUID"/>
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="DescriptorCount" inType="win:UInt32"/>
+      <data name="Descriptor" inType="win:UnicodeString"/>
+      <data name="PID" inType="win:UInt32"/>
+     </template>
+     <template tid="UrlVisitWebArgs">
+      <data name="URL" inType="win:UnicodeString"/>
+      <data name="Application" inType="win:UnicodeString"/>
+      <data name="Version" inType="win:UnicodeString"/>
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="RatingSystemID" inType="win:GUID"/>
+      <data name="CategoryCount" inType="win:UInt32"/>
+      <data name="Category" inType="win:UnicodeString"/>
+     </template>
+     <template tid="EmailReceivedLaunchArgs">
+      <data name="Sender" inType="win:UnicodeString"/>
+      <data name="Application" inType="win:UnicodeString"/>
+      <data name="Version" inType="win:UnicodeString"/>
+      <data name="Subject" inType="win:UnicodeString"/>
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="RecipientCount" inType="win:UInt32"/>
+      <data name="Recipient" inType="win:UnicodeString"/>
+      <data name="AttachmentCount" inType="win:UInt32"/>
+      <data name="AttachmentName" inType="win:UnicodeString"/>
+      <data name="ReceivedTime" inType="win:SYSTEMTIME"/>
+      <data name="EmailAccount" inType="win:UnicodeString"/>
+     </template>
+     <template tid="EmailSentLaunchArgs">
+      <data name="Sender" inType="win:UnicodeString"/>
+      <data name="Application" inType="win:UnicodeString"/>
+      <data name="Version" inType="win:UnicodeString"/>
+      <data name="Subject" inType="win:UnicodeString"/>
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="RecipientCount" inType="win:UInt32"/>
+      <data name="Recipient" inType="win:UnicodeString"/>
+      <data name="AttachmentCount" inType="win:UInt32"/>
+      <data name="AttachmentName" inType="win:UnicodeString"/>
+      <data name="EmailAccount" inType="win:UnicodeString"/>
+     </template>
+     <template tid="MediaPlaybackLaunchArgs">
+      <data name="Application" inType="win:UnicodeString"/>
+      <data name="Version" inType="win:UnicodeString"/>
+      <data name="MediaType" inType="win:UInt32"/>
+      <data name="Path" inType="win:UnicodeString"/>
+      <data name="Title" inType="win:UnicodeString"/>
+      <data name="PML" inType="win:UInt32"/>
+      <data name="Album" inType="win:UnicodeString"/>
+      <data name="ExplicitContent" inType="win:UInt32"/>
+      <data name="Reason" inType="win:UInt32"/>
+     </template>
+     <template tid="IMInvitationLaunchArgs">
+      <data name="Application" inType="win:UnicodeString"/>
+      <data name="Version" inType="win:UnicodeString"/>
+      <data name="AccountName" inType="win:UnicodeString"/>
+      <data name="ConversationID" inType="win:UnicodeString"/>
+      <data name="RequestingIP" inType="win:UnicodeString"/>
+      <data name="Sender" inType="win:UnicodeString"/>
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="RecipientCount" inType="win:UInt32"/>
+      <data name="Recipient" inType="win:UnicodeString"/>
+     </template>
+     <template tid="IMJoinLaunchArgs">
+      <data name="Application" inType="win:UnicodeString"/>
+      <data name="Version" inType="win:UnicodeString"/>
+      <data name="AccountName" inType="win:UnicodeString"/>
+      <data name="ConversationID" inType="win:UnicodeString"/>
+      <data name="JoiningIP" inType="win:UnicodeString"/>
+      <data name="JoiningUser" inType="win:UnicodeString"/>
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="MemberCount" inType="win:UInt32"/>
+      <data name="Member" inType="win:UnicodeString"/>
+      <data name="Sender" inType="win:UnicodeString"/>
+     </template>
+     <template tid="IMLeaveLaunchArgs">
+      <data name="Application" inType="win:UnicodeString"/>
+      <data name="Version" inType="win:UnicodeString"/>
+      <data name="AccountName" inType="win:UnicodeString"/>
+      <data name="ConversationID" inType="win:UnicodeString"/>
+      <data name="LeavingIP" inType="win:UnicodeString"/>
+      <data name="LeavingUser" inType="win:UnicodeString"/>
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="MemberCount" inType="win:UInt32"/>
+      <data name="Member" inType="win:UnicodeString"/>
+      <data name="Flags" inType="win:UInt32"/>
+     </template>
+     <template tid="FileDownloadWebArgs">
+      <data name="URL" inType="win:UnicodeString"/>
+      <data name="Application" inType="win:UnicodeString"/>
+      <data name="Version" inType="win:UnicodeString"/>
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="Path" inType="win:UnicodeString"/>
+     </template>
+     <template tid="IMFeatureLaunchArgs">
+      <data name="Application" inType="win:UnicodeString"/>
+      <data name="Version" inType="win:UnicodeString"/>
+      <data name="AccountName" inType="win:UnicodeString"/>
+      <data name="ConversationID" inType="win:UnicodeString"/>
+      <data name="MediaType" inType="win:UInt32"/>
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="RecipientCount" inType="win:UInt32"/>
+      <data name="Recipient" inType="win:UnicodeString"/>
+      <data name="Sender" inType="win:UnicodeString"/>
+      <data name="SenderIP" inType="win:UnicodeString"/>
+      <data name="Data" inType="win:UnicodeString"/>
+     </template>
+     <template tid="CustomSystemArgs">
+      <data name="Publisher" inType="win:UnicodeString"/>
+      <data name="Application" inType="win:UnicodeString"/>
+      <data name="Version" inType="win:UnicodeString"/>
+      <data name="Event" inType="win:UnicodeString"/>
+      <data name="Value1" inType="win:UnicodeString"/>
+      <data name="Value2" inType="win:UnicodeString"/>
+      <data name="Value3" inType="win:UnicodeString"/>
+      <data name="Blocked" inType="win:UInt32"/>
+      <data name="Reason" inType="win:UnicodeString"/>
+     </template>
+     <template tid="EmailContactLaunchArgs">
+      <data name="Application" inType="win:UnicodeString"/>
+      <data name="Version" inType="win:UnicodeString"/>
+      <data name="OldName" inType="win:UnicodeString"/>
+      <data name="OldAddress" inType="win:UnicodeString"/>
+      <data name="NewName" inType="win:UnicodeString"/>
+      <data name="NewAddress" inType="win:UnicodeString"/>
+      <data name="Reason" inType="win:UInt32"/>
+      <data name="EmailAccount" inType="win:UnicodeString"/>
+     </template>
+     <template tid="IMContactLaunchArgs">
+      <data name="Application" inType="win:UnicodeString"/>
+      <data name="Version" inType="win:UnicodeString"/>
+      <data name="AccountName" inType="win:UnicodeString"/>
+      <data name="OldName" inType="win:UnicodeString"/>
+      <data name="OldID" inType="win:UnicodeString"/>
+      <data name="NewName" inType="win:UnicodeString"/>
+      <data name="NewID" inType="win:UnicodeString"/>
+      <data name="Reason" inType="win:UInt32"/>
+     </template>
+     <template tid="ApplicationBlockedLaunchArgs">
+      <data name="Timestamp" inType="win:SYSTEMTIME"/>
+      <data name="UserID" inType="win:UnicodeString"/>
+      <data name="Path" inType="win:UnicodeString"/>
+      <data name="RuleID" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ApplicationOverrideLaunchArgs">
+      <data name="UserID" inType="win:UnicodeString"/>
+      <data name="Path" inType="win:UnicodeString"/>
+      <data name="Reason" inType="win:UInt32"/>
+     </template>
+     <template tid="WebOverrideLaunchArgs">
+      <data name="UserID" inType="win:UnicodeString"/>
+      <data name="URL" inType="win:UnicodeString"/>
+      <data name="Reason" inType="win:UInt32"/>
+     </template>
+     <template tid="WebsiteVisitWebArgs">
+      <data name="Url" inType="win:UnicodeString"/>
+      <data name="Decision" inType="win:UInt32"/>
+      <data name="Categories" inType="win:UnicodeString"/>
+      <data name="BlockedCategories" inType="win:UnicodeString"/>
+      <data name="SerializedApplication" inType="win:UnicodeString"/>
+      <data name="Title" inType="win:UnicodeString"/>
+      <data name="ContentType" inType="win:UnicodeString"/>
+      <data name="Referrer" inType="win:UnicodeString"/>
+      <data name="Telemetry" inType="win:UnicodeString"/>
+     </template>
+     <template tid="ApplicationLaunchArgs">
+      <data name="SerializedApplication" inType="win:UnicodeString"/>
+      <data name="State" inType="win:UInt32"/>
+      <data name="ProcessId" inType="win:UInt32"/>
+      <data name="CreationTime" inType="win:FILETIME"/>
+      <data name="TimeUsed" inType="win:UInt64"/>
+     </template>
+     <template tid="ComputerUsageSystemArgs">
+      <data name="Id" inType="win:UInt64"/>
+      <data name="TimeUsed" inType="win:UInt64"/>
+     </template>
+     <template tid="ContentUsageSystemArgs">
+      <data name="ContentProviderId" inType="win:UnicodeString"/>
+      <data name="ContentProviderTitle" inType="win:UnicodeString"/>
+      <data name="Id" inType="win:UnicodeString"/>
+      <data name="Title" inType="win:UnicodeString"/>
+      <data name="Category" inType="win:UInt32"/>
+      <data name="Ratings" inType="win:UnicodeString"/>
+      <data name="Decision" inType="win:UInt32"/>
+     </template>
+    </templates>
+   </provider>
+  </events>
+ </instrumentation>
+ <localization>
+  <resources culture="en-US">
+   <stringTable>
+    <string id="keyword_WPC" value="WPC"/>
+    <string id="keyword_ThirdParty" value="ThirdParty"/>
+    <string id="task_SettingChange" value="SettingChange"/>
+    <string id="opcode_SettingChangeModify" value="Modify"/>
+    <string id="task_GameStart" value="GameStart"/>
+    <string id="opcode_GameStartLaunch" value="Launch"/>
+    <string id="task_UrlVisit" value="UrlVisit"/>
+    <string id="opcode_UrlVisitWeb" value="Web"/>
+    <string id="task_EmailReceived" value="EmailReceived"/>
+    <string id="opcode_EmailReceivedLaunch" value="Launch"/>
+    <string id="task_EmailSent" value="EmailSent"/>
+    <string id="opcode_EmailSentLaunch" value="Launch"/>
+    <string id="task_MediaPlayback" value="MediaPlayback"/>
+    <string id="opcode_MediaPlaybackLaunch" value="Launch"/>
+    <string id="task_IMInvitation" value="IMInvitation"/>
+    <string id="opcode_IMInvitationLaunch" value="Launch"/>
+    <string id="task_IMJoin" value="IMJoin"/>
+    <string id="opcode_IMJoinLaunch" value="Launch"/>
+    <string id="task_IMLeave" value="IMLeave"/>
+    <string id="opcode_IMLeaveLaunch" value="Launch"/>
+    <string id="task_FileDownload" value="FileDownload"/>
+    <string id="opcode_FileDownloadWeb" value="Web"/>
+    <string id="task_IMFeature" value="IMFeature"/>
+    <string id="opcode_IMFeatureLaunch" value="Launch"/>
+    <string id="task_Custom" value="Custom"/>
+    <string id="opcode_CustomSystem" value="System"/>
+    <string id="task_EmailContact" value="EmailContact"/>
+    <string id="opcode_EmailContactLaunch" value="Launch"/>
+    <string id="task_IMContact" value="IMContact"/>
+    <string id="opcode_IMContactLaunch" value="Launch"/>
+    <string id="task_ApplicationBlocked" value="ApplicationBlocked"/>
+    <string id="opcode_ApplicationBlockedLaunch" value="Launch"/>
+    <string id="task_ApplicationOverride" value="ApplicationOverride"/>
+    <string id="opcode_ApplicationOverrideLaunch" value="Launch"/>
+    <string id="task_WebOverride" value="WebOverride"/>
+    <string id="opcode_WebOverrideLaunch" value="Launch"/>
+    <string id="task_WebsiteVisit" value="WebsiteVisit"/>
+    <string id="opcode_WebsiteVisitWeb" value="Web"/>
+    <string id="task_Application" value="Application"/>
+    <string id="opcode_ApplicationLaunch" value="Launch"/>
+    <string id="task_ComputerUsage" value="ComputerUsage"/>
+    <string id="opcode_ComputerUsageSystem" value="System"/>
+    <string id="task_ContentUsage" value="ContentUsage"/>
+    <string id="opcode_ContentUsageSystem" value="System"/>
+   </stringTable>
+  </resources>
+ </localization>
+</instrumentationManifest>
